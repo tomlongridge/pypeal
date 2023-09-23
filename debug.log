@@ -1,0 +1,474 @@
+2023-09-23 09:41:48,819 - pypeal - INFO - Connected to database server localhost as user root
+2023-09-23 09:43:30,170 - db.py - INFO - Connected to database server localhost as user root
+2023-09-23 09:48:12,344 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 09:48:26,918 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 09:48:26,924 - db.py - INFO - Creating new pypeal database...
+2023-09-23 09:48:26,925 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 09:48:26,934 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 09:49:07,981 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 09:49:07,987 - db.py - INFO - Creating new pypeal database...
+2023-09-23 09:49:07,988 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 09:50:42,669 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 09:50:42,674 - db.py - INFO - Creating new pypeal database...
+2023-09-23 09:50:42,676 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 09:51:57,651 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 09:51:57,657 - db.py - INFO - Creating new pypeal database...
+2023-09-23 09:51:57,660 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 09:57:05,172 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 09:57:05,179 - db.py - INFO - Creating new pypeal database...
+2023-09-23 09:57:05,180 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 09:57:25,765 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 09:57:25,772 - db.py - INFO - Creating new pypeal database...
+2023-09-23 09:57:25,773 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 09:58:52,207 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 09:58:52,213 - db.py - INFO - Creating new pypeal database...
+2023-09-23 09:58:52,214 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 09:59:12,591 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 09:59:12,597 - db.py - INFO - Creating new pypeal database...
+2023-09-23 09:59:12,599 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 09:59:12,603 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 09:59:54,651 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 09:59:54,668 - db.py - INFO - Creating new pypeal database...
+2023-09-23 09:59:54,670 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 09:59:54,674 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 10:00:15,412 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:00:15,439 - db.py - INFO - Creating new pypeal database...
+2023-09-23 10:00:15,441 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 10:00:15,449 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 10:00:41,391 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:00:41,417 - db.py - INFO - Creating new pypeal database...
+2023-09-23 10:00:41,419 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 10:00:41,426 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 10:01:10,826 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:01:33,193 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:01:33,216 - db.py - INFO - Creating new pypeal database...
+2023-09-23 10:01:33,219 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 10:07:29,508 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:07:29,527 - db.py - INFO - Creating new pypeal database...
+2023-09-23 10:07:29,529 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 10:07:43,857 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:07:43,877 - db.py - INFO - Creating new pypeal database...
+2023-09-23 10:07:43,879 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 10:08:06,509 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:08:06,526 - db.py - INFO - Creating new pypeal database...
+2023-09-23 10:08:06,527 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 10:08:39,932 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:08:39,951 - db.py - INFO - Creating new pypeal database...
+2023-09-23 10:08:39,953 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 10:11:18,390 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:11:18,410 - db.py - INFO - Creating new pypeal database...
+2023-09-23 10:11:18,411 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 10:11:18,415 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 10:12:39,185 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:12:39,202 - db.py - INFO - Creating new pypeal database...
+2023-09-23 10:12:39,204 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 10:12:39,208 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 10:13:42,009 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:13:42,026 - db.py - INFO - Creating new pypeal database...
+2023-09-23 10:13:42,028 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 10:13:50,919 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:13:50,937 - db.py - INFO - Creating new pypeal database...
+2023-09-23 10:13:50,939 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 10:13:50,943 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 10:14:49,679 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:14:49,696 - db.py - INFO - Creating new pypeal database...
+2023-09-23 10:14:49,697 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 10:14:49,705 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 10:14:49,712 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 10:14:52,146 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:14:52,165 - db.py - INFO - Creating new pypeal database...
+2023-09-23 10:14:52,167 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 10:14:52,178 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 10:14:52,181 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 10:15:00,759 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:15:00,778 - db.py - INFO - Creating new pypeal database...
+2023-09-23 10:15:00,779 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 10:15:00,795 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 10:15:00,798 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 10:15:34,692 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:15:34,716 - db.py - INFO - Creating new pypeal database...
+2023-09-23 10:15:34,718 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 10:15:34,723 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 10:17:11,007 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:17:11,029 - db.py - INFO - Creating new pypeal database...
+2023-09-23 10:17:11,031 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 10:17:38,990 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:17:39,009 - db.py - INFO - Creating new pypeal database...
+2023-09-23 10:17:39,010 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 10:17:39,012 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 10:17:39,015 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 10:17:47,642 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:17:47,662 - db.py - INFO - Creating new pypeal database...
+2023-09-23 10:17:47,663 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 10:17:47,666 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 10:17:47,670 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 10:17:59,662 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:17:59,677 - db.py - INFO - Creating new pypeal database...
+2023-09-23 10:17:59,678 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 10:17:59,686 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 10:17:59,687 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 10:18:35,078 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:18:35,106 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-23 10:18:35,107 - db.py - INFO - Creating new pypeal database...
+2023-09-23 10:18:35,110 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 10:18:35,110 - db.py - DEBUG - Executing query: DROP DATABASE IF EXISTS pypeal;
+2023-09-23 10:18:35,120 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 10:18:35,120 - db.py - DEBUG - Executing query: CREATE DATABASE pypeal;
+2023-09-23 10:18:35,123 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 10:18:35,123 - db.py - DEBUG - Executing query: USE `pypeal`;
+
+CREATE TABLE `ringers` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+2023-09-23 10:18:38,424 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:18:38,441 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-23 10:18:38,442 - db.py - INFO - Creating new pypeal database...
+2023-09-23 10:18:38,443 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 10:18:38,443 - db.py - DEBUG - Executing query: DROP DATABASE IF EXISTS pypeal;
+2023-09-23 10:18:38,455 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 10:18:38,455 - db.py - DEBUG - Executing query: CREATE DATABASE pypeal;
+2023-09-23 10:18:38,460 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 10:18:38,460 - db.py - DEBUG - Executing query: USE `pypeal`;
+
+CREATE TABLE `ringers` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+2023-09-23 10:19:10,158 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:19:10,177 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-23 10:19:10,178 - db.py - INFO - Creating new pypeal database...
+2023-09-23 10:19:10,179 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 10:19:10,179 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-23 10:19:10,180 - db.py - DEBUG - Executing query: DROP DATABASE IF EXISTS pypeal;
+2023-09-23 10:19:10,187 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 10:19:10,188 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-23 10:22:10,505 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:22:10,523 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-23 10:22:10,524 - db.py - INFO - Creating new pypeal database...
+2023-09-23 10:22:10,527 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 10:22:10,527 - db.py - DEBUG - Executing query: DROP DATABASE IF EXISTS pypeal;
+2023-09-23 10:22:10,530 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 10:22:10,530 - db.py - DEBUG - Executing query: CREATE DATABASE pypeal;
+2023-09-23 10:22:10,534 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 10:22:10,534 - db.py - DEBUG - Executing query: USE `pypeal`;
+
+CREATE TABLE pypeal.`ringers` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+2023-09-23 10:22:33,360 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:22:33,378 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-23 10:22:33,379 - db.py - INFO - Creating new pypeal database...
+2023-09-23 10:22:33,380 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 10:22:33,380 - db.py - DEBUG - Executing query: DROP DATABASE IF EXISTS pypeal;
+2023-09-23 10:22:33,391 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 10:22:33,391 - db.py - DEBUG - Executing query: CREATE DATABASE pypeal;
+2023-09-23 10:22:33,394 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 10:22:33,395 - db.py - DEBUG - Executing query: CREATE TABLE pypeal.`ringers` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+2023-09-23 10:24:04,222 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 10:24:04,238 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-23 10:24:04,239 - db.py - INFO - Creating new pypeal database...
+2023-09-23 10:24:04,240 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 10:24:04,240 - db.py - DEBUG - Executing query: DROP DATABASE IF EXISTS pypeal;
+2023-09-23 10:24:04,249 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 10:24:04,249 - db.py - DEBUG - Executing query: CREATE DATABASE pypeal;
+2023-09-23 10:24:04,252 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 10:24:04,252 - db.py - DEBUG - Executing query: CREATE TABLE pypeal.`ringers` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+2023-09-23 11:18:43,055 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 11:18:43,086 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-23 11:18:43,087 - db.py - INFO - Creating new pypeal database...
+2023-09-23 11:18:43,089 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 11:18:54,848 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 11:18:54,886 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-23 11:18:54,887 - db.py - INFO - Creating new pypeal database...
+2023-09-23 11:18:54,889 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 11:20:07,625 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 11:20:07,643 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-23 11:20:07,644 - db.py - INFO - Creating new pypeal database...
+2023-09-23 11:20:07,648 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 11:20:48,091 - db.py - INFO - Connecting to database server localhost as user root
+2023-09-23 11:20:48,110 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-23 11:20:48,111 - db.py - INFO - Creating new pypeal database...
+2023-09-23 11:20:48,113 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 11:22:17,514 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 11:22:17,530 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-23 11:22:17,531 - db.py - INFO - Creating new pypeal database...
+2023-09-23 11:22:17,533 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 11:22:17,533 - db.py - DEBUG - Executing query: DROP DATABASE IF EXISTS pypeal;
+2023-09-23 11:22:34,769 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 11:22:34,785 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-23 11:22:34,786 - db.py - INFO - Creating new pypeal database...
+2023-09-23 11:22:34,787 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 11:22:34,787 - db.py - DEBUG - Executing query: DROP DATABASE IF EXISTS pypeal;
+2023-09-23 11:23:51,128 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 11:23:51,145 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-23 11:23:51,146 - db.py - INFO - Creating new pypeal database...
+2023-09-23 11:23:51,147 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 11:23:51,148 - db.py - DEBUG - Executing query: DROP DATABASE IF EXISTS pypeal;
+2023-09-23 11:23:51,151 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 11:23:51,152 - db.py - DEBUG - Executing query: CREATE DATABASE pypeal;
+2023-09-23 11:23:51,155 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 11:23:51,155 - db.py - DEBUG - Executing query: CREATE TABLE pypeal.`ringers` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+2023-09-23 11:35:58,655 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 11:35:58,673 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-23 11:35:58,674 - db.py - INFO - Creating new pypeal database...
+2023-09-23 11:35:58,676 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 11:35:58,676 - db.py - DEBUG - Executing query: DROP DATABASE IF EXISTS pypeal;
+2023-09-23 11:35:58,687 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 11:35:58,687 - db.py - DEBUG - Executing query: CREATE DATABASE pypeal;
+2023-09-23 11:35:58,691 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 11:35:58,691 - db.py - DEBUG - Executing query: CREATE TABLE pypeal.`ringers` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+2023-09-23 11:36:12,534 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 11:38:07,180 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 11:38:58,989 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 11:38:59,006 - main.py - ERROR - Unable to create database
+Traceback (most recent call last):
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/connection_cext.py", line 302, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Access denied for user 'pypeal'@'localhost' (using password: YES)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/tom.longridge/projects/HomeProjects/pypeal/db.py", line 16, in __init__
+    self.db = mysql.connector.connect(user=DB_USER, password=DB_PASSWORD, host=DB_HOST)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/connection_cext.py", line 128, in __init__
+    self.connect(**kwargs)
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/abstracts.py", line 1217, in connect
+    self._open_connection()
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/connection_cext.py", line 307, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'pypeal'@'localhost' (using password: YES)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/tom.longridge/projects/HomeProjects/pypeal/main.py", line 21, in <module>
+    Database(overwrite_database=True).close()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom.longridge/projects/HomeProjects/pypeal/db.py", line 18, in __init__
+    raise DatabaseError(f'Unable to connect to database server {DB_HOST} as user {DB_USER}: {e.msg}') from e
+db.DatabaseError: Unable to connect to database server localhost as user pypeal: Access denied for user 'pypeal'@'localhost' (using password: YES)
+2023-09-23 11:38:59,013 - main.py - DEBUG - Unable to connect to database server localhost as user pypeal: Access denied for user 'pypeal'@'localhost' (using password: YES)
+2023-09-23 11:39:31,027 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 11:39:31,049 - main.py - ERROR - Unable to create database
+Traceback (most recent call last):
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/connection_cext.py", line 302, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Access denied for user 'pypeal'@'localhost' (using password: YES)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/tom.longridge/projects/HomeProjects/pypeal/db.py", line 16, in __init__
+    self.db = mysql.connector.connect(user=DB_USER, password=DB_PASSWORD, host=DB_HOST)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/connection_cext.py", line 128, in __init__
+    self.connect(**kwargs)
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/abstracts.py", line 1217, in connect
+    self._open_connection()
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/connection_cext.py", line 307, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'pypeal'@'localhost' (using password: YES)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/tom.longridge/projects/HomeProjects/pypeal/main.py", line 21, in <module>
+    Database(overwrite_database=True).close()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom.longridge/projects/HomeProjects/pypeal/db.py", line 18, in __init__
+    raise DatabaseError(f'Unable to connect to database server {DB_HOST} as user {DB_USER}: {e.msg}') from e
+db.DatabaseError: Unable to connect to database server localhost as user pypeal: Access denied for user 'pypeal'@'localhost' (using password: YES)
+2023-09-23 11:39:31,055 - main.py - DEBUG - Unable to connect to database server localhost as user pypeal: Access denied for user 'pypeal'@'localhost' (using password: YES)
+2023-09-23 11:39:53,998 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 11:39:54,016 - main.py - ERROR - Unable to create database
+Traceback (most recent call last):
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/connection_cext.py", line 302, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Access denied for user 'pypeal'@'localhost' (using password: YES)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/tom.longridge/projects/HomeProjects/pypeal/db.py", line 16, in __init__
+    self.db = mysql.connector.connect(user=DB_USER, password=DB_PASSWORD, host=DB_HOST)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/connection_cext.py", line 128, in __init__
+    self.connect(**kwargs)
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/abstracts.py", line 1217, in connect
+    self._open_connection()
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/connection_cext.py", line 307, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'pypeal'@'localhost' (using password: YES)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/tom.longridge/projects/HomeProjects/pypeal/main.py", line 21, in <module>
+    Database(overwrite_database=True).close()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom.longridge/projects/HomeProjects/pypeal/db.py", line 18, in __init__
+    raise DatabaseError(f'Unable to connect to database server {DB_HOST} as user {DB_USER}: {e.msg}') from e
+db.DatabaseError: Unable to connect to database server localhost as user pypeal: Access denied for user 'pypeal'@'localhost' (using password: YES)
+2023-09-23 11:44:59,310 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 11:45:08,791 - main.py - ERROR - Unable to create database
+Traceback (most recent call last):
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/connection_cext.py", line 302, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Access denied for user 'pypeal'@'localhost' (using password: YES)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/tom.longridge/projects/HomeProjects/pypeal/db.py", line 16, in __init__
+    self.db = mysql.connector.connect(user=DB_USER, password=DB_PASSWORD, host=DB_HOST)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/connection_cext.py", line 128, in __init__
+    self.connect(**kwargs)
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/abstracts.py", line 1217, in connect
+    self._open_connection()
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/connection_cext.py", line 307, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'pypeal'@'localhost' (using password: YES)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "main.py", line 21, in <module>
+    Database(overwrite_database=True).close()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom.longridge/projects/HomeProjects/pypeal/db.py", line 18, in __init__
+    raise DatabaseError(f'Unable to connect to database server {DB_HOST} as user {DB_USER}: {e.msg}') from e
+db.DatabaseError: Unable to connect to database server localhost as user pypeal: Access denied for user 'pypeal'@'localhost' (using password: YES)
+2023-09-23 11:45:24,236 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 11:45:25,369 - main.py - ERROR - Unable to create database
+2023-09-23 11:45:34,421 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 11:45:34,439 - main.py - ERROR - Unable to create database
+2023-09-23 11:45:34,439 - main.py - DEBUG - Unable to connect to database server localhost as user pypeal: Access denied for user 'pypeal'@'localhost' (using password: YES)
+2023-09-23 11:46:25,856 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 11:47:10,819 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 11:47:10,834 - main.py - ERROR - Unable to create database: Unable to connect to database server localhost as user pypeal: Access denied for user 'pypeal'@'localhost' (using password: YES)
+2023-09-23 11:47:10,835 - main.py - DEBUG - Unable to connect to database server localhost as user pypeal: Access denied for user 'pypeal'@'localhost' (using password: YES)
+2023-09-23 11:47:46,253 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 11:47:46,270 - main.py - ERROR - Unable to create database: Unable to connect to database server localhost as user pypeal: Access denied for user 'pypeal'@'localhost' (using password: YES)
+2023-09-23 11:47:46,270 - main.py - DEBUG - Unable to connect to database server localhost as user pypeal: Access denied for user 'pypeal'@'localhost' (using password: YES)
+Traceback (most recent call last):
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/connection_cext.py", line 302, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Access denied for user 'pypeal'@'localhost' (using password: YES)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/tom.longridge/projects/HomeProjects/pypeal/db.py", line 16, in __init__
+    self.db = mysql.connector.connect(user=DB_USER, password=DB_PASSWORD, host=DB_HOST)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/connection_cext.py", line 128, in __init__
+    self.connect(**kwargs)
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/abstracts.py", line 1217, in connect
+    self._open_connection()
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/connection_cext.py", line 307, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'pypeal'@'localhost' (using password: YES)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/tom.longridge/projects/HomeProjects/pypeal/main.py", line 21, in <module>
+    Database(overwrite_database=True).close()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom.longridge/projects/HomeProjects/pypeal/db.py", line 18, in __init__
+    raise DatabaseError(f'Unable to connect to database server {DB_HOST} as user {DB_USER}: {e.msg}') from e
+db.DatabaseError: Unable to connect to database server localhost as user pypeal: Access denied for user 'pypeal'@'localhost' (using password: YES)
+2023-09-23 21:40:21,189 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 21:40:21,217 - main.py - ERROR - Unable to create database: Unable to connect to database server localhost as user pypeal: Access denied for user 'pypeal'@'localhost' (using password: YES)
+2023-09-23 21:40:21,217 - main.py - DEBUG - Unable to connect to database server localhost as user pypeal: Access denied for user 'pypeal'@'localhost' (using password: YES)
+Traceback (most recent call last):
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/connection_cext.py", line 302, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Access denied for user 'pypeal'@'localhost' (using password: YES)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/tom.longridge/projects/HomeProjects/pypeal/db.py", line 16, in __init__
+    self.db = mysql.connector.connect(user=DB_USER, password=DB_PASSWORD, host=DB_HOST)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/pooling.py", line 293, in connect
+    return CMySQLConnection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/connection_cext.py", line 128, in __init__
+    self.connect(**kwargs)
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/abstracts.py", line 1217, in connect
+    self._open_connection()
+  File "/Users/tom.longridge/.local/share/virtualenvs/pypeal-lArsArI3/lib/python3.11/site-packages/mysql/connector/connection_cext.py", line 307, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1045 (28000): Access denied for user 'pypeal'@'localhost' (using password: YES)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/tom.longridge/projects/HomeProjects/pypeal/main.py", line 21, in <module>
+    Database(overwrite_database=True).close()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom.longridge/projects/HomeProjects/pypeal/db.py", line 18, in __init__
+    raise DatabaseError(f'Unable to connect to database server {DB_HOST} as user {DB_USER}: {e.msg}') from e
+db.DatabaseError: Unable to connect to database server localhost as user pypeal: Access denied for user 'pypeal'@'localhost' (using password: YES)
+2023-09-23 21:40:37,506 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 21:40:37,524 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-23 21:40:37,525 - db.py - INFO - Creating new pypeal database...
+2023-09-23 21:40:37,527 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 21:40:37,527 - db.py - DEBUG - Executing query: DROP DATABASE IF EXISTS pypeal;
+2023-09-23 21:40:37,536 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 21:40:37,536 - db.py - DEBUG - Executing query: CREATE DATABASE pypeal;
+2023-09-23 21:40:37,543 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 21:40:37,544 - db.py - DEBUG - Executing query: CREATE TABLE pypeal.`ringers` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
