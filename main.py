@@ -1,4 +1,5 @@
 import logging
+from bellboard import BellboardPeal
 
 from db import Database, DatabaseError
 
@@ -17,18 +18,13 @@ ch.setLevel(logging.INFO)
 ch.setFormatter(formatter)
 logger.addHandler(ch)
 
-try:
-    Database(overwrite_database=True).close()
-except DatabaseError as e:
-    logger.error(f'Unable to create database: {e}')
-    logger.debug(e, exc_info=True)
-
-# import requests
-
-# from bs4 import BeautifulSoup
-
-# r = requests.get('https://bb.ringingworld.co.uk/view.php?random')
-
-# soup = BeautifulSoup(r.text, 'html.parser')
+# try:
+#     Database(overwrite_database=True).close()
+# except DatabaseError as e:
+#     logger.error(f'Unable to create database: {e}')
+#     logger.debug(e, exc_info=True)
+#     exit(1) 
 
 # print(soup.css.select('#address'))
+
+print(BellboardPeal())
