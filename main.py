@@ -21,7 +21,7 @@ ch.setFormatter(formatter)
 logger.addHandler(ch)
 
 try:
-    Database.get_connection().initialise(overwrite_database=True)
+    Database.get_connection().initialise(overwrite_database=False)
 except DatabaseError as e:
     logger.error(f'Unable to create database: {e}')
     logger.debug(e, exc_info=True)
@@ -32,8 +32,9 @@ print(bb_peal)
 
 peal = Peal.add(Peal(bellboard_id=bb_peal.id))
 
-for ringer in bb_peal.ringers.values():
-    peal.add_ringer(Ringer.add(ringer.name), ringer.bells)
+for bb_ringer in bb_peal.ringers.values():
+    ringer = Ringer.get_by_name(bb_ringer.name) or Ringer.add(bb_ringer.name)
+    peal.add_ringer(ringer, bb_ringer.bells)
 
 print(peal)
 print(peal.get_ringers())
