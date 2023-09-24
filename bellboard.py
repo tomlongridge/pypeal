@@ -1,8 +1,16 @@
+from datetime import datetime
+import re
 from bs4 import BeautifulSoup
 from dataclasses import dataclass, field
 import logging
 from requests import Response, get as get_request
 from requests.exceptions import RequestException
+
+DATE_LINE_INFO_REGEX = re.compile(r'[A-Za-z]+,\s(?P<date>[0-9]+\s[A-Za-z0-9]+\s[0-9]+)(?:\s' +
+                                  r'in\s(?P<duration>[A-Za-z0-9\s]+))?\s?(?:\((?P<tenor_weight>[^in]+|size\s[0-9]+)' +
+                                  r'(?:\sin\s(?P<tenor_tone>.*))?\))?$')
+DURATION_REGEX = re.compile(r'^(?:(?P<hours>\d{1,2})[h])$|^(?:(?P<mins>\d+)[m]?)$|' +
+                            r'^(?:(?:(?P<hours_2>\d{1,2})[h])\s(?:(?P<mins_2>(?:[0]?|[1-5]{1})[0-9])[m]?))$')
 
 
 class BellboardError(Exception):
@@ -26,12 +34,34 @@ class BellboardPeal:
 
     id: int = None
     url: str = None
+    date: datetime.date = None
+    association: str = None
+    place: str = None
+    address_dedication: str = None
+    county: str = None
+    changes: int = None
+    title: str = None
+    duration: int = None
+    tenor_weight: str = None
+    tenor_tone: str = None
+    location_dove_id: int = None
     ringers: dict[str, BellboardRinger] = field(default_factory=dict)  # name -> ringer map
 
     ringers_by_bell: list[tuple[int, BellboardRinger]] = field(default_factory=list)  # For internal representation only
 
     def __str__(self):
         text = f'Peal {self.id} at {self.url}\n'
+        text += f'{self.association}\n' if self.association else ''
+        text += f'{self.place}' if self.place else '<UNKNOWN PLACE>'
+        text += f', {self.county}' if self.county else ''
+        text += '\n'
+        text += f'{self.address_dedication}\n' if self.address_dedication else ''
+        text += f'on {self.date.strftime("%A, %-d %B %Y")}\n' if self.date else '<UNKNOWN DATE>\n'
+        text += f'in {self.duration} mins\n' if self.duration else ''
+        if self.tenor_weight:
+            text += f'({self.tenor_weight}'
+            text += f' in {self.tenor_tone}' if self.tenor_tone else ''
+            text += ')\n'
         for ringer in self.ringers_by_bell:
             text += str(ringer[0]) + ' ' if ringer[0] else ''
             text += str(ringer[1]) + '\n'
@@ -64,6 +94,42 @@ class BellboardSearcher:
         peal = BellboardPeal()
         peal.id = int(response.url.split('?id=')[1].split('&')[0])
         peal.url = url
+
+        element = soup.select('div.association')
+        peal.association = element[0].text.strip() if len(element) == 1 else None
+        element = soup.select('span.place')
+        peal.place = element[0].text.strip() if len(element) == 1 else None
+        peal.county = element[0].next_sibling.text.strip(', ')
+        element = soup.select('div.address')
+        peal.address_dedication = element[0].text.strip() if len(element) == 1 else None
+        element = soup.select('span.changes')
+        peal.changes = int(element[0].text.strip()) if len(element) == 1 else None
+        element = soup.select('span.title')
+        peal.title = element[0].text.strip() if len(element) == 1 else None
+
+        # The date line is the first line of the performance div that doesn't have a class
+        date_line = None
+        for peal_detail in soup.select('div.performance')[0].children:
+            if not peal_detail.attrs or 'class' not in peal_detail.attrs:
+                date_line = peal_detail.text.strip()
+                break
+
+        if not (date_line_match := re.match(DATE_LINE_INFO_REGEX, date_line)):
+            raise BellboardError(f'Unable to parse date line: {date_line}')
+
+        date_line_info = date_line_match.groupdict()
+        peal.date = datetime.strptime(date_line_info['date'], '%d %B %Y')
+        peal.tenor_weight = date_line_info['tenor_weight']
+        peal.tenor_tone = date_line_info['tenor_tone']
+
+        if date_line_info['duration']:
+            if not (duration_match := re.search(DURATION_REGEX, date_line_info['duration'].strip())):
+                raise BellboardError(f'Unable to parse date line: {date_line}')
+            duration_info = duration_match.groupdict()
+            peal.duration = int(duration_info['hours'] or 0) * 60
+            peal.duration += int(duration_info['hours_2'] or 0) * 60
+            peal.duration += int(duration_info['mins'] or 0)
+            peal.duration += int(duration_info['mins_2'] or 0)
 
         # Get ringers and their bells and add them to the ringers list
         ringers = []

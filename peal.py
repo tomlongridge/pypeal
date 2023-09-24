@@ -1,4 +1,5 @@
 from __future__ import annotations
+from datetime import datetime
 
 from db import Database
 from ringer import Ringer
@@ -7,11 +8,45 @@ from ringer import Ringer
 class Peal:
 
     bellboard_id: int
-    id: int = None
+    date: datetime.date
+    place: str
+    association: str
+    address_dedication: str
+    county: str
+    changes: int
+    title: str
+    duration: int
+    tenor_weight: str
+    tenor_tone: str
+    location_dove_id: int
+    id: int
+
     __ringers: list = None
 
-    def __init__(self, bellboard_id: int, id: int = None):
+    def __init__(self,
+                 bellboard_id: int,
+                 date: datetime.date,
+                 place: str,
+                 association: str = None,
+                 address_dedication: str = None,
+                 county: str = None,
+                 changes: int = None,
+                 title: str = None,
+                 duration: int = None,
+                 tenor_weight: str = None,
+                 tenor_tone: str = None,
+                 id: int = None):
         self.bellboard_id = bellboard_id
+        self.date = date
+        self.place = place
+        self.association = association
+        self.address_dedication = address_dedication
+        self.county = county
+        self.changes = changes
+        self.title = title
+        self.duration = duration
+        self.tenor_weight = tenor_weight
+        self.tenor_tone = tenor_tone
         self.id = id
 
     @property
@@ -38,24 +73,47 @@ class Peal:
         Database.get_connection().commit()
 
     def __str__(self):
-        text = f'Peal {self.id}:'
+        text = f'Peal {self.id} (Bellboard: https://bb.ringingworld.co.uk/view.php?id={self.bellboard_id}):\n'
+        text += f'{self.association}\n' if self.association else ''
+        text += f'{self.place}'
+        text += f', {self.county}' if self.county else ''
+        text += '\n'
+        text += f'{self.address_dedication}\n' if self.address_dedication else ''
+        text += f'on {self.date.strftime("%A, %-d %B %Y")}\n'
+        text += f'in {self.duration} mins\n' if self.duration else ''
+        if self.tenor_weight:
+            text += f'({self.tenor_weight}'
+            text += f' in {self.tenor_tone}' if self.tenor_tone else ''
+            text += ')\n'
         for ringer in self.ringers:
-            text += f'\n{ringer[1]} {ringer[0]}{" (c)" if ringer[2] else ""}'
+            text += f'{ringer[1]} ' if ringer[1] else ''
+            text += f'{ringer[0]}{" (c)" if ringer[2] else ""}\n'
         return text
 
     @classmethod
     def get(self, id: int) -> Peal:
-        result = Database.get_connection().query('SELECT bellboard_id, id FROM peals WHERE id = %s', (id,)).fetchone()
+        result = Database.get_connection().query(
+            'SELECT ' +
+            'bellboard_id, date, place, association, address_dedication, county, changes, title, duration, tenor_weight, tenor_tone, id ' +
+            'FROM peals WHERE id = %s', (id,)).fetchone()
         if result is None:
             return None
         return Peal(*result)
 
     @classmethod
     def get_all(self) -> list[Peal]:
-        return [Peal(*result) for result in Database.get_connection().query('SELECT bellboard_id, id FROM peals').fetchall()]
+        return [Peal(*result) for result in Database.get_connection().query(
+            'SELECT ' +
+            'bellboard_id, date, place, association, address_dedication, county, changes, title, duration, tenor_weight, tenor_tone, id ' +
+            'FROM peals').fetchall()]
 
     @classmethod
     def add(self, peal: Peal) -> Peal:
-        result = Database.get_connection().query('INSERT INTO peals (bellboard_id) VALUES (%s)', (peal.bellboard_id,))
+        result = Database.get_connection().query(
+            'INSERT INTO peals (' +
+            'bellboard_id, date, place, association, address_dedication, county, changes, title, duration, tenor_weight, tenor_tone) ' +
+            'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
+            (peal.bellboard_id, peal.date, peal.place, peal.association, peal.address_dedication, peal.county, peal.changes, peal.title,
+             peal.duration, peal.tenor_weight, peal.tenor_tone))
         Database.get_connection().commit()
         return self.get(result.lastrowid)
