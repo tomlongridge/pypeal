@@ -10,6 +10,9 @@ class Ringer:
     name: str
     id: int = None
 
+    def __str__(self) -> str:
+        return self.name
+
     @classmethod
     def get(self, id: int) -> Ringer:
         result = Database.get_connection().query('SELECT name, id FROM ringers WHERE id = %s', (id,)).fetchone()

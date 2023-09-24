@@ -1,5 +1,5 @@
 import logging
-from bellboard import BellboardPeal
+from bellboard import BellboardPeal, BellboardSearcher
 
 from db import Database, DatabaseError
 from peal import Peal
@@ -21,22 +21,26 @@ ch.setFormatter(formatter)
 logger.addHandler(ch)
 
 try:
-    Database.get_connection().initialise(overwrite_database=False)
+    Database.get_connection().initialise(overwrite_database=True)
 except DatabaseError as e:
     logger.error(f'Unable to create database: {e}')
     logger.debug(e, exc_info=True)
     exit(1)
 
-bb_peal = BellboardPeal()
+bb_peal: BellboardPeal = BellboardSearcher().get_peal()
 print(bb_peal)
 
 peal = Peal.add(Peal(bellboard_id=bb_peal.id))
 
 for bb_ringer in bb_peal.ringers.values():
     ringer = Ringer.get_by_name(bb_ringer.name) or Ringer.add(bb_ringer.name)
-    peal.add_ringer(ringer, bb_ringer.bells)
+    peal.add_ringer(ringer, bb_ringer.bells, bb_ringer.is_conductor)
 
 print(peal)
-print(peal.get_ringers())
 
-Database.get_connection().close()
+# Database.get_connection().close()
+
+# print(BellBoardSearcher().get_peal())
+# searcher.search("longridge")
+# for peal in searcher.search("longridge"):
+#     print(peal)
