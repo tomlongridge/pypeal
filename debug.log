@@ -535,3 +535,324 @@ db.DatabaseError: Unable to connect to database server localhost as user pypeal:
 2023-09-23 23:16:48,670 - bellboard.py - INFO - Retrieved peal at https://bb.ringingworld.co.uk/view.php?id=1517781
 2023-09-23 23:16:52,908 - bellboard.py - INFO - Getting peal at https://bb.ringingworld.co.uk/view.php?random
 2023-09-23 23:16:54,390 - bellboard.py - INFO - Retrieved peal at https://bb.ringingworld.co.uk/view.php?id=1130673
+2023-09-23 23:36:40,197 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 23:36:40,235 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-23 23:36:40,236 - db.py - INFO - Creating new pypeal database...
+2023-09-23 23:36:40,237 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 23:36:40,238 - db.py - DEBUG - Executing query: DROP DATABASE IF EXISTS pypeal;
+2023-09-23 23:36:40,258 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 23:36:40,259 - db.py - DEBUG - Executing query: CREATE DATABASE pypeal;
+2023-09-23 23:36:40,261 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 23:36:40,262 - db.py - DEBUG - Executing query: CREATE TABLE pypeal.`ringers` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+2023-09-23 23:36:40,277 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s) RETURNING *
+2023-09-23 23:41:20,812 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 23:41:20,836 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-23 23:41:20,837 - db.py - INFO - Creating new pypeal database...
+2023-09-23 23:41:20,839 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 23:41:28,144 - db.py - DEBUG - Executing query: DROP DATABASE IF EXISTS pypeal;
+2023-09-23 23:41:28,168 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 23:41:28,168 - db.py - DEBUG - Executing query: CREATE DATABASE pypeal;
+2023-09-23 23:41:28,175 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 23:41:28,175 - db.py - DEBUG - Executing query: CREATE TABLE pypeal.`ringers` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+2023-09-23 23:41:32,307 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-23 23:42:24,421 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 23:42:24,440 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-23 23:42:24,442 - db.py - INFO - Creating new pypeal database...
+2023-09-23 23:42:24,444 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 23:42:24,445 - db.py - DEBUG - Executing query: DROP DATABASE IF EXISTS pypeal;
+2023-09-23 23:42:24,454 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 23:42:24,454 - db.py - DEBUG - Executing query: CREATE DATABASE pypeal;
+2023-09-23 23:42:24,470 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 23:42:24,470 - db.py - DEBUG - Executing query: CREATE TABLE pypeal.`ringers` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+2023-09-23 23:42:24,498 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-23 23:42:25,640 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-23 23:43:09,566 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 23:43:09,587 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-23 23:43:09,587 - db.py - INFO - Creating new pypeal database...
+2023-09-23 23:43:09,588 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 23:43:09,589 - db.py - DEBUG - Executing query: DROP DATABASE IF EXISTS pypeal;
+2023-09-23 23:43:09,597 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 23:43:09,598 - db.py - DEBUG - Executing query: CREATE DATABASE pypeal;
+2023-09-23 23:43:09,601 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 23:43:09,601 - db.py - DEBUG - Executing query: CREATE TABLE pypeal.`ringers` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+2023-09-23 23:43:09,614 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-23 23:43:09,615 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-23 23:43:38,283 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 23:43:38,302 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-23 23:43:38,303 - db.py - INFO - Creating new pypeal database...
+2023-09-23 23:43:38,304 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 23:43:38,305 - db.py - DEBUG - Executing query: DROP DATABASE IF EXISTS pypeal;
+2023-09-23 23:43:38,313 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 23:43:38,313 - db.py - DEBUG - Executing query: CREATE DATABASE pypeal;
+2023-09-23 23:43:38,317 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 23:43:38,317 - db.py - DEBUG - Executing query: CREATE TABLE pypeal.`ringers` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+2023-09-23 23:43:38,330 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-23 23:43:38,331 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-23 23:43:38,332 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-23 23:43:38,333 - db.py - DEBUG - Executing query: SELECT * FROM ringers WHERE name = %s
+2023-09-23 23:45:07,855 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 23:45:07,873 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-23 23:45:07,873 - db.py - INFO - Creating new pypeal database...
+2023-09-23 23:45:07,875 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 23:45:07,876 - db.py - DEBUG - Executing query: DROP DATABASE IF EXISTS pypeal;
+2023-09-23 23:45:07,885 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 23:45:07,886 - db.py - DEBUG - Executing query: CREATE DATABASE pypeal;
+2023-09-23 23:45:07,888 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 23:45:07,889 - db.py - DEBUG - Executing query: CREATE TABLE pypeal.`ringers` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+2023-09-23 23:45:07,902 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-23 23:45:07,902 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-23 23:45:07,904 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-23 23:45:07,904 - db.py - DEBUG - Executing query: SELECT * FROM ringers WHERE name = %s
+2023-09-23 23:46:05,598 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 23:46:05,617 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-23 23:46:05,617 - db.py - INFO - Creating new pypeal database...
+2023-09-23 23:46:05,619 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 23:46:05,619 - db.py - DEBUG - Executing query: DROP DATABASE IF EXISTS pypeal;
+2023-09-23 23:46:05,628 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 23:46:05,628 - db.py - DEBUG - Executing query: CREATE DATABASE pypeal;
+2023-09-23 23:46:05,637 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 23:46:05,638 - db.py - DEBUG - Executing query: CREATE TABLE pypeal.`ringers` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+2023-09-23 23:46:05,655 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-23 23:46:05,655 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-23 23:46:05,657 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-23 23:46:05,657 - db.py - DEBUG - Executing query: SELECT * FROM ringers WHERE name = %s
+2023-09-23 23:47:10,525 - bellboard.py - INFO - Getting peal at https://bb.ringingworld.co.uk/view.php?random
+2023-09-23 23:47:19,322 - bellboard.py - INFO - Retrieved peal at https://bb.ringingworld.co.uk/view.php?id=1644360
+2023-09-23 23:47:19,327 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 23:47:19,342 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-23 23:47:19,343 - db.py - INFO - Creating new pypeal database...
+2023-09-23 23:47:19,345 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 23:47:19,345 - db.py - DEBUG - Executing query: DROP DATABASE IF EXISTS pypeal;
+2023-09-23 23:47:19,355 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 23:47:19,355 - db.py - DEBUG - Executing query: CREATE DATABASE pypeal;
+2023-09-23 23:47:19,357 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 23:47:19,357 - db.py - DEBUG - Executing query: CREATE TABLE pypeal.`ringers` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+2023-09-23 23:47:19,371 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-23 23:47:19,371 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-23 23:47:19,374 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-23 23:47:19,375 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-23 23:47:19,375 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-23 23:47:19,376 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-23 23:47:19,376 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-23 23:47:19,377 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-23 23:47:19,377 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-23 23:47:19,378 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-23 23:47:19,378 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-23 23:55:56,739 - bellboard.py - INFO - Getting peal at https://bb.ringingworld.co.uk/view.php?random
+2023-09-23 23:55:58,232 - bellboard.py - INFO - Retrieved peal at https://bb.ringingworld.co.uk/view.php?id=393874
+2023-09-23 23:55:58,239 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 23:55:58,256 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-23 23:55:58,256 - db.py - INFO - Creating new pypeal database...
+2023-09-23 23:55:58,257 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 23:55:58,258 - db.py - DEBUG - Executing query: DROP DATABASE IF EXISTS pypeal;
+2023-09-23 23:55:58,273 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 23:55:58,274 - db.py - DEBUG - Executing query: CREATE DATABASE pypeal;
+2023-09-23 23:55:58,280 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 23:55:58,280 - db.py - DEBUG - Executing query: CREATE TABLE pypeal.`ringers` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+2023-09-23 23:55:58,296 - db.py - INFO - Running script scripts/database/003-create-ringer-peals.sql...
+2023-09-23 23:55:58,297 - db.py - DEBUG - Executing query: CREATE TABLE pypeal.`ringerpeals` (
+  `ringer_id` int NOT NULL,
+  `peal_count` int DEFAULT '0',
+  PRIMARY KEY (`ringer_id`),
+  UNIQUE KEY `id_unique` (`ringer_id`),
+  CONSTRAINT `fk_ringerpeals_ringer` FOREIGN KEY (`ringer_id`) REFERENCES `ringerpeals` (`ringer_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+)
+2023-09-23 23:56:30,988 - bellboard.py - INFO - Getting peal at https://bb.ringingworld.co.uk/view.php?random
+2023-09-23 23:56:33,980 - bellboard.py - INFO - Retrieved peal at https://bb.ringingworld.co.uk/view.php?id=1230031
+2023-09-23 23:56:33,989 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-23 23:56:34,013 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-23 23:56:34,014 - db.py - INFO - Creating new pypeal database...
+2023-09-23 23:56:34,015 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-23 23:56:34,015 - db.py - DEBUG - Executing query: DROP DATABASE IF EXISTS pypeal;
+2023-09-23 23:56:34,026 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-23 23:56:34,027 - db.py - DEBUG - Executing query: CREATE DATABASE pypeal;
+2023-09-23 23:56:34,033 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-23 23:56:34,033 - db.py - DEBUG - Executing query: CREATE TABLE pypeal.`ringers` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+2023-09-23 23:56:34,054 - db.py - INFO - Running script scripts/database/003-create-ringer-peals.sql...
+2023-09-23 23:56:34,054 - db.py - DEBUG - Executing query: CREATE TABLE pypeal.`ringerpeals` (
+  `ringer_id` int NOT NULL,
+  `peal_count` int DEFAULT '0',
+  PRIMARY KEY (`ringer_id`),
+  UNIQUE KEY `id_unique` (`ringer_id`),
+  CONSTRAINT `fk_ringerpeals_ringer` FOREIGN KEY (`ringer_id`) REFERENCES `ringerpeals` (`ringer_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+)
+2023-09-23 23:56:34,078 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-23 23:56:34,078 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-23 23:56:34,080 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-23 23:56:34,080 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-23 23:56:34,081 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-23 23:56:34,081 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-23 23:56:34,082 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-23 23:56:34,082 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-23 23:56:34,083 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-23 23:56:34,083 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-23 23:56:34,084 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-23 23:56:34,084 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-23 23:56:34,086 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-23 23:56:34,086 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-23 23:56:34,086 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-23 23:56:34,086 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-23 23:56:34,087 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-23 23:56:34,087 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-23 23:56:34,087 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-23 23:56:34,087 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-23 23:56:34,088 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-24 09:09:10,076 - bellboard.py - INFO - Getting peal at https://bb.ringingworld.co.uk/view.php?random
+2023-09-24 09:09:14,568 - bellboard.py - INFO - Retrieved peal at https://bb.ringingworld.co.uk/view.php?id=1580854
+2023-09-24 09:09:14,575 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-24 09:09:14,608 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-24 09:09:14,609 - db.py - INFO - Creating new pypeal database...
+2023-09-24 09:09:14,610 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-24 09:09:14,610 - db.py - DEBUG - Executing query: DROP DATABASE IF EXISTS pypeal;
+2023-09-24 09:09:14,624 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-24 09:09:14,625 - db.py - DEBUG - Executing query: CREATE DATABASE pypeal;
+2023-09-24 09:09:14,627 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-24 09:09:14,628 - db.py - DEBUG - Executing query: CREATE TABLE pypeal.`ringers` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+2023-09-24 09:09:14,650 - db.py - INFO - Running script scripts/database/003-create-ringer-peals.sql...
+2023-09-24 09:09:14,651 - db.py - DEBUG - Executing query: CREATE TABLE pypeal.`ringerpeals` (
+  `ringer_id` int NOT NULL,
+  `peal_count` int DEFAULT '0',
+  PRIMARY KEY (`ringer_id`),
+  UNIQUE KEY `id_unique` (`ringer_id`),
+  CONSTRAINT `fk_ringerpeals_ringer` FOREIGN KEY (`ringer_id`) REFERENCES `ringerpeals` (`ringer_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+)
+2023-09-24 09:09:14,679 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-24 09:09:14,679 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-24 09:09:14,685 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-24 09:16:22,673 - bellboard.py - INFO - Getting peal at https://bb.ringingworld.co.uk/view.php?random
+2023-09-24 09:16:25,297 - bellboard.py - INFO - Retrieved peal at https://bb.ringingworld.co.uk/view.php?id=1424979
+2023-09-24 09:16:25,304 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-24 09:16:48,290 - bellboard.py - INFO - Getting peal at https://bb.ringingworld.co.uk/view.php?random
+2023-09-24 09:16:50,377 - bellboard.py - INFO - Retrieved peal at https://bb.ringingworld.co.uk/view.php?id=1183141
+2023-09-24 09:16:50,382 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-24 09:16:50,399 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-24 09:16:50,399 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-24 09:16:50,400 - db.py - INFO - Creating new pypeal database...
+2023-09-24 09:16:50,401 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-24 09:16:50,401 - db.py - DEBUG - Executing query: DROP DATABASE IF EXISTS pypeal;
+2023-09-24 09:16:50,415 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-24 09:16:50,415 - db.py - DEBUG - Executing query: CREATE DATABASE pypeal;
+2023-09-24 09:16:50,419 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-24 09:16:50,419 - db.py - DEBUG - Executing query: CREATE TABLE pypeal.`ringers` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+2023-09-24 09:16:50,434 - db.py - INFO - Running script scripts/database/003-create-ringer-peals.sql...
+2023-09-24 09:16:50,434 - db.py - DEBUG - Executing query: CREATE TABLE pypeal.`ringerpeals` (
+  `ringer_id` int NOT NULL,
+  `peal_count` int DEFAULT '0',
+  PRIMARY KEY (`ringer_id`),
+  UNIQUE KEY `id_unique` (`ringer_id`),
+  CONSTRAINT `fk_ringerpeals_ringer` FOREIGN KEY (`ringer_id`) REFERENCES `ringerpeals` (`ringer_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+)
+2023-09-24 09:16:50,448 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-24 09:16:50,456 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-24 09:16:50,456 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-24 09:16:50,458 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-24 09:16:50,458 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-24 09:18:22,415 - bellboard.py - INFO - Getting peal at https://bb.ringingworld.co.uk/view.php?random
+2023-09-24 09:18:23,244 - bellboard.py - INFO - Retrieved peal at https://bb.ringingworld.co.uk/view.php?id=388864
+2023-09-24 09:18:23,250 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-24 09:18:23,267 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-24 09:18:23,267 - db.py - DEBUG - Executing query: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "pypeal"
+2023-09-24 09:18:23,268 - db.py - INFO - Creating new pypeal database...
+2023-09-24 09:18:23,269 - db.py - INFO - Running script scripts/database/000-drop-database.sql...
+2023-09-24 09:18:23,269 - db.py - DEBUG - Executing query: DROP DATABASE IF EXISTS pypeal;
+2023-09-24 09:18:23,284 - db.py - INFO - Running script scripts/database/001-create-database.sql...
+2023-09-24 09:18:23,284 - db.py - DEBUG - Executing query: CREATE DATABASE pypeal;
+2023-09-24 09:18:23,287 - db.py - INFO - Running script scripts/database/002-create-ringers.sql...
+2023-09-24 09:18:23,287 - db.py - DEBUG - Executing query: CREATE TABLE pypeal.`ringers` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+2023-09-24 09:18:23,301 - db.py - INFO - Running script scripts/database/003-create-ringer-peals.sql...
+2023-09-24 09:18:23,301 - db.py - DEBUG - Executing query: CREATE TABLE pypeal.`ringerpeals` (
+  `ringer_id` int NOT NULL,
+  `peal_count` int DEFAULT '0',
+  PRIMARY KEY (`ringer_id`),
+  UNIQUE KEY `id_unique` (`ringer_id`),
+  CONSTRAINT `fk_ringerpeals_ringer` FOREIGN KEY (`ringer_id`) REFERENCES `ringerpeals` (`ringer_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+)
+2023-09-24 09:18:23,320 - db.py - INFO - Connecting to database server localhost as user pypeal
+2023-09-24 09:18:23,326 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-24 09:18:23,326 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-24 09:18:23,328 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-24 09:18:23,328 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-24 09:18:23,329 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-24 09:18:23,329 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-24 09:18:23,330 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-24 09:18:23,330 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-24 09:18:23,331 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-24 09:18:23,331 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-24 09:18:23,331 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-24 09:18:23,331 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-24 09:18:23,332 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-24 09:18:23,332 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-24 09:18:23,333 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-24 09:18:23,333 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-24 09:18:23,333 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-24 09:18:23,333 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-24 09:18:23,335 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-24 09:18:23,336 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-24 09:18:23,336 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-24 09:18:23,336 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-24 09:18:23,338 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-24 09:18:23,338 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-24 09:18:23,338 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-24 09:18:23,338 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-24 09:18:23,339 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-24 09:18:23,339 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s
+2023-09-24 09:18:23,339 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-24 09:18:23,339 - db.py - DEBUG - Executing query: INSERT INTO ringers (name) VALUES (%s)
+2023-09-24 09:18:23,340 - db.py - DEBUG - Executing query: USE pypeal
+2023-09-24 09:18:23,340 - db.py - DEBUG - Executing query: SELECT id, name FROM ringers WHERE id = %s

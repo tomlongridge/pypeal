@@ -28,7 +28,7 @@ class BellboardPeal:
     url: str
     ringers: dict[str, BellboardRinger]  # name -> ringer map
 
-    _ringers_by_bell: list[tuple[int, BellboardRinger]]  # For internal representation only
+    __ringers_by_bell: list[tuple[int, BellboardRinger]]  # For internal representation only
 
     def __init__(self, id: int = None):
 
@@ -60,12 +60,12 @@ class BellboardPeal:
 
         # Loop over the ringers and their bell (or bells) and add them to the name->ringer map
         self.ringers = dict()
-        self._ringers_by_bell = list()
+        self.__ringers_by_bell = list()
         for ringer, bells in zip(ringers, ringer_bells):
             is_conductor = ringer.lower().endswith('(c)')
             if bells is None:
                 self.ringers[ringer] = BellboardRinger(ringer, [], is_conductor)
-                self._ringers_by_bell.append((None, self.ringers[ringer]))
+                self.__ringers_by_bell.append((None, self.ringers[ringer]))
             else:
                 for bell in bells.split('–'):
                     if ringer not in self.ringers:
@@ -73,11 +73,11 @@ class BellboardPeal:
                     else:
                         self.ringers[ringer].bells.append(int(bell))
                         self.ringers[ringer].conductor |= is_conductor
-                    self._ringers_by_bell.insert(int(bell), (int(bell), self.ringers[ringer]))
+                    self.__ringers_by_bell.insert(int(bell), (int(bell), self.ringers[ringer]))
 
     def __str__(self):
         text = f'Peal {self.id} at {self.url}\n'
-        for ringer in self._ringers_by_bell:
+        for ringer in self.__ringers_by_bell:
             text += str(ringer[0]) + ' ' if ringer[0] else ''
             text += str(ringer[1]) + '\n'
         return text

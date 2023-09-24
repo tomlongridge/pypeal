@@ -2,6 +2,7 @@ import logging
 from bellboard import BellboardPeal
 
 from db import Database, DatabaseError
+from ringer import Ringer
 
 logger = logging.getLogger('pypeal')
 logger.setLevel(logging.DEBUG)
@@ -18,13 +19,17 @@ ch.setLevel(logging.INFO)
 ch.setFormatter(formatter)
 logger.addHandler(ch)
 
-# try:
-#     Database(overwrite_database=True).close()
-# except DatabaseError as e:
-#     logger.error(f'Unable to create database: {e}')
-#     logger.debug(e, exc_info=True)
-#     exit(1) 
+try:
+    Database.get_connection().initialise(overwrite_database=True)
+except DatabaseError as e:
+    logger.error(f'Unable to create database: {e}')
+    logger.debug(e, exc_info=True)
+    exit(1)
 
-# print(soup.css.select('#address'))
+peal = BellboardPeal()
+print(peal)
 
-print(BellboardPeal())
+for ringer in peal.ringers.values():
+    print(Ringer.add_ringer(ringer.name))
+
+Database.get_connection().close()
