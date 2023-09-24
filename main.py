@@ -2,6 +2,7 @@ import logging
 from bellboard import BellboardPeal
 
 from db import Database, DatabaseError
+from peal import Peal
 from ringer import Ringer
 
 logger = logging.getLogger('pypeal')
@@ -26,10 +27,15 @@ except DatabaseError as e:
     logger.debug(e, exc_info=True)
     exit(1)
 
-peal = BellboardPeal()
-print(peal)
+bb_peal = BellboardPeal()
+print(bb_peal)
 
-for ringer in peal.ringers.values():
-    print(Ringer.add_ringer(ringer.name))
+peal = Peal.add(Peal(bellboard_id=bb_peal.id))
+
+for ringer in bb_peal.ringers.values():
+    peal.add_ringer(Ringer.add(ringer.name), ringer.bells)
+
+print(peal)
+print(peal.get_ringers())
 
 Database.get_connection().close()
