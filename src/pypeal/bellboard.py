@@ -76,26 +76,32 @@ class BellboardSearcher:
     def __init__(self):
         self.logger = logging.getLogger('pypeal')
 
-    def get_peal(self, id: int = None) -> BellboardPeal:
-
-        url: str = f'https://bb.ringingworld.co.uk/view.php?id={id}' if id \
+    def get_url(self, id: int) -> str:
+        return f'https://bb.ringingworld.co.uk/view.php?id={id}' if id \
             else 'https://bb.ringingworld.co.uk/view.php?random'
 
-        self.logger.info(f'Getting peal at {url}')
+    def get_peal(self, id: int = None, html: str = None) -> BellboardPeal:
 
-        try:
-            response: Response = get_request(url)
-            response.raise_for_status()
-        except RequestException as e:
-            raise BellboardError(f'Unable to get peal at {response.url}: {e}') from e
+        url = self.get_url(id)
 
-        url = response.url  # Get actual URL after redirect
-        self.logger.info(f'Retrieved peal at {url}')
+        if html is None:
+            self.logger.info(f'Getting peal at {url}')
 
-        soup = BeautifulSoup(response.text, 'html.parser')
+            try:
+                response: Response = get_request(url)
+                response.raise_for_status()
+            except RequestException as e:
+                raise BellboardError(f'Unable to get peal at {response.url}: {e}') from e
+
+            url = response.url  # Get actual URL after redirect
+            id = int(response.url.split('?id=')[1].split('&')[0])
+            html = response.text
+            self.logger.info(f'Retrieved peal at {url}')
+
+        soup = BeautifulSoup(html, 'html.parser')
 
         peal = BellboardPeal()
-        peal.id = int(response.url.split('?id=')[1].split('&')[0])
+        peal.id = id
         peal.url = url
 
         element = soup.select('div.association')
