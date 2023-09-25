@@ -46,6 +46,7 @@ class BellboardPeal:
     tenor_tone: str = None
     location_dove_id: int = None
     ringers: dict[str, BellboardRinger] = field(default_factory=dict)  # name -> ringer map
+    footnotes: list[str] = field(default_factory=list)
 
     ringers_by_bell: list[tuple[int, BellboardRinger]] = field(default_factory=list)  # For internal representation only
 
@@ -65,6 +66,8 @@ class BellboardPeal:
         for ringer in self.ringers_by_bell:
             text += str(ringer[0]) + ' ' if ringer[0] else ''
             text += str(ringer[1]) + '\n'
+        for footnote in self.footnotes:
+            text += f'{footnote}\n'
         return text
 
 
@@ -130,6 +133,9 @@ class BellboardSearcher:
             peal.duration += int(duration_info['hours_2'] or 0) * 60
             peal.duration += int(duration_info['mins'] or 0)
             peal.duration += int(duration_info['mins_2'] or 0)
+
+        for footnote in soup.select('div.footnote'):
+            peal.footnotes.append(footnote.text.strip())
 
         # Get ringers and their bells and add them to the ringers list
         ringers = []

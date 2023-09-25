@@ -27,7 +27,7 @@ except DatabaseError as e:
     logger.debug(e, exc_info=True)
     exit(1)
 
-bb_peal: BellboardPeal = BellboardSearcher().get_peal()
+bb_peal: BellboardPeal = BellboardSearcher().get_peal(1003819)
 print(bb_peal)
 
 peal = Peal.add(
@@ -47,6 +47,9 @@ peal = Peal.add(
 for bb_ringer in bb_peal.ringers.values():
     ringer = Ringer.get_by_name(bb_ringer.name) or Ringer.add(bb_ringer.name)
     peal.add_ringer(ringer, bb_ringer.bells, bb_ringer.is_conductor)
+
+for bb_footnote in bb_peal.footnotes:
+    peal.add_footnote(bb_footnote)
 
 print(peal)
 

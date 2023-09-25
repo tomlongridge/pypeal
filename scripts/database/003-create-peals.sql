@@ -4,7 +4,7 @@ CREATE TABLE @db_name.`peals` (
     `date` DATE NOT NULL,
     `place` VARCHAR(45) NOT NULL,
     `association` VARCHAR(45) NULL,
-    `address_dedication` VARCHAR(45) NULL,
+    `address_dedication` VARCHAR(128) NULL,
     `county` VARCHAR(45) NULL,
     `changes` INT UNSIGNED NULL,
     `title` VARCHAR(45) NULL,
