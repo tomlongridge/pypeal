@@ -5,6 +5,14 @@ import sys
 sys.path.append('src')
 from pypeal.bellboard import BellboardSearcher  # noqa: E402
 
+INT_TO_WORD_MAP = {
+    1: 'First', 2: 'Second', 3: 'Third', 4: 'Fourth', 5: 'Fifth', \
+    6: 'Sixth', 7: 'Seventh', 8: 'Eighth', 9: 'Ninth', 10: 'Tenth', \
+    11: 'Eleventh', 12: 'Twelfth', 13: 'Thirteenth', 14: 'Fourteenth', \
+    15: 'Fifteenth', 16: 'Sixteenth', 17: 'Seventeenth', 18: 'Eighteenth', \
+    19: 'Nineteenth', 20: 'Twentieth'
+}
+
 for file in os.listdir('tests/peals/pages'):
 
     id = int(file.split('.')[0])
@@ -25,7 +33,10 @@ for file in os.listdir('tests/peals/pages'):
         metadata.replace_with('')
     bell_num = 1
     for metadata in [*soup.select('span.ringer.persona')]:
-        metadata.string.replace_with(f'Ringer {bell_num}')
+        anonymous_name = INT_TO_WORD_MAP[bell_num]
+        for name in metadata.string.split(' ')[1:]:
+            anonymous_name += ' Ringer'
+        metadata.string.replace_with(anonymous_name)
         bell_num += 1
 
     print(f'Writing peal to {out_file_name}...')
