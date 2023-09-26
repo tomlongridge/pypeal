@@ -3,7 +3,7 @@ CREATE TABLE @db_name.`peals` (
     `bellboard_id` INT UNSIGNED NULL,
     `date` DATE NOT NULL,
     `place` VARCHAR(45) NOT NULL,
-    `association` VARCHAR(45) NULL,
+    `association` VARCHAR(128) NULL,
     `address_dedication` VARCHAR(128) NULL,
     `county` VARCHAR(45) NULL,
     `changes` INT UNSIGNED NULL,

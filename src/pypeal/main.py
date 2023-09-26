@@ -1,5 +1,5 @@
 import logging
-from bellboard import BellboardPeal, BellboardSearcher
+import bellboard
 
 from db import Database, DatabaseError
 from peal import Peal
@@ -21,13 +21,13 @@ ch.setFormatter(formatter)
 logger.addHandler(ch)
 
 try:
-    Database.get_connection().initialise(overwrite_database=True)
+    Database.get_connection().initialise(overwrite_database=False)
 except DatabaseError as e:
     logger.error(f'Unable to create database: {e}')
     logger.debug(e, exc_info=True)
     exit(1)
 
-bb_peal: BellboardPeal = BellboardSearcher().get_peal(1003819)
+bb_peal: bellboard.BellboardPeal = bellboard.get_peal()
 print(bb_peal)
 
 peal = Peal.add(

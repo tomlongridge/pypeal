@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from requests import Response, get as get_request
 import sys
 sys.path.append('src')
-from pypeal.bellboard import BellboardSearcher  # noqa: E402
+import pypeal.bellboard  # noqa: E402
 
 INT_TO_WORD_MAP = {
     1: 'First', 2: 'Second', 3: 'Third', 4: 'Fourth', 5: 'Fifth', \
@@ -13,9 +13,8 @@ INT_TO_WORD_MAP = {
     19: 'Nineteenth', 20: 'Twentieth'
 }
 
-for file in os.listdir('tests/peals/pages'):
+def generate_peal(id: int):
 
-    id = int(file.split('.')[0])
     url = f'https://bb.ringingworld.co.uk/view.php?id={id}'
 
     print(f'Getting peal at {url}')
@@ -44,7 +43,7 @@ for file in os.listdir('tests/peals/pages'):
         f.write(str(soup))
 
     print('Parsing peal...')
-    bb_peal = BellboardSearcher().get_peal(id, str(soup))
+    bb_peal = pypeal.bellboard.get_peal(id, str(soup))
 
     out_file_name = f'tests/peals/parsed/{id}.txt'
     print(f'Writing peal to {out_file_name}...')
@@ -54,3 +53,10 @@ for file in os.listdir('tests/peals/pages'):
     print('\n##############################################\n')
     print(str(bb_peal))
     print('##############################################\n')
+
+
+if len(sys.argv) == 2:
+    generate_peal(int(sys.argv[1].split('=')[1]))
+else:
+    for file in os.listdir('tests/peals/pages'):
+        generate_peal(int(file.split('.')[0]))
