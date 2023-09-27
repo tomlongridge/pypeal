@@ -1,7 +1,7 @@
 from __future__ import annotations
 from dataclasses import dataclass
 
-from db import Database
+from pypeal.db import Database
 
 
 @dataclass

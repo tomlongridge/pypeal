@@ -74,14 +74,21 @@ class BellboardPeal:
 logger = logging.getLogger('pypeal')
 
 
-def get_url(id: int) -> str:
+def get_url_from_id(id: int) -> str:
     return f'https://bb.ringingworld.co.uk/view.php?id={id}' if id \
         else 'https://bb.ringingworld.co.uk/view.php?random'
 
 
+def get_id_from_url(url: str) -> int:
+    if url and url.startswith('https://bb.ringingworld.co.uk/view.php?') and url.find('id=') != -1:
+        return int(url.split('?id=')[1].split('&')[0])
+    else:
+        return None
+
+
 def get_peal(id: int = None, html: str = None) -> BellboardPeal:
 
-    url = get_url(id)
+    url = get_url_from_id(id)
 
     if html is None:
         logger.info(f'Getting peal at {url}')
@@ -140,7 +147,9 @@ def get_peal(id: int = None, html: str = None) -> BellboardPeal:
         peal.duration += int(duration_info['mins_2'] or 0)
 
     for footnote in soup.select('div.footnote'):
-        peal.footnotes.append(footnote.text.strip())
+        text = footnote.text.strip()
+        if len(text) > 0:
+            peal.footnotes.append(text)
 
     # Get ringers and their bells and add them to the ringers list
     ringers = []

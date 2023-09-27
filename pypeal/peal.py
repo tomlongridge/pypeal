@@ -1,9 +1,10 @@
 from __future__ import annotations
 from datetime import datetime
 import re
+from pypeal import bellboard
 
-from db import Database
-from ringer import Ringer
+from pypeal.db import Database
+from pypeal.ringer import Ringer
 
 FOOTNOTE_RINGER_REGEX_PREFIX = re.compile(r'^(?P<bells>[0-9,\s]+)\s?[-:]\s(?P<footnote>.*)$')
 FOOTNOTE_RINGER_REGEX_SUFFIX = re.compile(r'^(?P<footnote>.*)\s?[-:]\s(?P<bells>[0-9,\s]+)\.?$')
@@ -56,6 +57,10 @@ class Peal:
         self.tenor_weight = tenor_weight
         self.tenor_tone = tenor_tone
         self.id = id
+
+    @property
+    def bellboard_url(self) -> str:
+        return bellboard.get_url_from_id(self.bellboard_id)
 
     @property
     def ringers(self) -> list[tuple[Ringer, int, bool]]:
@@ -129,23 +134,27 @@ class Peal:
             self.__footnotes.append(footnote)
 
     def __str__(self):
-        text = f'Peal {self.id} (Bellboard: https://bb.ringingworld.co.uk/view.php?id={self.bellboard_id}):\n'
+        text = ''
         text += f'{self.association}\n' if self.association else ''
         text += f'{self.place}'
         text += f', {self.county}' if self.county else ''
         text += '\n'
         text += f'{self.address_dedication}\n' if self.address_dedication else ''
-        text += f'on {self.date.strftime("%A, %-d %B %Y")}\n'
-        text += f'in {self.duration} mins\n' if self.duration else ''
+        text += f'on {self.date.strftime("%A, %-d %B %Y")} '
+        text += f'in {self.duration} mins ' if self.duration else ''
         if self.tenor_weight:
             text += f'({self.tenor_weight}'
             text += f' in {self.tenor_tone}' if self.tenor_tone else ''
-            text += ')\n'
+            text += ')'
+        text += '\n'
         for ringer in self.ringers:
             text += f'{ringer[1]} ' if ringer[1] else ''
             text += f'{ringer[0]}{" (c)" if ringer[2] else ""}\n'
+        text += '\n' if self.footnotes else ''
         for footnote in self.footnotes:
             text += f'{footnote}\n'
+        text += '\n'
+        text += f'[Imported Bellboard peal ID: {self.bellboard_id}]'
         return text
 
     @classmethod
@@ -159,11 +168,12 @@ class Peal:
         return Peal(*result)
 
     @classmethod
-    def get_all(self) -> list[Peal]:
-        return [Peal(*result) for result in Database.get_connection().query(
+    def get_all(self) -> dict[str, Peal]:
+        return {result[0]: Peal(*result) for result in Database.get_connection().query(
             'SELECT ' +
             'bellboard_id, date, place, association, address_dedication, county, changes, title, duration, tenor_weight, tenor_tone, id ' +
-            'FROM peals').fetchall()]
+            'FROM peals').fetchall()
+        }
 
     @classmethod
     def add(self, peal: Peal) -> Peal:

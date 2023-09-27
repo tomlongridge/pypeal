@@ -2,7 +2,7 @@ import os
 from bs4 import BeautifulSoup
 from requests import Response, get as get_request
 import sys
-sys.path.append('src')
+sys.path.append('.')
 import pypeal.bellboard  # noqa: E402
 
 INT_TO_WORD_MAP = {
@@ -13,9 +13,8 @@ INT_TO_WORD_MAP = {
     19: 'Nineteenth', 20: 'Twentieth'
 }
 
-def generate_peal(id: int):
 
-    url = f'https://bb.ringingworld.co.uk/view.php?id={id}'
+def generate_peal(url: str):
 
     print(f'Getting peal at {url}')
     response: Response = get_request(url)
@@ -24,8 +23,13 @@ def generate_peal(id: int):
 
     out_file_name = f'tests/peals/pages/{id}.html'
 
-    print('Stripping changing and personal information...')
     soup = BeautifulSoup(response.text, 'html.parser')
+
+    print('\n##############################################\n')
+    print(soup.select("div.performance")[0].text)
+    print('##############################################\n')
+
+    print('Stripping changing and personal information...')
     for metadata in [*soup.select('p.metadata'),
                      *soup.select('div#performance-ad'),
                      *soup.select('td#page-footer')]:
@@ -56,7 +60,7 @@ def generate_peal(id: int):
 
 
 if len(sys.argv) == 2:
-    generate_peal(int(sys.argv[1].split('=')[1]))
+    generate_peal(sys.argv[1])
 else:
     for file in os.listdir('tests/peals/pages'):
-        generate_peal(int(file.split('.')[0]))
+        generate_peal(pypeal.bellboard.get_url_from_id(int(file.split('.')[0])))

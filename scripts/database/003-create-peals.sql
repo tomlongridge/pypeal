@@ -11,5 +11,7 @@ CREATE TABLE @db_name.`peals` (
     `duration` INT UNSIGNED NULL,
     `tenor_weight` VARCHAR(45) NULL,
     `tenor_tone` VARCHAR(45) NULL,
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`),
+    UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+    UNIQUE INDEX `bellboard_id_UNIQUE` (`bellboard_id` ASC) VISIBLE
 );
