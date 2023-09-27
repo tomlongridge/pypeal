@@ -1,5 +1,5 @@
 import logging
-from pypeal.bellboard import BellboardPeal, get_peal as get_bellboard_peal, get_url_from_id
+from pypeal.bellboard import BellboardPeal, get_peal as get_bellboard_peal
 from pypeal.db import Database, DatabaseError
 
 from pypeal.peal import Peal
