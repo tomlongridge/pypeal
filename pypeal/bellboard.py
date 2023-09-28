@@ -7,11 +7,11 @@ import logging
 from requests import Response, get as get_request
 from requests.exceptions import RequestException
 
-from pypeal.config import BB_URL, BB_RATE_LIMIT_SECS
+from pypeal.config import get_config
 
-BELLBOARD_PEAL_ID_URL = BB_URL + '/view.php?id=%s'
-BELLBOARD_PEAL_RANDOM_URL = BB_URL + '/view?random'
-BELLBOARD_SEARCH_URL = BB_URL + '/search.php?ringer=%s'
+BELLBOARD_PEAL_ID_URL = '/view.php?id=%s'
+BELLBOARD_PEAL_RANDOM_URL = '/view?random'
+BELLBOARD_SEARCH_URL = '/search.php?ringer=%s'
 
 DATE_LINE_INFO_REGEX = re.compile(r'[A-Za-z]+,\s(?P<date>[0-9]+\s[A-Za-z0-9]+\s[0-9]+)(?:\s' +
                                   r'in\s(?P<duration>[A-Za-z0-9\s]+))?\s?(?:\((?P<tenor_weight>[^in]+|size\s[0-9]+)' +
@@ -85,7 +85,7 @@ logger = logging.getLogger('pypeal')
 
 
 def get_url_from_id(id: int) -> str:
-    return BELLBOARD_PEAL_ID_URL % id if id else BELLBOARD_PEAL_RANDOM_URL
+    return get_config('bellboard')['url'] + (BELLBOARD_PEAL_ID_URL % id if id else BELLBOARD_PEAL_RANDOM_URL)
 
 
 def get_id_from_url(url: str) -> int:
@@ -100,7 +100,7 @@ def get_peal(url: str = None, html: str = None) -> BellboardPeal:
     peal = BellboardPeal()
 
     if html is None:
-        id, html = download_peal(url if url else BELLBOARD_PEAL_RANDOM_URL)
+        id, html = download_peal(url if url else get_config('bellboard')['url'] + BELLBOARD_PEAL_RANDOM_URL)
         peal.id = id
 
     soup = BeautifulSoup(html, 'html.parser')
@@ -181,7 +181,7 @@ def search(ringer: str):
 
     logger.info(f'Searching for "{ringer}" on BellBoard...')
 
-    response: Response = request(BELLBOARD_SEARCH_URL % ringer)
+    response: Response = request(get_config('bellboard')['url'] + BELLBOARD_SEARCH_URL % ringer)
 
     soup = BeautifulSoup(response.text, 'html.parser')
 
@@ -205,9 +205,10 @@ def request(url: str) -> tuple[str, str]:
 
     # Rate-limit requests to avoid affecting BellBoard service
     global __last_call
-    if __last_call and __last_call < datetime.now() - timedelta(seconds=-BB_RATE_LIMIT_SECS):
-        logger.info('Waiting {BB_RATE_LIMIT_SECS}s before making BellBoard request...')
-        time.sleep(BB_RATE_LIMIT_SECS)
+    rate_limit_secs = int(get_config('bellboard')['rate_limit_secs'])
+    if __last_call and __last_call < datetime.now() - timedelta(seconds=-rate_limit_secs):
+        logger.info(f'Waiting {rate_limit_secs}s before making BellBoard request...')
+        time.sleep(rate_limit_secs)
     __last_call = datetime.now()
 
     try:

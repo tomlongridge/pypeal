@@ -20,10 +20,6 @@ def initialize(reset_db: bool = False) -> bool:
     return True
 
 
-def get_peals() -> dict[str, Peal]:
-    return Peal.get_all()
-
-
 def add_peal(id: int = None) -> Peal:
 
     bb_peal: BellboardPeal = get_bellboard_peal(id)

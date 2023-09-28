@@ -39,13 +39,13 @@ def main(
     initialize_or_exit(reset_database)
 
     if add:
-        if (peal_id := pypeal.bellboard.get_id_from_url(add)):
+        if (peal_id := get_id_from_url(add)):
             add_peal(peal_id)
         else:
             print(Panel(f'Invalid Bellboard URL {add}', title='pypeal'))
 
     while True:
-        peals: dict[str, Peal] = pypeal.get_peals()
+        peals: dict[str, Peal] = Peal.get_all()
         print(Panel(f'Number of peals: {len(peals)}', title='pypeal'))
 
         match option_prompt(['Add peal by URL', 'Add random peal', 'Exit'], default=1):

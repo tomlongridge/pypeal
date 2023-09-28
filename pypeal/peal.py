@@ -158,11 +158,16 @@ class Peal:
         return text
 
     @classmethod
-    def get(self, id: int) -> Peal:
+    def get(self, id: int = None, bellboard_id: int = None) -> Peal:
+        if id is None and bellboard_id is None:
+            raise ValueError('Either peal database ID or Bellboard ID must be specified')
         result = Database.get_connection().query(
             'SELECT ' +
             'bellboard_id, date, place, association, address_dedication, county, changes, title, duration, tenor_weight, tenor_tone, id ' +
-            'FROM peals WHERE id = %s', (id,)).fetchone()
+            'FROM peals ' +
+            'WHERE true ' +
+            (f'AND id = {id} ' if id else '') +
+            (f'AND bellboard_id = {bellboard_id} ' if bellboard_id else '')).fetchone()
         if result is None:
             return None
         return Peal(*result)
@@ -184,4 +189,4 @@ class Peal:
             (peal.bellboard_id, peal.date, peal.place, peal.association, peal.address_dedication, peal.county, peal.changes, peal.title,
              peal.duration, peal.tenor_weight, peal.tenor_tone))
         Database.get_connection().commit()
-        return self.get(result.lastrowid)
+        return self.get(id=result.lastrowid)
