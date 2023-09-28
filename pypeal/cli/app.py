@@ -7,7 +7,7 @@ from rich.panel import Panel
 from rich.prompt import Prompt, Confirm
 
 import pypeal
-from pypeal.bellboard import get_peal as get_bellboard_peal, BellboardPeal
+from pypeal.bellboard import get_peal as get_bellboard_peal, BellboardPeal, get_id_from_url, get_url_from_id
 from pypeal.cli.prompts import option_prompt
 from pypeal.peal import Peal
 from pypeal.ringer import Ringer
@@ -27,10 +27,10 @@ ch.setLevel(logging.INFO)
 ch.setFormatter(formatter)
 logger.addHandler(ch)
 
-runner = typer.Typer()
+app = typer.Typer()
 
 
-@runner.command()
+@app.command()
 def main(
         reset_database: Annotated[bool, typer.Option(help="Reset the database first.")] = False,
         add: Annotated[str, typer.Option(help="Add a peal by Bellboard URL")] = None
@@ -52,23 +52,26 @@ def main(
             case 1:
                 peal_id = None
                 while not peal_id:
-                    url = Prompt.ask('Bellboard URL')
-                    if not (peal_id := pypeal.bellboard.get_id_from_url(url)):
-                        print(Panel(f'Invalid Bellboard URL {url}', title='pypeal'))
+                    url = Prompt.ask('Bellboard URL or peal ID')
+                    if url.isnumeric():
+                        peal_id = int(url)
+                        url = get_url_from_id(peal_id)
+                    elif not (peal_id := get_id_from_url(url)):
+                        print(Panel(f'Invalid Bellboard URL or peal ID: {url}', title='pypeal'))
 
                 if peal_id in peals:
                     print(Panel(f'Peal {peal_id} already added', title='pypeal'))
                 else:
-                    add_peal(peal_id)
+                    add_peal(url)
             case 2:
                 add_peal()
             case 3:
                 raise typer.Exit()
 
 
-def add_peal(id: int = None) -> Peal:
+def add_peal(url: str = None) -> Peal:
 
-    bb_peal: BellboardPeal = get_bellboard_peal(id)
+    bb_peal: BellboardPeal = get_bellboard_peal(url)
 
     peal = Peal.add(
         Peal(

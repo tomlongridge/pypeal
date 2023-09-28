@@ -2,6 +2,8 @@ CREATE TABLE @db_name.`ringers` (
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
     `last_name` VARCHAR(45) NOT NULL,
     `given_names` VARCHAR(45) NOT NULL,
+    `link_id` INT UNSIGNED NULL,
     PRIMARY KEY (`id`),
-    UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE
+    UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+    CONSTRAINT `fk_ringers_link` FOREIGN KEY (`link_id`) REFERENCES `ringers` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 );

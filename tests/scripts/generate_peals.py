@@ -6,7 +6,7 @@ sys.path.append('.')
 import pypeal.bellboard  # noqa: E402
 
 
-with open('tests/data/ringer_test_names.txt', 'r') as f:
+with open(os.path.join(os.path.dirname(__file__), '..', 'files', 'ringer_test_names.txt'), 'r') as f:
     RINGER_NAMES = [r for r in f.read().split('\n')]
 
 
@@ -14,7 +14,7 @@ def generate_peal(url: str):
 
     id, html = pypeal.bellboard.download_peal(url)
 
-    out_file_name = f'tests/peals/pages/{id}.html'
+    out_file_name = os.path.join(os.path.dirname(__file__), '..', 'files', 'peals', 'pages', f'{id}.html')
 
     soup = BeautifulSoup(html, 'html.parser')
 
@@ -37,9 +37,9 @@ def generate_peal(url: str):
         f.write(str(soup))
 
     print('Parsing peal...')
-    bb_peal = pypeal.bellboard.get_peal(id, str(soup))
+    bb_peal = pypeal.bellboard.get_peal(html=str(soup))
 
-    out_file_name = f'tests/peals/parsed/{id}.txt'
+    out_file_name = os.path.join(os.path.dirname(__file__), '..', 'files', 'peals', 'parsed', f'{id}.txt')
     print(f'Writing peal to {out_file_name}...')
     with open(out_file_name, 'w') as f:
         f.write(str(bb_peal))
@@ -57,5 +57,5 @@ def anonymize_ringer(name: str) -> str:
 if len(sys.argv) == 2:
     generate_peal(sys.argv[1])
 else:
-    for file in os.listdir('tests/peals/pages'):
-        generate_peal(pypeal.bellboard.get_url_from_id(int(file.split('.')[0])))
+    for file in os.listdir(os.path.join(os.path.dirname(__file__), '..', 'files', 'peals', 'pages')):
+        generate_peal('https://bb.ringingworld.co.uk/view.php?id=' + file.split('.')[0])

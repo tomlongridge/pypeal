@@ -7,15 +7,17 @@ import logging
 from requests import Response, get as get_request
 from requests.exceptions import RequestException
 
+from pypeal.config import BB_URL, BB_RATE_LIMIT_SECS
+
+BELLBOARD_PEAL_ID_URL = BB_URL + '/view.php?id=%s'
+BELLBOARD_PEAL_RANDOM_URL = BB_URL + '/view?random'
+BELLBOARD_SEARCH_URL = BB_URL + '/search.php?ringer=%s'
+
 DATE_LINE_INFO_REGEX = re.compile(r'[A-Za-z]+,\s(?P<date>[0-9]+\s[A-Za-z0-9]+\s[0-9]+)(?:\s' +
                                   r'in\s(?P<duration>[A-Za-z0-9\s]+))?\s?(?:\((?P<tenor_weight>[^in]+|size\s[0-9]+)' +
                                   r'(?:\sin\s(?P<tenor_tone>.*))?\))?$')
 DURATION_REGEX = re.compile(r'^(?:(?P<hours>\d{1,2})[h])$|^(?:(?P<mins>\d+)[m]?)$|' +
                             r'^(?:(?:(?P<hours_2>\d{1,2})[h])\s(?:(?P<mins_2>(?:[0]?|[1-5]{1})[0-9])[m]?))$')
-BELLBOARD_URL = 'https://bb.ringingworld.co.uk'
-BELLBOARD_PEAL_ID_URL = BELLBOARD_URL + '/view.php?id=%s'
-BELLBOARD_PEAL_RANDOM_URL = BELLBOARD_URL + '/view?random'
-BELLBOARD_SEARCH_URL = BELLBOARD_URL + '/search.php?ringer=%s'
 
 
 __last_call: datetime = None
@@ -58,7 +60,7 @@ class BellboardPeal:
     ringers_by_bell: list[tuple[int, BellboardRinger]] = field(default_factory=list)  # For internal representation only
 
     def __str__(self):
-        text = f'Peal {self.id} at ' + BELLBOARD_PEAL_ID_URL % self.id + '\n'
+        text = ''
         text += f'{self.association}\n' if self.association else ''
         text += f'{self.place}' if self.place else '<UNKNOWN PLACE>'
         text += f', {self.county}' if self.county else ''
@@ -75,6 +77,7 @@ class BellboardPeal:
             text += str(ringer[1]) + '\n'
         for footnote in self.footnotes:
             text += f'{footnote}\n'
+        text += f'[Imported Bellboard peal ID: {self.id}]' if self.id else ''
         return text
 
 
@@ -86,28 +89,27 @@ def get_url_from_id(id: int) -> str:
 
 
 def get_id_from_url(url: str) -> int:
-    if url and url.startswith(BELLBOARD_URL) and url.find('id=') != -1:
+    if url and url.startswith('http') and url.find('id=') != -1:
         return int(url.split('id=')[1].split('&')[0])
     else:
         return None
 
 
-def get_peal(id: int = None, html: str = None) -> BellboardPeal:
+def get_peal(url: str = None, html: str = None) -> BellboardPeal:
 
     peal = BellboardPeal()
 
     if html is None:
-        id, html = download_peal(get_url_from_id(id))
+        id, html = download_peal(url if url else BELLBOARD_PEAL_RANDOM_URL)
+        peal.id = id
 
     soup = BeautifulSoup(html, 'html.parser')
-
-    peal.id = id
 
     element = soup.select('div.association')
     peal.association = element[0].text.strip() if len(element) == 1 else None
     element = soup.select('span.place')
     peal.place = element[0].text.strip() if len(element) == 1 else None
-    peal.county = element[0].next_sibling.text.strip(', ')
+    peal.county = element[0].next_sibling.text.strip(', ') if element[0].next_sibling else None
     element = soup.select('div.address')
     peal.address_dedication = element[0].text.strip() if len(element) == 1 else None
     element = soup.select('span.changes')
@@ -194,23 +196,23 @@ def download_peal(url: str) -> tuple[int, str]:
 
     logger.info(f'Getting peal at {url}')
     response = request(url)
-    logger.info(f'Retrieved peal at {response.url}')
+    logger.info(f'Retrieved peal at {response[0]}')
 
-    return (get_id_from_url(response.url), response.text)
+    return (get_id_from_url(response[0]), response[1])
 
 
-def request(url: str) -> Response:
+def request(url: str) -> tuple[str, str]:
 
     # Rate-limit requests to avoid affecting BellBoard service
     global __last_call
-    if __last_call and __last_call < datetime.now() - timedelta(seconds=-10):
-        logger.info('Waiting 1 second before making BellBoard request...')
-        time.sleep(1)
+    if __last_call and __last_call < datetime.now() - timedelta(seconds=-BB_RATE_LIMIT_SECS):
+        logger.info('Waiting {BB_RATE_LIMIT_SECS}s before making BellBoard request...')
+        time.sleep(BB_RATE_LIMIT_SECS)
     __last_call = datetime.now()
 
     try:
         response: Response = get_request(url)
         response.raise_for_status()
-        return response
+        return (response.url, response.text)
     except RequestException as e:
-        raise BellboardError(f'Unable to access {response.url}: {e}') from e
+        raise BellboardError(f'Unable to access {url}: {e}') from e
