@@ -1,5 +1,6 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 import re
+import time
 from bs4 import BeautifulSoup
 from dataclasses import dataclass, field
 import logging
@@ -11,6 +12,13 @@ DATE_LINE_INFO_REGEX = re.compile(r'[A-Za-z]+,\s(?P<date>[0-9]+\s[A-Za-z0-9]+\s[
                                   r'(?:\sin\s(?P<tenor_tone>.*))?\))?$')
 DURATION_REGEX = re.compile(r'^(?:(?P<hours>\d{1,2})[h])$|^(?:(?P<mins>\d+)[m]?)$|' +
                             r'^(?:(?:(?P<hours_2>\d{1,2})[h])\s(?:(?P<mins_2>(?:[0]?|[1-5]{1})[0-9])[m]?))$')
+BELLBOARD_URL = 'https://bb.ringingworld.co.uk'
+BELLBOARD_PEAL_ID_URL = BELLBOARD_URL + '/view.php?id=%s'
+BELLBOARD_PEAL_RANDOM_URL = BELLBOARD_URL + '/view?random'
+BELLBOARD_SEARCH_URL = BELLBOARD_URL + '/search.php?ringer=%s'
+
+
+__last_call: datetime = None
 
 
 class BellboardError(Exception):
@@ -33,7 +41,6 @@ class BellboardPeal:
     """Represents the data gathered from a Bellboard peal."""
 
     id: int = None
-    url: str = None
     date: datetime.date = None
     association: str = None
     place: str = None
@@ -51,7 +58,7 @@ class BellboardPeal:
     ringers_by_bell: list[tuple[int, BellboardRinger]] = field(default_factory=list)  # For internal representation only
 
     def __str__(self):
-        text = f'Peal {self.id} at {self.url}\n'
+        text = f'Peal {self.id} at ' + BELLBOARD_PEAL_ID_URL % self.id + '\n'
         text += f'{self.association}\n' if self.association else ''
         text += f'{self.place}' if self.place else '<UNKNOWN PLACE>'
         text += f', {self.county}' if self.county else ''
@@ -75,40 +82,26 @@ logger = logging.getLogger('pypeal')
 
 
 def get_url_from_id(id: int) -> str:
-    return f'https://bb.ringingworld.co.uk/view.php?id={id}' if id \
-        else 'https://bb.ringingworld.co.uk/view.php?random'
+    return BELLBOARD_PEAL_ID_URL % id if id else BELLBOARD_PEAL_RANDOM_URL
 
 
 def get_id_from_url(url: str) -> int:
-    if url and url.startswith('https://bb.ringingworld.co.uk/view.php?') and url.find('id=') != -1:
-        return int(url.split('?id=')[1].split('&')[0])
+    if url and url.startswith(BELLBOARD_URL) and url.find('id=') != -1:
+        return int(url.split('id=')[1].split('&')[0])
     else:
         return None
 
 
 def get_peal(id: int = None, html: str = None) -> BellboardPeal:
 
-    url = get_url_from_id(id)
+    peal = BellboardPeal()
 
     if html is None:
-        logger.info(f'Getting peal at {url}')
-
-        try:
-            response: Response = get_request(url)
-            response.raise_for_status()
-        except RequestException as e:
-            raise BellboardError(f'Unable to get peal at {response.url}: {e}') from e
-
-        url = response.url  # Get actual URL after redirect
-        id = int(response.url.split('?id=')[1].split('&')[0])
-        html = response.text
-        logger.info(f'Retrieved peal at {url}')
+        id, html = download_peal(get_url_from_id(id))
 
     soup = BeautifulSoup(html, 'html.parser')
 
-    peal = BellboardPeal()
     peal.id = id
-    peal.url = url
 
     element = soup.select('div.association')
     peal.association = element[0].text.strip() if len(element) == 1 else None
@@ -186,11 +179,7 @@ def search(ringer: str):
 
     logger.info(f'Searching for "{ringer}" on BellBoard...')
 
-    try:
-        response: Response = get_request(f'https://bb.ringingworld.co.uk/search.php?ringer={ringer}')
-        response.raise_for_status()
-    except RequestException as e:
-        raise BellboardError(f'Unable to search BellBoard for {ringer}: {e}') from e
+    response: Response = request(BELLBOARD_SEARCH_URL % ringer)
 
     soup = BeautifulSoup(response.text, 'html.parser')
 
@@ -199,3 +188,29 @@ def search(ringer: str):
     logger.info(f'Found {len(peal_ids)} peals for {ringer} on BellBoard')
 
     return [get_peal(int(id)) for id in peal_ids[0:2]]
+
+
+def download_peal(url: str) -> tuple[int, str]:
+
+    logger.info(f'Getting peal at {url}')
+    response = request(url)
+    logger.info(f'Retrieved peal at {response.url}')
+
+    return (get_id_from_url(response.url), response.text)
+
+
+def request(url: str) -> Response:
+
+    # Rate-limit requests to avoid affecting BellBoard service
+    global __last_call
+    if __last_call and __last_call < datetime.now() - timedelta(seconds=-10):
+        logger.info('Waiting 1 second before making BellBoard request...')
+        time.sleep(1)
+    __last_call = datetime.now()
+
+    try:
+        response: Response = get_request(url)
+        response.raise_for_status()
+        return response
+    except RequestException as e:
+        raise BellboardError(f'Unable to access {response.url}: {e}') from e

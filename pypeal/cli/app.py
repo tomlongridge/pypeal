@@ -4,7 +4,7 @@ import typer
 
 from rich import print
 from rich.panel import Panel
-from rich.prompt import Prompt, IntPrompt, Confirm
+from rich.prompt import Prompt, Confirm
 
 import pypeal
 from pypeal.bellboard import get_peal as get_bellboard_peal, BellboardPeal
