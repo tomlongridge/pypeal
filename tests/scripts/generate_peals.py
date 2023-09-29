@@ -38,6 +38,7 @@ def generate_peal(url: str):
 
     print('Parsing peal...')
     bb_peal = pypeal.bellboard.get_peal(html=str(soup))
+    bb_peal.id = id
 
     out_file_name = os.path.join(os.path.dirname(__file__), '..', 'files', 'peals', 'parsed', f'{id}.txt')
     print(f'Writing peal to {out_file_name}...')
@@ -46,7 +47,7 @@ def generate_peal(url: str):
 
     print('\n##############################################\n')
     print(str(bb_peal))
-    print('##############################################\n')
+    print('\n##############################################\n')
 
 
 def anonymize_ringer(name: str) -> str:

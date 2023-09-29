@@ -5,6 +5,7 @@ import typer
 from rich import print
 from rich.panel import Panel
 from rich.prompt import Prompt, Confirm
+from rich.markup import escape
 
 import pypeal
 from pypeal.bellboard import get_peal as get_bellboard_peal, BellboardPeal, get_id_from_url, get_url_from_id
@@ -123,7 +124,7 @@ def add_peal(url: str = None) -> Peal:
         peal.add_footnote(bb_footnote)
 
     print(f'Peal {peal.bellboard_id} added')
-    print(Panel(str(peal), title=peal.bellboard_url))
+    print(Panel(escape(str(peal)), title=peal.bellboard_url))
     return peal
 
 

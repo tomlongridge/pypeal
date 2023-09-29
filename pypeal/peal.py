@@ -105,13 +105,13 @@ class Peal:
                 self.__ringers_by_bell[bell] = ringer
 
     @property
-    def footnotes(self) -> list[tuple[str, int]]:
+    def footnotes(self) -> list[tuple[str, Ringer, int]]:
         if self.__footnotes is None:
             results = Database.get_connection().query(
-                'SELECT text, ringer_id FROM pealfootnotes WHERE peal_id = %s', (self.id,)).fetchall()
+                'SELECT text, ringer_id, bell FROM pealfootnotes WHERE peal_id = %s', (self.id,)).fetchall()
             self.__footnotes = []
-            for footnote, ringer_id in results:
-                self.__footnotes.append((footnote, self.__ringers_by_id[ringer_id] if ringer_id else None))
+            for footnote, ringer_id, bell in results:
+                self.__footnotes.append((footnote, self.__ringers_by_id[ringer_id] if ringer_id else None, bell))
         return self.__footnotes
 
     def add_footnote(self, footnote: str, ringer: Ringer = None):
@@ -126,8 +126,8 @@ class Peal:
         for bell in bells:
             ringer_id = self.__ringers_by_bell[int(bell)].id if bell is not None else None
             Database.get_connection().query(
-                'INSERT INTO pealfootnotes (peal_id, footnote_num, ringer_id, text) VALUES (%s, %s, %s, %s)',
-                (self.id, len(self.footnotes), ringer_id, footnote))
+                'INSERT INTO pealfootnotes (peal_id, footnote_num, ringer_id, bell, text) VALUES (%s, %s, %s, %s, %s)',
+                (self.id, len(self.footnotes), ringer_id, bell, footnote))
             Database.get_connection().commit()
             self.__footnotes.append(footnote)
 
@@ -144,13 +144,13 @@ class Peal:
             text += f'({self.tenor_weight}'
             text += f' in {self.tenor_tone}' if self.tenor_tone else ''
             text += ')'
-        text += '\n'
+        text += '\n\n'
         for ringer in self.ringers:
             text += f'{ringer[1]} ' if ringer[1] else ''
             text += f'{ringer[0]}{" (c)" if ringer[2] else ""}\n'
-        text += '\n' if self.footnotes else ''
+        text += '\n' if len(self.footnotes) else ''
         for footnote in self.footnotes:
-            text += f'[{footnote[1]}] ' if footnote[1] else ''
+            text += f'[{footnote[2]}: {footnote[1]}] ' if footnote[1] else ''
             text += f'{footnote[0]}'
             text += '\n'
         text += '\n'

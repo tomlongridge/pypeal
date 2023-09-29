@@ -1,3 +1,4 @@
+import os
 from pypeal.config import get_config
 
 import mysql.connector
@@ -39,7 +40,7 @@ class Database:
     def initialise(self):
         self.__logger.info('Creating new database...')
         try:
-            for path in sorted(pathlib.Path('scripts/database').glob('*.sql')):
+            for path in sorted(pathlib.Path(os.path.join(os.path.dirname(__file__), '..', 'scripts', 'database')).glob('*.sql')):
                 with open(path, 'r') as f:
                     self.__logger.info(f'Running script {path}...')
                     self.__execute(self.__substitute_sql_params(f.read()))

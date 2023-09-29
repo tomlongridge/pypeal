@@ -66,17 +66,20 @@ class BellboardPeal:
         text += f', {self.county}' if self.county else ''
         text += '\n'
         text += f'{self.address_dedication}\n' if self.address_dedication else ''
-        text += f'on {self.date.strftime("%A, %-d %B %Y")}\n' if self.date else '<UNKNOWN DATE>\n'
-        text += f'in {self.duration} mins\n' if self.duration else ''
+        text += f'on {self.date.strftime("%A, %-d %B %Y")} ' if self.date else '<UNKNOWN DATE>\n'
+        text += f'in {self.duration} mins ' if self.duration else ''
         if self.tenor_weight:
             text += f'({self.tenor_weight}'
             text += f' in {self.tenor_tone}' if self.tenor_tone else ''
-            text += ')\n'
+            text += ')'
+        text += '\n\n'
         for ringer in self.ringers_by_bell:
             text += str(ringer[0]) + ' ' if ringer[0] else ''
             text += str(ringer[1]) + '\n'
+        text += '\n' if len(self.footnotes) else ''
         for footnote in self.footnotes:
             text += f'{footnote}\n'
+        text += '\n'
         text += f'[Imported Bellboard peal ID: {self.id}]' if self.id else ''
         return text
 
