@@ -1,7 +1,6 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import os
 
-
 class BellboardMockServer(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path.startswith('/view.php?id='):
@@ -16,4 +15,5 @@ class BellboardMockServer(BaseHTTPRequestHandler):
 
 
 server = HTTPServer(('localhost', 8080), BellboardMockServer)
+print('Mock server started')
 server.serve_forever()

@@ -70,8 +70,6 @@ class Peal:
                 'JOIN ringers r ON pr.ringer_id = r.id ' +
                 'WHERE pr.peal_id = %s ORDER BY pr.bell ASC',
                 (self.id,)).fetchall()
-            self.__ringers = []
-            self.__ringers_by_id = {}
             for ringer_id, bell, is_conductor in results:
                 self.__add_bell_ringer(ringer_id, [bell], is_conductor)
         return self.__ringers
@@ -107,7 +105,7 @@ class Peal:
                 self.__ringers_by_bell[bell] = ringer
 
     @property
-    def footnotes(self) -> list[str]:
+    def footnotes(self) -> list[tuple[str, int]]:
         if self.__footnotes is None:
             results = Database.get_connection().query(
                 'SELECT text, ringer_id FROM pealfootnotes WHERE peal_id = %s', (self.id,)).fetchall()
@@ -152,7 +150,9 @@ class Peal:
             text += f'{ringer[0]}{" (c)" if ringer[2] else ""}\n'
         text += '\n' if self.footnotes else ''
         for footnote in self.footnotes:
-            text += f'{footnote}\n'
+            text += f'[{footnote[1]}] ' if footnote[1] else ''
+            text += f'{footnote[0]}'
+            text += '\n'
         text += '\n'
         text += f'[Imported Bellboard peal ID: {self.bellboard_id}]'
         return text

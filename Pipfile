@@ -10,6 +10,7 @@ mysql-connector-python = "*"
 configparser = "*"
 pytest = "*"
 typer = {version = "*", extras = ["all"]}
+pytest-xprocess = "*"
 
 [dev-packages]
 
