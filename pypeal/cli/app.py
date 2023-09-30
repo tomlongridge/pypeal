@@ -12,6 +12,7 @@ from pypeal.bellboard import get_peal as get_bellboard_peal, BellboardPeal, get_
 from pypeal.cli.prompts import option_prompt
 from pypeal.peal import Peal
 from pypeal.ringer import Ringer
+from pypeal.config import set_config_file
 
 logger = logging.getLogger('pypeal')
 logger.setLevel(logging.DEBUG)
@@ -34,38 +35,43 @@ app = typer.Typer()
 @app.command()
 def main(
         reset_database: Annotated[bool, typer.Option(help="Reset the database first.")] = False,
-        add: Annotated[str, typer.Option(help="Add a peal by Bellboard URL")] = None
+        peal_id: Annotated[str, typer.Option("--add-peal", help="Add a peal by Bellboard URL")] = None,
+        config: Annotated[str, typer.Option(help="Path to config file.")] = None,
         ):
 
-    initialize_or_exit(reset_database)
+    if config:
+        set_config_file(config)
 
-    if add:
-        if (peal_id := get_id_from_url(add)):
-            add_peal(peal_id)
-        else:
-            print(Panel(f'Invalid Bellboard URL {add}', title='pypeal'))
+    initialize_or_exit(reset_database)
 
     while True:
         peals: dict[str, Peal] = Peal.get_all()
         print(Panel(f'Number of peals: {len(peals)}', title='pypeal'))
 
-        match option_prompt(['Add peal by URL', 'Add random peal', 'Exit'], default=1):
+        match option_prompt(['Add peal by URL', 'Add random peal', 'Exit'], default=1) if peal_id is None else 1:
             case 1:
-                peal_id = None
-                while not peal_id:
-                    url = Prompt.ask('Bellboard URL or peal ID')
-                    if url.isnumeric():
-                        peal_id = int(url)
-                        url = get_url_from_id(peal_id)
-                    elif not (peal_id := get_id_from_url(url)):
-                        print(Panel(f'Invalid Bellboard URL or peal ID: {url}', title='pypeal'))
+                peal_or_url = peal_id
+                while True:
+                    if peal_or_url:
+                        if peal_or_url.isnumeric():
+                            peal_id = int(peal_or_url)
+                            bb_url = get_url_from_id(peal_or_url)
+                        else:
+                            bb_url = peal_or_url
+                            if not (peal_id := get_id_from_url(peal_or_url)):
+                                print(Panel(f'Invalid Bellboard URL or peal ID: {peal_or_url}', title='pypeal'))
+                        if peal_id:
+                            break
+                    peal_or_url = Prompt.ask('Bellboard URL or peal ID')
 
                 if peal_id in peals:
                     print(Panel(f'Peal {peal_id} already added', title='pypeal'))
                 else:
-                    add_peal(url)
+                    add_peal(bb_url)
+                peal_id = None
             case 2:
                 add_peal()
+                peal_id = None
             case 3:
                 raise typer.Exit()
 
@@ -74,21 +80,21 @@ def add_peal(url: str = None) -> Peal:
 
     bb_peal: BellboardPeal = get_bellboard_peal(url)
 
-    peal = Peal.add(
-        Peal(
-            bellboard_id=bb_peal.id,
-            date=bb_peal.date,
-            place=bb_peal.place,
-            association=bb_peal.association,
-            address_dedication=bb_peal.address_dedication,
-            county=bb_peal.county,
-            changes=bb_peal.changes,
-            title=bb_peal.title,
-            duration=bb_peal.duration,
-            tenor_weight=bb_peal.tenor_weight,
-            tenor_tone=bb_peal.tenor_tone))
+    peal = Peal(bellboard_id=bb_peal.id,
+                date=bb_peal.date,
+                place=bb_peal.place,
+                association=bb_peal.association,
+                address_dedication=bb_peal.address_dedication,
+                county=bb_peal.county,
+                changes=bb_peal.changes,
+                title=bb_peal.title,
+                duration=bb_peal.duration,
+                tenor_weight=bb_peal.tenor_weight,
+                tenor_tone=bb_peal.tenor_tone)
 
-    for bell, bb_ringer in enumerate(bb_peal.ringers.values(), start=1):
+    ringers: list[tuple[Ringer, int, bool]] = []
+    bell: int = 1
+    for bb_ringer in bb_peal.ringers.values():
         matched_ringer = None
         full_name_match = Ringer.get_by_full_name(bb_ringer.name)
         match len(full_name_match):
@@ -100,11 +106,11 @@ def add_peal(url: str = None) -> Peal:
                 print(f'{bell}: {len(full_name_match)} existing ringers match "{bb_ringer.name}"')
 
         while not matched_ringer:
-            match option_prompt(['Add as new ringer', 'Search alternatives'], default=1):
+            match option_prompt(['Add as new ringer', 'Search alternatives'], default=1, cancel_option='Cancel'):
                 case 1:
                     last_name = bb_ringer.name.split(' ')[-1]
                     given_names = ' '.join(bb_ringer.name.split(' ')[:-1])
-                    matched_ringer = Ringer.add(last_name, given_names)
+                    matched_ringer = Ringer(last_name, given_names)
                 case 2:
                     last_name = Prompt.ask('Last name')
                     given_names = Prompt.ask('Given name(s)')
@@ -117,9 +123,17 @@ def add_peal(url: str = None) -> Peal:
                         case _:
                             print(f'{len(potential_ringers)} existing ringers match "{given_names} {last_name}"')
                             matched_ringer = option_prompt(potential_ringers, cancel_option='None', return_option=True)
+                case None:
+                    return None
 
-        peal.add_ringer(matched_ringer, bb_ringer.bells, bb_ringer.is_conductor)
+        ringers.append((matched_ringer, bb_ringer.bells, bb_ringer.is_conductor))
+        bell += len(bb_ringer.bells)
 
+    # Commit data
+    peal = Peal.add(peal)
+    for matched_ringer in ringers:
+        ringer = Ringer.add(matched_ringer[0].last_name, matched_ringer[0].given_names)
+        peal.add_ringer(ringer, *matched_ringer[1:])
     for bb_footnote in bb_peal.footnotes:
         peal.add_footnote(bb_footnote)
 

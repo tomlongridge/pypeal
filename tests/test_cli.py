@@ -24,24 +24,21 @@ def mock_bellboard_server(xprocess: XProcess):
     xprocess.getinfo("mock_bellboard_server").terminate()
 
 
-def run_cli(input: list[str]):
-    result = runner.invoke(app,
-                           ['--reset-database'],
-                           input='\n'.join(input) + '\n')
-    print(result.stdout)
-    assert result.exit_code == 0
-
-
 def get_parsed_peal(id: int) -> Peal:
     with open(os.path.join(os.path.dirname(__file__), 'files', 'peals', 'parsed', f'{id}.txt'), 'r') as f:
         expected = f.read()
     return expected
 
 
-def get_stored_peal(id: int) -> Peal:
+def get_stored_test_data(id: int) -> Peal:
     with open(os.path.join(os.path.dirname(__file__), 'files', 'peals', 'stored', f'{id}.txt'), 'r') as f:
         expected = f.read()
     return expected
+
+
+def store_test_data(file_name: str, data: str):
+    with open(os.path.join(os.path.dirname(__file__), 'files', 'peals', 'stored', f'{file_name}.txt'), 'w') as f:
+        f.write(data)
 
 
 runner = CliRunner()
@@ -56,32 +53,35 @@ def test_peals(mock_bellboard_server, peal_id: int):
     assert str(parsed_peal) == get_parsed_peal(peal_id)
 
 
-# @pytest.mark.parametrize(
-#         "peal_id",
-#         [file.split('.')[0] for file in os.listdir(os.path.join(os.path.dirname(__file__), 'files', 'peals', 'pages'))])
-# def test_app(mock_bellboard_server, peal_id: int):
-#     run_cli(['1', str(peal_id), '', '', '', '', '', '', '', ''])
-#     stored_peal = Peal.get(bellboard_id=peal_id)
-#     assert stored_peal is not None
-#     assert str(stored_peal) == get_stored_peal(peal_id)
-
 @pytest.mark.parametrize(
-            "peal_id,input",
-            [
-                (22152, ['1', '22152', '', '', '', '', '', '', '', '', '3']),
-                (1306360, ['1', '1306360', '', '', '', '', '', '', '3']),
-                (1346767, ['1', '1346767', '', '', '', '', '', '', '3']),
-                (1425962, ['1', '1425962', '', '', '', '', '', '', '', '', '3']),
-                (1426065, ['1', '1426065', '', '', '', '', '', '', '', '', '3']),
-                (1426139, ['1', '1426139', '', '', '', '', '', '', '', '', '', '', '3']),
-                (1433691, ['1', '1433691', '', '', '', '', '', '', '3']),
-                (1508383, ['1', '1508383', '', '', '', '', '', '', '3']),
-                (1627555, ['1', '1627555', '', '', '', '', '', '', '', '', '3']),
-            ]
-        )
-def test_app(mock_bellboard_server, peal_id: int, input: list[str]):
-    run_cli(input)
-    stored_peal = Peal.get(bellboard_id=peal_id)
-    assert stored_peal is not None
-    print(stored_peal)
-    assert str(stored_peal) == get_stored_peal(peal_id)
+            'input_file',
+            [file.split('.')[0] for file in sorted(os.listdir(os.path.join(os.path.dirname(__file__), 'files', 'peals', 'stored')))])
+def test_app(mock_bellboard_server, input_file: int):
+
+    peal_id = int(input_file.split('-')[1])
+    test_data = [data.strip() for data in get_stored_test_data(input_file).split('===')]
+    assert len(test_data) == 4, f'Test file for peal {peal_id} doesn\'t contain 4 sections'
+
+    result = None
+    stored_peal = None
+    try:
+        result = runner.invoke(app,
+                               test_data[0].split('|') if test_data[0] != '' else None,
+                               input=test_data[1].replace('|', '\n') + '\n')
+        assert result.exit_code == 0, "App exited with non-zero exit code"
+        assert result.output.strip() == test_data[3].strip(), "App output does not match expected output"
+
+        stored_peal = Peal.get(bellboard_id=peal_id)
+        assert stored_peal is not None, "Unable to retrieve saved peal"
+        assert str(stored_peal) == test_data[2], "Saved peal does not match expected peal"
+
+    except AssertionError as e:
+        store_test_data(input_file,
+                        test_data[0] +
+                        '\n===\n' +
+                        test_data[1] +
+                        '\n===\n' +
+                        (str(stored_peal) if stored_peal else test_data[2]) +
+                        '\n===\n' +
+                        (result.output if result.output else test_data[3]))
+        raise e

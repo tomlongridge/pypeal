@@ -12,7 +12,8 @@ with open(os.path.join(os.path.dirname(__file__), '..', 'files', 'ringer_test_na
 
 def generate_peal(url: str):
 
-    id, html = pypeal.bellboard.download_peal(url)
+    url, html = pypeal.bellboard.download_peal(url)
+    id = pypeal.bellboard.get_id_from_url(url)
 
     out_file_name = os.path.join(os.path.dirname(__file__), '..', 'files', 'peals', 'pages', f'{id}.html')
 

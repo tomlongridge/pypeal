@@ -11,6 +11,7 @@ configparser = "*"
 pytest = "*"
 typer = {version = "*", extras = ["all"]}
 pytest-xprocess = "*"
+pytest-mock = "*"
 
 [dev-packages]
 

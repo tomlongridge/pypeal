@@ -1,0 +1,64 @@
+
+===
+1|1425962|1|y|1|1|1|1|1|1|3
+===
+Bexhill on Sea, East Sussex
+St Peter
+on Sunday, 13 September 2009 in 45 mins (17–2–15 in E)
+
+1 Chelsea Alexander
+2 Dominik Warren
+3 Melissa Evans
+4 Valeria Perkins
+5 Savana Davis
+6 Fenton Bailey
+7 Blake Harper (c)
+8 Lenny Howard
+
+For Evensong
+
+[Imported Bellboard peal ID: 1425962]
+===
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 3                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
+Select action (1): Bellboard URL or peal ID: 1: No existing ringers match "Chelsea Alexander"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): [2]: Dominik Warren
+Is this the correct ringer? [y/n] (y): 3: No existing ringers match "Melissa Evans"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 4: No existing ringers match "Valeria Perkins"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 5: No existing ringers match "Savana Davis"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 6: No existing ringers match "Fenton Bailey"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 7: No existing ringers match "Blake Harper"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 8: No existing ringers match "Lenny Howard"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): Peal 1425962 added
+╭───────────────── http://localhost:8080/view.php?id=1425962 ──────────────────╮
+│ Bexhill on Sea, East Sussex                                                  │
+│ St Peter                                                                     │
+│ on Sunday, 13 September 2009 in 45 mins (17–2–15 in E)                       │
+│                                                                              │
+│ 1 Chelsea Alexander                                                          │
+│ 2 Dominik Warren                                                             │
+│ 3 Melissa Evans                                                              │
+│ 4 Valeria Perkins                                                            │
+│ 5 Savana Davis                                                               │
+│ 6 Fenton Bailey                                                              │
+│ 7 Blake Harper (c)                                                           │
+│ 8 Lenny Howard                                                               │
+│                                                                              │
+│ For Evensong                                                                 │
+│                                                                              │
+│ [Imported Bellboard peal ID: 1425962]                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 4                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
+Select action (1): 

@@ -111,7 +111,7 @@ class Peal:
                 'SELECT text, ringer_id, bell FROM pealfootnotes WHERE peal_id = %s', (self.id,)).fetchall()
             self.__footnotes = []
             for footnote, ringer_id, bell in results:
-                self.__footnotes.append((footnote, self.__ringers_by_id[ringer_id] if ringer_id else None, bell))
+                self.__add_footnote(footnote, ringer_id, bell)
         return self.__footnotes
 
     def add_footnote(self, footnote: str, ringer: Ringer = None):
@@ -129,7 +129,12 @@ class Peal:
                 'INSERT INTO pealfootnotes (peal_id, footnote_num, ringer_id, bell, text) VALUES (%s, %s, %s, %s, %s)',
                 (self.id, len(self.footnotes), ringer_id, bell, footnote))
             Database.get_connection().commit()
-            self.__footnotes.append(footnote)
+            self.__add_footnote(footnote, ringer_id, bell)
+
+    def __add_footnote(self, footnote: str, ringer_id: int = None, bell: int = None):
+        if self.__footnotes is None:
+            self.__footnotes = []
+        self.__footnotes.append((footnote, self.__ringers_by_id[ringer_id] if ringer_id else None, bell))
 
     def __str__(self):
         text = ''

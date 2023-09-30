@@ -24,9 +24,9 @@ class Ringer:
     @classmethod
     def get_by_full_name(cls, name: str) -> list[Ringer]:
         results = Database.get_connection().query(
-            'SELECT last_name, given_names, id FROM pypeal.ringers pr ' +
+            'SELECT last_name, given_names, id FROM ringers pr ' +
             f'WHERE CONCAT_WS(" ", given_names, last_name) = "{name}"' +
-            'OR id IN (SELECT link_id FROM pypeal.ringers ipr ' +
+            'OR id IN (SELECT link_id FROM ringers ipr ' +
             f'WHERE ipr.link_id = pr.link_id AND CONCAT_WS(" ", given_names, last_name) = "{name}")').fetchall()
         return [Ringer(*result) for result in results]
 

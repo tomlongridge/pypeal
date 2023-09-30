@@ -10,7 +10,7 @@ from requests.exceptions import RequestException
 from pypeal.config import get_config
 
 BELLBOARD_PEAL_ID_URL = '/view.php?id=%s'
-BELLBOARD_PEAL_RANDOM_URL = '/view?random'
+BELLBOARD_PEAL_RANDOM_URL = '/view.php?random'
 BELLBOARD_SEARCH_URL = '/search.php?ringer=%s'
 
 DATE_LINE_INFO_REGEX = re.compile(r'[A-Za-z]+,\s(?P<date>[0-9]+\s[A-Za-z0-9]+\s[0-9]+)(?:\s' +
@@ -103,8 +103,8 @@ def get_peal(url: str = None, html: str = None) -> BellboardPeal:
     peal = BellboardPeal()
 
     if html is None:
-        id, html = download_peal(url if url else get_config('bellboard')['url'] + BELLBOARD_PEAL_RANDOM_URL)
-        peal.id = id
+        url, html = download_peal(url if url else get_config('bellboard')['url'] + BELLBOARD_PEAL_RANDOM_URL)
+        peal.id = get_id_from_url(url)
 
     soup = BeautifulSoup(html, 'html.parser')
 
@@ -201,7 +201,7 @@ def download_peal(url: str) -> tuple[int, str]:
     response = request(url)
     logger.info(f'Retrieved peal at {response[0]}')
 
-    return (get_id_from_url(response[0]), response[1])
+    return response
 
 
 def request(url: str) -> tuple[str, str]:

@@ -1,0 +1,67 @@
+--reset-database
+===
+1|22152|1|1|1|1|1|1|1|1|3
+===
+Withycombe Raleigh, Devon
+S John the Evangelist
+on Saturday, 30 June 2001 in 49 mins (17)
+
+1 Lydia Ferguson
+2 Harold Gray
+3 Chloe Henderson
+4 Alen Henderson
+5 Lucas Wright
+6 Lucas Farrell (c)
+7 Ryan Elliott
+8 Ted Harris
+
+First away from cover on 8: 1.
+First of Grandsire inside: 4.
+
+[Imported Bellboard peal ID: 22152]
+===
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 0                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
+Select action (1): Bellboard URL or peal ID: 1: No existing ringers match "Lydia Ferguson"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 2: No existing ringers match "Harold Gray"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 3: No existing ringers match "Chloe Henderson"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 4: No existing ringers match "Alen Henderson"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 5: No existing ringers match "Lucas Wright"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 6: No existing ringers match "Lucas Farrell"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 7: No existing ringers match "Ryan Elliott"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 8: No existing ringers match "Ted Harris"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): Peal 22152 added
+╭────────────────── http://localhost:8080/view.php?id=22152 ───────────────────╮
+│ Withycombe Raleigh, Devon                                                    │
+│ S John the Evangelist                                                        │
+│ on Saturday, 30 June 2001 in 49 mins (17)                                    │
+│                                                                              │
+│ 1 Lydia Ferguson                                                             │
+│ 2 Harold Gray                                                                │
+│ 3 Chloe Henderson                                                            │
+│ 4 Alen Henderson                                                             │
+│ 5 Lucas Wright                                                               │
+│ 6 Lucas Farrell (c)                                                          │
+│ 7 Ryan Elliott                                                               │
+│ 8 Ted Harris                                                                 │
+│                                                                              │
+│ First away from cover on 8: 1.                                               │
+│ First of Grandsire inside: 4.                                                │
+│                                                                              │
+│ [Imported Bellboard peal ID: 22152]                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 1                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
+Select action (1): 

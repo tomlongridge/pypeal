@@ -1,0 +1,61 @@
+
+===
+1|1433691|1|1|1|1|1|1|3
+===
+Middlesex County Association & London Diocesan Guild
+Twickenham, Greater London
+All Hallows
+on Sunday, 5 December 1976 (7–1–11 in B)
+
+1 Edward Chapman
+2 Blake Elliott
+3 Olivia West
+4 Mike Sullivan
+5 Jack Spencer (c)
+6 Eric Ryan
+
+[6: Eric Ryan] First quarter peal
+For evensong
+
+[Imported Bellboard peal ID: 1433691]
+===
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 6                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
+Select action (1): Bellboard URL or peal ID: 1: No existing ringers match "Edward Chapman"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 2: 2 existing ringers match "Blake Elliott"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 3: No existing ringers match "Olivia West"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 4: No existing ringers match "Mike Sullivan"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 5: No existing ringers match "Jack Spencer"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 6: No existing ringers match "Eric Ryan"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): Peal 1433691 added
+╭───────────────── http://localhost:8080/view.php?id=1433691 ──────────────────╮
+│ Middlesex County Association & London Diocesan Guild                         │
+│ Twickenham, Greater London                                                   │
+│ All Hallows                                                                  │
+│ on Sunday, 5 December 1976 (7–1–11 in B)                                     │
+│                                                                              │
+│ 1 Edward Chapman                                                             │
+│ 2 Blake Elliott                                                              │
+│ 3 Olivia West                                                                │
+│ 4 Mike Sullivan                                                              │
+│ 5 Jack Spencer (c)                                                           │
+│ 6 Eric Ryan                                                                  │
+│                                                                              │
+│ [6: Eric Ryan] First quarter peal                                            │
+│ For evensong                                                                 │
+│                                                                              │
+│ [Imported Bellboard peal ID: 1433691]                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 7                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
+Select action (1): 

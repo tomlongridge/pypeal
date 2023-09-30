@@ -1,0 +1,54 @@
+
+===
+1|1306360|1|1|1|1|y|1|3
+===
+Bath & Wells Diocesan Association
+Portbury, Somerset
+Blessed Virgin Mary
+on Thursday, 17 October 2019 in 44 mins (21 in E♭)
+
+1 Dainton Casey
+2 Daryl Mason
+3 Roland Clark
+4 Michelle Thompson
+5 Ted Harris (c)
+6 David Rogers
+
+[Imported Bellboard peal ID: 1306360]
+===
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 1                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
+Select action (1): Bellboard URL or peal ID: 1: No existing ringers match "Dainton Casey"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 2: No existing ringers match "Daryl Mason"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 3: No existing ringers match "Roland Clark"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 4: No existing ringers match "Michelle Thompson"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): [5]: Ted Harris
+Is this the correct ringer? [y/n] (y): 6: No existing ringers match "David Rogers"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): Peal 1306360 added
+╭───────────────── http://localhost:8080/view.php?id=1306360 ──────────────────╮
+│ Bath & Wells Diocesan Association                                            │
+│ Portbury, Somerset                                                           │
+│ Blessed Virgin Mary                                                          │
+│ on Thursday, 17 October 2019 in 44 mins (21 in E♭)                           │
+│                                                                              │
+│ 1 Dainton Casey                                                              │
+│ 2 Daryl Mason                                                                │
+│ 3 Roland Clark                                                               │
+│ 4 Michelle Thompson                                                          │
+│ 5 Ted Harris (c)                                                             │
+│ 6 David Rogers                                                               │
+│                                                                              │
+│ [Imported Bellboard peal ID: 1306360]                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 2                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
+Select action (1): 
