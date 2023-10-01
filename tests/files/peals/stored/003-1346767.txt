@@ -1,6 +1,6 @@
 
 ===
-1|1346767|1|1|1|y|1|1|3
+1|1346767|1|||1|||1|||y|1|||1||||3
 ===
 Suffolk Guild
 Blythburgh, Suffolk
@@ -22,18 +22,35 @@ Rung as a wedding compliment to Miss Ann Pearce and Mr George Bradlaugh; Also a 
 │ Number of peals: 2                                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
-Select action (1): Bellboard URL or peal ID: 1: No existing ringers match "Blake Howard"
+Select action (1): User input >> 1
+Bellboard URL or peal ID: User input >> 1346767
+1: No existing ringers match "Blake Howard"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): 2: No existing ringers match "Aston Mitchell"
+Select action (1): User input >> 1
+Last name (Howard): User input >> Howard
+Given name(s) (Blake): User input >> Blake
+2: No existing ringers match "Aston Mitchell"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): 3: No existing ringers match "John Parker"
+Select action (1): User input >> 1
+Last name (Mitchell): User input >> Mitchell
+Given name(s) (Aston): User input >> Aston
+3: No existing ringers match "John Parker"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): [4]: Alen Henderson
-Is this the correct ringer? [y/n] (y): 5: No existing ringers match "Dominik Warren"
+Select action (1): User input >> 1
+Last name (Parker): User input >> Parker
+Given name(s) (John): User input >> John
+[4]: Alen Henderson
+Is this the correct ringer? [y/n] (y): User input >> True
+5: No existing ringers match "Dominik Warren"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): 6: No existing ringers match "Sienna Murphy"
+Select action (1): User input >> 1
+Last name (Warren): User input >> Warren
+Given name(s) (Dominik): User input >> Dominik
+6: No existing ringers match "Sienna Murphy"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): Peal 1346767 added
+Select action (1): User input >> 1
+Last name (Murphy): User input >> Murphy
+Given name(s) (Sienna): User input >> Sienna
 ╭───────────────── http://localhost:8080/view.php?id=1346767 ──────────────────╮
 │ Suffolk Guild                                                                │
 │ Blythburgh, Suffolk                                                          │
@@ -52,8 +69,10 @@ Select action (1): Peal 1346767 added
 │                                                                              │
 │ [Imported Bellboard peal ID: 1346767]                                        │
 ╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n]: User input >> None
 ╭─────────────────────────────────── pypeal ───────────────────────────────────╮
 │ Number of peals: 3                                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
-Select action (1): 
+Select action (1): User input >> 3

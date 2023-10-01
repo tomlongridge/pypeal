@@ -88,7 +88,7 @@ logger = logging.getLogger('pypeal')
 
 
 def get_url_from_id(id: int) -> str:
-    return get_config('bellboard')['url'] + (BELLBOARD_PEAL_ID_URL % id if id else BELLBOARD_PEAL_RANDOM_URL)
+    return get_config('bellboard', 'url') + (BELLBOARD_PEAL_ID_URL % id if id else BELLBOARD_PEAL_RANDOM_URL)
 
 
 def get_id_from_url(url: str) -> int:
@@ -103,7 +103,7 @@ def get_peal(url: str = None, html: str = None) -> BellboardPeal:
     peal = BellboardPeal()
 
     if html is None:
-        url, html = download_peal(url if url else get_config('bellboard')['url'] + BELLBOARD_PEAL_RANDOM_URL)
+        url, html = download_peal(url if url else get_config('bellboard', 'url') + BELLBOARD_PEAL_RANDOM_URL)
         peal.id = get_id_from_url(url)
 
     soup = BeautifulSoup(html, 'html.parser')
@@ -184,7 +184,7 @@ def search(ringer: str):
 
     logger.info(f'Searching for "{ringer}" on BellBoard...')
 
-    response: Response = request(get_config('bellboard')['url'] + BELLBOARD_SEARCH_URL % ringer)
+    response: Response = request(get_config('bellboard', 'url') + BELLBOARD_SEARCH_URL % ringer)
 
     soup = BeautifulSoup(response.text, 'html.parser')
 
@@ -208,7 +208,7 @@ def request(url: str) -> tuple[str, str]:
 
     # Rate-limit requests to avoid affecting BellBoard service
     global __last_call
-    rate_limit_secs = int(get_config('bellboard')['rate_limit_secs'])
+    rate_limit_secs = int(get_config('bellboard', 'rate_limit_secs') or 1)
     if __last_call and __last_call < datetime.now() - timedelta(seconds=-rate_limit_secs):
         logger.info(f'Waiting {rate_limit_secs}s before making BellBoard request...')
         time.sleep(rate_limit_secs)

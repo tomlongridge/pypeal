@@ -1,6 +1,6 @@
 
 ===
-1|1508383|1|1|y|y|1|y|3
+1|1508383|1|||1|||y|y|1|||y||3
 ===
 Oxford Diocesan Guild
 Maidenhead
@@ -28,16 +28,29 @@ First peal of Bristol Maximus rung in hand.
 │ Number of peals: 7                                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
-Select action (1): Bellboard URL or peal ID: 1: No existing ringers match "Sam Wells"
+Select action (1): User input >> 1
+Bellboard URL or peal ID: User input >> 1508383
+1: No existing ringers match "Sam Wells"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): 3: No existing ringers match "Rubie Owens"
+Select action (1): User input >> 1
+Last name (Wells): User input >> Wells
+Given name(s) (Sam): User input >> Sam
+3: No existing ringers match "Rubie Owens"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): [5, 6]: Lenny Howard
-Is this the correct ringer? [y/n] (y): [7, 8]: Jack Spencer
-Is this the correct ringer? [y/n] (y): 9: No existing ringers match "Arianna Holmes"
+Select action (1): User input >> 1
+Last name (Owens): User input >> Owens
+Given name(s) (Rubie): User input >> Rubie
+[5, 6]: Lenny Howard
+Is this the correct ringer? [y/n] (y): User input >> True
+[7, 8]: Jack Spencer
+Is this the correct ringer? [y/n] (y): User input >> True
+9: No existing ringers match "Arianna Holmes"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): [11, 12]: John Parker
-Is this the correct ringer? [y/n] (y): Peal 1508383 added
+Select action (1): User input >> 1
+Last name (Holmes): User input >> Holmes
+Given name(s) (Arianna): User input >> Arianna
+[11, 12]: John Parker
+Is this the correct ringer? [y/n] (y): User input >> True
 ╭───────────────── http://localhost:8080/view.php?id=1508383 ──────────────────╮
 │ Oxford Diocesan Guild                                                        │
 │ Maidenhead                                                                   │
@@ -61,8 +74,10 @@ Is this the correct ringer? [y/n] (y): Peal 1508383 added
 │                                                                              │
 │ [Imported Bellboard peal ID: 1508383]                                        │
 ╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n]: User input >> None
 ╭─────────────────────────────────── pypeal ───────────────────────────────────╮
 │ Number of peals: 8                                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
-Select action (1): 
+Select action (1): User input >> 3

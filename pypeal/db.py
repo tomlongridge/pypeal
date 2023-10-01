@@ -22,9 +22,9 @@ class Database:
         return Database.__instance
 
     def __init__(self):
-        db_host = get_config('database')['host']
-        db_user = get_config('database')['user']
-        db_password = get_config('database')['password']
+        db_host = get_config('database', 'host')
+        db_user = get_config('database', 'user')
+        db_password = get_config('database', 'password')
         self.__logger.debug(f'Connecting to database server {db_host} as user {db_user}')
         try:
             self.db = mysql.connector.connect(user=db_user, password=db_password, host=db_host)
@@ -33,7 +33,7 @@ class Database:
             raise DatabaseError(f'Unable to connect to database server {db_host} as user {db_user}: {e.msg}') from e
 
     def database_exists(self) -> bool:
-        database_name = get_config('database')['db_name']
+        database_name = get_config('database', 'db_name')
         self.__execute(f'SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "{database_name}"')
         return self.cursor.fetchone() is not None
 
@@ -50,7 +50,7 @@ class Database:
             raise DatabaseError(f'Error running database install script {path}: {e.msg}') from e
 
     def query(self, query, params=None):
-        self.__execute('USE ' + get_config('database')['db_name'])
+        self.__execute('USE ' + get_config('database', 'db_name'))
         return self.__execute(query, params)
 
     def __execute(self, query, params=None):

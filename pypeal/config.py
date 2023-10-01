@@ -12,7 +12,8 @@ def set_config_file(path: str):
     _config.read(path)
 
 
-def get_config(section: str) -> dict:
+def get_config(section: str, key: str = None) -> dict | str:
+
     global _config
     if _config is None:
         if 'PYPEAL_CONFIG' in os.environ:
@@ -21,4 +22,12 @@ def get_config(section: str) -> dict:
             set_config_file(os.path.join(os.getcwd(), 'config.ini'))
         else:
             raise FileNotFoundError('No config.ini found in current directory or referenced by PYPEAL_CONFIG environment variable')
-    return dict(_config.items(section))
+
+    if _config.has_section(section):
+        config_section = dict(_config.items(section))
+        if key is None:
+            return config_section
+        elif key in config_section:
+            return config_section[key]
+
+    return None

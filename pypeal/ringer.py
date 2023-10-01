@@ -11,6 +11,11 @@ class Ringer:
     given_names: str
     id: int = None
 
+    def add_alias(self, last_name: str, given_names: str):
+        Database.get_connection().query(
+            'INSERT INTO ringers (last_name, given_names, link_id) VALUES (%s, %s, %s)', (last_name, given_names, self.id))
+        Database.get_connection().commit()
+
     def __str__(self) -> str:
         return f'{self.given_names} {self.last_name}'
 
@@ -27,12 +32,22 @@ class Ringer:
             'SELECT last_name, given_names, id FROM ringers pr ' +
             f'WHERE CONCAT_WS(" ", given_names, last_name) = "{name}"' +
             'OR id IN (SELECT link_id FROM ringers ipr ' +
-            f'WHERE ipr.link_id = pr.link_id AND CONCAT_WS(" ", given_names, last_name) = "{name}")').fetchall()
+            'WHERE ipr.link_id = pr.link_id AND ' +
+            f'CONCAT_WS(" ", ipr.given_names, ipr.last_name) = "{name}")').fetchall()
         return [Ringer(*result) for result in results]
 
     @classmethod
-    def get_by_name(cls, last_name: str, given_names: str) -> list[Ringer]:
-        return cls.get_by_full_name(f'{given_names} {last_name}')
+    def get_by_name(cls, last_name: str = None, given_names: str = None) -> list[Ringer]:
+        results = Database.get_connection().query(
+            'SELECT last_name, given_names, id FROM ringers pr ' +
+            'WHERE ' +
+            f'(pr.last_name LIKE "{last_name if last_name and len(last_name.strip()) else "%"}" ' +
+            f'AND pr.given_names LIKE "{given_names if given_names and len(given_names.strip()) else "%"}") ' +
+            'OR id IN (SELECT link_id FROM ringers ipr ' +
+            'WHERE ipr.link_id = pr.link_id AND ' +
+            f'(ipr.last_name LIKE "{last_name if last_name and len(last_name.strip()) else "%"}" ' +
+            f'AND ipr.given_names LIKE "{given_names if given_names and len(given_names.strip()) else "%"}"))').fetchall()
+        return [Ringer(*result) for result in results]
 
     @classmethod
     def get_all(cls) -> list[Ringer]:
@@ -41,6 +56,7 @@ class Ringer:
 
     @classmethod
     def add(cls, last_name: str, given_names: str) -> Ringer:
-        result = Database.get_connection().query('INSERT INTO ringers (last_name, given_names) VALUES (%s, %s)', (last_name, given_names))
+        result = Database.get_connection().query(
+            'INSERT INTO ringers (last_name, given_names) VALUES (%s, %s)', (last_name, given_names))
         Database.get_connection().commit()
         return cls.get(result.lastrowid)

@@ -1,6 +1,6 @@
 
 ===
-1|1433691|1|1|1|1|1|1|3
+1|1433691|1|||y|1|||1|||1|||1||||3
 ===
 Middlesex County Association & London Diocesan Guild
 Twickenham, Greater London
@@ -23,19 +23,35 @@ For evensong
 │ Number of peals: 6                                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
-Select action (1): Bellboard URL or peal ID: 1: No existing ringers match "Edward Chapman"
+Select action (1): User input >> 1
+Bellboard URL or peal ID: User input >> 1433691
+1: No existing ringers match "Edward Chapman"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): 2: 2 existing ringers match "Blake Elliott"
+Select action (1): User input >> 1
+Last name (Chapman): User input >> Chapman
+Given name(s) (Edward): User input >> Edward
+[2]: Blake Elliott
+Is this the correct ringer? [y/n] (y): User input >> True
+3: No existing ringers match "Olivia West"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): 3: No existing ringers match "Olivia West"
+Select action (1): User input >> 1
+Last name (West): User input >> West
+Given name(s) (Olivia): User input >> Olivia
+4: No existing ringers match "Mike Sullivan"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): 4: No existing ringers match "Mike Sullivan"
+Select action (1): User input >> 1
+Last name (Sullivan): User input >> Sullivan
+Given name(s) (Mike): User input >> Mike
+5: No existing ringers match "Jack Spencer"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): 5: No existing ringers match "Jack Spencer"
+Select action (1): User input >> 1
+Last name (Spencer): User input >> Spencer
+Given name(s) (Jack): User input >> Jack
+6: No existing ringers match "Eric Ryan"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): 6: No existing ringers match "Eric Ryan"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): Peal 1433691 added
+Select action (1): User input >> 1
+Last name (Ryan): User input >> Ryan
+Given name(s) (Eric): User input >> Eric
 ╭───────────────── http://localhost:8080/view.php?id=1433691 ──────────────────╮
 │ Middlesex County Association & London Diocesan Guild                         │
 │ Twickenham, Greater London                                                   │
@@ -54,8 +70,10 @@ Select action (1): Peal 1433691 added
 │                                                                              │
 │ [Imported Bellboard peal ID: 1433691]                                        │
 ╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n]: User input >> None
 ╭─────────────────────────────────── pypeal ───────────────────────────────────╮
 │ Number of peals: 7                                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
-Select action (1): 
+Select action (1): User input >> 3

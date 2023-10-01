@@ -1,6 +1,6 @@
 
 ===
-1|1306360|1|1|1|1|y|1|3
+1|1306360|1|||1|||1|||1|||y|1||||3
 ===
 Bath & Wells Diocesan Association
 Portbury, Somerset
@@ -20,18 +20,35 @@ on Thursday, 17 October 2019 in 44 mins (21 in E♭)
 │ Number of peals: 1                                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
-Select action (1): Bellboard URL or peal ID: 1: No existing ringers match "Dainton Casey"
+Select action (1): User input >> 1
+Bellboard URL or peal ID: User input >> 1306360
+1: No existing ringers match "Dainton Casey"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): 2: No existing ringers match "Daryl Mason"
+Select action (1): User input >> 1
+Last name (Casey): User input >> Casey
+Given name(s) (Dainton): User input >> Dainton
+2: No existing ringers match "Daryl Mason"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): 3: No existing ringers match "Roland Clark"
+Select action (1): User input >> 1
+Last name (Mason): User input >> Mason
+Given name(s) (Daryl): User input >> Daryl
+3: No existing ringers match "Roland Clark"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): 4: No existing ringers match "Michelle Thompson"
+Select action (1): User input >> 1
+Last name (Clark): User input >> Clark
+Given name(s) (Roland): User input >> Roland
+4: No existing ringers match "Michelle Thompson"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): [5]: Ted Harris
-Is this the correct ringer? [y/n] (y): 6: No existing ringers match "David Rogers"
+Select action (1): User input >> 1
+Last name (Thompson): User input >> Thompson
+Given name(s) (Michelle): User input >> Michelle
+[5]: Ted Harris
+Is this the correct ringer? [y/n] (y): User input >> True
+6: No existing ringers match "David Rogers"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): Peal 1306360 added
+Select action (1): User input >> 1
+Last name (Rogers): User input >> Rogers
+Given name(s) (David): User input >> David
 ╭───────────────── http://localhost:8080/view.php?id=1306360 ──────────────────╮
 │ Bath & Wells Diocesan Association                                            │
 │ Portbury, Somerset                                                           │
@@ -47,8 +64,10 @@ Select action (1): Peal 1306360 added
 │                                                                              │
 │ [Imported Bellboard peal ID: 1306360]                                        │
 ╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n]: User input >> None
 ╭─────────────────────────────────── pypeal ───────────────────────────────────╮
 │ Number of peals: 2                                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
-Select action (1): 
+Select action (1): User input >> 3
