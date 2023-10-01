@@ -1,6 +1,6 @@
 
 ===
-1|1426065|1|||1|||1|||1|||y|1|||1|||1||||3
+1|1426065|1|||1|||1|||1|||1|1|||1|||1|Bennett|Leo|y|y|3
 ===
 Bath, Somerset
 Blessed Virgin Mary, Bathwick
@@ -10,18 +10,16 @@ on Sunday, 2 December 2001 in 50 mins
 2 Daniel Miller
 3 Clark Elliott
 4 Chester Edwards
-5 Chelsea Alexander
+5 Aston Mitchell
 6 Cadie Nelson
 7 Blake Elliott (c)
-8 Leonardo Bennett
+8 Leo Bennett
 
 Rung for Morning Service. First of Triples "inside"-4.
 
 [Imported Bellboard peal ID: 1426065]
 ===
-╭─────────────────────────────────── pypeal ───────────────────────────────────╮
-│ Number of peals: 4                                                           │
-╰──────────────────────────────────────────────────────────────────────────────╯
+[pypeal panel displayed]
 Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
 Select action (1): User input >> 1
 Bellboard URL or peal ID: User input >> 1426065
@@ -45,8 +43,9 @@ Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): User input >> 1
 Last name (Edwards): User input >> Edwards
 Given name(s) (Chester): User input >> Chester
-[5]: Chelsea Alexander
-Is this the correct ringer? [y/n] (y): User input >> True
+5: 2 existing ringers match "Aston Mitchell"
+Options: 1) Aston Mitchell (15), 2) Aston Mitchell (19), 3) None
+Select action: User input >> Aston Mitchell (1)
 6: No existing ringers match "Cadie Nelson"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): User input >> 1
@@ -61,29 +60,13 @@ Given name(s) (Blake): User input >> Blake
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): User input >> 1
 Last name (Bennett): User input >> Bennett
-Given name(s) (Leonardo): User input >> Leonardo
-╭───────────────── http://localhost:8080/view.php?id=1426065 ──────────────────╮
-│ Bath, Somerset                                                               │
-│ Blessed Virgin Mary, Bathwick                                                │
-│ on Sunday, 2 December 2001 in 50 mins                                        │
-│                                                                              │
-│ 1 Julia Fowler                                                               │
-│ 2 Daniel Miller                                                              │
-│ 3 Clark Elliott                                                              │
-│ 4 Chester Edwards                                                            │
-│ 5 Chelsea Alexander                                                          │
-│ 6 Cadie Nelson                                                               │
-│ 7 Blake Elliott (c)                                                          │
-│ 8 Leonardo Bennett                                                           │
-│                                                                              │
-│ Rung for Morning Service. First of Triples "inside"-4.                       │
-│                                                                              │
-│ [Imported Bellboard peal ID: 1426065]                                        │
-╰──────────────────────────────────────────────────────────────────────────────╯
+Given name(s) (Leonardo): User input >> Leo
+Add "Leonardo Bennett" as an alias?
+Is this correct? [y/n] (y): User input >> True
+[http://localhost:8080/view.php?id=1426065 panel displayed]
 Save this peal?
-Is this correct? [y/n]: User input >> None
-╭─────────────────────────────────── pypeal ───────────────────────────────────╮
-│ Number of peals: 5                                                           │
-╰──────────────────────────────────────────────────────────────────────────────╯
+Is this correct? [y/n] (y): User input >> True
+Peal 1426065 added
+[pypeal panel displayed]
 Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
 Select action (1): User input >> 3

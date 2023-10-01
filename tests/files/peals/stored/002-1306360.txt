@@ -1,6 +1,6 @@
 
 ===
-1|1306360|1|||1|||1|||1|||y|1||||3
+1|1306360|1|||1|||1|||1|||y|1|||y|3
 ===
 Bath & Wells Diocesan Association
 Portbury, Somerset
@@ -16,9 +16,7 @@ on Thursday, 17 October 2019 in 44 mins (21 in E♭)
 
 [Imported Bellboard peal ID: 1306360]
 ===
-╭─────────────────────────────────── pypeal ───────────────────────────────────╮
-│ Number of peals: 1                                                           │
-╰──────────────────────────────────────────────────────────────────────────────╯
+[pypeal panel displayed]
 Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
 Select action (1): User input >> 1
 Bellboard URL or peal ID: User input >> 1306360
@@ -42,32 +40,17 @@ Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): User input >> 1
 Last name (Thompson): User input >> Thompson
 Given name(s) (Michelle): User input >> Michelle
-[5]: Ted Harris
+[5]: "Ted Harris" -> Ted Harris
 Is this the correct ringer? [y/n] (y): User input >> True
 6: No existing ringers match "David Rogers"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): User input >> 1
 Last name (Rogers): User input >> Rogers
 Given name(s) (David): User input >> David
-╭───────────────── http://localhost:8080/view.php?id=1306360 ──────────────────╮
-│ Bath & Wells Diocesan Association                                            │
-│ Portbury, Somerset                                                           │
-│ Blessed Virgin Mary                                                          │
-│ on Thursday, 17 October 2019 in 44 mins (21 in E♭)                           │
-│                                                                              │
-│ 1 Dainton Casey                                                              │
-│ 2 Daryl Mason                                                                │
-│ 3 Roland Clark                                                               │
-│ 4 Michelle Thompson                                                          │
-│ 5 Ted Harris (c)                                                             │
-│ 6 David Rogers                                                               │
-│                                                                              │
-│ [Imported Bellboard peal ID: 1306360]                                        │
-╰──────────────────────────────────────────────────────────────────────────────╯
+[http://localhost:8080/view.php?id=1306360 panel displayed]
 Save this peal?
-Is this correct? [y/n]: User input >> None
-╭─────────────────────────────────── pypeal ───────────────────────────────────╮
-│ Number of peals: 2                                                           │
-╰──────────────────────────────────────────────────────────────────────────────╯
+Is this correct? [y/n] (y): User input >> True
+Peal 1306360 added
+[pypeal panel displayed]
 Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
 Select action (1): User input >> 3

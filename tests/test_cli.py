@@ -68,10 +68,10 @@ def test_app(mock_bellboard_server, input_file: int):
         result = runner.invoke(app,
                                test_data[0].split('|') if test_data[0] != '' else None,
                                input=test_data[1].replace('|', '\n') + '\n')
-        assert result.exit_code == 0, "App exited with non-zero exit code"
-        assert result.output.strip() == test_data[3].strip(), "App output does not match expected output"
-
         stored_peal = Peal.get(bellboard_id=peal_id)
+
+        assert result.output.strip() == test_data[3].strip(), "App output does not match expected output"
+        assert result.exit_code == 0, "App exited with non-zero exit code"
         assert stored_peal is not None, "Unable to retrieve saved peal"
         assert str(stored_peal) == test_data[2], "Saved peal does not match expected peal"
 

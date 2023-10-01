@@ -1,12 +1,12 @@
 
 ===
-1|1425962|1|||y|1|||1|||1|||1|||1|||1||||3
+1|1425962|n|1|||y|1|||1|||1|||1|||1|||1|||y|3
 ===
 Bexhill on Sea, East Sussex
 St Peter
 on Sunday, 13 September 2009 in 45 mins (17–2–15 in E)
 
-1 Chelsea Alexander
+1 Aston Mitchell
 2 Dominik Warren
 3 Melissa Evans
 4 Valeria Perkins
@@ -19,18 +19,17 @@ For Evensong
 
 [Imported Bellboard peal ID: 1425962]
 ===
-╭─────────────────────────────────── pypeal ───────────────────────────────────╮
-│ Number of peals: 3                                                           │
-╰──────────────────────────────────────────────────────────────────────────────╯
+[pypeal panel displayed]
 Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
 Select action (1): User input >> 1
 Bellboard URL or peal ID: User input >> 1425962
-1: No existing ringers match "Chelsea Alexander"
+[1]: "Aston Mitchell" -> Aston Mitchell
+Is this the correct ringer? [y/n] (y): User input >> False
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): User input >> 1
-Last name (Alexander): User input >> Alexander
-Given name(s) (Chelsea): User input >> Chelsea
-[2]: Dominik Warren
+Last name (Mitchell): User input >> Mitchell
+Given name(s) (Aston): User input >> Aston
+[2]: "Dominik Warren" -> Dominik Warren
 Is this the correct ringer? [y/n] (y): User input >> True
 3: No existing ringers match "Melissa Evans"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
@@ -62,28 +61,10 @@ Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): User input >> 1
 Last name (Howard): User input >> Howard
 Given name(s) (Lenny): User input >> Lenny
-╭───────────────── http://localhost:8080/view.php?id=1425962 ──────────────────╮
-│ Bexhill on Sea, East Sussex                                                  │
-│ St Peter                                                                     │
-│ on Sunday, 13 September 2009 in 45 mins (17–2–15 in E)                       │
-│                                                                              │
-│ 1 Chelsea Alexander                                                          │
-│ 2 Dominik Warren                                                             │
-│ 3 Melissa Evans                                                              │
-│ 4 Valeria Perkins                                                            │
-│ 5 Savana Davis                                                               │
-│ 6 Fenton Bailey                                                              │
-│ 7 Blake Harper (c)                                                           │
-│ 8 Lenny Howard                                                               │
-│                                                                              │
-│ For Evensong                                                                 │
-│                                                                              │
-│ [Imported Bellboard peal ID: 1425962]                                        │
-╰──────────────────────────────────────────────────────────────────────────────╯
+[http://localhost:8080/view.php?id=1425962 panel displayed]
 Save this peal?
-Is this correct? [y/n]: User input >> None
-╭─────────────────────────────────── pypeal ───────────────────────────────────╮
-│ Number of peals: 4                                                           │
-╰──────────────────────────────────────────────────────────────────────────────╯
+Is this correct? [y/n] (y): User input >> True
+Peal 1425962 added
+[pypeal panel displayed]
 Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
 Select action (1): User input >> 3

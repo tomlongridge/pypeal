@@ -1,6 +1,8 @@
 import logging
 from rich.prompt import IntPrompt, Prompt, Confirm
+from rich.panel import Panel
 from rich import print
+from rich.markup import escape
 
 from pypeal.config import get_config
 
@@ -19,14 +21,15 @@ def ask(prompt: str, default: str = None) -> str:
     return response
 
 
-def confirm(prompt: str, confirm_message: str = 'Is this correct?', default: bool = None) -> bool:
+def confirm(prompt: str, confirm_message: str = 'Is this correct?', default: bool = True) -> bool:
     print(prompt)
-    response = Confirm.ask(confirm_message, default=None if default is None else 'y' if default else 'n')
+    response = Confirm.ask(confirm_message, default='y' if default else 'n')
     print_user_input(confirm_message, response)
     return response
 
 
-def option_prompt(options: list[any],
+def choose_option(options: list[any],
+                  values: list[any] = None,
                   prompt: str = 'Options',
                   default: int = None,
                   return_option: bool = False,
@@ -45,10 +48,19 @@ def option_prompt(options: list[any],
 
     if cancel_option and choice == len(option_list):
         response = None
+        print_user_input(prompt_text, cancel_option)
     elif return_option:
-        response = options[choice - 1]
+        response = values[choice - 1] if values else options[choice - 1]
+        print_user_input(prompt_text, f'{response} ({choice})')
     else:
         response = choice
-    print_user_input(prompt_text, response)
+        print_user_input(prompt_text, f'{choice}')
 
     return response
+
+
+def panel(content: str, title: str = 'pypeal'):
+    if get_config('diagnostics', 'print_user_input') != 'True':
+        print(Panel(escape(content), title=title))
+    else:
+        print(escape(f'[{title} panel displayed]'))

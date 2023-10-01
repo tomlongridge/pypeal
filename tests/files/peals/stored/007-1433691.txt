@@ -1,6 +1,6 @@
 
 ===
-1|1433691|1|||y|1|||1|||1|||1||||3
+1|1433691|1|||y|1|||1|Sullivan|Michael|y|1|||1|||y|3
 ===
 Middlesex County Association & London Diocesan Guild
 Twickenham, Greater London
@@ -10,7 +10,7 @@ on Sunday, 5 December 1976 (7–1–11 in B)
 1 Edward Chapman
 2 Blake Elliott
 3 Olivia West
-4 Mike Sullivan
+4 Michael Sullivan
 5 Jack Spencer (c)
 6 Eric Ryan
 
@@ -19,9 +19,7 @@ For evensong
 
 [Imported Bellboard peal ID: 1433691]
 ===
-╭─────────────────────────────────── pypeal ───────────────────────────────────╮
-│ Number of peals: 6                                                           │
-╰──────────────────────────────────────────────────────────────────────────────╯
+[pypeal panel displayed]
 Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
 Select action (1): User input >> 1
 Bellboard URL or peal ID: User input >> 1433691
@@ -30,7 +28,7 @@ Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): User input >> 1
 Last name (Chapman): User input >> Chapman
 Given name(s) (Edward): User input >> Edward
-[2]: Blake Elliott
+[2]: "Blake Elliott" -> Blake Elliott
 Is this the correct ringer? [y/n] (y): User input >> True
 3: No existing ringers match "Olivia West"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
@@ -41,7 +39,9 @@ Given name(s) (Olivia): User input >> Olivia
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): User input >> 1
 Last name (Sullivan): User input >> Sullivan
-Given name(s) (Mike): User input >> Mike
+Given name(s) (Mike): User input >> Michael
+Add "Mike Sullivan" as an alias?
+Is this correct? [y/n] (y): User input >> True
 5: No existing ringers match "Jack Spencer"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): User input >> 1
@@ -52,28 +52,10 @@ Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): User input >> 1
 Last name (Ryan): User input >> Ryan
 Given name(s) (Eric): User input >> Eric
-╭───────────────── http://localhost:8080/view.php?id=1433691 ──────────────────╮
-│ Middlesex County Association & London Diocesan Guild                         │
-│ Twickenham, Greater London                                                   │
-│ All Hallows                                                                  │
-│ on Sunday, 5 December 1976 (7–1–11 in B)                                     │
-│                                                                              │
-│ 1 Edward Chapman                                                             │
-│ 2 Blake Elliott                                                              │
-│ 3 Olivia West                                                                │
-│ 4 Mike Sullivan                                                              │
-│ 5 Jack Spencer (c)                                                           │
-│ 6 Eric Ryan                                                                  │
-│                                                                              │
-│ [6: Eric Ryan] First quarter peal                                            │
-│ For evensong                                                                 │
-│                                                                              │
-│ [Imported Bellboard peal ID: 1433691]                                        │
-╰──────────────────────────────────────────────────────────────────────────────╯
+[http://localhost:8080/view.php?id=1433691 panel displayed]
 Save this peal?
-Is this correct? [y/n]: User input >> None
-╭─────────────────────────────────── pypeal ───────────────────────────────────╮
-│ Number of peals: 7                                                           │
-╰──────────────────────────────────────────────────────────────────────────────╯
+Is this correct? [y/n] (y): User input >> True
+Peal 1433691 added
+[pypeal panel displayed]
 Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
 Select action (1): User input >> 3

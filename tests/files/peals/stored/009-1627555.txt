@@ -1,6 +1,6 @@
 
 ===
-1|1627555|y|1|||1|||1|||1|||1|||1|||1||||3
+1|1627555|y|2|1|||1|||1|||1|||1|||1|||1|||y|3
 ===
 Longney, Gloucestershire
 St Lawrence
@@ -19,14 +19,14 @@ on Saturday, 13 May 2023 in 46 mins (10–3–17 in F)
 
 [Imported Bellboard peal ID: 1627555]
 ===
-╭─────────────────────────────────── pypeal ───────────────────────────────────╮
-│ Number of peals: 8                                                           │
-╰──────────────────────────────────────────────────────────────────────────────╯
+[pypeal panel displayed]
 Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
 Select action (1): User input >> 1
 Bellboard URL or peal ID: User input >> 1627555
-[1]: Aston Mitchell
-Is this the correct ringer? [y/n] (y): User input >> True
+1: 2 existing ringers match "Aston Mitchell"
+Options: 1) Aston Mitchell (15), 2) Aston Mitchell (19), 3) None
+Select action: Please enter a valid integer number
+Select action: User input >> Aston Mitchell (2)
 2: No existing ringers match "Carina Warren"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): User input >> 1
@@ -62,28 +62,10 @@ Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): User input >> 1
 Last name (Williams): User input >> Williams
 Given name(s) (Michael): User input >> Michael
-╭───────────────── http://localhost:8080/view.php?id=1627555 ──────────────────╮
-│ Longney, Gloucestershire                                                     │
-│ St Lawrence                                                                  │
-│ on Saturday, 13 May 2023 in 46 mins (10–3–17 in F)                           │
-│                                                                              │
-│ 1 Aston Mitchell (c)                                                         │
-│ 2 Carina Warren                                                              │
-│ 3 Ellia Armstrong                                                            │
-│ 4 Edward Dixon                                                               │
-│ 5 Ned Andrews                                                                │
-│ 6 Richard Higgins                                                            │
-│ 7 Carl Johnston                                                              │
-│ 8 Michael Williams                                                           │
-│                                                                              │
-│ 31/50                                                                        │
-│                                                                              │
-│ [Imported Bellboard peal ID: 1627555]                                        │
-╰──────────────────────────────────────────────────────────────────────────────╯
+[http://localhost:8080/view.php?id=1627555 panel displayed]
 Save this peal?
-Is this correct? [y/n]: User input >> None
-╭─────────────────────────────────── pypeal ───────────────────────────────────╮
-│ Number of peals: 9                                                           │
-╰──────────────────────────────────────────────────────────────────────────────╯
+Is this correct? [y/n] (y): User input >> True
+Peal 1627555 added
+[pypeal panel displayed]
 Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
 Select action (1): User input >> 3
