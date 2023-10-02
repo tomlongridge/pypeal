@@ -16,16 +16,26 @@ def print_user_input(prompt: str, message: str):
 
 
 def ask(prompt: str, default: str = None) -> str:
-    response = Prompt.ask(prompt, default=default)
-    print_user_input(prompt, response)
-    return response
+    try:
+        response = Prompt.ask(prompt, default=default)
+        print_user_input(prompt, response)
+        return response
+    except KeyboardInterrupt:
+        print_user_input(prompt, '[Abort]')
+        print()  # Ensure subsequent prompt is on a new line
+        return None
 
 
 def confirm(prompt: str, confirm_message: str = 'Is this correct?', default: bool = True) -> bool:
-    print(prompt)
-    response = Confirm.ask(confirm_message, default='y' if default else 'n')
-    print_user_input(confirm_message, response)
-    return response
+    try:
+        print(prompt)
+        response = Confirm.ask(confirm_message, default='y' if default else 'n')
+        print_user_input(confirm_message, response)
+        return response
+    except KeyboardInterrupt:
+        print_user_input(prompt, '[Abort]')
+        print()  # Ensure subsequent prompt is on a new line
+        return None
 
 
 def choose_option(options: list[any],
@@ -40,11 +50,16 @@ def choose_option(options: list[any],
         prompt_text += f'{i + 1}) {option}'
         prompt_text += ', ' if i < len(option_list) - 1 else ''
     print(prompt_text)
-    choice = IntPrompt.ask('Select action',
-                           choices=[str(v) for v in range(1, len(option_list)+1)],
-                           default=default,
-                           show_choices=False,
-                           show_default=True)
+    try:
+        choice = IntPrompt.ask('Select action',
+                               choices=[str(v) for v in range(1, len(option_list)+1)],
+                               default=default,
+                               show_choices=False,
+                               show_default=True)
+    except KeyboardInterrupt:
+        print_user_input(prompt_text, '[Abort]')
+        print()  # Ensure subsequent prompt is on a new line
+        return None
 
     if cancel_option and choice == len(option_list):
         response = None
@@ -64,3 +79,7 @@ def panel(content: str, title: str = 'pypeal'):
         print(Panel(escape(content), title=title))
     else:
         print(escape(f'[{title} panel displayed]'))
+
+
+def error(message: str):
+    print(Panel(f'[bold red]Error:[/] {message}'))
