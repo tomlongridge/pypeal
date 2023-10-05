@@ -2,8 +2,8 @@ import hashlib
 import os
 from bs4 import BeautifulSoup
 import sys
-sys.path.append('.')
-import pypeal.bellboard  # noqa: E402
+sys.path.append('src')
+from pypeal.bellboard import download_peal, get_id_from_url, get_peal_from_html  # noqa: E402
 
 
 with open(os.path.join(os.path.dirname(__file__), '..', 'files', 'ringer_test_names.txt'), 'r') as f:
@@ -12,8 +12,8 @@ with open(os.path.join(os.path.dirname(__file__), '..', 'files', 'ringer_test_na
 
 def generate_peal(url: str):
 
-    url, html = pypeal.bellboard.download_peal(url)
-    id = pypeal.bellboard.get_id_from_url(url)
+    url, html = download_peal(url)
+    id = get_id_from_url(url)
 
     out_file_name = os.path.join(os.path.dirname(__file__), '..', 'files', 'peals', 'pages', f'{id}.html')
 
@@ -38,8 +38,7 @@ def generate_peal(url: str):
         f.write(str(soup))
 
     print('Parsing peal...')
-    bb_peal = pypeal.bellboard.get_peal(html=str(soup))
-    bb_peal.id = id
+    bb_peal = get_peal_from_html(id, str(soup))
 
     out_file_name = os.path.join(os.path.dirname(__file__), '..', 'files', 'peals', 'parsed', f'{id}.txt')
     print(f'Writing peal to {out_file_name}...')

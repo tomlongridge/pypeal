@@ -1,14 +1,12 @@
 import os
-from typer.testing import CliRunner
-
 import pytest
 from xprocess import ProcessStarter, XProcess
+from typer.testing import CliRunner
+from click.testing import Result
 
-import sys
-sys.path.append('../pypeal')
-from pypeal.peal import Peal  # noqa: E402
-from pypeal.cli.app import app  # noqa: E402
-from pypeal.bellboard import get_peal as get_bellboard_peal, get_url_from_id  # noqa: E402
+from pypeal.peal import Peal
+from pypeal.cli.app import app
+from pypeal.bellboard import get_peal as get_bellboard_peal, get_url_from_id
 
 
 @pytest.fixture
@@ -62,12 +60,15 @@ def test_app(mock_bellboard_server, input_file: int):
     test_data = [data.strip() for data in get_stored_test_data(input_file).split('===')]
     assert len(test_data) == 4, f'Test file for peal {peal_id} doesn\'t contain 4 sections'
 
-    result = None
+    result: Result = None
     stored_peal = None
     try:
         result = runner.invoke(app,
                                test_data[0].split('|') if test_data[0] != '' else None,
                                input=test_data[1].replace('|', '\n') + '\n')
+        if result.exception:
+            raise result.exception
+
         stored_peal = Peal.get(bellboard_id=peal_id)
 
         assert result.output.strip() == test_data[3].strip(), "App output does not match expected output"

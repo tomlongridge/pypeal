@@ -4,9 +4,9 @@ import typer
 
 from rich import print
 
-import pypeal
-from pypeal.bellboard import get_peal as get_bellboard_peal, BellboardPeal, get_id_from_url, get_url_from_id
+from pypeal.bellboard import get_peal as get_bellboard_peal, get_id_from_url, get_url_from_id
 from pypeal.cli.prompts import choose_option, ask, confirm, panel, error
+from pypeal.db import initialize as initialize_db
 from pypeal.peal import Peal
 from pypeal.ringer import Ringer
 from pypeal.config import set_config_file
@@ -31,8 +31,9 @@ app = typer.Typer()
 
 @app.command()
 def main(
+        action: Annotated[str, typer.Argument(help="Action to perform.")] = None,
         reset_database: Annotated[bool, typer.Option(help="Reset the database first.")] = False,
-        peal_id: Annotated[str, typer.Option("--add-peal", help="Add a peal by Bellboard URL")] = None,
+        peal_id_or_url: Annotated[str, typer.Option("--peal", help="The Bellboard peal ID or URL")] = None,
         config: Annotated[str, typer.Option(help="Path to config file.")] = None,
         ):
 
@@ -45,8 +46,31 @@ def main(
 
     initialize_or_exit(reset_database)
 
-    if peal_id:
-        logger.debug(f'Adding peal ID {peal_id} provided as "add-peal" option')
+    peal_id = None
+    if peal_id_or_url:
+        if (peal_id := validate_peal_input(peal_id_or_url)):
+            logger.debug(f'Adding peal ID {peal_id} provided as "add-peal" option')
+        else:
+            error(f'Invalid Bellboard URL or peal ID: {peal_id_or_url}')
+            raise typer.Exit()
+
+    match action:
+        case None | 'add':
+            run_interactive(peal_id)
+        case 'view':
+            run_view(peal_id)
+        case _:
+            error(f'Unknown action: {action}')
+
+
+def run_view(peal_id: int):
+    if peal_id is None:
+        error('No peal ID provided')
+        raise typer.Exit()
+    panel(str(Peal.get(bellboard_id=peal_id)))
+
+
+def run_interactive(peal_id: int = None):
 
     while True:
         peals: dict[str, Peal] = Peal.get_all()
@@ -54,22 +78,12 @@ def main(
 
         match choose_option(['Add peal by URL', 'Add random peal', 'Exit'], default=1) if peal_id is None else 1:
             case 1:
-                peal_or_url = peal_id
                 bb_url = None
-                while True:
-                    if peal_or_url:
-                        if peal_or_url.isnumeric():
-                            peal_id = int(peal_or_url)
-                            bb_url = get_url_from_id(peal_or_url)
-                        else:
-                            bb_url = peal_or_url
-                            if not (peal_id := get_id_from_url(peal_or_url)):
-                                error(f'Invalid Bellboard URL or peal ID: {peal_or_url}')
-                        if peal_id:
-                            break
-                    if not (peal_or_url := ask('Bellboard URL or peal ID')):
-                        bb_url = None
+                while peal_id is None:
+                    if not (peal_id := validate_peal_input(ask('Bellboard URL or peal ID'))):
+                        error('Invalid Bellboard URL or peal ID')
 
+                bb_url = get_url_from_id(peal_id)
                 if peal_id in peals:
                     error(f'Peal {peal_id} already added')
                 elif bb_url:
@@ -84,52 +98,37 @@ def main(
 
 def add_peal(url: str = None) -> Peal:
 
-    bb_peal: BellboardPeal = get_bellboard_peal(url)
-
-    # Convert basic peal details
-
-    peal = Peal(bellboard_id=bb_peal.id,
-                date=bb_peal.date,
-                place=bb_peal.place,
-                association=bb_peal.association,
-                address_dedication=bb_peal.address_dedication,
-                county=bb_peal.county,
-                changes=bb_peal.changes,
-                title=bb_peal.title,
-                duration=bb_peal.duration,
-                tenor_weight=bb_peal.tenor_weight,
-                tenor_tone=bb_peal.tenor_tone)
+    peal: Peal = get_bellboard_peal(url)
 
     # Attempt to match names to ringers
 
-    peal_ringers: list[tuple[Ringer, int, bool]] = []  # Build up list of ringer records and commit at the end (in case of abort)
     bell: int = 1                                      # Track the bell, allowing for multiple bells per ringer
-    for bb_ringer in bb_peal.ringers.values():
+    bb_ringer: tuple[Ringer, int, bool]
+    for index, bb_ringer in enumerate(peal.ringers):
 
         matched_ringer: Ringer = None                  # Holds the ringer record that matches the name found on Bellboard
 
-        full_name_match = Ringer.get_by_full_name(bb_ringer.name)
+        full_name_match = Ringer.get_by_full_name(bb_ringer[0].name)
         match len(full_name_match):
             case 0:
                 pass  # Allow to continue to name matching
             case 1:
-                matched_ringer = prompt_add_ringer(bb_ringer.name, full_name_match[0], bb_ringer.bells)
+                matched_ringer = prompt_add_ringer(bb_ringer[0].name, full_name_match[0], bb_ringer[1])
             case _:
-                print(f'{bell}: {len(full_name_match)} existing ringers match "{bb_ringer.name}"')
-                matched_ringer = choose_option([f'{r.name} ({r.id})' for r in full_name_match], values=full_name_match, cancel_option='None', return_option=True)
-
-        bb_last_name, bb_given_names = split_full_name(bb_ringer.name)
+                print(f'{bell}: {len(full_name_match)} existing ringers match "{bb_ringer[0].name}"')
+                matched_ringer = choose_option(
+                    [f'{r.name} ({r.id})' for r in full_name_match], values=full_name_match, cancel_option='None', return_option=True)
 
         while not matched_ringer:
 
-            print(f'{bell}: No existing ringers match "{bb_ringer.name}"')
+            print(f'{bell}: No existing ringers match "{bb_ringer[0].name}"')
 
             match choose_option(['Add as new ringer', 'Search alternatives'], default=1, cancel_option='Cancel'):
                 case 1:
-                    if (ringer_names := prompt_ringer_names(bb_last_name, bb_given_names)):
+                    if (ringer_names := prompt_ringer_names(bb_ringer[0].last_name, bb_ringer[0].given_names)):
                         matched_ringer = Ringer(*ringer_names)
                 case 2:
-                    if not (ringer_names := prompt_ringer_names(bb_last_name, bb_given_names)):
+                    if not (ringer_names := prompt_ringer_names(bb_ringer[0].last_name, bb_ringer[0].given_names)):
                         break
                     last_name, given_names = ringer_names
                     potential_ringers = Ringer.get_by_name(last_name, given_names)
@@ -137,7 +136,7 @@ def add_peal(url: str = None) -> Peal:
                         case 0:
                             print(f'No existing ringers match (given name: "{given_names}", last name: "{last_name}")')
                         case 1:
-                            matched_ringer = prompt_add_ringer(bb_ringer.name, potential_ringers[0], bb_ringer.bells)
+                            matched_ringer = prompt_add_ringer(bb_ringer[0].name, potential_ringers[0], bb_ringer[1])
                         case _:
                             print(f'{len(potential_ringers)} existing ringers match "{(given_names + " " + last_name).strip()}"')
                             matched_ringer = choose_option(potential_ringers, cancel_option='None', return_option=True)
@@ -148,27 +147,28 @@ def add_peal(url: str = None) -> Peal:
             matched_ringer = Ringer.add(matched_ringer.last_name, matched_ringer.given_names)
 
         if len(full_name_match) == 0 and \
-           f'{bb_given_names} {bb_last_name}' != matched_ringer.name and \
-           confirm(f'Add "{bb_given_names} {bb_last_name}" as an alias?'):
-            matched_ringer.add_alias(bb_last_name, bb_given_names)
+           f'{bb_ringer[0].given_names} {bb_ringer[0].last_name}' != matched_ringer.name and \
+           confirm(f'Add "{bb_ringer[0].given_names} {bb_ringer[0].last_name}" as an alias?'):
+            matched_ringer.add_alias(bb_ringer[0].last_name, bb_ringer[0].given_names)
 
-        peal_ringers.append((matched_ringer, bb_ringer.bells, bb_ringer.is_conductor))
-        bell += len(bb_ringer.bells)
+        peal.ringers[index] = (matched_ringer, bb_ringer[1], bb_ringer[2])
+        bell += len(bb_ringer[1])  # Keep track of how many bells are added for next prompt
 
     # Confirm commit
-    panel(str(peal), title=peal.bellboard_url)
+    panel(str(peal), title=get_url_from_id(peal.bellboard_id))
     if confirm('Save this peal?'):
-
-        peal = Peal.add(peal)
-        for pr in peal_ringers:
-            peal.add_ringer(*pr)
-        for bb_footnote in bb_peal.footnotes:
-            peal.add_footnote(bb_footnote)
-
+        peal.commit()
         print(f'Peal {peal.bellboard_id} added')
         return peal
     else:
         return None
+
+
+def validate_peal_input(id_or_url: str) -> int:
+    if id_or_url.isnumeric():
+        return int(id_or_url)
+    else:
+        return get_id_from_url(id_or_url)
 
 
 def prompt_add_ringer(name: str, ringer: Ringer, bell: int) -> Ringer:
@@ -184,13 +184,7 @@ def prompt_ringer_names(default_last_name: str = None, default_given_names: str 
     return None
 
 
-def split_full_name(full_name: str) -> tuple[str, str]:
-    last_name = full_name.split(' ')[-1]
-    given_names = ' '.join(full_name.split(' ')[:-1])
-    return last_name, given_names
-
-
 def initialize_or_exit(reset_db: bool = False):
-    if not pypeal.initialize(reset_db):
+    if not initialize_db(reset_db):
         error('Unable to connect to pypeal database')
         raise typer.Exit()

@@ -2,12 +2,13 @@ from datetime import datetime, timedelta
 import re
 import time
 from bs4 import BeautifulSoup
-from dataclasses import dataclass, field
 import logging
 from requests import Response, get as get_request
 from requests.exceptions import RequestException
 
 from pypeal.config import get_config
+from pypeal.peal import Peal
+from pypeal.ringer import Ringer
 
 BELLBOARD_PEAL_ID_URL = '/view.php?id=%s'
 BELLBOARD_PEAL_RANDOM_URL = '/view.php?random'
@@ -19,69 +20,14 @@ DATE_LINE_INFO_REGEX = re.compile(r'[A-Za-z]+,\s(?P<date>[0-9]+\s[A-Za-z0-9]+\s[
 DURATION_REGEX = re.compile(r'^(?:(?P<hours>\d{1,2})[h])$|^(?:(?P<mins>\d+)[m]?)$|' +
                             r'^(?:(?:(?P<hours_2>\d{1,2})[h])\s(?:(?P<mins_2>(?:[0]?|[1-5]{1})[0-9])[m]?))$')
 
+FOOTNOTE_RINGER_REGEX_PREFIX = re.compile(r'^(?P<bells>[0-9,\s]+)\s?[-:]\s(?P<footnote>.*)$')
+FOOTNOTE_RINGER_REGEX_SUFFIX = re.compile(r'^(?P<footnote>.*)\s?[-:]\s(?P<bells>[0-9,\s]+)\.?$')
 
 __last_call: datetime = None
 
 
 class BellboardError(Exception):
     pass
-
-
-@dataclass
-class BellboardRinger():
-    """Represents a ringer from a Bellboard peal."""
-    name: str
-    bells: list[int]
-    is_conductor: bool = False
-
-    def __str__(self) -> str:
-        return self.name + (' (c)' if self.is_conductor else '')
-
-
-@dataclass
-class BellboardPeal:
-    """Represents the data gathered from a Bellboard peal."""
-
-    id: int = None
-    date: datetime.date = None
-    association: str = None
-    place: str = None
-    address_dedication: str = None
-    county: str = None
-    changes: int = None
-    title: str = None
-    duration: int = None
-    tenor_weight: str = None
-    tenor_tone: str = None
-    location_dove_id: int = None
-    ringers: dict[str, BellboardRinger] = field(default_factory=dict)  # name -> ringer map
-    footnotes: list[str] = field(default_factory=list)
-
-    ringers_by_bell: list[tuple[int, BellboardRinger]] = field(default_factory=list)  # For internal representation only
-
-    def __str__(self):
-        text = ''
-        text += f'{self.association}\n' if self.association else ''
-        text += f'{self.place}' if self.place else '<UNKNOWN PLACE>'
-        text += f', {self.county}' if self.county else ''
-        text += '\n'
-        text += f'{self.address_dedication}\n' if self.address_dedication else ''
-        text += f'on {self.date.strftime("%A, %-d %B %Y")} ' if self.date else '<UNKNOWN DATE>\n'
-        text += f'in {self.duration} mins ' if self.duration else ''
-        if self.tenor_weight:
-            text += f'({self.tenor_weight}'
-            text += f' in {self.tenor_tone}' if self.tenor_tone else ''
-            text += ')'
-        text += '\n\n'
-        for ringer in self.ringers_by_bell:
-            text += str(ringer[0]) + ' ' if ringer[0] else ''
-            text += str(ringer[1]) + '\n'
-        text += '\n' if len(self.footnotes) else ''
-        for footnote in self.footnotes:
-            text += f'{footnote}\n'
-        text += '\n'
-        text += f'[Imported Bellboard peal ID: {self.id}]' if self.id else ''
-        return text
 
 
 logger = logging.getLogger('pypeal')
@@ -98,14 +44,14 @@ def get_id_from_url(url: str) -> int:
         return None
 
 
-def get_peal(url: str = None, html: str = None) -> BellboardPeal:
+def get_peal(url: str = None) -> Peal:
+    url, html = download_peal(url if url else get_config('bellboard', 'url') + BELLBOARD_PEAL_RANDOM_URL)
+    return get_peal_from_html(get_id_from_url(url), html)
 
-    peal = BellboardPeal()
 
-    if html is None:
-        url, html = download_peal(url if url else get_config('bellboard', 'url') + BELLBOARD_PEAL_RANDOM_URL)
-        peal.id = get_id_from_url(url)
+def get_peal_from_html(id: int, html: str) -> Peal:
 
+    peal = Peal(id)
     soup = BeautifulSoup(html, 'html.parser')
 
     element = soup.select('div.association')
@@ -144,16 +90,11 @@ def get_peal(url: str = None, html: str = None) -> BellboardPeal:
         peal.duration += int(duration_info['mins'] or 0)
         peal.duration += int(duration_info['mins_2'] or 0)
 
-    for footnote in soup.select('div.footnote'):
-        text = footnote.text.strip()
-        if len(text) > 0:
-            peal.footnotes.append(text)
-
     # Get ringers and their bells and add them to the ringers list
-    ringers = []
+    ringer_names = []
     conductors = []
     for ringer in soup.select('span.ringer.persona'):
-        ringers.append(ringer.text)
+        ringer_names.append(ringer.text)
         conductors.append(
             ringer.next_sibling and
             ringer.next_sibling.lower().strip() == '(c)')
@@ -161,23 +102,36 @@ def get_peal(url: str = None, html: str = None) -> BellboardPeal:
     ringer_bells = [bell.text.strip() for bell in soup.select('span.bell')]
     if len(ringer_bells) == 0:
         # Accounting for performances with no assigned bells - ensure the zip iteration completes
-        ringer_bells = [None] * len(ringers)
+        ringer_bells = [None] * len(ringer_names)
 
-    # Loop over the ringers and their bell (or bells) and add them to the name->ringer map
-    for ringer, bells, is_conductor in zip(ringers, ringer_bells, conductors):
-        if bells is None:
-            peal.ringers[ringer] = BellboardRinger(ringer, [], is_conductor)
-            peal.ringers_by_bell.append((None, peal.ringers[ringer]))
-        else:
-            for bell in bells.split('–'):
-                if ringer not in peal.ringers:
-                    peal.ringers[ringer] = BellboardRinger(ringer, [int(bell)], is_conductor)
-                else:
-                    peal.ringers[ringer].bells.append(int(bell))
-                    peal.ringers[ringer].is_conductor |= is_conductor
-                peal.ringers_by_bell.insert(int(bell), (int(bell), peal.ringers[ringer]))
+    # Loop over the ringers and their bell (or bells) and add them to the peal
+    for full_name, bells, is_conductor in zip(ringer_names, ringer_bells, conductors):
+        if bells is not None:
+            bells = [int(bell) for bell in bells.split('–')]
+        last_name = full_name.split(' ')[-1]
+        given_names = ' '.join(full_name.split(' ')[:-1])
+        peal.add_ringer(Ringer(last_name, given_names), bells, is_conductor)
+
+    for footnote in soup.select('div.footnote'):
+        text = footnote.text.strip()
+        if len(text) > 0:
+            if (footnote_match := re.match(FOOTNOTE_RINGER_REGEX_PREFIX, text)) or \
+               (footnote_match := re.match(FOOTNOTE_RINGER_REGEX_SUFFIX, text)):
+                footnote_info = footnote_match.groupdict()
+                text = footnote_info['footnote'].strip()
+                bells = [int(bell) for bell in footnote_info['bells'].split(',')]
+            else:
+                bells = [None]
+            for bell in bells:
+                peal.add_footnote(bell, text)
 
     return peal
+
+
+def split_full_name(full_name: str) -> tuple[str, str]:
+    last_name = full_name.split(' ')[-1]
+    given_names = ' '.join(full_name.split(' ')[:-1])
+    return last_name, given_names
 
 
 def search(ringer: str):
@@ -192,7 +146,7 @@ def search(ringer: str):
 
     logger.info(f'Found {len(peal_ids)} peals for {ringer} on BellBoard')
 
-    return [get_peal(int(id)) for id in peal_ids[0:2]]
+    return [get_peal(get_url_from_id(int(id))) for id in peal_ids[0:2]]
 
 
 def download_peal(url: str) -> tuple[int, str]:

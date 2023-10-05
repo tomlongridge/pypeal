@@ -5,6 +5,8 @@ import mysql.connector
 import pathlib
 import logging
 
+logger = logging.getLogger('pypeal')
+
 
 class DatabaseError(Exception):
     pass
@@ -13,7 +15,6 @@ class DatabaseError(Exception):
 class Database:
 
     __instance = None
-    __logger = logging.getLogger('pypeal')
 
     @staticmethod
     def get_connection():
@@ -25,7 +26,7 @@ class Database:
         db_host = get_config('database', 'host')
         db_user = get_config('database', 'user')
         db_password = get_config('database', 'password')
-        self.__logger.debug(f'Connecting to database server {db_host} as user {db_user}')
+        logger.debug(f'Connecting to database server {db_host} as user {db_user}')
         try:
             self.db = mysql.connector.connect(user=db_user, password=db_password, host=db_host)
             self.cursor = self.db.cursor()
@@ -38,15 +39,15 @@ class Database:
         return self.cursor.fetchone() is not None
 
     def initialise(self):
-        self.__logger.info('Creating new database...')
+        logger.info('Creating new database...')
         try:
-            for path in sorted(pathlib.Path(os.path.join(os.path.dirname(__file__), '..', 'scripts', 'database')).glob('*.sql')):
+            for path in sorted(pathlib.Path(os.path.join(os.path.dirname(__file__), '..', '..', 'scripts', 'database')).glob('*.sql')):
                 with open(path, 'r') as f:
-                    self.__logger.info(f'Running script {path}...')
+                    logger.info(f'Running script {path}...')
                     self.__execute(self.__substitute_sql_params(f.read()))
                     self.commit()
         except mysql.connector.Error as e:
-            self.__logger.debug(e, exc_info=True)
+            logger.debug(e, exc_info=True)
             raise DatabaseError(f'Error running database install script {path}: {e.msg}') from e
 
     def query(self, query, params=None):
@@ -54,7 +55,7 @@ class Database:
         return self.__execute(query, params)
 
     def __execute(self, query, params=None):
-        self.__logger.debug(f'Executing query: {query}')
+        logger.debug(f'Executing query: {query}')
         self.cursor.execute(query, params)
         return self.cursor
 
@@ -70,3 +71,15 @@ class Database:
         for key, value in get_config('database').items():
             sql = sql.replace(f'@{key}', value)
         return sql
+
+
+def initialize(reset_db: bool = False) -> bool:
+    try:
+        db = Database.get_connection()
+        if reset_db or not db.database_exists():
+            db.initialise()
+    except DatabaseError as e:
+        logger.error(f'Unable to create database: {e}')
+        logger.debug(e, exc_info=True)
+        return False
+    return True
