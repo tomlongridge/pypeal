@@ -7,6 +7,7 @@ from rich import print
 from pypeal.bellboard import get_peal as get_bellboard_peal, get_id_from_url, get_url_from_id
 from pypeal.cli.prompts import choose_option, ask, confirm, panel, error
 from pypeal.db import initialize as initialize_db
+from pypeal.method import Method
 from pypeal.peal import Peal
 from pypeal.ringer import Ringer
 from pypeal.config import set_config_file
@@ -76,7 +77,7 @@ def run_interactive(peal_id: int = None):
         peals: dict[str, Peal] = Peal.get_all()
         panel(f'Number of peals: {len(peals)}')
 
-        match choose_option(['Add peal by URL', 'Add random peal', 'Exit'], default=1) if peal_id is None else 1:
+        match choose_option(['Add peal by URL', 'Add random peal', 'Update methods', 'Exit'], default=1) if peal_id is None else 1:
             case 1:
                 bb_url = None
                 while peal_id is None:
@@ -90,7 +91,9 @@ def run_interactive(peal_id: int = None):
                     add_peal(bb_url)
             case 2:
                 add_peal()
-            case 3 | None:
+            case 3:
+                Method.update()
+            case 4 | None:
                 raise typer.Exit()
 
         peal_id = None
@@ -144,7 +147,7 @@ def add_peal(url: str = None) -> Peal:
                     return None
 
         if matched_ringer.id is None:
-            matched_ringer = Ringer.add(matched_ringer.last_name, matched_ringer.given_names)
+            matched_ringer.commit()
 
         if len(full_name_match) == 0 and \
            f'{bb_ringer[0].given_names} {bb_ringer[0].last_name}' != matched_ringer.name and \

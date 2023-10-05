@@ -26,6 +26,14 @@ class Ringer:
     def __str__(self) -> str:
         return self.name
 
+    def commit(self):
+        if self.id:
+            raise SystemError('Cannot commit a ringer that already has an ID')
+        result = Database.get_connection().query(
+            'INSERT INTO ringers (last_name, given_names) VALUES (%s, %s)', (self.last_name, self.given_names))
+        Database.get_connection().commit()
+        self.id = result.lastrowid
+
     @classmethod
     def get(self, id: int) -> Ringer:
         if id not in self.__cache:
@@ -78,10 +86,3 @@ class Ringer:
                 cls.__cache[ringer.id] = Ringer(*ringer)
             matched_ringers += cls.__cache[ringer.id]
         return matched_ringers
-
-    @classmethod
-    def add(cls, last_name: str, given_names: str) -> Ringer:
-        result = Database.get_connection().query(
-            'INSERT INTO ringers (last_name, given_names) VALUES (%s, %s)', (last_name, given_names))
-        Database.get_connection().commit()
-        return cls.get(result.lastrowid)

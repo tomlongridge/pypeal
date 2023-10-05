@@ -55,7 +55,7 @@ class Database:
         return self.__execute(query, params)
 
     def __execute(self, query, params=None):
-        logger.debug(f'Executing query: {query}')
+        logger.debug(f'Executing query: {query} with params {params}')
         self.cursor.execute(query, params)
         return self.cursor
 
