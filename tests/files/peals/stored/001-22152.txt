@@ -1,10 +1,11 @@
---reset-database
+--clear-data
 ===
-1|22152|1|||1|||1|||1|||1|||1|||1|||1|||y|3
+1|22152|y|1|||1|||1|||1|||1|||1|||1|||1|||y|5
 ===
 Withycombe Raleigh, Devon
 S John the Evangelist
-on Saturday, 30 June 2001 in 49 mins (17)
+on Saturday, 30 June 2001
+1260 Grandsire Triples in 49 mins (17)
 
 1: Lydia Ferguson
 2: Harold Gray
@@ -21,9 +22,12 @@ First of Grandsire inside: 4.
 [Imported Bellboard peal ID: 22152]
 ===
 [pypeal panel displayed]
-Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
+Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
+methods, 5) Exit
 Select action (1): User input >> 1
 Bellboard URL or peal ID: User input >> 22152
+Matched "Grandsire Triples" to method "Grandsire Triples" (ID: m12415)
+Is this correct? [y/n] (y): User input >> True
 1: No existing ringers match "Lydia Ferguson"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): User input >> 1
@@ -69,5 +73,6 @@ Save this peal?
 Is this correct? [y/n] (y): User input >> True
 Peal 22152 added
 [pypeal panel displayed]
-Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
-Select action (1): User input >> 3
+Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
+methods, 5) Exit
+Select action (1): User input >> 5

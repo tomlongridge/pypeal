@@ -7,6 +7,7 @@ from requests import Response, get as get_request
 from requests.exceptions import RequestException
 
 from pypeal.config import get_config
+from pypeal.method import Method, Stage
 from pypeal.peal import Peal
 from pypeal.ringer import Ringer
 
@@ -22,6 +23,9 @@ DURATION_REGEX = re.compile(r'^(?:(?P<hours>\d{1,2})[h])$|^(?:(?P<mins>\d+)[m]?)
 
 FOOTNOTE_RINGER_REGEX_PREFIX = re.compile(r'^(?P<bells>[0-9,\s]+)\s?[-:]\s(?P<footnote>.*)$')
 FOOTNOTE_RINGER_REGEX_SUFFIX = re.compile(r'^(?P<footnote>.*)\s?[-:]\s(?P<bells>[0-9,\s]+)\.?$')
+
+METHOD_TITLE_NUM_METHODS_REGEX = re.compile(r'\(([0-9mvp\/])+\)')
+METHOD_TITLE_NUM_METHODS_GROUP_REGEX = re.compile(r'([0-9]+[mvp])\/?')
 
 __last_call: datetime = None
 
@@ -64,7 +68,17 @@ def get_peal_from_html(id: int, html: str) -> Peal:
     element = soup.select('span.changes')
     peal.changes = int(element[0].text.strip()) if len(element) == 1 else None
     element = soup.select('span.title')
-    peal.title = element[0].text.strip() if len(element) == 1 else None
+
+    title = element[0].text.strip()
+    title += element[0].next_sibling.text.strip() if element[0].next_sibling else ''
+    # full_name_match = Method.get_by_name(title)
+    # if len(full_name_match) == 1:
+    #     peal.method = full_name_match[0]
+    #     peal.classification = full_name_match[0].classification
+    #     peal.stage = full_name_match[0].stage
+    #     peal.title = None
+    # else:
+    parse_method_title(title, peal)
 
     # The date line is the first line of the performance div that doesn't have a class
     date_line = None
@@ -132,6 +146,63 @@ def split_full_name(full_name: str) -> tuple[str, str]:
     last_name = full_name.split(' ')[-1]
     given_names = ' '.join(full_name.split(' ')[:-1])
     return last_name, given_names
+
+
+def parse_method_title(title: str, peal: Peal):
+
+    if title.lower().startswith("mixed"):
+        peal.is_mixed = True
+        title = title[5:].strip()
+
+    if title.lower().startswith("spliced"):
+        peal.is_spliced = True
+        title = title[7:].strip()
+    else:
+        peal.is_spliced = False
+
+    multi_method_match = None
+    if re.search(METHOD_TITLE_NUM_METHODS_REGEX, title):
+        multi_method_match = re.findall(METHOD_TITLE_NUM_METHODS_GROUP_REGEX, title.strip('()'))
+        if len(multi_method_match) > 0:
+            for method in multi_method_match:
+                match method[-1]:
+                    case 'm':
+                        peal.num_methods = int(method.removesuffix('m'))
+                    case 'v':
+                        peal.num_variants = int(method.removesuffix('v'))
+                    case 'p':
+                        peal.num_principles = int(method.removesuffix('p'))
+
+    title = re.sub(METHOD_TITLE_NUM_METHODS_REGEX, '', title).strip()
+
+    if (stage := Stage.from_method(title)):
+        peal.stage = stage
+        title = title[:-len(stage.name)].strip()
+
+    if title.lower().endswith("treble bob"):
+        peal.classification = "Treble Bob"
+    elif title.lower().endswith("treble place"):
+        peal.classification = "Treble Place"
+    elif title.lower().endswith("bob"):
+        peal.classification = "Bob"
+    elif title.lower().endswith("place"):
+        peal.classification = "Place"
+    elif title.lower().endswith("surprise"):
+        peal.classification = "Surprise"
+    elif title.lower().endswith("delight"):
+        peal.classification = "Delight"
+    elif title.lower().endswith("alliance"):
+        peal.classification = "Alliance"
+    elif title.lower().endswith("hybrid"):
+        peal.classification = "Hybrid"
+    if peal.classification:
+        title = title[:-len(peal.classification)].strip()
+
+    # If there's no title left after parsing, it's a multi-method mixed peal with no number of methods specified
+    if len(title) == 0 and not peal.is_spliced:
+        peal.is_mixed = True
+
+    peal.title = title if len(title) > 0 else None
 
 
 def search(ringer: str):

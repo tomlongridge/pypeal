@@ -1,10 +1,11 @@
 
 ===
-1|1426139|y|y|1|||y|1|||y|y|y|1|||1|||y|3
+1|1426139|y|y|y|1|||y|1|||y|y|y|1|||1|||y|5
 ===
 Bath, Somerset
 Blessed Virgin Mary, Bathwick
-on Sunday, 19 May 2002 in 49 mins 
+on Sunday, 19 May 2002
+1260 Plain Bob Royal in 49 mins 
 
 1: Daniel Miller
 2: Blake Elliott
@@ -23,30 +24,33 @@ Rung for Morning Service and as a 60th Wedding Anniversary compliment to Phyllis
 [Imported Bellboard peal ID: 1426139]
 ===
 [pypeal panel displayed]
-Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
+Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
+methods, 5) Exit
 Select action (1): User input >> 1
 Bellboard URL or peal ID: User input >> 1426139
-[1]: "Daniel Miller" -> Daniel Miller
+Matched "Plain Bob Royal" to method "Plain Bob Royal" (ID: m13972)
+Is this correct? [y/n] (y): User input >> True
+1: "Daniel Miller" -> Daniel Miller
 Is this the correct ringer? [y/n] (y): User input >> True
-[2]: "Blake Elliott" -> Blake Elliott
+2: "Blake Elliott" -> Blake Elliott
 Is this the correct ringer? [y/n] (y): User input >> True
 3: No existing ringers match "Joyce Sullivan"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): User input >> 1
 Last name (Sullivan): User input >> Sullivan
 Given name(s) (Joyce): User input >> Joyce
-[4]: "Chester Edwards" -> Chester Edwards
+4: "Chester Edwards" -> Chester Edwards
 Is this the correct ringer? [y/n] (y): User input >> True
 5: No existing ringers match "Patrick Bennett"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): User input >> 1
 Last name (Bennett): User input >> Bennett
 Given name(s) (Patrick): User input >> Patrick
-[6]: "Leonardo Bennett" -> Leo Bennett
+6: "Leonardo Bennett" -> Leo Bennett
 Is this the correct ringer? [y/n] (y): User input >> True
-[7]: "Cadie Nelson" -> Cadie Nelson
+7: "Cadie Nelson" -> Cadie Nelson
 Is this the correct ringer? [y/n] (y): User input >> True
-[8]: "Clark Elliott" -> Clark Elliott
+8: "Clark Elliott" -> Clark Elliott
 Is this the correct ringer? [y/n] (y): User input >> True
 9: No existing ringers match "Heather Sullivan"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
@@ -63,5 +67,6 @@ Save this peal?
 Is this correct? [y/n] (y): User input >> True
 Peal 1426139 added
 [pypeal panel displayed]
-Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
-Select action (1): User input >> 3
+Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
+methods, 5) Exit
+Select action (1): User input >> 5

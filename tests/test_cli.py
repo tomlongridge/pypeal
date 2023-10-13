@@ -66,7 +66,7 @@ def test_app(mock_bellboard_server, input_file: int):
         result = runner.invoke(app,
                                test_data[0].split('|') if test_data[0] != '' else None,
                                input=test_data[1].replace('|', '\n') + '\n')
-        if result.exception:
+        if result.exception and type(result.exception) is not SystemExit:
             raise result.exception
 
         stored_peal = Peal.get(bellboard_id=peal_id)

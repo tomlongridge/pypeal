@@ -1,11 +1,12 @@
 
 ===
-1|1508383|1|||1|||y|y|1|||y|y|3
+1|1508383|1|1|||1|||y|y|1|||y|y|5
 ===
 Oxford Diocesan Guild
 Maidenhead
 80 Lambourne Drive, Cox Green
-on Wednesday, 29 March 1972 in 183 mins 
+on Wednesday, 29 March 1972
+5232 Bristol Surprise Maximus in 183 mins 
 
 1,2: Sam Wells
 3,4: Rubie Owens
@@ -19,9 +20,14 @@ First peal of Bristol Maximus rung in hand.
 [Imported Bellboard peal ID: 1508383]
 ===
 [pypeal panel displayed]
-Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
+Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
+methods, 5) Exit
 Select action (1): User input >> 1
 Bellboard URL or peal ID: User input >> 1508383
+2 methods match "Bristol Surprise Maximus"
+Options: 1) Bristol Surprise Maximus, 2) Bristol Little Surprise Maximus, 3) 
+None
+Select action: User input >> Bristol Surprise Maximus (1)
 1: No existing ringers match "Sam Wells"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): User input >> 1
@@ -32,21 +38,22 @@ Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): User input >> 1
 Last name (Owens): User input >> Owens
 Given name(s) (Rubie): User input >> Rubie
-[5, 6]: "Lenny Howard" -> Lenny Howard
+5,6: "Lenny Howard" -> Lenny Howard
 Is this the correct ringer? [y/n] (y): User input >> True
-[7, 8]: "Jack Spencer" -> Jack Spencer
+7,8: "Jack Spencer" -> Jack Spencer
 Is this the correct ringer? [y/n] (y): User input >> True
 9: No existing ringers match "Arianna Holmes"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): User input >> 1
 Last name (Holmes): User input >> Holmes
 Given name(s) (Arianna): User input >> Arianna
-[11, 12]: "John Parker" -> John Parker
+11,12: "John Parker" -> John Parker
 Is this the correct ringer? [y/n] (y): User input >> True
 [http://localhost:8080/view.php?id=1508383 panel displayed]
 Save this peal?
 Is this correct? [y/n] (y): User input >> True
 Peal 1508383 added
 [pypeal panel displayed]
-Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
-Select action (1): User input >> 3
+Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
+methods, 5) Exit
+Select action (1): User input >> 5

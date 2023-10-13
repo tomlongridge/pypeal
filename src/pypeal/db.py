@@ -40,24 +40,12 @@ class Database:
 
     def initialise(self):
         logger.info('Creating new database...')
-        try:
-            for path in sorted(pathlib.Path(os.path.join(os.path.dirname(__file__), '..', '..', 'scripts', 'database')).glob('*.sql')):
-                with open(path, 'r') as f:
-                    logger.info(f'Running script {path}...')
-                    self.__execute(self.__substitute_sql_params(f.read()))
-                    self.commit()
-        except mysql.connector.Error as e:
-            logger.debug(e, exc_info=True)
-            raise DatabaseError(f'Error running database install script {path}: {e.msg}') from e
+        for path in sorted(pathlib.Path(os.path.join(os.path.dirname(__file__), '..', '..', 'scripts', 'database')).glob('*.sql')):
+            self.__execute_file(path)
 
     def query(self, query, params=None):
         self.__execute('USE ' + get_config('database', 'db_name'))
         return self.__execute(query, params)
-
-    def __execute(self, query, params=None):
-        logger.debug(f'Executing query: {query} with params {params}')
-        self.cursor.execute(query, params)
-        return self.cursor
 
     def commit(self):
         self.db.commit()
@@ -71,6 +59,21 @@ class Database:
         for key, value in get_config('database').items():
             sql = sql.replace(f'@{key}', value)
         return sql
+
+    def __execute(self, query, params=None):
+        logger.debug(f'Executing query: {query} with params {params}')
+        self.cursor.execute(query, params)
+        return self.cursor
+
+    def __execute_file(self, path: str):
+        try:
+            with open(path, 'r') as f:
+                logger.info(f'Running script {path}...')
+                self.__execute(self.__substitute_sql_params(f.read()))
+                self.commit()
+        except mysql.connector.Error as e:
+            logger.debug(e, exc_info=True)
+            raise DatabaseError(f'Error running database install script {path}: {e.msg}') from e
 
 
 def initialize(reset_db: bool = False) -> bool:

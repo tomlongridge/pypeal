@@ -1,10 +1,11 @@
 
 ===
-1|1426065|1|||1|||1|||1|||1|1|||1|||1|Bennett|Leo|y|y|3
+1|1426065|y|1|||1|||1|||1|||1|1|||1|||1|Bennett|Leo|y|y|5
 ===
 Bath, Somerset
 Blessed Virgin Mary, Bathwick
-on Sunday, 2 December 2001 in 50 mins 
+on Sunday, 2 December 2001
+1260 Grandsire Triples in 50 mins 
 
 1: Julia Fowler
 2: Daniel Miller
@@ -20,9 +21,12 @@ Rung for Morning Service. First of Triples "inside"-4.
 [Imported Bellboard peal ID: 1426065]
 ===
 [pypeal panel displayed]
-Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
+Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
+methods, 5) Exit
 Select action (1): User input >> 1
 Bellboard URL or peal ID: User input >> 1426065
+Matched "Grandsire Triples" to method "Grandsire Triples" (ID: m12415)
+Is this correct? [y/n] (y): User input >> True
 1: No existing ringers match "Julia Fowler"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): User input >> 1
@@ -68,5 +72,6 @@ Save this peal?
 Is this correct? [y/n] (y): User input >> True
 Peal 1426065 added
 [pypeal panel displayed]
-Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
-Select action (1): User input >> 3
+Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
+methods, 5) Exit
+Select action (1): User input >> 5

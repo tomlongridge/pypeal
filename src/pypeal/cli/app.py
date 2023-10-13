@@ -5,9 +5,9 @@ import typer
 from rich import print
 
 from pypeal.bellboard import get_peal as get_bellboard_peal, get_id_from_url, get_url_from_id
-from pypeal.cli.prompts import choose_option, ask, confirm, panel, error
-from pypeal.db import initialize as initialize_db
-from pypeal.method import Method
+from pypeal.cli.prompts import ask_int, choose_option, ask, confirm, panel, error
+from pypeal.db import Database, initialize as initialize_db
+from pypeal.method import Method, Stage
 from pypeal.peal import Peal
 from pypeal.ringer import Ringer
 from pypeal.config import set_config_file
@@ -33,7 +33,8 @@ app = typer.Typer()
 @app.command()
 def main(
         action: Annotated[str, typer.Argument(help="Action to perform.")] = None,
-        reset_database: Annotated[bool, typer.Option(help="Reset the database first.")] = False,
+        reset_database: Annotated[bool, typer.Option(help="Reset the database")] = False,
+        clear_data: Annotated[bool, typer.Option(help="Clear peal data")] = False,
         peal_id_or_url: Annotated[str, typer.Option("--peal", help="The Bellboard peal ID or URL")] = None,
         config: Annotated[str, typer.Option(help="Path to config file.")] = None,
         ):
@@ -45,46 +46,39 @@ def main(
             error(f'Unable to load file {config}: {e}')
             raise typer.Exit()
 
-    initialize_or_exit(reset_database)
-
-    peal_id = None
-    if peal_id_or_url:
-        if (peal_id := validate_peal_input(peal_id_or_url)):
-            logger.debug(f'Adding peal ID {peal_id} provided as "add-peal" option')
-        else:
-            error(f'Invalid Bellboard URL or peal ID: {peal_id_or_url}')
-            raise typer.Exit()
+    initialize_or_exit(reset_database, clear_data)
 
     match action:
-        case None | 'add':
-            run_interactive(peal_id)
+        case None:
+            run_interactive(peal_id_or_url)
+        case 'add':
+            run_add(peal_id_or_url)
         case 'view':
-            run_view(peal_id)
+            run_view(peal_id_or_url)
         case _:
             error(f'Unknown action: {action}')
 
 
-def run_view(peal_id: int):
-    if peal_id is None:
-        error('No peal ID provided')
-        raise typer.Exit()
+def run_add(peal_id_or_url: str):
+    _, url = prompt_peal_id(peal_id_or_url)
+    add_peal(url)
+
+
+def run_view(peal_id_or_url: str):
+    peal_id, _ = prompt_peal_id(peal_id_or_url)
     panel(str(Peal.get(bellboard_id=peal_id)))
+    confirm(None, 'Continue?')
 
 
-def run_interactive(peal_id: int = None):
+def run_interactive(peal_id_or_url: str):
 
     while True:
         peals: dict[str, Peal] = Peal.get_all()
         panel(f'Number of peals: {len(peals)}')
 
-        match choose_option(['Add peal by URL', 'Add random peal', 'Update methods', 'Exit'], default=1) if peal_id is None else 1:
+        match choose_option(['Add peal by URL', 'Add random peal', 'View method', 'Update methods', 'Exit'], default=1):
             case 1:
-                bb_url = None
-                while peal_id is None:
-                    if not (peal_id := validate_peal_input(ask('Bellboard URL or peal ID'))):
-                        error('Invalid Bellboard URL or peal ID')
-
-                bb_url = get_url_from_id(peal_id)
+                peal_id, bb_url = prompt_peal_id(peal_id_or_url)
                 if peal_id in peals:
                     error(f'Peal {peal_id} already added')
                 elif bb_url:
@@ -92,24 +86,136 @@ def run_interactive(peal_id: int = None):
             case 2:
                 add_peal()
             case 3:
+                run_view(peal_id_or_url)
+            case 4:
                 Method.update()
-            case 4 | None:
+            case 5 | None:
                 raise typer.Exit()
 
-        peal_id = None
+        peal_id_or_url = None
 
 
 def add_peal(url: str = None) -> Peal:
 
     peal: Peal = get_bellboard_peal(url)
+    prompt_add_methods(peal)
+    prompt_add_ringers(peal)
 
-    # Attempt to match names to ringers
+    # Confirm commit
+    panel(str(peal), title=get_url_from_id(peal.bellboard_id))
+    if confirm('Save this peal?'):
+        peal.commit()
+        print(f'Peal {peal.bellboard_id} added')
+        return peal
+    else:
+        return None
 
-    bell: int = 1                                      # Track the bell, allowing for multiple bells per ringer
-    bb_ringer: tuple[Ringer, int, bool]
+
+def prompt_add_methods(peal: Peal):
+
+    # # The method ID will be set if the title matched a method exactly
+    # if peal.method and peal.method.id:
+    #     if confirm(f'Matched "{peal.method}" to method ID f{peal.method.id}'):
+    #         matched_method = peal.method
+    # elif peal.num_methods + peal.num_principles + peal.num_variants > 0:
+    #     print(f'Multi-method peal: "{peal.title}"')
+    # else:
+    #     print(f'No method matches "{peal.title}"')
+
+    if peal.title:
+        full_method_match = Method.search(name=peal.title, exact_match=True, classification=peal.classification, stage=peal.stage)
+        match len(full_method_match):
+            case 0:
+                # Continue to search
+                pass
+            case 1:
+                if confirm(f'Matched "{peal.method_title}" to method "{full_method_match[0]}" (ID: {full_method_match[0].id})'):
+                    peal.method = full_method_match[0]
+                    peal.title = None
+                    peal.is_mixed = False
+                    peal.is_spliced = False
+            case _:
+                print(f'{len(full_method_match)} methods match "{peal.method_title}"')
+                peal.method = choose_option(full_method_match, cancel_option='None', return_option=True)
+                peal.title = None
+                peal.is_mixed = False
+                peal.is_spliced = False
+
+    if peal.is_spliced is None or peal.is_mixed is None:
+        peal.is_spliced = confirm(None, confirm_message='Is this a spliced peal?', default=False)
+        peal.is_mixed = False
+        if not peal.is_spliced:
+            peal.is_mixed = confirm(None, confirm_message='Is this a mixed peal?', default=False)
+            if not peal.is_mixed:
+                if confirm(f'Other performance: {peal.method_title}', default=True):
+                    peal.title = peal.method_title
+                    peal.classification = None
+                    peal.stage = None
+                    peal.method = None
+                    return
+
+    if peal.is_spliced is False and peal.is_mixed is False:
+
+        while not peal.method:
+
+            print(f'Attempting to match single method "{peal.title}"')
+
+            match choose_option(['Search alternatives', 'Change to mixed methods', 'Change to spliced methods'], default=1, cancel_option='Cancel'):
+                case 1:
+                    name = ask('Name', default=peal.title if peal.title else None)
+                    stage = Stage(ask_int('Stage', default=peal.stage.value, min=2, max=22))
+                    classification = choose_option(['Bob', 'Place', 'Surprise', 'Treble Bob', 'Treble Place'],
+                                                   default=peal.classification,
+                                                   return_option=True)
+                    potential_methods = Method.search(name=name, classification=classification, stage=stage)
+                    print(f'{len(potential_methods)} methods match')
+                    peal.method = choose_option(potential_methods, cancel_option='None', return_option=True)
+                case 2:
+                    peal.is_mixed = True
+                    peal.is_spliced = False
+                    prompt_add_methods(peal)
+                    return
+                case 3:
+                    peal.is_spliced = True
+                    peal.is_mixed = False
+                    prompt_add_methods(peal)
+                    return
+                case None:
+                    return
+
+        peal.title = None
+        return
+
+    while True:
+
+        if confirm(f'Multi-method peal: {peal.method_title}'):
+            break
+
+        while peal.num_methods + peal.num_principles + peal.num_variants == 0:
+            peal.num_methods = ask_int('Number of methods', default=peal.num_methods)
+            peal.num_principles = ask_int('Number of principles', default=peal.num_principles)
+            peal.num_variants = ask_int('Number of variants', default=peal.num_variants)
+        peal.stage = Stage(ask_int('Stage', default=peal.stage.value, min=2, max=22))
+        peal.classification = choose_option(['Bob', 'Place', 'Surprise', 'Treble Bob', 'Treble Place', None],
+                                            default=peal.classification,
+                                            return_option=True)
+
+        if confirm(f'{peal.method_title}'):
+            peal.title = None
+            peal.method = None
+            break
+
+
+def prompt_add_ringers(peal: Peal):
+
+    # Track the bell, allowing for multiple bells per ringer
+    bell: int = 1
+    matched_ringers: list[tuple[Ringer, list[int], bool]] = [None]*len(peal.ringers)
+    bb_ringer: tuple[Ringer, list[int], bool]
     for index, bb_ringer in enumerate(peal.ringers):
 
-        matched_ringer: Ringer = None                  # Holds the ringer record that matches the name found on Bellboard
+        # Holds the ringer record that matches the name found on Bellboard
+        matched_ringer: Ringer = None
 
         full_name_match = Ringer.get_by_full_name(bb_ringer[0].name)
         match len(full_name_match):
@@ -154,17 +260,25 @@ def add_peal(url: str = None) -> Peal:
            confirm(f'Add "{bb_ringer[0].given_names} {bb_ringer[0].last_name}" as an alias?'):
             matched_ringer.add_alias(bb_ringer[0].last_name, bb_ringer[0].given_names)
 
-        peal.ringers[index] = (matched_ringer, bb_ringer[1], bb_ringer[2])
+        matched_ringers[index] = (matched_ringer, bb_ringer[1], bb_ringer[2])
         bell += len(bb_ringer[1])  # Keep track of how many bells are added for next prompt
 
-    # Confirm commit
-    panel(str(peal), title=get_url_from_id(peal.bellboard_id))
-    if confirm('Save this peal?'):
-        peal.commit()
-        print(f'Peal {peal.bellboard_id} added')
-        return peal
-    else:
-        return None
+    peal.clear_ringers()
+    for ringer in matched_ringers:
+        peal.add_ringer(*ringer)
+
+
+def prompt_peal_id(peal_id: str = None) -> tuple[int, str]:
+
+    while True:
+        if peal_id is None:
+            peal_id = ask('Bellboard URL or peal ID')
+        if peal_id := validate_peal_input(peal_id):
+            break
+        else:
+            error('Invalid Bellboard URL or peal ID')
+
+    return (peal_id, get_url_from_id(peal_id))
 
 
 def validate_peal_input(id_or_url: str) -> int:
@@ -174,8 +288,8 @@ def validate_peal_input(id_or_url: str) -> int:
         return get_id_from_url(id_or_url)
 
 
-def prompt_add_ringer(name: str, ringer: Ringer, bell: int) -> Ringer:
-    if confirm(f'{bell}: "{name}" -> {ringer}', confirm_message='Is this the correct ringer?', default=True):
+def prompt_add_ringer(name: str, ringer: Ringer, bells: list[int]) -> Ringer:
+    if confirm(f'{",".join([str(bell) for bell in bells])}: "{name}" -> {ringer}', confirm_message='Is this the correct ringer?', default=True):
         return ringer
     return None
 
@@ -187,7 +301,12 @@ def prompt_ringer_names(default_last_name: str = None, default_given_names: str 
     return None
 
 
-def initialize_or_exit(reset_db: bool = False):
+def initialize_or_exit(reset_db: bool, clear_data: bool):
     if not initialize_db(reset_db):
         error('Unable to connect to pypeal database')
         raise typer.Exit()
+    if reset_db:
+        Method.update()
+    if clear_data:
+        Peal.clear_data()
+        Ringer.clear_data()

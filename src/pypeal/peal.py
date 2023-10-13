@@ -1,9 +1,16 @@
 from __future__ import annotations
+from dataclasses import dataclass
 from datetime import datetime
 from pypeal.db import Database
+from pypeal.method import Method, Stage
 from pypeal.ringer import Ringer
 
+PEAL_FIELD_LIST: list[str] = ['bellboard_id', 'date', 'place', 'association', 'address_dedication', 'county', 'changes', 'stage',
+                              'classification', 'is_spliced', 'is_mixed', 'is_variable_cover', 'num_methods', 'num_principles',
+                              'num_variants', 'method_id', 'title', 'duration', 'tenor_weight', 'tenor_tone']
 
+
+@dataclass
 class Peal:
 
     bellboard_id: int
@@ -13,12 +20,22 @@ class Peal:
     address_dedication: str
     county: str
     changes: int
+    stage: Stage
+    classification: str
+    is_spliced: bool
+    is_mixed: bool
+    is_variable_cover: bool
+    num_methods: int
+    num_principles: int
+    num_variants: int
+    method: Method
     title: str
     duration: int
     tenor_weight: str
     tenor_tone: str
-    location_dove_id: int
     id: int
+
+    __methods: list[tuple[Method, int]] = None
 
     __ringers: list[(Ringer, list[int], bool)] = None
     __ringers_by_id: dict[int, Ringer] = None
@@ -34,6 +51,15 @@ class Peal:
                  address_dedication: str = None,
                  county: str = None,
                  changes: int = None,
+                 stage: int = None,
+                 classification: str = None,
+                 is_spliced: bool = None,
+                 is_mixed: bool = None,
+                 is_variable_cover: bool = False,
+                 num_methods: int = 0,
+                 num_principles: int = 0,
+                 num_variants: int = 0,
+                 method_id: int = None,
                  title: str = None,
                  duration: int = None,
                  tenor_weight: str = None,
@@ -46,11 +72,53 @@ class Peal:
         self.address_dedication = address_dedication
         self.county = county
         self.changes = changes
+        self.stage = Stage(stage) if stage else None
+        self.classification = classification
+        self.is_spliced = is_spliced
+        self.is_mixed = is_mixed
+        self.is_variable_cover = is_variable_cover
+        self.num_methods = num_methods
+        self.num_principles = num_principles
+        self.num_variants = num_variants
+        self.method = Method.get(method_id) if method_id else None
         self.title = title
         self.duration = duration
         self.tenor_weight = tenor_weight
         self.tenor_tone = tenor_tone
         self.id = id
+
+    @property
+    def methods(self) -> list[tuple[Method, int]]:
+        if self.__methods is None:
+            self.__methods = []
+            if self.id is not None:
+                results = Database.get_connection().query(
+                    'SELECT method_id, changes FROM pealmethods WHERE peal_id = %s', (self.id,)).fetchall()
+                for method_id, changes in results:
+                    self.__methods.append((Method.get(method_id), changes))
+        return self.__methods
+
+    def add_method(self, method: Method, changes: int = None):
+        self.methods.append((method, changes))
+
+    @property
+    def method_title(self) -> str:
+        if self.method:
+            return self.method.full_name
+        text = ''
+        text += 'Spliced ' if self.is_spliced else ''
+        text += 'Mixed ' if self.is_mixed else ''
+        text += f'{self.title} ' if self.title else ''
+        text += f'{self.classification} ' if self.classification else ''
+        text += f'{self.stage.name.capitalize()} ' if self.stage else ''
+        if self.num_methods + self.num_principles + self.num_variants > 0:
+            text += '('
+            text += f'{self.num_methods}m/' if self.num_methods else ''
+            text += f'{self.num_principles}p/' if self.num_principles else ''
+            text += f'{self.num_variants}v/' if self.num_variants else ''
+            text = text.rstrip('/')
+            text += ')'
+        return text.strip()
 
     @property
     def ringers(self) -> list[tuple[Ringer, list[int], bool]]:
@@ -85,6 +153,11 @@ class Peal:
             for bell in bells:
                 self.__ringers_by_bell[bell] = ringer
 
+    def clear_ringers(self):
+        self.__ringers = None
+        self.__ringers_by_id = None
+        self.__ringers_by_bell = None
+
     @property
     def footnotes(self) -> list[tuple[str, int]]:
         if self.__footnotes is None:
@@ -102,13 +175,19 @@ class Peal:
     def commit(self):
         if self.id is None:
             result = Database.get_connection().query(
-                'INSERT INTO peals (' +
-                'bellboard_id, date, place, association, address_dedication, county, changes, title, duration, tenor_weight, tenor_tone) ' +
-                'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
-                (self.bellboard_id, self.date, self.place, self.association, self.address_dedication, self.county, self.changes, self.title,
+                f'INSERT INTO peals ({",".join(PEAL_FIELD_LIST)}) ' +
+                'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
+                (self.bellboard_id, self.date, self.place, self.association, self.address_dedication, self.county, self.changes,
+                 self.stage.value if self.stage else None, self.classification, self.is_spliced, self.is_mixed, self.is_variable_cover,
+                 self.num_methods, self.num_principles, self.num_variants, self.method.id if self.method else None, self.title,
                  self.duration, self.tenor_weight, self.tenor_tone))
             Database.get_connection().commit()
             self.id = result.lastrowid
+            for method, changes in self.methods:
+                Database.get_connection().query(
+                    'INSERT INTO pealmethods (peal_id, method_id, changes) VALUES (%s, %s, %s)',
+                    (self.id, method.id, changes))
+            Database.get_connection().commit()
             for ringer, bells, is_conductor in self.ringers:
                 if bells is None:
                     Database.get_connection().query(
@@ -136,7 +215,10 @@ class Peal:
         text += f', {self.county}' if self.county else ''
         text += '\n'
         text += f'{self.address_dedication}\n' if self.address_dedication else ''
-        text += f'on {self.date.strftime("%A, %-d %B %Y")} '
+        text += f'on {self.date.strftime("%A, %-d %B %Y")}\n'
+        text += f'{self.changes} ' if self.changes else ''
+        text += self.method_title or f'"{self.title}"'
+        text += ' '
         text += f'in {self.duration} mins ' if self.duration else ''
         if self.tenor_weight:
             text += f'({self.tenor_weight}'
@@ -165,8 +247,7 @@ class Peal:
         if id is None and bellboard_id is None:
             raise ValueError('Either peal database ID or Bellboard ID must be specified')
         result = Database.get_connection().query(
-            'SELECT ' +
-            'bellboard_id, date, place, association, address_dedication, county, changes, title, duration, tenor_weight, tenor_tone, id ' +
+            f'SELECT {",".join(PEAL_FIELD_LIST)}, id ' +
             'FROM peals ' +
             'WHERE true ' +
             (f'AND id = {id} ' if id else '') +
@@ -178,7 +259,16 @@ class Peal:
     @classmethod
     def get_all(self) -> dict[str, Peal]:
         return {result[0]: Peal(*result) for result in Database.get_connection().query(
-            'SELECT ' +
-            'bellboard_id, date, place, association, address_dedication, county, changes, title, duration, tenor_weight, tenor_tone, id ' +
+            f'SELECT {",".join(PEAL_FIELD_LIST)}, id ' +
             'FROM peals').fetchall()
         }
+
+    @classmethod
+    def clear_data(cls):
+        Database.get_connection().query('SET FOREIGN_KEY_CHECKS=0;')
+        Database.get_connection().query('TRUNCATE TABLE pealfootnotes')
+        Database.get_connection().query('TRUNCATE TABLE pealringers')
+        Database.get_connection().query('TRUNCATE TABLE pealmethods')
+        Database.get_connection().query('TRUNCATE TABLE peals')
+        Database.get_connection().commit()
+        Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')

@@ -82,7 +82,15 @@ class Ringer:
         results = Database.get_connection().query('SELECT last_name, given_names, id FROM ringers').fetchall()
         matched_ringers = []
         for ringer in results:
-            if ringer.id not in cls.__cache:
-                cls.__cache[ringer.id] = Ringer(*ringer)
-            matched_ringers += cls.__cache[ringer.id]
+            if ringer[-1] not in cls.__cache:
+                cls.__cache[ringer[-1]] = Ringer(*ringer)
+            matched_ringers.append(cls.__cache[ringer[-1]])
         return matched_ringers
+
+    @classmethod
+    def clear_data(cls):
+        Database.get_connection().query('SET FOREIGN_KEY_CHECKS=0;')
+        Database.get_connection().query('TRUNCATE TABLE ringers')
+        Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')
+        Database.get_connection().commit()
+        cls.__cache = {}

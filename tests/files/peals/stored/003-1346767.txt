@@ -1,11 +1,12 @@
 
 ===
-1|1346767|1|||1|||1|||y|1|||1|||y|3
+1|1346767|n|y|n|8|0|0|6|3|y|1|||1|||1|||y|1|||1|||y|5
 ===
 Suffolk Guild
 Blythburgh, Suffolk
 Holy Trinity
-on Monday, 25 March 1963 in 162 mins (10–1–10 in G)
+on Monday, 25 March 1963
+5040 Mixed Surprise Minor (8m) in 162 mins (10–1–10 in G)
 
 1: Blake Howard
 2: Aston Mitchell
@@ -19,9 +20,28 @@ Rung as a wedding compliment to Miss Ann Pearce and Mr George Bradlaugh; Also a 
 [Imported Bellboard peal ID: 1346767]
 ===
 [pypeal panel displayed]
-Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
+Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
+methods, 5) Exit
 Select action (1): User input >> 1
 Bellboard URL or peal ID: User input >> 1346767
+Is this a spliced peal? [y/n] (n): User input >> False
+Is this a mixed peal? [y/n] (n): User input >> True
+Multi-method peal: Mixed 8 Methods Minor
+Is this correct? [y/n] (y): User input >> False
+Number of methods (0): User input >> 8
+Number of principles (0): User input >> 0
+Number of variants (0): User input >> 0
+Stage (6): User input >> 6
+Options: 
+1) Bob
+2) Place
+3) Surprise
+4) Treble Bob
+5) Treble Place
+6) None
+Select action: User input >> Surprise (3)
+Mixed 8 Methods Surprise Minor (8m)
+Is this correct? [y/n] (y): User input >> True
 1: No existing ringers match "Blake Howard"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): User input >> 1
@@ -37,7 +57,7 @@ Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): User input >> 1
 Last name (Parker): User input >> Parker
 Given name(s) (John): User input >> John
-[4]: "Alen Henderson" -> Alen Henderson
+4: "Alen Henderson" -> Alen Henderson
 Is this the correct ringer? [y/n] (y): User input >> True
 5: No existing ringers match "Dominik Warren"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
@@ -54,5 +74,6 @@ Save this peal?
 Is this correct? [y/n] (y): User input >> True
 Peal 1346767 added
 [pypeal panel displayed]
-Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
-Select action (1): User input >> 3
+Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
+methods, 5) Exit
+Select action (1): User input >> 5

@@ -1,11 +1,12 @@
 
 ===
-1|1346945|1|||1|||1|||y|2|y|y|3
+1|1346945|n|y|n|4|0|4|5|6|y|1|||1|||1|||y|2|y|y|5
 ===
 Suffolk Guild
 Saxmundham, Suffolk
 St John the Baptist
-on Monday, 27 March 1967 in 149 mins (8–3–7 in A)
+on Monday, 27 March 1967
+5040 Mixed Doubles (4m/4v) in 149 mins (8–3–7 in A)
 
 1: Lydia Reed
 2: Victoria Morrison
@@ -19,9 +20,28 @@ Rung as a wedding compliment To Terry Lee Nash, of Lindenhurst, Long Island, New
 [Imported Bellboard peal ID: 1346945]
 ===
 [pypeal panel displayed]
-Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
+Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
+methods, 5) Exit
 Select action (1): User input >> 1
 Bellboard URL or peal ID: User input >> 1346945
+Is this a spliced peal? [y/n] (n): User input >> False
+Is this a mixed peal? [y/n] (n): User input >> True
+Multi-method peal: Mixed 8 Methods/variations Doubles
+Is this correct? [y/n] (y): User input >> False
+Number of methods (0): User input >> 4
+Number of principles (0): User input >> 0
+Number of variants (0): User input >> 4
+Stage (5): User input >> 5
+Options: 
+1) Bob
+2) Place
+3) Surprise
+4) Treble Bob
+5) Treble Place
+6) None
+Select action: User input >> None (6)
+Mixed 8 Methods/variations Doubles (4m/4v)
+Is this correct? [y/n] (y): User input >> True
 1: No existing ringers match "Lydia Reed"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): User input >> 1
@@ -37,17 +57,18 @@ Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): User input >> 1
 Last name (Murray): User input >> Murray
 Given name(s) (Stuart): User input >> Stuart
-[4]: "Ned Andrews" -> Ned Andrews
+4: "Ned Andrews" -> Ned Andrews
 Is this the correct ringer? [y/n] (y): User input >> True
 5: 2 existing ringers match "Aston Mitchell"
 Options: 1) Aston Mitchell (15), 2) Aston Mitchell (19), 3) None
 Select action: User input >> Aston Mitchell (2)
-[6]: "Carina Warren" -> Carina Warren
+6: "Carina Warren" -> Carina Warren
 Is this the correct ringer? [y/n] (y): User input >> True
 [http://localhost:8080/view.php?id=1346945 panel displayed]
 Save this peal?
 Is this correct? [y/n] (y): User input >> True
 Peal 1346945 added
 [pypeal panel displayed]
-Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
-Select action (1): User input >> 3
+Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
+methods, 5) Exit
+Select action (1): User input >> 5

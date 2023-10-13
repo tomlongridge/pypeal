@@ -1,10 +1,11 @@
 
 ===
-1|1627555|y|2|1|||1|||1|||1|||1|||1|||1|||y|3
+1|1627555|1|y|2|1|||1|||1|||1|||1|||1|||1|||y|5
 ===
 Longney, Gloucestershire
 St Lawrence
-on Saturday, 13 May 2023 in 46 mins (10–3–17 in F)
+on Saturday, 13 May 2023
+1280 London Surprise Major in 46 mins (10–3–17 in F)
 
 1: Aston Mitchell (c)
 2: Carina Warren
@@ -20,9 +21,13 @@ on Saturday, 13 May 2023 in 46 mins (10–3–17 in F)
 [Imported Bellboard peal ID: 1627555]
 ===
 [pypeal panel displayed]
-Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
+Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
+methods, 5) Exit
 Select action (1): User input >> 1
 Bellboard URL or peal ID: User input >> 1627555
+2 methods match "London Surprise Major"
+Options: 1) London Surprise Major, 2) London Little Surprise Major, 3) None
+Select action: User input >> London Surprise Major (1)
 1: 2 existing ringers match "Aston Mitchell"
 Options: 1) Aston Mitchell (15), 2) Aston Mitchell (19), 3) None
 Select action: Please enter a valid integer number
@@ -67,5 +72,6 @@ Save this peal?
 Is this correct? [y/n] (y): User input >> True
 Peal 1627555 added
 [pypeal panel displayed]
-Options: 1) Add peal by URL, 2) Add random peal, 3) Exit
-Select action (1): User input >> 3
+Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
+methods, 5) Exit
+Select action (1): User input >> 5
