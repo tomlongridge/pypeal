@@ -94,7 +94,7 @@ def test_app(mock_bellboard_server, input_file: int):
         assert stored_peal is not None, "Unable to retrieve saved peal"
         assert str(stored_peal) == test_data[2], "Saved peal does not match expected peal"
 
-    except AssertionError as e:
+    except Exception as e:
         store_test_data(input_file,
                         test_data[0] +
                         '\n===\n' +

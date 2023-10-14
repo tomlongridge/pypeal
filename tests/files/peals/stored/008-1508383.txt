@@ -9,6 +9,7 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1508383
 [User input: "1508383"]
+Matching peal titled "Bristol Surprise Maximus"...
 2 methods match "Bristol Surprise Maximus"
 Options: 1) Bristol Surprise Maximus, 2) Bristol Little Surprise Maximus, 3) 
 None

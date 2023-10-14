@@ -99,7 +99,11 @@ class Peal:
         return self.__methods
 
     def add_method(self, method: Method, changes: int = None):
-        self.methods.append((method, changes))
+        if method is not None:
+            self.methods.append((method, changes))
+
+    def clear_methods(self):
+        self.__methods = None
 
     @property
     def method_title(self) -> str:
@@ -224,7 +228,15 @@ class Peal:
             text += f'({self.tenor_weight}'
             text += f' in {self.tenor_tone}' if self.tenor_tone else ''
             text += ')'
-        text += '\n\n'
+        text += '\n'
+        if len(self.methods) > 0:
+            text += '('
+            for method, changes in self.methods:
+                text += f'{changes} ' if changes else ''
+                text += f'{method.title}, '
+            text = text.rstrip(', ')
+            text += ')\n'
+        text += '\n'
         for ringer in self.ringers:
             if ringer[1]:
                 text += ','.join([str(bell) for bell in ringer[1]]) + ': '

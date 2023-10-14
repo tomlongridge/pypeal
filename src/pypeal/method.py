@@ -68,6 +68,13 @@ class Method:
     stage: Stage = None
     id: str = None
 
+    @property
+    def title(self) -> str:
+        text = f'{self.name} ' if self.name else ''
+        text += f'{self.classification} ' if self.classification else ''
+        text += self.stage.name.capitalize() if self.stage else ''
+        return text
+
     def __str__(self) -> str:
         return self.full_name
 

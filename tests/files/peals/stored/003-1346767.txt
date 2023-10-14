@@ -9,16 +9,13 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1346767
 [User input: "1346767"]
+Matching peal titled "8 Methods Minor"...
 Is this a spliced peal? [y/n] (n): 
 >>> n
 [User input: "False"]
 Is this a mixed peal? [y/n] (n): 
 >>> y
 [User input: "True"]
-Multi-method peal: Mixed 8 Methods Minor
-Is this correct? [y/n] (y): 
->>> n
-[User input: "False"]
 Number of methods (0): 
 >>> 8
 [User input: "8"]
@@ -41,10 +38,250 @@ Options:
 Select action: 
 >>> 3
 [User input: "Surprise (3)"]
-Mixed 8 Methods Surprise Minor (8m)
+Mixed Surprise Minor (8m)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Adding changes of methods to multi-method peal...
+No methods match "Being seven extents in eight methods Minor"
+Options: 1) Search alternatives, 2) Cancel
+Select action (1): 
+>>> 2
+[User input: "Cancel"]
+No method matched
+Remove "Being seven extents in eight methods Minor"? [y/n] (y): 
+>>> y
+[User input: "True"]
+No methods match "Viz: (1) Norwich Surprise Minor"
+Options: 1) Search alternatives, 2) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Enter search criteria:
+Name (Viz: (1) Norwich): 
+>>> Norwich
+[User input: "Norwich"]
+Stage (6): 
+>>> 6
+[User input: "6"]
+Options: 
+1) Bob
+2) Place
+3) Surprise
+4) Treble Bob
+5) Treble Place
+6) None
+Select action (3): 
+>>> 3
+[User input: "Surprise (3)"]
+3 methods match "Norwich Surprise Minor"
+Options: 1) Norwich Surprise Minor, 2) Double Norwich Surprise Minor, 3) New 
+Norwich Surprise Minor, 4) None
+Select action: 
+>>> 1
+[User input: "Norwich Surprise Minor (1)"]
+Matched "Viz: (1) Norwich Surprise Minor" to method "Norwich Surprise Minor" 
+(ID: m14317)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+No methods match "(2) Ipswich Surprise Minor"
+Options: 1) Search alternatives, 2) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Enter search criteria:
+Name ((2) Ipswich): 
+>>> Ipswich
+[User input: "Ipswich"]
+Stage (6): 
+>>> 6
+[User input: "6"]
+Options: 
+1) Bob
+2) Place
+3) Surprise
+4) Treble Bob
+5) Treble Place
+6) None
+Select action (3): 
+>>> 3
+[User input: "Surprise (3)"]
+Matched "(2) Ipswich Surprise Minor" to method "Ipswich Surprise Minor" (ID: 
+m14563)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+No methods match "(3) Cambridge Surprise Minor"
+Options: 1) Search alternatives, 2) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Enter search criteria:
+Name ((3) Cambridge): 
+>>> Cambridge
+[User input: "Cambridge"]
+Stage (6): 
+>>> 6
+[User input: "6"]
+Options: 
+1) Bob
+2) Place
+3) Surprise
+4) Treble Bob
+5) Treble Place
+6) None
+Select action (3): 
+>>> 3
+[User input: "Surprise (3)"]
+2 methods match "Cambridge Surprise Minor"
+Options: 1) Cambridge Surprise Minor, 2) New Cambridge Surprise Minor, 3) None
+Select action: 
+>>> 1
+[User input: "Cambridge Surprise Minor (1)"]
+Matched "(3) Cambridge Surprise Minor" to method "Cambridge Surprise Minor" (ID:
+m14568)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+No methods match "(4)Single Oxford Bob Minor"
+Options: 1) Search alternatives, 2) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Enter search criteria:
+Name ((4)Single Oxford): 
+>>> single oxford
+[User input: "single oxford"]
+Stage (6): 
+>>> 6
+[User input: "6"]
+Options: 
+1) Bob
+2) Place
+3) Surprise
+4) Treble Bob
+5) Treble Place
+6) None
+Select action (1): 
+>>> 1
+[User input: "Bob (1)"]
+Matched "(4)Single Oxford Bob Minor" to method "Single Oxford Bob Minor" (ID: 
+m11104)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+No methods match "(5) Plain Bob Minor"
+Options: 1) Search alternatives, 2) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Enter search criteria:
+Name ((5) Plain): 
+>>> plain
+[User input: "plain"]
+Stage (6): 
+>>> 6
+[User input: "6"]
+Options: 
+1) Bob
+2) Place
+3) Surprise
+4) Treble Bob
+5) Treble Place
+6) None
+Select action (1): 
+>>> 1
+[User input: "Bob (1)"]
+Matched "(5) Plain Bob Minor" to method "Plain Bob Minor" (ID: m11349)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+No methods match "(6) St Clement's College Bob and Double Oxford Bob Minor"
+Options: 1) Search alternatives, 2) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Enter search criteria:
+Name ((6) St Clement's College Bob and Double Oxford): 
+>>> clement
+[User input: "clement"]
+Stage (6): 
+>>> 6
+[User input: "6"]
+Options: 
+1) Bob
+2) Place
+3) Surprise
+4) Treble Bob
+5) Treble Place
+6) None
+Select action (1): 
+>>> 1
+[User input: "Bob (1)"]
+Matched "(6) St Clement's College Bob and Double Oxford Bob Minor" to method "St
+Clement's College Bob Minor" (ID: m11369)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+No methods match "(7) Oxford Treble Bob. Minor"
+Options: 1) Search alternatives, 2) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Enter search criteria:
+Name ((7) Oxford Treble Bob.): 
+>>> oxford
+[User input: "oxford"]
+Stage (6): 
+>>> 6
+[User input: "6"]
+Options: 
+1) Bob
+2) Place
+3) Surprise
+4) Treble Bob
+5) Treble Place
+6) None
+Select action: 
+>>> 4
+[User input: "Treble Bob (4)"]
+Matched "(7) Oxford Treble Bob. Minor" to method "Oxford Treble Bob Minor" (ID: 
+m25915)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Add more changes of method? [y/n] (n): 
+>>> y
+[User input: "True"]
+Options: 1) Search alternatives, 2) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Enter search criteria:
+Name: 
+>>> double oxford
+[User input: "double oxford"]
+Stage: 
+>>> 6
+[User input: "6"]
+Options: 
+1) Bob
+2) Place
+3) Surprise
+4) Treble Bob
+5) Treble Place
+6) None
+Select action: 
+>>> 1
+[User input: "Bob (1)"]
+Add "Double Oxford Bob Minor" (ID: m11121)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Add more changes of method? [y/n] (n): 
+>>> n
+[User input: "False"]
 1: No existing ringers match "Blake Howard"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
@@ -122,6 +359,7 @@ Blythburgh, Suffolk
 Holy Trinity
 on Monday, 25 March 1963
 5040 Mixed Surprise Minor (8m) in 162 mins (10–1–10 in G)
+(Single Oxford Bob Minor, Double Oxford Bob Minor, Plain Bob Minor, St Clement's College Bob Minor, Norwich Surprise Minor, Ipswich Surprise Minor, Cambridge Surprise Minor, Oxford Treble Bob Minor)
 
 1: Blake Howard
 2: Aston Mitchell

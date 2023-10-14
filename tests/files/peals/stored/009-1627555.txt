@@ -9,6 +9,7 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1627555
 [User input: "1627555"]
+Matching peal titled "London Surprise Major"...
 2 methods match "London Surprise Major"
 Options: 1) London Surprise Major, 2) London Little Surprise Major, 3) None
 Select action: 

@@ -1,3 +1,4 @@
+
 ===
 [pypeal panel displayed]
 Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
@@ -8,6 +9,7 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1433691
 [User input: "1433691"]
+Matching peal titled "Plain Bob Doubles"...
 Matched "Plain Bob Doubles" to method "Plain Bob Doubles" (ID: m10550)
 Is this correct? [y/n] (y): 
 >>> y

@@ -9,16 +9,13 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1346945
 [User input: "1346945"]
+Matching peal titled "8 Methods/variations Doubles"...
 Is this a spliced peal? [y/n] (n): 
 >>> n
 [User input: "False"]
 Is this a mixed peal? [y/n] (n): 
 >>> y
 [User input: "True"]
-Multi-method peal: Mixed 8 Methods/variations Doubles
-Is this correct? [y/n] (y): 
->>> n
-[User input: "False"]
 Number of methods (0): 
 >>> 4
 [User input: "4"]
@@ -41,17 +38,158 @@ Options:
 Select action: 
 >>> 6
 [User input: "None (6)"]
-Mixed 8 Methods/variations Doubles (4m/4v)
+Mixed Doubles (4m/4v)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-1: No existing ringers match "Lydia Reed"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Adding changes of methods to multi-method peal...
+No methods match "Being Stedman Doubles"
+Options: 1) Search alternatives, 2) Cancel
 Select action (1): 
 >>> 1
 [User input: "1"]
+Enter search criteria:
+Name (Being Stedman): 
+>>> stedman
+[User input: "stedman"]
+Stage (5): 
+>>> 5
+[User input: "5"]
+Options: 
+1) Bob
+2) Place
+3) Surprise
+4) Treble Bob
+5) Treble Place
+6) None
+Select action: 
+>>> 6
+[User input: "None"]
+4 methods match "stedman Doubles"
+Options: 1) Stedman Bob Doubles, 2) Stedman Doubles, 3) Reverse Stedman Doubles,
+4) Double Stedman Bob Doubles, 5) None
+Select action: 
+>>> 2
+[User input: "Stedman Doubles (2)"]
+Matched "Being Stedman Doubles" to method "Stedman Doubles" (ID: m27834)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Matched "Grandsire Doubles" to method "Grandsire Doubles" (ID: m10587)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+No methods match "Reverse Canterbury Pleasure Place Bob Doubles"
+Options: 1) Search alternatives, 2) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Enter search criteria:
+Name (Reverse Canterbury Pleasure Place): 
+>>> reverse Canterbury
+[User input: "reverse Canterbury"]
+Stage (5): 
+>>> 5
+[User input: "5"]
+Options: 
+1) Bob
+2) Place
+3) Surprise
+4) Treble Bob
+5) Treble Place
+6) None
+Select action (1): 
+>>> 6
+[User input: "None"]
+Matched "Reverse Canterbury Pleasure Place Bob Doubles" to method "Reverse 
+Canterbury Pleasure Place Doubles" (ID: m10521)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+No methods match "Winchendon Place Bob Doubles"
+Options: 1) Search alternatives, 2) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Enter search criteria:
+Name (Winchendon Place): 
+>>> Winchendon
+[User input: "Winchendon"]
+Stage (5): 
+>>> 5
+[User input: "5"]
+Options: 
+1) Bob
+2) Place
+3) Surprise
+4) Treble Bob
+5) Treble Place
+6) None
+Select action (1): 
+>>> 2
+[User input: "Place (2)"]
+2 methods match "Winchendon Place Doubles"
+Options: 1) Reverse Winchendon Place Doubles, 2) Winchendon Place Doubles, 3) 
+None
+Select action: 
+>>> 2
+[User input: "Winchendon Place Doubles (2)"]
+Matched "Winchendon Place Bob Doubles" to method "Winchendon Place Doubles" (ID:
+m10524)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Matched "St Nicholas Bob Doubles" to method "St Nicholas Bob Doubles" (ID: 
+m10526)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Matched "St Simon's Bob Doubles" to method "St Simon's Bob Doubles" (ID: m10560)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Matched "St Martin's Bob Doubles" to method "St Martin's Bob Doubles" (ID: 
+m10555)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+No methods match "and Plain Bob. Doubles"
+Options: 1) Search alternatives, 2) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Enter search criteria:
+Name (and Plain Bob.): 
+>>> plain
+[User input: "plain"]
+Stage (5): 
+>>> 5
+[User input: "5"]
+Options: 
+1) Bob
+2) Place
+3) Surprise
+4) Treble Bob
+5) Treble Place
+6) None
+Select action: 
+>>> 1
+[User input: "Bob (1)"]
+Matched "and Plain Bob. Doubles" to method "Plain Bob Doubles" (ID: m10550)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Add more changes of method? [y/n] (n): 
+>>> n
+[User input: "False"]
+1: No existing ringers match "Lydia Reed"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): Please enter a valid integer number
+Select action (1): 
+>>> y
+[User input: "1"]
 Last name (Reed): 
->>> 
+>>> 1
 [User input: "Reed"]
 Given name(s) (Lydia): 
 >>> 
@@ -59,10 +197,10 @@ Given name(s) (Lydia):
 2: No existing ringers match "Victoria Morrison"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
->>> 1
+>>> 
 [User input: "1"]
 Last name (Morrison): 
->>> 
+>>> 1
 [User input: "Morrison"]
 Given name(s) (Victoria): 
 >>> 
@@ -70,13 +208,13 @@ Given name(s) (Victoria):
 3: No existing ringers match "Stuart Murray"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
->>> 1
+>>> 
 [User input: "1"]
 Last name (Murray): 
 >>> 1
 [User input: "1"]
 Given name(s) (Stuart): 
->>> 
+>>> 1
 [User input: "Stuart"]
 Add "Stuart Murray" as an alias?
 Is this correct? [y/n] (y): 
@@ -84,16 +222,16 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 4: "Ned Andrews" -> Ned Andrews
 Is this the correct ringer? [y/n] (y): 
->>> y
+>>> 
 [User input: "True"]
 5: 2 existing ringers match "Aston Mitchell"
 Options: 1) Aston Mitchell (15), 2) Aston Mitchell (19), 3) None
 Select action: 
->>> 2
+>>> y
 [User input: "Aston Mitchell (2)"]
 6: "Carina Warren" -> Carina Warren
 Is this the correct ringer? [y/n] (y): 
->>> y
+>>> 2
 [User input: "True"]
 [http://localhost:8080/view.php?id=1346945 panel displayed]
 Save this peal?
@@ -105,14 +243,17 @@ Peal 1346945 added
 Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
 methods, 5) Exit
 Select action (1): 
->>> 5
+>>> y
 [User input: "5"]
+
+>>> 5
 ===
 Suffolk Guild
 Saxmundham, Suffolk
 St John the Baptist
 on Monday, 27 March 1967
 5040 Mixed Doubles (4m/4v) in 149 mins (8–3–7 in A)
+(Reverse Canterbury Pleasure Place Doubles, Winchendon Place Doubles, St Nicholas Bob Doubles, Plain Bob Doubles, St Martin's Bob Doubles, St Simon's Bob Doubles, Grandsire Bob Doubles, Stedman Doubles)
 
 1: Lydia Reed
 2: Victoria Morrison

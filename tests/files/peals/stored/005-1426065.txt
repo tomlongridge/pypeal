@@ -9,6 +9,7 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1426065
 [User input: "1426065"]
+Matching peal titled "Grandsire Triples"...
 Matched "Grandsire Triples" to method "Grandsire Triples" (ID: m12415)
 Is this correct? [y/n] (y): 
 >>> y

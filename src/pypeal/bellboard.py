@@ -71,14 +71,17 @@ def get_peal_from_html(id: int, html: str) -> Peal:
 
     title = element[0].text.strip()
     title += element[0].next_sibling.text.strip() if element[0].next_sibling else ''
-    # full_name_match = Method.get_by_name(title)
-    # if len(full_name_match) == 1:
-    #     peal.method = full_name_match[0]
-    #     peal.classification = full_name_match[0].classification
-    #     peal.stage = full_name_match[0].stage
-    #     peal.title = None
-    # else:
     parse_method_title(title, peal)
+
+    element = soup.select('div.details')
+    if len(element) == 1:
+        method_names: list[str] = [detail.strip() for detail in element[0].text.split(',')]
+        for method in method_names:
+            method_obj = Method(None)
+            method_obj.stage, method_obj.classification, method_obj.name = parse_single_method(method)
+            if not method_obj.stage:
+                method_obj.stage = peal.stage
+            peal.add_method(method_obj)
 
     # The date line is the first line of the performance div that doesn't have a class
     date_line = None
@@ -175,34 +178,44 @@ def parse_method_title(title: str, peal: Peal):
 
     title = re.sub(METHOD_TITLE_NUM_METHODS_REGEX, '', title).strip()
 
-    if (stage := Stage.from_method(title)):
-        peal.stage = stage
-        title = title[:-len(stage.name)].strip()
-
-    if title.lower().endswith("treble bob"):
-        peal.classification = "Treble Bob"
-    elif title.lower().endswith("treble place"):
-        peal.classification = "Treble Place"
-    elif title.lower().endswith("bob"):
-        peal.classification = "Bob"
-    elif title.lower().endswith("place"):
-        peal.classification = "Place"
-    elif title.lower().endswith("surprise"):
-        peal.classification = "Surprise"
-    elif title.lower().endswith("delight"):
-        peal.classification = "Delight"
-    elif title.lower().endswith("alliance"):
-        peal.classification = "Alliance"
-    elif title.lower().endswith("hybrid"):
-        peal.classification = "Hybrid"
-    if peal.classification:
-        title = title[:-len(peal.classification)].strip()
+    peal.stage, peal.classification, title = parse_single_method(title)
 
     # If there's no title left after parsing, it's a multi-method mixed peal with no number of methods specified
     if len(title) == 0 and not peal.is_spliced:
         peal.is_mixed = True
 
     peal.title = title if len(title) > 0 else None
+
+
+def parse_single_method(method: str) -> tuple[Stage, str, str]:
+
+    stage: Stage = None
+    classification: str = None
+
+    if (stage := Stage.from_method(method)):
+        stage = stage
+        method = method[:-len(stage.name)].strip()
+
+    if method.lower().endswith("treble bob"):
+        classification = "Treble Bob"
+    elif method.lower().endswith("treble place"):
+        classification = "Treble Place"
+    elif method.lower().endswith("bob"):
+        classification = "Bob"
+    elif method.lower().endswith("place"):
+        classification = "Place"
+    elif method.lower().endswith("surprise"):
+        classification = "Surprise"
+    elif method.lower().endswith("delight"):
+        classification = "Delight"
+    elif method.lower().endswith("alliance"):
+        classification = "Alliance"
+    elif method.lower().endswith("hybrid"):
+        classification = "Hybrid"
+    if classification:
+        method = method[:-len(classification)].strip()
+
+    return (stage, classification, method)
 
 
 def search(ringer: str):

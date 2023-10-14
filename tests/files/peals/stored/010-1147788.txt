@@ -1,3 +1,4 @@
+
 ===
 [pypeal panel displayed]
 Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
@@ -8,6 +9,7 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1147788
 [User input: "1147788"]
+Matching peal titled "Grandsire Caters and Royal"...
 Is this a spliced peal? [y/n] (n): 
 >>> n
 [User input: "False"]

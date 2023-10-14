@@ -9,10 +9,37 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1306360
 [User input: "1306360"]
-Multi-method peal: Mixed Doubles (5m/1p/3v)
+Matching peal titled "Mixed Doubles (5m/1p/3v)"...
+Number of methods (5): 
+>>> 
+[User input: "5"]
+Number of principles (1): 
+>>> 
+[User input: "1"]
+Number of variants (3): 
+>>> 
+[User input: "3"]
+Stage (5): 
+>>> 5
+[User input: "5"]
+Options: 
+1) Bob
+2) Place
+3) Surprise
+4) Treble Bob
+5) Treble Place
+6) None
+Select action: 
+>>> 6
+[User input: "None (6)"]
+Mixed Doubles (5m/1p/3v)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Adding changes of methods to multi-method peal...
+Add changes of method? [y/n] (n): 
+>>> n
+[User input: "False"]
 1: No existing ringers match "Dainton Casey"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 

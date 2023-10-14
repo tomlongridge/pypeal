@@ -30,7 +30,7 @@ def ask_int(prompt: str, default: int = None, min: int = None, max: int = None) 
     try:
         while True:
             response = IntPrompt.ask(prompt, default=default, show_default=(default is not None))
-            if (min is None or response >= min) and (max is None or response <= max):
+            if response is not None and (min is None or response >= min) and (max is None or response <= max):
                 print_user_input(prompt, response)
                 return response
     except KeyboardInterrupt:

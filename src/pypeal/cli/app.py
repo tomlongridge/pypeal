@@ -98,6 +98,7 @@ def run_interactive(peal_id_or_url: str):
 def add_peal(url: str = None) -> Peal:
 
     peal: Peal = get_bellboard_peal(url)
+
     prompt_add_methods(peal)
     prompt_add_ringers(peal)
 
@@ -111,17 +112,58 @@ def add_peal(url: str = None) -> Peal:
         return None
 
 
+def prompt_add_method(method: Method = None) -> Method:
+
+    original_title: str = method.title if method else None
+    matched_method: Method = None
+    exact_match: bool = True
+    while matched_method is None:
+
+        if method is not None:
+            full_method_match = Method.search(name=method.name,
+                                              exact_match=exact_match,
+                                              classification=method.classification,
+                                              stage=method.stage)
+        else:
+            full_method_match = []
+
+        match len(full_method_match):
+            case 0:
+                if method:
+                    print(f'No methods match "{method.title}"')
+                match choose_option(['Search alternatives'], default=1, cancel_option='Cancel'):
+                    case 1:
+                        print('Enter search criteria:')
+                        name = ask('Name', default=method.name if method else None)
+                        stage = Stage(ask_int('Stage', default=method.stage.value if method else None, min=2, max=22))
+                        classification_list = ['Bob', 'Place', 'Surprise', 'Treble Bob', 'Treble Place']
+                        classification = choose_option(classification_list,
+                                                       default=classification_list.index(method.classification) + 1
+                                                                   if method and method.classification else None,
+                                                       return_option=True,
+                                                       cancel_option='None')
+                        method = Method(None, name=name, classification=classification, stage=stage)
+                        exact_match = False
+                    case None:
+                        return None
+            case 1:
+                matched_method = full_method_match[0]
+            case _:
+                print(f'{len(full_method_match)} methods match "{method.title}"')
+                matched_method = choose_option(full_method_match, cancel_option='None', return_option=True)
+
+    if ((original_title is not None and confirm(f'Matched "{original_title}" to method "{matched_method}" (ID: {matched_method.id})')) or
+            (original_title is None and confirm(f'Add "{matched_method}" (ID: {matched_method.id})'))):
+        return matched_method
+    else:
+        return None
+
+
 def prompt_add_methods(peal: Peal):
 
-    # # The method ID will be set if the title matched a method exactly
-    # if peal.method and peal.method.id:
-    #     if confirm(f'Matched "{peal.method}" to method ID f{peal.method.id}'):
-    #         matched_method = peal.method
-    # elif peal.num_methods + peal.num_principles + peal.num_variants > 0:
-    #     print(f'Multi-method peal: "{peal.title}"')
-    # else:
-    #     print(f'No method matches "{peal.title}"')
+    print(f'Matching peal titled "{peal.method_title}"...')
 
+    # Attempt an easy match against a single method using the exact title
     if peal.title:
         full_method_match = Method.search(name=peal.title, exact_match=True, classification=peal.classification, stage=peal.stage)
         match len(full_method_match):
@@ -134,13 +176,16 @@ def prompt_add_methods(peal: Peal):
                     peal.title = None
                     peal.is_mixed = False
                     peal.is_spliced = False
+                    return
             case _:
                 print(f'{len(full_method_match)} methods match "{peal.method_title}"')
                 peal.method = choose_option(full_method_match, cancel_option='None', return_option=True)
                 peal.title = None
                 peal.is_mixed = False
                 peal.is_spliced = False
+                return
 
+    # If it's not clear from the title, prompt for multi-method peal
     if peal.is_spliced is None or peal.is_mixed is None:
         peal.is_spliced = confirm(None, confirm_message='Is this a spliced peal?', default=False)
         peal.is_mixed = False
@@ -154,6 +199,7 @@ def prompt_add_methods(peal: Peal):
                     peal.method = None
                     return
 
+    # We haven't matched a method but it's not multi-method, start a single method search
     if peal.is_spliced is False and peal.is_mixed is False:
 
         while not peal.method:
@@ -186,15 +232,17 @@ def prompt_add_methods(peal: Peal):
         peal.title = None
         return
 
+    # Multi-method peal - remove title
+    peal.title = None
+
     while True:
 
-        if confirm(f'Multi-method peal: {peal.method_title}'):
-            break
-
-        while peal.num_methods + peal.num_principles + peal.num_variants == 0:
+        while True:
             peal.num_methods = ask_int('Number of methods', default=peal.num_methods)
             peal.num_principles = ask_int('Number of principles', default=peal.num_principles)
             peal.num_variants = ask_int('Number of variants', default=peal.num_variants)
+            if peal.num_methods + peal.num_principles + peal.num_variants > 0:
+                break
         peal.stage = Stage(ask_int('Stage', default=peal.stage.value, min=2, max=22))
         peal.classification = choose_option(['Bob', 'Place', 'Surprise', 'Treble Bob', 'Treble Place', None],
                                             default=peal.classification,
@@ -204,6 +252,20 @@ def prompt_add_methods(peal: Peal):
             peal.title = None
             peal.method = None
             break
+
+    print('Adding changes of methods to multi-method peal...')
+
+    bb_methods = peal.methods
+    peal.clear_methods()
+    for method, changes in bb_methods:
+        while not (new_method := prompt_add_method(method)):
+            if confirm('No method matched', confirm_message=f'Remove "{method.title}"?'):
+                break
+        peal.add_method(new_method, changes)
+
+    while confirm(None, confirm_message='Add more changes of method?' if len(bb_methods) else 'Add changes of method?', default=False):
+        if method := prompt_add_method():
+            peal.add_method(method, None)
 
 
 def prompt_add_ringers(peal: Peal):
