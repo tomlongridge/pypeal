@@ -1,6 +1,110 @@
-
 ===
-1|1147788|n|n|y|1|||1|||y|1|||y|y|1|||y|y|1|||y|5
+[pypeal panel displayed]
+Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
+methods, 5) Exit
+Select action (1): 
+>>> 1
+[User input: "1"]
+Bellboard URL or peal ID: 
+>>> 1147788
+[User input: "1147788"]
+Is this a spliced peal? [y/n] (n): 
+>>> n
+[User input: "False"]
+Is this a mixed peal? [y/n] (n): 
+>>> n
+[User input: "False"]
+Other performance: Grandsire Caters and Royal
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+1: No existing ringers match "Byron Miller"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Last name (Miller): 
+>>> 
+[User input: "Miller"]
+Given name(s) (Byron): 
+>>> 
+[User input: "Byron"]
+2: No existing ringers match "Paul Armstrong"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Last name (Armstrong): 
+>>> 
+[User input: "Armstrong"]
+Given name(s) (Paul): 
+>>> 
+[User input: "Paul"]
+3: "Clark Elliott" -> Clark Elliott
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+4: No existing ringers match "Alisa Cole"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Last name (Cole): 
+>>> 
+[User input: "Cole"]
+Given name(s) (Alisa): 
+>>> 
+[User input: "Alisa"]
+5: "Chester Edwards" -> Chester Edwards
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+6: "Heather Sullivan" -> Heather Sullivan
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+7: No existing ringers match "Jacob Cole"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Last name (Cole): 
+>>> 
+[User input: "Cole"]
+Given name(s) (Jacob): 
+>>> 
+[User input: "Jacob"]
+8: "Joyce Sullivan" -> Joyce Sullivan
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+9: "Leonardo Bennett" -> Leo Bennett
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+10: No existing ringers match "Byron Robinson"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Last name (Robinson): 
+>>> 
+[User input: "Robinson"]
+Given name(s) (Byron): 
+>>> 
+[User input: "Byron"]
+[http://localhost:8080/view.php?id=1147788 panel displayed]
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Peal 1147788 added
+[pypeal panel displayed]
+Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
+methods, 5) Exit
+Select action (1): 
+>>> 5
+[User input: "5"]
 ===
 Bathwick, Somerset
 St Mary the Virgin
@@ -22,56 +126,3 @@ For Morning Service, and to welcome Rafe Jackson-Swift, son of Russell and Angel
 900th Quarter of Grandsire on the bells.
 
 [Imported Bellboard peal ID: 1147788]
-===
-[pypeal panel displayed]
-Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
-methods, 5) Exit
-Select action (1): User input >> 1
-Bellboard URL or peal ID: User input >> 1147788
-Is this a spliced peal? [y/n] (n): User input >> False
-Is this a mixed peal? [y/n] (n): User input >> False
-Other performance: Grandsire Caters and Royal
-Is this correct? [y/n] (y): User input >> True
-1: No existing ringers match "Byron Miller"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): User input >> 1
-Last name (Miller): User input >> Miller
-Given name(s) (Byron): User input >> Byron
-2: No existing ringers match "Paul Armstrong"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): User input >> 1
-Last name (Armstrong): User input >> Armstrong
-Given name(s) (Paul): User input >> Paul
-3: "Clark Elliott" -> Clark Elliott
-Is this the correct ringer? [y/n] (y): User input >> True
-4: No existing ringers match "Alisa Cole"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): User input >> 1
-Last name (Cole): User input >> Cole
-Given name(s) (Alisa): User input >> Alisa
-5: "Chester Edwards" -> Chester Edwards
-Is this the correct ringer? [y/n] (y): User input >> True
-6: "Heather Sullivan" -> Heather Sullivan
-Is this the correct ringer? [y/n] (y): User input >> True
-7: No existing ringers match "Jacob Cole"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): User input >> 1
-Last name (Cole): User input >> Cole
-Given name(s) (Jacob): User input >> Jacob
-8: "Joyce Sullivan" -> Joyce Sullivan
-Is this the correct ringer? [y/n] (y): User input >> True
-9: "Leonardo Bennett" -> Leo Bennett
-Is this the correct ringer? [y/n] (y): User input >> True
-10: No existing ringers match "Byron Robinson"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): User input >> 1
-Last name (Robinson): User input >> Robinson
-Given name(s) (Byron): User input >> Byron
-[http://localhost:8080/view.php?id=1147788 panel displayed]
-Save this peal?
-Is this correct? [y/n] (y): User input >> True
-Peal 1147788 added
-[pypeal panel displayed]
-Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
-methods, 5) Exit
-Select action (1): User input >> 5

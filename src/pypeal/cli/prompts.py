@@ -12,7 +12,7 @@ logger = logging.getLogger('pypeal')
 def print_user_input(prompt: str, message: str):
     logger.debug(f'User input >> {prompt}: {message}')
     if get_config('diagnostics', 'print_user_input') == 'True':
-        print(f'User input >> {message}')
+        print(f'\n[User input: "{message}"]')
 
 
 def ask(prompt: str, default: str = None) -> str:

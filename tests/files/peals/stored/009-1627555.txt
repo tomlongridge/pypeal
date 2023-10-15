@@ -1,6 +1,113 @@
 
 ===
-1|1627555|1|y|2|1|||1|||1|||1|||1|||1|||1|||y|5
+[pypeal panel displayed]
+Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
+methods, 5) Exit
+Select action (1): 
+>>> 1
+[User input: "1"]
+Bellboard URL or peal ID: 
+>>> 1627555
+[User input: "1627555"]
+2 methods match "London Surprise Major"
+Options: 1) London Surprise Major, 2) London Little Surprise Major, 3) None
+Select action: 
+>>> 1
+[User input: "London Surprise Major (1)"]
+1: 2 existing ringers match "Aston Mitchell"
+Options: 1) Aston Mitchell (15), 2) Aston Mitchell (19), 3) None
+Select action: 
+>>> 2
+[User input: "Aston Mitchell (2)"]
+2: No existing ringers match "Carina Warren"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Last name (Warren): 
+>>> 
+[User input: "Warren"]
+Given name(s) (Carina): 
+>>> 
+[User input: "Carina"]
+3: No existing ringers match "Ellia Armstrong"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Last name (Armstrong): 
+>>> 
+[User input: "Armstrong"]
+Given name(s) (Ellia): 
+>>> 
+[User input: "Ellia"]
+4: No existing ringers match "Edward Dixon"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Last name (Dixon): 
+>>> 
+[User input: "Dixon"]
+Given name(s) (Edward): 
+>>> 
+[User input: "Edward"]
+5: No existing ringers match "Ned Andrews"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Last name (Andrews): 
+>>> 
+[User input: "Andrews"]
+Given name(s) (Ned): 
+>>> 
+[User input: "Ned"]
+6: No existing ringers match "Richard Higgins"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Last name (Higgins): 
+>>> 
+[User input: "Higgins"]
+Given name(s) (Richard): 
+>>> 
+[User input: "Richard"]
+7: No existing ringers match "Carl Johnston"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Last name (Johnston): 
+>>> 
+[User input: "Johnston"]
+Given name(s) (Carl): 
+>>> 
+[User input: "Carl"]
+8: No existing ringers match "Michael Williams"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Last name (Williams): 
+>>> 
+[User input: "Williams"]
+Given name(s) (Michael): 
+>>> 
+[User input: "Michael"]
+[http://localhost:8080/view.php?id=1627555 panel displayed]
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Peal 1627555 added
+[pypeal panel displayed]
+Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
+methods, 5) Exit
+Select action (1): 
+>>> 5
+[User input: "5"]
 ===
 Longney, Gloucestershire
 St Lawrence
@@ -19,59 +126,3 @@ on Saturday, 13 May 2023
 31/50
 
 [Imported Bellboard peal ID: 1627555]
-===
-[pypeal panel displayed]
-Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
-methods, 5) Exit
-Select action (1): User input >> 1
-Bellboard URL or peal ID: User input >> 1627555
-2 methods match "London Surprise Major"
-Options: 1) London Surprise Major, 2) London Little Surprise Major, 3) None
-Select action: User input >> London Surprise Major (1)
-1: 2 existing ringers match "Aston Mitchell"
-Options: 1) Aston Mitchell (15), 2) Aston Mitchell (19), 3) None
-Select action: Please enter a valid integer number
-Select action: User input >> Aston Mitchell (2)
-2: No existing ringers match "Carina Warren"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): User input >> 1
-Last name (Warren): User input >> Warren
-Given name(s) (Carina): User input >> Carina
-3: No existing ringers match "Ellia Armstrong"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): User input >> 1
-Last name (Armstrong): User input >> Armstrong
-Given name(s) (Ellia): User input >> Ellia
-4: No existing ringers match "Edward Dixon"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): User input >> 1
-Last name (Dixon): User input >> Dixon
-Given name(s) (Edward): User input >> Edward
-5: No existing ringers match "Ned Andrews"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): User input >> 1
-Last name (Andrews): User input >> Andrews
-Given name(s) (Ned): User input >> Ned
-6: No existing ringers match "Richard Higgins"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): User input >> 1
-Last name (Higgins): User input >> Higgins
-Given name(s) (Richard): User input >> Richard
-7: No existing ringers match "Carl Johnston"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): User input >> 1
-Last name (Johnston): User input >> Johnston
-Given name(s) (Carl): User input >> Carl
-8: No existing ringers match "Michael Williams"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): User input >> 1
-Last name (Williams): User input >> Williams
-Given name(s) (Michael): User input >> Michael
-[http://localhost:8080/view.php?id=1627555 panel displayed]
-Save this peal?
-Is this correct? [y/n] (y): User input >> True
-Peal 1627555 added
-[pypeal panel displayed]
-Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
-methods, 5) Exit
-Select action (1): User input >> 5

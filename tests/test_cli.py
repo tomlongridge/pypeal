@@ -58,20 +58,38 @@ def test_app(mock_bellboard_server, input_file: int):
 
     peal_id = int(input_file.split('-')[1])
     test_data = [data.strip() for data in get_stored_test_data(input_file).split('===')]
-    assert len(test_data) == 4, f'Test file for peal {peal_id} doesn\'t contain 4 sections'
+    assert len(test_data) == 3, f'Test file for peal {peal_id} doesn\'t contain 3 sections'
+
+    stdin: list[str] = []
+    expected_stdout = ''
+    for line in test_data[1].split('\n'):
+        if line.startswith('>>>'):
+            stdin.append(line[3:].strip())
+        else:
+            expected_stdout += line + '\n'
+    expected_stdout = expected_stdout.strip()
 
     result: Result = None
     stored_peal = None
+    test_output = ''
     try:
         result = runner.invoke(app,
                                test_data[0].split('|') if test_data[0] != '' else None,
-                               input=test_data[1].replace('|', '\n') + '\n')
+                               input='\n'.join(stdin) + '\n')
+
+        for line in result.output.split('\n'):
+            if line.startswith('[User input:') and len(stdin) > 0:
+                test_output += '>>> ' + stdin.pop(0) + '\n'
+            test_output += line + '\n'
+        for remaining_input in stdin:
+            test_output += '>>> ' + remaining_input + '\n'
+
         if result.exception and type(result.exception) is not SystemExit:
             raise result.exception
 
         stored_peal = Peal.get(bellboard_id=peal_id)
 
-        assert result.output.strip() == test_data[3].strip(), "App output does not match expected output"
+        assert result.output.strip() == expected_stdout, "App output does not match expected output"
         assert result.exit_code == 0, "App exited with non-zero exit code"
         assert stored_peal is not None, "Unable to retrieve saved peal"
         assert str(stored_peal) == test_data[2], "Saved peal does not match expected peal"
@@ -80,9 +98,7 @@ def test_app(mock_bellboard_server, input_file: int):
         store_test_data(input_file,
                         test_data[0] +
                         '\n===\n' +
-                        test_data[1] +
+                        test_output.strip() +
                         '\n===\n' +
-                        (str(stored_peal) if stored_peal else test_data[2]) +
-                        '\n===\n' +
-                        (result.output if result.output else test_data[3]))
+                        (str(stored_peal) if stored_peal else test_data[2]))
         raise e

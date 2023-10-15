@@ -1,6 +1,89 @@
 
 ===
-1|1306360|y|1|||1|||1|||1|||y|1|||y|5
+[pypeal panel displayed]
+Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
+methods, 5) Exit
+Select action (1): 
+>>> 1
+[User input: "1"]
+Bellboard URL or peal ID: 
+>>> 1306360
+[User input: "1306360"]
+Multi-method peal: Mixed Doubles (5m/1p/3v)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+1: No existing ringers match "Dainton Casey"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Last name (Casey): 
+>>> 
+[User input: "Casey"]
+Given name(s) (Dainton): 
+>>> 
+[User input: "Dainton"]
+2: No existing ringers match "Daryl Mason"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Last name (Mason): 
+>>> 
+[User input: "Mason"]
+Given name(s) (Daryl): 
+>>> 
+[User input: "Daryl"]
+3: No existing ringers match "Roland Clark"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Last name (Clark): 
+>>> 
+[User input: "Clark"]
+Given name(s) (Roland): 
+>>> 
+[User input: "Roland"]
+4: No existing ringers match "Michelle Thompson"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Last name (Thompson): 
+>>> 
+[User input: "Thompson"]
+Given name(s) (Michelle): 
+>>> 
+[User input: "Michelle"]
+5: "Ted Harris" -> Ted Harris
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+6: No existing ringers match "David Rogers"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Last name (Rogers): 
+>>> 
+[User input: "Rogers"]
+Given name(s) (David): 
+>>> 
+[User input: "David"]
+[http://localhost:8080/view.php?id=1306360 panel displayed]
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Peal 1306360 added
+[pypeal panel displayed]
+Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
+methods, 5) Exit
+Select action (1): 
+>>> 5
+[User input: "5"]
 ===
 Bath & Wells Diocesan Association
 Portbury, Somerset
@@ -16,46 +99,3 @@ on Thursday, 17 October 2019
 6: David Rogers
 
 [Imported Bellboard peal ID: 1306360]
-===
-[pypeal panel displayed]
-Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
-methods, 5) Exit
-Select action (1): User input >> 1
-Bellboard URL or peal ID: User input >> 1306360
-Multi-method peal: Mixed Doubles (5m/1p/3v)
-Is this correct? [y/n] (y): User input >> True
-1: No existing ringers match "Dainton Casey"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): User input >> 1
-Last name (Casey): User input >> Casey
-Given name(s) (Dainton): User input >> Dainton
-2: No existing ringers match "Daryl Mason"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): User input >> 1
-Last name (Mason): User input >> Mason
-Given name(s) (Daryl): User input >> Daryl
-3: No existing ringers match "Roland Clark"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): User input >> 1
-Last name (Clark): User input >> Clark
-Given name(s) (Roland): User input >> Roland
-4: No existing ringers match "Michelle Thompson"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): User input >> 1
-Last name (Thompson): User input >> Thompson
-Given name(s) (Michelle): User input >> Michelle
-5: "Ted Harris" -> Ted Harris
-Is this the correct ringer? [y/n] (y): User input >> True
-6: No existing ringers match "David Rogers"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): User input >> 1
-Last name (Rogers): User input >> Rogers
-Given name(s) (David): User input >> David
-[http://localhost:8080/view.php?id=1306360 panel displayed]
-Save this peal?
-Is this correct? [y/n] (y): User input >> True
-Peal 1306360 added
-[pypeal panel displayed]
-Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
-methods, 5) Exit
-Select action (1): User input >> 5
