@@ -9,7 +9,7 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1306360
 [User input: "1306360"]
-Matching peal titled "Mixed Doubles (5m/1p/3v)"...
+Matching peal titled "Mixed Doubles (5m/3v/1p)"...
 Number of methods (5): 
 >>> 
 [User input: "5"]
@@ -29,10 +29,10 @@ Options:
 4) Treble Bob
 5) Treble Place
 6) None
-Select action: 
+Select action (6): 
 >>> 6
 [User input: "None (6)"]
-Mixed Doubles (5m/1p/3v)
+Mixed Doubles (5m/3v/1p)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -116,7 +116,7 @@ Bath & Wells Diocesan Association
 Portbury, Somerset
 Blessed Virgin Mary
 on Thursday, 17 October 2019
-1260 Mixed Doubles (5m/1p/3v) in 44 mins (21 in E♭)
+1260 Mixed Doubles (5m/3v/1p) in 44 mins (21 in E♭)
 
 1: Dainton Casey
 2: Daryl Mason

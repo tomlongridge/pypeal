@@ -26,6 +26,8 @@ def generate_peal(url: str):
     print('Stripping changing and personal information...')
     for metadata in [*soup.select('p.metadata'),
                      *soup.select('div#performance-ad'),
+                     *soup.select('ul.control'),
+                     *soup.select('script'),
                      *soup.select('td#page-footer')]:
         metadata.replace_with('')
     bell_num = 1

@@ -35,7 +35,7 @@ Options:
 4) Treble Bob
 5) Treble Place
 6) None
-Select action: 
+Select action (6): 
 >>> 6
 [User input: "None (6)"]
 Mixed Doubles (4m/4v)

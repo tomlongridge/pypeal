@@ -114,12 +114,16 @@ class Peal:
         text += 'Mixed ' if self.is_mixed else ''
         text += f'{self.title} ' if self.title else ''
         text += f'{self.classification} ' if self.classification else ''
+        if self.stage and self.is_variable_cover and self.stage.value % 2 == 0:
+            text += f'{Stage(self.stage.value - 1).name.capitalize()} and '
         text += f'{self.stage.name.capitalize()} ' if self.stage else ''
+        if self.stage and self.is_variable_cover and self.stage.value % 2 == 1:
+            text += f'and {Stage(self.stage.value + 1).name.capitalize()} '
         if self.num_methods + self.num_principles + self.num_variants > 0:
             text += '('
             text += f'{self.num_methods}m/' if self.num_methods else ''
-            text += f'{self.num_principles}p/' if self.num_principles else ''
             text += f'{self.num_variants}v/' if self.num_variants else ''
+            text += f'{self.num_principles}p/' if self.num_principles else ''
             text = text.rstrip('/')
             text += ')'
         return text.strip()

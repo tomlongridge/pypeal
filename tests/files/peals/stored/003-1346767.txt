@@ -35,7 +35,7 @@ Options:
 4) Treble Bob
 5) Treble Place
 6) None
-Select action: 
+Select action (6): 
 >>> 3
 [User input: "Surprise (3)"]
 Mixed Surprise Minor (8m)

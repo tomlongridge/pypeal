@@ -6,7 +6,7 @@ from rich import print
 
 from pypeal.bellboard import get_peal as get_bellboard_peal, get_id_from_url, get_url_from_id
 from pypeal.cli.prompts import ask_int, choose_option, ask, confirm, panel, error
-from pypeal.db import Database, initialize as initialize_db
+from pypeal.db import initialize as initialize_db
 from pypeal.method import Method, Stage
 from pypeal.peal import Peal
 from pypeal.ringer import Ringer
@@ -138,8 +138,7 @@ def prompt_add_method(method: Method = None) -> Method:
                         stage = Stage(ask_int('Stage', default=method.stage.value if method else None, min=2, max=22))
                         classification_list = ['Bob', 'Place', 'Surprise', 'Treble Bob', 'Treble Place']
                         classification = choose_option(classification_list,
-                                                       default=classification_list.index(method.classification) + 1
-                                                                   if method and method.classification else None,
+                                                       default=method.classification if method else None,
                                                        return_option=True,
                                                        cancel_option='None')
                         method = Method(None, name=name, classification=classification, stage=stage)
@@ -206,7 +205,9 @@ def prompt_add_methods(peal: Peal):
 
             print(f'Attempting to match single method "{peal.title}"')
 
-            match choose_option(['Search alternatives', 'Change to mixed methods', 'Change to spliced methods'], default=1, cancel_option='Cancel'):
+            match choose_option(['Search alternatives', 'Change to mixed methods', 'Change to spliced methods'],
+                                default=1,
+                                cancel_option='Cancel'):
                 case 1:
                     name = ask('Name', default=peal.title if peal.title else None)
                     stage = Stage(ask_int('Stage', default=peal.stage.value, min=2, max=22))
@@ -351,7 +352,9 @@ def validate_peal_input(id_or_url: str) -> int:
 
 
 def prompt_add_ringer(name: str, ringer: Ringer, bells: list[int]) -> Ringer:
-    if confirm(f'{",".join([str(bell) for bell in bells])}: "{name}" -> {ringer}', confirm_message='Is this the correct ringer?', default=True):
+    if confirm(f'{",".join([str(bell) for bell in bells])}: "{name}" -> {ringer}',
+               confirm_message='Is this the correct ringer?',
+               default=True):
         return ringer
     return None
 

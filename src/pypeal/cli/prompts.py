@@ -55,7 +55,7 @@ def confirm(prompt: str, confirm_message: str = 'Is this correct?', default: boo
 def choose_option(options: list[any],
                   values: list[any] = None,
                   prompt: str = 'Options',
-                  default: int = None,
+                  default: any = None,
                   return_option: bool = False,
                   cancel_option: str = None) -> any:
     prompt_text = f'{prompt}: '
@@ -65,12 +65,18 @@ def choose_option(options: list[any],
         prompt_text += f'{i + 1}) {option}'
         prompt_text += ', ' if len(option_list) <= 5 and i < len(option_list) - 1 else ''
     choice = None
+    if type(default) is int:
+        default_value = default
+    elif default in options:
+        default_value = option_list.index(default) + 1
+    else:
+        default_value = None
     while not choice:
         print(prompt_text)
         try:
             choice = IntPrompt.ask('Select action',
                                    choices=[str(v) for v in range(1, len(option_list)+1)],
-                                   default=default,
+                                   default=default_value,
                                    show_choices=False,
                                    show_default=True)
         except KeyboardInterrupt:
