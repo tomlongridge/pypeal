@@ -43,7 +43,7 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 Adding changes of methods to multi-method peal...
-Add changes of method? [y/n] (n): 
+Add changes of method? [y/n] (y): 
 >>> y
 [User input: "True"]
 Options: 1) Search alternatives, 2) Cancel
@@ -82,7 +82,11 @@ Add "Grandsire Caters" (ID: m13833)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Add changes of method? [y/n] (n): 
+Number of changes: 
+>>> 
+[User input: "None"]
+Method 1: Grandsire Bob Caters (unknown changes)
+Add changes of method? [y/n] (y): 
 >>> y
 [User input: "True"]
 Options: 1) Search alternatives, 2) Cancel
@@ -110,6 +114,10 @@ Add "Grandsire Royal" (ID: m14030)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Number of changes: 
+>>> 
+[User input: "None"]
+Method 2: Grandsire Bob Royal (unknown changes)
 Add changes of method? [y/n] (n): 
 >>> n
 [User input: "False"]

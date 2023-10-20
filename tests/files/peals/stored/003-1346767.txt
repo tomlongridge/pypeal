@@ -85,6 +85,10 @@ Matched "Viz: (1) Norwich Surprise Minor" to method "Norwich Surprise Minor"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Number of changes: 
+>>> 
+[User input: "None"]
+Method 1: Norwich Surprise Minor (unknown changes)
 No methods match "(2) Ipswich Surprise Minor"
 Options: 1) Search alternatives, 2) Cancel
 Select action (1): 
@@ -112,6 +116,10 @@ m14563)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Number of changes: 
+>>> 
+[User input: "None"]
+Method 2: Ipswich Surprise Minor (unknown changes)
 No methods match "(3) Cambridge Surprise Minor"
 Options: 1) Search alternatives, 2) Cancel
 Select action (1): 
@@ -144,6 +152,10 @@ m14568)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Number of changes: 
+>>> 
+[User input: "None"]
+Method 3: Cambridge Surprise Minor (unknown changes)
 No methods match "(4)Single Oxford Bob Minor"
 Options: 1) Search alternatives, 2) Cancel
 Select action (1): 
@@ -171,6 +183,10 @@ m11104)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Number of changes: 
+>>> 
+[User input: "None"]
+Method 4: Single Oxford Bob Minor (unknown changes)
 No methods match "(5) Plain Bob Minor"
 Options: 1) Search alternatives, 2) Cancel
 Select action (1): 
@@ -197,6 +213,10 @@ Matched "(5) Plain Bob Minor" to method "Plain Bob Minor" (ID: m11349)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Number of changes: 
+>>> 
+[User input: "None"]
+Method 5: Plain Bob Minor (unknown changes)
 No methods match "(6) St Clement's College Bob and Double Oxford Bob Minor"
 Options: 1) Search alternatives, 2) Cancel
 Select action (1): 
@@ -224,6 +244,10 @@ Clement's College Bob Minor" (ID: m11369)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Number of changes: 
+>>> 
+[User input: "None"]
+Method 6: St Clement's College Bob Minor (unknown changes)
 No methods match "(7) Oxford Treble Bob. Minor"
 Options: 1) Search alternatives, 2) Cancel
 Select action (1): 
@@ -251,7 +275,11 @@ m25915)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Add more changes of method? [y/n] (n): 
+Number of changes: 
+>>> 
+[User input: "None"]
+Method 7: Oxford Treble Bob Minor (unknown changes)
+Add more changes of method? [y/n] (y): 
 >>> y
 [User input: "True"]
 Options: 1) Search alternatives, 2) Cancel
@@ -279,6 +307,10 @@ Add "Double Oxford Bob Minor" (ID: m11121)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Number of changes: 
+>>> 
+[User input: "None"]
+Method 8: Double Oxford Bob Minor (unknown changes)
 Add more changes of method? [y/n] (n): 
 >>> n
 [User input: "False"]

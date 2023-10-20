@@ -106,6 +106,10 @@ class Peal:
         self.__methods = None
 
     @property
+    def num_methods_in_title(self):
+        return self.num_methods + self.num_variants + self.num_principles
+
+    @property
     def method_title(self) -> str:
         if self.method:
             return self.method.full_name

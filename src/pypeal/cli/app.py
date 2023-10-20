@@ -143,13 +143,18 @@ def prompt_add_method(method: Method = None) -> Method:
                                                        cancel_option='None')
                         method = Method(None, name=name, classification=classification, stage=stage)
                         exact_match = False
+                        continue
                     case None:
-                        return None
+                        pass  # Continue to prompt for another go
             case 1:
                 matched_method = full_method_match[0]
             case _:
                 print(f'{len(full_method_match)} methods match "{method.title}"')
                 matched_method = choose_option(full_method_match, cancel_option='None', return_option=True)
+
+        if matched_method is None:
+            if method is None or confirm('No method matched', confirm_message=f'Remove "{original_title}"?'):
+                return None
 
     if ((original_title is not None and confirm(f'Matched "{original_title}" to method "{matched_method}" (ID: {matched_method.id})')) or
             (original_title is None and confirm(f'Add "{matched_method}" (ID: {matched_method.id})'))):
@@ -186,10 +191,10 @@ def prompt_add_methods(peal: Peal):
 
     # If it's not clear from the title, prompt for multi-method peal
     if peal.is_spliced is None or peal.is_mixed is None:
-        peal.is_spliced = confirm(None, confirm_message='Is this a spliced peal?', default=False)
+        peal.is_spliced = confirm(None, confirm_message='Is this a spliced peal?', default=peal.is_spliced)
         peal.is_mixed = False
         if not peal.is_spliced:
-            peal.is_mixed = confirm(None, confirm_message='Is this a mixed peal?', default=False)
+            peal.is_mixed = confirm(None, confirm_message='Is this a mixed peal?', default=peal.is_mixed)
             if not peal.is_mixed:
                 if confirm(f'Other performance: {peal.method_title}', default=True):
                     peal.title = peal.method_title
@@ -260,15 +265,31 @@ def prompt_add_methods(peal: Peal):
 
     bb_methods = peal.methods
     peal.clear_methods()
+    method_count: int = 0
     for method, changes in bb_methods:
-        while not (new_method := prompt_add_method(method)):
-            if confirm('No method matched', confirm_message=f'Remove "{method.title}"?'):
-                break
+        if not (new_method := prompt_add_method(method)):
+            continue
+        changes = ask_int('Number of changes', default=changes)
         peal.add_method(new_method, changes)
+        method_count += 1
+        print(f'Method {method_count}: {new_method.title} ({changes if changes else "unknown"} changes)')
 
-    while confirm(None, confirm_message='Add more changes of method?' if len(bb_methods) else 'Add changes of method?', default=False):
+    while True:
+        if not confirm(None,
+                       confirm_message='Add more changes of method?' if len(bb_methods) else 'Add changes of method?',
+                       default=len(peal.methods) < peal.num_methods_in_title):
+            break
+        elif len(peal.methods) >= peal.num_methods_in_title and \
+                not confirm(f'Number of methods ({method_count}) does not match number of methods from peal title ' +
+                            f'({peal.num_methods_in_title}).',
+                            confirm_message='Do you want to add more?',
+                            default=False):
+            break
         if method := prompt_add_method():
-            peal.add_method(method, None)
+            changes = ask_int('Number of changes', default=None)
+            peal.add_method(method, changes)
+            method_count += 1
+            print(f'Method {method_count}: {method.title} ({changes if changes else "unknown"} changes)')
 
 
 def prompt_add_ringers(peal: Peal):

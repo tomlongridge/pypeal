@@ -40,7 +40,7 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 Adding changes of methods to multi-method peal...
-Add changes of method? [y/n] (n): 
+Add changes of method? [y/n] (y): 
 >>> n
 [User input: "False"]
 1: No existing ringers match "Dainton Casey"

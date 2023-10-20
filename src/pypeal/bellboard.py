@@ -78,10 +78,12 @@ def get_peal_from_html(id: int, html: str) -> Peal:
         method_names: list[str] = [detail.strip() for detail in element[0].text.split(',')]
         for method in method_names:
             method_obj = Method(None)
-            method_obj.stage, method_obj.classification, method_obj.name = parse_single_method(method)
+            method_obj.stage, method_obj.classification, method_obj.name, changes = parse_single_method(method)
             if not method_obj.stage:
                 method_obj.stage = peal.stage
-            peal.add_method(method_obj)
+            if not method_obj.classification:
+                method_obj.classification = peal.classification
+            peal.add_method(method_obj, changes)
 
     # The date line is the first line of the performance div that doesn't have a class
     date_line = None
@@ -178,7 +180,7 @@ def parse_method_title(title: str, peal: Peal):
 
     title = re.sub(METHOD_TITLE_NUM_METHODS_REGEX, '', title).strip()
 
-    peal.stage, peal.classification, title = parse_single_method(title)
+    peal.stage, peal.classification, title, _ = parse_single_method(title, expect_changes=False)
 
     # If there's no title left after parsing, it's a multi-method mixed peal with no number of methods specified
     if len(title) == 0 and not peal.is_spliced:
@@ -187,10 +189,15 @@ def parse_method_title(title: str, peal: Peal):
     peal.title = title if len(title) > 0 else None
 
 
-def parse_single_method(method: str) -> tuple[Stage, str, str]:
+def parse_single_method(method: str, expect_changes: bool = True) -> tuple[Stage, str, str, int]:
 
     stage: Stage = None
     classification: str = None
+    changes: int = None
+
+    if expect_changes and (match := re.match(r'^(?P<changes>[0-9]+)\s+(?:changes\s)?(?P<method>.*)$', method)):
+        changes = int(match.groupdict()['changes'])
+        method = match.groupdict()['method'].strip()
 
     if (stage := Stage.from_method(method)):
         stage = stage
@@ -215,7 +222,7 @@ def parse_single_method(method: str) -> tuple[Stage, str, str]:
     if classification:
         method = method[:-len(classification)].strip()
 
-    return (stage, classification, method)
+    return (stage, classification, method, changes)
 
 
 def search(ringer: str):

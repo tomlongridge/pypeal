@@ -1,0 +1,145 @@
+
+===
+[pypeal panel displayed]
+Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
+methods, 5) Exit
+Select action (1): 
+>>> 1
+[User input: "1"]
+Bellboard URL or peal ID: 
+>>> 1314805
+[User input: "1314805"]
+Matching peal titled "Spliced Surprise Major (2m)"...
+Is this a spliced peal? [y/n] (y): 
+>>> 
+[User input: "True"]
+Number of methods (2): 
+>>> 
+[User input: "2"]
+Number of principles (0): 
+>>> 
+[User input: "0"]
+Number of variants (0): 
+>>> 
+[User input: "0"]
+Stage (8): 
+>>> 
+[User input: "8"]
+Options: 
+1) Bob
+2) Place
+3) Surprise
+4) Treble Bob
+5) Treble Place
+6) None
+Select action (3): 
+>>> 
+[User input: "Surprise (3)"]
+Spliced Surprise Major (2m)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Adding changes of methods to multi-method peal...
+Matched "Cambridge Surprise Major" to method "Cambridge Surprise Major" (ID: 
+m16694)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Number of changes (640): 
+>>> 
+[User input: "640"]
+Method 1: Cambridge Surprise Major (640 changes)
+Matched "Yorkshire Surprise Major" to method "Yorkshire Surprise Major" (ID: 
+m17060)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Number of changes (640): 
+>>> 
+[User input: "640"]
+Method 2: Yorkshire Surprise Major (640 changes)
+Add more changes of method? [y/n] (n): 
+>>> y
+[User input: "True"]
+Number of methods (2) does not match number of methods from peal title (2).
+Do you want to add more? [y/n] (n): 
+>>> y
+[User input: "True"]
+Options: 1) Search alternatives, 2) Cancel
+Select action (1): 
+>>> 2
+[User input: "Cancel"]
+Add more changes of method? [y/n] (n): 
+>>> n
+[User input: "False"]
+1: "Leonardo Bennett" -> Leo Bennett
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+2: "Paul Armstrong" -> Paul Armstrong
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+3: "Blake Elliott" -> Blake Elliott
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+4: "Jacob Cole" -> Jacob Cole
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+5: No existing ringers match "Melissa Baker"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Last name (Baker): 
+>>> 
+[User input: "Baker"]
+Given name(s) (Melissa): 
+>>> 
+[User input: "Melissa"]
+6: "Joyce Sullivan" -> Joyce Sullivan
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+7: "Chester Edwards" -> Chester Edwards
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+8: "Byron Robinson" -> Byron Robinson
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+[http://localhost:8080/view.php?id=1314805 panel displayed]
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Peal 1314805 added
+[pypeal panel displayed]
+Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
+methods, 5) Exit
+Select action (1): 
+>>> 5
+[User input: "5"]
+===
+Bath & Wells Diocesan Association
+Bath, Somerset
+Blessed Virgin Mary, Bathwick
+on Sunday, 15 December 2019
+1280 Spliced Surprise Major (2m) in 48 mins (18–3–20 in E♭)
+(640 Cambridge Surprise Major, 640 Yorkshire Surprise Major)
+
+1: Leo Bennett
+2: Paul Armstrong
+3: Blake Elliott
+4: Jacob Cole
+5: Melissa Baker
+6: Joyce Sullivan
+7: Chester Edwards
+8: Byron Robinson (c)
+
+Rung for morning service
+
+[Imported Bellboard peal ID: 1314805]

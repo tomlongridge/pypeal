@@ -78,10 +78,18 @@ Matched "Being Stedman Doubles" to method "Stedman Doubles" (ID: m27834)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Number of changes: 
+>>> 630
+[User input: "630"]
+Method 1: Stedman Doubles (630 changes)
 Matched "Grandsire Doubles" to method "Grandsire Doubles" (ID: m10587)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Number of changes: 
+>>> 630
+[User input: "630"]
+Method 2: Grandsire Bob Doubles (630 changes)
 No methods match "Reverse Canterbury Pleasure Place Bob Doubles"
 Options: 1) Search alternatives, 2) Cancel
 Select action (1): 
@@ -109,6 +117,10 @@ Canterbury Pleasure Place Doubles" (ID: m10521)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Number of changes: 
+>>> 630
+[User input: "630"]
+Method 3: Reverse Canterbury Pleasure Place Doubles (630 changes)
 No methods match "Winchendon Place Bob Doubles"
 Options: 1) Search alternatives, 2) Cancel
 Select action (1): 
@@ -142,20 +154,36 @@ m10524)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Number of changes: 
+>>> 630
+[User input: "630"]
+Method 4: Winchendon Place Doubles (630 changes)
 Matched "St Nicholas Bob Doubles" to method "St Nicholas Bob Doubles" (ID: 
 m10526)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Number of changes: 
+>>> 630
+[User input: "630"]
+Method 5: St Nicholas Bob Doubles (630 changes)
 Matched "St Simon's Bob Doubles" to method "St Simon's Bob Doubles" (ID: m10560)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Number of changes: 
+>>> 630
+[User input: "630"]
+Method 6: St Simon's Bob Doubles (630 changes)
 Matched "St Martin's Bob Doubles" to method "St Martin's Bob Doubles" (ID: 
 m10555)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Number of changes: 
+>>> 630
+[User input: "630"]
+Method 7: St Martin's Bob Doubles (630 changes)
 No methods match "and Plain Bob. Doubles"
 Options: 1) Search alternatives, 2) Cancel
 Select action (1): 
@@ -182,6 +210,10 @@ Matched "and Plain Bob. Doubles" to method "Plain Bob Doubles" (ID: m10550)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Number of changes: 
+>>> 630
+[User input: "630"]
+Method 8: Plain Bob Doubles (630 changes)
 Add more changes of method? [y/n] (n): 
 >>> n
 [User input: "False"]
@@ -253,7 +285,7 @@ Saxmundham, Suffolk
 St John the Baptist
 on Monday, 27 March 1967
 5040 Mixed Doubles (4m/4v) in 149 mins (8–3–7 in A)
-(Reverse Canterbury Pleasure Place Doubles, Winchendon Place Doubles, St Nicholas Bob Doubles, Plain Bob Doubles, St Martin's Bob Doubles, St Simon's Bob Doubles, Grandsire Bob Doubles, Stedman Doubles)
+(630 Reverse Canterbury Pleasure Place Doubles, 630 Winchendon Place Doubles, 630 St Nicholas Bob Doubles, 630 Plain Bob Doubles, 630 St Martin's Bob Doubles, 630 St Simon's Bob Doubles, 630 Grandsire Bob Doubles, 630 Stedman Doubles)
 
 1: Lydia Reed
 2: Victoria Morrison
