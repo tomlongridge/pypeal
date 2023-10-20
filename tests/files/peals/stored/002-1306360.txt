@@ -32,6 +32,9 @@ Options:
 Select action (6): 
 >>> 6
 [User input: "None (6)"]
+Is this peal variable cover? [y/n] (n): 
+>>> n
+[User input: "False"]
 Mixed Doubles (5m/3v/1p)
 Is this correct? [y/n] (y): 
 >>> y

@@ -11,15 +11,108 @@ Bellboard URL or peal ID:
 [User input: "1147788"]
 Matching peal titled "Grandsire Caters and Royal"...
 Is this a spliced peal? [y/n] (n): 
->>> n
-[User input: "False"]
-Is this a mixed peal? [y/n] (n): 
->>> n
-[User input: "False"]
-Other performance: Grandsire Caters and Royal
+>>> y
+[User input: "True"]
+Number of methods (0): 
+>>> 2
+[User input: "2"]
+Number of principles (0): 
+>>> 
+[User input: "0"]
+Number of variants (0): 
+>>> 
+[User input: "0"]
+Stage (10): 
+>>> 9
+[User input: "9"]
+Options: 
+1) Bob
+2) Place
+3) Surprise
+4) Treble Bob
+5) Treble Place
+6) None
+Select action (6): 
+>>> 6
+[User input: "None (6)"]
+Is this peal variable cover? [y/n] (n): 
+>>> y
+[User input: "True"]
+Spliced Caters and Royal (2m)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Adding changes of methods to multi-method peal...
+Add changes of method? [y/n] (n): 
+>>> y
+[User input: "True"]
+Options: 1) Search alternatives, 2) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Enter search criteria:
+Name: 
+>>> grandsire
+[User input: "grandsire"]
+Stage: 
+>>> 9
+[User input: "9"]
+Options: 
+1) Bob
+2) Place
+3) Surprise
+4) Treble Bob
+5) Treble Place
+6) None
+Select action: 
+>>> 6
+[User input: "None"]
+5 methods match "grandsire Caters"
+Options: 
+1) Grandsire Caters
+2) Double Grandsire Caters
+3) Reverse Grandsire Caters
+4) Little Grandsire Caters
+5) New Grandsire Caters
+6) None
+Select action: 
+>>> 1
+[User input: "Grandsire Caters (1)"]
+Add "Grandsire Caters" (ID: m13833)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Add changes of method? [y/n] (n): 
+>>> y
+[User input: "True"]
+Options: 1) Search alternatives, 2) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Enter search criteria:
+Name: 
+>>> grandsire
+[User input: "grandsire"]
+Stage: 
+>>> 10
+[User input: "10"]
+Options: 
+1) Bob
+2) Place
+3) Surprise
+4) Treble Bob
+5) Treble Place
+6) None
+Select action: 
+>>> 6
+[User input: "None"]
+Add "Grandsire Royal" (ID: m14030)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Add changes of method? [y/n] (n): 
+>>> n
+[User input: "False"]
 1: No existing ringers match "Byron Miller"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
@@ -111,7 +204,8 @@ Select action (1):
 Bathwick, Somerset
 St Mary the Virgin
 on Sunday, 11 January 2015
-1260 Grandsire Caters and Royal in 48 mins (18–3–20)
+1260 Spliced Caters and Royal (2m) in 48 mins (18–3–20)
+(Grandsire Bob Caters, Grandsire Bob Royal)
 
 1: Byron Miller
 2: Paul Armstrong

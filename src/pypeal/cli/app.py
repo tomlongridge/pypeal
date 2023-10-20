@@ -248,6 +248,8 @@ def prompt_add_methods(peal: Peal):
         peal.classification = choose_option(['Bob', 'Place', 'Surprise', 'Treble Bob', 'Treble Place', None],
                                             default=peal.classification,
                                             return_option=True)
+        if peal.classification is None:
+            peal.is_variable_cover = confirm(None, 'Is this peal variable cover?', default=False)
 
         if confirm(f'{peal.method_title}'):
             peal.title = None

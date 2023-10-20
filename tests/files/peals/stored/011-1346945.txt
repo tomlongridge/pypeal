@@ -38,6 +38,9 @@ Options:
 Select action (6): 
 >>> 6
 [User input: "None (6)"]
+Is this peal variable cover? [y/n] (n): 
+>>> n
+[User input: "False"]
 Mixed Doubles (4m/4v)
 Is this correct? [y/n] (y): 
 >>> y
@@ -184,12 +187,11 @@ Add more changes of method? [y/n] (n):
 [User input: "False"]
 1: No existing ringers match "Lydia Reed"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
-Select action (1): Please enter a valid integer number
 Select action (1): 
->>> y
+>>> 1
 [User input: "1"]
 Last name (Reed): 
->>> 1
+>>> 
 [User input: "Reed"]
 Given name(s) (Lydia): 
 >>> 
@@ -197,10 +199,10 @@ Given name(s) (Lydia):
 2: No existing ringers match "Victoria Morrison"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
->>> 
+>>> 1
 [User input: "1"]
 Last name (Morrison): 
->>> 1
+>>> 
 [User input: "Morrison"]
 Given name(s) (Victoria): 
 >>> 
@@ -208,13 +210,13 @@ Given name(s) (Victoria):
 3: No existing ringers match "Stuart Murray"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
->>> 
+>>> 1
 [User input: "1"]
 Last name (Murray): 
 >>> 1
 [User input: "1"]
 Given name(s) (Stuart): 
->>> 1
+>>> 
 [User input: "Stuart"]
 Add "Stuart Murray" as an alias?
 Is this correct? [y/n] (y): 
@@ -222,16 +224,16 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 4: "Ned Andrews" -> Ned Andrews
 Is this the correct ringer? [y/n] (y): 
->>> 
+>>> y
 [User input: "True"]
 5: 2 existing ringers match "Aston Mitchell"
 Options: 1) Aston Mitchell (15), 2) Aston Mitchell (19), 3) None
 Select action: 
->>> y
+>>> 2
 [User input: "Aston Mitchell (2)"]
 6: "Carina Warren" -> Carina Warren
 Is this the correct ringer? [y/n] (y): 
->>> 2
+>>> y
 [User input: "True"]
 [http://localhost:8080/view.php?id=1346945 panel displayed]
 Save this peal?
@@ -243,10 +245,8 @@ Peal 1346945 added
 Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
 methods, 5) Exit
 Select action (1): 
->>> y
-[User input: "5"]
-
 >>> 5
+[User input: "5"]
 ===
 Suffolk Guild
 Saxmundham, Suffolk
