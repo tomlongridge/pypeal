@@ -40,7 +40,7 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 Adding changes of methods to multi-method peal...
-Matched "Cambridge Surprise Major" to method "Cambridge Surprise Major" (ID: 
+Matched "640 changes Cambridge" to method "Cambridge Surprise Major" (ID: 
 m16694)
 Is this correct? [y/n] (y): 
 >>> y
@@ -49,7 +49,7 @@ Number of changes (640):
 >>> 
 [User input: "640"]
 Method 1: Cambridge Surprise Major (640 changes)
-Matched "Yorkshire Surprise Major" to method "Yorkshire Surprise Major" (ID: 
+Matched "640 changes Yorkshire" to method "Yorkshire Surprise Major" (ID: 
 m17060)
 Is this correct? [y/n] (y): 
 >>> y

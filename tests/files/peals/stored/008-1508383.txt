@@ -16,7 +16,7 @@ None
 Select action: 
 >>> 1
 [User input: "Bristol Surprise Maximus (1)"]
-1: No existing ringers match "Sam Wells"
+1,2: No existing ringers match "Sam Wells"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -27,7 +27,7 @@ Last name (Wells):
 Given name(s) (Sam): 
 >>> 
 [User input: "Sam"]
-3: No existing ringers match "Rubie Owens"
+3,4: No existing ringers match "Rubie Owens"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -46,7 +46,7 @@ Is this the correct ringer? [y/n] (y):
 Is this the correct ringer? [y/n] (y): 
 >>> y
 [User input: "True"]
-9: No existing ringers match "Arianna Holmes"
+9,10: No existing ringers match "Arianna Holmes"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1

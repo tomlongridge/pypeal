@@ -43,13 +43,13 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 Adding changes of methods to multi-method peal...
-No methods match "Being seven extents in eight methods Minor"
+No methods match "Being seven extents in eight methods Surprise Minor"
 Options: 1) Search alternatives, 2) Cancel
 Select action (1): 
 >>> 2
 [User input: "Cancel"]
 No method matched
-Remove "Being seven extents in eight methods Minor"? [y/n] (y): 
+Remove "Being seven extents in eight methods"? [y/n] (y): 
 >>> y
 [User input: "True"]
 No methods match "Viz: (1) Norwich Surprise Minor"
@@ -80,8 +80,8 @@ Norwich Surprise Minor, 4) None
 Select action: 
 >>> 1
 [User input: "Norwich Surprise Minor (1)"]
-Matched "Viz: (1) Norwich Surprise Minor" to method "Norwich Surprise Minor" 
-(ID: m14317)
+Matched "Viz: (1) Norwich Surprise" to method "Norwich Surprise Minor" (ID: 
+m14317)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -111,8 +111,7 @@ Options:
 Select action (3): 
 >>> 3
 [User input: "Surprise (3)"]
-Matched "(2) Ipswich Surprise Minor" to method "Ipswich Surprise Minor" (ID: 
-m14563)
+Matched "(2) Ipswich Surprise" to method "Ipswich Surprise Minor" (ID: m14563)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -147,7 +146,7 @@ Options: 1) Cambridge Surprise Minor, 2) New Cambridge Surprise Minor, 3) None
 Select action: 
 >>> 1
 [User input: "Cambridge Surprise Minor (1)"]
-Matched "(3) Cambridge Surprise Minor" to method "Cambridge Surprise Minor" (ID:
+Matched "(3) Cambridge Surprise" to method "Cambridge Surprise Minor" (ID: 
 m14568)
 Is this correct? [y/n] (y): 
 >>> y
@@ -178,8 +177,7 @@ Options:
 Select action (1): 
 >>> 1
 [User input: "Bob (1)"]
-Matched "(4)Single Oxford Bob Minor" to method "Single Oxford Bob Minor" (ID: 
-m11104)
+Matched "(4)Single Oxford Bob" to method "Single Oxford Bob Minor" (ID: m11104)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -209,7 +207,7 @@ Options:
 Select action (1): 
 >>> 1
 [User input: "Bob (1)"]
-Matched "(5) Plain Bob Minor" to method "Plain Bob Minor" (ID: m11349)
+Matched "(5) Plain Bob" to method "Plain Bob Minor" (ID: m11349)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -239,7 +237,7 @@ Options:
 Select action (1): 
 >>> 1
 [User input: "Bob (1)"]
-Matched "(6) St Clement's College Bob and Double Oxford Bob Minor" to method "St
+Matched "(6) St Clement's College Bob and Double Oxford Bob" to method "St 
 Clement's College Bob Minor" (ID: m11369)
 Is this correct? [y/n] (y): 
 >>> y
@@ -248,13 +246,13 @@ Number of changes:
 >>> 
 [User input: "None"]
 Method 6: St Clement's College Bob Minor (unknown changes)
-No methods match "(7) Oxford Treble Bob. Minor"
+No methods match "(7) Oxford Treble Bob Minor"
 Options: 1) Search alternatives, 2) Cancel
 Select action (1): 
 >>> 1
 [User input: "1"]
 Enter search criteria:
-Name ((7) Oxford Treble Bob.): 
+Name ((7) Oxford): 
 >>> oxford
 [User input: "oxford"]
 Stage (6): 
@@ -267,10 +265,10 @@ Options:
 4) Treble Bob
 5) Treble Place
 6) None
-Select action: 
+Select action (4): 
 >>> 4
 [User input: "Treble Bob (4)"]
-Matched "(7) Oxford Treble Bob. Minor" to method "Oxford Treble Bob Minor" (ID: 
+Matched "(7) Oxford Treble Bob." to method "Oxford Treble Bob Minor" (ID: 
 m25915)
 Is this correct? [y/n] (y): 
 >>> y

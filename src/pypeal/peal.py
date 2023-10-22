@@ -44,7 +44,7 @@ class Peal:
     __footnotes: list[(str, int)] = None
 
     def __init__(self,
-                 bellboard_id: int,
+                 bellboard_id: int = None,
                  date: datetime.date = None,
                  place: str = None,
                  association: str = None,
@@ -110,6 +110,10 @@ class Peal:
         return self.num_methods + self.num_variants + self.num_principles
 
     @property
+    def is_multi_method(self):
+        return self.is_mixed or self.is_spliced
+
+    @property
     def method_title(self) -> str:
         if self.method:
             return self.method.full_name
@@ -169,6 +173,10 @@ class Peal:
         self.__ringers = None
         self.__ringers_by_id = None
         self.__ringers_by_bell = None
+
+    @property
+    def num_bells(self) -> int:
+        return sum([len(ringer[1]) for ringer in self.ringers])
 
     @property
     def footnotes(self) -> list[tuple[str, int]]:

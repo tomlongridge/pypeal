@@ -1,6 +1,6 @@
 import pytest
 
-from pypeal.bellboard import parse_single_method
+from pypeal.parsers import parse_single_method
 from pypeal.method import Stage
 
 methods = [

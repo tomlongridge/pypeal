@@ -1,6 +1,6 @@
 import pytest
 
-from pypeal.bellboard import parse_method_title
+from pypeal.parsers import parse_method_title
 from pypeal.peal import Peal
 
 methods = [

@@ -6,7 +6,6 @@ from click.testing import Result
 
 from pypeal.peal import Peal
 from pypeal.cli.app import app
-from pypeal.bellboard import get_peal as get_bellboard_peal, get_url_from_id
 
 
 @pytest.fixture
@@ -22,12 +21,6 @@ def mock_bellboard_server(xprocess: XProcess):
     xprocess.getinfo("mock_bellboard_server").terminate()
 
 
-def get_parsed_peal(id: int) -> Peal:
-    with open(os.path.join(os.path.dirname(__file__), 'files', 'peals', 'parsed', f'{id}.txt'), 'r') as f:
-        expected = f.read()
-    return expected
-
-
 def get_stored_test_data(id: int) -> Peal:
     with open(os.path.join(os.path.dirname(__file__), 'files', 'peals', 'stored', f'{id}.txt'), 'r') as f:
         expected = f.read()
@@ -41,14 +34,6 @@ def store_test_data(file_name: str, data: str):
 
 runner = CliRunner()
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
-
-
-@pytest.mark.parametrize(
-        "peal_id",
-        [file.split('.')[0] for file in os.listdir(os.path.join(os.path.dirname(__file__), 'files', 'peals', 'pages'))])
-def test_peals(mock_bellboard_server, peal_id: int):
-    parsed_peal = get_bellboard_peal(get_url_from_id(peal_id))
-    assert str(parsed_peal) == get_parsed_peal(peal_id)
 
 
 @pytest.mark.parametrize(

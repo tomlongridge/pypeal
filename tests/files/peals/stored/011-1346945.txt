@@ -74,7 +74,7 @@ Options: 1) Stedman Bob Doubles, 2) Stedman Doubles, 3) Reverse Stedman Doubles,
 Select action: 
 >>> 2
 [User input: "Stedman Doubles (2)"]
-Matched "Being Stedman Doubles" to method "Stedman Doubles" (ID: m27834)
+Matched "Being Stedman" to method "Stedman Doubles" (ID: m27834)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -82,7 +82,7 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 1: Stedman Doubles (630 changes)
-Matched "Grandsire Doubles" to method "Grandsire Doubles" (ID: m10587)
+Matched "Grandsire" to method "Grandsire Doubles" (ID: m10587)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -112,8 +112,8 @@ Options:
 Select action (1): 
 >>> 6
 [User input: "None"]
-Matched "Reverse Canterbury Pleasure Place Bob Doubles" to method "Reverse 
-Canterbury Pleasure Place Doubles" (ID: m10521)
+Matched "Reverse Canterbury Pleasure Place Bob" to method "Reverse Canterbury 
+Pleasure Place Doubles" (ID: m10521)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -149,8 +149,7 @@ None
 Select action: 
 >>> 2
 [User input: "Winchendon Place Doubles (2)"]
-Matched "Winchendon Place Bob Doubles" to method "Winchendon Place Doubles" (ID:
-m10524)
+Matched "Winchendon Place Bob" to method "Winchendon Place Doubles" (ID: m10524)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -158,8 +157,7 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 4: Winchendon Place Doubles (630 changes)
-Matched "St Nicholas Bob Doubles" to method "St Nicholas Bob Doubles" (ID: 
-m10526)
+Matched "St Nicholas Bob" to method "St Nicholas Bob Doubles" (ID: m10526)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -167,7 +165,7 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 5: St Nicholas Bob Doubles (630 changes)
-Matched "St Simon's Bob Doubles" to method "St Simon's Bob Doubles" (ID: m10560)
+Matched "St Simon's Bob" to method "St Simon's Bob Doubles" (ID: m10560)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -175,8 +173,7 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 6: St Simon's Bob Doubles (630 changes)
-Matched "St Martin's Bob Doubles" to method "St Martin's Bob Doubles" (ID: 
-m10555)
+Matched "St Martin's Bob" to method "St Martin's Bob Doubles" (ID: m10555)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -184,13 +181,13 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 7: St Martin's Bob Doubles (630 changes)
-No methods match "and Plain Bob. Doubles"
+No methods match "and Plain Bob Doubles"
 Options: 1) Search alternatives, 2) Cancel
 Select action (1): 
 >>> 1
 [User input: "1"]
 Enter search criteria:
-Name (and Plain Bob.): 
+Name (and Plain): 
 >>> plain
 [User input: "plain"]
 Stage (5): 
@@ -203,10 +200,10 @@ Options:
 4) Treble Bob
 5) Treble Place
 6) None
-Select action: 
+Select action (1): 
 >>> 1
 [User input: "Bob (1)"]
-Matched "and Plain Bob. Doubles" to method "Plain Bob Doubles" (ID: m10550)
+Matched "and Plain Bob." to method "Plain Bob Doubles" (ID: m10550)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]

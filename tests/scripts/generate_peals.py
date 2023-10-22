@@ -1,9 +1,10 @@
 import hashlib
 import os
 from bs4 import BeautifulSoup
+
 import sys
 sys.path.append('src')
-from pypeal.bellboard import download_peal, get_id_from_url, get_peal_from_html  # noqa: E402
+from pypeal.bellboard.interface import get_id_from_url, request  # noqa: E402
 
 
 with open(os.path.join(os.path.dirname(__file__), '..', 'files', 'ringer_test_names.txt'), 'r') as f:
@@ -12,7 +13,7 @@ with open(os.path.join(os.path.dirname(__file__), '..', 'files', 'ringer_test_na
 
 def generate_peal(url: str):
 
-    url, html = download_peal(url)
+    url, html = request(url)
     id = get_id_from_url(url)
 
     out_file_name = os.path.join(os.path.dirname(__file__), '..', 'files', 'peals', 'pages', f'{id}.html')
@@ -38,18 +39,6 @@ def generate_peal(url: str):
     print(f'Writing peal to {out_file_name}...')
     with open(out_file_name, 'w') as f:
         f.write(str(soup))
-
-    print('Parsing peal...')
-    bb_peal = get_peal_from_html(id, str(soup))
-
-    out_file_name = os.path.join(os.path.dirname(__file__), '..', 'files', 'peals', 'parsed', f'{id}.txt')
-    print(f'Writing peal to {out_file_name}...')
-    with open(out_file_name, 'w') as f:
-        f.write(str(bb_peal))
-
-    print('\n##############################################\n')
-    print(str(bb_peal))
-    print('\n##############################################\n')
 
 
 def anonymize_ringer(name: str) -> str:
