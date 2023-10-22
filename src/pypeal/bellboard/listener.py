@@ -1,10 +1,15 @@
 import datetime
 
+from pypeal.peal import Peal
+
 
 class PealGeneratorListener():
 
-    def bellboard_id(self, id: int):
-        pass
+    def __init__(self):
+        self.peal = None
+
+    def new_peal(self, id: int):
+        self.peal = Peal(bellboard_id=id)
 
     def association(self, value: str):
         pass

@@ -7,6 +7,7 @@ from pypeal.config import get_config
 
 BELLBOARD_PEAL_ID_URL = '/view.php?id=%s'
 BELLBOARD_PEAL_RANDOM_URL = '/view.php?random'
+BELLBOARD_PEAL_SEARCH_URL = '/export.php?'
 
 __logger = logging.getLogger('pypeal')
 __last_call: datetime = None
@@ -16,7 +17,25 @@ class BellboardError(Exception):
     pass
 
 
-def request(url: str) -> tuple[str, str]:
+def search_peals(name: str) -> str:
+    __logger.info('Searching for peals by ringer name "{name}"')
+    _, response_xml = request(get_config('bellboard', 'url') + BELLBOARD_PEAL_SEARCH_URL + f'ringer={name}',
+                              headers={'Accept': 'application/xml'})
+    return response_xml
+
+
+def get_peal(url: str) -> tuple[int, str]:
+    if not url:
+        url = get_config('bellboard', 'url') + BELLBOARD_PEAL_RANDOM_URL
+
+    __logger.info(f'Getting peal at {url}')
+    response = request(url)
+    __logger.info(f'Retrieved peal at {response[0]}')
+
+    return (get_id_from_url(response[0]), response[1])
+
+
+def request(url: str, headers: dict[str, str] = None) -> tuple[str, str]:
 
     # Rate-limit requests to avoid affecting BellBoard service
     global __last_call
@@ -27,7 +46,7 @@ def request(url: str) -> tuple[str, str]:
     __last_call = datetime.now()
 
     try:
-        response: Response = get_request(url)
+        response: Response = get_request(url, headers=headers if headers else None)
         response.raise_for_status()
         return (response.url, response.text)
     except RequestException as e:

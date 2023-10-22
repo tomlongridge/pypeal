@@ -122,5 +122,4 @@ def parse_footnote(footnote: str, peal: Peal):
             bells = [int(bell) for bell in footnote_info['bells'].split(',')]
         else:
             bells = [None]
-        for bell in bells:
-            peal.add_footnote(bell, text)
+        peal.add_footnote(bells, text)

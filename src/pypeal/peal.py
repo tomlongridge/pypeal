@@ -189,8 +189,12 @@ class Peal:
                     self.__footnotes.append((footnote, bell))
         return self.__footnotes
 
-    def add_footnote(self, bell: int, footnote: str):
-        self.footnotes.append((footnote, bell))
+    def add_footnote(self, bells: list[int], footnote: str):
+        if bells is None:
+            self.footnotes.append((footnote, None))
+        else:
+            for bell in bells:
+                self.footnotes.append((footnote, bell))
 
     def commit(self):
         if self.id is None:
@@ -231,11 +235,11 @@ class Peal:
     def __str__(self):
         text = ''
         text += f'{self.association}\n' if self.association else ''
-        text += f'{self.place}'
+        text += f'{self.place}' if self.place else ''
         text += f', {self.county}' if self.county else ''
         text += '\n'
         text += f'{self.address_dedication}\n' if self.address_dedication else ''
-        text += f'on {self.date.strftime("%A, %-d %B %Y")}\n'
+        text += f'on {self.date.strftime("%A, %-d %B %Y")}\n' if self.date else ''
         text += f'{self.changes} ' if self.changes else ''
         text += self.method_title or f'"{self.title}"'
         text += ' '
@@ -262,7 +266,7 @@ class Peal:
             text += '\n'
         text += '\n' if len(self.footnotes) else ''
         for footnote in self.footnotes:
-            if footnote[1]:
+            if footnote[1] and footnote[1] in self.__ringers_by_bell:
                 text += f'[{footnote[1]}: {self.__ringers_by_bell[footnote[1]]}] '
             text += f'{footnote[0]}'
             text += '\n'

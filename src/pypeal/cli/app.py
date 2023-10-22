@@ -6,7 +6,8 @@ from rich import print
 
 from pypeal.bellboard.interface import get_id_from_url, get_url_from_id
 from pypeal.bellboard.html_generator import HTMLPealGenerator
-from pypeal.cli.peal_prompter import PealListener
+from pypeal.bellboard.xml_generator import XMLPealGenerator
+from pypeal.cli.peal_prompter import PealPrompter
 from pypeal.cli.prompts import choose_option, ask, confirm, panel, error
 from pypeal.db import initialize as initialize_db
 from pypeal.method import Method
@@ -78,7 +79,13 @@ def run_interactive(peal_id_or_url: str):
         peals: dict[str, Peal] = Peal.get_all()
         panel(f'Number of peals: {len(peals)}')
 
-        match choose_option(['Add peal by URL', 'Add random peal', 'View method', 'Update methods', 'Exit'], default=1):
+        match choose_option(['Add peal by URL',
+                             'Add random peal',
+                             'Add peal by search',
+                             'View method',
+                             'Update methods',
+                             'Exit'],
+                            default=1):
             case 1:
                 peal_id, bb_url = prompt_peal_id(peal_id_or_url)
                 if peal_id in peals:
@@ -88,30 +95,41 @@ def run_interactive(peal_id_or_url: str):
             case 2:
                 add_peal()
             case 3:
-                run_view(peal_id_or_url)
+                search_peals()
             case 4:
+                run_view(peal_id_or_url)
+            case 5:
                 Method.update()
-            case 5 | None:
+            case 6 | None:
                 raise typer.Exit()
 
         peal_id_or_url = None
 
 
-def add_peal(url: str = None) -> Peal:
+def add_peal(url: str = None):
 
-    peal = Peal()
-    listener = PealListener(peal)
+    listener = PealPrompter()
     generator = HTMLPealGenerator(listener)
-    generator.get(url)
+    peal = generator.get(url)
 
-    # Confirm commit
     panel(str(peal), title=get_url_from_id(peal.bellboard_id))
     if confirm('Save this peal?'):
         peal.commit()
         print(f'Peal {peal.bellboard_id} added')
-        return peal
-    else:
-        return None
+
+
+def search_peals():
+
+    name: str = ask('Ringer name:')
+
+    listener = PealPrompter()
+    generator = XMLPealGenerator(listener)
+
+    for peal in generator.search(name):
+        panel(str(peal), title=get_url_from_id(peal.bellboard_id))
+        if confirm('Save this peal?'):
+            peal.commit()
+            print(f'Peal {peal.bellboard_id} added')
 
 
 def prompt_peal_id(peal_id: str = None) -> tuple[int, str]:

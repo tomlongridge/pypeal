@@ -1,8 +1,13 @@
 
 ===
 [pypeal panel displayed]
-Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
-methods, 5) Exit
+Options: 
+1) Add peal by URL
+2) Add random peal
+3) Add peal by search
+4) View method
+5) Update methods
+6) Exit
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -118,11 +123,16 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 Peal 1314805 added
 [pypeal panel displayed]
-Options: 1) Add peal by URL, 2) Add random peal, 3) View method, 4) Update 
-methods, 5) Exit
+Options: 
+1) Add peal by URL
+2) Add random peal
+3) Add peal by search
+4) View method
+5) Update methods
+6) Exit
 Select action (1): 
->>> 5
-[User input: "5"]
+>>> 6
+[User input: "6"]
 ===
 Bath & Wells Diocesan Association
 Bath, Somerset

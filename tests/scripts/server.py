@@ -16,14 +16,19 @@ class BellboardMockServer(BaseHTTPRequestHandler):
             self.send_response(303)
             self.send_header('location', '/view.php?id=' + random_peal_file.split('.')[0])
             self.end_headers()
+        elif self.path.startswith('/export.php?'):
+            self.respond_with_file(
+                os.path.join(os.path.dirname(__file__), '..', 'files', 'peals', 'searches', '001.xml'),
+                'application/xml'
+            )
         else:
             self.send_response(404)
             self.end_headers()
 
-    def respond_with_file(self, file: str):
+    def respond_with_file(self, file: str, content_type: str = 'text/html'):
         with open(file, 'r') as f:
             self.send_response(200)
-            self.send_header('Content-type', 'text/html; charset=utf-8')
+            self.send_header('Content-type', f'{content_type}; charset=utf-8')
             self.end_headers()
             self.wfile.write(f.read().encode('utf-8'))
 

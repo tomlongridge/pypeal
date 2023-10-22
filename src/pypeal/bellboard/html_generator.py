@@ -1,12 +1,11 @@
 from datetime import datetime
-import logging
 import re
 
 from bs4 import BeautifulSoup
 
-from pypeal.bellboard.interface import BellboardError, BELLBOARD_PEAL_RANDOM_URL, get_id_from_url, request
+from pypeal.bellboard.interface import BellboardError, get_peal
 from pypeal.bellboard.listener import PealGeneratorListener
-from pypeal.config import get_config
+from pypeal.peal import Peal
 
 DATE_LINE_INFO_REGEX = re.compile(r'[A-Za-z]+,\s(?P<date>[0-9]+\s[A-Za-z0-9]+\s[0-9]+)(?:\s' +
                                   r'in\s(?P<duration>[A-Za-z0-9\s]+))?\s?(?:\((?P<tenor>.*)\))?$')
@@ -16,25 +15,15 @@ DURATION_REGEX = re.compile(r'^(?:(?P<hours>\d{1,2})[h])$|^(?:(?P<mins>\d+)[m]?)
 
 class HTMLPealGenerator():
 
-    __logger = logging.getLogger('pypeal')
-
     def __init__(self, listener: PealGeneratorListener):
         self.__listener = listener
 
-    def get(self, url: str = None):
+    def get(self, url: str = None) -> Peal:
+        return self.get_peal_from_html(*get_peal(url))
 
-        if not url:
-            url = get_config('bellboard', 'url') + BELLBOARD_PEAL_RANDOM_URL
+    def get_peal_from_html(self, id: int, html: str) -> Peal:
 
-        self.__logger.info(f'Getting peal at {url}')
-        response = request(url)
-        self.__logger.info(f'Retrieved peal at {response[0]}')
-
-        return self.get_peal_from_html(get_id_from_url(url), response[1])
-
-    def get_peal_from_html(self, id: int, html: str):
-
-        self.__listener.bellboard_id(id)
+        self.__listener.new_peal(id)
 
         soup = BeautifulSoup(html, 'html.parser')
 
@@ -115,6 +104,8 @@ class HTMLPealGenerator():
                 found_footnote = True
         if not found_footnote:
             self.__listener.footnote(None)
+
+        return self.__listener.peal
 
     def __parse_date_line(self, date_line: str):
 

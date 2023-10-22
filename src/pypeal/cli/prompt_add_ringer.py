@@ -57,7 +57,10 @@ def prompt_add_ringer(name: str, bells: list[int], is_conductor: bool, peal: Pea
 
 
 def get_bell_label(bells: list[int]) -> str:
-    return ",".join([str(bell) for bell in bells])
+    if bells and len(bells) == 1:
+        return ','.join([str(bell) for bell in bells])
+    else:
+        return ''
 
 
 def confirm_add_ringer(name: str, ringer: Ringer, bells: list[int]) -> Ringer:
