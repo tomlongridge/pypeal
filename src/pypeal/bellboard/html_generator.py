@@ -18,8 +18,8 @@ class HTMLPealGenerator():
     def __init__(self, listener: PealGeneratorListener):
         self.__listener = listener
 
-    def get(self, url: str = None) -> Peal:
-        return self.get_peal_from_html(*get_peal(url))
+    def get(self, peal_id: int = None) -> Peal:
+        return self.get_peal_from_html(*get_peal(peal_id))
 
     def get_peal_from_html(self, id: int, html: str) -> Peal:
 

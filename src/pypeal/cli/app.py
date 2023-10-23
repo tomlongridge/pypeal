@@ -33,6 +33,9 @@ logger.addHandler(ch)
 app = typer.Typer()
 
 
+__peals: dict[str, Peal] = None
+
+
 @app.command()
 def main(
         action: Annotated[str, typer.Argument(help="Action to perform.")] = None,
@@ -63,12 +66,11 @@ def main(
 
 
 def run_add(peal_id_or_url: str):
-    _, url = prompt_peal_id(peal_id_or_url)
-    add_peal(url)
+    add_peal(prompt_peal_id(peal_id_or_url))
 
 
 def run_view(peal_id_or_url: str):
-    peal_id, _ = prompt_peal_id(peal_id_or_url)
+    peal_id = prompt_peal_id(peal_id_or_url)
     panel(str(Peal.get(bellboard_id=peal_id)))
     confirm(None, 'Continue?')
 
@@ -76,8 +78,7 @@ def run_view(peal_id_or_url: str):
 def run_interactive(peal_id_or_url: str):
 
     while True:
-        peals: dict[str, Peal] = Peal.get_all()
-        panel(f'Number of peals: {len(peals)}')
+        panel(f'Number of peals: {len(get_peal_list())}')
 
         match choose_option(['Add peal by URL',
                              'Add random peal',
@@ -87,11 +88,7 @@ def run_interactive(peal_id_or_url: str):
                              'Exit'],
                             default=1):
             case 1:
-                peal_id, bb_url = prompt_peal_id(peal_id_or_url)
-                if peal_id in peals:
-                    error(f'Peal {peal_id} already added')
-                elif bb_url:
-                    add_peal(bb_url)
+                add_peal(prompt_peal_id(peal_id_or_url))
             case 2:
                 add_peal()
             case 3:
@@ -106,11 +103,15 @@ def run_interactive(peal_id_or_url: str):
         peal_id_or_url = None
 
 
-def add_peal(url: str = None):
+def add_peal(peal_id: int = None):
+
+    if peal_id in get_peal_list():
+        error(f'Peal {peal_id} already added')
+        return
 
     listener = PealPrompter()
     generator = HTMLPealGenerator(listener)
-    peal = generator.get(url)
+    peal = generator.get(peal_id)
 
     panel(str(peal), title=get_url_from_id(peal.bellboard_id))
     if confirm('Save this peal?'):
@@ -132,7 +133,7 @@ def search_peals():
             print(f'Peal {peal.bellboard_id} added')
 
 
-def prompt_peal_id(peal_id: str = None) -> tuple[int, str]:
+def prompt_peal_id(peal_id: str = None) -> int:
 
     while True:
         if peal_id is None:
@@ -142,7 +143,7 @@ def prompt_peal_id(peal_id: str = None) -> tuple[int, str]:
         else:
             error('Invalid Bellboard URL or peal ID')
 
-    return (peal_id, get_url_from_id(peal_id))
+    return peal_id
 
 
 def validate_peal_input(id_or_url: str) -> int:
@@ -161,3 +162,14 @@ def initialize_or_exit(reset_db: bool, clear_data: bool):
     if clear_data:
         Peal.clear_data()
         Ringer.clear_data()
+
+
+def get_peal_list():
+    if not __peals:
+        update_peal_list()
+    return __peals
+
+
+def update_peal_list():
+    global __peals
+    __peals = Peal.get_all()

@@ -3,7 +3,7 @@ from pypeal.bellboard.listener import PealGeneratorListener
 from pypeal.cli.prompt_add_change_of_method import prompt_add_change_of_method
 from pypeal.cli.prompt_add_ringer import prompt_add_ringer
 from pypeal.cli.prompt_peal_title import prompt_peal_title
-from pypeal.parsers import parse_duration, parse_footnote, parse_method_title, parse_tenor_info
+from pypeal.parsers import parse_duration, parse_footnote, parse_tenor_info
 
 
 class PealPrompter(PealGeneratorListener):

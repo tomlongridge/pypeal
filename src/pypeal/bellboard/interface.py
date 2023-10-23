@@ -24,14 +24,11 @@ def search_peals(name: str) -> str:
     return response_xml
 
 
-def get_peal(url: str) -> tuple[int, str]:
-    if not url:
-        url = get_config('bellboard', 'url') + BELLBOARD_PEAL_RANDOM_URL
-
+def get_peal(id: int) -> tuple[int, str]:
+    url = get_url_from_id(id)
     __logger.info(f'Getting peal at {url}')
     response = request(url)
     __logger.info(f'Retrieved peal at {response[0]}')
-
     return (get_id_from_url(response[0]), response[1])
 
 
