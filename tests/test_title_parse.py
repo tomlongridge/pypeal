@@ -1,75 +1,85 @@
 import pytest
+from pypeal.method import Stage
 
 from pypeal.parsers import parse_method_title
-from pypeal.peal import Peal
+from pypeal.peal import Peal, Method
 
 methods = [
     (
         'Plain Bob Triples',
-        Peal(1, title='Plain', classification='Bob', stage=7, is_spliced=False),
+        (Method(name='Plain', classification='Bob', stage=Stage.TRIPLES), False, None, None, None, None),
         None
     ),
     (
         'Kent Treble Bob Major',
-        Peal(1, title='Kent', classification='Treble Bob', stage=8, is_spliced=False),
+        (Method(name='Kent', classification='Treble Bob', stage=Stage.MAJOR), False, None, None, None, None),
         None
     ),
     (
         'Kent and Oxford Treble Bob Major',
-        Peal(1, title='Kent and Oxford', classification='Treble Bob', stage=8, is_spliced=False),
+        (Method(name='Kent and Oxford', classification='Treble Bob', stage=Stage.MAJOR), False, None, None, None, None),
         None
     ),
     (
         'Bainton Treble Place Minimus',
-        Peal(1, title='Bainton', classification='Treble Place', stage=4, is_spliced=False),
+        (Method(name='Bainton', classification='Treble Place', stage=Stage.MINIMUS), False, None, None, None, None),
         None
     ),
     (
         'Stedman Caters',
-        Peal(1, title='Stedman', stage=9, is_spliced=False),
+        (Method(name='Stedman', stage=Stage.CATERS), False, None, None, None, None),
         None
     ),
     (
         'Zanussi Surprise Maximus',
-        Peal(1, title='Zanussi', classification='Surprise', stage=12, is_spliced=False),
+        (Method(name='Zanussi', classification='Surprise', stage=Stage.MAXIMUS), False, None, None, None, None),
         None
     ),
     (
         'Doubles (2m)',
-        Peal(1, stage=5, num_methods=2, is_mixed=True, is_spliced=False),
+        (Method(stage=Stage.DOUBLES), False, True, 2, 0, 0),
         'Mixed Doubles (2m)'
     ),
     (
         'Doubles (11m/v/p)',
-        Peal(1, stage=5, num_methods=11, is_mixed=True, is_spliced=False),
+        (Method(stage=Stage.DOUBLES), False, True, 11, 0, 0),
         'Mixed Doubles (11m)',
     ),
     (
         'Doubles',
-        Peal(1, stage=5, is_mixed=True, is_spliced=False),
+        (Method(stage=Stage.DOUBLES), False, True, None, None, None),
         'Mixed Doubles',
     ),
     (
         'Mixed Doubles (3m/1p/2v)',
-        Peal(1, stage=5, num_methods=3, num_principles=1, num_variants=2, is_mixed=True, is_spliced=False),
+        (Method(stage=Stage.DOUBLES), False, True, 3, 2, 1),
         'Mixed Doubles (3m/2v/1p)'
     ),
     (
         'Spliced Surprise Minor (8m)',
-        Peal(1, stage=6, classification='Surprise', num_methods=8, is_spliced=True),
+        (Method(classification='Surprise', stage=Stage.MINOR), True, False, 8, 0, 0),
         None
     ),
     (
         'Rounds',
-        Peal(1, title='Rounds', is_spliced=False),
+        (Method(name='Rounds'), False, None, None, None, None),
         None
     ),
 ]
 
 
-@pytest.mark.parametrize('title,expected_peal,expected_title', methods)
-def test_parse_method_title(title: str, expected_peal: Peal, expected_title: str):
+@pytest.mark.parametrize('title,expected_details,expected_title', methods)
+def test_parse_method_title(title: str, expected_details: tuple[Method, bool, bool, int, int, int], expected_title: str):
+    method_details: tuple[Method, bool, bool, int, int, int] = parse_method_title(title)
+    assert method_details == expected_details
+    method, is_spliced, is_mixed, num_methods, num_variants, num_principles = method_details
     peal = Peal(1)
-    parse_method_title(title, peal)
-    assert peal == expected_peal
+    peal.method = method
+    peal.is_spliced = is_spliced
+    peal.is_mixed = is_mixed
+    peal.stage = method.stage
+    peal.classification = method.classification
+    peal.num_methods = num_methods
+    peal.num_variants = num_variants
+    peal.num_principles = num_principles
     assert peal.method_title == expected_title if expected_title else title

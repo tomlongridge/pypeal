@@ -18,15 +18,15 @@ Matching peal titled "Grandsire Caters and Royal"...
 Is this a spliced peal? [y/n] (n): 
 >>> y
 [User input: "True"]
-Number of methods (0): 
+Number of methods: 
 >>> 2
 [User input: "2"]
-Number of principles (0): 
+Number of principles: 
 >>> 
-[User input: "0"]
-Number of variants (0): 
+[User input: "None"]
+Number of variants: 
 >>> 
-[User input: "0"]
+[User input: "None"]
 Stage (10): 
 >>> 9
 [User input: "9"]
@@ -126,7 +126,7 @@ Method 2: Grandsire Bob Royal (unknown changes)
 Add changes of method? [y/n] (n): 
 >>> n
 [User input: "False"]
-1: No existing ringers match "Byron Miller"
+1: Attempting to find "Byron Miller"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -137,7 +137,7 @@ Last name (Miller):
 Given name(s) (Byron): 
 >>> 
 [User input: "Byron"]
-2: No existing ringers match "Paul Armstrong"
+2: Attempting to find "Paul Armstrong"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -152,7 +152,7 @@ Given name(s) (Paul):
 Is this the correct ringer? [y/n] (y): 
 >>> y
 [User input: "True"]
-4: No existing ringers match "Alisa Cole"
+4: Attempting to find "Alisa Cole"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -171,7 +171,7 @@ Is this the correct ringer? [y/n] (y):
 Is this the correct ringer? [y/n] (y): 
 >>> y
 [User input: "True"]
-7: No existing ringers match "Jacob Cole"
+7: Attempting to find "Jacob Cole"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -190,7 +190,7 @@ Is this the correct ringer? [y/n] (y):
 Is this the correct ringer? [y/n] (y): 
 >>> y
 [User input: "True"]
-10: No existing ringers match "Byron Robinson"
+10: Attempting to find "Byron Robinson"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1

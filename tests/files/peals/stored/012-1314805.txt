@@ -15,9 +15,6 @@ Bellboard URL or peal ID:
 >>> 1314805
 [User input: "1314805"]
 Matching peal titled "Spliced Surprise Major (2m)"...
-Is this a spliced peal? [y/n] (y): 
->>> 
-[User input: "True"]
 Number of methods (2): 
 >>> 
 [User input: "2"]
@@ -93,7 +90,7 @@ Is this the correct ringer? [y/n] (y):
 Is this the correct ringer? [y/n] (y): 
 >>> y
 [User input: "True"]
-5: No existing ringers match "Melissa Baker"
+5: Attempting to find "Melissa Baker"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1

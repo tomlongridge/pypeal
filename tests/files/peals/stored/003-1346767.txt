@@ -21,13 +21,13 @@ Is this a spliced peal? [y/n] (n):
 Is this a mixed peal? [y/n] (n): 
 >>> y
 [User input: "True"]
-Number of methods (0): 
+Number of methods: 
 >>> 8
 [User input: "8"]
-Number of principles (0): 
+Number of principles: 
 >>> 0
 [User input: "0"]
-Number of variants (0): 
+Number of variants: 
 >>> 0
 [User input: "0"]
 Stage (6): 
@@ -317,7 +317,7 @@ Method 8: Double Oxford Bob Minor (unknown changes)
 Add more changes of method? [y/n] (n): 
 >>> n
 [User input: "False"]
-1: No existing ringers match "Blake Howard"
+1: Attempting to find "Blake Howard"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -328,7 +328,7 @@ Last name (Howard):
 Given name(s) (Blake): 
 >>> 
 [User input: "Blake"]
-2: No existing ringers match "Aston Mitchell"
+2: Attempting to find "Aston Mitchell"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -339,7 +339,7 @@ Last name (Mitchell):
 Given name(s) (Aston): 
 >>> 
 [User input: "Aston"]
-3: No existing ringers match "John Parker"
+3: Attempting to find "John Parker"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -354,7 +354,7 @@ Given name(s) (John):
 Is this the correct ringer? [y/n] (y): 
 >>> y
 [User input: "True"]
-5: No existing ringers match "Dominik Warren"
+5: Attempting to find "Dominik Warren"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -365,7 +365,7 @@ Last name (Warren):
 Given name(s) (Dominik): 
 >>> 
 [User input: "Dominik"]
-6: No existing ringers match "Sienna Murphy"
+6: Attempting to find "Sienna Murphy"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1

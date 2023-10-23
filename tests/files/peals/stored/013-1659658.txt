@@ -1,0 +1,131 @@
+
+===
+[pypeal panel displayed]
+Options: 
+1) Add peal by URL
+2) Add random peal
+3) Add peal by search
+4) View method
+5) Update methods
+6) Exit
+Select action (1): 
+>>> 1
+[User input: "1"]
+Bellboard URL or peal ID: 
+>>> 1659658
+[User input: "1659658"]
+Matching peal titled "Little Bob Royal"...
+Matched "Little Bob Royal" to method "Little Bob Royal" (ID: m14020)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+1: Attempting to find "Garry Scott"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 
+>>> 
+[User input: "1"]
+Last name (Scott): 
+>>> 
+[User input: "Scott"]
+Given name(s) (Garry): 
+>>> 
+[User input: "Garry"]
+2: Attempting to find "Charlie Warren"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 
+>>> 
+[User input: "1"]
+Last name (Warren): 
+>>> 
+[User input: "Warren"]
+Given name(s) (Charlie): 
+>>> 
+[User input: "Charlie"]
+3: Attempting to find "Arnold Johnson"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 
+>>> 
+[User input: "1"]
+Last name (Johnson): 
+>>> 
+[User input: "Johnson"]
+Given name(s) (Arnold): 
+>>> 
+[User input: "Arnold"]
+4: "Sienna Murphy" -> Sienna Murphy
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+5: "Blake Elliott" -> Blake Elliott
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+6: "Blake Elliott" -> Blake Elliott
+Is this the correct ringer? [y/n] (y): 
+>>> n
+[User input: "False"]
+6: Attempting to find "Blake Elliott"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Last name (Elliott): 
+>>> 
+[User input: "Elliott"]
+Given name(s) (Blake): 
+>>> 
+[User input: "Blake"]
+7: "Melissa Baker" -> Melissa Baker
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+8: "Daryl Mason" -> Daryl Mason
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+9: "Leonardo Bennett" -> Leo Bennett
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+10: "Chester Edwards" -> Chester Edwards
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+[http://localhost:8080/view.php?id=1659658 panel displayed]
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Peal 1659658 added
+[pypeal panel displayed]
+Options: 
+1) Add peal by URL
+2) Add random peal
+3) Add peal by search
+4) View method
+5) Update methods
+6) Exit
+Select action (1): 
+>>> 6
+[User input: "6"]
+===
+Shrivenham, Oxfordshire
+St Andrew
+on Saturday, 23 September 2023
+1296 Little Bob Royal in 50 mins (13–0–2 in F)
+
+1: Garry Scott
+2: Charlie Warren
+3: Arnold Johnson
+4: Sienna Murphy
+5: Blake Elliott
+6: Blake Elliott
+7: Melissa Baker
+8: Daryl Mason
+9: Leo Bennett
+10: Chester Edwards (c)
+
+Rung as a birthday compliment to Matthew Skues.
+[6: Blake Elliott] First quarter of Little Bob Royal.
+
+[Imported Bellboard peal ID: 1659658]

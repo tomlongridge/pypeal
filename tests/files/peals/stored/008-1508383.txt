@@ -15,13 +15,12 @@ Bellboard URL or peal ID:
 >>> 1508383
 [User input: "1508383"]
 Matching peal titled "Bristol Surprise Maximus"...
-2 methods match "Bristol Surprise Maximus"
-Options: 1) Bristol Surprise Maximus, 2) Bristol Little Surprise Maximus, 3) 
-None
-Select action: 
->>> 1
-[User input: "Bristol Surprise Maximus (1)"]
-1,2: No existing ringers match "Sam Wells"
+Matched "Bristol Surprise Maximus" to method "Bristol Surprise Maximus" (ID: 
+m22952)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+1,2: Attempting to find "Sam Wells"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -32,7 +31,7 @@ Last name (Wells):
 Given name(s) (Sam): 
 >>> 
 [User input: "Sam"]
-3,4: No existing ringers match "Rubie Owens"
+3,4: Attempting to find "Rubie Owens"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -51,7 +50,7 @@ Is this the correct ringer? [y/n] (y):
 Is this the correct ringer? [y/n] (y): 
 >>> y
 [User input: "True"]
-9,10: No existing ringers match "Arianna Holmes"
+9,10: Attempting to find "Arianna Holmes"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1

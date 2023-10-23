@@ -59,7 +59,8 @@ class HTMLPealGenerator():
         element = soup.select('span.title')
         if len(element) > 0:
             title = element[0].text.strip()
-            title += element[0].next_sibling.text.strip() if element[0].next_sibling else ''
+            if element[0].next_sibling:
+                title += f' {element[0].next_sibling.text.strip()}'
             self.__listener.title(title)
         else:
             raise BellboardError(f'Unable to find title in peal {id}')

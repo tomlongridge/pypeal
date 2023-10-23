@@ -23,7 +23,7 @@ Is this correct? [y/n] (y):
 Is this the correct ringer? [y/n] (y): 
 >>> n
 [User input: "False"]
-1: No existing ringers match "Aston Mitchell"
+1: Attempting to find "Aston Mitchell"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -38,7 +38,7 @@ Given name(s) (Aston):
 Is this the correct ringer? [y/n] (y): 
 >>> y
 [User input: "True"]
-3: No existing ringers match "Melissa Evans"
+3: Attempting to find "Melissa Evans"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -49,7 +49,7 @@ Last name (Evans):
 Given name(s) (Melissa): 
 >>> 
 [User input: "Melissa"]
-4: No existing ringers match "Valeria Perkins"
+4: Attempting to find "Valeria Perkins"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -60,7 +60,7 @@ Last name (Perkins):
 Given name(s) (Valeria): 
 >>> 
 [User input: "Valeria"]
-5: No existing ringers match "Savana Davis"
+5: Attempting to find "Savana Davis"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -71,7 +71,7 @@ Last name (Davis):
 Given name(s) (Savana): 
 >>> 
 [User input: "Savana"]
-6: No existing ringers match "Fenton Bailey"
+6: Attempting to find "Fenton Bailey"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -82,7 +82,7 @@ Last name (Bailey):
 Given name(s) (Fenton): 
 >>> 
 [User input: "Fenton"]
-7: No existing ringers match "Blake Harper"
+7: Attempting to find "Blake Harper"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -93,7 +93,7 @@ Last name (Harper):
 Given name(s) (Blake): 
 >>> 
 [User input: "Blake"]
-8: No existing ringers match "Lenny Howard"
+8: Attempting to find "Lenny Howard"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1

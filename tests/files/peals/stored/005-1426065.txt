@@ -19,7 +19,7 @@ Matched "Grandsire Triples" to method "Grandsire Triples" (ID: m12415)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-1: No existing ringers match "Julia Fowler"
+1: Attempting to find "Julia Fowler"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -30,7 +30,7 @@ Last name (Fowler):
 Given name(s) (Julia): 
 >>> 
 [User input: "Julia"]
-2: No existing ringers match "Daniel Miller"
+2: Attempting to find "Daniel Miller"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -41,7 +41,7 @@ Last name (Miller):
 Given name(s) (Daniel): 
 >>> 
 [User input: "Daniel"]
-3: No existing ringers match "Clark Elliott"
+3: Attempting to find "Clark Elliott"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -52,7 +52,7 @@ Last name (Elliott):
 Given name(s) (Clark): 
 >>> 
 [User input: "Clark"]
-4: No existing ringers match "Chester Edwards"
+4: Attempting to find "Chester Edwards"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -68,7 +68,7 @@ Options: 1) Aston Mitchell (15), 2) Aston Mitchell (19), 3) None
 Select action: 
 >>> 1
 [User input: "Aston Mitchell (1)"]
-6: No existing ringers match "Cadie Nelson"
+6: Attempting to find "Cadie Nelson"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -79,7 +79,7 @@ Last name (Nelson):
 Given name(s) (Cadie): 
 >>> 
 [User input: "Cadie"]
-7: No existing ringers match "Blake Elliott"
+7: Attempting to find "Blake Elliott"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -90,7 +90,7 @@ Last name (Elliott):
 Given name(s) (Blake): 
 >>> 
 [User input: "Blake"]
-8: No existing ringers match "Leonardo Bennett"
+8: Attempting to find "Leonardo Bennett"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1

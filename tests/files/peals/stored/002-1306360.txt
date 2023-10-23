@@ -14,7 +14,7 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1306360
 [User input: "1306360"]
-Matching peal titled "Mixed Doubles (5m/3v/1p)"...
+Matching peal titled "Doubles (1p/5m/3v)"...
 Number of methods (5): 
 >>> 
 [User input: "5"]
@@ -48,7 +48,7 @@ Adding changes of methods to multi-method peal...
 Add changes of method? [y/n] (y): 
 >>> n
 [User input: "False"]
-1: No existing ringers match "Dainton Casey"
+1: Attempting to find "Dainton Casey"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -59,7 +59,7 @@ Last name (Casey):
 Given name(s) (Dainton): 
 >>> 
 [User input: "Dainton"]
-2: No existing ringers match "Daryl Mason"
+2: Attempting to find "Daryl Mason"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -70,7 +70,7 @@ Last name (Mason):
 Given name(s) (Daryl): 
 >>> 
 [User input: "Daryl"]
-3: No existing ringers match "Roland Clark"
+3: Attempting to find "Roland Clark"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -81,7 +81,7 @@ Last name (Clark):
 Given name(s) (Roland): 
 >>> 
 [User input: "Roland"]
-4: No existing ringers match "Michelle Thompson"
+4: Attempting to find "Michelle Thompson"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -96,7 +96,7 @@ Given name(s) (Michelle):
 Is this the correct ringer? [y/n] (y): 
 >>> y
 [User input: "True"]
-6: No existing ringers match "David Rogers"
+6: Attempting to find "David Rogers"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1

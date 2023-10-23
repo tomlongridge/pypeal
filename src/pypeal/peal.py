@@ -107,7 +107,7 @@ class Peal:
 
     @property
     def num_methods_in_title(self):
-        return self.num_methods + self.num_variants + self.num_principles
+        return (self.num_methods or 0) + (self.num_variants or 0) + (self.num_principles or 0)
 
     @property
     def is_multi_method(self):
@@ -115,7 +115,7 @@ class Peal:
 
     @property
     def method_title(self) -> str:
-        if self.method:
+        if self.method and self.method.full_name:
             return self.method.full_name
         text = ''
         text += 'Spliced ' if self.is_spliced else ''
@@ -127,7 +127,7 @@ class Peal:
         text += f'{self.stage.name.capitalize()} ' if self.stage else ''
         if self.stage and self.is_variable_cover and self.stage.value % 2 == 1:
             text += f'and {Stage(self.stage.value + 1).name.capitalize()} '
-        if self.num_methods + self.num_principles + self.num_variants > 0:
+        if self.num_methods_in_title > 0:
             text += '('
             text += f'{self.num_methods}m/' if self.num_methods else ''
             text += f'{self.num_variants}v/' if self.num_variants else ''
@@ -203,8 +203,8 @@ class Peal:
                 'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
                 (self.bellboard_id, self.date, self.place, self.association, self.address_dedication, self.county, self.changes,
                  self.stage.value if self.stage else None, self.classification, self.is_spliced, self.is_mixed, self.is_variable_cover,
-                 self.num_methods, self.num_principles, self.num_variants, self.method.id if self.method else None, self.title,
-                 self.duration, self.tenor_weight, self.tenor_tone))
+                 self.num_methods or 0, self.num_principles or 0, self.num_variants or 0, self.method.id if self.method else None,
+                 self.title, self.duration, self.tenor_weight, self.tenor_tone))
             Database.get_connection().commit()
             self.id = result.lastrowid
             for method, changes in self.methods:

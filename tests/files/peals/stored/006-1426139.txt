@@ -27,7 +27,7 @@ Is this the correct ringer? [y/n] (y):
 Is this the correct ringer? [y/n] (y): 
 >>> y
 [User input: "True"]
-3: No existing ringers match "Joyce Sullivan"
+3: Attempting to find "Joyce Sullivan"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -42,7 +42,7 @@ Given name(s) (Joyce):
 Is this the correct ringer? [y/n] (y): 
 >>> y
 [User input: "True"]
-5: No existing ringers match "Patrick Bennett"
+5: Attempting to find "Patrick Bennett"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -65,7 +65,7 @@ Is this the correct ringer? [y/n] (y):
 Is this the correct ringer? [y/n] (y): 
 >>> y
 [User input: "True"]
-9: No existing ringers match "Heather Sullivan"
+9: Attempting to find "Heather Sullivan"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -76,7 +76,7 @@ Last name (Sullivan):
 Given name(s) (Heather): 
 >>> 
 [User input: "Heather"]
-10: No existing ringers match "Vivian Murray"
+10: Attempting to find "Vivian Murray"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1

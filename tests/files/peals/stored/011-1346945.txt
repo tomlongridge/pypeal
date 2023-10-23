@@ -21,13 +21,13 @@ Is this a spliced peal? [y/n] (n):
 Is this a mixed peal? [y/n] (n): 
 >>> y
 [User input: "True"]
-Number of methods (0): 
+Number of methods: 
 >>> 4
 [User input: "4"]
-Number of principles (0): 
+Number of principles: 
 >>> 0
 [User input: "0"]
-Number of variants (0): 
+Number of variants: 
 >>> 4
 [User input: "4"]
 Stage (5): 
@@ -219,7 +219,7 @@ Method 8: Plain Bob Doubles (630 changes)
 Add more changes of method? [y/n] (n): 
 >>> n
 [User input: "False"]
-1: No existing ringers match "Lydia Reed"
+1: Attempting to find "Lydia Reed"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -230,7 +230,7 @@ Last name (Reed):
 Given name(s) (Lydia): 
 >>> 
 [User input: "Lydia"]
-2: No existing ringers match "Victoria Morrison"
+2: Attempting to find "Victoria Morrison"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -241,7 +241,7 @@ Last name (Morrison):
 Given name(s) (Victoria): 
 >>> 
 [User input: "Victoria"]
-3: No existing ringers match "Stuart Murray"
+3: Attempting to find "Stuart Murray"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1

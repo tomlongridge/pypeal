@@ -21,7 +21,7 @@ def prompt_add_ringer(name: str, bells: list[int], is_conductor: bool, peal: Pea
 
     while not matched_ringer:
 
-        print(f'{get_bell_label(bells)}: No existing ringers match "{name}"')
+        print(f'{get_bell_label(bells)}: Attempting to find "{name}"')
 
         last_name, given_names = split_full_name(name)
 
@@ -57,7 +57,7 @@ def prompt_add_ringer(name: str, bells: list[int], is_conductor: bool, peal: Pea
 
 
 def get_bell_label(bells: list[int]) -> str:
-    if bells and len(bells) == 1:
+    if bells and len(bells) >= 1:
         return ','.join([str(bell) for bell in bells])
     else:
         return ''

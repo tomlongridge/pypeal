@@ -15,17 +15,16 @@ Bellboard URL or peal ID:
 >>> 1627555
 [User input: "1627555"]
 Matching peal titled "London Surprise Major"...
-2 methods match "London Surprise Major"
-Options: 1) London Surprise Major, 2) London Little Surprise Major, 3) None
-Select action: 
->>> 1
-[User input: "London Surprise Major (1)"]
+Matched "London Surprise Major" to method "London Surprise Major" (ID: m20166)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 1: 2 existing ringers match "Aston Mitchell"
 Options: 1) Aston Mitchell (15), 2) Aston Mitchell (19), 3) None
 Select action: 
 >>> 2
 [User input: "Aston Mitchell (2)"]
-2: No existing ringers match "Carina Warren"
+2: Attempting to find "Carina Warren"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -36,7 +35,7 @@ Last name (Warren):
 Given name(s) (Carina): 
 >>> 
 [User input: "Carina"]
-3: No existing ringers match "Ellia Armstrong"
+3: Attempting to find "Ellia Armstrong"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -47,7 +46,7 @@ Last name (Armstrong):
 Given name(s) (Ellia): 
 >>> 
 [User input: "Ellia"]
-4: No existing ringers match "Edward Dixon"
+4: Attempting to find "Edward Dixon"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -58,7 +57,7 @@ Last name (Dixon):
 Given name(s) (Edward): 
 >>> 
 [User input: "Edward"]
-5: No existing ringers match "Ned Andrews"
+5: Attempting to find "Ned Andrews"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -69,7 +68,7 @@ Last name (Andrews):
 Given name(s) (Ned): 
 >>> 
 [User input: "Ned"]
-6: No existing ringers match "Richard Higgins"
+6: Attempting to find "Richard Higgins"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -80,7 +79,7 @@ Last name (Higgins):
 Given name(s) (Richard): 
 >>> 
 [User input: "Richard"]
-7: No existing ringers match "Carl Johnston"
+7: Attempting to find "Carl Johnston"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -91,7 +90,7 @@ Last name (Johnston):
 Given name(s) (Carl): 
 >>> 
 [User input: "Carl"]
-8: No existing ringers match "Michael Williams"
+8: Attempting to find "Michael Williams"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1

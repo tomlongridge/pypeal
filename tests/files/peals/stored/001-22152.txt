@@ -19,7 +19,7 @@ Matched "Grandsire Triples" to method "Grandsire Triples" (ID: m12415)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-1: No existing ringers match "Lydia Ferguson"
+1: Attempting to find "Lydia Ferguson"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -30,7 +30,7 @@ Last name (Ferguson):
 Given name(s) (Lydia): 
 >>> 
 [User input: "Lydia"]
-2: No existing ringers match "Harold Gray"
+2: Attempting to find "Harold Gray"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -41,7 +41,7 @@ Last name (Gray):
 Given name(s) (Harold): 
 >>> 
 [User input: "Harold"]
-3: No existing ringers match "Chloe Henderson"
+3: Attempting to find "Chloe Henderson"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -52,7 +52,7 @@ Last name (Henderson):
 Given name(s) (Chloe): 
 >>> 
 [User input: "Chloe"]
-4: No existing ringers match "Alen Henderson"
+4: Attempting to find "Alen Henderson"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -63,7 +63,7 @@ Last name (Henderson):
 Given name(s) (Alen): 
 >>> 
 [User input: "Alen"]
-5: No existing ringers match "Lucas Wright"
+5: Attempting to find "Lucas Wright"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -74,7 +74,7 @@ Last name (Wright):
 Given name(s) (Lucas): 
 >>> 
 [User input: "Lucas"]
-6: No existing ringers match "Lucas Farrell"
+6: Attempting to find "Lucas Farrell"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -85,7 +85,7 @@ Last name (Farrell):
 Given name(s) (Lucas): 
 >>> 
 [User input: "Lucas"]
-7: No existing ringers match "Ryan Elliott"
+7: Attempting to find "Ryan Elliott"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1
@@ -96,7 +96,7 @@ Last name (Elliott):
 Given name(s) (Ryan): 
 >>> 
 [User input: "Ryan"]
-8: No existing ringers match "Ted Harris"
+8: Attempting to find "Ted Harris"
 Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
 Select action (1): 
 >>> 1

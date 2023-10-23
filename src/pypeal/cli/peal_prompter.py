@@ -27,8 +27,7 @@ class PealPrompter(PealGeneratorListener):
         self.peal.changes = value
 
     def title(self, value: str):
-        parse_method_title(value, self.peal)
-        prompt_peal_title(self.peal)
+        prompt_peal_title(value, self.peal)
 
     def method_details(self, value: str):
         if value or self.peal.is_multi_method:

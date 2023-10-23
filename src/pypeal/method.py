@@ -58,12 +58,12 @@ class Method:
 
     __cache: ClassVar[dict[str, Method]] = {}
 
-    full_name: str
+    full_name: str = None
     name: str = None
-    is_differential: bool = False
-    is_little: bool = False
-    is_plain: bool = False
-    is_treble_dodging: bool = False
+    is_differential: bool = None
+    is_little: bool = None
+    is_plain: bool = None
+    is_treble_dodging: bool = None
     classification: str = None
     stage: Stage = None
     id: str = None
