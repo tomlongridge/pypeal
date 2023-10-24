@@ -8,9 +8,6 @@ from pypeal.parsers import parse_duration, parse_footnote, parse_tenor_info
 
 class PealPrompter(PealGeneratorListener):
 
-    def __init__(self):
-        super().__init__()
-
     def association(self, value: str):
         self.peal.association = value
 

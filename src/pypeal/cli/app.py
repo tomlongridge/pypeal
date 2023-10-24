@@ -106,11 +106,10 @@ def run_interactive(peal_id_or_url: str):
 def add_peal(peal_id: int = None):
 
     if peal_id in get_peal_list():
-        error(f'Peal {peal_id} already added')
+        error(f'Peal {peal_id} already added to database')
         return
 
-    listener = PealPrompter()
-    generator = HTMLPealGenerator(listener)
+    generator = HTMLPealGenerator(PealPrompter())
     peal = generator.get(peal_id)
 
     panel(str(peal), title=get_url_from_id(peal.bellboard_id))
@@ -121,12 +120,29 @@ def add_peal(peal_id: int = None):
 
 def search_peals():
 
-    name: str = ask('Ringer name:')
+    name: str = ask('Ringer name')
 
     listener = PealPrompter()
     generator = XMLPealGenerator(listener)
+    peal_gen = generator.search(name)
 
-    for peal in generator.search(name):
+    # Loop through using the generator, which yields the peal ID to check if it exists
+    # we then send back a true/false to the generator to tell it whether to continue
+    finished_search_results = None
+    peal_id = next(peal_gen)
+    while finished_search_results is not True:
+
+        # Allow user to exit after first peal
+        if finished_search_results is not None and not confirm(None, 'Add next peal?', default=True):
+            break
+
+        peal_exists = peal_id in get_peal_list()
+        finished_search_results = False
+        try:
+            peal_id = peal_gen.send(not peal_exists)
+        except StopIteration:
+            finished_search_results = True
+        peal = listener.peal
         panel(str(peal), title=get_url_from_id(peal.bellboard_id))
         if confirm('Save this peal?'):
             peal.commit()

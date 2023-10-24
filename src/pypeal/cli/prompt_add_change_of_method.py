@@ -1,3 +1,4 @@
+import re
 from pypeal.cli.prompt_add_method import prompt_add_method
 from pypeal.cli.prompts import ask_int, confirm
 from pypeal.method import Method
@@ -12,7 +13,7 @@ def prompt_add_change_of_method(method_details: str, peal: Peal):
 
     if method_details:  # method_details is None if no methods were listed but it is a multi-method peal in title
 
-        for method in [detail.strip() for detail in method_details.split(',')]:
+        for method in [detail.strip() for detail in re.split(r',|;', method_details)]:
 
             method_obj = Method(None)
             method_obj.stage, method_obj.classification, method_obj.name, changes = parse_single_method(method)

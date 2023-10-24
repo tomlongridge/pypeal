@@ -1,0 +1,240 @@
+
+===
+[pypeal panel displayed]
+Options: 
+1) Add peal by URL
+2) Add random peal
+3) Add peal by search
+4) View method
+5) Update methods
+6) Exit
+Select action (1): 
+>>> 3
+[User input: "3"]
+Ringer name: 
+>>> 001
+[User input: "001"]
+Matching peal titled "Plain Bob Triples"...
+Matched "Plain Bob Triples" to method "Plain Bob Triples" (ID: m12399)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+1: "Melissa Baker" -> Melissa Baker
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+2: "Ryan Elliott" -> Ryan Elliott
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+3: "Alisa Cole" -> Alisa Cole
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+4: "Heather Sullivan" -> Heather Sullivan
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+5: 2 existing ringers match "Blake Elliott"
+Options: 1) Blake Elliott (31), 2) Blake Elliott (68), 3) None
+Select action: 
+>>> 2
+[User input: "Blake Elliott (2)"]
+6: "Chester Edwards" -> Chester Edwards
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+7: "Leonardo Bennett" -> Leo Bennett
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+8: "Paul Armstrong" -> Paul Armstrong
+Is this the correct ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+[http://localhost:8080/view.php?id=1660822 panel displayed]
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Peal 1660822 added
+Add next peal? [y/n] (y): 
+>>> y
+[User input: "True"]
+Matching peal titled "Doubles (3m)"...
+Number of methods (3): 
+>>> 
+[User input: "3"]
+Number of principles (0): 
+>>> 
+[User input: "0"]
+Number of variants (0): 
+>>> 
+[User input: "0"]
+Stage (5): 
+>>> 
+[User input: "5"]
+Options: 
+1) Bob
+2) Place
+3) Surprise
+4) Treble Bob
+5) Treble Place
+6) None
+Select action (6): 
+>>> 
+[User input: "None (6)"]
+Is this peal variable cover? [y/n] (n): 
+>>> 
+[User input: "False"]
+Mixed Doubles (3m)
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Adding changes of methods to multi-method peal...
+No methods match "each Reverse Canterbury Pleasure Place Doubles"
+Options: 1) Search alternatives, 2) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Enter search criteria:
+Name (each Reverse Canterbury Pleasure): 
+>>> Canterbury
+[User input: "Canterbury"]
+Stage (5): 
+>>> 
+[User input: "5"]
+Options: 
+1) Bob
+2) Place
+3) Surprise
+4) Treble Bob
+5) Treble Place
+6) None
+Select action (2): 
+>>> 
+[User input: "Place (2)"]
+3 methods match "Canterbury Place Doubles"
+Options: 1) Reverse Canterbury Pleasure Place Doubles, 2) Canterbury Place 
+Doubles, 3) Double Canterbury Pleasure Place Doubles, 4) None
+Select action: 
+>>> 1
+[User input: "Reverse Canterbury Pleasure Place Doubles (1)"]
+Matched "360 each Reverse Canterbury Pleasure Place" to method "Reverse 
+Canterbury Pleasure Place Doubles" (ID: m10521)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Number of changes (360): 
+>>> 
+[User input: "360"]
+Method 1: Reverse Canterbury Pleasure Place Doubles (360 changes)
+Matched "Plain Bob" to method "Plain Bob Doubles" (ID: m10550)
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Number of changes: 
+>>> 360
+[User input: "360"]
+Method 2: Plain Bob Doubles (360 changes)
+Matched "540 Grandsire." to method "Grandsire Doubles" (ID: m10587)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Number of changes (540): 
+>>> 
+[User input: "540"]
+Method 3: Grandsire Bob Doubles (540 changes)
+Add more changes of method? [y/n] (n): 
+>>> n
+[User input: "False"]
+1: "Ryan Elliott" -> Ryan Elliott
+Is this the correct ringer? [y/n] (y): 
+>>> 
+[User input: "True"]
+2: "Leonardo Bennett" -> Leo Bennett
+Is this the correct ringer? [y/n] (y): 
+>>> 
+[User input: "True"]
+3: Attempting to find "George Roberts"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 
+>>> 
+[User input: "1"]
+Last name (Roberts): 
+>>> 
+[User input: "Roberts"]
+Given name(s) (George): 
+>>> 
+[User input: "George"]
+4: "Harold Gray" -> Harold Gray
+Is this the correct ringer? [y/n] (y): 
+>>> 
+[User input: "True"]
+5: "Joyce Sullivan" -> Joyce Sullivan
+Is this the correct ringer? [y/n] (y): 
+>>> 
+[User input: "True"]
+6: Attempting to find "Grace Perry"
+Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Select action (1): 
+>>> 1
+[User input: "1"]
+Last name (Perry): 
+>>> 
+[User input: "Perry"]
+Given name(s) (Grace): 
+>>> 
+[User input: "Grace"]
+[http://localhost:8080/view.php?id=1657469 panel displayed]
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Peal 1657469 added
+[pypeal panel displayed]
+Options: 
+1) Add peal by URL
+2) Add random peal
+3) Add peal by search
+4) View method
+5) Update methods
+6) Exit
+Select action (1): 
+>>> 6
+[User input: "6"]
+===
+Bath, Somerset
+Blessed Virgin Mary, Bathwick
+on Sunday, 1 October 2023
+1260 Plain Bob Triples (18-3-20 in Eb)
+
+1: Melissa Baker
+2: Ryan Elliott
+3: Alisa Cole
+4: Heather Sullivan
+5: Blake Elliott
+6: Chester Edwards
+7: Leo Bennett (c)
+8: Paul Armstrong
+
+For morning service and to mark the christening of Naomi Rebecca Grace Pearson
+
+[Imported Bellboard peal ID: 1660822]
+===
+Bath, Somerset
+Blessed Virgin Mary, Bathwick
+on Sunday, 10 September 2023
+1260 Mixed Doubles (3m) (7-3-12 in Bb)
+(360 Reverse Canterbury Pleasure Place Doubles, 360 Plain Bob Doubles, 540 Grandsire Bob Doubles)
+
+1: Ryan Elliott
+2: Leo Bennett
+3: George Roberts
+4: Harold Gray
+5: Joyce Sullivan (c)
+6: Grace Perry
+
+Rung for Morning Service.
+
+[Imported Bellboard peal ID: 1657469]

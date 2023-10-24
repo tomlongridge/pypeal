@@ -41,9 +41,9 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
             [file.split('.')[0] for file in sorted(os.listdir(os.path.join(os.path.dirname(__file__), 'files', 'peals', 'stored')))])
 def test_app(mock_bellboard_server, input_file: int):
 
-    peal_id = int(input_file.split('-')[1])
+    peal_ids = [int(peal_id) for peal_id in input_file.split('-')[1].split('|')]
     test_data = [data.strip() for data in get_stored_test_data(input_file).split('===')]
-    assert len(test_data) == 3, f'Test file for peal {peal_id} doesn\'t contain 3 sections'
+    assert len(test_data) >= 3, f'Test file for peal {input_file} doesn\'t contain at least 3 sections'
 
     stdin: list[str] = []
     expected_stdout = ''
@@ -55,7 +55,7 @@ def test_app(mock_bellboard_server, input_file: int):
     expected_stdout = expected_stdout.strip()
 
     result: Result = None
-    stored_peal = None
+    stored_peals = []
     test_output = ''
     try:
         result = runner.invoke(app,
@@ -72,12 +72,13 @@ def test_app(mock_bellboard_server, input_file: int):
         if result.exception and type(result.exception) is not SystemExit:
             raise result.exception
 
-        stored_peal = Peal.get(bellboard_id=peal_id)
+        stored_peals: list[Peal] = [Peal.get(bellboard_id=id) for id in peal_ids]
 
         assert result.output.strip() == expected_stdout, "App output does not match expected output"
         assert result.exit_code == 0, "App exited with non-zero exit code"
-        assert stored_peal is not None, "Unable to retrieve saved peal"
-        assert str(stored_peal) == test_data[2], "Saved peal does not match expected peal"
+        assert len(stored_peals) == len(test_data[2:]), "Unable to retrieve saved peals"
+        for stored, expected in zip(stored_peals, test_data[2:]):
+            assert str(stored) == expected, "Saved peal does not match expected peal"
 
     except Exception as e:
         store_test_data(input_file,
@@ -85,5 +86,5 @@ def test_app(mock_bellboard_server, input_file: int):
                         '\n===\n' +
                         test_output.strip() +
                         '\n===\n' +
-                        (str(stored_peal) if stored_peal else test_data[2]))
+                        '\n===\n'.join(map(lambda p: str(p), stored_peals)))
         raise e
