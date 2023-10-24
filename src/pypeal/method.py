@@ -168,9 +168,12 @@ class Method:
             with open(method_file_url, 'rb') as f:
                 method_data = f.read()
 
-        with zipfile.ZipFile(io.BytesIO(method_data)) as method_zip:
-            with method_zip.open(method_file_name) as method_xml_file:
-                method_xml = method_xml_file.read()
+        if method_file_url.endswith('.zip'):
+            with zipfile.ZipFile(io.BytesIO(method_data)) as method_zip:
+                with method_zip.open(method_file_name) as method_xml_file:
+                    method_xml = method_xml_file.read()
+        else:
+            method_xml = method_data
 
         logger.debug('Parsing method XML')
         tree = ET.fromstring(method_xml)

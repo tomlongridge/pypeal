@@ -72,17 +72,6 @@ Options:
 Select action: 
 >>> 6
 [User input: "None"]
-5 methods match "grandsire Caters"
-Options: 
-1) Grandsire Caters
-2) Double Grandsire Caters
-3) Reverse Grandsire Caters
-4) Little Grandsire Caters
-5) New Grandsire Caters
-6) None
-Select action: 
->>> 1
-[User input: "Grandsire Caters (1)"]
 Add "Grandsire Caters" (ID: m13833)
 Is this correct? [y/n] (y): 
 >>> y

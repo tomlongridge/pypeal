@@ -114,12 +114,6 @@ Options:
 Select action (2): 
 >>> 
 [User input: "Place (2)"]
-3 methods match "Canterbury Place Doubles"
-Options: 1) Reverse Canterbury Pleasure Place Doubles, 2) Canterbury Place 
-Doubles, 3) Double Canterbury Pleasure Place Doubles, 4) None
-Select action: 
->>> 1
-[User input: "Reverse Canterbury Pleasure Place Doubles (1)"]
 Matched "360 each Reverse Canterbury Pleasure Place" to method "Reverse 
 Canterbury Pleasure Place Doubles" (ID: m10521)
 Is this correct? [y/n] (y): 

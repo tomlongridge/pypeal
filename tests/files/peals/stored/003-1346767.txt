@@ -79,12 +79,6 @@ Options:
 Select action (3): 
 >>> 3
 [User input: "Surprise (3)"]
-3 methods match "Norwich Surprise Minor"
-Options: 1) Norwich Surprise Minor, 2) Double Norwich Surprise Minor, 3) New 
-Norwich Surprise Minor, 4) None
-Select action: 
->>> 1
-[User input: "Norwich Surprise Minor (1)"]
 Matched "Viz: (1) Norwich Surprise" to method "Norwich Surprise Minor" (ID: 
 m14317)
 Is this correct? [y/n] (y): 

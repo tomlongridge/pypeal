@@ -73,12 +73,6 @@ Options:
 Select action: 
 >>> 6
 [User input: "None"]
-4 methods match "stedman Doubles"
-Options: 1) Stedman Bob Doubles, 2) Stedman Doubles, 3) Reverse Stedman Doubles,
-4) Double Stedman Bob Doubles, 5) None
-Select action: 
->>> 2
-[User input: "Stedman Doubles (2)"]
 Matched "Being Stedman" to method "Stedman Doubles" (ID: m27834)
 Is this correct? [y/n] (y): 
 >>> y
@@ -148,12 +142,6 @@ Options:
 Select action (1): 
 >>> 2
 [User input: "Place (2)"]
-2 methods match "Winchendon Place Doubles"
-Options: 1) Reverse Winchendon Place Doubles, 2) Winchendon Place Doubles, 3) 
-None
-Select action: 
->>> 2
-[User input: "Winchendon Place Doubles (2)"]
 Matched "Winchendon Place Bob" to method "Winchendon Place Doubles" (ID: m10524)
 Is this correct? [y/n] (y): 
 >>> y
