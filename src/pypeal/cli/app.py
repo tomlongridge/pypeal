@@ -7,10 +7,11 @@ from rich import print
 from pypeal.bellboard.interface import get_id_from_url, get_url_from_id
 from pypeal.bellboard.html_generator import HTMLPealGenerator
 from pypeal.bellboard.xml_generator import XMLPealGenerator
+from pypeal.cccbr import update_methods
 from pypeal.cli.peal_prompter import PealPrompter
 from pypeal.cli.prompts import choose_option, ask, confirm, panel, error
 from pypeal.db import initialize as initialize_db
-from pypeal.method import Method
+from pypeal.dove import update_towers
 from pypeal.peal import Peal
 from pypeal.ringer import Ringer
 from pypeal.config import set_config_file
@@ -85,6 +86,7 @@ def run_interactive(peal_id_or_url: str):
                              'Add peal by search',
                              'View method',
                              'Update methods',
+                             'Update towers',
                              'Exit'],
                             default=1):
             case 1:
@@ -96,8 +98,10 @@ def run_interactive(peal_id_or_url: str):
             case 4:
                 run_view(peal_id_or_url)
             case 5:
-                Method.update()
-            case 6 | None:
+                update_methods()
+            case 6:
+                update_towers()
+            case 7 | None:
                 raise typer.Exit()
 
         peal_id_or_url = None
@@ -174,7 +178,8 @@ def initialize_or_exit(reset_db: bool, clear_data: bool):
         error('Unable to connect to pypeal database')
         raise typer.Exit()
     if reset_db:
-        Method.update()
+        update_methods()
+        update_towers()
     if clear_data:
         Peal.clear_data()
         Ringer.clear_data()

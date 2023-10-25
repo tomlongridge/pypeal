@@ -7,7 +7,8 @@ Options:
 3) Add peal by search
 4) View method
 5) Update methods
-6) Exit
+6) Update towers
+7) Exit
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -82,10 +83,11 @@ Options:
 3) Add peal by search
 4) View method
 5) Update methods
-6) Exit
+6) Update towers
+7) Exit
 Select action (1): 
->>> 6
-[User input: "6"]
+>>> 7
+[User input: "7"]
 ===
 Oxford Diocesan Guild
 Maidenhead
