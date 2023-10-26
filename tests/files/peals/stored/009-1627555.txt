@@ -5,7 +5,7 @@ Options:
 1) Add peal by URL
 2) Add random peal
 3) Add peal by search
-4) View method
+4) View peal
 5) Update methods
 6) Update towers
 7) Exit
@@ -113,7 +113,7 @@ Options:
 1) Add peal by URL
 2) Add random peal
 3) Add peal by search
-4) View method
+4) View peal
 5) Update methods
 6) Update towers
 7) Exit
@@ -121,7 +121,7 @@ Select action (1):
 >>> 7
 [User input: "7"]
 ===
-Longney, Gloucestershire
+Longney, Gloucestershire, England
 S Lawrence
 on Saturday, 13 May 2023
 1280 London Surprise Major in 46 mins (10-3-17 in F)

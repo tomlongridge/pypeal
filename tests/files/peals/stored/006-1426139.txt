@@ -5,7 +5,7 @@ Options:
 1) Add peal by URL
 2) Add random peal
 3) Add peal by search
-4) View method
+4) View peal
 5) Update methods
 6) Update towers
 7) Exit
@@ -99,7 +99,7 @@ Options:
 1) Add peal by URL
 2) Add random peal
 3) Add peal by search
-4) View method
+4) View peal
 5) Update methods
 6) Update towers
 7) Exit
@@ -107,7 +107,7 @@ Select action (1):
 >>> 7
 [User input: "7"]
 ===
-Bath, Bathwick, Somerset
+Bath, Bathwick, Somerset, England
 Blessed Virgin Mary
 on Sunday, 19 May 2002
 1260 Plain Bob Royal in 49 mins (18-3-20 in E♭)

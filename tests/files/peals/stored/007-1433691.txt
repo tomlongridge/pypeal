@@ -5,7 +5,7 @@ Options:
 1) Add peal by URL
 2) Add random peal
 3) Add peal by search
-4) View method
+4) View peal
 5) Update methods
 6) Update towers
 7) Exit
@@ -94,7 +94,7 @@ Options:
 1) Add peal by URL
 2) Add random peal
 3) Add peal by search
-4) View method
+4) View peal
 5) Update methods
 6) Update towers
 7) Exit
@@ -103,7 +103,7 @@ Select action (1):
 [User input: "7"]
 ===
 Middlesex County Association & London Diocesan Guild
-Twickenham, Greater London
+Twickenham, Greater London, England
 All Hallows
 on Sunday, 5 December 1976
 1320 Plain Bob Doubles (18-2-23 in E)

@@ -1,6 +1,6 @@
 import datetime
 
-from pypeal.peal import Peal
+from pypeal.peal import Peal, PealType
 
 
 class PealGeneratorListener():
@@ -11,19 +11,16 @@ class PealGeneratorListener():
     def new_peal(self, id: int):
         self.peal = Peal(bellboard_id=id)
 
+    def type(self, value: PealType):
+        pass
+
     def tower(self, value: int):
         pass
 
     def association(self, value: str):
         pass
 
-    def place(self, value: str):
-        pass
-
-    def county(self, value: str):
-        pass
-
-    def address_dedication(self, value: str):
+    def location(self, address_dedication: str, place: str, county: str):
         pass
 
     def changes(self, value: int):

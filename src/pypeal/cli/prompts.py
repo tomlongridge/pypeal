@@ -19,11 +19,13 @@ def print_user_input(prompt: str, message: str):
         print(f'\n[User input: "{message}"]')
 
 
-def ask(prompt: str, default: str = None) -> str:
+def ask(prompt: str, default: str = None, required: bool = True) -> str:
     try:
-        response = Prompt.ask(prompt, default=str(default), show_default=(default is not None))
-        print_user_input(prompt, response)
-        return response
+        while True:
+            response = Prompt.ask(prompt, default=default, show_default=(default is not None))
+            if not required or response:
+                print_user_input(prompt, response)
+                return response
     except KeyboardInterrupt:
         print_user_input(prompt, '[Abort]')
         print()  # Ensure subsequent prompt is on a new line

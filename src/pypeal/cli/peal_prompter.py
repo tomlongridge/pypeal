@@ -1,34 +1,35 @@
 from datetime import datetime
 from pypeal.bellboard.listener import PealGeneratorListener
 from pypeal.cli.prompt_add_change_of_method import prompt_add_change_of_method
+from pypeal.cli.prompt_add_location import prompt_add_location
 from pypeal.cli.prompt_add_ringer import prompt_add_ringer
 from pypeal.cli.prompt_peal_title import prompt_peal_title
 from pypeal.parsers import parse_duration, parse_footnote, parse_tenor_info
+from pypeal.peal import PealType
 from pypeal.tower import Tower
 
 
 class PealPrompter(PealGeneratorListener):
+
+    def type(self, value: PealType):
+        self.peal.type = value
 
     def association(self, value: str):
         self.peal.association = value
 
     def tower(self, value: int):
         self.peal.tower = Tower.get(value)
-        self.peal.place = None
-        self.peal.county = None
-        self.peal.address_dedication = None
-
-    def place(self, value: str):
         if self.peal.tower is None:
-            self.peal.place = value
+            print(f'Tower ID {value} not recognised')
+        else:
+            self.peal.place = None
+            self.peal.county = None
+            self.peal.address = None
+            self.peal.dedication = None
 
-    def county(self, value: str):
+    def location(self, address_dedication: str, place: str, county: str):
         if self.peal.tower is None:
-            self.peal.county = value
-
-    def address_dedication(self, value: str):
-        if self.peal.tower is None:
-            self.peal.address_dedication = value
+            prompt_add_location(address_dedication, place, county, self.peal)
 
     def changes(self, value: int):
         self.peal.changes = value

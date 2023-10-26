@@ -23,7 +23,7 @@ def prompt_add_method(method: Method = None, original_title: str = None) -> Meth
                 match choose_option(['Search alternatives'], default=1, cancel_option='Cancel'):
                     case 1:
                         print('Enter search criteria:')
-                        name = ask('Name', default=method.name if method else None)
+                        name = ask('Name', default=method.name if method else None, required=False)
                         stage = Stage(ask_int('Stage', default=method.stage.value if method else None, min=2, max=22))
                         classification_list = ['Bob', 'Place', 'Surprise', 'Treble Bob', 'Treble Place']
                         classification = choose_option(classification_list,

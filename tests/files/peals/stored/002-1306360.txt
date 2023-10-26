@@ -5,7 +5,7 @@ Options:
 1) Add peal by URL
 2) Add random peal
 3) Add peal by search
-4) View method
+4) View peal
 5) Update methods
 6) Update towers
 7) Exit
@@ -119,7 +119,7 @@ Options:
 1) Add peal by URL
 2) Add random peal
 3) Add peal by search
-4) View method
+4) View peal
 5) Update methods
 6) Update towers
 7) Exit
@@ -128,7 +128,7 @@ Select action (1):
 [User input: "7"]
 ===
 Bath & Wells Diocesan Association
-Portbury, Somerset
+Portbury, Somerset, England
 Blessed Virgin Mary
 on Thursday, 17 October 2019
 1260 Mixed Doubles (5m/3v/1p) in 44 mins (21 cwt in E♭)

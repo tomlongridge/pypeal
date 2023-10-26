@@ -1,23 +1,33 @@
 from __future__ import annotations
 from dataclasses import dataclass
 from datetime import datetime
+from enum import Enum
 from pypeal.db import Database
 from pypeal.method import Method, Stage
 from pypeal.ringer import Ringer
 from pypeal.tower import Tower
 
-PEAL_FIELD_LIST: list[str] = ['bellboard_id', 'date', 'association', 'tower_id', 'place', 'address_dedication', 'county', 'tenor_weight',
-                              'tenor_note', 'changes', 'stage', 'classification', 'is_spliced', 'is_mixed', 'is_variable_cover',
-                              'num_methods', 'num_principles', 'num_variants', 'method_id', 'title', 'duration']
+PEAL_FIELD_LIST: list[str] = ['bellboard_id', 'type', 'date', 'association', 'tower_id', 'place', 'sub_place', 'address', 'dedication',
+                              'county', 'country', 'tenor_weight', 'tenor_note', 'changes', 'stage', 'classification', 'is_spliced',
+                              'is_mixed', 'is_variable_cover', 'num_methods', 'num_principles', 'num_variants', 'method_id', 'title',
+                              'duration']
+
+
+class PealType(Enum):
+    TOWER = 1
+    HANDBELLS = 2
+    OTHER = 0
 
 
 @dataclass
 class Peal:
 
     bellboard_id: int
+    type: PealType
     date: datetime.date
     association: str
     tower: Tower
+    address: str
     changes: int
     stage: Stage
     classification: str
@@ -32,9 +42,12 @@ class Peal:
     duration: int
     id: int
 
+    # Fields shared with Tower
     __place: str
-    __address_dedication: str
+    __sub_place: str
     __county: str
+    __country: str
+    __dedication: str
     __tenor_weight: str
     __tenor_note: str
 
@@ -48,12 +61,16 @@ class Peal:
 
     def __init__(self,
                  bellboard_id: int = None,
+                 type: int = PealType.TOWER,
                  date: datetime.date = None,
                  association: str = None,
                  tower_id: int = None,
                  place: str = None,
-                 address_dedication: str = None,
+                 sub_place: str = None,
+                 address: str = None,
+                 dedication: str = None,
                  county: str = None,
+                 country: str = None,
                  tenor_weight: str = None,
                  tenor_note: str = None,
                  changes: int = None,
@@ -70,12 +87,16 @@ class Peal:
                  duration: int = None,
                  id: int = None):
         self.bellboard_id = bellboard_id
+        self.type = PealType(type) if type else None
         self.date = date
         self.association = association
         self.tower = Tower.get(tower_id) if tower_id else None
         self.__place = place
-        self.__address_dedication = address_dedication
+        self.__sub_place = sub_place
+        self.address = address
+        self.__dedication = dedication
         self.__county = county
+        self.__country = country
         self.changes = changes
         self.__tenor_weight = tenor_weight
         self.__tenor_note = tenor_note
@@ -95,10 +116,7 @@ class Peal:
     @property
     def place(self) -> str:
         if self.tower:
-            text = self.tower.place
-            if self.tower.place_2:
-                text += f', {self.tower.place_2}'
-            return text
+            return self.tower.place
         else:
             return self.__place
 
@@ -107,15 +125,15 @@ class Peal:
         self.__place = value
 
     @property
-    def address_dedication(self) -> str:
+    def sub_place(self) -> str:
         if self.tower:
-            return self.tower.dedication
+            return self.tower.sub_place
         else:
-            return self.__address_dedication
+            return self.__sub_place
 
-    @address_dedication.setter
-    def address_dedication(self, value: str):
-        self.__address_dedication = value
+    @sub_place.setter
+    def sub_place(self, value: str):
+        self.__sub_place = value
 
     @property
     def county(self) -> str:
@@ -127,6 +145,28 @@ class Peal:
     @county.setter
     def county(self, value: str):
         self.__county = value
+
+    @property
+    def country(self) -> str:
+        if self.tower:
+            return self.tower.country
+        else:
+            return self.__country
+
+    @country.setter
+    def country(self, value: str):
+        self.__country = value
+
+    @property
+    def dedication(self) -> str:
+        if self.tower:
+            return self.tower.dedication
+        else:
+            return self.__dedication
+
+    @dedication.setter
+    def dedication(self, value: str):
+        self.__dedication = value
 
     @property
     def tenor_weight(self) -> str:
@@ -270,12 +310,12 @@ class Peal:
         if self.id is None:
             result = Database.get_connection().query(
                 f'INSERT INTO peals ({",".join(PEAL_FIELD_LIST)}) ' +
-                'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
-                (self.bellboard_id, self.date, self.association, self.tower.id if self.tower else None, self.__place,
-                 self.__address_dedication, self.__county, self.__tenor_weight, self.__tenor_note, self.changes,
-                 self.stage.value if self.stage else None, self.classification, self.is_spliced, self.is_mixed, self.is_variable_cover,
-                 self.num_methods or 0, self.num_principles or 0, self.num_variants or 0, self.method.id if self.method else None,
-                 self.title, self.duration))
+                'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
+                (self.bellboard_id, self.type.value, self.date, self.association, self.tower.id if self.tower else None, self.__place,
+                 self.__sub_place, self.address, self.dedication, self.__county, self.__country, self.__tenor_weight, self.__tenor_note,
+                 self.changes, self.stage.value if self.stage else None, self.classification, self.is_spliced, self.is_mixed,
+                 self.is_variable_cover, self.num_methods or 0, self.num_principles or 0, self.num_variants or 0,
+                 self.method.id if self.method else None, self.title, self.duration))
             Database.get_connection().commit()
             self.id = result.lastrowid
             for method, changes in self.methods:
@@ -307,9 +347,15 @@ class Peal:
         text = ''
         text += f'{self.association}\n' if self.association else ''
         text += f'{self.place}' if self.place else ''
+        text += f', {self.sub_place}' if self.sub_place else ''
         text += f', {self.county}' if self.county else ''
-        text += '\n'
-        text += f'{self.address_dedication}\n' if self.address_dedication else ''
+        text += f', {self.country}' if self.country else ''
+        text += '\n' if self.place or self.county or self.country else ''
+        text += f'{self.address}' if self.address else ''
+        text += f'{self.dedication}' if self.dedication else ''
+        if self.type == PealType.HANDBELLS:
+            text += ' (in hand)'
+        text += '\n' if self.address or self.dedication else ''
         text += f'on {self.date.strftime("%A, %-d %B %Y")}\n' if self.date else ''
         text += f'{self.changes} ' if self.changes else ''
         text += self.method_title or f'"{self.title}"'

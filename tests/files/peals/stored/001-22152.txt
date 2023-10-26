@@ -5,7 +5,7 @@ Options:
 1) Add peal by URL
 2) Add random peal
 3) Add peal by search
-4) View method
+4) View peal
 5) Update methods
 6) Update towers
 7) Exit
@@ -119,7 +119,7 @@ Options:
 1) Add peal by URL
 2) Add random peal
 3) Add peal by search
-4) View method
+4) View peal
 5) Update methods
 6) Update towers
 7) Exit
@@ -127,7 +127,7 @@ Select action (1):
 >>> 7
 [User input: "7"]
 ===
-Withycombe Raleigh, Devon
+Withycombe Raleigh, Devon, England
 S John Ev
 on Saturday, 30 June 2001
 1260 Grandsire Triples in 49 mins (17-1-10 in D♯)

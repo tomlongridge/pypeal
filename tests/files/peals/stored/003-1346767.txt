@@ -5,7 +5,7 @@ Options:
 1) Add peal by URL
 2) Add random peal
 3) Add peal by search
-4) View method
+4) View peal
 5) Update methods
 6) Update towers
 7) Exit
@@ -382,7 +382,7 @@ Options:
 1) Add peal by URL
 2) Add random peal
 3) Add peal by search
-4) View method
+4) View peal
 5) Update methods
 6) Update towers
 7) Exit
@@ -391,7 +391,7 @@ Select action (1):
 [User input: "7"]
 ===
 Suffolk Guild
-Blythburgh, Suffolk
+Blythburgh, Suffolk, England
 Holy Trinity
 on Monday, 25 March 1963
 5040 Mixed Surprise Minor (8m) in 162 mins (10-1-10 in G)

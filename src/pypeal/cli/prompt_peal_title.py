@@ -70,7 +70,7 @@ def prompt_peal_title(title: str, peal: Peal):
 
             print(f'Unable to match single method from title "{title}". Please enter search criteria manually:')
 
-            name = ask('Name', default=parsed_method.name)
+            name = ask('Name', default=parsed_method.name, required=False)
             stage = Stage(ask_int('Stage', default=parsed_method.stage.value, min=2, max=22))
             classification = choose_option(['Bob', 'Place', 'Surprise', 'Treble Bob', 'Treble Place'],
                                            default=parsed_method.classification,

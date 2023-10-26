@@ -32,7 +32,7 @@ def update_towers():
         if tower['TowerID'] in tower_ids:
             continue  # todo: handle multiple rings in one tower
         tower_obj = Tower(place=tower['Place'],
-                          place_2=tower['Place2'],
+                          sub_place=tower['Place2'],
                           dedication=tower['Dedicn'],
                           county=tower['County'],
                           country=tower['Country'],

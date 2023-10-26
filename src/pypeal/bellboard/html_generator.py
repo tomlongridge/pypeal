@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 
 from pypeal.bellboard.interface import BellboardError, get_peal
 from pypeal.bellboard.listener import PealGeneratorListener
-from pypeal.peal import Peal
+from pypeal.peal import Peal, PealType
 
 DATE_LINE_INFO_REGEX = re.compile(r'[A-Za-z]+,\s(?P<date>[0-9]+\s[A-Za-z0-9]+\s[0-9]+)(?:\s' +
                                   r'in\s(?P<duration>[A-Za-z0-9\s]+))?\s?(?:\((?P<tenor>.*)\))?$')
@@ -33,25 +33,29 @@ class HTMLPealGenerator():
         else:
             self.__listener.association(None)
 
+        element = soup.select('div.ringers.two-in-hand.handbells')
+        if len(element) > 0:
+            self.__listener.type(PealType.HANDBELLS)
+        else:
+            self.__listener.type(PealType.TOWER)
+
+        place = None
+        county = None
+        address_dedication = None
+
         element = soup.select('span.place')
         if len(element) > 0:
-            self.__listener.place(element[0].text.strip())
-        else:
-            self.__listener.place(None)
-
-        if element[0].parent.name == 'a':
-            self.__listener.tower(int(element[0].parent['href'].split('/')[-1]))
-
-        if element[0].next_sibling:
-            self.__listener.county(element[0].next_sibling.text.strip(', '))
-        else:
-            self.__listener.county(None)
+            if element[0].parent.name == 'a':
+                self.__listener.tower(int(element[0].parent['href'].split('/')[-1]))
+            place = element[0].text.strip()
+            if element[0].next_sibling:
+                county = element[0].next_sibling.text.strip(', ')
 
         element = soup.select('div.address')
         if len(element) > 0:
-            self.__listener.address_dedication(element[0].text.strip())
-        else:
-            self.__listener.address_dedication(None)
+            address_dedication = element[0].text.strip()
+
+        self.__listener.location(address_dedication, place, county)
 
         element = soup.select('span.changes')
         if len(element) > 0:

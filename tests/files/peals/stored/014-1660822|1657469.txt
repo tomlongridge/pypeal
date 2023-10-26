@@ -5,7 +5,7 @@ Options:
 1) Add peal by URL
 2) Add random peal
 3) Add peal by search
-4) View method
+4) View peal
 5) Update methods
 6) Update towers
 7) Exit
@@ -15,6 +15,23 @@ Select action (1):
 Ringer name: 
 >>> 001
 [User input: "001"]
+"Blessed Virgin Mary" looks like the tower dedication
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Place (Bath): 
+>>> 
+[User input: "Bath"]
+Sub-place/area: 1) Bathwick, 2) None, 3) Other
+Select action (1): 
+>>> 
+[User input: "1"]
+County/state (Somerset): 
+>>> 
+[User input: "Somerset"]
+Country: 
+>>> England
+[User input: "England"]
 Matching peal titled "Plain Bob Triples"...
 Matched "Plain Bob Triples" to method "Plain Bob Triples" (ID: m12399)
 Is this correct? [y/n] (y): 
@@ -37,7 +54,7 @@ Is this the correct ringer? [y/n] (y):
 >>> y
 [User input: "True"]
 5: 2 existing ringers match "Blake Elliott"
-Options: 1) Blake Elliott (31), 2) Blake Elliott (68), 3) None
+Options: 1) Blake Elliott (31), 2) Blake Elliott (67), 3) None
 Select action: 
 >>> 2
 [User input: "Blake Elliott (2)"]
@@ -62,6 +79,23 @@ Peal 1660822 added
 Add next peal? [y/n] (y): 
 >>> y
 [User input: "True"]
+"Blessed Virgin Mary" looks like the tower dedication
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Place (Bath): 
+>>> 
+[User input: "Bath"]
+Sub-place/area: 1) Bathwick, 2) None, 3) Other
+Select action (1): 
+>>> 1
+[User input: "1"]
+County/state (Somerset): 
+>>> 
+[User input: "Somerset"]
+Country: 
+>>> England
+[User input: "England"]
 Matching peal titled "Doubles (3m)"...
 Number of methods (3): 
 >>> 
@@ -192,7 +226,7 @@ Options:
 1) Add peal by URL
 2) Add random peal
 3) Add peal by search
-4) View method
+4) View peal
 5) Update methods
 6) Update towers
 7) Exit
@@ -200,7 +234,7 @@ Select action (1):
 >>> 7
 [User input: "7"]
 ===
-Bath, Somerset
+Bath, Bathwick, Somerset, England
 Blessed Virgin Mary, Bathwick
 on Sunday, 1 October 2023
 1260 Plain Bob Triples (18-3-20 in Eb)
@@ -218,7 +252,7 @@ For morning service and to mark the christening of Naomi Rebecca Grace Pearson
 
 [Imported Bellboard peal ID: 1660822]
 ===
-Bath, Somerset
+Bath, Bathwick, Somerset, England
 Blessed Virgin Mary, Bathwick
 on Sunday, 10 September 2023
 1260 Mixed Doubles (3m) (7-3-12 in Bb)

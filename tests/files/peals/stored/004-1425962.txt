@@ -5,7 +5,7 @@ Options:
 1) Add peal by URL
 2) Add random peal
 3) Add peal by search
-4) View method
+4) View peal
 5) Update methods
 6) Update towers
 7) Exit
@@ -116,7 +116,7 @@ Options:
 1) Add peal by URL
 2) Add random peal
 3) Add peal by search
-4) View method
+4) View peal
 5) Update methods
 6) Update towers
 7) Exit
@@ -124,7 +124,7 @@ Select action (1):
 >>> 7
 [User input: "7"]
 ===
-Bexhill on Sea, East Sussex
+Bexhill on Sea, East Sussex, England
 S Peter
 on Sunday, 13 September 2009
 1260 Grandsire Triples in 45 mins (17-2-15 in E)

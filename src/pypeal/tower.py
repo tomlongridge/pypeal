@@ -6,7 +6,7 @@ from pypeal.db import Database
 
 _logger = logging.getLogger('pypeal')
 
-FIELD_LIST: list[str] = ['place', 'place_2', 'dedication', 'county', 'country', 'country_code', 'latitude', 'longitude', 'bells',
+FIELD_LIST: list[str] = ['place', 'sub_place', 'dedication', 'county', 'country', 'country_code', 'latitude', 'longitude', 'bells',
                          'tenor_weight', 'tenor_note']
 
 
@@ -16,7 +16,7 @@ class Tower:
     __cache: ClassVar[dict[int, Tower]] = {}
 
     place: str = None
-    place_2: str = None
+    sub_place: str = None
     dedication: str = None
     county: str = None
     country: str = None
@@ -51,7 +51,7 @@ class Tower:
     def __str__(self):
         text = ''
         text += self.place or ''
-        text += f', {self.place_2}' if self.place_2 else ''
+        text += f', {self.sub_place}' if self.sub_place else ''
         text += f', {self.county}' if self.county else ''
         text += f', {self.country}' if self.country else ''
         text += f', {self.dedication}' if self.dedication else ''
@@ -82,7 +82,7 @@ class Tower:
         Database.get_connection().query(
             f'INSERT INTO towers ({",".join(FIELD_LIST)}, id) ' +
             'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
-            (self.place, self.place_2, self.dedication, self.county, self.country, self.country_code, self.latitude, self.longitude,
+            (self.place, self.sub_place, self.dedication, self.county, self.country, self.country_code, self.latitude, self.longitude,
              self.bells, self.tenor_weight, self.tenor_note, self.id))
         Database.get_connection().commit()
 

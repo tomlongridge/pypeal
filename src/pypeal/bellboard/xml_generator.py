@@ -4,6 +4,7 @@ import xml.etree.ElementTree as ET
 
 from pypeal.bellboard.interface import search_peals
 from pypeal.bellboard.listener import PealGeneratorListener
+from pypeal.peal import PealType
 
 XML_NAMESPACE = '{http://bb.ringingworld.co.uk/NS/performances#}'
 
@@ -28,14 +29,16 @@ class XMLPealGenerator():
             self.__listener.new_peal(peal_id)
             self.__listener.association(get_element(performance, 'association')[1])
             if (place_element := get_element(performance, 'place')[0]) is not None:
+                place = county = address_dedication = None
                 for place_name_element in place_element.findall(f'{XML_NAMESPACE}place-name'):
                     match place_name_element.attrib['type']:
-                        case 'place':
-                            self.__listener.place(place_name_element.text)
-                        case 'county':
-                            self.__listener.county(place_name_element.text)
-                        case 'dedication':
-                            self.__listener.address_dedication(place_name_element.text)
+                        case 'place': place = place_name_element.text
+                        case 'county': county = place_name_element.text
+                        case 'dedication': address_dedication = place_name_element.text
+                self.__listener.location(address_dedication, place, county)
+                match get_element(place_element, 'ring', 'type')[1]:
+                    case 'tower': self.__listener.type(PealType.TOWER)
+                    case 'hand': self.__listener.type(PealType.HANDBELLS)
                 self.__listener.tenor(get_element(place_element, 'ring', 'tenor')[1])
             if (title_element := get_element(performance, 'title')[0]) is not None:
                 self.__listener.changes(int(get_element(title_element, 'changes')[1]))
