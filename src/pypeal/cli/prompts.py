@@ -9,6 +9,10 @@ from pypeal.config import get_config
 logger = logging.getLogger('pypeal')
 
 
+class UserCancelled(Exception):
+    pass
+
+
 def print_user_input(prompt: str, message: str):
     logger.debug(f'User input >> {prompt}: {message}')
     if get_config('diagnostics', 'print_user_input') == 'True':
@@ -23,7 +27,7 @@ def ask(prompt: str, default: str = None) -> str:
     except KeyboardInterrupt:
         print_user_input(prompt, '[Abort]')
         print()  # Ensure subsequent prompt is on a new line
-        return None
+        raise UserCancelled()
 
 
 def ask_int(prompt: str, default: int = None, min: int = None, max: int = None) -> int:
@@ -37,7 +41,7 @@ def ask_int(prompt: str, default: int = None, min: int = None, max: int = None) 
     except KeyboardInterrupt:
         print_user_input(prompt, '[Abort]')
         print()  # Ensure subsequent prompt is on a new line
-        return None
+        raise UserCancelled()
 
 
 def confirm(prompt: str, confirm_message: str = 'Is this correct?', default: bool = True) -> bool:
@@ -50,7 +54,7 @@ def confirm(prompt: str, confirm_message: str = 'Is this correct?', default: boo
     except KeyboardInterrupt:
         print_user_input(prompt, '[Abort]')
         print()  # Ensure subsequent prompt is on a new line
-        return None
+        raise UserCancelled()
 
 
 def choose_option(options: list[any],
@@ -83,7 +87,7 @@ def choose_option(options: list[any],
         except KeyboardInterrupt:
             print_user_input(prompt_text, '[Abort]')
             print()  # Ensure subsequent prompt is on a new line
-            return None
+            raise UserCancelled()
 
         if choice is None:
             continue

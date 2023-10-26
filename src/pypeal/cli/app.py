@@ -4,12 +4,12 @@ import typer
 
 from rich import print
 
-from pypeal.bellboard.interface import get_id_from_url, get_url_from_id
+from pypeal.bellboard.interface import BellboardError, get_id_from_url, get_url_from_id
 from pypeal.bellboard.html_generator import HTMLPealGenerator
 from pypeal.bellboard.xml_generator import XMLPealGenerator
 from pypeal.cccbr import update_methods
 from pypeal.cli.peal_prompter import PealPrompter
-from pypeal.cli.prompts import choose_option, ask, confirm, panel, error
+from pypeal.cli.prompts import UserCancelled, choose_option, ask, confirm, panel, error
 from pypeal.db import initialize as initialize_db
 from pypeal.dove import update_towers
 from pypeal.peal import Peal
@@ -79,30 +79,33 @@ def run_view(peal_id_or_url: str):
 def run_interactive(peal_id_or_url: str):
 
     while True:
-        panel(f'Number of peals: {len(get_peal_list())}')
+        try:
+            panel(f'Number of peals: {len(get_peal_list())}')
 
-        match choose_option(['Add peal by URL',
-                             'Add random peal',
-                             'Add peal by search',
-                             'View method',
-                             'Update methods',
-                             'Update towers',
-                             'Exit'],
-                            default=1):
-            case 1:
-                add_peal(prompt_peal_id(peal_id_or_url))
-            case 2:
-                add_peal()
-            case 3:
-                search_peals()
-            case 4:
-                run_view(peal_id_or_url)
-            case 5:
-                update_methods()
-            case 6:
-                update_towers()
-            case 7 | None:
-                raise typer.Exit()
+            match choose_option(['Add peal by URL',
+                                 'Add random peal',
+                                 'Add peal by search',
+                                 'View peal',
+                                 'Update methods',
+                                 'Update towers',
+                                 'Exit'],
+                                default=1):
+                case 1:
+                    add_peal(prompt_peal_id(peal_id_or_url))
+                case 2:
+                    add_peal()
+                case 3:
+                    search_peals()
+                case 4:
+                    run_view(peal_id_or_url)
+                case 5:
+                    update_methods()
+                case 6:
+                    update_towers()
+                case 7 | None:
+                    raise typer.Exit()
+        except UserCancelled:
+            continue
 
         peal_id_or_url = None
 
@@ -114,7 +117,13 @@ def add_peal(peal_id: int = None):
         return
 
     generator = HTMLPealGenerator(PealPrompter())
-    peal = generator.get(peal_id)
+
+    try:
+        peal = generator.get(peal_id)
+    except BellboardError as e:
+        logger.exception('Error getting peal from Bellboard: %s', e)
+        error(e)
+        return
 
     panel(str(peal), title=get_url_from_id(peal.bellboard_id))
     if confirm('Save this peal?'):

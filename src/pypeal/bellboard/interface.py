@@ -3,6 +3,7 @@ import logging
 import time
 
 from requests import RequestException, Response, get as get_request
+from requests.exceptions import ConnectionError
 from pypeal.config import get_config
 
 BELLBOARD_PEAL_ID_URL = '/view.php?id=%s'
@@ -44,10 +45,13 @@ def request(url: str, headers: dict[str, str] = None) -> tuple[str, str]:
 
     try:
         response: Response = get_request(url, headers=headers if headers else None)
-        response.raise_for_status()
+        if response.status_code == 404:
+            raise BellboardError(f'No such peal in Bellboard at {url}')
         return (response.url, response.text)
+    except ConnectionError as e:
+        raise BellboardError(f'Unable to connect to Bellboard at {url}') from e
     except RequestException as e:
-        raise BellboardError(f'Unable to access {url}: {e}') from e
+        raise BellboardError(f'Error whilst connecting to Bellboard at {url}: {e}') from e
 
 
 def get_url_from_id(id: int) -> str:

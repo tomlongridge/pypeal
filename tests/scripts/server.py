@@ -38,6 +38,9 @@ class BellboardMockServer(BaseHTTPRequestHandler):
         self.wfile.write(content.encode('utf-8'))
 
     def respond_with_file(self, file: str, content_type: str = 'text/html'):
+        if not os.path.exists(file):
+            self.send_response(404)
+            self.end_headers()
         with open(file, 'r') as f:
             self.respond_with_content(f.read(), content_type=content_type)
 
