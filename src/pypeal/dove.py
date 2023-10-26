@@ -36,15 +36,16 @@ def update_towers():
                           dedication=tower['Dedicn'],
                           county=tower['County'],
                           country=tower['Country'],
+                          country_code=tower['ISO3166code'],
                           latitude=float(tower['Lat']) if len(tower['Lat']) > 0 else None,
                           longitude=tower['Long'] if len(tower['Long']) > 0 else None,
                           bells=tower['Bells'],
-                          tenor_weight=tower['Wt'],
+                          tenor_weight=int(tower['Wt']),
                           tenor_note=tower['Note'],
                           id=tower['TowerID'])
         tower_obj.commit()
         tower_ids.append(tower['TowerID'])
-        _logger.debug(f'Added method {tower_obj} to database')
+        _logger.debug(f'Added tower {tower_obj} to database')
 
     _logger.debug('Reinstate foreign key checks')
     Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')

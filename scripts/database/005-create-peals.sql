@@ -2,7 +2,8 @@ CREATE TABLE @db_name.`peals` (
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
     `bellboard_id` INT UNSIGNED NULL,
     `date` DATE NOT NULL,
-    `place` VARCHAR(45) NOT NULL,
+    `tower_id` INT NULL,
+    `place` VARCHAR(45) NULL,
     `association` VARCHAR(128) NULL,
     `address_dedication` VARCHAR(128) NULL,
     `county` VARCHAR(45) NULL,
@@ -19,9 +20,10 @@ CREATE TABLE @db_name.`peals` (
     `title` VARCHAR(128) NULL,
     `duration` INT UNSIGNED NULL,
     `tenor_weight` VARCHAR(45) NULL,
-    `tenor_tone` VARCHAR(45) NULL,
+    `tenor_note` VARCHAR(45) NULL,
     PRIMARY KEY (`id`),
     UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
     UNIQUE INDEX `bellboard_id_UNIQUE` (`bellboard_id` ASC) VISIBLE,
+    CONSTRAINT `fk_peals_tower` FOREIGN KEY (`tower_id`) REFERENCES `towers` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
     CONSTRAINT `fk_peals_method` FOREIGN KEY (`method_id`) REFERENCES `methods` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 );

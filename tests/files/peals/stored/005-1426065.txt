@@ -125,10 +125,10 @@ Select action (1):
 >>> 7
 [User input: "7"]
 ===
-Bath, Somerset
-Blessed Virgin Mary, Bathwick
+Bath, Bathwick, Somerset
+Blessed Virgin Mary
 on Sunday, 2 December 2001
-1260 Grandsire Triples in 50 mins 
+1260 Grandsire Triples in 50 mins (18-3-20 in E♭)
 
 1: Julia Fowler
 2: Daniel Miller

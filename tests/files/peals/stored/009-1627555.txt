@@ -122,9 +122,9 @@ Select action (1):
 [User input: "7"]
 ===
 Longney, Gloucestershire
-St Lawrence
+S Lawrence
 on Saturday, 13 May 2023
-1280 London Surprise Major in 46 mins (10–3–17 in F)
+1280 London Surprise Major in 46 mins (10-3-17 in F)
 
 1: Aston Mitchell (c)
 2: Carina Warren

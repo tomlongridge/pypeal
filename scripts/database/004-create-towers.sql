@@ -5,6 +5,7 @@ CREATE TABLE @db_name.`towers` (
     `dedication` VARCHAR(128) NOT NULL,
     `county` VARCHAR(128) NOT NULL,
     `country` VARCHAR(128) NOT NULL,
+    `country_code` VARCHAR(2) NOT NULL,
     `latitude` FLOAT NULL,
     `longitude` FLOAT NULL,
     `bells` INT NOT NULL,

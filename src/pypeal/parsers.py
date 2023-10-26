@@ -8,7 +8,7 @@ METHOD_TITLE_NUM_METHODS_GROUP_REGEX = re.compile(r'([0-9]+[mvp])\/?')
 
 DURATION_REGEX = re.compile(r'^(?:(?P<hours>\d{1,2})[h])$|^(?:(?P<mins>\d+)[m]?)$|' +
                             r'^(?:(?:(?P<hours_2>\d{1,2})[h])\s(?:(?P<mins_2>(?:[0]?|[1-5]{1})[0-9])[m]?))$')
-TENOR_INFO_REGEX = re.compile(r'(?P<tenor_weight>[^in]+|size\s[0-9]+)(?:\sin\s(?P<tenor_tone>.*))?$')
+TENOR_INFO_REGEX = re.compile(r'(?P<tenor_weight>[^in]+|size\s[0-9]+)(?:\sin\s(?P<tenor_note>.*))?$')
 
 FOOTNOTE_RINGER_REGEX_PREFIX = re.compile(r'^(?P<bells>[0-9,\s]+)\s?[-:]\s(?P<footnote>.*)$')
 FOOTNOTE_RINGER_REGEX_SUFFIX = re.compile(r'^(?P<footnote>.*)\s?[-:]\s(?P<bells>[0-9,\s]+)\.?$')
@@ -116,13 +116,13 @@ def parse_tenor_info(tenor_info_str: str) -> tuple[str, str]:
     if not (match := re.match(TENOR_INFO_REGEX, tenor_info_str)):
         raise ValueError(f'Unable to parse tenor info: {tenor_info_str}')
     tenor_weight: str = None
-    tenor_tone: str = None
+    tenor_note: str = None
     tenor_info = match.groupdict()
     if tenor_info['tenor_weight']:
         tenor_weight = tenor_info['tenor_weight'].strip()
-    if tenor_info['tenor_tone']:
-        tenor_tone = tenor_info['tenor_tone'].strip()
-    return (tenor_weight, tenor_tone)
+    if tenor_info['tenor_note']:
+        tenor_note = tenor_info['tenor_note'].strip()
+    return (tenor_weight, tenor_note)
 
 
 def parse_duration(duration_str: str) -> int:

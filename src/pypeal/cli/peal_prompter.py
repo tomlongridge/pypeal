@@ -4,6 +4,7 @@ from pypeal.cli.prompt_add_change_of_method import prompt_add_change_of_method
 from pypeal.cli.prompt_add_ringer import prompt_add_ringer
 from pypeal.cli.prompt_peal_title import prompt_peal_title
 from pypeal.parsers import parse_duration, parse_footnote, parse_tenor_info
+from pypeal.tower import Tower
 
 
 class PealPrompter(PealGeneratorListener):
@@ -11,14 +12,23 @@ class PealPrompter(PealGeneratorListener):
     def association(self, value: str):
         self.peal.association = value
 
+    def tower(self, value: int):
+        self.peal.tower = Tower.get(value)
+        self.peal.place = None
+        self.peal.county = None
+        self.peal.address_dedication = None
+
     def place(self, value: str):
-        self.peal.place = value
+        if self.peal.tower is None:
+            self.peal.place = value
 
     def county(self, value: str):
-        self.peal.county = value
+        if self.peal.tower is None:
+            self.peal.county = value
 
     def address_dedication(self, value: str):
-        self.peal.address_dedication = value
+        if self.peal.tower is None:
+            self.peal.address_dedication = value
 
     def changes(self, value: int):
         self.peal.changes = value
@@ -35,7 +45,7 @@ class PealPrompter(PealGeneratorListener):
 
     def tenor(self, value: str):
         if value:
-            self.peal.tenor_weight, self.peal.tenor_tone = parse_tenor_info(value)
+            self.peal.tenor_weight, self.peal.tenor_note = parse_tenor_info(value)
 
     def duration(self, value: str):
         if value:

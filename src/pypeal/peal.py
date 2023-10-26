@@ -4,10 +4,11 @@ from datetime import datetime
 from pypeal.db import Database
 from pypeal.method import Method, Stage
 from pypeal.ringer import Ringer
+from pypeal.tower import Tower
 
-PEAL_FIELD_LIST: list[str] = ['bellboard_id', 'date', 'place', 'association', 'address_dedication', 'county', 'changes', 'stage',
-                              'classification', 'is_spliced', 'is_mixed', 'is_variable_cover', 'num_methods', 'num_principles',
-                              'num_variants', 'method_id', 'title', 'duration', 'tenor_weight', 'tenor_tone']
+PEAL_FIELD_LIST: list[str] = ['bellboard_id', 'date', 'association', 'tower_id', 'place', 'address_dedication', 'county', 'tenor_weight',
+                              'tenor_note', 'changes', 'stage', 'classification', 'is_spliced', 'is_mixed', 'is_variable_cover',
+                              'num_methods', 'num_principles', 'num_variants', 'method_id', 'title', 'duration']
 
 
 @dataclass
@@ -15,10 +16,8 @@ class Peal:
 
     bellboard_id: int
     date: datetime.date
-    place: str
     association: str
-    address_dedication: str
-    county: str
+    tower: Tower
     changes: int
     stage: Stage
     classification: str
@@ -31,9 +30,13 @@ class Peal:
     method: Method
     title: str
     duration: int
-    tenor_weight: str
-    tenor_tone: str
     id: int
+
+    __place: str
+    __address_dedication: str
+    __county: str
+    __tenor_weight: str
+    __tenor_note: str
 
     __methods: list[tuple[Method, int]] = None
 
@@ -46,10 +49,13 @@ class Peal:
     def __init__(self,
                  bellboard_id: int = None,
                  date: datetime.date = None,
-                 place: str = None,
                  association: str = None,
+                 tower_id: int = None,
+                 place: str = None,
                  address_dedication: str = None,
                  county: str = None,
+                 tenor_weight: str = None,
+                 tenor_note: str = None,
                  changes: int = None,
                  stage: int = None,
                  classification: str = None,
@@ -62,16 +68,17 @@ class Peal:
                  method_id: int = None,
                  title: str = None,
                  duration: int = None,
-                 tenor_weight: str = None,
-                 tenor_tone: str = None,
                  id: int = None):
         self.bellboard_id = bellboard_id
         self.date = date
-        self.place = place
         self.association = association
-        self.address_dedication = address_dedication
-        self.county = county
+        self.tower = Tower.get(tower_id) if tower_id else None
+        self.__place = place
+        self.__address_dedication = address_dedication
+        self.__county = county
         self.changes = changes
+        self.__tenor_weight = tenor_weight
+        self.__tenor_note = tenor_note
         self.stage = Stage(stage) if stage else None
         self.classification = classification
         self.is_spliced = is_spliced
@@ -83,9 +90,72 @@ class Peal:
         self.method = Method.get(method_id) if method_id else None
         self.title = title
         self.duration = duration
-        self.tenor_weight = tenor_weight
-        self.tenor_tone = tenor_tone
         self.id = id
+
+    @property
+    def place(self) -> str:
+        if self.tower:
+            text = self.tower.place
+            if self.tower.place_2:
+                text += f', {self.tower.place_2}'
+            return text
+        else:
+            return self.__place
+
+    @place.setter
+    def place(self, value: str):
+        self.__place = value
+
+    @property
+    def address_dedication(self) -> str:
+        if self.tower:
+            return self.tower.dedication
+        else:
+            return self.__address_dedication
+
+    @address_dedication.setter
+    def address_dedication(self, value: str):
+        self.__address_dedication = value
+
+    @property
+    def county(self) -> str:
+        if self.tower:
+            return self.tower.county
+        else:
+            return self.__county
+
+    @county.setter
+    def county(self, value: str):
+        self.__county = value
+
+    @property
+    def tenor_weight(self) -> str:
+        if self.tower:
+            return self.tower.tenor_weight_in_cwt
+        else:
+            return self.__tenor_weight
+
+    @tenor_weight.setter
+    def tenor_weight(self, value: str):
+        self.__tenor_weight = value
+
+    @property
+    def tenor_note(self) -> str:
+        if self.tower:
+            return self.tower.tenor_note
+        else:
+            return self.__tenor_note
+
+    @tenor_note.setter
+    def tenor_note(self, value: str):
+        self.__tenor_note = value
+
+    @property
+    def tenor_description(self) -> str:
+        text = self.tenor_weight
+        if text and self.tenor_note:
+            text += f' in {self.tenor_note}'
+        return text
 
     @property
     def methods(self) -> list[tuple[Method, int]]:
@@ -200,11 +270,12 @@ class Peal:
         if self.id is None:
             result = Database.get_connection().query(
                 f'INSERT INTO peals ({",".join(PEAL_FIELD_LIST)}) ' +
-                'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
-                (self.bellboard_id, self.date, self.place, self.association, self.address_dedication, self.county, self.changes,
+                'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
+                (self.bellboard_id, self.date, self.association, self.tower.id if self.tower else None, self.__place,
+                 self.__address_dedication, self.__county, self.__tenor_weight, self.__tenor_note, self.changes,
                  self.stage.value if self.stage else None, self.classification, self.is_spliced, self.is_mixed, self.is_variable_cover,
                  self.num_methods or 0, self.num_principles or 0, self.num_variants or 0, self.method.id if self.method else None,
-                 self.title, self.duration, self.tenor_weight, self.tenor_tone))
+                 self.title, self.duration))
             Database.get_connection().commit()
             self.id = result.lastrowid
             for method, changes in self.methods:
@@ -244,10 +315,7 @@ class Peal:
         text += self.method_title or f'"{self.title}"'
         text += ' '
         text += f'in {self.duration} mins ' if self.duration else ''
-        if self.tenor_weight:
-            text += f'({self.tenor_weight}'
-            text += f' in {self.tenor_tone}' if self.tenor_tone else ''
-            text += ')'
+        text += f'({self.tenor_description})' if self.tenor_description else ''
         text += '\n'
         if len(self.methods) > 0:
             text += '('

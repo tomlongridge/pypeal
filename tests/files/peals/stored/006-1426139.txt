@@ -107,10 +107,10 @@ Select action (1):
 >>> 7
 [User input: "7"]
 ===
-Bath, Somerset
-Blessed Virgin Mary, Bathwick
+Bath, Bathwick, Somerset
+Blessed Virgin Mary
 on Sunday, 19 May 2002
-1260 Plain Bob Royal in 49 mins 
+1260 Plain Bob Royal in 49 mins (18-3-20 in E♭)
 
 1: Daniel Miller
 2: Blake Elliott

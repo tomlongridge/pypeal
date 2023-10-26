@@ -11,6 +11,9 @@ class PealGeneratorListener():
     def new_peal(self, id: int):
         self.peal = Peal(bellboard_id=id)
 
+    def tower(self, value: int):
+        pass
+
     def association(self, value: str):
         pass
 

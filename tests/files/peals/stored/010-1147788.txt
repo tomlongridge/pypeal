@@ -210,10 +210,10 @@ Select action (1):
 >>> 7
 [User input: "7"]
 ===
-Bathwick, Somerset
-St Mary the Virgin
+Bath, Bathwick, Somerset
+Blessed Virgin Mary
 on Sunday, 11 January 2015
-1260 Spliced Caters and Royal (2m) in 48 mins (18–3–20)
+1260 Spliced Caters and Royal (2m) in 48 mins (18-3-20 in E♭)
 (Grandsire Bob Caters, Grandsire Bob Royal)
 
 1: Byron Miller

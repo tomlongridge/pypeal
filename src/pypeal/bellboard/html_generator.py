@@ -39,6 +39,9 @@ class HTMLPealGenerator():
         else:
             self.__listener.place(None)
 
+        if element[0].parent.name == 'a':
+            self.__listener.tower(int(element[0].parent['href'].split('/')[-1]))
+
         if element[0].next_sibling:
             self.__listener.county(element[0].next_sibling.text.strip(', '))
         else:
