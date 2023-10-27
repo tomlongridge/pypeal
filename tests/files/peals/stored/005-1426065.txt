@@ -125,8 +125,8 @@ Select action (1):
 >>> 7
 [User input: "7"]
 ===
-Bath, Bathwick, Somerset, England
-Blessed Virgin Mary
+Bath, Somerset, England
+Blessed Virgin Mary, Bathwick
 on Sunday, 2 December 2001
 1260 Grandsire Triples in 50 mins (18-3-20 in E♭)
 

@@ -15,23 +15,6 @@ Select action (1):
 Ringer name: 
 >>> 001
 [User input: "001"]
-"Blessed Virgin Mary" looks like the tower dedication
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
-Place (Bath): 
->>> 
-[User input: "Bath"]
-Sub-place/area: 1) Bathwick, 2) None, 3) Other
-Select action (1): 
->>> 
-[User input: "1"]
-County/state (Somerset): 
->>> 
-[User input: "Somerset"]
-Country: 
->>> England
-[User input: "England"]
 Matching peal titled "Plain Bob Triples"...
 Matched "Plain Bob Triples" to method "Plain Bob Triples" (ID: m12399)
 Is this correct? [y/n] (y): 
@@ -79,23 +62,6 @@ Peal 1660822 added
 Add next peal? [y/n] (y): 
 >>> y
 [User input: "True"]
-"Blessed Virgin Mary" looks like the tower dedication
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-Place (Bath): 
->>> 
-[User input: "Bath"]
-Sub-place/area: 1) Bathwick, 2) None, 3) Other
-Select action (1): 
->>> 1
-[User input: "1"]
-County/state (Somerset): 
->>> 
-[User input: "Somerset"]
-Country: 
->>> England
-[User input: "England"]
 Matching peal titled "Doubles (3m)"...
 Number of methods (3): 
 >>> 
@@ -234,10 +200,10 @@ Select action (1):
 >>> 7
 [User input: "7"]
 ===
-Bath, Bathwick, Somerset, England
+Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 on Sunday, 1 October 2023
-1260 Plain Bob Triples (18-3-20 in Eb)
+1260 Plain Bob Triples (18-3-20 in E♭)
 
 1: Melissa Baker
 2: Ryan Elliott
@@ -252,10 +218,10 @@ For morning service and to mark the christening of Naomi Rebecca Grace Pearson
 
 [Imported Bellboard peal ID: 1660822]
 ===
-Bath, Bathwick, Somerset, England
+Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 on Sunday, 10 September 2023
-1260 Mixed Doubles (3m) (7-3-12 in Bb)
+1260 Mixed Doubles (3m) (18-3-20 in E♭)
 (360 Reverse Canterbury Pleasure Place Doubles, 360 Plain Bob Doubles, 540 Grandsire Bob Doubles)
 
 1: Ryan Elliott

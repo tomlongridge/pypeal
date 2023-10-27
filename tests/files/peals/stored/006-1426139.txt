@@ -107,8 +107,8 @@ Select action (1):
 >>> 7
 [User input: "7"]
 ===
-Bath, Bathwick, Somerset, England
-Blessed Virgin Mary
+Bath, Somerset, England
+Blessed Virgin Mary, Bathwick
 on Sunday, 19 May 2002
 1260 Plain Bob Royal in 49 mins (18-3-20 in E♭)
 

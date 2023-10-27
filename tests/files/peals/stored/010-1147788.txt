@@ -210,8 +210,8 @@ Select action (1):
 >>> 7
 [User input: "7"]
 ===
-Bath, Bathwick, Somerset, England
-Blessed Virgin Mary
+Bath, Somerset, England
+Blessed Virgin Mary, Bathwick
 on Sunday, 11 January 2015
 1260 Spliced Caters and Royal (2m) in 48 mins (18-3-20 in E♭)
 (Grandsire Bob Caters, Grandsire Bob Royal)
