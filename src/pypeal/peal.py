@@ -198,6 +198,20 @@ class Peal:
         return text
 
     @property
+    def location(self) -> str:
+        text = ''
+        text += f'{self.place}' if self.place else ''
+        text += f', {self.county}' if self.county else ''
+        text += f', {self.country}' if self.country else ''
+        text += '\n' if self.place or self.county or self.country else ''
+        text += f'{self.address}' if self.address else ''
+        text += f'{self.dedication}' if self.dedication else ''
+        text += f', {self.sub_place}' if self.sub_place else ''
+        if self.type == PealType.HANDBELLS:
+            text += ' (in hand)'
+        return text
+
+    @property
     def methods(self) -> list[tuple[Method, int]]:
         if self.__methods is None:
             self.__methods = []
@@ -346,16 +360,8 @@ class Peal:
     def __str__(self):
         text = ''
         text += f'{self.association}\n' if self.association else ''
-        text += f'{self.place}' if self.place else ''
-        text += f', {self.county}' if self.county else ''
-        text += f', {self.country}' if self.country else ''
-        text += '\n' if self.place or self.county or self.country else ''
-        text += f'{self.address}' if self.address else ''
-        text += f'{self.dedication}' if self.dedication else ''
-        text += f', {self.sub_place}' if self.sub_place else ''
-        if self.type == PealType.HANDBELLS:
-            text += ' (in hand)'
-        text += '\n' if self.address or self.dedication or self.sub_place else ''
+        text += self.location
+        text += '\n'
         text += f'on {self.date.strftime("%A, %-d %B %Y")}\n' if self.date else ''
         text += f'{self.changes} ' if self.changes else ''
         text += self.method_title or f'"{self.title}"'
