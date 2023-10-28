@@ -6,8 +6,8 @@ Options:
 2) Add random peal
 3) Add peal by search
 4) View peal
-5) Update methods
-6) Update towers
+5) Update method data
+6) Update Dove data
 7) Exit
 Select action (1): 
 >>> 1
@@ -15,6 +15,10 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1346767
 [User input: "1346767"]
+Matched "Suffolk Guild" to association: Suffolk Guild (ID: 286)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 Matching peal titled "8 Methods Minor"...
 Is this a spliced peal? [y/n] (n): 
 >>> n
@@ -383,8 +387,8 @@ Options:
 2) Add random peal
 3) Add peal by search
 4) View peal
-5) Update methods
-6) Update towers
+5) Update method data
+6) Update Dove data
 7) Exit
 Select action (1): 
 >>> 7

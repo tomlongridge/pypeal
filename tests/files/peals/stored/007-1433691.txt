@@ -6,8 +6,8 @@ Options:
 2) Add random peal
 3) Add peal by search
 4) View peal
-5) Update methods
-6) Update towers
+5) Update method data
+6) Update Dove data
 7) Exit
 Select action (1): 
 >>> 1
@@ -15,6 +15,29 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1433691
 [User input: "1433691"]
+Matched "Middlesex County Association & London Diocesan Guild" to association: 
+Middlesex County Association and London Diocesan Guild (ID: 269)
+Is this correct? [y/n] (y): 
+>>> n
+[User input: "False"]
+Options: 1) Search alternatives, 2) None
+Select action (1): 
+>>> 1
+[User input: "1"]
+Enter search criteria:
+Name: 
+>>> devon
+[User input: "devon"]
+2 methods match "devon"
+Options: 1) Devon Association, 2) Guild of Devonshire Ringers, 3) None
+Select action: 
+>>> 2
+[User input: "Guild of Devonshire Ringers (2)"]
+Matched "Middlesex County Association & London Diocesan Guild" to association: 
+Guild of Devonshire Ringers (ID: 255)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 Matching peal titled "Plain Bob Doubles"...
 Matched "Plain Bob Doubles" to method "Plain Bob Doubles" (ID: m10550)
 Is this correct? [y/n] (y): 
@@ -95,14 +118,14 @@ Options:
 2) Add random peal
 3) Add peal by search
 4) View peal
-5) Update methods
-6) Update towers
+5) Update method data
+6) Update Dove data
 7) Exit
 Select action (1): 
 >>> 7
 [User input: "7"]
 ===
-Middlesex County Association & London Diocesan Guild
+Guild of Devonshire Ringers
 Twickenham, Greater London, England
 All Hallows
 on Sunday, 5 December 1976

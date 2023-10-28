@@ -6,8 +6,8 @@ Options:
 2) Add random peal
 3) Add peal by search
 4) View peal
-5) Update methods
-6) Update towers
+5) Update method data
+6) Update Dove data
 7) Exit
 Select action (1): 
 >>> 1
@@ -15,6 +15,22 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1426065
 [User input: "1426065"]
+No linked association
+Is this correct? [y/n] (y): 
+>>> n
+[User input: "False"]
+Options: 1) Search alternatives, 2) None
+Select action (1): 
+>>> 1
+[User input: "1"]
+Enter search criteria:
+Name: 
+>>> bath
+[User input: "bath"]
+Add association Bath and Wells Diocesan Association (ID: 236)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 Matching peal titled "Grandsire Triples"...
 Matched "Grandsire Triples" to method "Grandsire Triples" (ID: m12415)
 Is this correct? [y/n] (y): 
@@ -118,13 +134,14 @@ Options:
 2) Add random peal
 3) Add peal by search
 4) View peal
-5) Update methods
-6) Update towers
+5) Update method data
+6) Update Dove data
 7) Exit
 Select action (1): 
 >>> 7
 [User input: "7"]
 ===
+Bath and Wells Diocesan Association
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 on Sunday, 2 December 2001

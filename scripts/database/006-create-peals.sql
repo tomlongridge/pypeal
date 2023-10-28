@@ -3,10 +3,10 @@ CREATE TABLE @db_name.`peals` (
     `bellboard_id` INT UNSIGNED NULL,
     `type` TINYINT UNSIGNED NOT NULL,
     `date` DATE NOT NULL,
-    `tower_id` INT NULL,
+    `tower_id` INT UNSIGNED NULL,
     `place` VARCHAR(128) NULL,
     `sub_place` VARCHAR(128) NULL,
-    `association` VARCHAR(128) NULL,
+    `association_id` INT UNSIGNED NULL,
     `address` VARCHAR(128) NULL,
     `dedication` VARCHAR(128) NULL,
     `county` VARCHAR(128) NULL,
@@ -29,5 +29,6 @@ CREATE TABLE @db_name.`peals` (
     UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
     UNIQUE INDEX `bellboard_id_UNIQUE` (`bellboard_id` ASC) VISIBLE,
     CONSTRAINT `fk_peals_tower` FOREIGN KEY (`tower_id`) REFERENCES `towers` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-    CONSTRAINT `fk_peals_method` FOREIGN KEY (`method_id`) REFERENCES `methods` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+    CONSTRAINT `fk_peals_method` FOREIGN KEY (`method_id`) REFERENCES `methods` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+    CONSTRAINT `fk_peals_association` FOREIGN KEY (`association_id`) REFERENCES `associations` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 );

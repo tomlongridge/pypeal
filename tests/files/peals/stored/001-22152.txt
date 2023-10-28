@@ -6,8 +6,8 @@ Options:
 2) Add random peal
 3) Add peal by search
 4) View peal
-5) Update methods
-6) Update towers
+5) Update method data
+6) Update Dove data
 7) Exit
 Select action (1): 
 >>> 1
@@ -15,6 +15,10 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 22152
 [User input: "22152"]
+No linked association
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 Matching peal titled "Grandsire Triples"...
 Matched "Grandsire Triples" to method "Grandsire Triples" (ID: m12415)
 Is this correct? [y/n] (y): 
@@ -120,8 +124,8 @@ Options:
 2) Add random peal
 3) Add peal by search
 4) View peal
-5) Update methods
-6) Update towers
+5) Update method data
+6) Update Dove data
 7) Exit
 Select action (1): 
 >>> 7

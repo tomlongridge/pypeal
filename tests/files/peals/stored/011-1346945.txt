@@ -6,8 +6,8 @@ Options:
 2) Add random peal
 3) Add peal by search
 4) View peal
-5) Update methods
-6) Update towers
+5) Update method data
+6) Update Dove data
 7) Exit
 Select action (1): 
 >>> 1
@@ -15,6 +15,18 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1346945
 [User input: "1346945"]
+Matched "Suffolk Guild" to association: Suffolk Guild (ID: 286)
+Is this correct? [y/n] (y): 
+>>> n
+[User input: "False"]
+Options: 1) Search alternatives, 2) None
+Select action (1): 
+>>> 2
+[User input: "None"]
+No association matched
+Remove "Suffolk Guild"? [y/n] (y): 
+>>> y
+[User input: "True"]
 Matching peal titled "8 Methods/variations Doubles"...
 Is this a spliced peal? [y/n] (n): 
 >>> n
@@ -270,14 +282,13 @@ Options:
 2) Add random peal
 3) Add peal by search
 4) View peal
-5) Update methods
-6) Update towers
+5) Update method data
+6) Update Dove data
 7) Exit
 Select action (1): 
 >>> 7
 [User input: "7"]
 ===
-Suffolk Guild
 Saxmundham, Suffolk, England
 S John Bapt
 on Monday, 27 March 1967

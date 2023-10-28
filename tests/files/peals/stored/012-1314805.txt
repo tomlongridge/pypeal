@@ -6,8 +6,8 @@ Options:
 2) Add random peal
 3) Add peal by search
 4) View peal
-5) Update methods
-6) Update towers
+5) Update method data
+6) Update Dove data
 7) Exit
 Select action (1): 
 >>> 1
@@ -15,6 +15,11 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1314805
 [User input: "1314805"]
+Matched "Bath & Wells Diocesan Association" to association: Bath and Wells 
+Diocesan Association (ID: 236)
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
 Matching peal titled "Spliced Surprise Major (2m)"...
 Number of methods (2): 
 >>> 
@@ -126,14 +131,14 @@ Options:
 2) Add random peal
 3) Add peal by search
 4) View peal
-5) Update methods
-6) Update towers
+5) Update method data
+6) Update Dove data
 7) Exit
 Select action (1): 
 >>> 7
 [User input: "7"]
 ===
-Bath & Wells Diocesan Association
+Bath and Wells Diocesan Association
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 on Sunday, 15 December 2019

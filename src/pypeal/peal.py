@@ -2,12 +2,13 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
+from pypeal.association import Association
 from pypeal.db import Database
 from pypeal.method import Method, Stage
 from pypeal.ringer import Ringer
 from pypeal.tower import Tower
 
-PEAL_FIELD_LIST: list[str] = ['bellboard_id', 'type', 'date', 'association', 'tower_id', 'place', 'sub_place', 'address', 'dedication',
+PEAL_FIELD_LIST: list[str] = ['bellboard_id', 'type', 'date', 'association_id', 'tower_id', 'place', 'sub_place', 'address', 'dedication',
                               'county', 'country', 'tenor_weight', 'tenor_note', 'changes', 'stage', 'classification', 'is_spliced',
                               'is_mixed', 'is_variable_cover', 'num_methods', 'num_principles', 'num_variants', 'method_id', 'title',
                               'duration']
@@ -25,7 +26,7 @@ class Peal:
     bellboard_id: int
     type: PealType
     date: datetime.date
-    association: str
+    association: Association
     tower: Tower
     address: str
     changes: int
@@ -63,7 +64,7 @@ class Peal:
                  bellboard_id: int = None,
                  type: int = PealType.TOWER,
                  date: datetime.date = None,
-                 association: str = None,
+                 association_id: int = None,
                  tower_id: int = None,
                  place: str = None,
                  sub_place: str = None,
@@ -89,7 +90,7 @@ class Peal:
         self.bellboard_id = bellboard_id
         self.type = PealType(type) if type else None
         self.date = date
-        self.association = association
+        self.association = Association.get(association_id) if association_id else None
         self.tower = Tower.get(tower_id) if tower_id else None
         self.__place = place
         self.__sub_place = sub_place
@@ -325,11 +326,11 @@ class Peal:
             result = Database.get_connection().query(
                 f'INSERT INTO peals ({",".join(PEAL_FIELD_LIST)}) ' +
                 'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
-                (self.bellboard_id, self.type.value, self.date, self.association, self.tower.id if self.tower else None, self.__place,
-                 self.__sub_place, self.address, self.dedication, self.__county, self.__country, self.__tenor_weight, self.__tenor_note,
-                 self.changes, self.stage.value if self.stage else None, self.classification, self.is_spliced, self.is_mixed,
-                 self.is_variable_cover, self.num_methods or 0, self.num_principles or 0, self.num_variants or 0,
-                 self.method.id if self.method else None, self.title, self.duration))
+                (self.bellboard_id, self.type.value, self.date, self.association.id if self.association else None,
+                 self.tower.id if self.tower else None, self.__place, self.__sub_place, self.address, self.dedication, self.__county,
+                 self.__country, self.__tenor_weight, self.__tenor_note, self.changes, self.stage.value if self.stage else None,
+                 self.classification, self.is_spliced, self.is_mixed, self.is_variable_cover, self.num_methods or 0,
+                 self.num_principles or 0, self.num_variants or 0, self.method.id if self.method else None, self.title, self.duration))
             Database.get_connection().commit()
             self.id = result.lastrowid
             for method, changes in self.methods:
@@ -359,7 +360,7 @@ class Peal:
 
     def __str__(self):
         text = ''
-        text += f'{self.association}\n' if self.association else ''
+        text += f'{self.association.name}\n' if self.association else ''
         text += self.location
         text += '\n'
         text += f'on {self.date.strftime("%A, %-d %B %Y")}\n' if self.date else ''

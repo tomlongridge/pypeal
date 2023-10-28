@@ -1,5 +1,6 @@
 from datetime import datetime
 from pypeal.bellboard.listener import PealGeneratorListener
+from pypeal.cli.prompt_add_association import prompt_add_association
 from pypeal.cli.prompt_add_change_of_method import prompt_add_change_of_method
 from pypeal.cli.prompt_add_location import prompt_add_location
 from pypeal.cli.prompt_add_ringer import prompt_add_ringer
@@ -15,7 +16,7 @@ class PealPrompter(PealGeneratorListener):
         self.peal.type = value
 
     def association(self, value: str):
-        self.peal.association = value
+        prompt_add_association(value, self.peal)
 
     def tower(self, value: int):
         self.peal.tower = Tower.get(value)

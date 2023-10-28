@@ -6,8 +6,8 @@ Options:
 2) Add random peal
 3) Add peal by search
 4) View peal
-5) Update methods
-6) Update towers
+5) Update method data
+6) Update Dove data
 7) Exit
 Select action (1): 
 >>> 1
@@ -15,6 +15,10 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1508383
 [User input: "1508383"]
+Matched "Oxford Diocesan Guild" to association: Oxford Diocesan Guild (ID: 274)
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
 Address (80 Lambourne Drive, Cox Green): 
 >>> 
 [User input: "80 Lambourne Drive, Cox Green"]
@@ -98,8 +102,8 @@ Options:
 2) Add random peal
 3) Add peal by search
 4) View peal
-5) Update methods
-6) Update towers
+5) Update method data
+6) Update Dove data
 7) Exit
 Select action (1): Please enter a valid integer number
 Select action (1): 

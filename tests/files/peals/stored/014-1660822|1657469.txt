@@ -6,8 +6,8 @@ Options:
 2) Add random peal
 3) Add peal by search
 4) View peal
-5) Update methods
-6) Update towers
+5) Update method data
+6) Update Dove data
 7) Exit
 Select action (1): 
 >>> 3
@@ -15,6 +15,10 @@ Select action (1):
 Ringer name: 
 >>> 001
 [User input: "001"]
+No linked association
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 Matching peal titled "Plain Bob Triples"...
 Matched "Plain Bob Triples" to method "Plain Bob Triples" (ID: m12399)
 Is this correct? [y/n] (y): 
@@ -61,6 +65,10 @@ Is this correct? [y/n] (y):
 Peal 1660822 added
 Add next peal? [y/n] (y): 
 >>> y
+[User input: "True"]
+No linked association
+Is this correct? [y/n] (y): 
+>>> 
 [User input: "True"]
 Matching peal titled "Doubles (3m)"...
 Number of methods (3): 
@@ -193,8 +201,8 @@ Options:
 2) Add random peal
 3) Add peal by search
 4) View peal
-5) Update methods
-6) Update towers
+5) Update method data
+6) Update Dove data
 7) Exit
 Select action (1): 
 >>> 7

@@ -21,7 +21,7 @@ def update_methods():
     Database.get_connection().query('SET FOREIGN_KEY_CHECKS=0;')
     Database.get_connection().query('TRUNCATE TABLE methods;')
 
-    method_file_url = get_config('methods', 'url')
+    method_file_url = get_config('cccbr', 'methods_url')
     method_file_name = os.path.basename(method_file_url).replace('.zip', '')
     _logger.info(f'Updating method library from {method_file_url}')
 
