@@ -45,32 +45,36 @@ m16694)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+No composer attributed
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 1: "Vivian Murray" -> Vivian Murray
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 2: "Byron Robinson" -> Byron Robinson
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> Y
 [User input: "True"]
 3: "Daryl Mason" -> Daryl Mason
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> Y
 [User input: "True"]
 4: "Chester Edwards" -> Chester Edwards
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 5: "Joyce Sullivan" -> Joyce Sullivan
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 6: "Arnold Johnson" -> Arnold Johnson
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 7: Attempting to find "Kate Crawford"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -81,7 +85,7 @@ Given name(s) (Kate):
 >>> 
 [User input: "Kate"]
 8: "Heather Sullivan" -> Heather Sullivan
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 [http://localhost:8080/view.php?id=1066455 panel displayed]

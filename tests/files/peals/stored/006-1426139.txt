@@ -24,16 +24,20 @@ Matched "Plain Bob Royal" to method "Plain Bob Royal" (ID: m13972)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+No composer attributed
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 1: "Daniel Miller" -> Daniel Miller
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 2: "Blake Elliott" -> Blake Elliott
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 3: Attempting to find "Joyce Sullivan"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -44,11 +48,11 @@ Given name(s) (Joyce):
 >>> 
 [User input: "Joyce"]
 4: "Chester Edwards" -> Chester Edwards
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 5: Attempting to find "Patrick Bennett"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -59,19 +63,19 @@ Given name(s) (Patrick):
 >>> 
 [User input: "Patrick"]
 6: "Leonardo Bennett" -> Leo Bennett
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 7: "Cadie Nelson" -> Cadie Nelson
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 8: "Clark Elliott" -> Clark Elliott
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 9: Attempting to find "Heather Sullivan"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -82,7 +86,7 @@ Given name(s) (Heather):
 >>> 
 [User input: "Heather"]
 10: Attempting to find "Vivian Murray"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]

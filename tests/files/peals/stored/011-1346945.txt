@@ -220,8 +220,12 @@ Method 8: Plain Bob Doubles (630 changes)
 Add more changes of method? [y/n] (n): 
 >>> n
 [User input: "False"]
+No composer attributed
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 1: Attempting to find "Lydia Reed"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -232,7 +236,7 @@ Given name(s) (Lydia):
 >>> 
 [User input: "Lydia"]
 2: Attempting to find "Victoria Morrison"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -243,7 +247,7 @@ Given name(s) (Victoria):
 >>> 
 [User input: "Victoria"]
 3: Attempting to find "Stuart Murray"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -258,7 +262,7 @@ Is this correct? [y/n] (y):
 >>> 
 [User input: "True"]
 4: "Ned Andrews" -> Ned Andrews
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 5: 2 existing ringers match "Aston Mitchell"
@@ -267,7 +271,7 @@ Select action:
 >>> 2
 [User input: "Aston Mitchell (2)"]
 6: "Carina Warren" -> Carina Warren
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 [http://localhost:8080/view.php?id=1346945 panel displayed]

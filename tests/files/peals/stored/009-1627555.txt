@@ -24,13 +24,17 @@ Matched "London Surprise Major" to method "London Surprise Major" (ID: m20166)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+No composer attributed
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 1: 2 existing ringers match "Aston Mitchell"
 Options: 1) Aston Mitchell (15), 2) Aston Mitchell (19), 3) None
 Select action: 
 >>> 2
 [User input: "Aston Mitchell (2)"]
 2: Attempting to find "Carina Warren"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -41,7 +45,7 @@ Given name(s) (Carina):
 >>> 
 [User input: "Carina"]
 3: Attempting to find "Ellia Armstrong"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -52,7 +56,7 @@ Given name(s) (Ellia):
 >>> 
 [User input: "Ellia"]
 4: Attempting to find "Edward Dixon"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -63,7 +67,7 @@ Given name(s) (Edward):
 >>> 
 [User input: "Edward"]
 5: Attempting to find "Ned Andrews"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -74,7 +78,7 @@ Given name(s) (Ned):
 >>> 
 [User input: "Ned"]
 6: Attempting to find "Richard Higgins"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -85,7 +89,7 @@ Given name(s) (Richard):
 >>> 
 [User input: "Richard"]
 7: Attempting to find "Carl Johnston"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -96,7 +100,7 @@ Given name(s) (Carl):
 >>> 
 [User input: "Carl"]
 8: Attempting to find "Michael Williams"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]

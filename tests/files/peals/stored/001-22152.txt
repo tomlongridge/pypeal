@@ -24,8 +24,12 @@ Matched "Grandsire Triples" to method "Grandsire Triples" (ID: m12415)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+No composer attributed
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 1: Attempting to find "Lydia Ferguson"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -36,7 +40,7 @@ Given name(s) (Lydia):
 >>> 
 [User input: "Lydia"]
 2: Attempting to find "Harold Gray"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -47,7 +51,7 @@ Given name(s) (Harold):
 >>> 
 [User input: "Harold"]
 3: Attempting to find "Chloe Henderson"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -58,7 +62,7 @@ Given name(s) (Chloe):
 >>> 
 [User input: "Chloe"]
 4: Attempting to find "Alen Henderson"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -69,7 +73,7 @@ Given name(s) (Alen):
 >>> 
 [User input: "Alen"]
 5: Attempting to find "Lucas Wright"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -80,7 +84,7 @@ Given name(s) (Lucas):
 >>> 
 [User input: "Lucas"]
 6: Attempting to find "Lucas Farrell"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -91,7 +95,7 @@ Given name(s) (Lucas):
 >>> 
 [User input: "Lucas"]
 7: Attempting to find "Ryan Elliott"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -102,7 +106,7 @@ Given name(s) (Ryan):
 >>> 
 [User input: "Ryan"]
 8: Attempting to find "Ted Harris"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]

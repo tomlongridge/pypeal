@@ -43,8 +43,12 @@ Matched "Plain Bob Doubles" to method "Plain Bob Doubles" (ID: m10550)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+No composer attributed
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 1: Attempting to find "Edward Chapman"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -55,11 +59,11 @@ Given name(s) (Edward):
 >>> 
 [User input: "Edward"]
 2: "Blake Elliott" -> Blake Elliott
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 3: Attempting to find "Olivia West"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -70,7 +74,7 @@ Given name(s) (Olivia):
 >>> 
 [User input: "Olivia"]
 4: Attempting to find "Mike Sullivan"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -85,7 +89,7 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 5: Attempting to find "Jack Spencer"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -96,7 +100,7 @@ Given name(s) (Jack):
 >>> 
 [User input: "Jack"]
 6: Attempting to find "Eric Ryan"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]

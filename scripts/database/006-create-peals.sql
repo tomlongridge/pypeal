@@ -22,6 +22,7 @@ CREATE TABLE @db_name.`peals` (
     `num_variants` TINYINT UNSIGNED DEFAULT 0 NOT NULL,
     `method_id` VARCHAR(10) NULL,
     `title` VARCHAR(128) NULL,
+    `composer_id` INT UNSIGNED NULL,
     `duration` INT UNSIGNED NULL,
     `tenor_weight` VARCHAR(45) NULL,
     `tenor_note` VARCHAR(45) NULL,
@@ -30,5 +31,6 @@ CREATE TABLE @db_name.`peals` (
     UNIQUE INDEX `bellboard_id_UNIQUE` (`bellboard_id` ASC) VISIBLE,
     CONSTRAINT `fk_peals_tower` FOREIGN KEY (`tower_id`) REFERENCES `towers` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
     CONSTRAINT `fk_peals_method` FOREIGN KEY (`method_id`) REFERENCES `methods` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-    CONSTRAINT `fk_peals_association` FOREIGN KEY (`association_id`) REFERENCES `associations` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+    CONSTRAINT `fk_peals_association` FOREIGN KEY (`association_id`) REFERENCES `associations` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+    CONSTRAINT `fk_peals_composer` FOREIGN KEY (`composer_id`) REFERENCES `ringers` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 );

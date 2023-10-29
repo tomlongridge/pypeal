@@ -11,7 +11,7 @@ from pypeal.tower import Tower
 PEAL_FIELD_LIST: list[str] = ['bellboard_id', 'type', 'date', 'association_id', 'tower_id', 'place', 'sub_place', 'address', 'dedication',
                               'county', 'country', 'tenor_weight', 'tenor_note', 'changes', 'stage', 'classification', 'is_spliced',
                               'is_mixed', 'is_variable_cover', 'num_methods', 'num_principles', 'num_variants', 'method_id', 'title',
-                              'duration']
+                              'composer_id', 'duration']
 
 
 class PealType(Enum):
@@ -40,6 +40,7 @@ class Peal:
     num_variants: int
     method: Method
     title: str
+    composer: Ringer
     duration: int
     id: int
 
@@ -85,6 +86,7 @@ class Peal:
                  num_variants: int = 0,
                  method_id: int = None,
                  title: str = None,
+                 composer_id: int = None,
                  duration: int = None,
                  id: int = None):
         self.bellboard_id = bellboard_id
@@ -111,6 +113,7 @@ class Peal:
         self.num_variants = num_variants
         self.method = Method.get(method_id) if method_id else None
         self.title = title
+        self.composer = Ringer.get(composer_id) if composer_id else None
         self.duration = duration
         self.id = id
 
@@ -325,12 +328,13 @@ class Peal:
         if self.id is None:
             result = Database.get_connection().query(
                 f'INSERT INTO peals ({",".join(PEAL_FIELD_LIST)}) ' +
-                'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
+                'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
                 (self.bellboard_id, self.type.value, self.date, self.association.id if self.association else None,
                  self.tower.id if self.tower else None, self.__place, self.__sub_place, self.address, self.dedication, self.__county,
                  self.__country, self.__tenor_weight, self.__tenor_note, self.changes, self.stage.value if self.stage else None,
                  self.classification, self.is_spliced, self.is_mixed, self.is_variable_cover, self.num_methods or 0,
-                 self.num_principles or 0, self.num_variants or 0, self.method.id if self.method else None, self.title, self.duration))
+                 self.num_principles or 0, self.num_variants or 0, self.method.id if self.method else None, self.title,
+                 self.composer.id if self.composer else None, self.duration))
             Database.get_connection().commit()
             self.id = result.lastrowid
             for method, changes in self.methods:
@@ -377,6 +381,7 @@ class Peal:
                 text += f'{method.title}, '
             text = text.rstrip(', ')
             text += ')\n'
+        text += f'Composed by: {self.composer}\n' if self.composer else ''
         text += '\n'
         for ringer in self.ringers:
             if ringer[1]:

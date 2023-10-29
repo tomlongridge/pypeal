@@ -45,6 +45,7 @@ class XMLPealGenerator():
                 self.__listener.changes(int(get_element(title_element, 'changes')[1]))
                 self.__listener.title(get_element(title_element, 'method')[1])
             self.__listener.method_details(get_element(performance, 'details')[1])
+            self.__listener.composer(get_element(performance, 'composer')[1])
             self.__listener.date(datetime.strptime(performance.find(f'{XML_NAMESPACE}date').text, '%Y-%m-%d'))
             self.__listener.duration(get_element(title_element, 'duration')[1])
             if (ringer_element := get_element(performance, 'ringers')[0]) is not None:

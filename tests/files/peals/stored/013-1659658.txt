@@ -24,8 +24,19 @@ Matched "Little Bob Royal" to method "Little Bob Royal" (ID: m14020)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Composer: Attempting to find "Alex W Tatlow"
+Options: 1) Add as new ringer, 2) Search alternatives
+Select action (1): 
+>>> 1
+[User input: "1"]
+Last name (Tatlow): 
+>>> 
+[User input: "Tatlow"]
+Given name(s) (Alex W): 
+>>> 
+[User input: "Alex W"]
 1: Attempting to find "Garry Scott"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 
 [User input: "1"]
@@ -36,7 +47,7 @@ Given name(s) (Garry):
 >>> 
 [User input: "Garry"]
 2: Attempting to find "Charlie Warren"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 
 [User input: "1"]
@@ -47,7 +58,7 @@ Given name(s) (Charlie):
 >>> 
 [User input: "Charlie"]
 3: Attempting to find "Arnold Johnson"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 
 [User input: "1"]
@@ -58,19 +69,19 @@ Given name(s) (Arnold):
 >>> 
 [User input: "Arnold"]
 4: "Sienna Murphy" -> Sienna Murphy
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 5: "Blake Elliott" -> Blake Elliott
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 6: "Blake Elliott" -> Blake Elliott
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> n
 [User input: "False"]
 6: Attempting to find "Blake Elliott"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -81,19 +92,19 @@ Given name(s) (Blake):
 >>> 
 [User input: "Blake"]
 7: "Melissa Baker" -> Melissa Baker
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 8: "Daryl Mason" -> Daryl Mason
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 9: "Leonardo Bennett" -> Leo Bennett
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 10: "Chester Edwards" -> Chester Edwards
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 [http://localhost:8080/view.php?id=1659658 panel displayed]
@@ -119,6 +130,7 @@ Shrivenham, Oxfordshire, England
 S Andrew
 on Saturday, 23 September 2023
 1296 Little Bob Royal in 50 mins (13-0-2 in F)
+Composed by: Alex W Tatlow
 
 1: Garry Scott
 2: Charlie Warren

@@ -106,6 +106,13 @@ def choose_option(options: list[any],
     return response
 
 
+def prompt_names(default_last_name: str = None, default_given_names: str = None) -> tuple[str, str]:
+    if (last_name := ask('Last name', default=default_last_name)) and \
+       (given_names := ask('Given name(s)', default=default_given_names)):
+        return last_name, given_names
+    return None
+
+
 def panel(content: str, title: str = 'pypeal'):
     if get_config('diagnostics', 'print_user_input') != 'True':
         print(Panel(escape(content), title=title))

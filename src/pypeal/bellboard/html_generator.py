@@ -78,6 +78,12 @@ class HTMLPealGenerator():
         else:
             self.__listener.method_details(None)
 
+        element = soup.select('span.composer.persona')
+        if len(element) > 0:
+            self.__listener.composer(element[0].text.strip())
+        else:
+            self.__listener.composer(None)
+
         # The date line is the first line of the performance div that doesn't have a class
         for peal_detail in soup.select('div.performance')[0].children:
             if not peal_detail.attrs or 'class' not in peal_detail.attrs:

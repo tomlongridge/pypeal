@@ -45,8 +45,19 @@ m22952)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Composer: Attempting to find "Christopher I Rowson"
+Options: 1) Add as new ringer, 2) Search alternatives
+Select action (1): 
+>>> 1
+[User input: "1"]
+Last name (Rowson): 
+>>> 
+[User input: "Rowson"]
+Given name(s) (Christopher I): 
+>>> 
+[User input: "Christopher I"]
 1,2: Attempting to find "Sam Wells"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -57,7 +68,7 @@ Given name(s) (Sam):
 >>> 
 [User input: "Sam"]
 3,4: Attempting to find "Rubie Owens"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -68,15 +79,15 @@ Given name(s) (Rubie):
 >>> 
 [User input: "Rubie"]
 5,6: "Lenny Howard" -> Lenny Howard
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 7,8: "Jack Spencer" -> Jack Spencer
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 9,10: Attempting to find "Arianna Holmes"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -87,7 +98,7 @@ Given name(s) (Arianna):
 >>> 
 [User input: "Arianna"]
 11,12: "John Parker" -> John Parker
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 [http://localhost:8080/view.php?id=1508383 panel displayed]
@@ -105,18 +116,16 @@ Options:
 5) Update method data
 6) Update Dove data
 7) Exit
-Select action (1): Please enter a valid integer number
 Select action (1): 
->>> y
-[User input: "7"]
-
 >>> 7
+[User input: "7"]
 ===
 Oxford Diocesan Guild
 Maidenhead, Kent, England
 80 Lambourne Drive, Cox Green (in hand)
 on Wednesday, 29 March 1972
 5232 Bristol Surprise Maximus in 183 mins 
+Composed by: Christopher I Rowson
 
 1,2: Sam Wells
 3,4: Rubie Owens

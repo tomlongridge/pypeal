@@ -316,8 +316,12 @@ Method 8: Double Oxford Bob Minor (unknown changes)
 Add more changes of method? [y/n] (n): 
 >>> n
 [User input: "False"]
+No composer attributed
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 1: Attempting to find "Blake Howard"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -328,7 +332,7 @@ Given name(s) (Blake):
 >>> 
 [User input: "Blake"]
 2: Attempting to find "Aston Mitchell"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -339,7 +343,7 @@ Given name(s) (Aston):
 >>> 
 [User input: "Aston"]
 3: Attempting to find "John Parker"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -350,11 +354,11 @@ Given name(s) (John):
 >>> 
 [User input: "John"]
 4: "Alen Henderson" -> Alen Henderson
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 5: Attempting to find "Dominik Warren"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -365,7 +369,7 @@ Given name(s) (Dominik):
 >>> 
 [User input: "Dominik"]
 6: Attempting to find "Sienna Murphy"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]

@@ -24,37 +24,41 @@ Matched "Plain Bob Triples" to method "Plain Bob Triples" (ID: m12399)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+No composer attributed
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 1: "Melissa Baker" -> Melissa Baker
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 2: "Ryan Elliott" -> Ryan Elliott
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 3: "Alisa Cole" -> Alisa Cole
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 4: "Heather Sullivan" -> Heather Sullivan
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 5: 2 existing ringers match "Blake Elliott"
-Options: 1) Blake Elliott (31), 2) Blake Elliott (67), 3) None
+Options: 1) Blake Elliott (31), 2) Blake Elliott (69), 3) None
 Select action: 
 >>> 2
 [User input: "Blake Elliott (2)"]
 6: "Chester Edwards" -> Chester Edwards
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 7: "Leonardo Bennett" -> Leo Bennett
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 8: "Paul Armstrong" -> Paul Armstrong
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 [http://localhost:8080/view.php?id=1660822 panel displayed]
@@ -151,16 +155,20 @@ Method 3: Grandsire Bob Doubles (540 changes)
 Add more changes of method? [y/n] (n): 
 >>> n
 [User input: "False"]
+No composer attributed
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 1: "Ryan Elliott" -> Ryan Elliott
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
 2: "Leonardo Bennett" -> Leo Bennett
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
 3: Attempting to find "George Roberts"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 
 [User input: "1"]
@@ -171,15 +179,15 @@ Given name(s) (George):
 >>> 
 [User input: "George"]
 4: "Harold Gray" -> Harold Gray
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
 5: "Joyce Sullivan" -> Joyce Sullivan
-Is this the correct ringer? [y/n] (y): 
+Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
 6: Attempting to find "Grace Perry"
-Options: 1) Add as new ringer, 2) Search alternatives, 3) Cancel
+Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
 >>> 1
 [User input: "1"]

@@ -2,6 +2,7 @@ from datetime import datetime
 from pypeal.bellboard.listener import PealGeneratorListener
 from pypeal.cli.prompt_add_association import prompt_add_association
 from pypeal.cli.prompt_add_change_of_method import prompt_add_change_of_method
+from pypeal.cli.prompt_add_composer import prompt_add_composer
 from pypeal.cli.prompt_add_location import prompt_add_location
 from pypeal.cli.prompt_add_ringer import prompt_add_ringer
 from pypeal.cli.prompt_peal_title import prompt_peal_title
@@ -41,6 +42,9 @@ class PealPrompter(PealGeneratorListener):
     def method_details(self, value: str):
         if value or self.peal.is_multi_method:
             prompt_add_change_of_method(value, self.peal)
+    
+    def composer(self, value: str):
+        return prompt_add_composer(value, self.peal)
 
     def date(self, value: datetime):
         self.peal.date = value

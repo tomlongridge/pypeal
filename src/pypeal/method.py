@@ -72,8 +72,7 @@ class Method(CacheableEntity):
             result = Database.get_connection().query(
                 'SELECT full_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, stage, id ' +
                 'FROM methods WHERE id = %s', (id,)).fetchone()
-            cls._cache_result(Method(*result[:-2], Stage(result[-2]), result[-1]))
-        return cls.__cache[id]
+            return cls._cache_result(Method(*result[:-2], Stage(result[-2]), result[-1]))
 
     @classmethod
     def get_by_name(cls, name: str):
