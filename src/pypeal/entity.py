@@ -4,10 +4,10 @@ from typing import ClassVar
 
 class CacheableEntity():
 
-    __cache: ClassVar[dict[int, CacheableEntity]] = {}
+    __cache: ClassVar[dict[any, CacheableEntity]] = {}
 
     @property
-    def id(self) -> int:
+    def id(self) -> any:
         pass
 
     @classmethod
@@ -20,7 +20,7 @@ class CacheableEntity():
         return cls.__cache[entity.id]
 
     @classmethod
-    def _from_cache(cls, id: int) -> CacheableEntity:
+    def _from_cache(cls, id: any) -> CacheableEntity:
         if id is not None and id in cls.__cache:
             return cls.__cache[id]
         return None
@@ -28,3 +28,7 @@ class CacheableEntity():
     @classmethod
     def _cache_results(cls, results: list[tuple | CacheableEntity]) -> list[CacheableEntity]:
         return [cls._cache_result(result) for result in results]
+
+    @classmethod
+    def _clear_cache(cls):
+        cls.__cache.clear()

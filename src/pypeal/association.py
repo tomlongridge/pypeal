@@ -1,16 +1,14 @@
 from __future__ import annotations
 from dataclasses import dataclass
-from typing import ClassVar
 
 from pypeal.db import Database
+from pypeal.entity import CacheableEntity
 
 FIELD_LIST: list[str] = ['name']
 
 
 @dataclass
-class Association:
-
-    __cache: ClassVar[dict[int, Association]] = {}
+class Association(CacheableEntity):
 
     name: str = None
     id: int = None
@@ -27,12 +25,13 @@ class Association:
 
     @classmethod
     def get(cls, id: int) -> Association:
-        if id not in cls.__cache:
+        if (association := cls._from_cache(id)) is not None:
+            return association
+        else:
             result = Database.get_connection().query(
                 f'SELECT {",".join(FIELD_LIST)}, id ' +
                 'FROM associations WHERE id = %s', (id,)).fetchone()
-            cls.__cache[id] = Association(*result)
-        return cls.__cache[id]
+            return cls._cache_result(result)
 
     @classmethod
     def search(cls,
@@ -49,13 +48,4 @@ class Association:
             query += 'AND name LIKE %(name)s '
             params['name'] = f'%{name}%'
         results = Database.get_connection().query(query, params).fetchall()
-        return cls.__with_cache([Association(*result) for result in results])
-
-    @classmethod
-    def __with_cache(cls, results: list[Association]) -> list[Association]:
-        associations = []
-        for association in results:
-            if association.id not in cls.__cache:
-                cls.__cache[association.id] = association
-            associations.append(cls.__cache[association.id])
-        return associations
+        return cls._cache_results(results)

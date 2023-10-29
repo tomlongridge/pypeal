@@ -3,6 +3,7 @@ from dataclasses import dataclass
 import logging
 from typing import ClassVar
 from pypeal.db import Database
+from pypeal.entity import CacheableEntity
 
 _logger = logging.getLogger('pypeal')
 
@@ -11,9 +12,8 @@ FIELD_LIST: list[str] = ['towerbase_id', 'place', 'sub_place', 'dedication', 'co
 
 
 @dataclass
-class Tower:
+class Tower(CacheableEntity):
 
-    __cache_by_dove_id: ClassVar[dict[int, Tower]] = {}
     __cache_by_towerbase_id: ClassVar[dict[int, Tower]] = {}
 
     towerbase_id: int = None
@@ -66,8 +66,11 @@ class Tower:
 
     @classmethod
     def get(cls, dove_id: int = None, towerbase_id: int = None) -> Tower:
-        if (tower := cls.__from_cache(dove_id=dove_id, towerbase_id=towerbase_id)) is not None:
+        if (tower := cls._from_cache(dove_id)) is not None:
+            cls.__cache_by_towerbase_id[towerbase_id] = tower
             return tower
+        elif towerbase_id is not None and towerbase_id in cls.__cache_by_towerbase_id:
+            return cls.__cache_by_towerbase_id[towerbase_id]
         else:
             query = f'SELECT {",".join(FIELD_LIST)}, id FROM towers WHERE 1=1 '
             params = {}
@@ -78,14 +81,20 @@ class Tower:
                 query += 'AND towerbase_id = %(towerbase_id)s '
                 params['towerbase_id'] = towerbase_id
             result = Database.get_connection().query(query, params).fetchone()
-            return cls.__cache_result(result)
+
+            tower = cls._cache_result(result)
+            cls.__cache_by_towerbase_id[towerbase_id] = tower
+            return tower
 
     @classmethod
     def get_all(cls) -> list[Tower]:
         results = Database.get_connection().query(
             f'SELECT {",".join(FIELD_LIST)}, id ' +
             'FROM towers').fetchall()
-        return cls.__cache_results(results)
+        towers = cls._cache_results(results)
+        for tower in towers:
+            cls.__cache_by_towerbase_id[tower.towerbase_id] = tower
+        return towers
 
     def commit(self):
         Database.get_connection().query(
@@ -94,25 +103,3 @@ class Tower:
             (self.towerbase_id, self.place, self.sub_place, self.dedication, self.county, self.country, self.country_code, self.latitude,
              self.longitude, self.bells, self.tenor_weight, self.tenor_note, self.id))
         Database.get_connection().commit()
-
-    @classmethod
-    def __cache_result(cls, result: tuple) -> Tower:
-        if result is None:
-            return None
-        tower = Tower(*result)
-        if tower.id not in cls.__cache_by_dove_id:
-            cls.__cache_by_dove_id[tower.id] = tower
-            cls.__cache_by_towerbase_id[tower.towerbase_id] = tower
-        return cls.__cache_by_dove_id[tower.id]
-
-    @classmethod
-    def __from_cache(cls, dove_id: int, towerbase_id: int) -> Tower:
-        if dove_id is not None and dove_id in cls.__cache_by_dove_id:
-            return cls.__cache_by_dove_id[dove_id]
-        if towerbase_id is not None and towerbase_id in cls.__cache_by_towerbase_id:
-            return cls.__cache_by_towerbase_id[towerbase_id]
-        return None
-
-    @classmethod
-    def __cache_results(cls, results: list[tuple]) -> list[Tower]:
-        return [cls.__cache_result(tower) for tower in results]
