@@ -2,6 +2,7 @@ from datetime import datetime
 import re
 
 from bs4 import BeautifulSoup
+from pypeal import config
 
 from pypeal.bellboard.interface import BellboardError, get_peal
 from pypeal.bellboard.listener import PealGeneratorListener
@@ -80,9 +81,10 @@ class HTMLPealGenerator():
 
         element = soup.select('span.composer.persona')
         if len(element) > 0:
-            self.__listener.composer(element[0].text.strip())
+            composition_url = element[0].parent['href'] if element[0].parent.name == 'a' else None
+            self.__listener.composer(element[0].text.strip(), config.get_config('bellboard', 'url') + composition_url)
         else:
-            self.__listener.composer(None)
+            self.__listener.composer(None, None)
 
         # The date line is the first line of the performance div that doesn't have a class
         for peal_detail in soup.select('div.performance')[0].children:

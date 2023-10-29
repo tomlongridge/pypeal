@@ -56,6 +56,9 @@ Last name (Rowson):
 Given name(s) (Christopher I): 
 >>> 
 [User input: "Christopher I"]
+Composition URL (http://localhost:8080/comp.php?id=2284506): 
+>>> 
+[User input: "http://localhost:8080/comp.php?id=2284506"]
 1,2: Attempting to find "Sam Wells"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -137,3 +140,4 @@ Composed by: Christopher I Rowson
 First peal of Bristol Maximus rung in hand.
 
 [Imported Bellboard peal ID: 1508383]
+[Comoposition URL: http://localhost:8080/comp.php?id=2284506]

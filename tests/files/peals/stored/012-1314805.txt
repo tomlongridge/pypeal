@@ -37,9 +37,10 @@ Options:
 1) Bob
 2) Place
 3) Surprise
-4) Treble Bob
-5) Treble Place
-6) None
+4) Delight
+5) Treble Bob
+6) Treble Place
+7) None
 Select action (3): 
 >>> 
 [User input: "Surprise (3)"]

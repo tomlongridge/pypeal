@@ -35,6 +35,9 @@ Last name (Tatlow):
 Given name(s) (Alex W): 
 >>> 
 [User input: "Alex W"]
+Composition URL (http://localhost:8080/comp.php?id=2293307): 
+>>> 
+[User input: "http://localhost:8080/comp.php?id=2293307"]
 1: Attempting to find "Garry Scott"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -147,3 +150,4 @@ Rung as a birthday compliment to Matthew Skues.
 [6: Blake Elliott] First quarter of Little Bob Royal.
 
 [Imported Bellboard peal ID: 1659658]
+[Comoposition URL: http://localhost:8080/comp.php?id=2293307]

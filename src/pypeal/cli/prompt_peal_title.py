@@ -72,7 +72,7 @@ def prompt_peal_title(title: str, peal: Peal):
 
             name = ask('Name', default=parsed_method.name, required=False)
             stage = Stage(ask_int('Stage', default=parsed_method.stage.value, min=2, max=22))
-            classification = choose_option(['Bob', 'Place', 'Surprise', 'Treble Bob', 'Treble Place'],
+            classification = choose_option(['Bob', 'Place', 'Surprise', 'Delight', 'Treble Bob', 'Treble Place'],
                                            default=parsed_method.classification,
                                            return_option=True)
             is_differential = confirm(None, 'Is this a differential method?', default=parsed_method.is_differential)
@@ -112,7 +112,7 @@ def prompt_peal_title(title: str, peal: Peal):
                 if peal.num_methods_in_title > 0:
                     break
             peal.stage = Stage(ask_int('Stage', default=peal.stage.value if peal.stage else None, min=2, max=22))
-            peal.classification = choose_option(['Bob', 'Place', 'Surprise', 'Treble Bob', 'Treble Place', None],
+            peal.classification = choose_option(['Bob', 'Place', 'Surprise', 'Delight', 'Treble Bob', 'Treble Place', None],
                                                 default=peal.classification,
                                                 return_option=True)
             if peal.classification is None:

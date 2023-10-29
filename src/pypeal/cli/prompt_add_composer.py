@@ -1,10 +1,10 @@
-from pypeal.cli.prompts import choose_option, confirm, prompt_names
+from pypeal.cli.prompts import ask, choose_option, confirm, prompt_names
 from pypeal.peal import Peal
 from pypeal.ringer import Ringer
 from pypeal.utils import split_full_name
 
 
-def prompt_add_composer(name: str, peal: Peal):
+def prompt_add_composer(name: str, url: str, peal: Peal):
 
     matched_ringer: Ringer = None
 
@@ -68,3 +68,4 @@ def prompt_add_composer(name: str, peal: Peal):
         matched_ringer.add_alias(last_name, given_names)
 
     peal.composer = matched_ringer
+    peal.composition_url = ask('Composition URL', default=url, required=False)

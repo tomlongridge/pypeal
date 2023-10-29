@@ -37,12 +37,13 @@ Options:
 1) Bob
 2) Place
 3) Surprise
-4) Treble Bob
-5) Treble Place
-6) None
-Select action (6): 
->>> 6
-[User input: "None (6)"]
+4) Delight
+5) Treble Bob
+6) Treble Place
+7) None
+Select action (7): 
+>>> 7
+[User input: "None (7)"]
 Is this peal variable cover? [y/n] (n): 
 >>> n
 [User input: "False"]

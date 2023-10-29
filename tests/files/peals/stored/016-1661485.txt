@@ -1,0 +1,128 @@
+
+===
+[pypeal panel displayed]
+Options: 
+1) Add peal by URL
+2) Add random peal
+3) Add peal by search
+4) View peal
+5) Update method data
+6) Update Dove data
+7) Exit
+Select action (1): 
+>>> 1
+[User input: "1"]
+Bellboard URL or peal ID: 
+>>> 1661485
+[User input: "1661485"]
+No linked association
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Matching peal titled "Honeywell Delight Minor"...
+Matched "Honeywell Delight Minor" to method "Honeywell Delight Minor" (ID: 
+m23748)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Composer: Attempting to find "G A A Taylor"
+Options: 1) Add as new ringer, 2) Search alternatives
+Select action (1): 
+>>> 2
+[User input: "2"]
+Last name (Taylor): 
+>>> Miller
+[User input: "Miller"]
+Given name(s) (G A A): 
+>>> Byron
+[User input: "Byron"]
+Conductor: Byron Miller
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+"Byron Miller" is not a composer - change to composer?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Composition URL (http://localhost:8080/comp.php?id=2293479): 
+>>> 
+[User input: "http://localhost:8080/comp.php?id=2293479"]
+1: "Leonardo Bennett" -> Leo Bennett
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+2: Attempting to find "Michelle Edwards"
+Options: 1) Add as new ringer, 2) Search alternatives
+Select action (1): 
+>>> 
+[User input: "1"]
+Last name (Edwards): 
+>>> 
+[User input: "Edwards"]
+Given name(s) (Michelle): 
+>>> 
+[User input: "Michelle"]
+3: "Dainton Casey" -> Dainton Casey
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+4: "Paul Armstrong" -> Paul Armstrong
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+5: Attempting to find "Deanna Bennett"
+Options: 1) Add as new ringer, 2) Search alternatives
+Select action (1): 
+>>> 1
+[User input: "1"]
+Last name (Bennett): 
+>>> 
+[User input: "Bennett"]
+Given name(s) (Deanna): 
+>>> 
+[User input: "Deanna"]
+6: Attempting to find "Brooke Adams"
+Options: 1) Add as new ringer, 2) Search alternatives
+Select action (1): 
+>>> 1
+[User input: "1"]
+Last name (Adams): 
+>>> 
+[User input: "Adams"]
+Given name(s) (Brooke): 
+>>> 
+[User input: "Brooke"]
+[http://localhost:8080/view.php?id=1661485 panel displayed]
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Peal 1661485 added
+[pypeal panel displayed]
+Options: 
+1) Add peal by URL
+2) Add random peal
+3) Add peal by search
+4) View peal
+5) Update method data
+6) Update Dove data
+7) Exit
+Select action (1): 
+>>> 7
+[User input: "7"]
+===
+Bath, Somerset, England
+S Stephen, Lansdown
+on Friday, 6 October 2023
+1296 Honeywell Delight Minor in 36 mins (2-3-9 in F)
+Composed by: Byron Miller
+
+1: Leo Bennett
+2: Michelle Edwards
+3: Dainton Casey
+4: Paul Armstrong
+5: Deanna Bennett
+6: Brooke Adams (c)
+
+[Imported Bellboard peal ID: 1661485]
+[Comoposition URL: http://localhost:8080/comp.php?id=2293479]

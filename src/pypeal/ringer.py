@@ -15,6 +15,12 @@ class Ringer(CacheableEntity):
     is_composer: bool = False
     id: int = None
 
+    def __init__(self, last_name: str, given_names: str, is_composer: int = 0, id: int = None):
+        self.last_name = last_name
+        self.given_names = given_names
+        self.is_composer = is_composer == 1
+        self.id = id
+
     @property
     def name(self) -> str:
         return f'{self.given_names} {self.last_name}'

@@ -477,4 +477,24 @@
       <leadHead>1352746</leadHead>
     </method>
   </methodSet>
+  <methodSet>
+    <notes>Delight Minor methods with a lead length of 24 and 1 hunt bell</notes>
+    <properties>
+      <stage>6</stage>
+      <classification
+        trebleDodging="true">Delight</classification>
+      <lengthOfLead>24</lengthOfLead>
+      <numberOfHunts>1</numberOfHunts>
+      <huntbellPath>1 2 1 2 3 4 3 4 5 6 5 6 6 5 6 5 4 3 4 3 2 1 2 1</huntbellPath>
+    </properties>
+    <method
+      id="m23748">
+      <title>Honeywell Delight Minor</title>
+      <name>Honeywell</name>
+      <notation>-56-16-12-36-34-36,16</notation>
+      <symmetry>palindromic</symmetry>
+      <leadHeadCode>l</leadHeadCode>
+      <leadHead>164523</leadHead>
+    </method>
+  </methodSet>
 </collection>

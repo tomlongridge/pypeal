@@ -23,6 +23,7 @@ CREATE TABLE @db_name.`peals` (
     `method_id` VARCHAR(10) NULL,
     `title` VARCHAR(128) NULL,
     `composer_id` INT UNSIGNED NULL,
+    `composition_url` VARCHAR(128) NULL,
     `duration` INT UNSIGNED NULL,
     `tenor_weight` VARCHAR(45) NULL,
     `tenor_note` VARCHAR(45) NULL,

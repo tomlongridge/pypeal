@@ -32,7 +32,7 @@ class PealGeneratorListener():
     def method_details(self, value: str):
         pass
 
-    def composer(self, value: str):
+    def composer(self, name: str, url: str):
         pass
 
     def date(self, value: datetime):

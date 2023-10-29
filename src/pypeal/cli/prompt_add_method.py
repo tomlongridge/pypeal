@@ -25,12 +25,24 @@ def prompt_add_method(method: Method = None, original_title: str = None) -> Meth
                         print('Enter search criteria:')
                         name = ask('Name', default=method.name if method else None, required=False)
                         stage = Stage(ask_int('Stage', default=method.stage.value if method else None, min=2, max=22))
-                        classification_list = ['Bob', 'Place', 'Surprise', 'Treble Bob', 'Treble Place']
+                        classification_list = ['Bob', 'Place', 'Surprise', 'Delight', 'Treble Bob', 'Treble Place']
                         classification = choose_option(classification_list,
                                                        default=method.classification if method else None,
                                                        return_option=True,
                                                        cancel_option='None')
-                        method = Method(None, name=name, classification=classification, stage=stage)
+                        is_differential = confirm(None, 'Is this a differential method?',
+                                                  default=method.is_differential if method else None)
+                        is_little = confirm(None, 'Is this a little method?',
+                                            default=method.is_little if method else None)
+                        is_treble_dodging = confirm(None, 'Is this a treble dodging method?',
+                                                    default=method.is_treble_dodging if method else None)
+                        method = Method(None,
+                                        name=name,
+                                        classification=classification,
+                                        stage=stage,
+                                        is_differential=is_differential,
+                                        is_little=is_little,
+                                        is_treble_dodging=is_treble_dodging)
                         exact_match = False
                         continue
                     case None:
