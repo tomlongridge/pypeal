@@ -1,14 +1,9 @@
 from __future__ import annotations
 from dataclasses import dataclass
-import logging
 from enum import Enum
-from typing import ClassVar
 
 from pypeal.db import Database
-
-XML_NAMESPACE = '{http://www.cccbr.org.uk/methods/schemas/2007/05/methods}'
-
-_logger = logging.getLogger('pypeal')
+from pypeal.entity import CacheableEntity
 
 
 class Stage(Enum):
@@ -47,9 +42,7 @@ class Stage(Enum):
 
 
 @dataclass
-class Method:
-
-    __cache: ClassVar[dict[str, Method]] = {}
+class Method(CacheableEntity):
 
     full_name: str = None
     name: str = None
@@ -73,11 +66,13 @@ class Method:
 
     @classmethod
     def get(cls, id: str) -> Method:
-        if id not in cls.__cache:
+        if (method := cls._from_cache(id)) is not None:
+            return method
+        else:
             result = Database.get_connection().query(
                 'SELECT full_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, stage, id ' +
                 'FROM methods WHERE id = %s', (id,)).fetchone()
-            cls.__cache[id] = Method(*result[:-2], Stage(result[-2]), result[-1])
+            cls._cache_result(Method(*result[:-2], Stage(result[-2]), result[-1]))
         return cls.__cache[id]
 
     @classmethod
@@ -85,7 +80,7 @@ class Method:
         results = Database.get_connection().query(
             'SELECT full_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, stage, id FROM methods ' +
             f'WHERE full_name = "{name}"').fetchall()
-        return cls.__with_cache([Method(*result[:-2], Stage(result[-2]), result[-1]) for result in results])
+        return cls._cache_results([Method(*result[:-2], Stage(result[-2]), result[-1]) for result in results])
 
     @classmethod
     def search(cls,
@@ -126,14 +121,14 @@ class Method:
             query += 'AND stage = %(stage)s '
             params['stage'] = stage.value
         results = Database.get_connection().query(query, params).fetchall()
-        return cls.__with_cache([Method(*result[:-2], Stage(result[-2]), result[-1]) for result in results])
+        return cls._cache_results([Method(*result[:-2], Stage(result[-2]), result[-1]) for result in results])
 
     @classmethod
     def get_all(cls) -> list[Method]:
         results = Database.get_connection().query(
             'SELECT full_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, stage, id ' +
             'FROM methods').fetchall()
-        return cls.__with_cache([Method(*result[:-2], Stage(result[-2]), result[-1]) for result in results])
+        return cls._cache_results([Method(*result[:-2], Stage(result[-2]), result[-1]) for result in results])
 
     def commit(self):
         Database.get_connection().query(
@@ -142,12 +137,3 @@ class Method:
             (self.full_name, self.name, self.is_differential, self.is_little, self.is_plain, self.is_treble_dodging, self.classification,
              self.stage.value, self.id))
         Database.get_connection().commit()
-
-    @classmethod
-    def __with_cache(cls, results: list[Method]) -> list[Method]:
-        methods = []
-        for method in results:
-            if method.id not in cls.__cache:
-                cls.__cache[method.id] = method
-            methods.append(cls.__cache[method.id])
-        return methods
