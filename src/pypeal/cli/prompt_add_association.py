@@ -38,8 +38,10 @@ def prompt_add_association(association: str, peal: Peal):
                 print(f'{len(association_results)} methods match "{association}"')
                 matched_association = choose_option(association_results, cancel_option='None', return_option=True)
 
-        if ((original_association_name is not None and confirm(f'Matched "{original_association_name}" to association: {matched_association} (ID: {matched_association.id})')) or
-                (original_association_name is None and confirm(f'Add association {matched_association} (ID: {matched_association.id})'))):
+        if ((original_association_name is not None and
+                confirm(f'Matched "{original_association_name}" to association: {matched_association} (ID: {matched_association.id})')) or
+                (original_association_name is None and
+                 confirm(f'Add association {matched_association} (ID: {matched_association.id})'))):
             peal.association = matched_association
             return
         else:

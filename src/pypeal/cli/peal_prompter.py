@@ -18,10 +18,10 @@ class PealPrompter(PealGeneratorListener):
     def association(self, value: str):
         prompt_add_association(value, self.peal)
 
-    def tower(self, value: int):
-        self.peal.tower = Tower.get(value)
+    def tower(self, dove_id: int = None, towerbase_id: int = None):
+        self.peal.tower = Tower.get(dove_id=dove_id, towerbase_id=towerbase_id)
         if self.peal.tower is None:
-            print(f'Tower ID {value} not recognised')
+            print(f'Tower ID {dove_id or towerbase_id} not recognised')
         else:
             self.peal.place = None
             self.peal.county = None

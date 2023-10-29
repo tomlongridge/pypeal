@@ -36,7 +36,8 @@ def update_towers():
             continue  # comment line
         if tower['TowerID'] in tower_ids:
             continue  # todo: handle multiple rings in one tower
-        tower_obj = Tower(place=tower['Place'],
+        tower_obj = Tower(towerbase_id=tower['TowerBase'],
+                          place=tower['Place'],
                           sub_place=tower['Place2'],
                           dedication=tower['Dedicn'],
                           county=tower['County'],

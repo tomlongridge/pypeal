@@ -91,7 +91,7 @@ class Peal:
         self.type = PealType(type) if type else None
         self.date = date
         self.association = Association.get(association_id) if association_id else None
-        self.tower = Tower.get(tower_id) if tower_id else None
+        self.tower = Tower.get(dove_id=tower_id) if tower_id else None
         self.__place = place
         self.__sub_place = sub_place
         self.address = address

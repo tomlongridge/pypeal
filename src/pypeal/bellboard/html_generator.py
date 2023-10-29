@@ -46,7 +46,7 @@ class HTMLPealGenerator():
         element = soup.select('span.place')
         if len(element) > 0:
             if element[0].parent.name == 'a':
-                self.__listener.tower(int(element[0].parent['href'].split('/')[-1]))
+                self.__listener.tower(dove_id=int(element[0].parent['href'].split('/')[-1]))
             place = element[0].text.strip()
             if element[0].next_sibling:
                 county = element[0].next_sibling.text.strip(', ')

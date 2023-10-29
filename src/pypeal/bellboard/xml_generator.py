@@ -1,7 +1,6 @@
 from datetime import datetime
 
 import xml.etree.ElementTree as ET
-from pypeal.bellboard.html_tower_id_finder import get_tower_id_from_html
 
 from pypeal.bellboard.interface import search_peals
 from pypeal.bellboard.listener import PealGeneratorListener
@@ -29,9 +28,9 @@ class XMLPealGenerator():
 
             self.__listener.new_peal(peal_id)
             self.__listener.association(get_element(performance, 'association')[1])
-            self.__listener.tower(get_tower_id_from_html(peal_id))
             if (place_element := get_element(performance, 'place')[0]) is not None:
                 place = county = address_dedication = None
+                self.__listener.tower(towerbase_id=int(place_element.attrib['towerbase-id']))
                 for place_name_element in place_element.findall(f'{XML_NAMESPACE}place-name'):
                     match place_name_element.attrib['type']:
                         case 'place': place = place_name_element.text

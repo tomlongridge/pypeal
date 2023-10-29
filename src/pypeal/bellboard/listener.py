@@ -14,7 +14,7 @@ class PealGeneratorListener():
     def type(self, value: PealType):
         pass
 
-    def tower(self, value: int):
+    def tower(self, dove_id: int = None, towerbase_id: int = None):
         pass
 
     def association(self, value: str):
