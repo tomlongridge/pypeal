@@ -11,6 +11,7 @@ def prompt_add_location(address_dedication: str, place: str, county: str, peal: 
         probably_dedication = re.match(DEDICATION_REGEX, address_dedication.lower()) is not None
 
         sub_place = None
+        address_dedication_less_sub_place = None
         if address_dedication is not None:
             place_parts = address_dedication.split(', ')
             if len(place_parts) > 1:
@@ -25,7 +26,7 @@ def prompt_add_location(address_dedication: str, place: str, county: str, peal: 
                 address = ask('Address', address_dedication, required=False)
                 if address and \
                         not re.match(DEDICATION_REGEX, address.lower()) or \
-                        confirm(f'"{address}" looks like a dedication', prompt='Are you sure?'):
+                        confirm(f'"{address}" looks like a dedication', confirm_message='Are you sure?'):
                     sub_place = None
                     break
                 dedication = ask('Dedication', address_dedication, required=False)

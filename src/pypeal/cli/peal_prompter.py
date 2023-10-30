@@ -42,7 +42,7 @@ class PealPrompter(PealGeneratorListener):
     def method_details(self, value: str):
         if value or self.peal.is_multi_method:
             prompt_add_change_of_method(value, self.peal)
-    
+
     def composer(self, name: str, url: str):
         return prompt_add_composer(name, url, self.peal)
 

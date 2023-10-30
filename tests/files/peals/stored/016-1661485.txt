@@ -49,12 +49,12 @@ Composition URL (http://localhost:8080/comp.php?id=2293479):
 [User input: "http://localhost:8080/comp.php?id=2293479"]
 1: "Leonardo Bennett" -> Leo Bennett
 Is this correct? [y/n] (y): 
->>> 
+>>> y
 [User input: "True"]
 2: Attempting to find "Michelle Edwards"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
->>> 
+>>> 1
 [User input: "1"]
 Last name (Edwards): 
 >>> 
@@ -64,11 +64,11 @@ Given name(s) (Michelle):
 [User input: "Michelle"]
 3: "Dainton Casey" -> Dainton Casey
 Is this correct? [y/n] (y): 
->>> 
+>>> y
 [User input: "True"]
 4: "Paul Armstrong" -> Paul Armstrong
 Is this correct? [y/n] (y): 
->>> 
+>>> y
 [User input: "True"]
 5: Attempting to find "Deanna Bennett"
 Options: 1) Add as new ringer, 2) Search alternatives

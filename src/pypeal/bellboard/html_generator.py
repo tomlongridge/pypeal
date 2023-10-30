@@ -79,12 +79,16 @@ class HTMLPealGenerator():
         else:
             self.__listener.method_details(None)
 
-        element = soup.select('span.composer.persona')
+        element = soup.select('div.attribution')
+        composer_str = url_str = None
         if len(element) > 0:
-            composition_url = element[0].parent['href'] if element[0].parent.name == 'a' else None
-            self.__listener.composer(element[0].text.strip(), config.get_config('bellboard', 'url') + composition_url)
-        else:
-            self.__listener.composer(None, None)
+            composer_element = element[0].select('span.composer.persona')
+            if len(composer_element) > 0:
+                composer_str = composer_element[0].text.strip()
+            url_element = element[0].select('a')
+            if len(url_element) > 0:
+                url_str = config.get_config('bellboard', 'url') + url_element[0]['href']
+        self.__listener.composer(composer_str,  url_str)
 
         # The date line is the first line of the performance div that doesn't have a class
         for peal_detail in soup.select('div.performance')[0].children:
