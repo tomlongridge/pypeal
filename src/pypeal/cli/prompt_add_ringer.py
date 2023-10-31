@@ -20,29 +20,26 @@ def prompt_add_ringer(name: str, bells: list[int], is_conductor: bool, peal: Pea
             matched_ringer = choose_option(
                 [f'{r.name} ({r.id})' for r in full_name_match], values=full_name_match, cancel_option='None', return_option=True)
 
+    last_name, given_names = split_full_name(name)
+
     while not matched_ringer:
 
         print(f'{get_bell_label(bells)}: Attempting to find "{name}"')
 
-        last_name, given_names = split_full_name(name)
-
         match choose_option(['Add as new ringer', 'Search alternatives'], default=1):
             case 1:
-                if (ringer_names := prompt_names(last_name, given_names)):
-                    matched_ringer = Ringer(*ringer_names)
+                matched_ringer = Ringer(*prompt_names(last_name, given_names))
             case 2:
-                if not (ringer_names := prompt_names(last_name, given_names)):
-                    break
-                last_name, given_names = ringer_names
-                potential_ringers = Ringer.get_by_name(last_name, given_names)
+                search_last_name, search_given_names = prompt_names(last_name, given_names)
+                potential_ringers = Ringer.get_by_name(search_last_name, search_given_names)
                 match len(potential_ringers):
                     case 0:
-                        print(f'No existing ringers match (given name: "{given_names}", last name: "{last_name}")')
+                        print(f'No existing ringers match (given name: "{search_given_names}", last name: "{search_last_name}")')
                     case 1:
                         if confirm(f'{get_bell_label(bells)}: "{name}" -> {potential_ringers[0]}', default=True):
                             matched_ringer = potential_ringers[0]
                     case _:
-                        print(f'{len(potential_ringers)} existing ringers match "{(given_names + " " + last_name).strip()}"')
+                        print(f'{len(potential_ringers)} existing ringers match "{(search_given_names + " " + search_last_name).strip()}"')
                         matched_ringer = choose_option(potential_ringers, cancel_option='None', return_option=True)
 
     if matched_ringer.id is None:

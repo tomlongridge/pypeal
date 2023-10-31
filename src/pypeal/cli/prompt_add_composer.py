@@ -23,33 +23,30 @@ def prompt_add_composer(name: str, url: str, peal: Peal):
     else:
         full_name_match = []
 
-    while not matched_ringer:
+    if name:
+        print(f'Composer: Attempting to find "{name}"')
+        last_name, given_names = split_full_name(name)
+    else:
+        if confirm('No composer attributed'):
+            return
+        last_name, given_names = None, None
 
-        if name:
-            print(f'Composer: Attempting to find "{name}"')
-            last_name, given_names = split_full_name(name)
-        else:
-            if confirm('No composer attributed'):
-                return
-            last_name, given_names = None, None
+    while not matched_ringer:
 
         match choose_option(['Add as new ringer', 'Search alternatives'], default=1):
             case 1:
-                if (ringer_names := prompt_names(last_name, given_names)):
-                    matched_ringer = Ringer(*ringer_names, True)
+                matched_ringer = Ringer(*prompt_names(last_name, given_names), True)
             case 2:
-                if not (ringer_names := prompt_names(last_name, given_names)):
-                    break
-                last_name, given_names = ringer_names
-                potential_ringers = Ringer.get_by_name(last_name, given_names)
+                search_last_name, search_given_names = prompt_names(last_name, given_names)
+                potential_ringers = Ringer.get_by_name(search_last_name, search_given_names)
                 match len(potential_ringers):
                     case 0:
-                        print(f'No existing ringers match (given name: "{given_names}", last name: "{last_name}")')
+                        print(f'No existing ringers match (given name: "{search_last_name}", last name: "{search_last_name}")')
                     case 1:
                         if confirm(f'Conductor: {potential_ringers[0]}', default=True):
                             matched_ringer = potential_ringers[0]
                     case _:
-                        print(f'{len(potential_ringers)} existing ringers match "{(given_names + " " + last_name).strip()}"')
+                        print(f'{len(potential_ringers)} existing ringers match "{(search_last_name + " " + search_last_name).strip()}"')
                         matched_ringer = choose_option(potential_ringers, cancel_option='None', return_option=True)
 
         if matched_ringer is not None and matched_ringer.is_composer is False:

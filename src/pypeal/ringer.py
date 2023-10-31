@@ -63,26 +63,31 @@ class Ringer(CacheableEntity):
     def get_by_full_name(cls, name: str, is_composer: bool = None) -> list[Ringer]:
         results = Database.get_connection().query(
             f'SELECT {",".join(FIELD_LIST)}, id FROM ringers ' +
-            f'WHERE CONCAT_WS(" ", given_names, last_name) = "{name}" ' +
+            'WHERE CONCAT_WS(" ", given_names, last_name) = %(name)s ' +
             'AND link_id IS NULL ' +
-            (f'AND is_composer = {is_composer} ' if is_composer is not None else ' ') +
-            'OR (id IN (SELECT link_id FROM ringers ' +
-            f'WHERE CONCAT_WS(" ", given_names, last_name) = "{name}"))').fetchall()
+            ('AND is_composer = %(is_composer)s ' if is_composer is not None else ' ') +
+            'OR (id IN (SELECT link_id FROM ringers WHERE CONCAT_WS(" ", given_names, last_name) = %(name)s))',
+            {
+                'name': name.strip(),
+                'composer': is_composer
+            }
+        ).fetchall()
         return cls._cache_results(results)
 
     @classmethod
     def get_by_name(cls, last_name: str = None, given_names: str = None, is_composer: bool = None) -> list[Ringer]:
         results = Database.get_connection().query(
             f'SELECT {",".join(FIELD_LIST)}, id FROM ringers ' +
-            'WHERE ' +
-            f'(last_name LIKE "{last_name if last_name and len(last_name.strip()) else "%"}" ' +
-            f'AND given_names LIKE "{given_names if given_names and len(given_names.strip()) else "%"}") ' +
+            'WHERE (last_name LIKE %(last_name)s AND given_names LIKE %(given_names)s) ' +
             'AND link_id IS NULL ' +
-            (f'AND is_composer = {is_composer} ' if is_composer is not None else ' ') +
-            'OR (id IN (SELECT link_id FROM ringers ' +
-            'WHERE ' +
-            f'(last_name LIKE "{last_name if last_name and len(last_name.strip()) else "%"}" ' +
-            f'AND given_names LIKE "{given_names if given_names and len(given_names.strip()) else "%"}")))').fetchall()
+            ('AND is_composer = %(is_composer)s ' if is_composer is not None else ' ') +
+            'OR (id IN (SELECT link_id FROM ringers WHERE last_name LIKE %(last_name)s AND given_names LIKE %(given_names)s))',
+            {
+                'last_name': last_name.strip() if last_name else '%',
+                'given_names': given_names.strip() if given_names else '%',
+                'composer': is_composer
+            }
+        ).fetchall()
         return cls._cache_results(results)
 
     @classmethod

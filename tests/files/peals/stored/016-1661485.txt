@@ -31,16 +31,20 @@ Select action (1):
 >>> 2
 [User input: "2"]
 Last name (Taylor): 
->>> Miller
-[User input: "Miller"]
+>>> Mil_er
+[User input: "Mil_er"]
 Given name(s) (G A A): 
->>> Byron
-[User input: "Byron"]
+>>> By%
+[User input: "By%"]
 Conductor: Byron Miller
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 "Byron Miller" is not a composer - change to composer?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Add "G A A Taylor" as an alias?
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
