@@ -70,6 +70,9 @@ Last name (Wells):
 Given name(s) (Sam): 
 >>> 
 [User input: "Sam"]
+Bell number(s) in the tower (1,2): 
+>>> 
+[User input: "1,2"]
 3,4: Attempting to find "Rubie Owens"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -81,14 +84,23 @@ Last name (Owens):
 Given name(s) (Rubie): 
 >>> 
 [User input: "Rubie"]
+Bell number(s) in the tower (3,4): 
+>>> 
+[User input: "3,4"]
 5,6: "Lenny Howard" -> Lenny Howard
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Bell number(s) in the tower (5,6): 
+>>> 
+[User input: "5,6"]
 7,8: "Jack Spencer" -> Jack Spencer
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Bell number(s) in the tower (7,8): 
+>>> 
+[User input: "7,8"]
 9,10: Attempting to find "Arianna Holmes"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -100,10 +112,16 @@ Last name (Holmes):
 Given name(s) (Arianna): 
 >>> 
 [User input: "Arianna"]
+Bell number(s) in the tower (9,10): 
+>>> 
+[User input: "9,10"]
 11,12: "John Parker" -> John Parker
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Bell number(s) in the tower (11,12): 
+>>> 
+[User input: "11,12"]
 [http://localhost:8080/view.php?id=1508383 panel displayed]
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -140,4 +158,4 @@ Composed by: Christopher I Rowson
 First peal of Bristol Maximus rung in hand.
 
 [Imported Bellboard peal ID: 1508383]
-[Comoposition URL: http://localhost:8080/comp.php?id=2284506]
+[Composition URL: http://localhost:8080/comp.php?id=2284506]

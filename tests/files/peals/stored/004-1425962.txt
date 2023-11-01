@@ -43,10 +43,16 @@ Last name (Mitchell):
 Given name(s) (Aston): 
 >>> 
 [User input: "Aston"]
+Bell number(s) in the tower (1): 
+>>> 
+[User input: "1"]
 2: "Dominik Warren" -> Dominik Warren
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Bell number(s) in the tower (2): 
+>>> 
+[User input: "2"]
 3: Attempting to find "Melissa Evans"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -58,6 +64,9 @@ Last name (Evans):
 Given name(s) (Melissa): 
 >>> 
 [User input: "Melissa"]
+Bell number(s) in the tower (3): 
+>>> 
+[User input: "3"]
 4: Attempting to find "Valeria Perkins"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -69,6 +78,9 @@ Last name (Perkins):
 Given name(s) (Valeria): 
 >>> 
 [User input: "Valeria"]
+Bell number(s) in the tower (4): 
+>>> 
+[User input: "4"]
 5: Attempting to find "Savana Davis"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -80,6 +92,9 @@ Last name (Davis):
 Given name(s) (Savana): 
 >>> 
 [User input: "Savana"]
+Bell number(s) in the tower (5): 
+>>> 
+[User input: "5"]
 6: Attempting to find "Fenton Bailey"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -91,6 +106,9 @@ Last name (Bailey):
 Given name(s) (Fenton): 
 >>> 
 [User input: "Fenton"]
+Bell number(s) in the tower (6): 
+>>> 
+[User input: "6"]
 7: Attempting to find "Blake Harper"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -102,6 +120,9 @@ Last name (Harper):
 Given name(s) (Blake): 
 >>> 
 [User input: "Blake"]
+Bell number(s) in the tower (7): 
+>>> 
+[User input: "7"]
 8: Attempting to find "Lenny Howard"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -113,6 +134,9 @@ Last name (Howard):
 Given name(s) (Lenny): 
 >>> 
 [User input: "Lenny"]
+Bell number(s) in the tower (8): 
+>>> 
+[User input: "8"]
 [http://localhost:8080/view.php?id=1425962 panel displayed]
 Save this peal?
 Is this correct? [y/n] (y): 
