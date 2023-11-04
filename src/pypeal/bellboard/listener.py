@@ -49,3 +49,6 @@ class PealGeneratorListener():
 
     def footnote(self, value: str):
         pass
+
+    def end_peal(self):
+        pass

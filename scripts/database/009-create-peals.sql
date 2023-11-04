@@ -25,7 +25,7 @@ CREATE TABLE @db_name.`peals` (
     `composer_id` INT UNSIGNED NULL,
     `composition_url` VARCHAR(128) NULL,
     `duration` INT UNSIGNED NULL,
-    `tenor_weight` VARCHAR(45) NULL,
+    `tenor_weight` INT UNSIGNED NULL,
     `tenor_note` VARCHAR(45) NULL,
     PRIMARY KEY (`id`),
     UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,

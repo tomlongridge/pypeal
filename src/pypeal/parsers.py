@@ -112,17 +112,35 @@ def parse_single_method(method: str, expect_changes: bool = True) -> tuple[Stage
     return (stage, classification, method, changes)
 
 
-def parse_tenor_info(tenor_info_str: str) -> tuple[str, str]:
+def parse_tenor_info(tenor_info_str: str) -> tuple[int, str]:
     if not (match := re.match(TENOR_INFO_REGEX, tenor_info_str)):
         raise ValueError(f'Unable to parse tenor info: {tenor_info_str}')
-    tenor_weight: str = None
+    tenor_weight: int = None
     tenor_note: str = None
     tenor_info = match.groupdict()
     if tenor_info['tenor_weight']:
-        tenor_weight = tenor_info['tenor_weight'].strip()
+        tenor_weight = parse_bell_weight(tenor_info['tenor_weight'])
     if tenor_info['tenor_note']:
         tenor_note = tenor_info['tenor_note'].strip()
     return (tenor_weight, tenor_note)
+
+
+def parse_bell_weight(weight_str: str) -> int:
+    if weight_str is None:
+        return None
+    weight_lbs = None
+    weight_str = weight_str.replace('–', '-').strip()
+    if weight_str.endswith('cwt'):
+        weight_lbs = int(weight_str[:-3]) * 112
+    elif re.match(r'^[0-9]+(\-[0-9]+\-[0-9]+)?$', weight_str):
+        weight_parts = weight_str.split('-')
+        weight_lbs = int(weight_parts[0]) * 112
+        if len(weight_parts) > 1:
+            weight_lbs += int(int(weight_parts[1]) * (112/4))
+            weight_lbs += int(weight_parts[2])
+    else:
+        raise ValueError(f'Unable to parse weight: {weight_str}')
+    return weight_lbs
 
 
 def parse_duration(duration_str: str) -> int:

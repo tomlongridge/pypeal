@@ -10,7 +10,7 @@ CREATE TABLE @db_name.`towers` (
     `latitude` FLOAT NULL,
     `longitude` FLOAT NULL,
     `bells` INT NOT NULL,
-    `tenor_weight` INT NOT NULL,
+    `tenor_weight` INT UNSIGNED NOT NULL,
     `tenor_note` VARCHAR(10) NOT NULL,
     PRIMARY KEY (`id`)
 );

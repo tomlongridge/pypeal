@@ -72,7 +72,7 @@ class Method():
             result = Database.get_connection().query(
                 'SELECT full_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, stage, id ' +
                 'FROM methods WHERE id = %s', (id,)).fetchone()
-            return Cache.get_cache().add(cls.__name__, Method(*result[:-2], Stage(result[-2]), result[-1]))
+            return Cache.get_cache().add(cls.__name__, result[-1], Method(*result[:-2], Stage(result[-2]), result[-1]))
 
     @classmethod
     def get_by_name(cls, name: str):

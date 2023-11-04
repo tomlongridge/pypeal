@@ -1,5 +1,6 @@
 from datetime import datetime
 from pypeal.bellboard.listener import PealGeneratorListener
+from pypeal.cli.prompt_validate_tenor import prompt_validate_tenor
 from pypeal.cli.prompt_add_association import prompt_add_association
 from pypeal.cli.prompt_add_change_of_method import prompt_add_change_of_method
 from pypeal.cli.prompt_add_composer import prompt_add_composer
@@ -63,3 +64,6 @@ class PealPrompter(PealGeneratorListener):
     def footnote(self, value: str):
         if value:
             parse_footnote(value, self.peal)
+
+    def end_peal(self):
+        prompt_validate_tenor(self.peal)

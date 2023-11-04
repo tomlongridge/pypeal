@@ -125,6 +125,8 @@ class HTMLPealGenerator():
         if not found_footnote:
             self.__listener.footnote(None)
 
+        self.__listener.end_peal()
+
         return self.__listener.peal
 
     def __parse_date_line(self, date_line: str):

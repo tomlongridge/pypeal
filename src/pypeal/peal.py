@@ -2,11 +2,12 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
+from pypeal import utils
 from pypeal.association import Association
 from pypeal.db import Database
 from pypeal.method import Method, Stage
 from pypeal.ringer import Ringer
-from pypeal.tower import Ring
+from pypeal.tower import Bell, Ring
 from pypeal.utils import get_bell_label
 
 PEAL_FIELD_LIST: list[str] = ['bellboard_id', 'type', 'date', 'association_id', 'ring_id', 'place', 'sub_place', 'address', 'dedication',
@@ -52,16 +53,16 @@ class Peal:
     __county: str
     __country: str
     __dedication: str
-    __tenor_weight: str
+    __tenor_weight: int
     __tenor_note: str
 
-    __methods: list[tuple[Method, int]] = None
+    __methods: list[tuple[Method, int]]
 
-    __ringers: list[(Ringer, list[int], bool)] = None
-    __ringers_by_id: dict[int, Ringer] = None
-    __ringers_by_bell: dict[int, Ringer] = None
+    __ringers: list[(Ringer, list[int], list[int], bool)]
+    __ringers_by_id: dict[int, Ringer]
+    __ringers_by_bell: dict[int, Ringer]
 
-    __footnotes: list[(str, int)] = None
+    __footnotes: list[(str, int)]
 
     def __init__(self,
                  bellboard_id: int = None,
@@ -75,7 +76,7 @@ class Peal:
                  dedication: str = None,
                  county: str = None,
                  country: str = None,
-                 tenor_weight: str = None,
+                 tenor_weight: int = None,
                  tenor_note: str = None,
                  changes: int = None,
                  stage: int = None,
@@ -121,12 +122,22 @@ class Peal:
         self.duration = duration
         self.id = id
 
+        self.__methods = None
+
+        self.__ringers = None
+        self.__ringers_by_id = None
+        self.__ringers_by_bell = None
+
+        self.__footnotes = None
+
     @property
     def place(self) -> str:
-        if self.ring:
+        if self.__place:
+            return self.__place
+        elif self.ring:
             return self.ring.tower.place
         else:
-            return self.__place
+            return None
 
     @place.setter
     def place(self, value: str):
@@ -134,10 +145,12 @@ class Peal:
 
     @property
     def sub_place(self) -> str:
-        if self.ring:
+        if self.__sub_place:
+            return self.__sub_place
+        elif self.ring:
             return self.ring.tower.sub_place
         else:
-            return self.__sub_place
+            return None
 
     @sub_place.setter
     def sub_place(self, value: str):
@@ -145,10 +158,12 @@ class Peal:
 
     @property
     def county(self) -> str:
-        if self.ring:
+        if self.__county:
+            return self.__county
+        elif self.ring:
             return self.ring.tower.county
         else:
-            return self.__county
+            return None
 
     @county.setter
     def county(self, value: str):
@@ -156,10 +171,12 @@ class Peal:
 
     @property
     def country(self) -> str:
-        if self.ring:
+        if self.__country:
+            return self.__country
+        elif self.ring:
             return self.ring.tower.country
         else:
-            return self.__country
+            return None
 
     @country.setter
     def country(self, value: str):
@@ -167,32 +184,45 @@ class Peal:
 
     @property
     def dedication(self) -> str:
-        if self.ring:
+        if self.__dedication:
+            return self.__dedication
+        elif self.ring:
             return self.ring.tower.dedication
         else:
-            return self.__dedication
+            return None
 
     @dedication.setter
     def dedication(self, value: str):
         self.__dedication = value
 
     @property
-    def tenor_weight(self) -> str:
-        if self.ring:
-            return self.ring.tower.tenor_weight_in_cwt
-        else:
+    def tenor(self) -> Bell:
+        if self.ring and len(self.ringers) > 0:
+            largest_bell_num_rung = self.ringers[-1][2][-1]
+            return self.ring.get_tenor_bell(largest_bell_num_rung)
+        return None
+
+    @property
+    def tenor_weight(self) -> int:
+        if self.__tenor_weight:
             return self.__tenor_weight
+        elif self.ring:
+            return self.tenor.weight
+        else:
+            return None
 
     @tenor_weight.setter
-    def tenor_weight(self, value: str):
+    def tenor_weight(self, value: int):
         self.__tenor_weight = value
 
     @property
     def tenor_note(self) -> str:
-        if self.ring:
-            return self.ring.tower.tenor_note
-        else:
+        if self.__tenor_note:
             return self.__tenor_note
+        if self.ring:
+            return self.tenor.note
+        else:
+            return None
 
     @tenor_note.setter
     def tenor_note(self, value: str):
@@ -200,10 +230,12 @@ class Peal:
 
     @property
     def tenor_description(self) -> str:
-        text = self.tenor_weight
-        if text and self.tenor_note:
-            text += f' in {self.tenor_note}'
-        return text
+        if self.tenor_weight:
+            text = utils.get_weight_str(self.tenor_weight)
+            if self.tenor_note:
+                text += f' in {self.tenor_note}'
+            return text
+        return None
 
     @property
     def location(self) -> str:

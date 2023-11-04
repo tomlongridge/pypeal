@@ -58,7 +58,7 @@ class Ringer():
             # Get ringers with no link ID (i.e. the actual ringer, not aliases)
             result = Database.get_connection().query(
                 f'SELECT {",".join(FIELD_LIST)}, id FROM ringers WHERE id = %s AND link_id IS NULL', (id,)).fetchone()
-            return Cache.get_cache().add(cls.__name__, Ringer(*result))
+            return Cache.get_cache().add(cls.__name__, result[-1], Ringer(*result))
 
     @classmethod
     def get_by_full_name(cls, name: str, is_composer: bool = None) -> list[Ringer]:

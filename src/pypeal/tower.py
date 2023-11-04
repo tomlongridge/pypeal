@@ -2,6 +2,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import datetime
 import logging
+from pypeal import utils
 from pypeal.cache import Cache
 from pypeal.db import Database
 
@@ -32,23 +33,7 @@ class Tower():
 
     @property
     def tenor_weight_in_cwt(self) -> str:
-        if self.tenor_weight is None:
-            return 'Unknown'
-        cwt = self.tenor_weight // 112
-        lbs = self.tenor_weight % 112
-        if lbs / 112 > 0.75:
-            qtr = 3
-        elif lbs / 112 > 0.5:
-            qtr = 2
-        elif lbs / 112 > 0.25:
-            qtr = 1
-        else:
-            qtr = 0
-        lbs -= qtr * 28
-        if qtr == lbs == 0:
-            return f'{self.tenor_weight // 112} cwt'
-        else:
-            return f'{cwt}-{qtr}-{lbs}'
+        return utils.get_weight_str(self.tenor_weight)
 
     def get_active_ring(self, at_date: datetime) -> Ring:
         results = Database.get_connection().query(
@@ -162,6 +147,12 @@ class Ring():
     def add_bell(self, role: int, bell: Bell):
         self.bells[role] = bell
 
+    def get_tenor_bell(self, tenor_bell_num: int) -> Bell:
+        if tenor_bell_num <= len(self.bells):
+            return self.bells[tenor_bell_num]
+        else:
+            return None
+
     def commit(self):
         result = Database.get_connection().query(
             f'INSERT INTO rings ({",".join(RING_FIELD_LIST)}) ' +
@@ -216,6 +207,10 @@ class Bell():
         self.founder = founder
         self.id = id
 
+    @property
+    def formatted_weight(self) -> str:
+        return utils.get_weight_str(self.weight)
+
     def commit(self):
         Database.get_connection().query(
             f'INSERT INTO bells ({",".join(BELL_FIELD_LIST)}, id) ' +
@@ -232,4 +227,4 @@ class Bell():
             result = Database.get_connection().query(
                 f'SELECT {",".join(BELL_FIELD_LIST)}, id ' +
                 'FROM bells WHERE id = %s', (id,)).fetchone()
-            return Cache.get_cache().add(cls.__name__, Bell(*result))
+            return Cache.get_cache().add(cls.__name__, result[-1], Bell(*result))
