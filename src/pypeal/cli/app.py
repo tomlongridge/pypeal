@@ -11,7 +11,7 @@ from pypeal.cccbr import update_methods
 from pypeal.cli.peal_prompter import PealPrompter
 from pypeal.cli.prompts import UserCancelled, choose_option, ask, confirm, panel, error
 from pypeal.db import initialize as initialize_db
-from pypeal.dove import update_associations, update_towers
+from pypeal.dove import update_associations, update_bells, update_towers
 from pypeal.peal import Peal
 from pypeal.ringer import Ringer
 from pypeal.config import set_config_file
@@ -101,8 +101,9 @@ def run_interactive(peal_id_or_url: str):
                 case 5:
                     update_methods()
                 case 6:
-                    update_towers()
                     update_associations()
+                    update_towers()
+                    update_bells()
                 case 7 | None:
                     raise typer.Exit()
         except UserCancelled:
@@ -188,9 +189,10 @@ def initialize_or_exit(reset_db: bool, clear_data: bool):
         error('Unable to connect to pypeal database')
         raise typer.Exit()
     if reset_db:
-        update_methods()
-        update_towers()
         update_associations()
+        update_towers()
+        update_bells()
+        update_methods()
     if clear_data:
         Peal.clear_data()
         Ringer.clear_data()

@@ -82,7 +82,7 @@ def prompt_add_ringer(name: str, bell_nums: list[int], is_conductor: bool, peal:
 
 def validate_bell(bells: list[int], peal: Peal) -> bool:
     for bell in bells:
-        if peal.tower is not None and peal.tower.bells < bell:
+        if peal.ring is not None and len(peal.ring.bells) < bell:
             if not confirm(f'Bell number ({bell}) exceeds number of bells in the tower', default=False):
                 return False
         for ringer, _, bells, _ in peal.ringers:

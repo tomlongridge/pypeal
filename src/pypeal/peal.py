@@ -6,10 +6,10 @@ from pypeal.association import Association
 from pypeal.db import Database
 from pypeal.method import Method, Stage
 from pypeal.ringer import Ringer
-from pypeal.tower import Tower
+from pypeal.tower import Ring
 from pypeal.utils import get_bell_label
 
-PEAL_FIELD_LIST: list[str] = ['bellboard_id', 'type', 'date', 'association_id', 'tower_id', 'place', 'sub_place', 'address', 'dedication',
+PEAL_FIELD_LIST: list[str] = ['bellboard_id', 'type', 'date', 'association_id', 'ring_id', 'place', 'sub_place', 'address', 'dedication',
                               'county', 'country', 'tenor_weight', 'tenor_note', 'changes', 'stage', 'classification', 'is_spliced',
                               'is_mixed', 'is_variable_cover', 'num_methods', 'num_principles', 'num_variants', 'method_id', 'title',
                               'composer_id', 'composition_url', 'duration']
@@ -28,7 +28,7 @@ class Peal:
     type: PealType
     date: datetime.date
     association: Association
-    tower: Tower
+    ring: Ring
     address: str
     changes: int
     stage: Stage
@@ -68,7 +68,7 @@ class Peal:
                  type: int = PealType.TOWER,
                  date: datetime.date = None,
                  association_id: int = None,
-                 tower_id: int = None,
+                 ring_id: int = None,
                  place: str = None,
                  sub_place: str = None,
                  address: str = None,
@@ -96,7 +96,7 @@ class Peal:
         self.type = PealType(type) if type else None
         self.date = date
         self.association = Association.get(association_id) if association_id else None
-        self.tower = Tower.get(dove_id=tower_id) if tower_id else None
+        self.ring = Ring.get(ring_id) if ring_id else None
         self.__place = place
         self.__sub_place = sub_place
         self.address = address
@@ -123,8 +123,8 @@ class Peal:
 
     @property
     def place(self) -> str:
-        if self.tower:
-            return self.tower.place
+        if self.ring:
+            return self.ring.tower.place
         else:
             return self.__place
 
@@ -134,8 +134,8 @@ class Peal:
 
     @property
     def sub_place(self) -> str:
-        if self.tower:
-            return self.tower.sub_place
+        if self.ring:
+            return self.ring.tower.sub_place
         else:
             return self.__sub_place
 
@@ -145,8 +145,8 @@ class Peal:
 
     @property
     def county(self) -> str:
-        if self.tower:
-            return self.tower.county
+        if self.ring:
+            return self.ring.tower.county
         else:
             return self.__county
 
@@ -156,8 +156,8 @@ class Peal:
 
     @property
     def country(self) -> str:
-        if self.tower:
-            return self.tower.country
+        if self.ring:
+            return self.ring.tower.country
         else:
             return self.__country
 
@@ -167,8 +167,8 @@ class Peal:
 
     @property
     def dedication(self) -> str:
-        if self.tower:
-            return self.tower.dedication
+        if self.ring:
+            return self.ring.tower.dedication
         else:
             return self.__dedication
 
@@ -178,8 +178,8 @@ class Peal:
 
     @property
     def tenor_weight(self) -> str:
-        if self.tower:
-            return self.tower.tenor_weight_in_cwt
+        if self.ring:
+            return self.ring.tower.tenor_weight_in_cwt
         else:
             return self.__tenor_weight
 
@@ -189,8 +189,8 @@ class Peal:
 
     @property
     def tenor_note(self) -> str:
-        if self.tower:
-            return self.tower.tenor_note
+        if self.ring:
+            return self.ring.tower.tenor_note
         else:
             return self.__tenor_note
 
@@ -336,7 +336,7 @@ class Peal:
                 f'INSERT INTO peals ({",".join(PEAL_FIELD_LIST)}) ' +
                 'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
                 (self.bellboard_id, self.type.value, self.date, self.association.id if self.association else None,
-                 self.tower.id if self.tower else None, self.__place, self.__sub_place, self.address, self.dedication, self.__county,
+                 self.ring.id if self.ring else None, self.__place, self.__sub_place, self.address, self.dedication, self.__county,
                  self.__country, self.__tenor_weight, self.__tenor_note, self.changes, self.stage.value if self.stage else None,
                  self.classification, self.is_spliced, self.is_mixed, self.is_variable_cover, self.num_methods or 0,
                  self.num_principles or 0, self.num_variants or 0, self.method.id if self.method else None, self.title,

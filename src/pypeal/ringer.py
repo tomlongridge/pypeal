@@ -1,14 +1,14 @@
 from __future__ import annotations
 from dataclasses import dataclass
+from pypeal.cache import Cache
 
 from pypeal.db import Database
-from pypeal.entity import CacheableEntity
 
 FIELD_LIST: list[str] = ['last_name', 'given_names', 'is_composer']
 
 
 @dataclass
-class Ringer(CacheableEntity):
+class Ringer():
 
     last_name: str
     given_names: str
@@ -42,6 +42,7 @@ class Ringer(CacheableEntity):
                 (self.last_name, self.given_names, self.is_composer))
             Database.get_connection().commit()
             self.id = result.lastrowid
+            Cache.get_cache().add(self.__class__.__name__, self.id, self)
 
     def add_alias(self, last_name: str, given_names: str):
         Database.get_connection().query(
@@ -51,13 +52,13 @@ class Ringer(CacheableEntity):
 
     @classmethod
     def get(cls, id: int) -> Ringer:
-        if (ringer := cls._from_cache(id)) is not None:
+        if (ringer := Cache.get_cache().get(cls.__name__, id)) is not None:
             return ringer
         else:
             # Get ringers with no link ID (i.e. the actual ringer, not aliases)
             result = Database.get_connection().query(
                 f'SELECT {",".join(FIELD_LIST)}, id FROM ringers WHERE id = %s AND link_id IS NULL', (id,)).fetchone()
-            return cls._cache_result(result)
+            return Cache.get_cache().add(cls.__name__, Ringer(*result))
 
     @classmethod
     def get_by_full_name(cls, name: str, is_composer: bool = None) -> list[Ringer]:
@@ -72,7 +73,7 @@ class Ringer(CacheableEntity):
                 'composer': is_composer
             }
         ).fetchall()
-        return cls._cache_results(results)
+        return Cache.get_cache().add_all(cls.__name__, {result[-1]: Ringer(*result) for result in results})
 
     @classmethod
     def get_by_name(cls, last_name: str = None, given_names: str = None, is_composer: bool = None) -> list[Ringer]:
@@ -88,12 +89,7 @@ class Ringer(CacheableEntity):
                 'composer': is_composer
             }
         ).fetchall()
-        return cls._cache_results(results)
-
-    @classmethod
-    def get_all(cls) -> list[Ringer]:
-        results = Database.get_connection().query(f'SELECT {",".join(FIELD_LIST)}, id FROM ringers').fetchall()
-        return cls._cache_results(results)
+        return Cache.get_cache().add_all(cls.__name__, {result[-1]: Ringer(*result) for result in results})
 
     @classmethod
     def clear_data(cls):
@@ -101,4 +97,4 @@ class Ringer(CacheableEntity):
         Database.get_connection().query('TRUNCATE TABLE ringers')
         Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')
         Database.get_connection().commit()
-        cls._clear_cache()
+        Cache.get_cache().clear(cls.__name__)

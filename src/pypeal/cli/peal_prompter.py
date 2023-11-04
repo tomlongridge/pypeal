@@ -20,17 +20,17 @@ class PealPrompter(PealGeneratorListener):
         prompt_add_association(value, self.peal)
 
     def tower(self, dove_id: int = None, towerbase_id: int = None):
-        self.peal.tower = Tower.get(dove_id=dove_id, towerbase_id=towerbase_id)
-        if self.peal.tower is None:
-            print(f'Tower ID {dove_id or towerbase_id} not recognised')
-        else:
+        if (tower := Tower.get(dove_id=dove_id, towerbase_id=towerbase_id)):
+            self.peal.ring = tower.get_active_ring(self.peal.date)
             self.peal.place = None
             self.peal.county = None
             self.peal.address = None
             self.peal.dedication = None
+        else:
+            print(f'Tower ID {dove_id or towerbase_id} not recognised')
 
     def location(self, address_dedication: str, place: str, county: str):
-        if self.peal.tower is None:
+        if self.peal.ring is None:
             prompt_add_location(address_dedication, place, county, self.peal)
 
     def changes(self, value: int):
