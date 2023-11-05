@@ -8,7 +8,7 @@ from pypeal.cli.prompt_add_composer import prompt_add_composer
 from pypeal.cli.prompt_add_location import prompt_add_location
 from pypeal.cli.prompt_add_ringer import prompt_add_ringer
 from pypeal.cli.prompt_peal_title import prompt_peal_title
-from pypeal.parsers import parse_duration, parse_footnote, parse_tenor_info
+from pypeal.parsers import parse_duration, parse_tenor_info
 from pypeal.peal import PealType
 from pypeal.tower import Tower
 
