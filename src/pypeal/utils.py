@@ -29,3 +29,7 @@ def get_weight_str(lbs: int) -> str:
         return f'{cwt} cwt'
     else:
         return f'{cwt}-{qtr}-{lbs}'
+
+
+def convert_musical_key(key: str):
+    return key.replace('\u266D', 'b').replace('\u266F', '#') if key else None

@@ -136,6 +136,9 @@ Given name(s) (David):
 Bell number(s) in the tower (6): 
 >>> 
 [User input: "6"]
+Add new footnote? [y/n] (y): 
+>>> n
+[User input: "False"]
 [http://localhost:8080/view.php?id=1306360 panel displayed]
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -159,7 +162,7 @@ Bath and Wells Diocesan Association
 Portbury, Somerset, England
 Blessed Virgin Mary
 on Thursday, 17 October 2019
-1260 Mixed Doubles (5m/3v/1p) in 44 mins (21 cwt in E♭)
+1260 Mixed Doubles (5m/3v/1p) in 44 mins (21 cwt in Eb)
 
 1: Dainton Casey
 2: Daryl Mason

@@ -58,6 +58,7 @@ class XMLPealGenerator():
                     self.__listener.ringer(ringer.text, bells, 'conductor' in ringer.attrib)
             for footnote in performance.findall(f'{XML_NAMESPACE}footnote'):
                 self.__listener.footnote(footnote.text)
+            self.__listener.end_peal()
 
 
 def get_element(parent: ET.Element, tag: str, attrib: str = None) -> tuple[ET.Element, str]:

@@ -2,6 +2,7 @@ import csv
 import logging
 
 import requests
+from pypeal import utils
 from pypeal.association import Association
 from pypeal.config import get_config
 from pypeal.db import Database
@@ -47,7 +48,7 @@ def update_towers():
                           longitude=line['Long'] if len(line['Long']) > 0 else None,
                           bells=line['Bells'],
                           tenor_weight=int(line['Wt']),
-                          tenor_note=line['Note'],
+                          tenor_note=utils.convert_musical_key(line['Note']),
                           id=line['TowerID'])
         tower_obj.commit()
         tower_ids.append(line['TowerID'])
@@ -110,7 +111,7 @@ def update_bells():
         bell_obj: Bell = Bell(tower_id=int(line['Tower ID']),
                               role=int(line['Bell Role']),
                               weight=int(line['Weight (lbs)']),
-                              note=line['Note'],
+                              note=utils.convert_musical_key(line['Note']),
                               cast_year=int(cast_year),
                               founder=line['Founder'],
                               id=int(line['Bell ID']))

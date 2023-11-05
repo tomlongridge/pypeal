@@ -1,5 +1,6 @@
 
 import re
+from pypeal import utils
 from pypeal.method import Method, Stage
 
 METHOD_TITLE_NUM_METHODS_REGEX = re.compile(r'\(([0-9mvp\/])+\)')
@@ -10,8 +11,10 @@ DURATION_REGEX = re.compile(r'^(?:(?P<hours>\d{1,2})[h])$|^(?:(?P<mins>\d+)[m]?)
 TENOR_INFO_REGEX = re.compile(r'(?P<tenor_weight>[^in]+|size\s[0-9]+)(?:\sin\s(?P<tenor_note>.*))?$')
 
 FOOTNOTE_RINGER_SEPARATORS = [',', '&', 'and']
-FOOTNOTE_RINGER_REGEX_PREFIX = re.compile(r'^(?P<bells>[0-9\s(?:' + '|'.join(FOOTNOTE_RINGER_SEPARATORS) + r')]+)\s?[-:]\s?(?P<footnote>.*)$')
-FOOTNOTE_RINGER_REGEX_SUFFIX = re.compile(r'^(?P<footnote>.*)\s?[-:]\s?(?P<bells>[0-9\s(?:' + '|'.join(FOOTNOTE_RINGER_SEPARATORS) + r')]+)\.?$')
+FOOTNOTE_RINGER_REGEX_PREFIX = re.compile(r'^(?P<bells>[0-9\s(?:' + '|'.join(FOOTNOTE_RINGER_SEPARATORS) +
+                                          r')]+)\s?[-:]\s?(?P<footnote>.*)$')
+FOOTNOTE_RINGER_REGEX_SUFFIX = re.compile(r'^(?P<footnote>.*)\s?[-:]\s?(?P<bells>[0-9\s(?:' + '|'.join(FOOTNOTE_RINGER_SEPARATORS) +
+                                          r')]+)\.?$')
 
 
 def parse_method_title(title: str) -> tuple[Method, bool, bool, int, int, int]:
@@ -121,7 +124,7 @@ def parse_tenor_info(tenor_info_str: str) -> tuple[int, str]:
     if tenor_info['tenor_weight']:
         tenor_weight = parse_bell_weight(tenor_info['tenor_weight'])
     if tenor_info['tenor_note']:
-        tenor_note = tenor_info['tenor_note'].strip()
+        tenor_note = utils.convert_musical_key(tenor_info['tenor_note'].strip())
     return (tenor_weight, tenor_note)
 
 

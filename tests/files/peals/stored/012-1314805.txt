@@ -153,6 +153,9 @@ Footnote line:
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Add new footnote? [y/n] (y): 
+>>> n
+[User input: "False"]
 [http://localhost:8080/view.php?id=1314805 panel displayed]
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -176,7 +179,7 @@ Bath and Wells Diocesan Association
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 on Sunday, 15 December 2019
-1280 Spliced Surprise Major (2m) in 48 mins (18-3-20 in E♭)
+1280 Spliced Surprise Major (2m) in 48 mins (18-3-20 in Eb)
 (640 Cambridge Surprise Major, 640 Yorkshire Surprise Major)
 
 1 [3]: Leo Bennett

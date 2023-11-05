@@ -167,6 +167,9 @@ Referenced ringer(s):
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Add new footnote? [y/n] (y): 
+>>> n
+[User input: "False"]
 [http://localhost:8080/view.php?id=1426065 panel displayed]
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -190,7 +193,7 @@ Bath and Wells Diocesan Association
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 on Sunday, 2 December 2001
-1260 Grandsire Triples in 50 mins (18-3-20 in E♭)
+1260 Grandsire Triples in 50 mins (18-3-20 in Eb)
 
 1 [3]: Julia Fowler
 2 [4]: Daniel Miller

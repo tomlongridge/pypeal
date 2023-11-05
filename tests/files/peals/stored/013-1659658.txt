@@ -152,8 +152,24 @@ Footnote 2 text:
 Referenced ringer(s):
   - 6: Blake Elliott
 Is this correct? [y/n] (y): 
+>>> n
+[User input: "False"]
+Footnote text (First quarter of Little Bob Royal.): 
+>>> First quarter of Royal
+[User input: "First quarter of Royal"]
+Bells (comma-separated) (6): 
+>>> 7
+[User input: "7"]
+Footnote 2 text:
+  > First quarter of Royal.
+Referenced ringer(s):
+  - 7: Melissa Baker
+Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Add new footnote? [y/n] (y): 
+>>> n
+[User input: "False"]
 [http://localhost:8080/view.php?id=1659658 panel displayed]
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -191,7 +207,7 @@ Composed by: Alex W Tatlow
 10: Chester Edwards (c)
 
 Rung as a birthday compliment to Matthew Skues.
-[6: Blake Elliott] First quarter of Little Bob Royal.
+[7: Melissa Baker] First quarter of Royal.
 
 [Imported Bellboard peal ID: 1659658]
 [Composition URL: http://localhost:8080/comp.php?id=2293307]

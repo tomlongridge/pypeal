@@ -127,6 +127,9 @@ Footnote line:
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Add new footnote? [y/n] (y): 
+>>> n
+[User input: "False"]
 [http://localhost:8080/view.php?id=1508383 panel displayed]
 Save this peal?
 Is this correct? [y/n] (y): 

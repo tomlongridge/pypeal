@@ -260,6 +260,9 @@ Footnote line:
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Add new footnote? [y/n] (y): 
+>>> n
+[User input: "False"]
 [http://localhost:8080/view.php?id=1147788 panel displayed]
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -282,7 +285,7 @@ Select action (1):
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 on Sunday, 11 January 2015
-1260 Spliced Caters and Royal (2m) in 48 mins (18-3-20 in E♭)
+1260 Spliced Caters and Royal (2m) in 48 mins (18-3-20 in Eb)
 (Grandsire Bob Caters, Grandsire Bob Royal)
 
 1: Byron Miller

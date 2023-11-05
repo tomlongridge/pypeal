@@ -90,6 +90,9 @@ Footnote line:
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Add new footnote? [y/n] (y): 
+>>> n
+[User input: "False"]
 [http://localhost:8080/view.php?id=1660822 panel displayed]
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -260,6 +263,48 @@ Footnote line:
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Add new footnote? [y/n] (y): 
+>>> y
+[User input: "True"]
+Footnote text: 
+>>> Testing the new footnote function
+[User input: "Testing the new footnote function"]
+Bells (comma-separated): 
+>>> 
+[User input: "None"]
+Footnote 2 text:
+  > Testing the new footnote function.
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Add new footnote? [y/n] (y): 
+>>> y
+[User input: "True"]
+Footnote text: 
+>>> Testing new footnote with ringers
+[User input: "Testing new footnote with ringers"]
+Bells (comma-separated): 
+>>> 1,12
+[User input: "1,12"]
+Invalid bell number: 12
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Error: Bells must be a comma-separated list of numbers less than or equal to │
+│ 6                                                                            │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Bells (comma-separated): 
+>>> 1,6
+[User input: "1,6"]
+Footnote 3 text:
+  > Testing new footnote with ringers.
+Referenced ringer(s):
+  - 1: Ryan Elliott
+  - 6: Grace Perry
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Add new footnote? [y/n] (y): 
+>>> n
+[User input: "False"]
 [http://localhost:8080/view.php?id=1657469 panel displayed]
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -311,5 +356,8 @@ on Sunday, 10 September 2023
 6: Grace Perry
 
 Rung for Morning Service.
+Testing the new footnote function.
+[1: Ryan Elliott] Testing new footnote with ringers.
+[6: Grace Perry] Testing new footnote with ringers.
 
 [Imported Bellboard peal ID: 1657469]
