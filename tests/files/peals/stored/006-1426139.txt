@@ -126,6 +126,20 @@ Given name(s) (Vivian):
 Bell number(s) in the tower (10): 
 >>> 
 [User input: "10"]
+Footnote line:
+  > Rung for Morning Service and as a 60th Wedding Anniversary compliment to Phyllis and Melvin Chapman
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Footnote line:
+  > 1st of Royal-4
+Footnote 2 text:
+  > 1st of Royal.
+Referenced ringer(s):
+  - 4: Chester Edwards
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 [http://localhost:8080/view.php?id=1426139 panel displayed]
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -162,6 +176,6 @@ on Sunday, 19 May 2002
 10: Vivian Murray (c)
 
 Rung for Morning Service and as a 60th Wedding Anniversary compliment to Phyllis and Melvin Chapman.
-1st of Royal-4.
+[4: Chester Edwards] 1st of Royal.
 
 [Imported Bellboard peal ID: 1426139]

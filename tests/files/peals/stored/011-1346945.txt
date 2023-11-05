@@ -333,6 +333,14 @@ Is this correct? [y/n] (y):
 Bell number(s) in the tower (6): 
 >>> 
 [User input: "6"]
+Footnote line:
+  > Rung as a wedding compliment To Terry Lee Nash, of Lindenhurst, Long Island, New York, U.S.A., and Mrs Linda Archer of Saxmundham, daughter of the tower captain at this tower, who were married at this church on Easter Saturday
+Split footnote by sentences? [y/n] (y): 
+>>> n
+[User input: "False"]
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 [http://localhost:8080/view.php?id=1346945 panel displayed]
 Save this peal?
 Is this correct? [y/n] (y): 

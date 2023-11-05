@@ -150,6 +150,23 @@ Is this correct? [y/n] (y):
 Bell number(s) in the tower (10): 
 >>> 
 [User input: "10"]
+Footnote line:
+  > Rung for Morning Service. First of Triples "inside"-4
+Split footnote by sentences? [y/n] (y): 
+>>> y
+[User input: "True"]
+Footnote 1 text:
+  > Rung for Morning Service.
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Footnote 2 text:
+  > First of Triples "inside".
+Referenced ringer(s):
+  - 4: Chester Edwards
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 [http://localhost:8080/view.php?id=1426065 panel displayed]
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -184,6 +201,7 @@ on Sunday, 2 December 2001
 7 [9]: Blake Elliott (c)
 8 [10]: Leo Bennett
 
-Rung for Morning Service. First of Triples "inside"-4.
+Rung for Morning Service.
+[4: Chester Edwards] First of Triples "inside".
 
 [Imported Bellboard peal ID: 1426065]

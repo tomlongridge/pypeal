@@ -1,7 +1,6 @@
 
 import re
 from pypeal.method import Method, Stage
-from pypeal.peal import Peal
 
 METHOD_TITLE_NUM_METHODS_REGEX = re.compile(r'\(([0-9mvp\/])+\)')
 METHOD_TITLE_NUM_METHODS_GROUP_REGEX = re.compile(r'([0-9]+[mvp])\/?')
@@ -10,8 +9,9 @@ DURATION_REGEX = re.compile(r'^(?:(?P<hours>\d{1,2})[h])$|^(?:(?P<mins>\d+)[m]?)
                             r'^(?:(?:(?P<hours_2>\d{1,2})[h])\s(?:(?P<mins_2>(?:[0]?|[1-5]{1})[0-9])[m]?))$')
 TENOR_INFO_REGEX = re.compile(r'(?P<tenor_weight>[^in]+|size\s[0-9]+)(?:\sin\s(?P<tenor_note>.*))?$')
 
-FOOTNOTE_RINGER_REGEX_PREFIX = re.compile(r'^(?P<bells>[0-9,\s]+)\s?[-:]\s(?P<footnote>.*)$')
-FOOTNOTE_RINGER_REGEX_SUFFIX = re.compile(r'^(?P<footnote>.*)\s?[-:]\s(?P<bells>[0-9,\s]+)\.?$')
+FOOTNOTE_RINGER_SEPARATORS = [',', '&']
+FOOTNOTE_RINGER_REGEX_PREFIX = re.compile(r'^(?P<bells>[0-9\s' + ''.join(FOOTNOTE_RINGER_SEPARATORS) + r']+)\s?[-:]\s?(?P<footnote>.*)$')
+FOOTNOTE_RINGER_REGEX_SUFFIX = re.compile(r'^(?P<footnote>.*)\s?[-:]\s?(?P<bells>[0-9\s' + ''.join(FOOTNOTE_RINGER_SEPARATORS) + r']+)\.?$')
 
 
 def parse_method_title(title: str) -> tuple[Method, bool, bool, int, int, int]:
@@ -154,14 +154,16 @@ def parse_duration(duration_str: str) -> int:
     return duration
 
 
-def parse_footnote(footnote: str, peal: Peal):
-    text = footnote.strip()
+def parse_footnote(footnote: str) -> tuple[list[int], str]:
+    bells = None
+    text = footnote.strip(' .')
     if len(text) > 0:
         if (footnote_match := re.match(FOOTNOTE_RINGER_REGEX_PREFIX, text)) or \
                 (footnote_match := re.match(FOOTNOTE_RINGER_REGEX_SUFFIX, text)):
             footnote_info = footnote_match.groupdict()
             text = footnote_info['footnote'].strip()
-            bells = [int(bell) for bell in footnote_info['bells'].split(',')]
-        else:
-            bells = [None]
-        peal.add_footnote(bells, text)
+            bells = [int(bell) for bell in re.split('|'.join(FOOTNOTE_RINGER_SEPARATORS), footnote_info['bells'])]
+        text += '.'
+    else:
+        text = None
+    return (bells, text)

@@ -140,6 +140,20 @@ Is this correct? [y/n] (y):
 Bell number(s) in the tower (10): 
 >>> 
 [User input: "10"]
+Footnote line:
+  > Rung as a birthday compliment to Matthew Skues
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Footnote line:
+  > 6: First quarter of Little Bob Royal
+Footnote 2 text:
+  > First quarter of Little Bob Royal.
+Referenced ringer(s):
+  - 6: Blake Elliott
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 [http://localhost:8080/view.php?id=1659658 panel displayed]
 Save this peal?
 Is this correct? [y/n] (y): 

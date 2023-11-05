@@ -148,6 +148,11 @@ Is this correct? [y/n] (y):
 Bell number(s) in the tower (10): 
 >>> 
 [User input: "10"]
+Footnote line:
+  > Rung for morning service
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 [http://localhost:8080/view.php?id=1314805 panel displayed]
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -183,6 +188,6 @@ on Sunday, 15 December 2019
 7 [9]: Chester Edwards
 8 [10]: Byron Robinson (c)
 
-Rung for morning service
+Rung for morning service.
 
 [Imported Bellboard peal ID: 1314805]

@@ -140,6 +140,24 @@ Given name(s) (Ted):
 Bell number(s) in the tower (12): 
 >>> 
 [User input: "12"]
+Footnote line:
+  > First away from cover on 8: 1.
+Footnote 1 text:
+  > First away from cover on 8.
+Referenced ringer(s):
+  - 1: Lydia Ferguson
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Footnote line:
+  > First of Grandsire inside: 4
+Footnote 2 text:
+  > First of Grandsire inside.
+Referenced ringer(s):
+  - 4: Alen Henderson
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 Tenor weight 17 cwt reported on Bellboard does not match the weight of largest bell rung (17-1-10) on Dove
 Use Dove value (17-1-10)? [y/n] (y): 
 >>> y
@@ -177,7 +195,7 @@ on Saturday, 30 June 2001
 7 [11]: Ryan Elliott
 8 [12]: Ted Harris
 
-First away from cover on 8: 1.
-First of Grandsire inside: 4.
+[1: Lydia Ferguson] First away from cover on 8.
+[4: Alen Henderson] First of Grandsire inside.
 
 [Imported Bellboard peal ID: 22152]

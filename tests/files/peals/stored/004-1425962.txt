@@ -137,6 +137,11 @@ Given name(s) (Lenny):
 Bell number(s) in the tower (10): 
 >>> 
 [User input: "10"]
+Footnote line:
+  > For Evensong
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 [http://localhost:8080/view.php?id=1425962 panel displayed]
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -170,6 +175,6 @@ on Sunday, 13 September 2009
 7 [9]: Blake Harper (c)
 8 [10]: Lenny Howard
 
-For Evensong
+For Evensong.
 
 [Imported Bellboard peal ID: 1425962]

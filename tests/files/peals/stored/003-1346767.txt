@@ -478,6 +478,11 @@ Given name(s) (Sienna):
 Bell number(s) in the tower (6): 
 >>> 
 [User input: "6"]
+Footnote line:
+  > Rung as a wedding compliment to Miss Ann Pearce and Mr George Bradlaugh; Also a birthday compliment to Vernon B Bedford
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 [http://localhost:8080/view.php?id=1346767 panel displayed]
 Save this peal?
 Is this correct? [y/n] (y): 

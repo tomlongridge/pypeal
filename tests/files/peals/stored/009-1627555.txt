@@ -134,6 +134,11 @@ Given name(s) (Michael):
 Bell number(s) in the tower (8): 
 >>> 
 [User input: "8"]
+Footnote line:
+  > 31/50
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 [http://localhost:8080/view.php?id=1627555 panel displayed]
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -167,6 +172,6 @@ on Saturday, 13 May 2023
 7: Carl Johnston
 8: Michael Williams
 
-31/50
+31/50.
 
 [Imported Bellboard peal ID: 1627555]

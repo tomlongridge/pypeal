@@ -250,6 +250,16 @@ Given name(s) (Byron):
 Bell number(s) in the tower (10): 
 >>> 
 [User input: "10"]
+Footnote line:
+  > For Morning Service, and to welcome Rafe Jackson-Swift, son of Russell and Angela, born on 8th January
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Footnote line:
+  > 900th Quarter of Grandsire on the bells
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 [http://localhost:8080/view.php?id=1147788 panel displayed]
 Save this peal?
 Is this correct? [y/n] (y): 

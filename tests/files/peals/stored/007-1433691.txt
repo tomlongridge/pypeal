@@ -59,7 +59,7 @@ Given name(s) (Edward):
 >>> 
 [User input: "Edward"]
 Bell number(s) in the tower (1): 
->>>
+>>> 
 [User input: "1"]
 2: "Blake Elliott" -> Blake Elliott
 Is this correct? [y/n] (y): 
@@ -128,6 +128,20 @@ Given name(s) (Eric):
 Bell number(s) in the tower (6): 
 >>> 
 [User input: "6"]
+Footnote line:
+  > First quarter peal: 6
+Footnote 1 text:
+  > First quarter peal.
+Referenced ringer(s):
+  - 6: Eric Ryan
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Footnote line:
+  > For evensong
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 [http://localhost:8080/view.php?id=1433691 panel displayed]
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -160,7 +174,7 @@ on Sunday, 5 December 1976
 5: Jack Spencer (c)
 6: Eric Ryan
 
-[6: Eric Ryan] First quarter peal
-For evensong
+[6: Eric Ryan] First quarter peal.
+For evensong.
 
 [Imported Bellboard peal ID: 1433691]
