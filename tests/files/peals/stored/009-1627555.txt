@@ -178,3 +178,4 @@ on Saturday, 13 May 2023
 31/50.
 
 [Imported Bellboard peal ID: 1627555]
+[Event URL: http://localhost:8080/event.php?id=17567]

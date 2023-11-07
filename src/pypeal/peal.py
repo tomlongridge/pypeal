@@ -13,13 +13,12 @@ from pypeal.utils import get_bell_label
 PEAL_FIELD_LIST: list[str] = ['bellboard_id', 'type', 'date', 'association_id', 'ring_id', 'place', 'sub_place', 'address', 'dedication',
                               'county', 'country', 'tenor_weight', 'tenor_note', 'changes', 'stage', 'classification', 'is_spliced',
                               'is_mixed', 'is_variable_cover', 'num_methods', 'num_principles', 'num_variants', 'method_id', 'title',
-                              'composer_id', 'composition_url', 'duration']
+                              'composer_id', 'composition_url', 'duration', 'event_url']
 
 
 class PealType(Enum):
     TOWER = 1
     HANDBELLS = 2
-    OTHER = 0
 
 
 @dataclass
@@ -45,6 +44,7 @@ class Peal:
     composer: Ringer
     composition_url: str
     duration: int
+    event_url: str
     id: int
 
     # Fields shared with Tower
@@ -92,6 +92,7 @@ class Peal:
                  composer_id: int = None,
                  composition_url: str = None,
                  duration: int = None,
+                 event_url: str = None,
                  id: int = None):
         self.bellboard_id = bellboard_id
         self.type = PealType(type) if type else None
@@ -120,6 +121,7 @@ class Peal:
         self.composer = Ringer.get(composer_id) if composer_id else None
         self.composition_url = composition_url
         self.duration = duration
+        self.event_url = event_url
         self.id = id
 
         self.__methods = None
@@ -368,13 +370,13 @@ class Peal:
         if self.id is None:
             result = Database.get_connection().query(
                 f'INSERT INTO peals ({",".join(PEAL_FIELD_LIST)}) ' +
-                'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
+                'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
                 (self.bellboard_id, self.type.value, self.date, self.association.id if self.association else None,
                  self.ring.id if self.ring else None, self.__place, self.__sub_place, self.address, self.dedication, self.__county,
                  self.__country, self.__tenor_weight, self.__tenor_note, self.changes, self.stage.value if self.stage else None,
                  self.classification, self.is_spliced, self.is_mixed, self.is_variable_cover, self.num_methods or 0,
                  self.num_principles or 0, self.num_variants or 0, self.method.id if self.method else None, self.title,
-                 self.composer.id if self.composer else None, self.composition_url, self.duration))
+                 self.composer.id if self.composer else None, self.composition_url, self.duration, self.event_url))
             Database.get_connection().commit()
             self.id = result.lastrowid
             for method, changes in self.methods:
@@ -443,6 +445,7 @@ class Peal:
         text += '\n'
         text += f'[Imported Bellboard peal ID: {self.bellboard_id}]'
         text += f'\n[Composition URL: {self.composition_url}]' if self.composition_url else ''
+        text += f'\n[Event URL: {self.event_url}]' if self.event_url else ''
         return text
 
     @classmethod

@@ -66,6 +66,10 @@ class PealPrompter(PealGeneratorListener):
         if value:
             prompt_add_footnote(value, self.peal)
 
+    def event(self, url: str):
+        if url:
+            self.peal.event_url = url
+
     def end_peal(self):
         prompt_validate_tenor(self.peal)
         prompt_new_footnote(self.peal)

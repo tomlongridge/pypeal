@@ -125,6 +125,14 @@ class HTMLPealGenerator():
         if not found_footnote:
             self.__listener.footnote(None)
 
+        element = soup.select('p.paragraphs.linked-events.section')
+        if len(element) > 0:
+            event_url = element[0].select('a')[0]['href']
+            self.__listener.event(config.get_config('bellboard', 'url') +
+                                  event_url[event_url.rfind('/'):])
+        else:
+            self.__listener.event(None)
+
         self.__listener.end_peal()
 
         return self.__listener.peal

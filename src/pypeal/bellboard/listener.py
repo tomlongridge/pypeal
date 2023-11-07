@@ -50,5 +50,8 @@ class PealGeneratorListener():
     def footnote(self, value: str):
         pass
 
+    def event(self, url: str):
+        pass
+
     def end_peal(self):
         pass
