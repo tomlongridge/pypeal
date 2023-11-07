@@ -69,8 +69,11 @@ def ask_date(prompt: str, default: datetime = None, min: datetime = None, max: d
                 try:
                     response = datetime.strptime(response, '%Y/%m/%d')
                 except ValueError:
-                    error('Invalid date - please enter in format yyyy/mm/dd')
-                    continue
+                    try:
+                        response = datetime.strptime(response, '%Y-%m-%d')
+                    except ValueError:
+                        error('Invalid date - please enter in format yyyy/mm/dd')
+                        continue
                 if min is not None and response < min:
                     error(f'Date must be on or after {min.strftime("%Y/%m/%d")}')
                     continue

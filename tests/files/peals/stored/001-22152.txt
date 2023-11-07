@@ -5,24 +5,43 @@ Options:
 1) Add peal by URL
 2) Add random peal
 3) Add peal by search
-4) View peal
-5) Update method data
-6) Update Dove data
+4) Add peal by search URL
+5) View peal
+6) Update static data
 7) Exit
 Select action (1): 
 >>> 3
 [User input: "3"]
 Enter search criteria.
-%% for wildcards, "" for absolute match
+% for wildcards, " for absolute match
 Ringer name: 
 >>> search string
 [User input: "search string"]
 Date from (yyyy-mm-dd): 
 >>> 
 [User input: "None"]
-Date to (yyyy-mm-dd) (2023/11/07): 
+Date to (yyyy-mm-dd): 
 >>> 
-[User input: "[Today]"]
+[User input: "None"]
+Place: 
+>>> 
+[User input: "None"]
+County/Region/Country: 
+>>> 
+[User input: "None"]
+Dedication: 
+>>> 
+[User input: "None"]
+Association: 
+>>> 
+[User input: "None"]
+Title: 
+>>> 
+[User input: "None"]
+Type: 1) Any, 2) Tower, 3) Handbells
+Select action (1): 
+>>> 
+[User input: "1"]
 No linked association
 Is this correct? [y/n] (y): 
 >>> y
@@ -182,14 +201,15 @@ Peal 22152 added
 Add next peal? [y/n] (y): 
 >>> n
 [User input: "False"]
+1 peal(s) added (0 duplicates)
 [pypeal panel displayed]
 Options: 
 1) Add peal by URL
 2) Add random peal
 3) Add peal by search
-4) View peal
-5) Update method data
-6) Update Dove data
+4) Add peal by search URL
+5) View peal
+6) Update static data
 7) Exit
 Select action (1): 
 >>> 7
