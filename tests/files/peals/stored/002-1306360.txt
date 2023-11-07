@@ -136,7 +136,7 @@ Given name(s) (David):
 Bell number(s) in the tower (6): 
 >>> 
 [User input: "6"]
-Add new footnote? [y/n] (y): 
+Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
 [http://localhost:8080/view.php?id=1306360 panel displayed]

@@ -167,7 +167,7 @@ Referenced ringer(s):
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Add new footnote? [y/n] (y): 
+Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
 [http://localhost:8080/view.php?id=1426065 panel displayed]

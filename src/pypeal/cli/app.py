@@ -1,3 +1,4 @@
+from datetime import datetime
 import logging
 from typing import Annotated
 import typer
@@ -5,11 +6,11 @@ import typer
 from rich import print
 
 from pypeal.bellboard.interface import BellboardError, get_id_from_url, get_url_from_id
+from pypeal.bellboard.search import search
 from pypeal.bellboard.html_generator import HTMLPealGenerator
-from pypeal.bellboard.xml_generator import XMLPealGenerator
 from pypeal.cccbr import update_methods
 from pypeal.cli.peal_prompter import PealPrompter
-from pypeal.cli.prompts import UserCancelled, choose_option, ask, confirm, panel, error
+from pypeal.cli.prompts import UserCancelled, ask_date, choose_option, ask, confirm, panel, error
 from pypeal.db import initialize as initialize_db
 from pypeal.dove import update_associations, update_bells, update_towers
 from pypeal.peal import Peal
@@ -80,7 +81,7 @@ def run_interactive(peal_id_or_url: str):
 
     while True:
         try:
-            panel(f'Number of peals: {len(get_peal_list())}')
+            panel(f'Number of peals: {len(get_peal_list(force_update=True))}')
 
             match choose_option(['Add peal by URL',
                                  'Add random peal',
@@ -135,33 +136,21 @@ def add_peal(peal_id: int = None):
 
 def search_peals():
 
-    name: str = ask('Ringer name')
+    print('Enter search criteria.')
+    print('%% for wildcards, "" for absolute match')
+    name = ask('Ringer name', required=False)
+    date_from = ask_date('Date from (yyyy-mm-dd)', max=datetime.now(), required=False)
+    date_to = ask_date('Date to (yyyy-mm-dd)', min=date_from, max=datetime.now(), default=datetime.now(), required=False)
 
-    listener = PealPrompter()
-    generator = XMLPealGenerator(listener)
-    peal_gen = generator.search(name)
-
-    # Loop through using the generator, which yields the peal ID to check if it exists
-    # we then send back a true/false to the generator to tell it whether to continue
-    finished_search_results = None
-    peal_id = next(peal_gen)
-    while finished_search_results is not True:
-
-        # Allow user to exit after first peal
-        if finished_search_results is not None and not confirm(None, 'Add next peal?', default=True):
-            break
-
-        peal_exists = peal_id in get_peal_list()
-        finished_search_results = False
-        try:
-            peal_id = peal_gen.send(not peal_exists)
-        except StopIteration:
-            finished_search_results = True
-        peal = listener.peal
-        panel(str(peal), title=get_url_from_id(peal.bellboard_id))
-        if confirm('Save this peal?'):
-            peal.commit()
-            print(f'Peal {peal.bellboard_id} added')
+    first_peal = True
+    for peal_id in search(name=name, date_from=date_from, date_to=date_to):
+        if peal_id in get_peal_list():
+            continue
+        else:
+            if not first_peal and not confirm(None, confirm_message='Add next peal?'):
+                break
+            add_peal(peal_id)
+            first_peal = False
 
 
 def prompt_peal_id(peal_id: str = None) -> int:
@@ -198,8 +187,8 @@ def initialize_or_exit(reset_db: bool, clear_data: bool):
         Ringer.clear_data()
 
 
-def get_peal_list():
-    if not __peals:
+def get_peal_list(force_update: bool = False):
+    if not __peals or force_update:
         update_peal_list()
     return __peals
 

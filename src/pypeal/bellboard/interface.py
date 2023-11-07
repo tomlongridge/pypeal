@@ -8,7 +8,7 @@ from pypeal.config import get_config
 
 BELLBOARD_PEAL_ID_URL = '/view.php?id=%s'
 BELLBOARD_PEAL_RANDOM_URL = '/view.php?random'
-BELLBOARD_PEAL_SEARCH_URL = '/export.php?'
+BELLBOARD_PEAL_SEARCH_URL = '/search.php?'
 
 __logger = logging.getLogger('pypeal')
 __last_call: datetime = None
@@ -18,10 +18,18 @@ class BellboardError(Exception):
     pass
 
 
-def search_peals(name: str) -> str:
-    __logger.info('Searching for peals by ringer name "{name}"')
-    _, response_xml = request(get_config('bellboard', 'url') + BELLBOARD_PEAL_SEARCH_URL + f'ringer={name}',
-                              headers={'Accept': 'application/xml'})
+def search(name: str = None, date_from: datetime = None, date_to: datetime = None, page: int = 1) -> str:
+    query_str = ''
+    if name:
+        query_str += f'&ringer={name}'
+    if date_from:
+        query_str += f'&from_date={date_from.strftime("%d/%m/%Y")}'
+    if date_to:
+        query_str += f'&to_date={date_to.strftime("%d/%m/%Y")}'
+
+    url = get_config('bellboard', 'url') + BELLBOARD_PEAL_SEARCH_URL + f'page={page}{query_str}'
+    __logger.info(f'Searching peals on Bellboard: {url}')
+    _, response_xml = request(url, headers={'Accept': 'application/xml'})
     return response_xml
 
 

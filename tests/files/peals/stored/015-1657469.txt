@@ -10,98 +10,11 @@ Options:
 6) Update Dove data
 7) Exit
 Select action (1): 
->>> 3
-[User input: "3"]
-Ringer name: 
->>> 001
-[User input: "001"]
-No linked association
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
-Matching peal titled "Plain Bob Triples"...
-Matched "Plain Bob Triples" to method "Plain Bob Triples" (ID: m12399)
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
-No composer attributed
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
-1: "Melissa Baker" -> Melissa Baker
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
-Bell number(s) in the tower (1): 
->>> 3
-[User input: "3"]
-2: "Ryan Elliott" -> Ryan Elliott
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
-Bell number(s) in the tower (4): 
->>> 
-[User input: "4"]
-3: "Alisa Cole" -> Alisa Cole
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
-Bell number(s) in the tower (5): 
->>> 
-[User input: "5"]
-4: "Heather Sullivan" -> Heather Sullivan
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
-Bell number(s) in the tower (6): 
->>> 
-[User input: "6"]
-5: 2 existing ringers match "Blake Elliott"
-Options: 1) Blake Elliott (31), 2) Blake Elliott (69), 3) None
-Select action: 
->>> 2
-[User input: "Blake Elliott (2)"]
-Bell number(s) in the tower (7): 
->>> 
-[User input: "7"]
-6: "Chester Edwards" -> Chester Edwards
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
-Bell number(s) in the tower (8): 
->>> 
-[User input: "8"]
-7: "Leonardo Bennett" -> Leo Bennett
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
-Bell number(s) in the tower (9): 
->>> 
-[User input: "9"]
-8: "Paul Armstrong" -> Paul Armstrong
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
-Bell number(s) in the tower (10): 
->>> 
-[User input: "10"]
-Footnote line:
-  > For morning service and to mark the christening of Naomi Rebecca Grace Pearson
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
-Add new footnote? [y/n] (y): 
->>> n
-[User input: "False"]
-[http://localhost:8080/view.php?id=1660822 panel displayed]
-Save this peal?
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
-Peal 1660822 added
-Add next peal? [y/n] (y): 
->>> y
-[User input: "True"]
+>>> 1
+[User input: "1"]
+Bellboard URL or peal ID: 
+>>> 1657469
+[User input: "1657469"]
 No linked association
 Is this correct? [y/n] (y): 
 >>> 
@@ -263,7 +176,7 @@ Footnote line:
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Add new footnote? [y/n] (y): 
+Add new footnote? [y/n] (n): 
 >>> y
 [User input: "True"]
 Footnote text: 
@@ -277,7 +190,7 @@ Footnote 2 text:
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Add new footnote? [y/n] (y): 
+Add new footnote? [y/n] (n): 
 >>> y
 [User input: "True"]
 Footnote text: 
@@ -302,7 +215,7 @@ Referenced ringer(s):
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Add new footnote? [y/n] (y): 
+Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
 [http://localhost:8080/view.php?id=1657469 panel displayed]
@@ -326,26 +239,8 @@ Select action (1):
 ===
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
-on Sunday, 1 October 2023
-1260 Plain Bob Triples (18-3-20 in Eb)
-
-1 [3]: Melissa Baker
-2 [4]: Ryan Elliott
-3 [5]: Alisa Cole
-4 [6]: Heather Sullivan
-5 [7]: Blake Elliott
-6 [8]: Chester Edwards
-7 [9]: Leo Bennett (c)
-8 [10]: Paul Armstrong
-
-For morning service and to mark the christening of Naomi Rebecca Grace Pearson.
-
-[Imported Bellboard peal ID: 1660822]
-===
-Bath, Somerset, England
-Blessed Virgin Mary, Bathwick
 on Sunday, 10 September 2023
-1260 Mixed Doubles (3m) (7-3-12 in Bb)
+1260 Mixed Doubles (3m) in 41 mins (7-3-12 in Bb)
 (360 Reverse Canterbury Pleasure Place Doubles, 360 Plain Bob Doubles, 540 Grandsire Bob Doubles)
 
 1: Ryan Elliott

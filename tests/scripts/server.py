@@ -1,13 +1,16 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import os
 import random
+import urllib.parse
 
 
 class BellboardMockServer(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path.startswith('/view.php?id='):
+            peal_file_name = self.path.split("=")[1]
+            peal_file_name = peal_file_name.zfill(7) + '.html'
             self.respond_with_file(
-                os.path.join(os.path.dirname(__file__), '..', 'files', 'peals', 'pages', f'{self.path.split("=")[1]}.html')
+                os.path.join(os.path.dirname(__file__), '..', 'files', 'peals', 'pages', peal_file_name)
             )
         elif self.path.startswith('/view.php?random'):
             random_peal_file = random.choice(
@@ -16,14 +19,16 @@ class BellboardMockServer(BaseHTTPRequestHandler):
             self.send_response(303)
             self.send_header('location', '/view.php?id=' + random_peal_file.split('.')[0])
             self.end_headers()
-        elif self.path.startswith('/export.php?'):
-            for param in self.path.split('?')[1].split('&'):
-                param_name, param_value = param.split('=')
-                if param_name == 'ringer':
-                    response_file = os.path.join(os.path.dirname(__file__), '..', 'files', 'peals', 'searches', f'{param_value}.xml')
-                    if os.path.exists(response_file):
-                        self.respond_with_file(response_file, 'application/xml')
-                        return
+        elif self.path.startswith('/search.php?'):
+            params = urllib.parse.parse_qs(self.path.split('?')[1])
+            if 'page' in params:
+                page = int(params['page'][0])
+            else:
+                page = 1
+            response_file = os.path.join(os.path.dirname(__file__), '..', 'files', 'peals', 'searches', f'{page}.xml')
+            if os.path.exists(response_file):
+                self.respond_with_file(response_file, 'application/xml')
+                return
             self.respond_with_content(
                 '<performances xmlns="http://bb.ringingworld.co.uk/NS/performances#"></performances>',
                 content_type='application/xml')

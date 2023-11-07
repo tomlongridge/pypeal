@@ -21,7 +21,7 @@ def prompt_add_footnote(text: str, peal: Peal):
 
 def prompt_new_footnote(peal: Peal):
     while True:
-        if not confirm(None, confirm_message='Add new footnote?'):
+        if not confirm(None, confirm_message='Add new footnote?', default=False):
             break
         prompt_add_single_footnote(None, None, None, peal)
 

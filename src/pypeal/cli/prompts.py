@@ -1,3 +1,4 @@
+from datetime import datetime
 import logging
 from rich.prompt import IntPrompt, Prompt, Confirm
 from rich.panel import Panel
@@ -16,6 +17,8 @@ class UserCancelled(Exception):
 def print_user_input(prompt: str, message: str):
     logger.debug(f'User input >> {prompt}: {message}')
     if get_config('diagnostics', 'print_user_input') == 'True':
+        if message == datetime.now().strftime('%Y/%m/%d'):  # Avoid printing today's date so it doesn't change in test
+            message = '[Today]'
         print(f'\n[User input: "{message}"]')
 
 
@@ -36,14 +39,50 @@ def ask_int(prompt: str, default: int = None, min: int = None, max: int = None) 
     try:
         while True:
             response = IntPrompt.ask(prompt, default=default, show_default=(default is not None))
-            if (default is None and response is None) or \
-               (response is not None and (min is None or response >= min) and (max is None or response <= max)):
-                print_user_input(prompt, response)
-                return response
+            if default is None and response is None:
+                break
+            if response is not None:
+                if min is not None and response < min:
+                    error(f'Number must be {min} or more')
+                    continue
+                if max is not None and response > max:
+                    error(f'Number must be {max} or less')
+                    continue
+            break
     except KeyboardInterrupt:
         print_user_input(prompt, '[Abort]')
         print()  # Ensure subsequent prompt is on a new line
         raise UserCancelled()
+    print_user_input(prompt, response)
+    return response
+
+
+def ask_date(prompt: str, default: datetime = None, min: datetime = None, max: datetime = None, required: bool = True) -> datetime:
+    try:
+        while True:
+            response = ask(prompt,
+                           default=default.strftime('%Y/%m/%d') if default else None,
+                           required=required)
+            if default is None and response is None:
+                break
+            if response is not None:
+                try:
+                    response = datetime.strptime(response, '%Y/%m/%d')
+                except ValueError:
+                    error('Invalid date - please enter in format yyyy/mm/dd')
+                    continue
+                if min is not None and response < min:
+                    error(f'Date must be on or after {min.strftime("%Y/%m/%d")}')
+                    continue
+                if max is not None and response > max:
+                    error(f'Date must be on or before {max.strftime("%Y/%m/%d")}')
+                    continue
+            break
+    except KeyboardInterrupt:
+        print_user_input(prompt, '[Abort]')
+        print()  # Ensure subsequent prompt is on a new line
+        raise UserCancelled()
+    return response
 
 
 def confirm(prompt: str, confirm_message: str = 'Is this correct?', default: bool = True) -> bool:
@@ -64,7 +103,8 @@ def choose_option(options: list[any],
                   prompt: str = 'Options',
                   default: any = None,
                   return_option: bool = False,
-                  cancel_option: str = None) -> any:
+                  cancel_option: str = None,
+                  required: bool = True) -> any:
     prompt_text = f'{prompt}: '
     option_list = [*options] + ([cancel_option] if cancel_option else [])
     for i, option in enumerate(option_list):
@@ -92,7 +132,12 @@ def choose_option(options: list[any],
             raise UserCancelled()
 
         if choice is None:
-            continue
+            if required:
+                error('Please choose an option')
+                continue
+            else:
+                response = None
+                print_user_input(prompt_text, 'None')
         elif cancel_option and choice == len(option_list):
             response = None
             print_user_input(prompt_text, cancel_option)
