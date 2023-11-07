@@ -1,7 +1,11 @@
 import re
-from pypeal.cli.prompts import ask, confirm, error
+from pypeal.cli.prompts import ask, choose_option, confirm, error
 from pypeal.parsers import parse_footnote
-from pypeal.peal import Peal
+from pypeal.peal import MuffleType, Peal
+
+
+HALF_MUFFLED_REGEX = re.compile(r'.*half\s?\-?\s?muffled.*', re.IGNORECASE)
+MUFFLED_REGEX = re.compile(r'.*(?:fully?)?\s?\-?\s?muffled.*', re.IGNORECASE)
 
 
 def prompt_add_footnote(text: str, peal: Peal):
@@ -16,17 +20,25 @@ def prompt_add_footnote(text: str, peal: Peal):
             line_parts = [line]
 
         for line_part in line_parts:
-            prompt_add_single_footnote(*parse_footnote(line_part), text, peal)
+            _prompt_add_single_footnote(*parse_footnote(line_part), text, peal)
 
 
 def prompt_new_footnote(peal: Peal):
     while True:
         if not confirm(None, confirm_message='Add new footnote?', default=False):
             break
-        prompt_add_single_footnote(None, None, None, peal)
+        _prompt_add_single_footnote(None, None, None, peal)
 
 
-def prompt_add_single_footnote(bells: list[int], text: str, original_text: str, peal: Peal):
+def prompt_add_muffle_type(peal: Peal):
+    if peal.muffles == MuffleType.NONE:
+        peal.muffles = choose_option(['None', 'Half-muffled', 'Fully-muffled'],
+                                     values=[MuffleType.NONE, MuffleType.HALF, MuffleType.FULL],
+                                     default='None',
+                                     return_option=True)
+
+
+def _prompt_add_single_footnote(bells: list[int], text: str, original_text: str, peal: Peal):
     ringers = None
     while True:
         if text:
@@ -40,7 +52,15 @@ def prompt_add_single_footnote(bells: list[int], text: str, original_text: str, 
                         print(f'  - {bell}: {ringer}')
             if confirm(None):
                 break
-        text, bells = prompt_footnote_details(default_text=text, default_bells=bells, max_bells=peal.num_bells)
+        text, bells = _prompt_footnote_details(default_text=text, default_bells=bells, max_bells=peal.num_bells)
+
+    muffle_type = MuffleType.NONE
+    if re.match(HALF_MUFFLED_REGEX, text):
+        muffle_type = MuffleType.HALF
+    elif re.match(MUFFLED_REGEX, text):
+        muffle_type = MuffleType.FULL
+    if muffle_type != MuffleType.NONE and confirm(f'Possible {muffle_type.name.lower()}-muffled ringing'):
+        peal.muffles = muffle_type
 
     if bells:
         for bell, ringer in zip(bells, ringers):
@@ -49,7 +69,7 @@ def prompt_add_single_footnote(bells: list[int], text: str, original_text: str, 
         peal.add_footnote(text, None, None)
 
 
-def prompt_footnote_details(default_bells: list[int] = None, default_text: str = None, max_bells: int = None) -> (str, list[int]):
+def _prompt_footnote_details(default_bells: list[int] = None, default_text: str = None, max_bells: int = None) -> (str, list[int]):
     while True:
         footnote = ask('Footnote text', default=default_text)
         if len(footnote.strip()) > 0:

@@ -13,14 +13,14 @@ Select action (1):
 >>> 1
 [User input: "1"]
 Bellboard URL or peal ID: 
->>> 1620096
-[User input: "1620096"]
+>>> 1471264
+[User input: "1471264"]
 No linked association
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
-Matching peal titled "Grandsire Doubles"...
-Matched "Grandsire Doubles" to method "Grandsire Doubles" (ID: m10587)
+Matching peal titled "Grandsire Caters"...
+Matched "Grandsire Caters" to method "Grandsire Caters" (ID: m13833)
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
@@ -28,14 +28,14 @@ No composer attributed
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
-1: "Ryan Elliott" -> Ryan Elliott
+1: "Lenny Howard" -> Lenny Howard
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
 Bell number(s) in the tower (1): 
 >>> 
 [User input: "1"]
-2: "Arnold Johnson" -> Arnold Johnson
+2: "Jacob Cole" -> Jacob Cole
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
@@ -49,45 +49,73 @@ Is this correct? [y/n] (y):
 Bell number(s) in the tower (3): 
 >>> 
 [User input: "3"]
-4: "Joyce Sullivan" -> Joyce Sullivan
+4: "Savana Davis" -> Savana Davis
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
 Bell number(s) in the tower (4): 
 >>> 
 [User input: "4"]
-5: "Leonardo Bennett" -> Leo Bennett
+5: "Daryl Mason" -> Daryl Mason
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
 Bell number(s) in the tower (5): 
 >>> 
 [User input: "5"]
-6: "Grace Perry" -> Grace Perry
+6: "Melissa Baker" -> Melissa Baker
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
 Bell number(s) in the tower (6): 
 >>> 
 [User input: "6"]
-Footnote line:
-  > For morning service, and to mark the coronation of King Charles III and Queen Camilla
+7: "Joyce Sullivan" -> Joyce Sullivan
 Is this correct? [y/n] (y): 
 >>> 
+[User input: "True"]
+Bell number(s) in the tower (7): 
+>>> 
+[User input: "7"]
+8: "Harold Gray" -> Harold Gray
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Bell number(s) in the tower (8): 
+>>> 
+[User input: "8"]
+9: "Leonardo Bennett" -> Leo Bennett
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Bell number(s) in the tower (9): 
+>>> 
+[User input: "9"]
+10: "Cadie Nelson" -> Cadie Nelson
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Bell number(s) in the tower (10): 
+>>> 
+[User input: "10"]
+Footnote line:
+  > Rung half muffled for morning service on remembrance day
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Possible half-muffled ringing
+Is this correct? [y/n] (y): 
+>>> y
 [User input: "True"]
 Add new footnote? [y/n] (n): 
 >>> 
 [User input: "False"]
-Options: 1) None, 2) Half-muffled, 3) Fully-muffled
-Select action (1): 
->>> 
-[User input: "MuffleType.NONE (1)"]
-[http://localhost:8080/view.php?id=1620096 panel displayed]
+[http://localhost:8080/view.php?id=1471264 panel displayed]
 Save this peal?
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
-Peal 1620096 added
+Peal 1471264 added
 [pypeal panel displayed]
 Options: 
 1) Add peal by URL
@@ -103,17 +131,21 @@ Select action (1):
 ===
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
-on Sunday, 7 May 2023
-1260 Grandsire Doubles in 40 mins (7-3-12 in Bb)
+on Sunday, 14 November 2021
+1259 Grandsire Caters (half-muffled) in 49 mins (18-3-20 in Eb)
 
-1: Ryan Elliott
-2: Arnold Johnson
-3: Heather Sullivan (c)
-4: Joyce Sullivan
-5: Leo Bennett
-6: Grace Perry
+1: Lenny Howard
+2: Jacob Cole
+3: Heather Sullivan
+4: Savana Davis
+5: Daryl Mason
+6: Melissa Baker
+7: Joyce Sullivan
+8: Harold Gray
+9: Leo Bennett (c)
+10: Cadie Nelson
 
-For morning service, and to mark the coronation of King Charles III and Queen Camilla.
+Rung half muffled for morning service on remembrance day.
 
-[Imported Bellboard peal ID: 1620096]
-[Event URL: http://localhost:8080/event.php?id=16774]
+[Imported Bellboard peal ID: 1471264]
+[Event URL: http://localhost:8080/event.php?id=14097]

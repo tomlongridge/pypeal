@@ -28,6 +28,7 @@ CREATE TABLE @db_name.`peals` (
     `tenor_weight` INT UNSIGNED NULL,
     `tenor_note` VARCHAR(45) NULL,
     `event_url` VARCHAR(128) NULL,
+    `muffles` TINYINT UNSIGNED NOT NULL,
     PRIMARY KEY (`id`),
     UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
     UNIQUE INDEX `bellboard_id_UNIQUE` (`bellboard_id` ASC) VISIBLE,

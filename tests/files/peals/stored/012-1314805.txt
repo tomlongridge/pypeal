@@ -156,6 +156,10 @@ Is this correct? [y/n] (y):
 Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
+Options: 1) None, 2) Half-muffled, 3) Fully-muffled
+Select action (1): 
+>>> 
+[User input: "MuffleType.NONE (1)"]
 [http://localhost:8080/view.php?id=1314805 panel displayed]
 Save this peal?
 Is this correct? [y/n] (y): 

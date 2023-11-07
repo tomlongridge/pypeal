@@ -1,6 +1,6 @@
 from datetime import datetime
 from pypeal.bellboard.listener import PealGeneratorListener
-from pypeal.cli.prompt_add_footnote import prompt_add_footnote, prompt_new_footnote
+from pypeal.cli.prompt_add_footnote import prompt_add_footnote, prompt_add_muffle_type, prompt_new_footnote
 from pypeal.cli.prompt_validate_tenor import prompt_validate_tenor
 from pypeal.cli.prompt_add_association import prompt_add_association
 from pypeal.cli.prompt_add_change_of_method import prompt_add_change_of_method
@@ -9,7 +9,7 @@ from pypeal.cli.prompt_add_location import prompt_add_location
 from pypeal.cli.prompt_add_ringer import prompt_add_ringer
 from pypeal.cli.prompt_peal_title import prompt_peal_title
 from pypeal.parsers import parse_duration, parse_tenor_info
-from pypeal.peal import PealType
+from pypeal.peal import MuffleType, PealType
 from pypeal.tower import Tower
 
 
@@ -73,3 +73,4 @@ class PealPrompter(PealGeneratorListener):
     def end_peal(self):
         prompt_validate_tenor(self.peal)
         prompt_new_footnote(self.peal)
+        prompt_add_muffle_type(self.peal)

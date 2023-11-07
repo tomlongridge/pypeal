@@ -13,12 +13,18 @@ from pypeal.utils import get_bell_label
 PEAL_FIELD_LIST: list[str] = ['bellboard_id', 'type', 'date', 'association_id', 'ring_id', 'place', 'sub_place', 'address', 'dedication',
                               'county', 'country', 'tenor_weight', 'tenor_note', 'changes', 'stage', 'classification', 'is_spliced',
                               'is_mixed', 'is_variable_cover', 'num_methods', 'num_principles', 'num_variants', 'method_id', 'title',
-                              'composer_id', 'composition_url', 'duration', 'event_url']
+                              'composer_id', 'composition_url', 'duration', 'event_url', 'muffles']
 
 
 class PealType(Enum):
     TOWER = 1
     HANDBELLS = 2
+
+
+class MuffleType(Enum):
+    HALF = 1
+    FULL = 2
+    NONE = 0
 
 
 @dataclass
@@ -45,6 +51,7 @@ class Peal:
     composition_url: str
     duration: int
     event_url: str
+    muffles: MuffleType
     id: int
 
     # Fields shared with Tower
@@ -93,6 +100,7 @@ class Peal:
                  composition_url: str = None,
                  duration: int = None,
                  event_url: str = None,
+                 muffles: int = MuffleType.NONE,
                  id: int = None):
         self.bellboard_id = bellboard_id
         self.type = PealType(type) if type else None
@@ -122,6 +130,7 @@ class Peal:
         self.composition_url = composition_url
         self.duration = duration
         self.event_url = event_url
+        self.muffles = MuffleType(muffles) if muffles else None
         self.id = id
 
         self.__methods = None
@@ -370,13 +379,13 @@ class Peal:
         if self.id is None:
             result = Database.get_connection().query(
                 f'INSERT INTO peals ({",".join(PEAL_FIELD_LIST)}) ' +
-                'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
+                f'VALUES ({("%s,"*len(PEAL_FIELD_LIST)).strip(",")})',
                 (self.bellboard_id, self.type.value, self.date, self.association.id if self.association else None,
                  self.ring.id if self.ring else None, self.__place, self.__sub_place, self.address, self.dedication, self.__county,
                  self.__country, self.__tenor_weight, self.__tenor_note, self.changes, self.stage.value if self.stage else None,
                  self.classification, self.is_spliced, self.is_mixed, self.is_variable_cover, self.num_methods or 0,
                  self.num_principles or 0, self.num_variants or 0, self.method.id if self.method else None, self.title,
-                 self.composer.id if self.composer else None, self.composition_url, self.duration, self.event_url))
+                 self.composer.id if self.composer else None, self.composition_url, self.duration, self.event_url, self.muffles.value))
             Database.get_connection().commit()
             self.id = result.lastrowid
             for method, changes in self.methods:
@@ -413,6 +422,8 @@ class Peal:
         text += f'on {self.date.strftime("%A, %-d %B %Y")}\n' if self.date else ''
         text += f'{self.changes} ' if self.changes else ''
         text += self.method_title or f'"{self.title}"'
+        text += ' (half-muffled)' if self.muffles == MuffleType.HALF else ''
+        text += ' (muffled)' if self.muffles == MuffleType.FULL else ''
         text += ' '
         text += f'in {self.duration} mins ' if self.duration else ''
         text += f'({self.tenor_description})' if self.tenor_description else ''
