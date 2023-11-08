@@ -430,9 +430,6 @@ Last name (Howard):
 Given name(s) (Blake): 
 >>> 
 [User input: "Blake"]
-Bell number(s) in the tower (1): 
->>> 
-[User input: "1"]
 2: Attempting to find "Aston Mitchell"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -444,9 +441,6 @@ Last name (Mitchell):
 Given name(s) (Aston): 
 >>> 
 [User input: "Aston"]
-Bell number(s) in the tower (2): 
->>> 
-[User input: "2"]
 3: Attempting to find "John Parker"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -458,16 +452,10 @@ Last name (Parker):
 Given name(s) (John): 
 >>> 
 [User input: "John"]
-Bell number(s) in the tower (3): 
->>> 
-[User input: "3"]
 4: "Alen Henderson" -> Alen Henderson
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Bell number(s) in the tower (4): 
->>> 
-[User input: "4"]
 5: Attempting to find "Dominik Warren"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -479,9 +467,6 @@ Last name (Warren):
 Given name(s) (Dominik): 
 >>> 
 [User input: "Dominik"]
-Bell number(s) in the tower (5): 
->>> 
-[User input: "5"]
 6: Attempting to find "Sienna Murphy"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -493,9 +478,6 @@ Last name (Murphy):
 Given name(s) (Sienna): 
 >>> 
 [User input: "Sienna"]
-Bell number(s) in the tower (6): 
->>> 
-[User input: "6"]
 Footnote line:
   > Rung as a wedding compliment to Miss Ann Pearce and Mr George Bradlaugh; Also a birthday compliment to Vernon B Bedford
 Is this correct? [y/n] (y): 

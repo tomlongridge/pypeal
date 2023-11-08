@@ -76,7 +76,7 @@ Bell number(s) in the tower (6):
 >>> 
 [User input: "6"]
 5: 2 existing ringers match "Blake Elliott"
-Options: 1) Blake Elliott (31), 2) Blake Elliott (69), 3) None
+Options: 1) Blake Elliott (31), 2) Blake Elliott (68), 3) None
 Select action: 
 >>> 2
 [User input: "Blake Elliott (2)"]

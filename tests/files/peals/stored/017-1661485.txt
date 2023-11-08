@@ -71,9 +71,6 @@ Composition URL (http://localhost:8080/comp.php?id=2293479):
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Bell number(s) in the tower (1): 
->>> 
-[User input: "1"]
 2: Attempting to find "Michelle Edwards"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -85,23 +82,14 @@ Last name (Edwards):
 Given name(s) (Michelle): 
 >>> 
 [User input: "Michelle"]
-Bell number(s) in the tower (2): 
->>> 
-[User input: "2"]
 3: "Dainton Casey" -> Dainton Casey
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Bell number(s) in the tower (3): 
->>> 
-[User input: "3"]
 4: "Paul Armstrong" -> Paul Armstrong
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Bell number(s) in the tower (4): 
->>> 
-[User input: "4"]
 5: Attempting to find "Deanna Bennett"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -113,9 +101,6 @@ Last name (Bennett):
 Given name(s) (Deanna): 
 >>> 
 [User input: "Deanna"]
-Bell number(s) in the tower (5): 
->>> 
-[User input: "5"]
 6: Attempting to find "Brooke Adams"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -127,9 +112,6 @@ Last name (Adams):
 Given name(s) (Brooke): 
 >>> 
 [User input: "Brooke"]
-Bell number(s) in the tower (6): 
->>> 
-[User input: "6"]
 Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]

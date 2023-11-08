@@ -85,9 +85,6 @@ Last name (Casey):
 Given name(s) (Dainton): 
 >>> 
 [User input: "Dainton"]
-Bell number(s) in the tower (1): 
->>> 
-[User input: "1"]
 2: Attempting to find "Daryl Mason"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -99,9 +96,6 @@ Last name (Mason):
 Given name(s) (Daryl): 
 >>> 
 [User input: "Daryl"]
-Bell number(s) in the tower (2): 
->>> 
-[User input: "2"]
 3: Attempting to find "Roland Clark"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -113,9 +107,6 @@ Last name (Clark):
 Given name(s) (Roland): 
 >>> 
 [User input: "Roland"]
-Bell number(s) in the tower (3): 
->>> 
-[User input: "3"]
 4: Attempting to find "Michelle Thompson"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -127,16 +118,10 @@ Last name (Thompson):
 Given name(s) (Michelle): 
 >>> 
 [User input: "Michelle"]
-Bell number(s) in the tower (4): 
->>> 
-[User input: "4"]
 5: "Ted Harris" -> Ted Harris
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Bell number(s) in the tower (5): 
->>> 
-[User input: "5"]
 6: Attempting to find "David Rogers"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -148,9 +133,6 @@ Last name (Rogers):
 Given name(s) (David): 
 >>> 
 [User input: "David"]
-Bell number(s) in the tower (6): 
->>> 
-[User input: "6"]
 Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
