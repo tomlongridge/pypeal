@@ -1,6 +1,8 @@
 
 ===
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 16                                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal
@@ -15,6 +17,20 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1661485
 [User input: "1661485"]
+╭───────────────── http://localhost:8080/view.php?id=1661485 ──────────────────╮
+│ St Stephen, Lansdown, Bath, Somerset                                         │
+│ 1296 Honeywell Delight Minor                                                 │
+│ Friday, 6 October 2023 (2–3–9 in F) in 36m                                   │
+│                                                                              │
+│ 1: Leonardo Bennett                                                          │
+│ 2: Michelle Edwards                                                          │
+│ 3: Dainton Casey                                                             │
+│ 4: Paul Armstrong                                                            │
+│ 5: Deanna Bennett                                                            │
+│ 6: Brooke Adams (c)                                                          │
+│                                                                              │
+│ Linked event: http://localhost:8080/event.php?id=17514                       │
+╰──────────────────────────────────────────────────────────────────────────────╯
 No linked association
 Is this correct? [y/n] (y): 
 >>> y
@@ -121,13 +137,32 @@ Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
 [User input: "MuffleType.NONE (1)"]
-[http://localhost:8080/view.php?id=1661485 panel displayed]
+╭───────────────── http://localhost:8080/view.php?id=1661485 ──────────────────╮
+│ Bath, Somerset, England                                                      │
+│ S Stephen, Lansdown                                                          │
+│ on Friday, 6 October 2023                                                    │
+│ 1296 Honeywell Delight Minor in 36 mins (2-3-9 in F)                         │
+│ Composed by: Byron Miller                                                    │
+│                                                                              │
+│ 1: Leo Bennett                                                               │
+│ 2: Michelle Edwards                                                          │
+│ 3: Dainton Casey                                                             │
+│ 4: Paul Armstrong                                                            │
+│ 5: Deanna Bennett                                                            │
+│ 6: Brooke Adams (c)                                                          │
+│                                                                              │
+│ [Imported Bellboard peal ID: 1661485]                                        │
+│ [Composition URL: http://localhost:8080/comp.php?id=2293479]                 │
+│ [Event URL: http://localhost:8080/event.php?id=17514]                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 Peal 1661485 added
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 17                                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal

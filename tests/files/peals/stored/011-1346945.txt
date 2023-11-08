@@ -1,6 +1,8 @@
 
 ===
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 10                                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal
@@ -15,6 +17,23 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1346945
 [User input: "1346945"]
+╭───────────────── http://localhost:8080/view.php?id=1346945 ──────────────────╮
+│ Suffolk Guild                                                                │
+│ St John the Baptist, Saxmundham, Suffolk                                     │
+│ 5040 8 Methods/variations Doubles                                            │
+│ Monday, 27 March 1967 (8–3–7 in A) in 2h 29                                  │
+│                                                                              │
+│ 1: Lydia Reed                                                                │
+│ 2: Victoria Morrison                                                         │
+│ 3: Stuart Murray                                                             │
+│ 4: Ned Andrews                                                               │
+│ 5: Aston Mitchell (c)                                                        │
+│ 6: Carina Warren                                                             │
+│                                                                              │
+│ Rung as a wedding compliment To Terry Lee Nash, of Lindenhurst, Long Island, │
+│ New York, U.S.A., and Mrs Linda Archer of Saxmundham, daughter of the tower  │
+│ captain at this tower, who were married at this church on Easter Saturday.   │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Matched "Suffolk Guild" to association: Suffolk Guild (ID: 286)
 Is this correct? [y/n] (y): 
 >>> n
@@ -348,13 +367,37 @@ Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
 [User input: "MuffleType.NONE (1)"]
-[http://localhost:8080/view.php?id=1346945 panel displayed]
+╭───────────────── http://localhost:8080/view.php?id=1346945 ──────────────────╮
+│ Saxmundham, Suffolk, England                                                 │
+│ S John Bapt                                                                  │
+│ on Monday, 27 March 1967                                                     │
+│ 5040 Mixed Doubles (4m/4v) in 149 mins (8-3-7 in A)                          │
+│ (630 Stedman Doubles, 630 Grandsire Bob Doubles, 630 Reverse Canterbury      │
+│ Pleasure Place Doubles, 630 Winchendon Place Doubles, 630 St Nicholas Bob    │
+│ Doubles, 630 St Simon's Bob Doubles, 630 St Martin's Bob Doubles, 630 Plain  │
+│ Bob Doubles)                                                                 │
+│                                                                              │
+│ 1: Lydia Reed                                                                │
+│ 2: Victoria Morrison                                                         │
+│ 3: Stuart 1                                                                  │
+│ 4: Ned Andrews                                                               │
+│ 5: Aston Mitchell (c)                                                        │
+│ 6: Carina Warren                                                             │
+│                                                                              │
+│ Rung as a wedding compliment To Terry Lee Nash, of Lindenhurst, Long Island, │
+│ New York, U.S.A., and Mrs Linda Archer of Saxmundham, daughter of the tower  │
+│ captain at this tower, who were married at this church on Easter Saturday.   │
+│                                                                              │
+│ [Imported Bellboard peal ID: 1346945]                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 Peal 1346945 added
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 11                                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal

@@ -10,7 +10,8 @@ from pypeal.bellboard.interface import BellboardError, get_id_from_url, get_url_
 from pypeal.bellboard.search import BellboardSearchNoResultFoundError, search as bellboard_search, search_by_url as bellboard_search_by_url
 from pypeal.bellboard.html_generator import HTMLPealGenerator
 from pypeal.cccbr import update_methods
-from pypeal.cli.peal_prompter import PealPrompter
+from pypeal.cli.peal_prompter import PealPromptListener
+from pypeal.cli.peal_previewer import PealPreviewListener
 from pypeal.cli.prompts import UserCancelled, ask_date, choose_option, ask, confirm, panel, error
 from pypeal.db import initialize as initialize_db
 from pypeal.dove import update_associations, update_bells, update_towers
@@ -121,15 +122,21 @@ def add_peal(peal_id: int = None):
         error(f'Peal {peal_id} already added to database')
         return
 
-    generator = HTMLPealGenerator(PealPrompter())
+    generator = HTMLPealGenerator()
+    preview_listener = PealPreviewListener()
+    prompt_listener = PealPromptListener()
 
     try:
-        peal = generator.get(peal_id)
+        generator.download(peal_id)
+        generator.parse(preview_listener)
+        panel(preview_listener.text, title=get_url_from_id(peal_id))
+        generator.parse(prompt_listener)
     except BellboardError as e:
         logger.exception('Error getting peal from Bellboard: %s', e)
         error(e)
         return
 
+    peal = prompt_listener.peal
     panel(str(peal), title=get_url_from_id(peal.bellboard_id))
     if confirm('Save this peal?'):
         peal.commit()

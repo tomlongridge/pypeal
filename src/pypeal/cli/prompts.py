@@ -162,10 +162,7 @@ def prompt_names(default_last_name: str = None, default_given_names: str = None)
 
 
 def panel(content: str, title: str = 'pypeal'):
-    if get_config('diagnostics', 'print_user_input') != 'True':
-        print(Panel(escape(content), title=title))
-    else:
-        print(escape(f'[{title} panel displayed]'))
+    print(Panel(escape(content), title=title))
 
 
 def error(message: str):

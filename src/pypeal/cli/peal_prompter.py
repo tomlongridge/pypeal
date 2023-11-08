@@ -9,11 +9,17 @@ from pypeal.cli.prompt_add_location import prompt_add_location
 from pypeal.cli.prompt_add_ringer import prompt_add_ringer
 from pypeal.cli.prompt_peal_title import prompt_peal_title
 from pypeal.parsers import parse_duration, parse_tenor_info
-from pypeal.peal import MuffleType, PealType
+from pypeal.peal import Peal, PealType
 from pypeal.tower import Tower
 
 
-class PealPrompter(PealGeneratorListener):
+class PealPromptListener(PealGeneratorListener):
+
+    def __init__(self):
+        self.peal = None
+
+    def new_peal(self, id: int):
+        self.peal = Peal(bellboard_id=id)
 
     def type(self, value: PealType):
         self.peal.type = value

@@ -1,6 +1,8 @@
 
 ===
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 2                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal
@@ -15,6 +17,22 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1346767
 [User input: "1346767"]
+╭───────────────── http://localhost:8080/view.php?id=1346767 ──────────────────╮
+│ Suffolk Guild                                                                │
+│ Holy Trinity, Blythburgh, Suffolk                                            │
+│ 5040 8 Methods Minor                                                         │
+│ Monday, 25 March 1963 (10–1–10 in G) in 2h 42                                │
+│                                                                              │
+│ 1: Blake Howard                                                              │
+│ 2: Aston Mitchell                                                            │
+│ 3: John Parker                                                               │
+│ 4: Alen Henderson                                                            │
+│ 5: Dominik Warren                                                            │
+│ 6: Sienna Murphy (c)                                                         │
+│                                                                              │
+│ Rung as a wedding compliment to Miss Ann Pearce and Mr George Bradlaugh;     │
+│ Also a birthday compliment to Vernon B Bedford.                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Matched "Suffolk Guild" to association: Suffolk Guild (ID: 286)
 Is this correct? [y/n] (y): 
 >>> y
@@ -490,13 +508,36 @@ Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
 [User input: "MuffleType.NONE (1)"]
-[http://localhost:8080/view.php?id=1346767 panel displayed]
+╭───────────────── http://localhost:8080/view.php?id=1346767 ──────────────────╮
+│ Suffolk Guild                                                                │
+│ Blythburgh, Suffolk, England                                                 │
+│ Holy Trinity                                                                 │
+│ on Monday, 25 March 1963                                                     │
+│ 5040 Mixed Surprise Minor (8m) in 162 mins (10-1-10 in G)                    │
+│ (Norwich Surprise Minor, Ipswich Surprise Minor, Cambridge Surprise Minor,   │
+│ Single Oxford Bob Minor, Plain Bob Minor, St Clement's College Bob Minor,    │
+│ Oxford Treble Bob Minor, Double Oxford Bob Minor)                            │
+│                                                                              │
+│ 1: Blake Howard                                                              │
+│ 2: Aston Mitchell                                                            │
+│ 3: John Parker                                                               │
+│ 4: Alen Henderson                                                            │
+│ 5: Dominik Warren                                                            │
+│ 6: Sienna Murphy (c)                                                         │
+│                                                                              │
+│ Rung as a wedding compliment to Miss Ann Pearce and Mr George Bradlaugh;     │
+│ Also a birthday compliment to Vernon B Bedford.                              │
+│                                                                              │
+│ [Imported Bellboard peal ID: 1346767]                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 Peal 1346767 added
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 3                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal

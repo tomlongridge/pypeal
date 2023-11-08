@@ -1,6 +1,8 @@
 
 ===
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 1                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal
@@ -15,6 +17,19 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1306360
 [User input: "1306360"]
+╭───────────────── http://localhost:8080/view.php?id=1306360 ──────────────────╮
+│ Bath & Wells Diocesan Association                                            │
+│ Blessed Virgin Mary, Portbury, Somerset                                      │
+│ 1260 Doubles (1p/5m/3v)                                                      │
+│ Thursday, 17 October 2019 (21 in E♭) in 44m                                  │
+│                                                                              │
+│ 1: Dainton Casey                                                             │
+│ 2: Daryl Mason                                                               │
+│ 3: Roland Clark                                                              │
+│ 4: Michelle Thompson                                                         │
+│ 5: Ted Harris (c)                                                            │
+│ 6: David Rogers                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Matched "Bath & Wells Diocesan Association" to association: Bath and Wells 
 Diocesan Association (ID: 236)
 Is this correct? [y/n] (y): 
@@ -143,13 +158,30 @@ Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
 [User input: "MuffleType.NONE (1)"]
-[http://localhost:8080/view.php?id=1306360 panel displayed]
+╭───────────────── http://localhost:8080/view.php?id=1306360 ──────────────────╮
+│ Bath and Wells Diocesan Association                                          │
+│ Portbury, Somerset, England                                                  │
+│ Blessed Virgin Mary                                                          │
+│ on Thursday, 17 October 2019                                                 │
+│ 1260 Mixed Doubles (5m/3v/1p) in 44 mins (21 cwt in Eb)                      │
+│                                                                              │
+│ 1: Dainton Casey                                                             │
+│ 2: Daryl Mason                                                               │
+│ 3: Roland Clark                                                              │
+│ 4: Michelle Thompson                                                         │
+│ 5: Ted Harris (c)                                                            │
+│ 6: David Rogers                                                              │
+│                                                                              │
+│ [Imported Bellboard peal ID: 1306360]                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 Peal 1306360 added
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 2                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal

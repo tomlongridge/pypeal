@@ -1,6 +1,8 @@
 
 ===
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 13                                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal
@@ -15,6 +17,23 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1660822
 [User input: "1660822"]
+╭───────────────── http://localhost:8080/view.php?id=1660822 ──────────────────╮
+│ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
+│ 1260 Plain Bob Triples                                                       │
+│ Sunday, 1 October 2023 (18–3–20 in E♭) in 47m                                │
+│                                                                              │
+│ 1: Melissa Baker                                                             │
+│ 2: Ryan Elliott                                                              │
+│ 3: Cadie Nelson                                                              │
+│ 4: Heather Sullivan                                                          │
+│ 5: Blake Elliott                                                             │
+│ 6: Chester Edwards                                                           │
+│ 7: Leonardo Bennett (c)                                                      │
+│ 8: Savana Davis                                                              │
+│                                                                              │
+│ For morning service and to mark the christening of Naomi Rebecca Grace       │
+│ Pearson                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────╯
 No linked association
 Is this correct? [y/n] (y): 
 >>> y
@@ -97,13 +116,34 @@ Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
 [User input: "MuffleType.NONE (1)"]
-[http://localhost:8080/view.php?id=1660822 panel displayed]
+╭───────────────── http://localhost:8080/view.php?id=1660822 ──────────────────╮
+│ Bath, Somerset, England                                                      │
+│ Blessed Virgin Mary, Bathwick                                                │
+│ on Sunday, 1 October 2023                                                    │
+│ 1260 Plain Bob Triples in 47 mins (18-3-20 in Eb)                            │
+│                                                                              │
+│ 1 [3]: Melissa Baker                                                         │
+│ 2 [4]: Ryan Elliott                                                          │
+│ 3 [5]: Cadie Nelson                                                          │
+│ 4 [6]: Heather Sullivan                                                      │
+│ 5 [7]: Blake Elliott                                                         │
+│ 6 [8]: Chester Edwards                                                       │
+│ 7 [9]: Leo Bennett (c)                                                       │
+│ 8 [10]: Savana Davis                                                         │
+│                                                                              │
+│ For morning service and to mark the christening of Naomi Rebecca Grace       │
+│ Pearson.                                                                     │
+│                                                                              │
+│ [Imported Bellboard peal ID: 1660822]                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 Peal 1660822 added
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 14                                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal

@@ -1,6 +1,8 @@
 
 ===
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 17                                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal
@@ -15,6 +17,22 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1620096
 [User input: "1620096"]
+╭───────────────── http://localhost:8080/view.php?id=1620096 ──────────────────╮
+│ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
+│ 1260 Grandsire Doubles                                                       │
+│ Sunday, 7 May 2023 (7–3–12) in 40m                                           │
+│                                                                              │
+│ 1: Ryan Elliott                                                              │
+│ 2: Arnold Johnson                                                            │
+│ 3: Heather Sullivan (c)                                                      │
+│ 4: Joyce Sullivan                                                            │
+│ 5: Leonardo Bennett                                                          │
+│ 6: Grace Perry                                                               │
+│                                                                              │
+│ For morning service, and to mark the coronation of King Charles III and      │
+│ Queen Camilla                                                                │
+│ Linked event: http://localhost:8080/event.php?id=16774                       │
+╰──────────────────────────────────────────────────────────────────────────────╯
 No linked association
 Is this correct? [y/n] (y): 
 >>> 
@@ -82,13 +100,33 @@ Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
 [User input: "MuffleType.NONE (1)"]
-[http://localhost:8080/view.php?id=1620096 panel displayed]
+╭───────────────── http://localhost:8080/view.php?id=1620096 ──────────────────╮
+│ Bath, Somerset, England                                                      │
+│ Blessed Virgin Mary, Bathwick                                                │
+│ on Sunday, 7 May 2023                                                        │
+│ 1260 Grandsire Doubles in 40 mins (7-3-12 in Bb)                             │
+│                                                                              │
+│ 1: Ryan Elliott                                                              │
+│ 2: Arnold Johnson                                                            │
+│ 3: Heather Sullivan (c)                                                      │
+│ 4: Joyce Sullivan                                                            │
+│ 5: Leo Bennett                                                               │
+│ 6: Grace Perry                                                               │
+│                                                                              │
+│ For morning service, and to mark the coronation of King Charles III and      │
+│ Queen Camilla.                                                               │
+│                                                                              │
+│ [Imported Bellboard peal ID: 1620096]                                        │
+│ [Event URL: http://localhost:8080/event.php?id=16774]                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
 Peal 1620096 added
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 18                                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal

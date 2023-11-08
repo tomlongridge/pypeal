@@ -1,6 +1,8 @@
 
 ===
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 8                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal
@@ -15,6 +17,23 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1627555
 [User input: "1627555"]
+╭───────────────── http://localhost:8080/view.php?id=1627555 ──────────────────╮
+│ St Lawrence, Longney, Gloucestershire                                        │
+│ 1280 London Surprise Major                                                   │
+│ Saturday, 13 May 2023 (10–3–17 in F) in 46m                                  │
+│                                                                              │
+│ 1: Aston Mitchell (c)                                                        │
+│ 2: Carina Warren                                                             │
+│ 3: Ellia Armstrong                                                           │
+│ 4: Edward Dixon                                                              │
+│ 5: Ned Andrews                                                               │
+│ 6: Richard Higgins                                                           │
+│ 7: Carl Johnston                                                             │
+│ 8: Michael Williams                                                          │
+│                                                                              │
+│ 31/50                                                                        │
+│ Linked event: http://localhost:8080/event.php?id=17567                       │
+╰──────────────────────────────────────────────────────────────────────────────╯
 No linked association
 Is this correct? [y/n] (y): 
 >>> y
@@ -146,13 +165,34 @@ Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
 [User input: "MuffleType.NONE (1)"]
-[http://localhost:8080/view.php?id=1627555 panel displayed]
+╭───────────────── http://localhost:8080/view.php?id=1627555 ──────────────────╮
+│ Longney, Gloucestershire, England                                            │
+│ S Lawrence                                                                   │
+│ on Saturday, 13 May 2023                                                     │
+│ 1280 London Surprise Major in 46 mins (10-3-17 in F)                         │
+│                                                                              │
+│ 1: Aston Mitchell (c)                                                        │
+│ 2: Carina Warren                                                             │
+│ 3: Ellia Armstrong                                                           │
+│ 4: Edward Dixon                                                              │
+│ 5: Ned Andrews                                                               │
+│ 6: Richard Higgins                                                           │
+│ 7: Carl Johnston                                                             │
+│ 8: Michael Williams                                                          │
+│                                                                              │
+│ 31/50.                                                                       │
+│                                                                              │
+│ [Imported Bellboard peal ID: 1627555]                                        │
+│ [Event URL: http://localhost:8080/event.php?id=17567]                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 Peal 1627555 added
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 9                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal

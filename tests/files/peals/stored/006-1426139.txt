@@ -1,6 +1,8 @@
 
 ===
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 5                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal
@@ -15,6 +17,26 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1426139
 [User input: "1426139"]
+╭───────────────── http://localhost:8080/view.php?id=1426139 ──────────────────╮
+│ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
+│ 1260 Plain Bob Royal                                                         │
+│ Sunday, 19 May 2002 in 49m                                                   │
+│                                                                              │
+│ 1: Daniel Miller                                                             │
+│ 2: Blake Elliott                                                             │
+│ 3: Joyce Sullivan                                                            │
+│ 4: Chester Edwards                                                           │
+│ 5: Patrick Bennett                                                           │
+│ 6: Leonardo Bennett                                                          │
+│ 7: Cadie Nelson                                                              │
+│ 8: Clark Elliott                                                             │
+│ 9: Heather Sullivan                                                          │
+│ 10: Vivian Murray (c)                                                        │
+│                                                                              │
+│ Rung for Morning Service and as a 60th Wedding Anniversary compliment to     │
+│ Phyllis and Melvin Chapman.                                                  │
+│ 1st of Royal-4.                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
 No linked association
 Is this correct? [y/n] (y): 
 >>> y
@@ -147,13 +169,37 @@ Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
 [User input: "MuffleType.NONE (1)"]
-[http://localhost:8080/view.php?id=1426139 panel displayed]
+╭───────────────── http://localhost:8080/view.php?id=1426139 ──────────────────╮
+│ Bath, Somerset, England                                                      │
+│ Blessed Virgin Mary, Bathwick                                                │
+│ on Sunday, 19 May 2002                                                       │
+│ 1260 Plain Bob Royal in 49 mins (18-3-20 in Eb)                              │
+│                                                                              │
+│ 1: Daniel Miller                                                             │
+│ 2: Blake Elliott                                                             │
+│ 3: Joyce Sullivan                                                            │
+│ 4: Chester Edwards                                                           │
+│ 5: Patrick Bennett                                                           │
+│ 6: Leo Bennett                                                               │
+│ 7: Cadie Nelson                                                              │
+│ 8: Clark Elliott                                                             │
+│ 9: Heather Sullivan                                                          │
+│ 10: Vivian Murray (c)                                                        │
+│                                                                              │
+│ Rung for Morning Service and as a 60th Wedding Anniversary compliment to     │
+│ Phyllis and Melvin Chapman.                                                  │
+│ [4: Chester Edwards] 1st of Royal.                                           │
+│                                                                              │
+│ [Imported Bellboard peal ID: 1426139]                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 Peal 1426139 added
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 6                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal

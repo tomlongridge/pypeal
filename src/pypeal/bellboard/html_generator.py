@@ -6,7 +6,7 @@ from pypeal import config
 
 from pypeal.bellboard.interface import BellboardError, get_peal
 from pypeal.bellboard.listener import PealGeneratorListener
-from pypeal.peal import Peal, PealType
+from pypeal.peal import PealType
 
 DATE_LINE_INFO_REGEX = re.compile(r'[A-Za-z]+,\s(?P<date>[0-9]+\s[A-Za-z0-9]+\s[0-9]+)(?:\s' +
                                   r'in\s(?P<duration>[A-Za-z0-9\s]+))?\s?(?:\((?P<tenor>.*)\))?$')
@@ -16,29 +16,30 @@ DURATION_REGEX = re.compile(r'^(?:(?P<hours>\d{1,2})[h])$|^(?:(?P<mins>\d+)[m]?)
 
 class HTMLPealGenerator():
 
-    def __init__(self, listener: PealGeneratorListener):
-        self.__listener = listener
+    def __init__(self):
+        self.__peal_id = None
+        self.__html = None
 
-    def get(self, peal_id: int = None) -> Peal:
-        return self.get_peal_from_html(*get_peal(peal_id))
+    def download(self, peal_id: int = None):
+        self.__peal_id, self.__html = get_peal(peal_id)
 
-    def get_peal_from_html(self, id: int, html: str) -> Peal:
+    def parse(self, listener: PealGeneratorListener):
 
-        self.__listener.new_peal(id)
+        listener.new_peal(self.__peal_id)
 
-        soup = BeautifulSoup(html, 'html.parser')
+        soup = BeautifulSoup(self.__html, 'html.parser')
 
         element = soup.select('div.association')
         if len(element) > 0:
-            self.__listener.association(element[0].text.strip())
+            listener.association(element[0].text.strip())
         else:
-            self.__listener.association(None)
+            listener.association(None)
 
         element = soup.select('div.ringers.two-in-hand.handbells')
         if len(element) > 0:
-            self.__listener.type(PealType.HANDBELLS)
+            listener.type(PealType.HANDBELLS)
         else:
-            self.__listener.type(PealType.TOWER)
+            listener.type(PealType.TOWER)
 
         place = None
         county = None
@@ -47,7 +48,7 @@ class HTMLPealGenerator():
         element = soup.select('span.place')
         if len(element) > 0:
             if element[0].parent.name == 'a':
-                self.__listener.tower(dove_id=int(element[0].parent['href'].split('/')[-1]))
+                listener.tower(dove_id=int(element[0].parent['href'].split('/')[-1]))
             place = element[0].text.strip()
             if element[0].next_sibling:
                 county = element[0].next_sibling.text.strip(', ')
@@ -56,28 +57,28 @@ class HTMLPealGenerator():
         if len(element) > 0:
             address_dedication = element[0].text.strip()
 
-        self.__listener.location(address_dedication, place, county)
+        listener.location(address_dedication, place, county)
 
         element = soup.select('span.changes')
         if len(element) > 0:
-            self.__listener.changes(int(element[0].text.strip()))
+            listener.changes(int(element[0].text.strip()))
         else:
-            self.__listener.changes(None)
+            listener.changes(None)
 
         element = soup.select('span.title')
         if len(element) > 0:
             title = element[0].text.strip()
             if element[0].next_sibling:
                 title += f' {element[0].next_sibling.text.strip()}'
-            self.__listener.title(title)
+            listener.title(title)
         else:
             raise BellboardError(f'Unable to find title in peal {id}')
 
         element = soup.select('div.details')
         if len(element) > 0:
-            self.__listener.method_details(element[0].text.strip())
+            listener.method_details(element[0].text.strip())
         else:
-            self.__listener.method_details(None)
+            listener.method_details(None)
 
         element = soup.select('div.attribution')
         composer_str = url_str = None
@@ -88,12 +89,19 @@ class HTMLPealGenerator():
             url_element = element[0].select('a')
             if len(url_element) > 0:
                 url_str = config.get_config('bellboard', 'url') + url_element[0]['href']
-        self.__listener.composer(composer_str,  url_str)
+        listener.composer(composer_str,  url_str)
 
         # The date line is the first line of the performance div that doesn't have a class
         for peal_detail in soup.select('div.performance')[0].children:
             if not peal_detail.attrs or 'class' not in peal_detail.attrs:
-                self.__parse_date_line(peal_detail.text.strip())
+                date_line = peal_detail.text.strip()
+                if not (date_line_match := re.match(DATE_LINE_INFO_REGEX, date_line)):
+                    raise BellboardError(f'Unable to parse date line: {date_line}')
+
+                date_line_info = date_line_match.groupdict()
+                listener.date(datetime.strptime(date_line_info['date'], '%d %B %Y'))
+                listener.tenor(date_line_info['tenor'])
+                listener.duration(date_line_info['duration'])
                 break
 
         # Get ringers and their bells and add them to the ringers list
@@ -114,35 +122,23 @@ class HTMLPealGenerator():
         for full_name, bells, is_conductor in zip(ringer_names, ringer_bells, conductors):
             if bells is not None:
                 bells = [int(bell) for bell in bells.split('–')]
-            self.__listener.ringer(full_name, bells, is_conductor)
+            listener.ringer(full_name, bells, is_conductor)
 
         found_footnote: bool = False
         for footnote in soup.select('div.footnote'):
             text = footnote.text.strip()
             if len(text) > 0:
-                self.__listener.footnote(text)
+                listener.footnote(text)
                 found_footnote = True
         if not found_footnote:
-            self.__listener.footnote(None)
+            listener.footnote(None)
 
         element = soup.select('p.paragraphs.linked-events.section')
         if len(element) > 0:
             event_url = element[0].select('a')[0]['href']
-            self.__listener.event(config.get_config('bellboard', 'url') +
-                                  event_url[event_url.rfind('/'):])
+            listener.event(config.get_config('bellboard', 'url') +
+                           event_url[event_url.rfind('/'):])
         else:
-            self.__listener.event(None)
+            listener.event(None)
 
-        self.__listener.end_peal()
-
-        return self.__listener.peal
-
-    def __parse_date_line(self, date_line: str):
-
-        if not (date_line_match := re.match(DATE_LINE_INFO_REGEX, date_line)):
-            raise BellboardError(f'Unable to parse date line: {date_line}')
-
-        date_line_info = date_line_match.groupdict()
-        self.__listener.date(datetime.strptime(date_line_info['date'], '%d %B %Y'))
-        self.__listener.tenor(date_line_info['tenor'])
-        self.__listener.duration(date_line_info['duration'])
+        listener.end_peal()

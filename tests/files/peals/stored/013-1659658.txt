@@ -1,6 +1,8 @@
 
 ===
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 12                                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal
@@ -15,6 +17,25 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1659658
 [User input: "1659658"]
+╭───────────────── http://localhost:8080/view.php?id=1659658 ──────────────────╮
+│ St Andrew, Shrivenham, Oxfordshire                                           │
+│ 1296 Little Bob Royal                                                        │
+│ Saturday, 23 September 2023 (13–0–2 in F) in 50m                             │
+│                                                                              │
+│ 1: Garry Scott                                                               │
+│ 2: Charlie Warren                                                            │
+│ 3: Arnold Johnson                                                            │
+│ 4: Sienna Murphy                                                             │
+│ 5: Blake Elliott                                                             │
+│ 6: Blake Elliott                                                             │
+│ 7: Melissa Baker                                                             │
+│ 8: Daryl Mason                                                               │
+│ 9: Leonardo Bennett                                                          │
+│ 10: Chester Edwards (c)                                                      │
+│                                                                              │
+│ Rung as a birthday compliment to Matthew Skues.                              │
+│ 6: First quarter of Little Bob Royal.                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
 No linked association
 Is this correct? [y/n] (y): 
 >>> y
@@ -174,13 +195,38 @@ Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
 [User input: "MuffleType.NONE (1)"]
-[http://localhost:8080/view.php?id=1659658 panel displayed]
+╭───────────────── http://localhost:8080/view.php?id=1659658 ──────────────────╮
+│ Shrivenham, Oxfordshire, England                                             │
+│ S Andrew                                                                     │
+│ on Saturday, 23 September 2023                                               │
+│ 1296 Little Bob Royal in 50 mins (13-0-2 in F)                               │
+│ Composed by: Alex W Tatlow                                                   │
+│                                                                              │
+│ 1: Garry Scott                                                               │
+│ 2: Charlie Warren                                                            │
+│ 3: Arnold Johnson                                                            │
+│ 4: Sienna Murphy                                                             │
+│ 5: Blake Elliott                                                             │
+│ 6: Blake Elliott                                                             │
+│ 7: Melissa Baker                                                             │
+│ 8: Daryl Mason                                                               │
+│ 9: Leo Bennett                                                               │
+│ 10: Chester Edwards (c)                                                      │
+│                                                                              │
+│ Rung as a birthday compliment to Matthew Skues.                              │
+│ [7: Melissa Baker] First quarter of Royal.                                   │
+│                                                                              │
+│ [Imported Bellboard peal ID: 1659658]                                        │
+│ [Composition URL: http://localhost:8080/comp.php?id=2293307]                 │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 Peal 1659658 added
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 13                                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal

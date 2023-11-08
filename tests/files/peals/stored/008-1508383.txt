@@ -1,6 +1,8 @@
 
 ===
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 7                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal
@@ -15,6 +17,21 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1508383
 [User input: "1508383"]
+╭───────────────── http://localhost:8080/view.php?id=1508383 ──────────────────╮
+│ Oxford Diocesan Guild                                                        │
+│ 80 Lambourne Drive, Cox Green, Maidenhead, [no county]                       │
+│ 5232 Bristol Surprise Maximus                                                │
+│ Wednesday, 29 March 1972 in 3h 3                                             │
+│                                                                              │
+│ 1,2: Sam Wells                                                               │
+│ 3,4: Rubie Owens                                                             │
+│ 5,6: Lenny Howard (c)                                                        │
+│ 7,8: Jack Spencer                                                            │
+│ 9,10: Arianna Holmes                                                         │
+│ 11,12: John Parker                                                           │
+│                                                                              │
+│ First peal of Bristol Maximus rung in hand.                                  │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Matched "Oxford Diocesan Guild" to association: Oxford Diocesan Guild (ID: 274)
 Is this correct? [y/n] (y): 
 >>> 
@@ -134,13 +151,34 @@ Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
 [User input: "MuffleType.NONE (1)"]
-[http://localhost:8080/view.php?id=1508383 panel displayed]
+╭───────────────── http://localhost:8080/view.php?id=1508383 ──────────────────╮
+│ Oxford Diocesan Guild                                                        │
+│ Maidenhead, Kent, England                                                    │
+│ 80 Lambourne Drive, Cox Green (in hand)                                      │
+│ on Wednesday, 29 March 1972                                                  │
+│ 5232 Bristol Surprise Maximus in 183 mins                                    │
+│ Composed by: Christopher I Rowson                                            │
+│                                                                              │
+│ 1,2: Sam Wells                                                               │
+│ 3,4: Rubie Owens                                                             │
+│ 5,6: Lenny Howard (c)                                                        │
+│ 7,8: Jack Spencer                                                            │
+│ 9,10: Arianna Holmes                                                         │
+│ 11,12: John Parker                                                           │
+│                                                                              │
+│ First peal of Bristol Maximus rung in hand.                                  │
+│                                                                              │
+│ [Imported Bellboard peal ID: 1508383]                                        │
+│ [Composition URL: http://localhost:8080/comp.php?id=2284506]                 │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 Peal 1508383 added
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 8                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal

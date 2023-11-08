@@ -1,6 +1,8 @@
 
 ===
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 6                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal
@@ -15,6 +17,22 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1433691
 [User input: "1433691"]
+╭───────────────── http://localhost:8080/view.php?id=1433691 ──────────────────╮
+│ Middlesex County Association & London Diocesan Guild                         │
+│ All Hallows, Twickenham, Greater London                                      │
+│ 1320 Plain Bob Doubles                                                       │
+│ Sunday, 5 December 1976 (7–1–11 in B)                                        │
+│                                                                              │
+│ 1: Edward Chapman                                                            │
+│ 2: Blake Elliott                                                             │
+│ 3: Olivia West                                                               │
+│ 4: Mike Sullivan                                                             │
+│ 5: Jack Spencer (c)                                                          │
+│ 6: Eric Ryan                                                                 │
+│                                                                              │
+│ First quarter peal: 6                                                        │
+│ For evensong                                                                 │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Matched "Middlesex County Association & London Diocesan Guild" to association: 
 Middlesex County Association and London Diocesan Guild (ID: 269)
 Is this correct? [y/n] (y): 
@@ -149,13 +167,33 @@ Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
 [User input: "MuffleType.NONE (1)"]
-[http://localhost:8080/view.php?id=1433691 panel displayed]
+╭───────────────── http://localhost:8080/view.php?id=1433691 ──────────────────╮
+│ Guild of Devonshire Ringers                                                  │
+│ Twickenham, Greater London, England                                          │
+│ All Hallows                                                                  │
+│ on Sunday, 5 December 1976                                                   │
+│ 1320 Plain Bob Doubles (7-1-11 in B)                                         │
+│                                                                              │
+│ 1: Edward Chapman                                                            │
+│ 2: Blake Elliott                                                             │
+│ 3: Olivia West                                                               │
+│ 4: Michael Sullivan                                                          │
+│ 5: Jack Spencer (c)                                                          │
+│ 6: Eric Ryan                                                                 │
+│                                                                              │
+│ [6: Eric Ryan] First quarter peal.                                           │
+│ For evensong.                                                                │
+│                                                                              │
+│ [Imported Bellboard peal ID: 1433691]                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 Peal 1433691 added
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 7                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal

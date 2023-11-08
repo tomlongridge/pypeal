@@ -8,7 +8,7 @@ from pypeal.db import Database
 from pypeal.method import Method, Stage
 from pypeal.ringer import Ringer
 from pypeal.tower import Bell, Ring
-from pypeal.utils import get_bell_label
+from pypeal.utils import format_date_full, get_bell_label
 
 PEAL_FIELD_LIST: list[str] = ['bellboard_id', 'type', 'date', 'association_id', 'ring_id', 'place', 'sub_place', 'address', 'dedication',
                               'county', 'country', 'tenor_weight', 'tenor_note', 'changes', 'stage', 'classification', 'is_spliced',
@@ -419,7 +419,7 @@ class Peal:
         text += f'{self.association.name}\n' if self.association else ''
         text += self.location
         text += '\n'
-        text += f'on {self.date.strftime("%A, %-d %B %Y")}\n' if self.date else ''
+        text += f'on {format_date_full(self.date)}\n' if self.date else ''
         text += f'{self.changes} ' if self.changes else ''
         text += self.method_title or f'"{self.title}"'
         text += ' (half-muffled)' if self.muffles == MuffleType.HALF else ''

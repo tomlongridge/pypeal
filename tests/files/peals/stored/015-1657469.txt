@@ -1,6 +1,8 @@
 
 ===
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 14                                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal
@@ -15,6 +17,20 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1657469
 [User input: "1657469"]
+╭───────────────── http://localhost:8080/view.php?id=1657469 ──────────────────╮
+│ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
+│ 1260 Doubles (3m)                                                            │
+│ Sunday, 10 September 2023 (7–3–12 in B♭) in 41m                              │
+│                                                                              │
+│ 1: Ryan Elliott                                                              │
+│ 2: Leonardo Bennett                                                          │
+│ 3: George Roberts                                                            │
+│ 4: Harold Gray                                                               │
+│ 5: Joyce Sullivan (c)                                                        │
+│ 6: Grace Perry                                                               │
+│                                                                              │
+│ Rung for Morning Service.                                                    │
+╰──────────────────────────────────────────────────────────────────────────────╯
 No linked association
 Is this correct? [y/n] (y): 
 >>> 
@@ -222,13 +238,36 @@ Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
 [User input: "MuffleType.NONE (1)"]
-[http://localhost:8080/view.php?id=1657469 panel displayed]
+╭───────────────── http://localhost:8080/view.php?id=1657469 ──────────────────╮
+│ Bath, Somerset, England                                                      │
+│ Blessed Virgin Mary, Bathwick                                                │
+│ on Sunday, 10 September 2023                                                 │
+│ 1260 Mixed Doubles (3m) in 41 mins (7-3-12 in Bb)                            │
+│ (360 Reverse Canterbury Pleasure Place Doubles, 360 Plain Bob Doubles, 540   │
+│ Grandsire Bob Doubles)                                                       │
+│                                                                              │
+│ 1: Ryan Elliott                                                              │
+│ 2: Leo Bennett                                                               │
+│ 3: George Roberts                                                            │
+│ 4: Harold Gray                                                               │
+│ 5: Joyce Sullivan (c)                                                        │
+│ 6: Grace Perry                                                               │
+│                                                                              │
+│ Rung for Morning Service.                                                    │
+│ Testing the new footnote function.                                           │
+│ [1: Ryan Elliott] Testing new footnote with ringers.                         │
+│ [6: Grace Perry] Testing new footnote with ringers.                          │
+│                                                                              │
+│ [Imported Bellboard peal ID: 1657469]                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
 Peal 1657469 added
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 15                                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal

@@ -1,6 +1,8 @@
 --reset-database
 ===
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 0                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal
@@ -42,6 +44,23 @@ Type: 1) Any, 2) Tower, 3) Handbells
 Select action (1): 
 >>> 
 [User input: "1"]
+╭────────────────── http://localhost:8080/view.php?id=22152 ───────────────────╮
+│ S John the Evangelist, Withycombe Raleigh, Devon                             │
+│ 1260 Grandsire Triples                                                       │
+│ Saturday, 30 June 2001 (17) in 49m                                           │
+│                                                                              │
+│ 1: Lydia Ferguson                                                            │
+│ 2: Harold Gray                                                               │
+│ 3: Chloe Henderson                                                           │
+│ 4: Alen Henderson                                                            │
+│ 5: Lucas Wright                                                              │
+│ 6: Lucas Farrell (c)                                                         │
+│ 7: Ryan Elliott                                                              │
+│ 8: Ted Harris                                                                │
+│                                                                              │
+│ First away from cover on 8: 1.                                               │
+│ First of Grandsire inside: 4.                                                │
+╰──────────────────────────────────────────────────────────────────────────────╯
 No linked association
 Is this correct? [y/n] (y): 
 >>> y
@@ -196,7 +215,26 @@ Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
 [User input: "MuffleType.NONE (1)"]
-[http://localhost:8080/view.php?id=22152 panel displayed]
+╭────────────────── http://localhost:8080/view.php?id=22152 ───────────────────╮
+│ Withycombe Raleigh, Devon, England                                           │
+│ S John Ev                                                                    │
+│ on Saturday, 30 June 2001                                                    │
+│ 1260 Grandsire Triples in 49 mins (17-1-10 in D#)                            │
+│                                                                              │
+│ 1 [5]: Lydia Ferguson                                                        │
+│ 2 [6]: Harold Gray                                                           │
+│ 3 [7]: Chloe Henderson                                                       │
+│ 4 [8]: Alen Henderson                                                        │
+│ 5 [9]: Lucas Wright                                                          │
+│ 6 [10]: Lucas Farrell (c)                                                    │
+│ 7 [11]: Ryan Elliott                                                         │
+│ 8 [12]: Ted Harris                                                           │
+│                                                                              │
+│ [1: Lydia Ferguson] First away from cover on 8.                              │
+│ [4: Alen Henderson] First of Grandsire inside.                               │
+│                                                                              │
+│ [Imported Bellboard peal ID: 22152]                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
 >>> y
@@ -206,7 +244,9 @@ Add next peal? [y/n] (y):
 >>> n
 [User input: "False"]
 1 peal(s) added (0 duplicates)
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 1                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal

@@ -1,6 +1,8 @@
 
 ===
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 15                                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal
@@ -15,6 +17,23 @@ Select action (1):
 Bellboard URL or peal ID: 
 >>> 1066455
 [User input: "1066455"]
+╭───────────────── http://localhost:8080/view.php?id=1066455 ──────────────────╮
+│ Pig-le-Tower, Marston Bigot, Somerset                                        │
+│ 1280 Cambridge Surprise Major                                                │
+│ Sunday, 21 September 2014                                                    │
+│                                                                              │
+│ 1: Vivian Murray                                                             │
+│ 2: Byron Robinson                                                            │
+│ 3: Daryl Mason                                                               │
+│ 4: Chester Edwards                                                           │
+│ 5: Joyce Sullivan                                                            │
+│ 6: Arnold Johnson                                                            │
+│ 7: Kate Crawford                                                             │
+│ 8: Heather Sullivan (c)                                                      │
+│                                                                              │
+│ Birthday compliment to Paul Clewett                                          │
+│ First on a mini-ring: 3 & 6                                                  │
+╰──────────────────────────────────────────────────────────────────────────────╯
 No linked association
 Is this correct? [y/n] (y): 
 >>> 
@@ -134,13 +153,35 @@ Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
 [User input: "MuffleType.NONE (1)"]
-[http://localhost:8080/view.php?id=1066455 panel displayed]
+╭───────────────── http://localhost:8080/view.php?id=1066455 ──────────────────╮
+│ Marston Bigot, Somerset, England                                             │
+│ Pig-le-Tower                                                                 │
+│ on Sunday, 21 September 2014                                                 │
+│ 1280 Cambridge Surprise Major                                                │
+│                                                                              │
+│ 1: Vivian Murray                                                             │
+│ 2: Byron Robinson                                                            │
+│ 3: Daryl Mason                                                               │
+│ 4: Chester Edwards                                                           │
+│ 5: Joyce Sullivan                                                            │
+│ 6: Arnold Johnson                                                            │
+│ 7: Kate Crawford                                                             │
+│ 8: Heather Sullivan (c)                                                      │
+│                                                                              │
+│ Birthday compliment to Paul Clewett.                                         │
+│ [3: Daryl Mason] First on a mini-ring.                                       │
+│ [6: Arnold Johnson] First on a mini-ring.                                    │
+│                                                                              │
+│ [Imported Bellboard peal ID: 1066455]                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 Peal 1066455 added
-[pypeal panel displayed]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 16                                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
 1) Add peal by URL
 2) Add random peal

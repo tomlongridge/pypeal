@@ -1,3 +1,6 @@
+from datetime import datetime
+
+
 def split_full_name(full_name: str) -> tuple[str, str]:
     last_name = full_name.split(' ')[-1]
     given_names = ' '.join(full_name.split(' ')[:-1])
@@ -33,3 +36,7 @@ def get_weight_str(lbs: int) -> str:
 
 def convert_musical_key(key: str):
     return key.replace('\u266D', 'b').replace('\u266F', '#') if key else None
+
+
+def format_date_full(date: datetime) -> str:
+    return date.strftime("%A, %-d %B %Y")
