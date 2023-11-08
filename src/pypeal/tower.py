@@ -35,7 +35,7 @@ class Tower():
     def tenor_weight_in_cwt(self) -> str:
         return utils.get_weight_str(self.tenor_weight)
 
-    def get_active_ring(self, at_date: datetime) -> Ring:
+    def get_active_ring(self, at_date: datetime.date) -> Ring:
         results = Database.get_connection().query(
             'SELECT id FROM rings ' +
             'WHERE tower_id = %s ' +
@@ -107,7 +107,7 @@ class Ring():
 
     tower: Tower = None
     description: str = None
-    date_removed: datetime = None
+    date_removed: datetime.date = None
     id: int = None
 
     __bells: dict[int, Bell] = None
@@ -115,7 +115,7 @@ class Ring():
     def __init__(self,
                  tower_id: int = None,
                  description: str = None,
-                 date_removed: datetime = None,
+                 date_removed: datetime.date = None,
                  id: int = None):
         self.tower = Tower.get(dove_id=tower_id) if tower_id else None
         self.description = description

@@ -16,8 +16,8 @@ class BellboardSearchNoResultFoundError(BellboardError):
 
 
 def search(ringer_name: str = None,
-           date_from: datetime = None,
-           date_to: datetime = None,
+           date_from: datetime.date = None,
+           date_to: datetime.date = None,
            place: str = None,
            county: str = None,
            dedication: str = None,

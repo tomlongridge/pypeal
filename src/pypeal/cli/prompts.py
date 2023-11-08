@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 import logging
 from rich.prompt import IntPrompt, Prompt, Confirm
 from rich.panel import Panel
@@ -57,7 +57,11 @@ def ask_int(prompt: str, default: int = None, min: int = None, max: int = None) 
     return response
 
 
-def ask_date(prompt: str, default: datetime = None, min: datetime = None, max: datetime = None, required: bool = True) -> datetime:
+def ask_date(prompt: str,
+             default: datetime.date = None,
+             min: datetime.date = None,
+             max: datetime.date = None,
+             required: bool = True) -> datetime.date:
     try:
         while True:
             response = ask(prompt,
@@ -66,14 +70,17 @@ def ask_date(prompt: str, default: datetime = None, min: datetime = None, max: d
             if default is None and response is None:
                 break
             if response is not None:
-                try:
-                    response = datetime.strptime(response, '%Y/%m/%d')
-                except ValueError:
+                if response.isnumeric() or (response.startswith('-') and response[1:].isnumeric()):
+                    response = (default or datetime.date(datetime.now())) + timedelta(days=int(response))
+                else:
                     try:
-                        response = datetime.strptime(response, '%Y-%m-%d')
+                        response = datetime.date(datetime.strptime(response, '%Y/%m/%d'))
                     except ValueError:
-                        error('Invalid date - please enter in format yyyy/mm/dd')
-                        continue
+                        try:
+                            response = datetime.date(datetime.strptime(response, '%Y-%m-%d'))
+                        except ValueError:
+                            error('Invalid date - please enter in format yyyy/mm/dd')
+                            continue
                 if min is not None and response < min:
                     error(f'Date must be on or after {min.strftime("%Y/%m/%d")}')
                     continue

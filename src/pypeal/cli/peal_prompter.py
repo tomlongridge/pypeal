@@ -54,7 +54,7 @@ class PealPromptListener(PealGeneratorListener):
     def composer(self, name: str, url: str):
         return prompt_add_composer(name, url, self.peal)
 
-    def date(self, value: datetime):
+    def date(self, value: datetime.date):
         self.peal.date = value
 
     def tenor(self, value: str):

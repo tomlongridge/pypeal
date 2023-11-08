@@ -21,7 +21,7 @@ class PealPreviewListener(PealGeneratorListener):
     def title(self, value: str):
         self.__lines['title'] += value
 
-    def date(self, value: datetime):
+    def date(self, value: datetime.date):
         self.__lines['date'] = format_date_full(value)
 
     def tenor(self, value: str):

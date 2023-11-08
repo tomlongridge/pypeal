@@ -35,7 +35,7 @@ class PealGeneratorListener():
     def composer(self, name: str, url: str):
         pass
 
-    def date(self, value: datetime):
+    def date(self, value: datetime.date):
         pass
 
     def tenor(self, value: str):

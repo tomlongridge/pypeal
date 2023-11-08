@@ -99,7 +99,7 @@ class HTMLPealGenerator():
                     raise BellboardError(f'Unable to parse date line: {date_line}')
 
                 date_line_info = date_line_match.groupdict()
-                listener.date(datetime.strptime(date_line_info['date'], '%d %B %Y'))
+                listener.date(datetime.date(datetime.strptime(date_line_info['date'], '%d %B %Y')))
                 listener.tenor(date_line_info['tenor'])
                 listener.duration(date_line_info['duration'])
                 break

@@ -38,5 +38,5 @@ def convert_musical_key(key: str):
     return key.replace('\u266D', 'b').replace('\u266F', '#') if key else None
 
 
-def format_date_full(date: datetime) -> str:
+def format_date_full(date: datetime.date) -> str:
     return date.strftime("%A, %-d %B %Y")
