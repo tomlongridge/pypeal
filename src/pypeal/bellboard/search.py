@@ -23,7 +23,8 @@ def search(ringer_name: str = None,
            dedication: str = None,
            association: str = None,
            title: str = None,
-           type: PealType = None) -> Iterator[int]:
+           type: PealType = None,
+           order_descending: bool = True) -> Iterator[int]:
 
     criteria = {}
     if ringer_name:
@@ -48,6 +49,8 @@ def search(ringer_name: str = None,
                 criteria['type'] = 'tower'
             case PealType.HANDBELLS:
                 criteria['type'] = 'hand'
+    if not order_descending:
+        criteria['order'] = '+reverse'
 
     yield from _perform_search(criteria)
 

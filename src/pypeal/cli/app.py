@@ -1,10 +1,12 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 import logging
 from typing import Annotated
 import webbrowser
 import typer
+import urllib.parse
 
 from rich import print
+from pypeal import config
 
 from pypeal.bellboard.interface import BellboardError, get_id_from_url, get_url_from_id
 from pypeal.bellboard.search import BellboardSearchNoResultFoundError, search as bellboard_search, search_by_url as bellboard_search_by_url
@@ -85,35 +87,54 @@ def run_interactive(peal_id_or_url: str):
         try:
             panel(f'Number of peals: {len(get_peal_list(force_update=True))}')
 
-            match choose_option(['Add peal by URL',
-                                 'Add random peal',
-                                 'Add peal by search',
-                                 'Add peal by search URL',
-                                 'View peal',
-                                 'Update static data',
-                                 'Exit'],
-                                default=1):
+            match choose_option([
+                'Find recent peals',
+                'Add peals by search',
+                'Add peals by search URL',
+                'Add peal by ID/URL',
+                'Add random peal',
+                'View peal',
+                'Update static data',
+                'Exit'
+            ], default=1):
                 case 1:
-                    add_peal(prompt_peal_id(peal_id_or_url))
+                    poll_for_new_peals()
                 case 2:
-                    add_peal()
-                case 3:
                     search()
-                case 4:
+                case 3:
                     search_by_url()
+                case 4:
+                    add_peal(prompt_peal_id(peal_id_or_url))
                 case 5:
-                    run_view(peal_id_or_url)
+                    add_peal()
                 case 6:
+                    run_view(peal_id_or_url)
+                case 7:
                     update_methods()
                     update_associations()
                     update_towers()
                     update_bells()
-                case 7 | None:
+                case 8 | None:
                     raise typer.Exit()
         except UserCancelled:
             continue
 
         peal_id_or_url = None
+
+
+def poll_for_new_peals():
+    search_urls = config.get_config('bellboard', 'searches')
+    if search_urls is None:
+        error('No search URLs configured')
+        return
+    for url in search_urls:
+        search_url = url.split('?')[0] + '?'
+        params = urllib.parse.parse_qs(url.split('?')[1])
+        for key, value in params.items():
+            if key not in ['date_from', 'date_to']:
+                search_url += f'&{key}={value[0] if value else ""}'
+        search_url += '&date_from=' + (datetime.now() - timedelta(days=30)).strftime('%Y-%m-%d')
+        search_by_url(search_url)
 
 
 def add_peal(peal_id: int = None):
@@ -143,14 +164,13 @@ def add_peal(peal_id: int = None):
         print(f'Peal {peal.bellboard_id} added')
 
 
-def search_by_url():
+def search_by_url(url: str = None):
 
     while True:
-
         try:
             count_duplicate = 0
             count_added = 0
-            for peal_id in bellboard_search_by_url(ask('Bellboard URL')):
+            for peal_id in bellboard_search_by_url(url or ask('Bellboard URL')):
                 if peal_id in get_peal_list():
                     count_duplicate += 1
                     continue
@@ -179,16 +199,22 @@ def search():
     name = ask('Ringer name', required=False)
     date_from = ask_date('Date from (yyyy-mm-dd)', max=datetime.date(datetime.now()), required=False)
     date_to = ask_date('Date to (yyyy-mm-dd)', min=date_from, max=datetime.date(datetime.now()), required=False)
+    association = ask('Association', required=False)
     place = ask('Place', required=False)
     county = ask('County/Region/Country', required=False)
     dedication = ask('Dedication', required=False)
-    association = ask('Association', required=False)
     title = ask('Title', required=False)
     type = choose_option(['Any', 'Tower', 'Handbells'],
                          values=[None, PealType.TOWER, PealType.HANDBELLS],
                          prompt='Type',
                          required=False,
                          default='Any')
+    order_descending = choose_option(['Newest', 'Oldest'],
+                                     values=[True, False],
+                                     prompt='Order of results',
+                                     required=False,
+                                     return_option=True,
+                                     default='Newest')
 
     try:
         count_duplicate = 0
@@ -201,7 +227,8 @@ def search():
                                         dedication=dedication,
                                         association=association,
                                         title=title,
-                                        type=type):
+                                        type=type,
+                                        order_descending=order_descending):
             if peal_id in get_peal_list():
                 count_duplicate += 1
                 continue

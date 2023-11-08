@@ -4,16 +4,17 @@
 │ Number of peals: 9                                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
-1) Add peal by URL
-2) Add random peal
-3) Add peal by search
-4) Add peal by search URL
-5) View peal
-6) Update static data
-7) Exit
+1) Find recent peals
+2) Add peals by search
+3) Add peals by search URL
+4) Add peal by ID/URL
+5) Add random peal
+6) View peal
+7) Update static data
+8) Exit
 Select action (1): 
->>> 1
-[User input: "1"]
+>>> 4
+[User input: "4"]
 Bellboard URL or peal ID: 
 >>> 1147788
 [User input: "1147788"]
@@ -292,16 +293,17 @@ Peal 1147788 added
 │ Number of peals: 10                                                          │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Options: 
-1) Add peal by URL
-2) Add random peal
-3) Add peal by search
-4) Add peal by search URL
-5) View peal
-6) Update static data
-7) Exit
+1) Find recent peals
+2) Add peals by search
+3) Add peals by search URL
+4) Add peal by ID/URL
+5) Add random peal
+6) View peal
+7) Update static data
+8) Exit
 Select action (1): 
->>> 7
-[User input: "7"]
+>>> 8
+[User input: "8"]
 ===
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick

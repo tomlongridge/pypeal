@@ -37,19 +37,21 @@ def update_towers():
             continue  # comment line
         if line['TowerID'] in tower_ids:
             continue  # todo: handle multiple rings in one line
-        tower_obj = Tower(towerbase_id=line['TowerBase'],
-                          place=line['Place'],
-                          sub_place=line['Place2'],
-                          dedication=line['Dedicn'],
+        if len(line['County']) == len(line['Country']) == len(line['ISO3166code']) == 0:
+            continue
+        tower_obj = Tower(towerbase_id=int(line['TowerBase']) if len(line['TowerBase']) > 0 else None,
+                          place=line['Place'] if len(line['Place']) > 0 else None,
+                          sub_place=line['Place2'] if len(line['Place2']) > 0 else None,
+                          dedication=line['Dedicn'] if len(line['Dedicn']) > 0 else None,
                           county=line['County'],
                           country=line['Country'],
                           country_code=line['ISO3166code'],
                           latitude=float(line['Lat']) if len(line['Lat']) > 0 else None,
                           longitude=line['Long'] if len(line['Long']) > 0 else None,
-                          bells=line['Bells'],
-                          tenor_weight=int(line['Wt']),
+                          bells=int(line['Bells']),
+                          tenor_weight=int(line['Wt']) if len(line['Wt']) > 0 else None,
                           tenor_note=utils.convert_musical_key(line['Note']),
-                          id=line['TowerID'])
+                          id=int(line['TowerID']))
         tower_obj.commit()
         tower_ids.append(line['TowerID'])
         _logger.debug(f'Added tower {tower_obj} to database')
@@ -101,22 +103,47 @@ def update_bells():
             data = f.read()
 
     for line in csv.DictReader(data.splitlines(), delimiter=',', quotechar='"'):
+
         if line['Bell ID'].startswith('#'):
             continue  # comment line
         elif not line['Bell Role'].isnumeric():
             continue  # omit any bells not in a ring (e.g sanctus)
+
         cast_year = line['Cast Date']
-        if cast_year.startswith('c'):
-            cast_year = cast_year[1:]
+        if len(cast_year) == 0:
+            cast_year = None
+        elif cast_year.startswith('c'):
+            cast_year = int(cast_year[1:])
+        elif cast_year.isnumeric():
+            cast_year = int(cast_year)
+        else:
+            _logger.debug(f'Unexpected cast year "{cast_year}" for bell {line["Bell ID"]}')
+            continue
+
+        weight = line['Weight (lbs)']
+        if len(weight) == 0:
+            weight = None
+        elif weight.isnumeric():
+            weight = int(weight)
+        elif '.' in weight:
+            weight = round(float(weight))
+        else:
+            _logger.debug(f'Unexpected weight "{weight}" for bell {line["Bell ID"]}')
+            continue
+
         bell_obj: Bell = Bell(tower_id=int(line['Tower ID']),
                               role=int(line['Bell Role']),
-                              weight=int(line['Weight (lbs)']),
+                              weight=weight,
                               note=utils.convert_musical_key(line['Note']),
-                              cast_year=int(cast_year),
-                              founder=line['Founder'],
+                              cast_year=cast_year,
+                              founder=line['Founder'] if len(line['Founder']) > 0 else None,
                               id=int(line['Bell ID']))
-        bell_obj.commit()
-        _logger.debug(f'Added bell {bell_obj.id} to database')
+
+        if bell_obj.tower is None:
+            _logger.debug(f'Skipping bell {bell_obj.id} - no matching tower ({line["Tower ID"]})')
+        else:
+            bell_obj.commit()
+            _logger.debug(f'Added bell {bell_obj.id} to database')
 
     _logger.debug('Reinstate foreign key checks')
     Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')

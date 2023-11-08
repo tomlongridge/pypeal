@@ -84,7 +84,10 @@ class Tower():
             if towerbase_id is not None:
                 query += 'AND towerbase_id = %(towerbase_id)s '
                 params['towerbase_id'] = towerbase_id
+
             result = Database.get_connection().query(query, params).fetchone()
+            if result is None:
+                return None
 
             tower = Tower(*result)
             Cache.get_cache().add(cls.__name__, f'D{tower.id}', tower)

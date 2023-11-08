@@ -1,4 +1,5 @@
 import configparser
+import json
 import os
 
 _config = None
@@ -15,7 +16,7 @@ def set_config_file(path: str):
         raise FileNotFoundError(f'Configuration file not found at: {path}')
 
 
-def get_config(section: str, key: str = None) -> dict | str:
+def get_config(section: str, key: str = None) -> dict | str | list:
 
     global _config
     if _config is None:
@@ -31,6 +32,9 @@ def get_config(section: str, key: str = None) -> dict | str:
         if key is None:
             return config_section
         elif key in config_section:
-            return config_section[key]
+            if config_section[key].startswith('[') or config_section[key].startswith('{'):
+                return json.loads(config_section[key])
+            else:
+                return config_section[key]
 
     return None

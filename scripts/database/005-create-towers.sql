@@ -3,7 +3,7 @@ CREATE TABLE @db_name.`towers` (
     `towerbase_id` INT UNSIGNED NULL,
     `place` VARCHAR(128) NOT NULL,
     `sub_place` VARCHAR(128) NULL,
-    `dedication` VARCHAR(128) NOT NULL,
+    `dedication` VARCHAR(128) NULL,
     `county` VARCHAR(128) NOT NULL,
     `country` VARCHAR(128) NOT NULL,
     `country_code` VARCHAR(2) NOT NULL,
@@ -11,6 +11,6 @@ CREATE TABLE @db_name.`towers` (
     `longitude` FLOAT NULL,
     `bells` INT NOT NULL,
     `tenor_weight` INT UNSIGNED NOT NULL,
-    `tenor_note` VARCHAR(10) NOT NULL,
+    `tenor_note` VARCHAR(10) NULL,
     PRIMARY KEY (`id`)
 );
