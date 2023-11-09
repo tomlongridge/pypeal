@@ -3,7 +3,7 @@ from typing import Iterator
 import xml.etree.ElementTree as ET
 
 from pypeal.bellboard.interface import BellboardError, search as do_search
-from pypeal.peal import PealType
+from pypeal.peal import BellType
 
 
 XML_NAMESPACE = '{http://bb.ringingworld.co.uk/NS/performances#}'
@@ -23,7 +23,7 @@ def search(ringer_name: str = None,
            dedication: str = None,
            association: str = None,
            title: str = None,
-           type: PealType = None,
+           bell_type: BellType = None,
            order_descending: bool = True) -> Iterator[int]:
 
     criteria = {}
@@ -43,12 +43,13 @@ def search(ringer_name: str = None,
         criteria['association'] = association
     if title:
         criteria['title'] = title
-    if type:
-        match type:
-            case PealType.TOWER:
-                criteria['type'] = 'tower'
-            case PealType.HANDBELLS:
-                criteria['type'] = 'hand'
+    match bell_type:
+        case None:
+            pass
+        case BellType.TOWER:
+            criteria['bells_type'] = 'tower'
+        case BellType.HANDBELLS:
+            criteria['bells_type'] = 'hand'
     if not order_descending:
         criteria['order'] = '+reverse'
 

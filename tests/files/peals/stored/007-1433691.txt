@@ -172,8 +172,8 @@ Select action (1):
 │ Guild of Devonshire Ringers                                                  │
 │ Twickenham, Greater London, England                                          │
 │ All Hallows                                                                  │
-│ on Sunday, 5 December 1976                                                   │
-│ 1320 Plain Bob Doubles (7-1-11 in B)                                         │
+│ On Sunday, 5 December 1976                                                   │
+│ A Quarter Peal of 1320 Plain Bob Doubles (7-1-11 in B)                       │
 │                                                                              │
 │ 1: Edward Chapman                                                            │
 │ 2: Blake Elliott                                                             │
@@ -211,8 +211,8 @@ Select action (1):
 Guild of Devonshire Ringers
 Twickenham, Greater London, England
 All Hallows
-on Sunday, 5 December 1976
-1320 Plain Bob Doubles (7-1-11 in B)
+On Sunday, 5 December 1976
+A Quarter Peal of 1320 Plain Bob Doubles (7-1-11 in B)
 
 1: Edward Chapman
 2: Blake Elliott

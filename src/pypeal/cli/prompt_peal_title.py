@@ -64,6 +64,10 @@ def prompt_peal_title(title: str, peal: Peal):
             peal.is_mixed = False
             if not peal.is_spliced:
                 peal.is_mixed = confirm(None, confirm_message='Is this a mixed peal?', default=peal.is_mixed)
+                if not peal.is_mixed:
+                    if confirm(None, confirm_message='Is this a (non-peal) general performance?', default=False):
+                        set_peal_title(peal, title)
+                        return
 
         # Search for a single method
         if peal.is_spliced is False and peal.is_mixed is False:
@@ -71,7 +75,7 @@ def prompt_peal_title(title: str, peal: Peal):
             print(f'Unable to match single method from title "{title}". Please enter search criteria manually:')
 
             name = ask('Name', default=parsed_method.name, required=False)
-            stage = Stage(ask_int('Stage', default=parsed_method.stage.value, min=2, max=22))
+            stage = Stage(ask_int('Stage', default=parsed_method.stage.value if parsed_method.stage else None, min=2, max=22))
             classification = choose_option(['Bob', 'Place', 'Surprise', 'Delight', 'Treble Bob', 'Treble Place'],
                                            default=parsed_method.classification,
                                            return_option=True)
@@ -118,8 +122,9 @@ def prompt_peal_title(title: str, peal: Peal):
             if peal.classification is None:
                 peal.is_variable_cover = confirm(None, 'Is this peal variable cover?', default=False)
 
-            if confirm(f'{peal.method_title}'):
-                peal.title = None
+            if confirm(f'{peal.title}'):
+                peal.description = None
+                peal.detail = None
                 peal.method = None
                 return
 
@@ -137,10 +142,10 @@ def set_peal_title(peal: Peal, title: any):
     peal.num_principles = 0
     peal.num_variants = 0
     if type(title) is str:
-        peal.title = title
+        peal.description = title
         peal.method = None
     elif type(title) is Method:
-        peal.title = None
+        peal.description = None
         peal.method = title
         peal.stage = title.stage
         peal.classification = title.classification

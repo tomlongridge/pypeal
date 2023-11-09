@@ -35,7 +35,8 @@ class PealPreviewListener(PealGeneratorListener):
     def ringer(self, name: str, bells: list[int], is_conductor: bool):
         if 'ringers' not in self.__lines:
             self.__lines['ringers'] = ''
-        self.__lines['ringers'] += f'{get_bell_label(bells)}: {name}'
+        self.__lines['ringers'] += f'{get_bell_label(bells)}: ' if bells else ''
+        self.__lines['ringers'] += name
         if is_conductor:
             self.__lines['ringers'] += ' (c)'
         self.__lines['ringers'] += '\n'

@@ -145,8 +145,8 @@ Select action (1):
 │ Bath and Wells Diocesan Association                                          │
 │ Portbury, Somerset, England                                                  │
 │ Blessed Virgin Mary                                                          │
-│ on Thursday, 17 October 2019                                                 │
-│ 1260 Mixed Doubles (5m/3v/1p) in 44 mins (21 cwt in Eb)                      │
+│ On Thursday, 17 October 2019                                                 │
+│ A Quarter Peal of 1260 Mixed Doubles (5m/3v/1p) in 44 mins (21 cwt in Eb)    │
 │                                                                              │
 │ 1: Dainton Casey                                                             │
 │ 2: Daryl Mason                                                               │
@@ -181,8 +181,8 @@ Select action (1):
 Bath and Wells Diocesan Association
 Portbury, Somerset, England
 Blessed Virgin Mary
-on Thursday, 17 October 2019
-1260 Mixed Doubles (5m/3v/1p) in 44 mins (21 cwt in Eb)
+On Thursday, 17 October 2019
+A Quarter Peal of 1260 Mixed Doubles (5m/3v/1p) in 44 mins (21 cwt in Eb)
 
 1: Dainton Casey
 2: Daryl Mason

@@ -242,8 +242,8 @@ Select action (1):
 ╭───────────────── http://localhost:8080/view.php?id=1657469 ──────────────────╮
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
-│ on Sunday, 10 September 2023                                                 │
-│ 1260 Mixed Doubles (3m) in 41 mins (7-3-12 in Bb)                            │
+│ On Sunday, 10 September 2023                                                 │
+│ A Quarter Peal of 1260 Mixed Doubles (3m) in 41 mins (7-3-12 in Bb)          │
 │ (360 Reverse Canterbury Pleasure Place Doubles, 360 Plain Bob Doubles, 540   │
 │ Grandsire Bob Doubles)                                                       │
 │                                                                              │
@@ -284,8 +284,8 @@ Select action (1):
 ===
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
-on Sunday, 10 September 2023
-1260 Mixed Doubles (3m) in 41 mins (7-3-12 in Bb)
+On Sunday, 10 September 2023
+A Quarter Peal of 1260 Mixed Doubles (3m) in 41 mins (7-3-12 in Bb)
 (360 Reverse Canterbury Pleasure Place Doubles, 360 Plain Bob Doubles, 540 Grandsire Bob Doubles)
 
 1: Ryan Elliott

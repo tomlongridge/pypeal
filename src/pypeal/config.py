@@ -16,7 +16,7 @@ def set_config_file(path: str):
         raise FileNotFoundError(f'Configuration file not found at: {path}')
 
 
-def get_config(section: str, key: str = None) -> dict | str | list:
+def get_config(section: str, key: str = None) -> dict | list | int | float | bool | str:
 
     global _config
     if _config is None:
@@ -32,9 +32,16 @@ def get_config(section: str, key: str = None) -> dict | str | list:
         if key is None:
             return config_section
         elif key in config_section:
-            if config_section[key].startswith('[') or config_section[key].startswith('{'):
-                return json.loads(config_section[key])
+            value = config_section[key]
+            if value.startswith('[') or value.startswith('{'):
+                return json.loads(value)
+            elif value.isnumeric():
+                return int(value)
+            elif value.replace('.', '', 1).isnumeric():
+                return float(value)
+            elif value.lower() == 'true' or value.lower() == 'false':
+                return bool(value)
             else:
-                return config_section[key]
+                return value
 
     return None

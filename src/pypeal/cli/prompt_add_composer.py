@@ -43,7 +43,7 @@ def prompt_add_composer(name: str, url: str, peal: Peal):
                     case 0:
                         print(f'No existing ringers match (given name: "{search_last_name}", last name: "{search_last_name}")')
                     case 1:
-                        if confirm(f'Conductor: {potential_ringers[0]}', default=True):
+                        if confirm(f'Composer: {potential_ringers[0]}', default=True):
                             matched_ringer = potential_ringers[0]
                     case _:
                         print(f'{len(potential_ringers)} existing ringers match "{(search_last_name + " " + search_last_name).strip()}"')

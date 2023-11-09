@@ -169,8 +169,8 @@ Select action (1):
 ╭───────────────── http://localhost:8080/view.php?id=1659658 ──────────────────╮
 │ Shrivenham, Oxfordshire, England                                             │
 │ S Andrew                                                                     │
-│ on Saturday, 23 September 2023                                               │
-│ 1296 Little Bob Royal in 50 mins (13-0-2 in F)                               │
+│ On Saturday, 23 September 2023                                               │
+│ A Quarter Peal of 1296 Little Bob Royal in 50 mins (13-0-2 in F)             │
 │ Composed by: Alex W Tatlow                                                   │
 │                                                                              │
 │ 1: Garry Scott                                                               │
@@ -213,8 +213,8 @@ Select action (1):
 ===
 Shrivenham, Oxfordshire, England
 S Andrew
-on Saturday, 23 September 2023
-1296 Little Bob Royal in 50 mins (13-0-2 in F)
+On Saturday, 23 September 2023
+A Quarter Peal of 1296 Little Bob Royal in 50 mins (13-0-2 in F)
 Composed by: Alex W Tatlow
 
 1: Garry Scott

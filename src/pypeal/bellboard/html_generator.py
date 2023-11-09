@@ -6,7 +6,7 @@ from pypeal import config
 
 from pypeal.bellboard.interface import BellboardError, get_peal
 from pypeal.bellboard.listener import PealGeneratorListener
-from pypeal.peal import PealType
+from pypeal.peal import BellType
 
 DATE_LINE_INFO_REGEX = re.compile(r'[A-Za-z]+,\s(?P<date>[0-9]+\s[A-Za-z0-9]+\s[0-9]+)(?:\s' +
                                   r'in\s(?P<duration>[A-Za-z0-9\s]+))?\s?(?:\((?P<tenor>.*)\))?$')
@@ -37,9 +37,9 @@ class HTMLPealGenerator():
 
         element = soup.select('div.ringers.two-in-hand.handbells')
         if len(element) > 0:
-            listener.type(PealType.HANDBELLS)
+            listener.type(BellType.HANDBELLS)
         else:
-            listener.type(PealType.TOWER)
+            listener.type(BellType.TOWER)
 
         place = None
         county = None

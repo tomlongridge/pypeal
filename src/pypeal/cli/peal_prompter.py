@@ -9,7 +9,7 @@ from pypeal.cli.prompt_add_location import prompt_add_location
 from pypeal.cli.prompt_add_ringer import prompt_add_ringer
 from pypeal.cli.prompt_peal_title import prompt_peal_title
 from pypeal.parsers import parse_duration, parse_tenor_info
-from pypeal.peal import Peal, PealType
+from pypeal.peal import Peal, BellType, PealType
 from pypeal.tower import Tower
 
 
@@ -21,8 +21,8 @@ class PealPromptListener(PealGeneratorListener):
     def new_peal(self, id: int):
         self.peal = Peal(bellboard_id=id)
 
-    def type(self, value: PealType):
-        self.peal.type = value
+    def type(self, value: BellType):
+        self.peal.bell_type = value
 
     def association(self, value: str):
         prompt_add_association(value, self.peal)
@@ -48,7 +48,9 @@ class PealPromptListener(PealGeneratorListener):
         prompt_peal_title(value, self.peal)
 
     def method_details(self, value: str):
-        if value or self.peal.is_multi_method:
+        if self.peal.type == PealType.GENERAL:
+            self.peal.detail = value
+        elif value or self.peal.is_multi_method:
             prompt_add_change_of_method(value, self.peal)
 
     def composer(self, name: str, url: str):

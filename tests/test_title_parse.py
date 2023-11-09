@@ -82,4 +82,4 @@ def test_parse_method_title(title: str, expected_details: tuple[Method, bool, bo
     peal.num_methods = num_methods
     peal.num_variants = num_variants
     peal.num_principles = num_principles
-    assert peal.method_title == expected_title if expected_title else title
+    assert peal.title == expected_title if expected_title else title

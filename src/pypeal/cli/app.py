@@ -17,7 +17,7 @@ from pypeal.cli.peal_previewer import PealPreviewListener
 from pypeal.cli.prompts import UserCancelled, ask_date, choose_option, ask, confirm, panel, error
 from pypeal.db import initialize as initialize_db
 from pypeal.dove import update_associations, update_bells, update_towers
-from pypeal.peal import Peal, PealType
+from pypeal.peal import Peal, BellType
 from pypeal.ringer import Ringer
 from pypeal.config import set_config_file
 
@@ -204,11 +204,11 @@ def search():
     county = ask('County/Region/Country', required=False)
     dedication = ask('Dedication', required=False)
     title = ask('Title', required=False)
-    type = choose_option(['Any', 'Tower', 'Handbells'],
-                         values=[None, PealType.TOWER, PealType.HANDBELLS],
-                         prompt='Type',
-                         required=False,
-                         default='Any')
+    bell_type = choose_option(['Any', 'Tower', 'Handbells'],
+                              values=[None, BellType.TOWER, BellType.HANDBELLS],
+                              prompt='Type',
+                              required=False,
+                              default='Any')
     order_descending = choose_option(['Newest', 'Oldest'],
                                      values=[True, False],
                                      prompt='Order of results',
@@ -227,7 +227,7 @@ def search():
                                         dedication=dedication,
                                         association=association,
                                         title=title,
-                                        type=type,
+                                        bell_type=bell_type,
                                         order_descending=order_descending):
             if peal_id in get_peal_list():
                 count_duplicate += 1

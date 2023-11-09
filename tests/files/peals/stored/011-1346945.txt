@@ -349,8 +349,8 @@ Select action (1):
 ╭───────────────── http://localhost:8080/view.php?id=1346945 ──────────────────╮
 │ Saxmundham, Suffolk, England                                                 │
 │ S John Bapt                                                                  │
-│ on Monday, 27 March 1967                                                     │
-│ 5040 Mixed Doubles (4m/4v) in 149 mins (8-3-7 in A)                          │
+│ On Monday, 27 March 1967                                                     │
+│ A Peal of 5040 Mixed Doubles (4m/4v) in 149 mins (8-3-7 in A)                │
 │ (630 Stedman Doubles, 630 Grandsire Bob Doubles, 630 Reverse Canterbury      │
 │ Pleasure Place Doubles, 630 Winchendon Place Doubles, 630 St Nicholas Bob    │
 │ Doubles, 630 St Simon's Bob Doubles, 630 St Martin's Bob Doubles, 630 Plain  │
@@ -392,8 +392,8 @@ Select action (1):
 ===
 Saxmundham, Suffolk, England
 S John Bapt
-on Monday, 27 March 1967
-5040 Mixed Doubles (4m/4v) in 149 mins (8-3-7 in A)
+On Monday, 27 March 1967
+A Peal of 5040 Mixed Doubles (4m/4v) in 149 mins (8-3-7 in A)
 (630 Reverse Canterbury Pleasure Place Doubles, 630 Winchendon Place Doubles, 630 St Nicholas Bob Doubles, 630 Plain Bob Doubles, 630 St Martin's Bob Doubles, 630 St Simon's Bob Doubles, 630 Grandsire Bob Doubles, 630 Stedman Doubles)
 
 1: Lydia Reed

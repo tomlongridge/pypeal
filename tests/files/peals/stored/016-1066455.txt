@@ -157,8 +157,8 @@ Select action (1):
 ╭───────────────── http://localhost:8080/view.php?id=1066455 ──────────────────╮
 │ Marston Bigot, Somerset, England                                             │
 │ Pig-le-Tower                                                                 │
-│ on Sunday, 21 September 2014                                                 │
-│ 1280 Cambridge Surprise Major                                                │
+│ On Sunday, 21 September 2014                                                 │
+│ A Quarter Peal of 1280 Cambridge Surprise Major                              │
 │                                                                              │
 │ 1: Vivian Murray                                                             │
 │ 2: Byron Robinson                                                            │
@@ -198,8 +198,8 @@ Select action (1):
 ===
 Marston Bigot, Somerset, England
 Pig-le-Tower
-on Sunday, 21 September 2014
-1280 Cambridge Surprise Major 
+On Sunday, 21 September 2014
+A Quarter Peal of 1280 Cambridge Surprise Major 
 
 1: Vivian Murray
 2: Byron Robinson

@@ -156,8 +156,8 @@ Select action (1):
 │ Oxford Diocesan Guild                                                        │
 │ Maidenhead, Kent, England                                                    │
 │ 80 Lambourne Drive, Cox Green (in hand)                                      │
-│ on Wednesday, 29 March 1972                                                  │
-│ 5232 Bristol Surprise Maximus in 183 mins                                    │
+│ On Wednesday, 29 March 1972                                                  │
+│ A Peal of 5232 Bristol Surprise Maximus in 183 mins                          │
 │ Composed by: Christopher I Rowson                                            │
 │                                                                              │
 │ 1,2: Sam Wells                                                               │
@@ -196,8 +196,8 @@ Select action (1):
 Oxford Diocesan Guild
 Maidenhead, Kent, England
 80 Lambourne Drive, Cox Green (in hand)
-on Wednesday, 29 March 1972
-5232 Bristol Surprise Maximus in 183 mins 
+On Wednesday, 29 March 1972
+A Peal of 5232 Bristol Surprise Maximus in 183 mins 
 Composed by: Christopher I Rowson
 
 1,2: Sam Wells

@@ -53,7 +53,7 @@ Last name (Taylor):
 Given name(s) (G A A): 
 >>> By%
 [User input: "By%"]
-Conductor: Byron Miller
+Composer: Byron Miller
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -123,8 +123,8 @@ Select action (1):
 ╭───────────────── http://localhost:8080/view.php?id=1661485 ──────────────────╮
 │ Bath, Somerset, England                                                      │
 │ S Stephen, Lansdown                                                          │
-│ on Friday, 6 October 2023                                                    │
-│ 1296 Honeywell Delight Minor in 36 mins (2-3-9 in F)                         │
+│ On Friday, 6 October 2023                                                    │
+│ A Quarter Peal of 1296 Honeywell Delight Minor in 36 mins (2-3-9 in F)       │
 │ Composed by: Byron Miller                                                    │
 │                                                                              │
 │ 1: Leo Bennett                                                               │
@@ -161,8 +161,8 @@ Select action (1):
 ===
 Bath, Somerset, England
 S Stephen, Lansdown
-on Friday, 6 October 2023
-1296 Honeywell Delight Minor in 36 mins (2-3-9 in F)
+On Friday, 6 October 2023
+A Quarter Peal of 1296 Honeywell Delight Minor in 36 mins (2-3-9 in F)
 Composed by: Byron Miller
 
 1: Leo Bennett

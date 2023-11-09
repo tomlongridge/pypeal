@@ -1,7 +1,7 @@
 CREATE TABLE @db_name.`peals` (
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
     `bellboard_id` INT UNSIGNED NULL,
-    `type` TINYINT UNSIGNED NOT NULL,
+    `bell_type` TINYINT UNSIGNED NOT NULL,
     `date` DATE NOT NULL,
     `ring_id` INT UNSIGNED NULL,
     `place` VARCHAR(128) NULL,
@@ -21,7 +21,8 @@ CREATE TABLE @db_name.`peals` (
     `num_principles` TINYINT UNSIGNED DEFAULT 0 NOT NULL,
     `num_variants` TINYINT UNSIGNED DEFAULT 0 NOT NULL,
     `method_id` VARCHAR(10) NULL,
-    `title` VARCHAR(128) NULL,
+    `description` VARCHAR(128) NULL,
+    `detail` VARCHAR(1024) NULL,
     `composer_id` INT UNSIGNED NULL,
     `composition_url` VARCHAR(128) NULL,
     `duration` INT UNSIGNED NULL,

@@ -263,8 +263,9 @@ Select action (1):
 ╭───────────────── http://localhost:8080/view.php?id=1147788 ──────────────────╮
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
-│ on Sunday, 11 January 2015                                                   │
-│ 1260 Spliced Caters and Royal (2m) in 48 mins (18-3-20 in Eb)                │
+│ On Sunday, 11 January 2015                                                   │
+│ A Quarter Peal of 1260 Spliced Caters and Royal (2m) in 48 mins (18-3-20 in  │
+│ Eb)                                                                          │
 │ (Grandsire Bob Caters, Grandsire Bob Royal)                                  │
 │                                                                              │
 │ 1: Byron Miller                                                              │
@@ -307,8 +308,8 @@ Select action (1):
 ===
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
-on Sunday, 11 January 2015
-1260 Spliced Caters and Royal (2m) in 48 mins (18-3-20 in Eb)
+On Sunday, 11 January 2015
+A Quarter Peal of 1260 Spliced Caters and Royal (2m) in 48 mins (18-3-20 in Eb)
 (Grandsire Bob Caters, Grandsire Bob Royal)
 
 1: Byron Miller

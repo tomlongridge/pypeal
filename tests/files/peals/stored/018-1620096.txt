@@ -104,8 +104,8 @@ Select action (1):
 ╭───────────────── http://localhost:8080/view.php?id=1620096 ──────────────────╮
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
-│ on Sunday, 7 May 2023                                                        │
-│ 1260 Grandsire Doubles in 40 mins (7-3-12 in Bb)                             │
+│ On Sunday, 7 May 2023                                                        │
+│ A Quarter Peal of 1260 Grandsire Doubles in 40 mins (7-3-12 in Bb)           │
 │                                                                              │
 │ 1: Ryan Elliott                                                              │
 │ 2: Arnold Johnson                                                            │
@@ -143,8 +143,8 @@ Select action (1):
 ===
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
-on Sunday, 7 May 2023
-1260 Grandsire Doubles in 40 mins (7-3-12 in Bb)
+On Sunday, 7 May 2023
+A Quarter Peal of 1260 Grandsire Doubles in 40 mins (7-3-12 in Bb)
 
 1: Ryan Elliott
 2: Arnold Johnson

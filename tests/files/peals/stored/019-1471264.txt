@@ -105,8 +105,9 @@ Add new footnote? [y/n] (n):
 ╭───────────────── http://localhost:8080/view.php?id=1471264 ──────────────────╮
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
-│ on Sunday, 14 November 2021                                                  │
-│ 1259 Grandsire Caters (half-muffled) in 49 mins (18-3-20 in Eb)              │
+│ On Sunday, 14 November 2021                                                  │
+│ A Quarter Peal of 1259 Grandsire Caters (half-muffled) in 49 mins (18-3-20   │
+│ in Eb)                                                                       │
 │                                                                              │
 │ 1: Lenny Howard                                                              │
 │ 2: Jacob Cole                                                                │
@@ -147,8 +148,8 @@ Select action (1):
 ===
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
-on Sunday, 14 November 2021
-1259 Grandsire Caters (half-muffled) in 49 mins (18-3-20 in Eb)
+On Sunday, 14 November 2021
+A Quarter Peal of 1259 Grandsire Caters (half-muffled) in 49 mins (18-3-20 in Eb)
 
 1: Lenny Howard
 2: Jacob Cole

@@ -16,7 +16,7 @@ class UserCancelled(Exception):
 
 def print_user_input(prompt: str, message: str):
     logger.debug(f'User input >> {prompt}: {message}')
-    if get_config('diagnostics', 'print_user_input') == 'True':
+    if get_config('diagnostics', 'print_user_input'):
         if message == datetime.now().strftime('%Y/%m/%d'):  # Avoid printing today's date so it doesn't change in test
             message = '[Today]'
         print(f'\n[User input: "{message}"]')
