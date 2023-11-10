@@ -1,7 +1,7 @@
 CREATE TABLE @db_name.`ringers` (
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
     `last_name` VARCHAR(45) NOT NULL,
-    `given_names` VARCHAR(45) NOT NULL,
+    `given_names` VARCHAR(45) NULL,
     `is_composer` BOOLEAN NULL DEFAULT FALSE,
     `link_id` INT UNSIGNED NULL,
     PRIMARY KEY (`id`),

@@ -87,16 +87,21 @@ def run_interactive(peal_id_or_url: str):
         try:
             panel(f'Number of peals: {len(get_peal_list(force_update=True))}')
 
-            match choose_option([
-                'Find recent peals',
-                'Add peals by search',
-                'Add peals by search URL',
-                'Add peal by ID/URL',
-                'Add random peal',
-                'View peal',
-                'Update static data',
-                'Exit'
-            ], default=1):
+            try:
+                selected_option = choose_option([
+                    'Find recent peals',
+                    'Add peals by search',
+                    'Add peals by search URL',
+                    'Add peal by ID/URL',
+                    'Add random peal',
+                    'View peal',
+                    'Update static data',
+                    'Exit'
+                ], default=1)
+            except UserCancelled:
+                raise typer.Exit()
+
+            match selected_option:
                 case 1:
                     poll_for_new_peals()
                 case 2:

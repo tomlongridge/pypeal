@@ -56,7 +56,7 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 🎼 Composer: Unknown
-📅 Date: 2023-05-13
+📅 Date: Saturday, 13 May 2023
 🔔 Tenor: 1221 in F
 ⏱ Duration: 46
 1: 2 existing ringers match "Aston Mitchell"

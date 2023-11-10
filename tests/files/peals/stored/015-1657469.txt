@@ -146,7 +146,7 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 🎼 Composer: Unknown
-📅 Date: 2023-09-10
+📅 Date: Sunday, 10 September 2023
 🔔 Tenor: 880 in Bb
 ⏱ Duration: 41
 1: "Ryan Elliott" -> Ryan Elliott

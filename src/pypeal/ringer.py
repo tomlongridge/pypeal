@@ -23,7 +23,10 @@ class Ringer():
 
     @property
     def name(self) -> str:
-        return f'{self.given_names} {self.last_name}'
+        text = ''
+        text += f'{self.given_names} ' if self.given_names else ''
+        text += f'{self.last_name}' if self.last_name else ''
+        return text if len(text) > 0 else None
 
     def __str__(self) -> str:
         return self.name

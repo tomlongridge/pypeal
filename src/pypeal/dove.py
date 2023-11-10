@@ -22,6 +22,7 @@ def update_towers():
     Database.get_connection().query('SET FOREIGN_KEY_CHECKS=0;')
     Database.get_connection().query('TRUNCATE TABLE towers;')
 
+    _logger.info('Downloading tower data from Dove...')
     file_url = get_config('dove', 'towers_url')
     if file_url.startswith('http'):
         response = requests.get(file_url)
@@ -31,6 +32,7 @@ def update_towers():
         with open(file_url, 'r', encoding='utf-8-sig') as f:
             data = f.read()
 
+    _logger.info('Adding tower data to database...')
     tower_ids = []
     for line in csv.DictReader(data.splitlines(), delimiter=',', quotechar='"'):
         if line['TowerID'].startswith('#'):
@@ -66,6 +68,7 @@ def update_associations():
     Database.get_connection().query('SET FOREIGN_KEY_CHECKS=0;')
     Database.get_connection().query('TRUNCATE TABLE associations;')
 
+    _logger.info('Downloading region data from Dove...')
     file_url = get_config('dove', 'regions_url')
     if file_url.startswith('http'):
         response = requests.get(file_url)
@@ -75,6 +78,7 @@ def update_associations():
         with open(file_url, 'r', encoding='utf-8-sig') as f:
             data = f.read()
 
+    _logger.info('Adding region data to database...')
     for line in csv.DictReader(data.splitlines(), delimiter=',', quotechar='"'):
         match line['Category']:
             case 'Association':
@@ -93,6 +97,7 @@ def update_bells():
     Database.get_connection().query('SET FOREIGN_KEY_CHECKS=0;')
     Database.get_connection().query('TRUNCATE TABLE bells;')
 
+    _logger.info('Downloading bell data from Dove...')
     file_url = get_config('dove', 'bells_url')
     if file_url.startswith('http'):
         response = requests.get(file_url)
@@ -102,6 +107,7 @@ def update_bells():
         with open(file_url, 'r', encoding='utf-8-sig') as f:
             data = f.read()
 
+    _logger.info('Adding bell data to database...')
     for line in csv.DictReader(data.splitlines(), delimiter=',', quotechar='"'):
 
         if line['Bell ID'].startswith('#'):

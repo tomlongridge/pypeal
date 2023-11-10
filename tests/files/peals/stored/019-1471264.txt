@@ -46,7 +46,7 @@ Try for a quick-add? [y/n] (y):
 🔢 Changes: 1259
 📕 Title: Grandsire Caters
 🎼 Composer: Unknown
-📅 Date: 2021-11-14
+📅 Date: Sunday, 14 November 2021
 🔔 Tenor: 2120 in Eb
 ⏱ Duration: 49
 👤 Ringer: 1: Lenny Howard

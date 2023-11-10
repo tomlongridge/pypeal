@@ -56,7 +56,7 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 🎼 Composer: Unknown
-📅 Date: 2023-10-01
+📅 Date: Sunday, 1 October 2023
 🔔 Tenor: 2120 in Eb
 ⏱ Duration: 47
 1: "Melissa Baker" -> Melissa Baker

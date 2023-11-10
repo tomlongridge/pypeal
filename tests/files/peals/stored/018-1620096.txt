@@ -43,7 +43,7 @@ Try for a quick-add? [y/n] (y):
 🔢 Changes: 1260
 📕 Title: Grandsire Doubles
 🎼 Composer: Unknown
-📅 Date: 2023-05-07
+📅 Date: Sunday, 7 May 2023
 🔔 Tenor: 880
 ⏱ Duration: 40
 First bell number(s) in the tower (1): 
@@ -106,7 +106,7 @@ Is this correct? [y/n] (y):
 >>> 
 [User input: "True"]
 🎼 Composer: Unknown
-📅 Date: 2023-05-07
+📅 Date: Sunday, 7 May 2023
 🔔 Tenor: 880
 ⏱ Duration: 40
 1: "Ryan Elliott" -> Ryan Elliott

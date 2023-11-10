@@ -74,7 +74,7 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 🎼 Composer: Unknown
-📅 Date: 1976-12-05
+📅 Date: Sunday, 5 December 1976
 🔔 Tenor: 823 in B
 ⏱ Duration: Unknown
 1: Attempting to find "Edward Chapman"

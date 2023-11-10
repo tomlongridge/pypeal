@@ -304,7 +304,7 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 🎼 Composer: Unknown
-📅 Date: 1967-03-27
+📅 Date: Monday, 27 March 1967
 🔔 Tenor: 987 in A
 ⏱ Duration: 149
 1: Attempting to find "Lydia Reed"

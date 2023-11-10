@@ -21,9 +21,9 @@ def update_methods():
     Database.get_connection().query('SET FOREIGN_KEY_CHECKS=0;')
     Database.get_connection().query('TRUNCATE TABLE methods;')
 
+    _logger.info('Downloading method data from CCCBR...')
     method_file_url = get_config('cccbr', 'methods_url')
     method_file_name = os.path.basename(method_file_url).replace('.zip', '')
-    _logger.info(f'Updating method library from {method_file_url}')
 
     if method_file_url.startswith('http'):
         response = requests.get(method_file_url)
@@ -39,6 +39,7 @@ def update_methods():
     else:
         method_xml = method_data
 
+    _logger.info('Adding method data to database...')
     _logger.debug('Parsing method XML')
     tree = ET.fromstring(method_xml)
 

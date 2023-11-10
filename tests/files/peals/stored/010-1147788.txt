@@ -181,7 +181,7 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 🎼 Composer: Unknown
-📅 Date: 2015-01-11
+📅 Date: Sunday, 11 January 2015
 🔔 Tenor: 2120
 ⏱ Duration: 48
 1: Attempting to find "Byron Miller"

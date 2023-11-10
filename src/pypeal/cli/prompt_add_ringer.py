@@ -35,10 +35,12 @@ def prompt_add_ringer(name: str, bell_nums: list[int], is_conductor: bool, peal:
 
         match choose_option(['Add as new ringer', 'Search alternatives'], default=1) if not quick_mode else 1:
             case 1:
-                if quick_mode:
-                    matched_ringer = Ringer(last_name, given_names)
-                else:
+                if not quick_mode or \
+                        confirm(f'"{name}" not found in database', confirm_message='Add as new ringer?', default=True):
                     matched_ringer = Ringer(*prompt_names(last_name, given_names))
+                else:
+                    quick_mode = False
+                    continue
             case 2:
                 quick_mode = False
                 search_last_name, search_given_names = prompt_names(last_name, given_names)
@@ -57,8 +59,8 @@ def prompt_add_ringer(name: str, bell_nums: list[int], is_conductor: bool, peal:
         matched_ringer.commit()
 
     if len(full_name_match) == 0 and \
-            f'{given_names} {last_name}' != matched_ringer.name and \
-            (quick_mode or confirm(f'Add "{given_names} {last_name}" as an alias?')):
+            name != matched_ringer.name and \
+            (quick_mode or confirm(f'Add "{name}" as an alias?')):
         matched_ringer.add_alias(last_name, given_names)
 
     bells = []

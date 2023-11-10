@@ -1,4 +1,5 @@
 from datetime import datetime
+from pypeal import utils
 from pypeal.bellboard.listener import PealGeneratorListener
 from pypeal.cli.prompt_add_footnote import prompt_add_footnote, prompt_add_muffle_type, prompt_new_footnote
 from pypeal.cli.prompt_validate_tenor import prompt_validate_tenor
@@ -78,7 +79,7 @@ class PealPromptListener(PealGeneratorListener):
 
     def date(self, value: datetime.date):
         self.peal.date = value
-        print(f'📅 Date: {value}')
+        print(f'📅 Date: {utils.format_date_full(value)}')
 
     def tenor(self, value: str):
         if value:

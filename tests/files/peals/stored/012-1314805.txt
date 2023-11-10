@@ -118,7 +118,7 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 🎼 Composer: Unknown
-📅 Date: 2019-12-15
+📅 Date: Sunday, 15 December 2019
 🔔 Tenor: 2120 in Eb
 ⏱ Duration: 48
 1: "Leonardo Bennett" -> Leo Bennett

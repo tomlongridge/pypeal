@@ -67,7 +67,7 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 🎼 Composer: Unknown
-📅 Date: 2001-12-02
+📅 Date: Sunday, 2 December 2001
 🔔 Tenor: Unknown
 ⏱ Duration: 50
 1: Attempting to find "Julia Fowler"

@@ -87,7 +87,7 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 🎼 Composer: Unknown
-📅 Date: 2001-06-30
+📅 Date: Saturday, 30 June 2001
 🔔 Tenor: 1904
 ⏱ Duration: 49
 1: Attempting to find "Lydia Ferguson"
