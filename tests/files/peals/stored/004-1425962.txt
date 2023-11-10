@@ -34,6 +34,9 @@ Bellboard URL or peal ID:
 │                                                                              │
 │ For Evensong                                                                 │
 ╰──────────────────────────────────────────────────────────────────────────────╯
+Try for a quick-add? [y/n] (y): 
+>>> n
+[User input: "False"]
 No linked association
 Is this correct? [y/n] (y): 
 >>> y

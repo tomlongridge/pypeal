@@ -37,6 +37,9 @@ Bellboard URL or peal ID:
 │ Rung as a birthday compliment to Matthew Skues.                              │
 │ 6: First quarter of Little Bob Royal.                                        │
 ╰──────────────────────────────────────────────────────────────────────────────╯
+Try for a quick-add? [y/n] (y): 
+>>> n
+[User input: "False"]
 No linked association
 Is this correct? [y/n] (y): 
 >>> y

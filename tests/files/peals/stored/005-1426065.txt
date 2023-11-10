@@ -34,6 +34,9 @@ Bellboard URL or peal ID:
 │                                                                              │
 │ Rung for Morning Service. First of Triples "inside"-4.                       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
+Try for a quick-add? [y/n] (y): 
+>>> n
+[User input: "False"]
 No linked association
 Is this correct? [y/n] (y): 
 >>> n
@@ -171,7 +174,7 @@ Bell number(s) in the tower (10):
 [User input: "10"]
 Footnote line:
   > Rung for Morning Service. First of Triples "inside"-4
-Split footnote by sentences? [y/n] (y): 
+Split footnote by sentences? [y/n] (n): 
 >>> y
 [User input: "True"]
 Footnote 1 text:

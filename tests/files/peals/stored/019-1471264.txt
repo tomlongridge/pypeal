@@ -37,6 +37,9 @@ Bellboard URL or peal ID:
 │ Rung half muffled for morning service on remembrance day                     │
 │ Linked event: http://localhost:8080/event.php?id=14097                       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
+Try for a quick-add? [y/n] (y): 
+>>> n
+[User input: "False"]
 No linked association
 Is this correct? [y/n] (y): 
 >>> 

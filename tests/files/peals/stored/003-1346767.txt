@@ -34,6 +34,9 @@ Bellboard URL or peal ID:
 │ Rung as a wedding compliment to Miss Ann Pearce and Mr George Bradlaugh;     │
 │ Also a birthday compliment to Vernon B Bedford.                              │
 ╰──────────────────────────────────────────────────────────────────────────────╯
+Try for a quick-add? [y/n] (y): 
+>>> n
+[User input: "False"]
 Matched "Suffolk Guild" to association: Suffolk Guild (ID: 286)
 Is this correct? [y/n] (y): 
 >>> y

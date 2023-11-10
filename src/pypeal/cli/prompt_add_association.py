@@ -3,9 +3,9 @@ from pypeal.cli.prompts import ask, confirm, choose_option
 from pypeal.peal import Peal
 
 
-def prompt_add_association(association: str, peal: Peal):
+def prompt_add_association(association: str, peal: Peal, quick_mode: bool):
 
-    if not association and confirm('No linked association'):
+    if not association and (quick_mode or confirm('No linked association')):
         return
 
     original_association_name = association
@@ -23,6 +23,7 @@ def prompt_add_association(association: str, peal: Peal):
             case 0:
                 if association:
                     print(f'No associations match "{association}"')
+                quick_mode = False
                 match choose_option(['Search alternatives'], default=1, cancel_option='None'):
                     case 1:
                         print('Enter search criteria:')
@@ -36,9 +37,11 @@ def prompt_add_association(association: str, peal: Peal):
                 matched_association = association_results[0]
             case _:
                 print(f'{len(association_results)} methods match "{association}"')
+                quick_mode = False
                 matched_association = choose_option(association_results, cancel_option='None', return_option=True)
 
-        if ((original_association_name is not None and
+        if (quick_mode or
+            (original_association_name is not None and
                 confirm(f'Matched "{original_association_name}" to association: {matched_association} (ID: {matched_association.id})')) or
                 (original_association_name is None and
                  confirm(f'Add association {matched_association} (ID: {matched_association.id})'))):

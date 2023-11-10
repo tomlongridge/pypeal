@@ -35,6 +35,9 @@ Bellboard URL or peal ID:
 │ Birthday compliment to Paul Clewett                                          │
 │ First on a mini-ring: 3 & 6                                                  │
 ╰──────────────────────────────────────────────────────────────────────────────╯
+Try for a quick-add? [y/n] (y): 
+>>> n
+[User input: "False"]
 No linked association
 Is this correct? [y/n] (y): 
 >>> 

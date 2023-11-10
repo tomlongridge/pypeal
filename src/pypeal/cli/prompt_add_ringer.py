@@ -5,7 +5,7 @@ from pypeal.ringer import Ringer
 from pypeal.utils import get_bell_label, split_full_name
 
 
-def prompt_add_ringer(name: str, bell_nums: list[int], is_conductor: bool, peal: Peal):
+def prompt_add_ringer(name: str, bell_nums: list[int], is_conductor: bool, peal: Peal, quick_mode: bool):
 
     matched_ringer: Ringer = None
 
@@ -14,23 +14,33 @@ def prompt_add_ringer(name: str, bell_nums: list[int], is_conductor: bool, peal:
         case 0:
             pass  # Allow to continue to name matching
         case 1:
-            if confirm(f'{get_bell_label(bell_nums)}: "{name}" -> {full_name_match[0]}', default=True):
+            if quick_mode or confirm(f'{get_bell_label(bell_nums)}: "{name}" -> {full_name_match[0]}', default=True):
                 matched_ringer = full_name_match[0]
         case _:
             print(f'{get_bell_label(bell_nums)}: {len(full_name_match)} existing ringers match "{name}"')
-            matched_ringer = choose_option(
-                [f'{r.name} ({r.id})' for r in full_name_match], values=full_name_match, cancel_option='None', return_option=True)
+            if quick_mode:
+                matched_ringer = full_name_match[0]
+            else:
+                matched_ringer = choose_option([f'{r.name} ({r.id})' for r in full_name_match],
+                                               values=full_name_match,
+                                               cancel_option='None',
+                                               return_option=True)
 
     last_name, given_names = split_full_name(name)
 
     while not matched_ringer:
 
-        print(f'{get_bell_label(bell_nums)}: Attempting to find "{name}"')
+        if not quick_mode:
+            print(f'{get_bell_label(bell_nums)}: Attempting to find "{name}"')
 
-        match choose_option(['Add as new ringer', 'Search alternatives'], default=1):
+        match choose_option(['Add as new ringer', 'Search alternatives'], default=1) if not quick_mode else 1:
             case 1:
-                matched_ringer = Ringer(*prompt_names(last_name, given_names))
+                if quick_mode:
+                    matched_ringer = Ringer(last_name, given_names)
+                else:
+                    matched_ringer = Ringer(*prompt_names(last_name, given_names))
             case 2:
+                quick_mode = False
                 search_last_name, search_given_names = prompt_names(last_name, given_names)
                 potential_ringers = Ringer.get_by_name(search_last_name, search_given_names)
                 match len(potential_ringers):
@@ -48,7 +58,7 @@ def prompt_add_ringer(name: str, bell_nums: list[int], is_conductor: bool, peal:
 
     if len(full_name_match) == 0 and \
             f'{given_names} {last_name}' != matched_ringer.name and \
-            confirm(f'Add "{given_names} {last_name}" as an alias?'):
+            (quick_mode or confirm(f'Add "{given_names} {last_name}" as an alias?')):
         matched_ringer.add_alias(last_name, given_names)
 
     bells = []
@@ -66,7 +76,9 @@ def prompt_add_ringer(name: str, bell_nums: list[int], is_conductor: bool, peal:
                     suggested_bells.append(last_bell + i + 1)
             else:
                 suggested_bells = bell_nums
-            for bell in ask('Bell number(s) in the tower', default=get_bell_label(suggested_bells)).split(','):
+            bell_nums_str = get_bell_label(suggested_bells)
+            bell_nums_str = ask('Bell number(s) in the tower', default=bell_nums_str) if not quick_mode else bell_nums
+            for bell in bell_nums_str.split(','):
                 bell_list = bell.split('-')
                 if len(bell_list) == 1:
                     if bell.isnumeric() and validate_bell([int(bell)], peal):
@@ -79,9 +91,13 @@ def prompt_add_ringer(name: str, bell_nums: list[int], is_conductor: bool, peal:
                             bells += bell_range
                             continue
                 error(f'Invalid bell number, list or range: {bell}')
+                bells = []
+                quick_mode = False
+                break
             if len(bells) > len(bell_nums):
                 if not confirm(f'More bells ({len(bells)}) than expected ({len(bell_nums)}) for this ringer', default=False):
                     bells = []
+                    quick_mode = False
 
     peal.add_ringer(matched_ringer, bell_nums, bells if len(bells) > 0 else None, is_conductor)
 

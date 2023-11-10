@@ -34,6 +34,9 @@ Bellboard URL or peal ID:
 │ Queen Camilla                                                                │
 │ Linked event: http://localhost:8080/event.php?id=16774                       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
+Try for a quick-add? [y/n] (y): 
+>>> n
+[User input: "False"]
 No linked association
 Is this correct? [y/n] (y): 
 >>> 

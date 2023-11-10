@@ -35,6 +35,9 @@ Bellboard URL or peal ID:
 │                                                                              │
 │ Rung for morning service                                                     │
 ╰──────────────────────────────────────────────────────────────────────────────╯
+Try for a quick-add? [y/n] (y): 
+>>> n
+[User input: "False"]
 Matched "Bath & Wells Diocesan Association" to association: Bath and Wells 
 Diocesan Association (ID: 236)
 Is this correct? [y/n] (y): 

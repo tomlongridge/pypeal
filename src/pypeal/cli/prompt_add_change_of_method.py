@@ -6,7 +6,7 @@ from pypeal.parsers import parse_single_method
 from pypeal.peal import Peal
 
 
-def prompt_add_change_of_method(method_details: str, peal: Peal):
+def prompt_add_change_of_method(method_details: str, peal: Peal, quick_mode: bool):
 
     print('Adding changes of methods to multi-method peal...')
     method_count: int = 0
@@ -22,16 +22,18 @@ def prompt_add_change_of_method(method_details: str, peal: Peal):
             if not method_obj.classification:
                 method_obj.classification = peal.classification
 
-            if not (new_method := prompt_add_method(method_obj, method)):
+            if not (new_method := prompt_add_method(method_obj, method, quick_mode)):
                 continue
 
-            changes = ask_int('Number of changes', default=changes)
+            if not quick_mode:
+                changes = ask_int('Number of changes', default=changes)
             peal.add_method(new_method, changes)
             method_count += 1
             print(f'Method {method_count}: {new_method.title} ({changes if changes else "unknown"} changes)')
 
     while True:
-        if not confirm(None,
+        if quick_mode or \
+           not confirm(None,
                        confirm_message='Add more changes of method?' if method_details else 'Add changes of method?',
                        default=len(peal.methods) < peal.num_methods_in_title):
             break
@@ -41,7 +43,7 @@ def prompt_add_change_of_method(method_details: str, peal: Peal):
                             confirm_message='Do you want to add more?',
                             default=False):
             break
-        if method := prompt_add_method():
+        if method := prompt_add_method(None, None, quick_mode):
             changes = ask_int('Number of changes', default=None)
             peal.add_method(method, changes)
             method_count += 1

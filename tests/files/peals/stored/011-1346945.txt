@@ -35,6 +35,9 @@ Bellboard URL or peal ID:
 │ New York, U.S.A., and Mrs Linda Archer of Saxmundham, daughter of the tower  │
 │ captain at this tower, who were married at this church on Easter Saturday.   │
 ╰──────────────────────────────────────────────────────────────────────────────╯
+Try for a quick-add? [y/n] (y): 
+>>> n
+[User input: "False"]
 Matched "Suffolk Guild" to association: Suffolk Guild (ID: 286)
 Is this correct? [y/n] (y): 
 >>> n
@@ -333,7 +336,7 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 Footnote line:
   > Rung as a wedding compliment To Terry Lee Nash, of Lindenhurst, Long Island, New York, U.S.A., and Mrs Linda Archer of Saxmundham, daughter of the tower captain at this tower, who were married at this church on Easter Saturday
-Split footnote by sentences? [y/n] (y): 
+Split footnote by sentences? [y/n] (n): 
 >>> n
 [User input: "False"]
 Is this correct? [y/n] (y): 

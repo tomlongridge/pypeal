@@ -2,7 +2,7 @@ from pypeal.cli.prompts import ask, ask_int, choose_option, confirm
 from pypeal.method import Method, Stage
 
 
-def prompt_add_method(method: Method = None, original_title: str = None) -> Method:
+def prompt_add_method(method: Method, original_title: str, quick_mode: bool) -> Method:
 
     matched_method: Method = None
     exact_match: bool = True
@@ -20,6 +20,7 @@ def prompt_add_method(method: Method = None, original_title: str = None) -> Meth
             case 0:
                 if method:
                     print(f'No methods match "{method.title}"')
+                    quick_mode = False
                 match choose_option(['Search alternatives'], default=1, cancel_option='Cancel'):
                     case 1:
                         print('Enter search criteria:')
@@ -51,14 +52,18 @@ def prompt_add_method(method: Method = None, original_title: str = None) -> Meth
                 matched_method = full_method_match[0]
             case _:
                 print(f'{len(full_method_match)} methods match "{method.title}"')
+                quick_mode = False
                 matched_method = choose_option(full_method_match, cancel_option='None', return_option=True)
 
         if matched_method is None:
             if method is None or confirm('No method matched', confirm_message=f'Remove "{original_title}"?'):
                 return None
 
-    if ((original_title is not None and confirm(f'Matched "{original_title}" to method "{matched_method}" (ID: {matched_method.id})')) or
-            (original_title is None and confirm(f'Add "{matched_method}" (ID: {matched_method.id})'))):
+    if (quick_mode or
+            (original_title is not None and
+                confirm(f'Matched "{original_title}" to method "{matched_method}" (ID: {matched_method.id})')) or
+            (original_title is None and
+                confirm(f'Add "{matched_method}" (ID: {matched_method.id})'))):
         return matched_method
     else:
         return None

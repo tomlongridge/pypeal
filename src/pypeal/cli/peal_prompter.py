@@ -17,6 +17,7 @@ class PealPromptListener(PealGeneratorListener):
 
     def __init__(self):
         self.peal = None
+        self.quick_mode = False
 
     def new_peal(self, id: int):
         self.peal = Peal(bellboard_id=id)
@@ -25,7 +26,7 @@ class PealPromptListener(PealGeneratorListener):
         self.peal.bell_type = value
 
     def association(self, value: str):
-        prompt_add_association(value, self.peal)
+        prompt_add_association(value, self.peal, self.quick_mode)
 
     def tower(self, dove_id: int = None, towerbase_id: int = None):
         if (tower := Tower.get(dove_id=dove_id, towerbase_id=towerbase_id)):
@@ -39,22 +40,22 @@ class PealPromptListener(PealGeneratorListener):
 
     def location(self, address_dedication: str, place: str, county: str):
         if self.peal.ring is None:
-            prompt_add_location(address_dedication, place, county, self.peal)
+            prompt_add_location(address_dedication, place, county, self.peal, self.quick_mode)
 
     def changes(self, value: int):
         self.peal.changes = value
 
     def title(self, value: str):
-        prompt_peal_title(value, self.peal)
+        prompt_peal_title(value, self.peal, self.quick_mode)
 
     def method_details(self, value: str):
         if self.peal.type == PealType.GENERAL:
             self.peal.detail = value
         elif value or self.peal.is_multi_method:
-            prompt_add_change_of_method(value, self.peal)
+            prompt_add_change_of_method(value, self.peal, self.quick_mode)
 
     def composer(self, name: str, url: str):
-        return prompt_add_composer(name, url, self.peal)
+        return prompt_add_composer(name, url, self.peal, self.quick_mode)
 
     def date(self, value: datetime.date):
         self.peal.date = value
@@ -68,17 +69,18 @@ class PealPromptListener(PealGeneratorListener):
             self.peal.duration = parse_duration(value)
 
     def ringer(self, name: str, bells: list[int], is_conductor: bool):
-        prompt_add_ringer(name, bells, is_conductor, self.peal)
+        prompt_add_ringer(name, bells, is_conductor, self.peal, self.quick_mode)
 
     def footnote(self, value: str):
         if value:
-            prompt_add_footnote(value, self.peal)
+            prompt_add_footnote(value, self.peal, self.quick_mode)
 
     def event(self, url: str):
         if url:
             self.peal.event_url = url
 
     def end_peal(self):
-        prompt_validate_tenor(self.peal)
-        prompt_new_footnote(self.peal)
-        prompt_add_muffle_type(self.peal)
+        prompt_validate_tenor(self.peal, self.quick_mode)
+        if not self.quick_mode:
+            prompt_new_footnote(self.peal)
+            prompt_add_muffle_type(self.peal)

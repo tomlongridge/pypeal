@@ -35,6 +35,9 @@ Bellboard URL or peal ID:
 │ 31/50                                                                        │
 │ Linked event: http://localhost:8080/event.php?id=17567                       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
+Try for a quick-add? [y/n] (y): 
+>>> n
+[User input: "False"]
 No linked association
 Is this correct? [y/n] (y): 
 >>> y

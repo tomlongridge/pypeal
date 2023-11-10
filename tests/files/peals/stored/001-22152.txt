@@ -66,6 +66,9 @@ Select action (1):
 │ First away from cover on 8: 1.                                               │
 │ First of Grandsire inside: 4.                                                │
 ╰──────────────────────────────────────────────────────────────────────────────╯
+Try for a quick-add? [y/n] (y): 
+>>> n
+[User input: "False"]
 No linked association
 Is this correct? [y/n] (y): 
 >>> y

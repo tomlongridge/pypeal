@@ -151,6 +151,7 @@ def add_peal(peal_id: int = None):
         generator.download(peal_id)
         generator.parse(preview_listener)
         panel(preview_listener.text, title=get_url_from_id(peal_id))
+        prompt_listener.quick_mode = confirm(None, confirm_message='Try for a quick-add?', default=True)
         generator.parse(prompt_listener)
     except BellboardError as e:
         logger.exception('Error getting peal from Bellboard: %s', e)
