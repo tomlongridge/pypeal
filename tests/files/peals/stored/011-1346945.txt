@@ -50,6 +50,10 @@ No association matched
 Remove "Suffolk Guild"? [y/n] (y): 
 >>> y
 [User input: "True"]
+🏛 Association: Suffolk Guild
+🔔 Bell type: Tower
+🏰 Tower: Saxmundham, Suffolk, England, S John Bapt
+🔢 Changes: 5040
 Matching peal titled "8 Methods/variations Doubles"...
 Is this a spliced peal? [y/n] (n): 
 >>> n
@@ -57,6 +61,7 @@ Is this a spliced peal? [y/n] (n):
 Is this a mixed peal? [y/n] (n): 
 >>> y
 [User input: "True"]
+Multi-method peal: "8 Methods/variations Doubles"...
 Number of methods: 
 >>> 4
 [User input: "4"]
@@ -87,6 +92,7 @@ Mixed Doubles (4m/4v)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+📕 Title: Mixed Doubles (4m/4v)
 Adding changes of methods to multi-method peal...
 No methods match "Being Stedman Doubles"
 Options: 1) Search alternatives, 2) Cancel
@@ -284,10 +290,23 @@ Method 8: Plain Bob Doubles (630 changes)
 Add more changes of method? [y/n] (n): 
 >>> n
 [User input: "False"]
+📝 Method details:
+  - Stedman Doubles (630)
+  - Grandsire Doubles (630)
+  - Reverse Canterbury Pleasure Place Doubles (630)
+  - Winchendon Place Doubles (630)
+  - St Nicholas Bob Doubles (630)
+  - St Simon's Bob Doubles (630)
+  - St Martin's Bob Doubles (630)
+  - Plain Bob Doubles (630)
 No composer attributed
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+🎼 Composer: Unknown
+📅 Date: 1967-03-27
+🔔 Tenor: 987 in A
+⏱ Duration: 149
 1: Attempting to find "Lydia Reed"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -299,6 +318,7 @@ Last name (Reed):
 Given name(s) (Lydia): 
 >>> 
 [User input: "Lydia"]
+👤 Ringer: 1: Lydia Reed
 2: Attempting to find "Victoria Morrison"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -310,6 +330,7 @@ Last name (Morrison):
 Given name(s) (Victoria): 
 >>> 
 [User input: "Victoria"]
+👤 Ringer: 2: Victoria Morrison
 3: Attempting to find "Stuart Murray"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -321,19 +342,23 @@ Last name (Murray):
 Given name(s) (Stuart): 
 >>> 
 [User input: "Stuart"]
+👤 Ringer: 3: Stuart Murray
 4: "Ned Andrews" -> Ned Andrews
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
+👤 Ringer: 4: Ned Andrews
 5: 2 existing ringers match "Aston Mitchell"
 Options: 1) Aston Mitchell (15), 2) Aston Mitchell (19), 3) None
 Select action: 
 >>> 1
 [User input: "Aston Mitchell (1)"]
+👤 Ringer: 5: Aston Mitchell (c)
 6: "Carina Warren" -> Carina Warren
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+👤 Ringer: 6: Carina Warren
 Footnote line:
   > Rung as a wedding compliment To Terry Lee Nash, of Lindenhurst, Long Island, New York, U.S.A., and Mrs Linda Archer of Saxmundham, daughter of the tower captain at this tower, who were married at this church on Easter Saturday
 Split footnote by sentences? [y/n] (n): 
@@ -342,6 +367,8 @@ Split footnote by sentences? [y/n] (n):
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+📝 Footnote: Rung as a wedding compliment To Terry Lee Nash, of Lindenhurst, Long Island, New York, U.S.A., and Mrs Linda Archer of Saxmundham, daughter of the tower captain at this tower, who were married at this church on Easter Saturday.
+🔗 Event link: None
 Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
@@ -349,6 +376,7 @@ Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 1
 [User input: "MuffleType.NONE (1)"]
+🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1346945 ──────────────────╮
 │ Saxmundham, Suffolk, England                                                 │
 │ S John Bapt                                                                  │

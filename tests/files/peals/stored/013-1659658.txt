@@ -44,11 +44,15 @@ No linked association
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Matching peal titled "Little Bob Royal"...
+🏛 Association: None
+🔔 Bell type: Tower
+🏰 Tower: Shrivenham, Oxfordshire, England, S Andrew
+🔢 Changes: 1296
 Matched "Little Bob Royal" to method "Little Bob Royal" (ID: m14020)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+📕 Title: Little Bob Royal
 Composer: Attempting to find "Alex W Tatlow"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -63,6 +67,10 @@ Given name(s) (Alex W):
 Composition URL (http://localhost:8080/comp.php?id=2293307): 
 >>> 
 [User input: "http://localhost:8080/comp.php?id=2293307"]
+🎼 Composer: Alex W Tatlow
+📅 Date: 2023-09-23
+🔔 Tenor: 1458 in F
+⏱ Duration: 50
 1: Attempting to find "Garry Scott"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -74,6 +82,7 @@ Last name (Scott):
 Given name(s) (Garry): 
 >>> 
 [User input: "Garry"]
+👤 Ringer: 1: Garry Scott
 2: Attempting to find "Charlie Warren"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -85,6 +94,7 @@ Last name (Warren):
 Given name(s) (Charlie): 
 >>> 
 [User input: "Charlie"]
+👤 Ringer: 2: Charlie Warren
 3: Attempting to find "Arnold Johnson"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -96,14 +106,17 @@ Last name (Johnson):
 Given name(s) (Arnold): 
 >>> 
 [User input: "Arnold"]
+👤 Ringer: 3: Arnold Johnson
 4: "Sienna Murphy" -> Sienna Murphy
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+👤 Ringer: 4: Sienna Murphy
 5: "Blake Elliott" -> Blake Elliott
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+👤 Ringer: 5: Blake Elliott
 6: "Blake Elliott" -> Blake Elliott
 Is this correct? [y/n] (y): 
 >>> n
@@ -119,27 +132,33 @@ Last name (Elliott):
 Given name(s) (Blake): 
 >>> 
 [User input: "Blake"]
+👤 Ringer: 6: Blake Elliott
 7: "Melissa Baker" -> Melissa Baker
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+👤 Ringer: 7: Melissa Baker
 8: "Daryl Mason" -> Daryl Mason
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+👤 Ringer: 8: Daryl Mason
 9: "Leonardo Bennett" -> Leo Bennett
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+👤 Ringer: 9: Leo Bennett
 10: "Chester Edwards" -> Chester Edwards
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+👤 Ringer: 10: Chester Edwards (c)
 Footnote line:
   > Rung as a birthday compliment to Matthew Skues
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+📝 Footnote: Rung as a birthday compliment to Matthew Skues.
 Footnote line:
   > 6: First quarter of Little Bob Royal
 Footnote 2 text:
@@ -162,6 +181,8 @@ Referenced ringer(s):
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+📝 Footnote: [7: Melissa Baker] First quarter of Royal.
+🔗 Event link: None
 Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
@@ -169,6 +190,7 @@ Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
 [User input: "MuffleType.NONE (1)"]
+🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1659658 ──────────────────╮
 │ Shrivenham, Oxfordshire, England                                             │
 │ S Andrew                                                                     │

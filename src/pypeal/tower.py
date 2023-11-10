@@ -51,13 +51,17 @@ class Tower():
             ring.commit()
             return ring
 
-    def __str__(self):
-        text = ''
-        text += self.place or ''
+    @property
+    def name(self):
+        text = self.place or ''
         text += f', {self.sub_place}' if self.sub_place else ''
         text += f', {self.county}' if self.county else ''
         text += f', {self.country}' if self.country else ''
         text += f', {self.dedication}' if self.dedication else ''
+        return text
+
+    def __str__(self):
+        text = self.name
         text += '.'
         text += f'{self.bells}, ' if self.bells else ''
         text += f'{self.tenor_weight_in_cwt} ' if self.tenor_weight else ''

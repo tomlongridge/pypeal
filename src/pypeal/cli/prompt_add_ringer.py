@@ -77,7 +77,13 @@ def prompt_add_ringer(name: str, bell_nums: list[int], is_conductor: bool, peal:
             else:
                 suggested_bells = bell_nums
             bell_nums_str = get_bell_label(suggested_bells)
-            bell_nums_str = ask('Bell number(s) in the tower', default=bell_nums_str) if not quick_mode else bell_nums
+            if quick_mode:
+                if bell_nums[0] == 1:
+                    bell_nums_str = ask('First bell number(s) in the tower', default=bell_nums_str)
+                else:
+                    pass  # Use the default for subsequent bells in quick mode
+            else:
+                bell_nums_str = ask('Bell number(s) in the tower', default=bell_nums_str)
             for bell in bell_nums_str.split(','):
                 bell_list = bell.split('-')
                 if len(bell_list) == 1:

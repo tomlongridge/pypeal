@@ -60,15 +60,23 @@ Guild of Devonshire Ringers (ID: 255)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Matching peal titled "Plain Bob Doubles"...
+🏛 Association: Middlesex County Association & London Diocesan Guild
+🔔 Bell type: Tower
+🏰 Tower: Twickenham, Greater London, England, All Hallows
+🔢 Changes: 1320
 Matched "Plain Bob Doubles" to method "Plain Bob Doubles" (ID: m10550)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+📕 Title: Plain Bob Doubles
 No composer attributed
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+🎼 Composer: Unknown
+📅 Date: 1976-12-05
+🔔 Tenor: 823 in B
+⏱ Duration: Unknown
 1: Attempting to find "Edward Chapman"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -83,6 +91,7 @@ Given name(s) (Edward):
 Bell number(s) in the tower (1): 
 >>> 
 [User input: "1"]
+👤 Ringer: 1: Edward Chapman
 2: "Blake Elliott" -> Blake Elliott
 Is this correct? [y/n] (y): 
 >>> y
@@ -90,6 +99,7 @@ Is this correct? [y/n] (y):
 Bell number(s) in the tower (2): 
 >>> 
 [User input: "2"]
+👤 Ringer: 2: Blake Elliott
 3: Attempting to find "Olivia West"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -104,6 +114,7 @@ Given name(s) (Olivia):
 Bell number(s) in the tower (3): 
 >>> 
 [User input: "3"]
+👤 Ringer: 3: Olivia West
 4: Attempting to find "Mike Sullivan"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -122,6 +133,7 @@ Is this correct? [y/n] (y):
 Bell number(s) in the tower (4): 
 >>> 
 [User input: "4"]
+👤 Ringer: 4: Michael Sullivan
 5: Attempting to find "Jack Spencer"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -136,6 +148,7 @@ Given name(s) (Jack):
 Bell number(s) in the tower (5): 
 >>> 
 [User input: "5"]
+👤 Ringer: 5: Jack Spencer (c)
 6: Attempting to find "Eric Ryan"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -150,6 +163,7 @@ Given name(s) (Eric):
 Bell number(s) in the tower (6): 
 >>> 
 [User input: "6"]
+👤 Ringer: 6: Eric Ryan
 Footnote line:
   > First quarter peal: 6
 Footnote 1 text:
@@ -159,11 +173,14 @@ Referenced ringer(s):
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+📝 Footnote: [6: Eric Ryan] First quarter peal.
 Footnote line:
   > For evensong
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+📝 Footnote: For evensong.
+🔗 Event link: None
 Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
@@ -171,6 +188,7 @@ Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
 [User input: "MuffleType.NONE (1)"]
+🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1433691 ──────────────────╮
 │ Guild of Devonshire Ringers                                                  │
 │ Twickenham, Greater London, England                                          │

@@ -242,7 +242,7 @@ class Peal:
     def tenor_note(self) -> str:
         if self.__tenor_note:
             return self.__tenor_note
-        if self.ring:
+        if self.ring and self.tenor:
             return self.tenor.note
         else:
             return None
@@ -266,13 +266,15 @@ class Peal:
         text += f'{self.place}' if self.place else ''
         text += f', {self.county}' if self.county else ''
         text += f', {self.country}' if self.country else ''
-        text += '\n' if self.place or self.county or self.country else ''
+        return text if len(text) > 0 else None
+
+    @property
+    def location_detail(self) -> str:
+        text = ''
         text += f'{self.address}' if self.address else ''
         text += f'{self.dedication}' if self.dedication else ''
         text += f', {self.sub_place}' if self.sub_place else ''
-        if self.bell_type == BellType.HANDBELLS:
-            text += ' (in hand)'
-        return text
+        return text if len(text) > 0 else None
 
     @property
     def methods(self) -> list[tuple[Method, int]]:
@@ -340,7 +342,8 @@ class Peal:
             text += f'{self.num_principles}p/' if self.num_principles else ''
             text = text.rstrip('/')
             text += ')'
-        return text.strip()
+        text = text.strip()
+        return text if len(text) > 0 else None
 
     @property
     def ringers(self) -> list[tuple[Ringer, list[int], list[int], bool]]:
@@ -369,11 +372,23 @@ class Peal:
                     last_ringer = ringer_id
         return self.__ringers
 
-    def get_ringer(self, bell_num: int):
+    def get_ringer(self, bell_num: int) -> Ringer:
         if bell_num in self.__ringers_by_bell_num:
             return self.__ringers_by_bell_num[bell_num]
         else:
             return None
+
+    def get_ringer_line(self, ringer: (Ringer, list[int], list[int], bool)) -> str:
+        text = ''
+        if ringer[1]:
+            text += get_bell_label(ringer[1])
+            if ringer[1] != ringer[2]:
+                text += f' [{get_bell_label(ringer[2])}]'
+            text += ': ' if ringer[2] else ''
+        text += str(ringer[0])
+        if ringer[3]:
+            text += " (c)"
+        return text
 
     def add_ringer(self, ringer: Ringer, bell_nums: list[int] = None, bells: list[int] = None, is_conductor: bool = False):
         self.ringers.append((ringer, bell_nums, bells, is_conductor))
@@ -405,6 +420,13 @@ class Peal:
 
     def add_footnote(self, footnote: str, bell: int, ringer: Ringer):
         self.footnotes.append((footnote, bell, ringer))
+
+    def get_footnote_line(self, footnote: (str, int, Ringer)) -> str:
+        text = ''
+        if footnote[1]:
+            text += f'[{footnote[1]}: {footnote[2]}] '
+        text += f'{footnote[0]}'
+        return text
 
     def commit(self):
         if self.id is None:
@@ -449,12 +471,16 @@ class Peal:
     def __str__(self):
         text = ''
         text += f'{self.association.name}\n' if self.association else ''
-        text += self.location
-        text += '\n'
+        text += f'{self.location}\n' if self.location else ''
+        if self.location_detail:
+            text += f'{self.location_detail}'
+            if self.bell_type == BellType.HANDBELLS:
+                text += ' (in hand)'
+            text += '\n'
         text += f'On {format_date_full(self.date)}\n' if self.date else ''
         text += f'A {self.type.name.replace("_", " ").title()} of ' if self.type else ''
         text += f'{self.changes} ' if self.changes else ''
-        text += self.title
+        text += self.title or 'Unknown'
         text += ' (half-muffled)' if self.muffles == MuffleType.HALF else ''
         text += ' (muffled)' if self.muffles == MuffleType.FULL else ''
         text += ' '
@@ -471,20 +497,10 @@ class Peal:
         text += f'Composed by: {self.composer}\n' if self.composer else ''
         text += '\n'
         for ringer in self.ringers:
-            if ringer[1]:
-                text += get_bell_label(ringer[1])
-                if ringer[1] != ringer[2]:
-                    text += f' [{get_bell_label(ringer[2])}]'
-                text += ': ' if ringer[2] else ''
-            text += str(ringer[0])
-            if ringer[3]:
-                text += " (c)"
-            text += '\n'
+            text += f'{self.get_ringer_line(ringer)}\n'
         text += '\n' if len(self.footnotes) else ''
         for footnote in self.footnotes:
-            if footnote[1]:
-                text += f'[{footnote[1]}: {footnote[2]}] '
-            text += f'{footnote[0]}'
+            text += self.get_footnote_line(footnote)
             text += '\n'
         text += '\n'
         text += f'[Imported Bellboard peal ID: {self.bellboard_id}]'

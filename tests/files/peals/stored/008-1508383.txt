@@ -40,6 +40,8 @@ Matched "Oxford Diocesan Guild" to association: Oxford Diocesan Guild (ID: 274)
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
+🏛 Association: Oxford Diocesan Guild
+🔔 Bell type: Handbells
 Address (80 Lambourne Drive, Cox Green): 
 >>> 
 [User input: "80 Lambourne Drive, Cox Green"]
@@ -56,16 +58,18 @@ Country:
 >>> England
 [User input: "England"]
 Maidenhead, Kent, England
-80 Lambourne Drive, Cox Green (in hand)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Matching peal titled "Bristol Surprise Maximus"...
+📍 Location Maidenhead, Kent, England
+📍 Detail 80 Lambourne Drive, Cox Green
+🔢 Changes: 5232
 Matched "Bristol Surprise Maximus" to method "Bristol Surprise Maximus" (ID: 
 m22952)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+📕 Title: Bristol Surprise Maximus
 Composer: Attempting to find "Christopher I Rowson"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -80,6 +84,10 @@ Given name(s) (Christopher I):
 Composition URL (http://localhost:8080/comp.php?id=2284506): 
 >>> 
 [User input: "http://localhost:8080/comp.php?id=2284506"]
+🎼 Composer: Christopher I Rowson
+📅 Date: 1972-03-29
+🔔 Tenor: Unknown
+⏱ Duration: 183
 1,2: Attempting to find "Sam Wells"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -94,6 +102,7 @@ Given name(s) (Sam):
 Bell number(s) in the tower (1,2): 
 >>> 
 [User input: "1,2"]
+👤 Ringer: 1,2: Sam Wells
 3,4: Attempting to find "Rubie Owens"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -108,6 +117,7 @@ Given name(s) (Rubie):
 Bell number(s) in the tower (3,4): 
 >>> 
 [User input: "3,4"]
+👤 Ringer: 3,4: Rubie Owens
 5,6: "Lenny Howard" -> Lenny Howard
 Is this correct? [y/n] (y): 
 >>> y
@@ -115,6 +125,7 @@ Is this correct? [y/n] (y):
 Bell number(s) in the tower (5,6): 
 >>> 
 [User input: "5,6"]
+👤 Ringer: 5,6: Lenny Howard (c)
 7,8: "Jack Spencer" -> Jack Spencer
 Is this correct? [y/n] (y): 
 >>> y
@@ -122,6 +133,7 @@ Is this correct? [y/n] (y):
 Bell number(s) in the tower (7,8): 
 >>> 
 [User input: "7,8"]
+👤 Ringer: 7,8: Jack Spencer
 9,10: Attempting to find "Arianna Holmes"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -136,6 +148,7 @@ Given name(s) (Arianna):
 Bell number(s) in the tower (9,10): 
 >>> 
 [User input: "9,10"]
+👤 Ringer: 9,10: Arianna Holmes
 11,12: "John Parker" -> John Parker
 Is this correct? [y/n] (y): 
 >>> y
@@ -143,11 +156,14 @@ Is this correct? [y/n] (y):
 Bell number(s) in the tower (11,12): 
 >>> 
 [User input: "11,12"]
+👤 Ringer: 11,12: John Parker
 Footnote line:
   > First peal of Bristol Maximus rung in hand
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+📝 Footnote: First peal of Bristol Maximus rung in hand.
+🔗 Event link: None
 Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
@@ -155,6 +171,7 @@ Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
 [User input: "MuffleType.NONE (1)"]
+🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1508383 ──────────────────╮
 │ Oxford Diocesan Guild                                                        │
 │ Maidenhead, Kent, England                                                    │

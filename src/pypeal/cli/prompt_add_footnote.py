@@ -12,7 +12,8 @@ def prompt_add_footnote(text: str, peal: Peal, quick_mode: bool):
 
     for line in text.strip('. ').split('\n'):
 
-        print(f'Footnote line:\n  > {line}')
+        if not quick_mode:
+            print(f'Footnote line:\n  > {line}')
 
         if line.strip('. ').count('.') > 0 and \
                 not quick_mode and \
@@ -46,8 +47,9 @@ def _prompt_add_single_footnote(bells: list[int], text: str, original_text: str,
         if text:
             if original_text is None or text.strip('. ') != original_text.strip('. '):
                 ringers = [peal.get_ringer(bell) for bell in bells] if bells else None
-                print(f'Footnote {len(peal.footnotes) + 1} text:')
-                print(f'  > {text}')
+                if not quick_mode:
+                    print(f'Footnote {len(peal.footnotes) + 1} text:')
+                    print(f'  > {text}')
                 if bells:
                     print('Referenced ringer(s):')
                     for bell, ringer in zip(bells, ringers):

@@ -39,7 +39,12 @@ Diocesan Association (ID: 236)
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
+🏛 Association: Bath & Wells Diocesan Association
+🔔 Bell type: Tower
+🏰 Tower: Portbury, Somerset, England, Blessed Virgin Mary
+🔢 Changes: 1260
 Matching peal titled "Doubles (1p/5m/3v)"...
+Multi-method peal: "Doubles (1p/5m/3v)"...
 Number of methods (5): 
 >>> 
 [User input: "5"]
@@ -70,14 +75,20 @@ Mixed Doubles (5m/3v/1p)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+📕 Title: Mixed Doubles (5m/3v/1p)
 Adding changes of methods to multi-method peal...
 Add changes of method? [y/n] (y): 
 >>> n
 [User input: "False"]
+📝 Method details:
 No composer attributed
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+🎼 Composer: Unknown
+📅 Date: 2019-10-17
+🔔 Tenor: 2352 in Eb
+⏱ Duration: 44
 1: Attempting to find "Dainton Casey"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -89,6 +100,7 @@ Last name (Casey):
 Given name(s) (Dainton): 
 >>> 
 [User input: "Dainton"]
+👤 Ringer: 1: Dainton Casey
 2: Attempting to find "Daryl Mason"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -100,6 +112,7 @@ Last name (Mason):
 Given name(s) (Daryl): 
 >>> 
 [User input: "Daryl"]
+👤 Ringer: 2: Daryl Mason
 3: Attempting to find "Roland Clark"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -111,6 +124,7 @@ Last name (Clark):
 Given name(s) (Roland): 
 >>> 
 [User input: "Roland"]
+👤 Ringer: 3: Roland Clark
 4: Attempting to find "Michelle Thompson"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -122,10 +136,12 @@ Last name (Thompson):
 Given name(s) (Michelle): 
 >>> 
 [User input: "Michelle"]
+👤 Ringer: 4: Michelle Thompson
 5: "Ted Harris" -> Ted Harris
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+👤 Ringer: 5: Ted Harris (c)
 6: Attempting to find "David Rogers"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -137,13 +153,17 @@ Last name (Rogers):
 Given name(s) (David): 
 >>> 
 [User input: "David"]
+👤 Ringer: 6: David Rogers
+🔗 Event link: None
 Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
+📝 Footnotes: None
 Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
 [User input: "MuffleType.NONE (1)"]
+🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1306360 ──────────────────╮
 │ Bath and Wells Diocesan Association                                          │
 │ Portbury, Somerset, England                                                  │

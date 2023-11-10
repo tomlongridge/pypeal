@@ -41,6 +41,10 @@ Matched "Suffolk Guild" to association: Suffolk Guild (ID: 286)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+🏛 Association: Suffolk Guild
+🔔 Bell type: Tower
+🏰 Tower: Blythburgh, Suffolk, England, Holy Trinity
+🔢 Changes: 5040
 Matching peal titled "8 Methods Minor"...
 Is this a spliced peal? [y/n] (n): 
 >>> n
@@ -48,6 +52,7 @@ Is this a spliced peal? [y/n] (n):
 Is this a mixed peal? [y/n] (n): 
 >>> y
 [User input: "True"]
+Multi-method peal: "8 Methods Minor"...
 Number of methods: 
 >>> 8
 [User input: "8"]
@@ -75,6 +80,7 @@ Mixed Surprise Minor (8m)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+📕 Title: Mixed Surprise Minor (8m)
 Adding changes of methods to multi-method peal...
 No methods match "Being seven extents in eight methods Surprise Minor"
 Options: 1) Search alternatives, 2) Cancel
@@ -419,10 +425,23 @@ Method 8: Double Oxford Bob Minor (unknown changes)
 Add more changes of method? [y/n] (n): 
 >>> n
 [User input: "False"]
+📝 Method details:
+  - Norwich Surprise Minor
+  - Ipswich Surprise Minor
+  - Cambridge Surprise Minor
+  - Single Oxford Bob Minor
+  - Plain Bob Minor
+  - St Clement's College Bob Minor
+  - Oxford Treble Bob Minor
+  - Double Oxford Bob Minor
 No composer attributed
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+🎼 Composer: Unknown
+📅 Date: 1963-03-25
+🔔 Tenor: 1158 in G
+⏱ Duration: 162
 1: Attempting to find "Blake Howard"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -434,6 +453,7 @@ Last name (Howard):
 Given name(s) (Blake): 
 >>> 
 [User input: "Blake"]
+👤 Ringer: 1: Blake Howard
 2: Attempting to find "Aston Mitchell"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -445,6 +465,7 @@ Last name (Mitchell):
 Given name(s) (Aston): 
 >>> 
 [User input: "Aston"]
+👤 Ringer: 2: Aston Mitchell
 3: Attempting to find "John Parker"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -456,10 +477,12 @@ Last name (Parker):
 Given name(s) (John): 
 >>> 
 [User input: "John"]
+👤 Ringer: 3: John Parker
 4: "Alen Henderson" -> Alen Henderson
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+👤 Ringer: 4: Alen Henderson
 5: Attempting to find "Dominik Warren"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -471,6 +494,7 @@ Last name (Warren):
 Given name(s) (Dominik): 
 >>> 
 [User input: "Dominik"]
+👤 Ringer: 5: Dominik Warren
 6: Attempting to find "Sienna Murphy"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -482,11 +506,14 @@ Last name (Murphy):
 Given name(s) (Sienna): 
 >>> 
 [User input: "Sienna"]
+👤 Ringer: 6: Sienna Murphy (c)
 Footnote line:
   > Rung as a wedding compliment to Miss Ann Pearce and Mr George Bradlaugh; Also a birthday compliment to Vernon B Bedford
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+📝 Footnote: Rung as a wedding compliment to Miss Ann Pearce and Mr George Bradlaugh; Also a birthday compliment to Vernon B Bedford.
+🔗 Event link: None
 Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
@@ -494,6 +521,7 @@ Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
 [User input: "MuffleType.NONE (1)"]
+🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1346767 ──────────────────╮
 │ Suffolk Guild                                                                │
 │ Blythburgh, Suffolk, England                                                 │

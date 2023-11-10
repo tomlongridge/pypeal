@@ -172,5 +172,9 @@ def panel(content: str, title: str = 'pypeal'):
     print(Panel(escape(content), title=title))
 
 
+def warning(message: str):
+    print(Panel(f'[bold yellow]Warning:[/] {message}'))
+
+
 def error(message: str):
     print(Panel(f'[bold red]Error:[/] {message}'))

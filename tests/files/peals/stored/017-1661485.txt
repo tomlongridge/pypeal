@@ -39,12 +39,16 @@ No linked association
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Matching peal titled "Honeywell Delight Minor"...
+🏛 Association: None
+🔔 Bell type: Tower
+🏰 Tower: Bath, Lansdown, Somerset, England, S Stephen
+🔢 Changes: 1296
 Matched "Honeywell Delight Minor" to method "Honeywell Delight Minor" (ID: 
 m23748)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+📕 Title: Honeywell Delight Minor
 Composer: Attempting to find "G A A Taylor"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -71,10 +75,15 @@ Is this correct? [y/n] (y):
 Composition URL (http://localhost:8080/comp.php?id=2293479): 
 >>> 
 [User input: "http://localhost:8080/comp.php?id=2293479"]
+🎼 Composer: Byron Miller
+📅 Date: 2023-10-06
+🔔 Tenor: 317 in F
+⏱ Duration: 36
 1: "Leonardo Bennett" -> Leo Bennett
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+👤 Ringer: 1: Leo Bennett
 2: Attempting to find "Michelle Edwards"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -86,14 +95,17 @@ Last name (Edwards):
 Given name(s) (Michelle): 
 >>> 
 [User input: "Michelle"]
+👤 Ringer: 2: Michelle Edwards
 3: "Dainton Casey" -> Dainton Casey
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+👤 Ringer: 3: Dainton Casey
 4: "Paul Armstrong" -> Paul Armstrong
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+👤 Ringer: 4: Paul Armstrong
 5: Attempting to find "Deanna Bennett"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -105,6 +117,7 @@ Last name (Bennett):
 Given name(s) (Deanna): 
 >>> 
 [User input: "Deanna"]
+👤 Ringer: 5: Deanna Bennett
 6: Attempting to find "Brooke Adams"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -116,13 +129,17 @@ Last name (Adams):
 Given name(s) (Brooke): 
 >>> 
 [User input: "Brooke"]
+👤 Ringer: 6: Brooke Adams (c)
+🔗 Event link: http://localhost:8080/event.php?id=17514
 Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
+📝 Footnotes: None
 Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
 [User input: "MuffleType.NONE (1)"]
+🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1661485 ──────────────────╮
 │ Bath, Somerset, England                                                      │
 │ S Stephen, Lansdown                                                          │

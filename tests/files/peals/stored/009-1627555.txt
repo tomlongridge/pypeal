@@ -42,20 +42,29 @@ No linked association
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Matching peal titled "London Surprise Major"...
+🏛 Association: None
+🔔 Bell type: Tower
+🏰 Tower: Longney, Gloucestershire, England, S Lawrence
+🔢 Changes: 1280
 Matched "London Surprise Major" to method "London Surprise Major" (ID: m20166)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+📕 Title: London Surprise Major
 No composer attributed
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+🎼 Composer: Unknown
+📅 Date: 2023-05-13
+🔔 Tenor: 1221 in F
+⏱ Duration: 46
 1: 2 existing ringers match "Aston Mitchell"
 Options: 1) Aston Mitchell (15), 2) Aston Mitchell (19), 3) None
 Select action: 
 >>> 2
 [User input: "Aston Mitchell (2)"]
+👤 Ringer: 1: Aston Mitchell (c)
 2: Attempting to find "Carina Warren"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -67,6 +76,7 @@ Last name (Warren):
 Given name(s) (Carina): 
 >>> 
 [User input: "Carina"]
+👤 Ringer: 2: Carina Warren
 3: Attempting to find "Ellia Armstrong"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -78,6 +88,7 @@ Last name (Armstrong):
 Given name(s) (Ellia): 
 >>> 
 [User input: "Ellia"]
+👤 Ringer: 3: Ellia Armstrong
 4: Attempting to find "Edward Dixon"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -89,6 +100,7 @@ Last name (Dixon):
 Given name(s) (Edward): 
 >>> 
 [User input: "Edward"]
+👤 Ringer: 4: Edward Dixon
 5: Attempting to find "Ned Andrews"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -100,6 +112,7 @@ Last name (Andrews):
 Given name(s) (Ned): 
 >>> 
 [User input: "Ned"]
+👤 Ringer: 5: Ned Andrews
 6: Attempting to find "Richard Higgins"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -111,6 +124,7 @@ Last name (Higgins):
 Given name(s) (Richard): 
 >>> 
 [User input: "Richard"]
+👤 Ringer: 6: Richard Higgins
 7: Attempting to find "Carl Johnston"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -122,6 +136,7 @@ Last name (Johnston):
 Given name(s) (Carl): 
 >>> 
 [User input: "Carl"]
+👤 Ringer: 7: Carl Johnston
 8: Attempting to find "Michael Williams"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -133,11 +148,14 @@ Last name (Williams):
 Given name(s) (Michael): 
 >>> 
 [User input: "Michael"]
+👤 Ringer: 8: Michael Williams
 Footnote line:
   > 31/50
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+📝 Footnote: 31/50.
+🔗 Event link: http://localhost:8080/event.php?id=17567
 Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
@@ -145,6 +163,7 @@ Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
 [User input: "MuffleType.NONE (1)"]
+🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1627555 ──────────────────╮
 │ Longney, Gloucestershire, England                                            │
 │ S Lawrence                                                                   │

@@ -45,23 +45,33 @@ No linked association
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Matching peal titled "Plain Bob Royal"...
+🏛 Association: None
+🔔 Bell type: Tower
+🏰 Tower: Bath, Bathwick, Somerset, England, Blessed Virgin Mary
+🔢 Changes: 1260
 Matched "Plain Bob Royal" to method "Plain Bob Royal" (ID: m13972)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+📕 Title: Plain Bob Royal
 No composer attributed
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+🎼 Composer: Unknown
+📅 Date: 2002-05-19
+🔔 Tenor: Unknown
+⏱ Duration: 49
 1: "Daniel Miller" -> Daniel Miller
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+👤 Ringer: 1: Daniel Miller
 2: "Blake Elliott" -> Blake Elliott
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+👤 Ringer: 2: Blake Elliott
 3: Attempting to find "Joyce Sullivan"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -73,10 +83,12 @@ Last name (Sullivan):
 Given name(s) (Joyce): 
 >>> 
 [User input: "Joyce"]
+👤 Ringer: 3: Joyce Sullivan
 4: "Chester Edwards" -> Chester Edwards
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+👤 Ringer: 4: Chester Edwards
 5: Attempting to find "Patrick Bennett"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -88,18 +100,22 @@ Last name (Bennett):
 Given name(s) (Patrick): 
 >>> 
 [User input: "Patrick"]
+👤 Ringer: 5: Patrick Bennett
 6: "Leonardo Bennett" -> Leo Bennett
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+👤 Ringer: 6: Leo Bennett
 7: "Cadie Nelson" -> Cadie Nelson
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+👤 Ringer: 7: Cadie Nelson
 8: "Clark Elliott" -> Clark Elliott
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+👤 Ringer: 8: Clark Elliott
 9: Attempting to find "Heather Sullivan"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -111,6 +127,7 @@ Last name (Sullivan):
 Given name(s) (Heather): 
 >>> 
 [User input: "Heather"]
+👤 Ringer: 9: Heather Sullivan
 10: Attempting to find "Vivian Murray"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -122,11 +139,13 @@ Last name (Murray):
 Given name(s) (Vivian): 
 >>> 
 [User input: "Vivian"]
+👤 Ringer: 10: Vivian Murray (c)
 Footnote line:
   > Rung for Morning Service and as a 60th Wedding Anniversary compliment to Phyllis and Melvin Chapman
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+📝 Footnote: Rung for Morning Service and as a 60th Wedding Anniversary compliment to Phyllis and Melvin Chapman.
 Footnote line:
   > 1st of Royal-4
 Footnote 2 text:
@@ -136,6 +155,8 @@ Referenced ringer(s):
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+📝 Footnote: [4: Chester Edwards] 1st of Royal.
+🔗 Event link: None
 Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
@@ -143,6 +164,7 @@ Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
 [User input: "MuffleType.NONE (1)"]
+🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1426139 ──────────────────╮
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │

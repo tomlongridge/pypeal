@@ -11,7 +11,7 @@ class PealGeneratorListener():
     def new_peal(self, id: int):
         self.peal = Peal(bellboard_id=id)
 
-    def type(self, value: BellType):
+    def bell_type(self, value: BellType):
         pass
 
     def tower(self, dove_id: int = None, towerbase_id: int = None):

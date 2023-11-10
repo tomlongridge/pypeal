@@ -38,73 +38,30 @@ Bellboard URL or peal ID:
 │ Linked event: http://localhost:8080/event.php?id=14097                       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
->>> n
-[User input: "False"]
-No linked association
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-Matching peal titled "Grandsire Caters"...
-Matched "Grandsire Caters" to method "Grandsire Caters" (ID: m13833)
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-No composer attributed
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-1: "Lenny Howard" -> Lenny Howard
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-2: "Jacob Cole" -> Jacob Cole
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-3: "Heather Sullivan" -> Heather Sullivan
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-4: "Savana Davis" -> Savana Davis
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-5: "Daryl Mason" -> Daryl Mason
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-6: "Melissa Baker" -> Melissa Baker
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-7: "Joyce Sullivan" -> Joyce Sullivan
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-8: "Harold Gray" -> Harold Gray
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-9: "Leonardo Bennett" -> Leo Bennett
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-10: "Cadie Nelson" -> Cadie Nelson
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-Footnote line:
-  > Rung half muffled for morning service on remembrance day
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-Possible half-muffled ringing
-Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Add new footnote? [y/n] (n): 
->>> 
-[User input: "False"]
+🏛 Association: None
+🔔 Bell type: Tower
+🏰 Tower: Bath, Bathwick, Somerset, England, Blessed Virgin Mary
+🔢 Changes: 1259
+📕 Title: Grandsire Caters
+🎼 Composer: Unknown
+📅 Date: 2021-11-14
+🔔 Tenor: 2120 in Eb
+⏱ Duration: 49
+👤 Ringer: 1: Lenny Howard
+👤 Ringer: 2: Jacob Cole
+👤 Ringer: 3: Heather Sullivan
+👤 Ringer: 4: Savana Davis
+👤 Ringer: 5: Daryl Mason
+👤 Ringer: 6: Melissa Baker
+👤 Ringer: 7: Joyce Sullivan
+👤 Ringer: 8: Harold Gray
+👤 Ringer: 9: Leo Bennett (c)
+👤 Ringer: 10: Cadie Nelson
+📝 Footnote: Rung half muffled for morning service on remembrance day.
+🔗 Event link: http://localhost:8080/event.php?id=14097
+🔕 Muffles: Half
 ╭───────────────── http://localhost:8080/view.php?id=1471264 ──────────────────╮
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │

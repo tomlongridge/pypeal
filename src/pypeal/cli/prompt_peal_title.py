@@ -8,8 +8,6 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
 
     while True:
 
-        print(f'Matching peal titled "{title}"...')
-
         # Attempt an easy match against a single method using the exact title
         if title:
             full_method_match = Method.get_by_name(title)
@@ -29,6 +27,8 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
                         set_peal_title(peal, choose_option(full_method_match, cancel_option='None', return_option=True))
                     if peal.method:
                         return
+
+        print(f'Matching peal titled "{title}"...')
 
         # Parse method title for inspiration and future search
         parsed_method: Method
@@ -118,6 +118,8 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
 
         # Add multi-method title
         if peal.is_spliced or peal.is_mixed:
+
+            print(f'Multi-method peal: "{title}"...')
 
             peal.stage = parsed_method.stage
             peal.classification = parsed_method.classification

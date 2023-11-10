@@ -37,9 +37,9 @@ class HTMLPealGenerator():
 
         element = soup.select('div.ringers.two-in-hand.handbells')
         if len(element) > 0:
-            listener.type(BellType.HANDBELLS)
+            listener.bell_type(BellType.HANDBELLS)
         else:
-            listener.type(BellType.TOWER)
+            listener.bell_type(BellType.TOWER)
 
         place = None
         county = None

@@ -152,17 +152,25 @@ def add_peal(peal_id: int = None):
         generator.parse(preview_listener)
         panel(preview_listener.text, title=get_url_from_id(peal_id))
         prompt_listener.quick_mode = confirm(None, confirm_message='Try for a quick-add?', default=True)
-        generator.parse(prompt_listener)
+
+        while True:
+            generator.parse(prompt_listener)
+
+            peal = prompt_listener.peal
+            panel(str(peal), title=get_url_from_id(peal.bellboard_id))
+            if confirm('Save this peal?'):
+                peal.commit()
+                print(f'Peal {peal.bellboard_id} added')
+            elif prompt_listener.quick_mode:
+                if confirm(None, confirm_message='Try again in prompt mode?', default=True):
+                    prompt_listener.quick_mode = False
+                    continue
+            return
+
     except BellboardError as e:
         logger.exception('Error getting peal from Bellboard: %s', e)
         error(e)
         return
-
-    peal = prompt_listener.peal
-    panel(str(peal), title=get_url_from_id(peal.bellboard_id))
-    if confirm('Save this peal?'):
-        peal.commit()
-        print(f'Peal {peal.bellboard_id} added')
 
 
 def search_by_url(url: str = None):

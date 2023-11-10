@@ -45,10 +45,15 @@ No linked association
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+🏛 Association: None
+🔔 Bell type: Tower
+🏰 Tower: Bath, Bathwick, Somerset, England, Blessed Virgin Mary
+🔢 Changes: 1260
 Matching peal titled "Grandsire Caters and Royal"...
 Is this a spliced peal? [y/n] (n): 
 >>> y
 [User input: "True"]
+Multi-method peal: "Grandsire Caters and Royal"...
 Number of methods: 
 >>> 2
 [User input: "2"]
@@ -79,6 +84,7 @@ Spliced Caters and Royal (2m)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+📕 Title: Spliced Caters and Royal (2m)
 Adding changes of methods to multi-method peal...
 Add changes of method? [y/n] (y): 
 >>> y
@@ -167,10 +173,17 @@ Method 2: Grandsire Bob Royal (unknown changes)
 Add changes of method? [y/n] (n): 
 >>> n
 [User input: "False"]
+📝 Method details:
+  - Grandsire Caters
+  - Grandsire Royal
 No composer attributed
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+🎼 Composer: Unknown
+📅 Date: 2015-01-11
+🔔 Tenor: 2120
+⏱ Duration: 48
 1: Attempting to find "Byron Miller"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -182,6 +195,7 @@ Last name (Miller):
 Given name(s) (Byron): 
 >>> 
 [User input: "Byron"]
+👤 Ringer: 1: Byron Miller
 2: Attempting to find "Paul Armstrong"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -193,10 +207,12 @@ Last name (Armstrong):
 Given name(s) (Paul): 
 >>> 
 [User input: "Paul"]
+👤 Ringer: 2: Paul Armstrong
 3: "Clark Elliott" -> Clark Elliott
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+👤 Ringer: 3: Clark Elliott
 4: Attempting to find "Alisa Cole"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -208,14 +224,17 @@ Last name (Cole):
 Given name(s) (Alisa): 
 >>> 
 [User input: "Alisa"]
+👤 Ringer: 4: Alisa Cole
 5: "Chester Edwards" -> Chester Edwards
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+👤 Ringer: 5: Chester Edwards
 6: "Heather Sullivan" -> Heather Sullivan
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+👤 Ringer: 6: Heather Sullivan
 7: Attempting to find "Jacob Cole"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -227,14 +246,17 @@ Last name (Cole):
 Given name(s) (Jacob): 
 >>> 
 [User input: "Jacob"]
+👤 Ringer: 7: Jacob Cole
 8: "Joyce Sullivan" -> Joyce Sullivan
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+👤 Ringer: 8: Joyce Sullivan
 9: "Leonardo Bennett" -> Leo Bennett
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+👤 Ringer: 9: Leo Bennett (c)
 10: Attempting to find "Byron Robinson"
 Options: 1) Add as new ringer, 2) Search alternatives
 Select action (1): 
@@ -246,16 +268,20 @@ Last name (Robinson):
 Given name(s) (Byron): 
 >>> 
 [User input: "Byron"]
+👤 Ringer: 10: Byron Robinson
 Footnote line:
   > For Morning Service, and to welcome Rafe Jackson-Swift, son of Russell and Angela, born on 8th January
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+📝 Footnote: For Morning Service, and to welcome Rafe Jackson-Swift, son of Russell and Angela, born on 8th January.
 Footnote line:
   > 900th Quarter of Grandsire on the bells
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+📝 Footnote: 900th Quarter of Grandsire on the bells.
+🔗 Event link: None
 Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
@@ -263,6 +289,7 @@ Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
 [User input: "MuffleType.NONE (1)"]
+🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1147788 ──────────────────╮
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
