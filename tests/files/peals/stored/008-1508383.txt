@@ -88,7 +88,7 @@ Composition URL (http://localhost:8080/comp.php?id=2284506):
 📅 Date: Wednesday, 29 March 1972
 🔔 Tenor: Unknown
 ⏱ Duration: 183
-1,2: Attempting to find "Sam Wells"
+1,2: Couldn't find ringer matching "Sam Wells" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
@@ -103,7 +103,7 @@ Bell number(s) in the tower (1,2):
 >>> 
 [User input: "1,2"]
 👤 Ringer: 1,2: Sam Wells
-3,4: Attempting to find "Rubie Owens"
+3,4: Couldn't find ringer matching "Rubie Owens" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
@@ -134,7 +134,7 @@ Bell number(s) in the tower (7,8):
 >>> 
 [User input: "7,8"]
 👤 Ringer: 7,8: Jack Spencer
-9,10: Attempting to find "Arianna Holmes"
+9,10: Couldn't find ringer matching "Arianna Holmes" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1

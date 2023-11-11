@@ -89,7 +89,7 @@ Is this correct? [y/n] (y):
 📅 Date: Thursday, 17 October 2019
 🔔 Tenor: 2352 in Eb
 ⏱ Duration: 44
-1: Attempting to find "Dainton Casey"
+1: Couldn't find ringer matching "Dainton Casey" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
@@ -101,7 +101,7 @@ Given name(s) (Dainton):
 >>> 
 [User input: "Dainton"]
 👤 Ringer: 1: Dainton Casey
-2: Attempting to find "Daryl Mason"
+2: Couldn't find ringer matching "Daryl Mason" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
@@ -113,7 +113,7 @@ Given name(s) (Daryl):
 >>> 
 [User input: "Daryl"]
 👤 Ringer: 2: Daryl Mason
-3: Attempting to find "Roland Clark"
+3: Couldn't find ringer matching "Roland Clark" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 
@@ -125,7 +125,7 @@ Given name(s) (Roland):
 >>> 
 [User input: "Roland"]
 👤 Ringer: 3: Roland Clark
-4: Attempting to find "Michelle Thompson"
+4: Couldn't find ringer matching "Michelle Thompson" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
@@ -142,7 +142,7 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 👤 Ringer: 5: Ted Harris (c)
-6: Attempting to find "David Rogers"
+6: Couldn't find ringer matching "David Rogers" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1

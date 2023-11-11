@@ -442,7 +442,7 @@ Is this correct? [y/n] (y):
 📅 Date: Monday, 25 March 1963
 🔔 Tenor: 1158 in G
 ⏱ Duration: 162
-1: Attempting to find "Blake Howard"
+1: Couldn't find ringer matching "Blake Howard" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
@@ -454,7 +454,7 @@ Given name(s) (Blake):
 >>> 
 [User input: "Blake"]
 👤 Ringer: 1: Blake Howard
-2: Attempting to find "Aston Mitchell"
+2: Couldn't find ringer matching "Aston Mitchell" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
@@ -466,7 +466,7 @@ Given name(s) (Aston):
 >>> 
 [User input: "Aston"]
 👤 Ringer: 2: Aston Mitchell
-3: Attempting to find "John Parker"
+3: Couldn't find ringer matching "John Parker" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
@@ -483,7 +483,7 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 👤 Ringer: 4: Alen Henderson
-5: Attempting to find "Dominik Warren"
+5: Couldn't find ringer matching "Dominik Warren" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
@@ -495,7 +495,7 @@ Given name(s) (Dominik):
 >>> 
 [User input: "Dominik"]
 👤 Ringer: 5: Dominik Warren
-6: Attempting to find "Sienna Murphy"
+6: Couldn't find ringer matching "Sienna Murphy" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1

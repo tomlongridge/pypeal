@@ -128,7 +128,7 @@ Bell number(s) in the tower (6):
 >>> 
 [User input: "6"]
 👤 Ringer: 6: Arnold Johnson
-7: Attempting to find "Kate Crawford"
+7: Couldn't find ringer matching "Kate Crawford" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1

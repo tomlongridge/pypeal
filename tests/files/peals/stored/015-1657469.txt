@@ -165,7 +165,7 @@ Bell number(s) in the tower (2):
 >>> 
 [User input: "2"]
 👤 Ringer: 2: Leo Bennett
-3: Attempting to find "George Roberts"
+3: Couldn't find ringer matching "George Roberts" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 
@@ -196,7 +196,7 @@ Bell number(s) in the tower (5):
 >>> 
 [User input: "5"]
 👤 Ringer: 5: Joyce Sullivan (c)
-6: Attempting to find "Grace Perry"
+6: Couldn't find ringer matching "Grace Perry" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1

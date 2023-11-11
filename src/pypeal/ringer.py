@@ -95,33 +95,33 @@ class Ringer():
             return Cache.get_cache().add(cls.__name__, result[-1], Ringer(*result))
 
     @classmethod
-    def get_by_full_name(cls, name: str, is_composer: bool = None) -> list[Ringer]:
-        results = Database.get_connection().query(
-            f'SELECT {",".join(FIELD_LIST)}, id FROM ringers ' +
-            'WHERE CONCAT_WS(" ", given_names, last_name) = %(name)s ' +
-            'AND link_id IS NULL ' +
-            ('AND is_composer = %(is_composer)s ' if is_composer is not None else ' ') +
-            'OR (id IN (SELECT link_id FROM ringers WHERE CONCAT_WS(" ", given_names, last_name) = %(name)s))',
-            {
-                'name': name.strip(),
-                'composer': is_composer
-            }
-        ).fetchall()
-        return Cache.get_cache().add_all(cls.__name__, {result[-1]: Ringer(*result) for result in results})
+    def get_by_name(cls,
+                    last_name: str = None,
+                    given_names: str = None,
+                    is_composer: bool = None,
+                    exact_match: bool = False) -> list[Ringer]:
 
-    @classmethod
-    def get_by_name(cls, last_name: str = None, given_names: str = None, is_composer: bool = None) -> list[Ringer]:
+        if last_name is None and given_names is None:
+            raise ValueError('Either last_name or given_names must be specified in ringer search')
+
+        name_clause = ''
+        params = {}
+        if last_name:
+            name_clause += f'AND @tbl.last_name {"=" if exact_match else "LIKE"} %(last_name)s '
+            params['last_name'] = last_name.strip()
+        if given_names:
+            name_clause += f'AND @tbl.given_names {"=" if exact_match else "LIKE"} %(given_names)s '
+            params['given_names'] = given_names.strip()
+        if is_composer is not None:
+            name_clause += 'AND @tbl.is_composer = %(is_composer)s '
+            params['is_composer'] = is_composer
+
         results = Database.get_connection().query(
-            f'SELECT {",".join(FIELD_LIST)}, id FROM ringers ' +
-            'WHERE (last_name LIKE %(last_name)s AND given_names LIKE %(given_names)s) ' +
-            'AND link_id IS NULL ' +
-            ('AND is_composer = %(is_composer)s ' if is_composer is not None else ' ') +
-            'OR (id IN (SELECT link_id FROM ringers WHERE last_name LIKE %(last_name)s AND given_names LIKE %(given_names)s))',
-            {
-                'last_name': last_name.strip() if last_name else '%',
-                'given_names': given_names.strip() if given_names else '%',
-                'composer': is_composer
-            }
+            f'SELECT {",".join(FIELD_LIST)}, id FROM ringers AS r ' +
+            f'WHERE 1=1 {name_clause.replace("@tbl", "r")} AND r.link_id IS NULL ' +
+            'OR (r.id IN (SELECT lr.link_id FROM ringers AS lr ' +
+            f'WHERE 1=1 {name_clause.replace("@tbl", "lr")} AND lr.link_id IS NOT NULL))',
+            params
         ).fetchall()
         return Cache.get_cache().add_all(cls.__name__, {result[-1]: Ringer(*result) for result in results})
 

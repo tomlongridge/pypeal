@@ -184,7 +184,11 @@ Is this correct? [y/n] (y):
 📅 Date: Sunday, 11 January 2015
 🔔 Tenor: 2120
 ⏱ Duration: 48
-1: Attempting to find "Byron Miller"
+1: "Byron Miller" -> Daniel Miller
+Is this correct? [y/n] (y): 
+>>> n
+[User input: "False"]
+1: Couldn't find ringer matching "Byron Miller" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
@@ -196,7 +200,11 @@ Given name(s) (Byron):
 >>> 
 [User input: "Byron"]
 👤 Ringer: 1: Byron Miller
-2: Attempting to find "Paul Armstrong"
+2: "Paul Armstrong" -> Ellia Armstrong
+Is this correct? [y/n] (y): 
+>>> n
+[User input: "False"]
+2: Couldn't find ringer matching "Paul Armstrong" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
@@ -213,7 +221,7 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 👤 Ringer: 3: Clark Elliott
-4: Attempting to find "Alisa Cole"
+4: Couldn't find ringer matching "Alisa Cole" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
@@ -235,7 +243,11 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 👤 Ringer: 6: Heather Sullivan
-7: Attempting to find "Jacob Cole"
+7: "Jacob Cole" -> Alisa Cole
+Is this correct? [y/n] (y): 
+>>> n
+[User input: "False"]
+7: Couldn't find ringer matching "Jacob Cole" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
@@ -257,7 +269,7 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 👤 Ringer: 9: Leo Bennett (c)
-10: Attempting to find "Byron Robinson"
+10: Couldn't find ringer matching "Byron Robinson" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1

@@ -59,13 +59,17 @@ Is this correct? [y/n] (y):
 📅 Date: Saturday, 13 May 2023
 🔔 Tenor: 1221 in F
 ⏱ Duration: 46
-1: 2 existing ringers match "Aston Mitchell"
+1: Found 2 ringers matching "Aston Mitchell" (or aliases)
 Options: 1) Aston Mitchell (15), 2) Aston Mitchell (19), 3) None
 Select action: 
 >>> 2
 [User input: "Aston Mitchell (2)"]
 👤 Ringer: 1: Aston Mitchell (c)
-2: Attempting to find "Carina Warren"
+2: "Carina Warren" -> Dominik Warren
+Is this correct? [y/n] (y): 
+>>> n
+[User input: "False"]
+2: Couldn't find ringer matching "Carina Warren" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
@@ -77,7 +81,7 @@ Given name(s) (Carina):
 >>> 
 [User input: "Carina"]
 👤 Ringer: 2: Carina Warren
-3: Attempting to find "Ellia Armstrong"
+3: Couldn't find ringer matching "Ellia Armstrong" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
@@ -89,7 +93,7 @@ Given name(s) (Ellia):
 >>> 
 [User input: "Ellia"]
 👤 Ringer: 3: Ellia Armstrong
-4: Attempting to find "Edward Dixon"
+4: Couldn't find ringer matching "Edward Dixon" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
@@ -101,7 +105,7 @@ Given name(s) (Edward):
 >>> 
 [User input: "Edward"]
 👤 Ringer: 4: Edward Dixon
-5: Attempting to find "Ned Andrews"
+5: Couldn't find ringer matching "Ned Andrews" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
@@ -113,7 +117,7 @@ Given name(s) (Ned):
 >>> 
 [User input: "Ned"]
 👤 Ringer: 5: Ned Andrews
-6: Attempting to find "Richard Higgins"
+6: Couldn't find ringer matching "Richard Higgins" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
@@ -125,7 +129,7 @@ Given name(s) (Richard):
 >>> 
 [User input: "Richard"]
 👤 Ringer: 6: Richard Higgins
-7: Attempting to find "Carl Johnston"
+7: Couldn't find ringer matching "Carl Johnston" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
@@ -137,7 +141,7 @@ Given name(s) (Carl):
 >>> 
 [User input: "Carl"]
 👤 Ringer: 7: Carl Johnston
-8: Attempting to find "Michael Williams"
+8: Couldn't find ringer matching "Michael Williams" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1

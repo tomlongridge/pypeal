@@ -1,4 +1,4 @@
-from pypeal.cli.prompt_add_ringer import prompt_add_ringer_by_full_name_match, prompt_add_ringer_by_search, prompt_commit_ringer
+from pypeal.cli.prompt_add_ringer import prompt_add_ringer_by_name_match, prompt_add_ringer_by_search, prompt_commit_ringer
 from pypeal.cli.prompts import ask, confirm
 from pypeal.peal import Peal
 from pypeal.ringer import Ringer
@@ -6,7 +6,7 @@ from pypeal.ringer import Ringer
 
 def prompt_add_composer(name: str, url: str, peal: Peal, quick_mode: bool):
 
-    matched_ringer: Ringer = prompt_add_ringer_by_full_name_match(name, 'Composer', quick_mode) if name else None
+    matched_ringer: Ringer = prompt_add_ringer_by_name_match(name, 'Composer', quick_mode) if name else None
 
     if not matched_ringer:
         if name:

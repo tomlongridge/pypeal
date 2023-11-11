@@ -1,17 +1,20 @@
+import logging
 from pypeal.cli.prompts import error
 from pypeal.cli.prompts import ask, choose_option, confirm, prompt_names
 from pypeal.peal import Peal
 from pypeal.ringer import Ringer
 from pypeal.utils import get_bell_label, split_full_name
 
+_logger = logging.getLogger('pypeal')
+
 
 def prompt_add_ringer(name: str, bell_nums: list[int], is_conductor: bool, peal: Peal, quick_mode: bool):
 
-    matched_ringer: Ringer = prompt_add_ringer_by_full_name_match(name, get_bell_label(bell_nums), quick_mode)
+    matched_ringer: Ringer = prompt_add_ringer_by_name_match(name, get_bell_label(bell_nums), quick_mode)
 
     while not matched_ringer:
         if not quick_mode:
-            print(f'{get_bell_label(bell_nums)}: Attempting to find "{name}"')
+            print(f'{get_bell_label(bell_nums)}: Couldn\'t find ringer matching "{name}" (or aliases)')
             matched_ringer = prompt_add_ringer_by_search(name, get_bell_label(bell_nums), quick_mode)
 
     prompt_commit_ringer(matched_ringer, name, peal, quick_mode)
@@ -91,27 +94,47 @@ def prompt_add_ringer_by_search(name: str, label: str, quick_mode: bool) -> Ring
                         return choose_option(potential_ringers, cancel_option='None', return_option=True)
 
 
-def prompt_add_ringer_by_full_name_match(name: str, label: str, quick_mode: bool) -> Ringer:
+def prompt_add_ringer_by_name_match(name: str, label: str, quick_mode: bool) -> Ringer:
 
     if name is None:
         return None
 
-    full_name_match = Ringer.get_by_full_name(name)
-    match len(full_name_match):
-        case 0:
-            return None
-        case 1:
-            if quick_mode or confirm(f'{label}: "{name}" -> {full_name_match[0]}', default=True):
-                return full_name_match[0]
-        case _:
-            print(f'{label}: {len(full_name_match)} existing ringers match "{name}"')
-            if quick_mode:
-                return full_name_match[0]
-            else:
-                return choose_option([f'{r.name} ({r.id})' for r in full_name_match],
-                                     values=full_name_match,
-                                     cancel_option='None',
-                                     return_option=True)
+    last_name, given_names = split_full_name(name)
+
+    searches = [
+        (last_name, given_names, True),
+        (last_name, given_names, False),
+    ]
+    fewer_given_names = given_names
+    while ' ' in fewer_given_names:
+        fewer_given_names = fewer_given_names.rsplit(' ', 1)[0].strip()
+        searches += [(last_name, f'{fewer_given_names}%', False)]
+    searches += [(last_name, None, True)]
+
+    for search_last_name, search_given_names, exact_match in searches:
+
+        _logger.debug(f'Attempting to find "{name}" (given name: "{search_given_names}", last name: "{search_last_name}")')
+
+        name_match = Ringer.get_by_name(search_last_name, search_given_names, exact_match=exact_match)
+        match len(name_match):
+            case 0:
+                continue
+            case 1:
+                if quick_mode or confirm(f'{label}: "{name}" -> {name_match[0]}', default=True):
+                    return name_match[0]
+                else:
+                    return None
+            case _:
+                print(f'{label}: Found {len(name_match)} ringers matching "{name}" (or aliases)')
+                if quick_mode:
+                    return name_match[0]
+                else:
+                    return choose_option([f'{r.name} ({r.id})' for r in name_match],
+                                         values=name_match,
+                                         cancel_option='None',
+                                         return_option=True)
+
+    return None
 
 
 def prompt_commit_ringer(ringer: Ringer, used_name: str, peal: Peal, quick_mode: bool):

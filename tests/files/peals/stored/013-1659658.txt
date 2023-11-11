@@ -71,7 +71,7 @@ Composition URL (http://localhost:8080/comp.php?id=2293307):
 📅 Date: Saturday, 23 September 2023
 🔔 Tenor: 1458 in F
 ⏱ Duration: 50
-1: Attempting to find "Garry Scott"
+1: Couldn't find ringer matching "Garry Scott" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 
@@ -83,7 +83,12 @@ Given name(s) (Garry):
 >>> 
 [User input: "Garry"]
 👤 Ringer: 1: Garry Scott
-2: Attempting to find "Charlie Warren"
+2: Found 2 ringers matching "Charlie Warren" (or aliases)
+Options: 1) Dominik Warren (17), 2) Carina Warren (48), 3) None
+Select action: 
+>>> 3
+[User input: "None"]
+2: Couldn't find ringer matching "Charlie Warren" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 
@@ -95,7 +100,7 @@ Given name(s) (Charlie):
 >>> 
 [User input: "Charlie"]
 👤 Ringer: 2: Charlie Warren
-3: Attempting to find "Arnold Johnson"
+3: Couldn't find ringer matching "Arnold Johnson" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 
@@ -121,7 +126,7 @@ Is this correct? [y/n] (y):
 Is this correct? [y/n] (y): 
 >>> n
 [User input: "False"]
-6: Attempting to find "Blake Elliott"
+6: Couldn't find ringer matching "Blake Elliott" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1

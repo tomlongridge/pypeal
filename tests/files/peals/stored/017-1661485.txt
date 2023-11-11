@@ -87,7 +87,11 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 👤 Ringer: 1: Leo Bennett
-2: Attempting to find "Michelle Edwards"
+2: "Michelle Edwards" -> Chester Edwards
+Is this correct? [y/n] (y): 
+>>> n
+[User input: "False"]
+2: Couldn't find ringer matching "Michelle Edwards" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
@@ -109,7 +113,12 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 👤 Ringer: 4: Paul Armstrong
-5: Attempting to find "Deanna Bennett"
+5: Found 2 ringers matching "Deanna Bennett" (or aliases)
+Options: 1) Leo Bennett (32), 2) Patrick Bennett (35), 3) None
+Select action: 
+>>> 3
+[User input: "None"]
+5: Couldn't find ringer matching "Deanna Bennett" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
@@ -121,7 +130,7 @@ Given name(s) (Deanna):
 >>> 
 [User input: "Deanna"]
 👤 Ringer: 5: Deanna Bennett
-6: Attempting to find "Brooke Adams"
+6: Couldn't find ringer matching "Brooke Adams" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1

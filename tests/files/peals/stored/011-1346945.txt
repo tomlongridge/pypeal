@@ -307,7 +307,7 @@ Is this correct? [y/n] (y):
 📅 Date: Monday, 27 March 1967
 🔔 Tenor: 987 in A
 ⏱ Duration: 149
-1: Attempting to find "Lydia Reed"
+1: Couldn't find ringer matching "Lydia Reed" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
@@ -319,7 +319,7 @@ Given name(s) (Lydia):
 >>> 
 [User input: "Lydia"]
 👤 Ringer: 1: Lydia Reed
-2: Attempting to find "Victoria Morrison"
+2: Couldn't find ringer matching "Victoria Morrison" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
@@ -331,7 +331,11 @@ Given name(s) (Victoria):
 >>> 
 [User input: "Victoria"]
 👤 Ringer: 2: Victoria Morrison
-3: Attempting to find "Stuart Murray"
+3: "Stuart Murray" -> Vivian Murray
+Is this correct? [y/n] (y): 
+>>> n
+[User input: "False"]
+3: Couldn't find ringer matching "Stuart Murray" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
@@ -348,7 +352,7 @@ Is this correct? [y/n] (y):
 >>> 
 [User input: "True"]
 👤 Ringer: 4: Ned Andrews
-5: 2 existing ringers match "Aston Mitchell"
+5: Found 2 ringers matching "Aston Mitchell" (or aliases)
 Options: 1) Aston Mitchell (15), 2) Aston Mitchell (19), 3) None
 Select action: 
 >>> 1

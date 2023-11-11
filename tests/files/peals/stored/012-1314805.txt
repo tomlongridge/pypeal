@@ -153,7 +153,7 @@ Bell number(s) in the tower (6):
 >>> 
 [User input: "6"]
 👤 Ringer: 4 [6]: Jacob Cole
-5: Attempting to find "Melissa Baker"
+5: Couldn't find ringer matching "Melissa Baker" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
