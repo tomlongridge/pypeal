@@ -91,7 +91,7 @@ Is this correct? [y/n] (y):
 🔔 Tenor: 1904
 ⏱ Duration: 49
 1: Attempting to find "Lydia Ferguson"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -106,7 +106,7 @@ Bell number(s) in the tower (1):
 [User input: "5"]
 👤 Ringer: 1 [5]: Lydia Ferguson
 2: Attempting to find "Harold Gray"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -121,7 +121,7 @@ Bell number(s) in the tower (6):
 [User input: "6"]
 👤 Ringer: 2 [6]: Harold Gray
 3: Attempting to find "Chloe Henderson"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -136,7 +136,7 @@ Bell number(s) in the tower (7):
 [User input: "7"]
 👤 Ringer: 3 [7]: Chloe Henderson
 4: Attempting to find "Alen Henderson"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -151,7 +151,7 @@ Bell number(s) in the tower (8):
 [User input: "8"]
 👤 Ringer: 4 [8]: Alen Henderson
 5: Attempting to find "Lucas Wright"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -166,7 +166,7 @@ Bell number(s) in the tower (9):
 [User input: "9"]
 👤 Ringer: 5 [9]: Lucas Wright
 6: Attempting to find "Lucas Farrell"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -181,7 +181,7 @@ Bell number(s) in the tower (10):
 [User input: "10"]
 👤 Ringer: 6 [10]: Lucas Farrell (c)
 7: Attempting to find "Ryan Elliott"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -196,7 +196,7 @@ Bell number(s) in the tower (11):
 [User input: "11"]
 👤 Ringer: 7 [11]: Ryan Elliott
 8: Attempting to find "Ted Harris"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]

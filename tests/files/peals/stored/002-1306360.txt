@@ -90,7 +90,7 @@ Is this correct? [y/n] (y):
 🔔 Tenor: 2352 in Eb
 ⏱ Duration: 44
 1: Attempting to find "Dainton Casey"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -102,7 +102,7 @@ Given name(s) (Dainton):
 [User input: "Dainton"]
 👤 Ringer: 1: Dainton Casey
 2: Attempting to find "Daryl Mason"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -114,7 +114,7 @@ Given name(s) (Daryl):
 [User input: "Daryl"]
 👤 Ringer: 2: Daryl Mason
 3: Attempting to find "Roland Clark"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 
 [User input: "1"]
@@ -126,7 +126,7 @@ Given name(s) (Roland):
 [User input: "Roland"]
 👤 Ringer: 3: Roland Clark
 4: Attempting to find "Michelle Thompson"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -143,7 +143,7 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 👤 Ringer: 5: Ted Harris (c)
 6: Attempting to find "David Rogers"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]

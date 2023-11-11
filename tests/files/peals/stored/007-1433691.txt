@@ -78,7 +78,7 @@ Is this correct? [y/n] (y):
 🔔 Tenor: 823 in B
 ⏱ Duration: Unknown
 1: Attempting to find "Edward Chapman"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -101,7 +101,7 @@ Bell number(s) in the tower (2):
 [User input: "2"]
 👤 Ringer: 2: Blake Elliott
 3: Attempting to find "Olivia West"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -116,7 +116,7 @@ Bell number(s) in the tower (3):
 [User input: "3"]
 👤 Ringer: 3: Olivia West
 4: Attempting to find "Mike Sullivan"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -126,16 +126,19 @@ Last name (Sullivan):
 Given name(s) (Mike): 
 >>> Michael
 [User input: "Michael"]
-Add "Mike Sullivan" as an alias?
-Is this correct? [y/n] (y): 
+Add an alias for this ringer? [y/n] (y): 
 >>> y
 [User input: "True"]
+Which name should be displayed?: 1) Mike Sullivan, 2) Michael Sullivan
+Select action: 
+>>> 1
+[User input: "1"]
 Bell number(s) in the tower (4): 
 >>> 
 [User input: "4"]
-👤 Ringer: 4: Michael Sullivan
+👤 Ringer: 4: Mike Sullivan
 5: Attempting to find "Jack Spencer"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -150,7 +153,7 @@ Bell number(s) in the tower (5):
 [User input: "5"]
 👤 Ringer: 5: Jack Spencer (c)
 6: Attempting to find "Eric Ryan"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -199,7 +202,7 @@ Select action (1):
 │ 1: Edward Chapman                                                            │
 │ 2: Blake Elliott                                                             │
 │ 3: Olivia West                                                               │
-│ 4: Michael Sullivan                                                          │
+│ 4: Mike Sullivan                                                             │
 │ 5: Jack Spencer (c)                                                          │
 │ 6: Eric Ryan                                                                 │
 │                                                                              │
@@ -238,7 +241,7 @@ A Quarter Peal of 1320 Plain Bob Doubles (7-1-11 in B)
 1: Edward Chapman
 2: Blake Elliott
 3: Olivia West
-4: Michael Sullivan
+4: Mike Sullivan
 5: Jack Spencer (c)
 6: Eric Ryan
 

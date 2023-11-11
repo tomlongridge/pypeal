@@ -71,7 +71,7 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 📕 Title: Bristol Surprise Maximus
 Composer: Attempting to find "Christopher I Rowson"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -89,7 +89,7 @@ Composition URL (http://localhost:8080/comp.php?id=2284506):
 🔔 Tenor: Unknown
 ⏱ Duration: 183
 1,2: Attempting to find "Sam Wells"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -104,7 +104,7 @@ Bell number(s) in the tower (1,2):
 [User input: "1,2"]
 👤 Ringer: 1,2: Sam Wells
 3,4: Attempting to find "Rubie Owens"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -135,7 +135,7 @@ Bell number(s) in the tower (7,8):
 [User input: "7,8"]
 👤 Ringer: 7,8: Jack Spencer
 9,10: Attempting to find "Arianna Holmes"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]

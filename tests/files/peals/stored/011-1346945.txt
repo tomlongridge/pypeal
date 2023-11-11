@@ -308,7 +308,7 @@ Is this correct? [y/n] (y):
 🔔 Tenor: 987 in A
 ⏱ Duration: 149
 1: Attempting to find "Lydia Reed"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -320,7 +320,7 @@ Given name(s) (Lydia):
 [User input: "Lydia"]
 👤 Ringer: 1: Lydia Reed
 2: Attempting to find "Victoria Morrison"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -332,7 +332,7 @@ Given name(s) (Victoria):
 [User input: "Victoria"]
 👤 Ringer: 2: Victoria Morrison
 3: Attempting to find "Stuart Murray"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]

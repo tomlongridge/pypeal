@@ -63,7 +63,7 @@ Is this correct? [y/n] (y):
 >>> n
 [User input: "False"]
 1: Attempting to find "Aston Mitchell"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -86,7 +86,7 @@ Bell number(s) in the tower (4):
 [User input: "4"]
 👤 Ringer: 2 [4]: Dominik Warren
 3: Attempting to find "Melissa Evans"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -101,7 +101,7 @@ Bell number(s) in the tower (5):
 [User input: "5"]
 👤 Ringer: 3 [5]: Melissa Evans
 4: Attempting to find "Valeria Perkins"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -116,7 +116,7 @@ Bell number(s) in the tower (6):
 [User input: "6"]
 👤 Ringer: 4 [6]: Valeria Perkins
 5: Attempting to find "Savana Davis"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -131,7 +131,7 @@ Bell number(s) in the tower (7):
 [User input: "7"]
 👤 Ringer: 5 [7]: Savana Davis
 6: Attempting to find "Fenton Bailey"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -146,7 +146,7 @@ Bell number(s) in the tower (8):
 [User input: "8"]
 👤 Ringer: 6 [8]: Fenton Bailey
 7: Attempting to find "Blake Harper"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -161,7 +161,7 @@ Bell number(s) in the tower (9):
 [User input: "9"]
 👤 Ringer: 7 [9]: Blake Harper (c)
 8: Attempting to find "Lenny Howard"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]

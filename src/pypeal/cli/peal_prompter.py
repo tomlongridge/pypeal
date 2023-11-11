@@ -110,12 +110,12 @@ class PealPromptListener(PealGeneratorListener):
 
     def end_peal(self):
         prompt_validate_tenor(self.peal, self.quick_mode)
-        
+
         if not self.quick_mode:
             prompt_new_footnote(self.peal)
         if len(self.peal.footnotes) == 0:
             print('📝 Footnotes: None')
-        
+
         if not self.quick_mode:
             prompt_add_muffle_type(self.peal)
         print(f'🔕 Muffles: {self.peal.muffles.name.capitalize() if self.peal.muffles else "None"}')

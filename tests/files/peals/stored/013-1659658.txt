@@ -54,7 +54,7 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 📕 Title: Little Bob Royal
 Composer: Attempting to find "Alex W Tatlow"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -72,7 +72,7 @@ Composition URL (http://localhost:8080/comp.php?id=2293307):
 🔔 Tenor: 1458 in F
 ⏱ Duration: 50
 1: Attempting to find "Garry Scott"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 
 [User input: "1"]
@@ -84,7 +84,7 @@ Given name(s) (Garry):
 [User input: "Garry"]
 👤 Ringer: 1: Garry Scott
 2: Attempting to find "Charlie Warren"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 
 [User input: "1"]
@@ -96,7 +96,7 @@ Given name(s) (Charlie):
 [User input: "Charlie"]
 👤 Ringer: 2: Charlie Warren
 3: Attempting to find "Arnold Johnson"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 
 [User input: "1"]
@@ -122,7 +122,7 @@ Is this correct? [y/n] (y):
 >>> n
 [User input: "False"]
 6: Attempting to find "Blake Elliott"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]

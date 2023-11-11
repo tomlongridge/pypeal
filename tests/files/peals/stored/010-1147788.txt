@@ -185,7 +185,7 @@ Is this correct? [y/n] (y):
 🔔 Tenor: 2120
 ⏱ Duration: 48
 1: Attempting to find "Byron Miller"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -197,7 +197,7 @@ Given name(s) (Byron):
 [User input: "Byron"]
 👤 Ringer: 1: Byron Miller
 2: Attempting to find "Paul Armstrong"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -214,7 +214,7 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 👤 Ringer: 3: Clark Elliott
 4: Attempting to find "Alisa Cole"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -236,7 +236,7 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 👤 Ringer: 6: Heather Sullivan
 7: Attempting to find "Jacob Cole"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -258,7 +258,7 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 👤 Ringer: 9: Leo Bennett (c)
 10: Attempting to find "Byron Robinson"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]

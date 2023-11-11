@@ -73,7 +73,7 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 👤 Ringer: 2: Blake Elliott
 3: Attempting to find "Joyce Sullivan"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -90,7 +90,7 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 👤 Ringer: 4: Chester Edwards
 5: Attempting to find "Patrick Bennett"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -117,7 +117,7 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 👤 Ringer: 8: Clark Elliott
 9: Attempting to find "Heather Sullivan"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -129,7 +129,7 @@ Given name(s) (Heather):
 [User input: "Heather"]
 👤 Ringer: 9: Heather Sullivan
 10: Attempting to find "Vivian Murray"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]

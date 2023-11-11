@@ -4,7 +4,7 @@ from pypeal.cache import Cache
 
 from pypeal.db import Database
 
-FIELD_LIST: list[str] = ['last_name', 'given_names', 'is_composer']
+FIELD_LIST: list[str] = ['last_name', 'given_names', 'is_composer', 'link_id']
 
 
 @dataclass
@@ -13,12 +13,19 @@ class Ringer():
     last_name: str
     given_names: str
     is_composer: bool = False
+    link: Ringer = None
     id: int = None
 
-    def __init__(self, last_name: str, given_names: str, is_composer: int = 0, id: int = None):
+    def __init__(self,
+                 last_name: str,
+                 given_names: str,
+                 is_composer: int = 0,
+                 link_id: int = None,
+                 id: int = None):
         self.last_name = last_name
         self.given_names = given_names
         self.is_composer = is_composer == 1
+        self.link = Ringer.get(link_id) if link_id else None
         self.id = id
 
     @property
@@ -35,23 +42,47 @@ class Ringer():
         if self.id:
             result = Database.get_connection().query(
                 'UPDATE ringers ' +
-                'SET last_name = %s, given_names = %s, is_composer = %s ' +
+                'SET last_name = %s, given_names = %s, is_composer = %s, link_id = %s ' +
                 'WHERE id = %s',
-                (self.last_name, self.given_names, self.is_composer, self.id))
+                (self.last_name, self.given_names, self.is_composer, self.link.id if self.link else None, self.id))
             Database.get_connection().commit()
         else:
             result = Database.get_connection().query(
-                f'INSERT INTO ringers ({",".join(FIELD_LIST)}) VALUES (%s, %s, %s)',
-                (self.last_name, self.given_names, self.is_composer))
+                f'INSERT INTO ringers ({",".join(FIELD_LIST)}) VALUES (%s, %s, %s, %s)',
+                (self.last_name, self.given_names, self.is_composer, self.link.id if self.link else None))
             Database.get_connection().commit()
             self.id = result.lastrowid
-            Cache.get_cache().add(self.__class__.__name__, self.id, self)
+        Cache.get_cache().add(self.__class__.__name__, self.id, self)
 
-    def add_alias(self, last_name: str, given_names: str):
-        Database.get_connection().query(
-            f'INSERT INTO ringers ({",".join(FIELD_LIST)}, link_id) VALUES (%s, %s, %s, %s)',
-            (last_name, given_names, None, self.id))
-        Database.get_connection().commit()
+    def add_alias(self, last_name: str, given_names: str, is_primary: bool = False):
+        if is_primary:
+            # Create new alias with current details then update self to the new details
+            # (this saves updating all references to self.id)
+            new_alias = Ringer(self.last_name, self.given_names, self.is_composer, self.id)
+            new_alias.commit()
+            self.last_name = last_name
+            self.given_names = given_names
+            self.is_composer = self.is_composer
+            self.link = None
+            self.commit()
+        else:
+            alias = Ringer(last_name, given_names, False, self.id)
+            alias.commit()
+            return alias
+
+    def get_aliases(self, last_name: str = None, given_names: str = None) -> list[Ringer]:
+        query = f'SELECT {",".join(FIELD_LIST)}, id ' + \
+                 'FROM ringers ' + \
+                 'WHERE link_id = %(id)s '
+        params = {'id': self.id}
+        if last_name:
+            query += 'AND last_name = %(last_name)s '
+            params['last_name'] = last_name
+        if given_names:
+            query += 'AND given_names = %(given_names)s '
+            params['given_names'] = given_names
+        results = Database.get_connection().query(query, params=params).fetchall()
+        return Cache.get_cache().add_all(self.__class__.__name__, {result[-1]: Ringer(*result) for result in results})
 
     @classmethod
     def get(cls, id: int) -> Ringer:

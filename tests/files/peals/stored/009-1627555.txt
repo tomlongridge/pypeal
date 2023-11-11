@@ -66,7 +66,7 @@ Select action:
 [User input: "Aston Mitchell (2)"]
 👤 Ringer: 1: Aston Mitchell (c)
 2: Attempting to find "Carina Warren"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -78,7 +78,7 @@ Given name(s) (Carina):
 [User input: "Carina"]
 👤 Ringer: 2: Carina Warren
 3: Attempting to find "Ellia Armstrong"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -90,7 +90,7 @@ Given name(s) (Ellia):
 [User input: "Ellia"]
 👤 Ringer: 3: Ellia Armstrong
 4: Attempting to find "Edward Dixon"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -102,7 +102,7 @@ Given name(s) (Edward):
 [User input: "Edward"]
 👤 Ringer: 4: Edward Dixon
 5: Attempting to find "Ned Andrews"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -114,7 +114,7 @@ Given name(s) (Ned):
 [User input: "Ned"]
 👤 Ringer: 5: Ned Andrews
 6: Attempting to find "Richard Higgins"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -126,7 +126,7 @@ Given name(s) (Richard):
 [User input: "Richard"]
 👤 Ringer: 6: Richard Higgins
 7: Attempting to find "Carl Johnston"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
@@ -138,7 +138,7 @@ Given name(s) (Carl):
 [User input: "Carl"]
 👤 Ringer: 7: Carl Johnston
 8: Attempting to find "Michael Williams"
-Options: 1) Add as new ringer, 2) Search alternatives
+Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
 >>> 1
 [User input: "1"]
