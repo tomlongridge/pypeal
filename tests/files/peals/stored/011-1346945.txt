@@ -331,10 +331,6 @@ Given name(s) (Victoria):
 >>> 
 [User input: "Victoria"]
 👤 Ringer: 2: Victoria Morrison
-3: "Stuart Murray" -> Vivian Murray
-Is this correct? [y/n] (y): 
->>> n
-[User input: "False"]
 3: Couldn't find ringer matching "Stuart Murray" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 

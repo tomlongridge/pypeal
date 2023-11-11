@@ -73,7 +73,7 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
             if peal.is_spliced:
                 peal.is_mixed = False
             else:
-                peal.is_mixed = confirm(None, 
+                peal.is_mixed = confirm(None,
                                         confirm_message='Is this a mixed peal?',
                                         default=False if peal.is_mixed is None else peal.is_mixed)
                 if not peal.is_mixed:

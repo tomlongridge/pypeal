@@ -1,8 +1,8 @@
 CREATE TABLE @db_name.`pealringers` (
     `peal_id` int UNSIGNED NOT NULL,
     `ringer_id` int UNSIGNED NOT NULL,
-    `bell_num` tinyint UNSIGNED,
-    `bell` tinyint UNSIGNED,
+    `bell_num` tinyint UNSIGNED DEFAULT 0,
+    `bell` tinyint UNSIGNED DEFAULT 0,
     `is_conductor` tinyint(1) NOT NULL DEFAULT '0',
     `bell_weight` INT NULL,
     `bell_note` VARCHAR(10) NULL,

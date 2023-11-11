@@ -83,15 +83,10 @@ Given name(s) (Garry):
 >>> 
 [User input: "Garry"]
 👤 Ringer: 1: Garry Scott
-2: Found 2 ringers matching "Charlie Warren" (or aliases)
-Options: 1) Dominik Warren (17), 2) Carina Warren (48), 3) None
-Select action: 
->>> 3
-[User input: "None"]
 2: Couldn't find ringer matching "Charlie Warren" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
->>> 
+>>> 1
 [User input: "1"]
 Last name (Warren): 
 >>> 

@@ -89,10 +89,6 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 👤 Ringer: 4: Chester Edwards
-5: "Patrick Bennett" -> Leo Bennett
-Is this correct? [y/n] (y): 
->>> n
-[User input: "False"]
 5: Couldn't find ringer matching "Patrick Bennett" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
@@ -120,10 +116,6 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 👤 Ringer: 8: Clark Elliott
-9: "Heather Sullivan" -> Joyce Sullivan
-Is this correct? [y/n] (y): 
->>> n
-[User input: "False"]
 9: Couldn't find ringer matching "Heather Sullivan" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 

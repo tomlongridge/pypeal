@@ -184,10 +184,6 @@ Is this correct? [y/n] (y):
 📅 Date: Sunday, 11 January 2015
 🔔 Tenor: 2120
 ⏱ Duration: 48
-1: "Byron Miller" -> Daniel Miller
-Is this correct? [y/n] (y): 
->>> n
-[User input: "False"]
 1: Couldn't find ringer matching "Byron Miller" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
@@ -200,10 +196,6 @@ Given name(s) (Byron):
 >>> 
 [User input: "Byron"]
 👤 Ringer: 1: Byron Miller
-2: "Paul Armstrong" -> Ellia Armstrong
-Is this correct? [y/n] (y): 
->>> n
-[User input: "False"]
 2: Couldn't find ringer matching "Paul Armstrong" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
@@ -243,10 +235,6 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 👤 Ringer: 6: Heather Sullivan
-7: "Jacob Cole" -> Alisa Cole
-Is this correct? [y/n] (y): 
->>> n
-[User input: "False"]
 7: Couldn't find ringer matching "Jacob Cole" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 

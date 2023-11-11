@@ -6,7 +6,7 @@ from pypeal.ringer import Ringer
 
 def prompt_add_composer(name: str, url: str, peal: Peal, quick_mode: bool):
 
-    matched_ringer: Ringer = prompt_add_ringer_by_name_match(name, 'Composer', quick_mode) if name else None
+    matched_ringer: Ringer = prompt_add_ringer_by_name_match(name, 'Composer: ', quick_mode) if name else None
 
     if not matched_ringer:
         if name:
@@ -15,7 +15,7 @@ def prompt_add_composer(name: str, url: str, peal: Peal, quick_mode: bool):
             return
 
         while not matched_ringer:
-            matched_ringer = prompt_add_ringer_by_search(name, 'Composer', quick_mode)
+            matched_ringer = prompt_add_ringer_by_search(name, 'Composer: ', quick_mode)
 
             if matched_ringer.id is None:
                 matched_ringer.is_composer = True

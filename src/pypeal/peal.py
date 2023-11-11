@@ -220,7 +220,7 @@ class Peal:
 
     @property
     def tenor(self) -> Bell:
-        if self.ring and len(self.ringers) > 0:
+        if self.ring and len(self.ringers) > 0 and self.ringers[-1][2]:
             largest_bell_num_rung = self.ringers[-1][2][-1]
             return self.ring.get_tenor_bell(largest_bell_num_rung)
         return None
@@ -366,9 +366,12 @@ class Peal:
                         self.__ringers[-1][2].append(bell)
                     else:
                         ringer = Ringer.get(ringer_id)
-                        self.__ringers.append((ringer, [bell_num], [bell], is_conductor))
-                        self.__ringers_by_bell_num[bell_num] = ringer
-                        self.__ringers_by_id[ringer_id] = ringer
+                        if bell == 0:  # 0 means no particular bell, for general performances
+                            self.__ringers.append((ringer, None, None, is_conductor))
+                        else:
+                            self.__ringers.append((ringer, [bell_num], [bell], is_conductor))
+                            self.__ringers_by_bell_num[bell_num] = ringer
+                            self.__ringers_by_id[ringer_id] = ringer
                     last_ringer = ringer_id
         return self.__ringers
 

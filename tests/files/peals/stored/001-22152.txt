@@ -135,10 +135,6 @@ Bell number(s) in the tower (7):
 >>> 
 [User input: "7"]
 👤 Ringer: 3 [7]: Chloe Henderson
-4: "Alen Henderson" -> Chloe Henderson
-Is this correct? [y/n] (y): 
->>> n
-[User input: "False"]
 4: Couldn't find ringer matching "Alen Henderson" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 

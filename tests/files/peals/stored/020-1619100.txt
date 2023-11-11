@@ -1,0 +1,226 @@
+
+===
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 19                                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Options: 
+1) Find recent peals
+2) Add peals by search
+3) Add peals by search URL
+4) Add peal by ID/URL
+5) Add random peal
+6) View peal
+7) Update static data
+8) Exit
+Select action (1): 
+>>> 4
+[User input: "4"]
+Bellboard URL or peal ID: 
+>>> 1619100
+[User input: "1619100"]
+╭───────────────── http://localhost:8080/view.php?id=1619100 ──────────────────╮
+│ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
+│ General Ringing                                                              │
+│ Saturday, 6 May 2023 (18–3–20 in E♭)                                         │
+│                                                                              │
+│ Arnold Johnson                                                               │
+│ Ryan Elliott                                                                 │
+│ Heather Sullivan                                                             │
+│ Paul Andrews                                                                 │
+│ Caroline Sullivan                                                            │
+│ Grace Perry                                                                  │
+│ Chester Edwards                                                              │
+│ Kate Miller                                                                  │
+│ Belinda Thompson                                                             │
+│ Fenton Hawkins                                                               │
+│ Olivia West                                                                  │
+│ Kirsten Richards                                                             │
+│ Martin Morgan                                                                │
+│ Joyce Sullivan                                                               │
+│                                                                              │
+│ Rung prior to the Coronation of King Charles III and Queen Camilla.          │
+│ Linked event: http://localhost:8080/event.php?id=16774                       │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Try for a quick-add? [y/n] (y): 
+>>> y
+[User input: "True"]
+🏛 Association: None
+🔔 Bell type: Tower
+🏰 Tower: Bath, Bathwick, Somerset, England, Blessed Virgin Mary
+🔢 Changes: Unknown
+Matching peal titled "General Ringing"...
+No peal title matched or entered. Trying again...
+Matching peal titled "General Ringing"...
+Is this a spliced peal? [y/n] (n): 
+>>> n
+[User input: "False"]
+Is this a mixed peal? [y/n] (n): 
+>>> n
+[User input: "False"]
+Is this a (non-peal) general performance? [y/n] (n): 
+>>> y
+[User input: "True"]
+📕 Title: General Ringing
+📝 Details: Including Call Changes to Kings and Queens on 10
+🎼 Composer: Unknown
+📅 Date: Saturday, 6 May 2023
+🔔 Tenor: 2120 in Eb
+⏱ Duration: Unknown
+👤 Ringer: Arnold Johnson
+👤 Ringer: Ryan Elliott
+👤 Ringer: Heather Sullivan
+Ringer: Couldn't find ringer matching "Paul Andrews" (or aliases)
+Add new ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+Last name (Andrews): 
+>>> 
+[User input: "Andrews"]
+Given name(s) (Paul): 
+>>> 
+[User input: "Paul"]
+👤 Ringer: Paul Andrews
+Ringer: Couldn't find ringer matching "Caroline Sullivan" (or aliases)
+Add new ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+Last name (Sullivan): 
+>>> 
+[User input: "Sullivan"]
+Given name(s) (Caroline): 
+>>> 
+[User input: "Caroline"]
+👤 Ringer: Caroline Sullivan
+👤 Ringer: Grace Perry
+👤 Ringer: Chester Edwards
+Ringer: Couldn't find ringer matching "Kate Miller" (or aliases)
+Add new ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+Last name (Miller): 
+>>> 
+[User input: "Miller"]
+Given name(s) (Kate): 
+>>> 
+[User input: "Kate"]
+👤 Ringer: Kate Miller
+Ringer: Couldn't find ringer matching "Belinda Thompson" (or aliases)
+Add new ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+Last name (Thompson): 
+>>> 
+[User input: "Thompson"]
+Given name(s) (Belinda): 
+>>> 
+[User input: "Belinda"]
+👤 Ringer: Belinda Thompson
+Ringer: Couldn't find ringer matching "Fenton Hawkins" (or aliases)
+Add new ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+Last name (Hawkins): 
+>>> 
+[User input: "Hawkins"]
+Given name(s) (Fenton): 
+>>> 
+[User input: "Fenton"]
+👤 Ringer: Fenton Hawkins
+👤 Ringer: Olivia West
+Ringer: Couldn't find ringer matching "Kirsten Richards" (or aliases)
+Add new ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+Last name (Richards): 
+>>> 
+[User input: "Richards"]
+Given name(s) (Kirsten): 
+>>> 
+[User input: "Kirsten"]
+👤 Ringer: Kirsten Richards
+Ringer: Couldn't find ringer matching "Martin Morgan" (or aliases)
+Add new ringer? [y/n] (y): 
+>>> y
+[User input: "True"]
+Last name (Morgan): 
+>>> 
+[User input: "Morgan"]
+Given name(s) (Martin): 
+>>> 
+[User input: "Martin"]
+👤 Ringer: Martin Morgan
+👤 Ringer: Joyce Sullivan
+📝 Footnote: Rung prior to the Coronation of King Charles III and Queen Camilla.
+🔗 Event link: http://localhost:8080/event.php?id=16774
+🔕 Muffles: None
+╭───────────────── http://localhost:8080/view.php?id=1619100 ──────────────────╮
+│ Bath, Somerset, England                                                      │
+│ Blessed Virgin Mary, Bathwick                                                │
+│ On Saturday, 6 May 2023                                                      │
+│ A General of General Ringing (18-3-20 in Eb)                                 │
+│                                                                              │
+│ Arnold Johnson                                                               │
+│ Ryan Elliott                                                                 │
+│ Heather Sullivan                                                             │
+│ Paul Andrews                                                                 │
+│ Caroline Sullivan                                                            │
+│ Grace Perry                                                                  │
+│ Chester Edwards                                                              │
+│ Kate Miller                                                                  │
+│ Belinda Thompson                                                             │
+│ Fenton Hawkins                                                               │
+│ Olivia West                                                                  │
+│ Kirsten Richards                                                             │
+│ Martin Morgan                                                                │
+│ Joyce Sullivan                                                               │
+│                                                                              │
+│ Rung prior to the Coronation of King Charles III and Queen Camilla.          │
+│                                                                              │
+│ [Imported Bellboard peal ID: 1619100]                                        │
+│ [Event URL: http://localhost:8080/event.php?id=16774]                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Peal 1619100 added
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 20                                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Options: 
+1) Find recent peals
+2) Add peals by search
+3) Add peals by search URL
+4) Add peal by ID/URL
+5) Add random peal
+6) View peal
+7) Update static data
+8) Exit
+Select action (1): 
+>>> 8
+[User input: "8"]
+===
+Bath, Somerset, England
+Blessed Virgin Mary, Bathwick
+On Saturday, 6 May 2023
+A General of General Ringing (18-3-20 in Eb)
+
+Ryan Elliott
+Chester Edwards
+Joyce Sullivan
+Heather Sullivan
+Olivia West
+Arnold Johnson
+Grace Perry
+Paul Andrews
+Caroline Sullivan
+Kate Miller
+Belinda Thompson
+Fenton Hawkins
+Kirsten Richards
+Martin Morgan
+
+Rung prior to the Coronation of King Charles III and Queen Camilla.
+
+[Imported Bellboard peal ID: 1619100]
+[Event URL: http://localhost:8080/event.php?id=16774]

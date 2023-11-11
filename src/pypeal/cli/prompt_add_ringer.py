@@ -10,12 +10,13 @@ _logger = logging.getLogger('pypeal')
 
 def prompt_add_ringer(name: str, bell_nums: list[int], is_conductor: bool, peal: Peal, quick_mode: bool):
 
-    matched_ringer: Ringer = prompt_add_ringer_by_name_match(name, get_bell_label(bell_nums), quick_mode)
+    bell_label = get_bell_label(bell_nums) + ': ' if bell_nums else ''
+
+    matched_ringer: Ringer = prompt_add_ringer_by_name_match(name, bell_label, quick_mode)
 
     while not matched_ringer:
-        if not quick_mode:
-            print(f'{get_bell_label(bell_nums)}: Couldn\'t find ringer matching "{name}" (or aliases)')
-            matched_ringer = prompt_add_ringer_by_search(name, get_bell_label(bell_nums), quick_mode)
+        print(f'{get_bell_label(bell_nums) or "Ringer"}: Couldn\'t find ringer matching "{name}" (or aliases)')
+        matched_ringer = prompt_add_ringer_by_search(name, bell_label, quick_mode)
 
     prompt_commit_ringer(matched_ringer, name, peal, quick_mode)
 
@@ -72,8 +73,7 @@ def prompt_add_ringer_by_search(name: str, label: str, quick_mode: bool) -> Ring
     while True:
         match choose_option(['Add new ringer', 'Search ringers'], default=1) if not quick_mode else 1:
             case 1:
-                if not quick_mode or \
-                        confirm(f'"{name}" not found in database' if name else None, confirm_message='Add new ringer?', default=True):
+                if not quick_mode or confirm(None, confirm_message='Add new ringer?', default=True):
                     return Ringer(*prompt_names(last_name, given_names))
                 else:
                     quick_mode = False
@@ -87,7 +87,7 @@ def prompt_add_ringer_by_search(name: str, label: str, quick_mode: bool) -> Ring
                         print(f'No existing ringers match (given name: "{search_given_names}", last name: "{search_last_name}")')
                         continue
                     case 1:
-                        if confirm(f'{label}: "{name}" -> {potential_ringers[0]}', default=True):
+                        if confirm(f'{label}"{name}" -> {potential_ringers[0]}', default=True):
                             return potential_ringers[0]
                     case _:
                         print(f'{len(potential_ringers)} existing ringers match "{(search_given_names + " " + search_last_name).strip()}"')
@@ -102,16 +102,18 @@ def prompt_add_ringer_by_name_match(name: str, label: str, quick_mode: bool) -> 
     last_name, given_names = split_full_name(name)
 
     searches = [
-        (last_name, given_names, True),
-        (last_name, given_names, False),
+        (last_name, given_names, True, quick_mode),
     ]
-    fewer_given_names = given_names
-    while ' ' in fewer_given_names:
-        fewer_given_names = fewer_given_names.rsplit(' ', 1)[0].strip()
-        searches += [(last_name, f'{fewer_given_names}%', False)]
-    searches += [(last_name, None, True)]
 
-    for search_last_name, search_given_names, exact_match in searches:
+    if given_names is not None:
+        searches += [(last_name, given_names, False, False)]
+        fewer_given_names = given_names
+        while ' ' in fewer_given_names:
+            fewer_given_names = fewer_given_names.rsplit(' ', 1)[0].strip()
+            searches += [(last_name, f'{fewer_given_names}%', False, False)]
+        searches += [(last_name, None, True, False)]
+
+    for search_last_name, search_given_names, exact_match, in_quick_mode in searches:
 
         _logger.debug(f'Attempting to find "{name}" (given name: "{search_given_names}", last name: "{search_last_name}")')
 
@@ -120,13 +122,13 @@ def prompt_add_ringer_by_name_match(name: str, label: str, quick_mode: bool) -> 
             case 0:
                 continue
             case 1:
-                if quick_mode or confirm(f'{label}: "{name}" -> {name_match[0]}', default=True):
+                if in_quick_mode or confirm(f'{label}"{name}" -> {name_match[0]}', default=True):
                     return name_match[0]
                 else:
                     return None
             case _:
-                print(f'{label}: Found {len(name_match)} ringers matching "{name}" (or aliases)')
-                if quick_mode:
+                print(f'{label}Found {len(name_match)} ringers matching "{name}" (or aliases)')
+                if in_quick_mode:
                     return name_match[0]
                 else:
                     return choose_option([f'{r.name} ({r.id})' for r in name_match],
@@ -143,11 +145,16 @@ def prompt_commit_ringer(ringer: Ringer, used_name: str, peal: Peal, quick_mode:
 
     last_name, given_names = split_full_name(used_name)
     if used_name != ringer.name and \
-            len(ringer.get_aliases(last_name=last_name, given_names=given_names)) == 0 and \
-            (quick_mode or confirm(None, confirm_message='Add an alias for this ringer?')):
+            len(ringer.get_aliases(last_name=last_name, given_names=given_names)) == 0:
+        if quick_mode:
+            print(f'Adding alias for ringer "{used_name}" and "{ringer.name}"')
+        elif not confirm(None, confirm_message='Add an alias for this ringer?'):
+            return
         ringer.add_alias(last_name,
                          given_names,
-                         is_primary=choose_option([used_name, ringer.name], prompt='Which name should be displayed?') == 1)
+                         is_primary=choose_option([used_name, ringer.name],
+                                                  prompt='Which name should be displayed?',
+                                                  default=ringer.name) == 1)
 
 
 def _validate_bell(bells: list[int], peal: Peal) -> bool:

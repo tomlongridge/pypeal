@@ -3,7 +3,9 @@ import re
 from pypeal import utils
 from pypeal.method import Method, Stage
 
-METHOD_TITLE_NUM_METHODS_REGEX = re.compile(r'\(([0-9mvp\/])+\)')
+# Match either a number and one of m, v or p as part of the title or, if in brackets, then allow just m, v or p with no number
+# (e.g. (11m/v/p)) as this would be liable to match too much in normal text
+METHOD_TITLE_NUM_METHODS_REGEX = re.compile(r'(([0-9]+[mvp]\/?)+)|\(([0-9]*[mvp]\/?)+\)')
 METHOD_TITLE_NUM_METHODS_GROUP_REGEX = re.compile(r'([0-9]+[mvp])\/?')
 
 DURATION_REGEX = re.compile(r'^(?:(?P<hours>\d{1,2})[h])$|^(?:(?P<mins>\d+)[m]?)$|' +

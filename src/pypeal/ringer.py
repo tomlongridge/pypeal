@@ -104,14 +104,27 @@ class Ringer():
         if last_name is None and given_names is None:
             raise ValueError('Either last_name or given_names must be specified in ringer search')
 
+        if exact_match:
+            if last_name and '%' in last_name:
+                raise ValueError('Exact match specified in ringer search, but last_name contains wildcard')
+            if given_names and '%' in given_names:
+                raise ValueError('Exact match specified in ringer search, but given_names contains wildcard')
+        else:
+            last_name = f'{last_name}%' if last_name and '%' not in last_name else last_name
+            given_names = f'{given_names}%' if given_names and '%' not in given_names else given_names
+
         name_clause = ''
         params = {}
         if last_name:
             name_clause += f'AND @tbl.last_name {"=" if exact_match else "LIKE"} %(last_name)s '
             params['last_name'] = last_name.strip()
+        elif exact_match:
+            name_clause += 'AND @tbl.last_name IS NULL '
         if given_names:
             name_clause += f'AND @tbl.given_names {"=" if exact_match else "LIKE"} %(given_names)s '
             params['given_names'] = given_names.strip()
+        elif exact_match:
+            name_clause += 'AND @tbl.given_names IS NULL '
         if is_composer is not None:
             name_clause += 'AND @tbl.is_composer = %(is_composer)s '
             params['is_composer'] = is_composer

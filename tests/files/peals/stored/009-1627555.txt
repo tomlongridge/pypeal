@@ -65,10 +65,6 @@ Select action:
 >>> 2
 [User input: "Aston Mitchell (2)"]
 👤 Ringer: 1: Aston Mitchell (c)
-2: "Carina Warren" -> Dominik Warren
-Is this correct? [y/n] (y): 
->>> n
-[User input: "False"]
 2: Couldn't find ringer matching "Carina Warren" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 

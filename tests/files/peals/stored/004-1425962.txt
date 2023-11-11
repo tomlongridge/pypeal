@@ -160,10 +160,6 @@ Bell number(s) in the tower (9):
 >>> 
 [User input: "9"]
 👤 Ringer: 7 [9]: Blake Harper (c)
-8: "Lenny Howard" -> Blake Howard
-Is this correct? [y/n] (y): 
->>> n
-[User input: "False"]
 8: Couldn't find ringer matching "Lenny Howard" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
