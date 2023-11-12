@@ -111,7 +111,7 @@ def prompt_add_ringer_by_name_match(name: str, label: str, quick_mode: bool) -> 
         while ' ' in fewer_given_names:
             fewer_given_names = fewer_given_names.rsplit(' ', 1)[0].strip()
             searches += [(last_name, f'{fewer_given_names}%', False, False)]
-        searches += [(last_name, None, True, False)]
+        searches += [(last_name, f'{given_names[0]}%', False, False)]
 
     for search_last_name, search_given_names, exact_match, in_quick_mode in searches:
 

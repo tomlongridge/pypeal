@@ -193,7 +193,7 @@ Bell number(s) in the tower (10):
 👤 Ringer: 8 [10]: Leo Bennett
 Footnote line:
   > Rung for Morning Service. First of Triples "inside"-4
-Split footnote by sentences? [y/n] (n): 
+Split footnote by sentences? [y/n] (y): 
 >>> y
 [User input: "True"]
 Footnote 1 text:

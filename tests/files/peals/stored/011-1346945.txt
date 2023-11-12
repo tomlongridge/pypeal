@@ -360,10 +360,14 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 👤 Ringer: 6: Carina Warren
 Footnote line:
-  > Rung as a wedding compliment To Terry Lee Nash, of Lindenhurst, Long Island, New York, U.S.A., and Mrs Linda Archer of Saxmundham, daughter of the tower captain at this tower, who were married at this church on Easter Saturday
-Split footnote by sentences? [y/n] (n): 
+  > Rung as a wedding compliment To Terry Lee Nash, of Lindenhurst, Long Island,
+New York, U.S.A., and Mrs Linda Archer of Saxmundham, daughter of the tower 
+captain at this tower, who were married at this church on Easter Saturday
+Split footnote by sentences? [y/n] (y): 
 >>> n
 [User input: "False"]
+Footnote 1 text:
+  > Rung as a wedding compliment To Terry Lee Nash, of Lindenhurst, Long Island, New York, U.S.A., and Mrs Linda Archer of Saxmundham, daughter of the tower captain at this tower, who were married at this church on Easter Saturday.
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]

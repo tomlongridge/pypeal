@@ -211,8 +211,8 @@ Bell number(s) in the tower (6):
 >>> 
 [User input: "6"]
 👤 Ringer: 6: Grace Perry
-Footnote line:
-  > Rung for Morning Service
+Footnote 1 text:
+  > Rung for Morning Service.
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -232,6 +232,9 @@ Footnote 2 text:
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Add this to previous footnote? [y/n] (y): 
+>>> y
+[User input: "True"]
 Add new footnote? [y/n] (n): 
 >>> y
 [User input: "True"]
@@ -249,7 +252,7 @@ Invalid bell number: 12
 Bells (comma-separated): 
 >>> 1,6
 [User input: "1,6"]
-Footnote 3 text:
+Footnote 2 text:
   > Testing new footnote with ringers.
 Referenced ringer(s):
   - 1: Ryan Elliott
@@ -280,8 +283,7 @@ Select action (1):
 │ 5: Joyce Sullivan (c)                                                        │
 │ 6: Grace Perry                                                               │
 │                                                                              │
-│ Rung for Morning Service.                                                    │
-│ Testing the new footnote function.                                           │
+│ Rung for Morning Service. Testing the new footnote function.                 │
 │ [1: Ryan Elliott] Testing new footnote with ringers.                         │
 │ [6: Grace Perry] Testing new footnote with ringers.                          │
 │                                                                              │
@@ -321,8 +323,7 @@ A Quarter Peal of 1260 Mixed Doubles (3m) in 41 mins (7-3-12 in Bb)
 5: Joyce Sullivan (c)
 6: Grace Perry
 
-Rung for Morning Service.
-Testing the new footnote function.
+Rung for Morning Service. Testing the new footnote function.
 [1: Ryan Elliott] Testing new footnote with ringers.
 [6: Grace Perry] Testing new footnote with ringers.
 

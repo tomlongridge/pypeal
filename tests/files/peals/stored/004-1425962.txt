@@ -175,8 +175,8 @@ Bell number(s) in the tower (10):
 >>> 
 [User input: "10"]
 👤 Ringer: 8 [10]: Lenny Howard
-Footnote line:
-  > For Evensong
+Footnote 1 text:
+  > For Evensong.
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]

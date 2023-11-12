@@ -151,14 +151,12 @@ Bell number(s) in the tower (8):
 >>> 
 [User input: "8"]
 👤 Ringer: 8: Heather Sullivan (c)
-Footnote line:
-  > Birthday compliment to Paul Clewett
+Footnote 1 text:
+  > Birthday compliment to Paul Clewett.
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 📝 Footnote: Birthday compliment to Paul Clewett.
-Footnote line:
-  > First on a mini-ring: 3 & 6
 Footnote 2 text:
   > First on a mini-ring.
 Referenced ringer(s):

@@ -12,12 +12,9 @@ def prompt_add_footnote(text: str, peal: Peal, quick_mode: bool):
 
     for line in text.strip('. ').split('\n'):
 
-        if not quick_mode:
-            print(f'Footnote line:\n  > {line}')
-
         if line.strip('. ').count('.') > 0 and \
-                not quick_mode and \
-                confirm(None, confirm_message='Split footnote by sentences?', default=False):
+                (quick_mode or
+                 confirm(f'Footnote line:\n  > {line}', confirm_message='Split footnote by sentences?', default=True)):
             line_parts = line.strip(' ').split('.')
         else:
             line_parts = [line]
@@ -43,17 +40,19 @@ def prompt_add_muffle_type(peal: Peal):
 
 def _prompt_add_single_footnote(bells: list[int], text: str, original_text: str, peal: Peal, quick_mode: bool = False):
     ringers = None
+    # original_bells_str = str(bells)
     while True:
         if text:
-            if original_text is None or text.strip('. ') != original_text.strip('. '):
-                ringers = [peal.get_ringer(bell) for bell in bells] if bells else None
-                if not quick_mode:
-                    print(f'Footnote {len(peal.footnotes) + 1} text:')
-                    print(f'  > {text}')
-                if bells:
-                    print('Referenced ringer(s):')
-                    for bell, ringer in zip(bells, ringers):
-                        print(f'  - {bell}: {ringer}')
+            # Repeat the footnote, if it's different from the original
+            # if original_text is None or text.strip('. ') != original_text.strip('. ') or str(bells) != original_bells_str:
+            ringers = [peal.get_ringer(bell) for bell in bells] if bells else None
+            if not quick_mode:
+                print(f'Footnote {len(peal.footnotes) + 1} text:')
+                print(f'  > {text}')
+            if bells:
+                print('Referenced ringer(s):')
+                for bell, ringer in zip(bells, ringers):
+                    print(f'  - {bell}: {ringer}')
             if quick_mode or confirm(None):
                 break
         text, bells = _prompt_footnote_details(bells, text, peal.num_bells, quick_mode)
@@ -70,6 +69,10 @@ def _prompt_add_single_footnote(bells: list[int], text: str, original_text: str,
     if bells:
         for bell, ringer in zip(bells, ringers):
             peal.add_footnote(text, bell, ringer)
+    elif len(peal.footnotes) > 0 and \
+            peal.footnotes[-1][1] is None and \
+            (quick_mode or confirm(None, confirm_message='Add this to previous footnote?', default=True)):
+        peal.footnotes[-1] = (peal.footnotes[-1][0] + ' ' + text, None, None)
     else:
         peal.add_footnote(text, None, None)
 
@@ -86,7 +89,7 @@ def _prompt_footnote_details(default_bells: list[int],
     if not footnote.endswith('.'):
         footnote += '.'
     bells = None
-    while True:
+    while max_bells:  # Is None if this is a non-peal performance
         bells_str = ','.join([str(bell) for bell in default_bells]) if default_bells else None
         if not quick_mode:
             bells_str = ask('Bells (comma-separated)', default=bells_str, required=False)

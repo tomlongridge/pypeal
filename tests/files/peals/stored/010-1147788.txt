@@ -269,17 +269,20 @@ Given name(s) (Byron):
 >>> 
 [User input: "Byron"]
 👤 Ringer: 10: Byron Robinson
-Footnote line:
-  > For Morning Service, and to welcome Rafe Jackson-Swift, son of Russell and Angela, born on 8th January
+Footnote 1 text:
+  > For Morning Service, and to welcome Rafe Jackson-Swift, son of Russell and Angela, born on 8th January.
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 📝 Footnote: For Morning Service, and to welcome Rafe Jackson-Swift, son of Russell and Angela, born on 8th January.
-Footnote line:
-  > 900th Quarter of Grandsire on the bells
+Footnote 2 text:
+  > 900th Quarter of Grandsire on the bells.
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Add this to previous footnote? [y/n] (y): 
+>>> n
+[User input: "False"]
 📝 Footnote: 900th Quarter of Grandsire on the bells.
 🔗 Event link: None
 Add new footnote? [y/n] (n): 

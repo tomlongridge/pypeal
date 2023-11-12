@@ -140,14 +140,12 @@ Given name(s) (Vivian):
 >>> 
 [User input: "Vivian"]
 👤 Ringer: 10: Vivian Murray (c)
-Footnote line:
-  > Rung for Morning Service and as a 60th Wedding Anniversary compliment to Phyllis and Melvin Chapman
+Footnote 1 text:
+  > Rung for Morning Service and as a 60th Wedding Anniversary compliment to Phyllis and Melvin Chapman.
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 📝 Footnote: Rung for Morning Service and as a 60th Wedding Anniversary compliment to Phyllis and Melvin Chapman.
-Footnote line:
-  > 1st of Royal-4
 Footnote 2 text:
   > 1st of Royal.
 Referenced ringer(s):

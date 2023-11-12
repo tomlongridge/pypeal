@@ -149,8 +149,8 @@ Given name(s) (Michael):
 >>> 
 [User input: "Michael"]
 👤 Ringer: 8: Michael Williams
-Footnote line:
-  > 31/50
+Footnote 1 text:
+  > 31/50.
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]

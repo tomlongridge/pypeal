@@ -157,8 +157,8 @@ Bell number(s) in the tower (11,12):
 >>> 
 [User input: "11,12"]
 👤 Ringer: 11,12: John Parker
-Footnote line:
-  > First peal of Bristol Maximus rung in hand
+Footnote 1 text:
+  > First peal of Bristol Maximus rung in hand.
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]

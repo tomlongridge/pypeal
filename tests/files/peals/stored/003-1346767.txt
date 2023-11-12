@@ -507,8 +507,8 @@ Given name(s) (Sienna):
 >>> 
 [User input: "Sienna"]
 👤 Ringer: 6: Sienna Murphy (c)
-Footnote line:
-  > Rung as a wedding compliment to Miss Ann Pearce and Mr George Bradlaugh; Also a birthday compliment to Vernon B Bedford
+Footnote 1 text:
+  > Rung as a wedding compliment to Miss Ann Pearce and Mr George Bradlaugh; Also a birthday compliment to Vernon B Bedford.
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]

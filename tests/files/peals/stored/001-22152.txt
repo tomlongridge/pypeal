@@ -210,8 +210,6 @@ Bell number(s) in the tower (12):
 >>> 
 [User input: "12"]
 👤 Ringer: 8 [12]: Ted Harris
-Footnote line:
-  > First away from cover on 8: 1.
 Footnote 1 text:
   > First away from cover on 8.
 Referenced ringer(s):
@@ -219,8 +217,6 @@ Referenced ringer(s):
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Footnote line:
-  > First of Grandsire inside: 4
 Footnote 2 text:
   > First of Grandsire inside.
 Referenced ringer(s):

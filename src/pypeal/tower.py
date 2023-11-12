@@ -154,11 +154,19 @@ class Ring():
     def add_bell(self, role: int, bell: Bell):
         self.bells[role] = bell
 
-    def get_tenor_bell(self, tenor_bell_num: int) -> Bell:
-        if tenor_bell_num <= len(self.bells):
-            return self.bells[tenor_bell_num]
+    def get_bell(self, bell_num: int) -> Bell:
+        if bell_num <= len(self.bells):
+            return self.bells[bell_num]
         else:
             return None
+
+    def get_tenor(self, bells_rung: int = None, from_front: bool = True) -> Bell:
+        if not bells_rung:
+            bells_rung = len(self.bells)
+        if from_front:
+            return self.get_bell(bells_rung)
+        else:
+            return self.get_bell(len(self.bells) - bells_rung + 1)
 
     def commit(self):
         result = Database.get_connection().query(

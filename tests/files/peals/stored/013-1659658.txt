@@ -83,6 +83,10 @@ Given name(s) (Garry):
 >>> 
 [User input: "Garry"]
 👤 Ringer: 1: Garry Scott
+2: "Charlie Warren" -> Carina Warren
+Is this correct? [y/n] (y): 
+>>> n
+[User input: "False"]
 2: Couldn't find ringer matching "Charlie Warren" (or aliases)
 Options: 1) Add new ringer, 2) Search ringers
 Select action (1): 
@@ -153,14 +157,12 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 👤 Ringer: 10: Chester Edwards (c)
-Footnote line:
-  > Rung as a birthday compliment to Matthew Skues
+Footnote 1 text:
+  > Rung as a birthday compliment to Matthew Skues.
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 📝 Footnote: Rung as a birthday compliment to Matthew Skues.
-Footnote line:
-  > 6: First quarter of Little Bob Royal
 Footnote 2 text:
   > First quarter of Little Bob Royal.
 Referenced ringer(s):

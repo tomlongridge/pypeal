@@ -157,8 +157,8 @@ Bell number(s) in the tower (6):
 >>> 
 [User input: "6"]
 👤 Ringer: 6: Grace Perry
-Footnote line:
-  > For morning service, and to mark the coronation of King Charles III and Queen Camilla
+Footnote 1 text:
+  > For morning service, and to mark the coronation of King Charles III and Queen Camilla.
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]

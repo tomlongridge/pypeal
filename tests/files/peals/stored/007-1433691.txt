@@ -167,8 +167,6 @@ Bell number(s) in the tower (6):
 >>> 
 [User input: "6"]
 👤 Ringer: 6: Eric Ryan
-Footnote line:
-  > First quarter peal: 6
 Footnote 1 text:
   > First quarter peal.
 Referenced ringer(s):
@@ -177,8 +175,8 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 📝 Footnote: [6: Eric Ryan] First quarter peal.
-Footnote line:
-  > For evensong
+Footnote 2 text:
+  > For evensong.
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]

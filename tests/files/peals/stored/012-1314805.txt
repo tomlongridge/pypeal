@@ -192,8 +192,8 @@ Bell number(s) in the tower (10):
 >>> 
 [User input: "10"]
 👤 Ringer: 8 [10]: Byron Robinson (c)
-Footnote line:
-  > Rung for morning service
+Footnote 1 text:
+  > Rung for morning service.
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]

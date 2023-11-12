@@ -222,7 +222,7 @@ class Peal:
     def tenor(self) -> Bell:
         if self.ring and len(self.ringers) > 0 and self.ringers[-1][2]:
             largest_bell_num_rung = self.ringers[-1][2][-1]
-            return self.ring.get_tenor_bell(largest_bell_num_rung)
+            return self.ring.get_bell(largest_bell_num_rung)
         return None
 
     @property
@@ -408,7 +408,7 @@ class Peal:
 
     @property
     def num_bells(self) -> int:
-        return sum([len(ringer[1]) for ringer in self.ringers])
+        return sum([len(ringer[1]) if ringer[1] else 0 for ringer in self.ringers])
 
     @property
     def footnotes(self) -> list[tuple[str, int, Ringer]]:

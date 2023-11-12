@@ -1,0 +1,239 @@
+
+===
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 20                                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Options: 
+1) Find recent peals
+2) Add peals by search
+3) Add peals by search URL
+4) Add peal by ID/URL
+5) Add random peal
+6) View peal
+7) Update static data
+8) Exit
+Select action (1): 
+>>> 4
+[User input: "4"]
+Bellboard URL or peal ID: 
+>>> 1668297
+[User input: "1668297"]
+╭───────────────── http://localhost:8080/view.php?id=1668297 ──────────────────╮
+│ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
+│ 1260 Grandsire Doubles                                                       │
+│ Sunday, 12 November 2023 (18–3–20 in E♭) in 49m                              │
+│                                                                              │
+│ 1: Ryan Elliott                                                              │
+│ 2: Leonardo Bennett                                                          │
+│ 3: Heather Sullivan                                                          │
+│ 4: Blake Elliott                                                             │
+│ 5: Chester Edwards (c)                                                       │
+│ 6: Lenny Howard                                                              │
+│                                                                              │
+│ Rung half muffled on the back six for Remembrance Day.                       │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Try for a quick-add? [y/n] (y): 
+>>> y
+[User input: "True"]
+🏛 Association: None
+🔔 Bell type: Tower
+🏰 Tower: Bath, Bathwick, Somerset, England, Blessed Virgin Mary
+🔢 Changes: 1260
+📕 Title: Grandsire Doubles
+🎼 Composer: Unknown
+📅 Date: Sunday, 12 November 2023
+🔔 Tenor: 2120 in Eb
+⏱ Duration: 49
+First bell number(s) in the tower (1): 
+>>> 
+[User input: "1"]
+👤 Ringer: 1: Ryan Elliott
+👤 Ringer: 2: Leo Bennett
+👤 Ringer: 3: Heather Sullivan
+4: Found 2 ringers matching "Blake Elliott" (or aliases)
+👤 Ringer: 4: Blake Elliott
+👤 Ringer: 5: Chester Edwards (c)
+👤 Ringer: 6: Lenny Howard
+📝 Footnote: Rung half muffled on the back six for Remembrance Day.
+🔗 Event link: None
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Warning: Tenor weight 18-3-20 reported on Bellboard does not match the       │
+│ weight of largest bell rung (7-3-12) on Dove                                 │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Warning: Tenor note Eb reported on Bellboard does not match the note of      │
+│ largest bell rung (Bb) on Dove                                               │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Warning: Footnote suggests ringing on the back None, but the tenor entered   │
+│ is the 6                                                                     │
+╰──────────────────────────────────────────────────────────────────────────────╯
+🔕 Muffles: Half
+╭───────────────── http://localhost:8080/view.php?id=1668297 ──────────────────╮
+│ Bath, Somerset, England                                                      │
+│ Blessed Virgin Mary, Bathwick                                                │
+│ On Sunday, 12 November 2023                                                  │
+│ A Quarter Peal of 1260 Grandsire Doubles (half-muffled) in 49 mins (7-3-12   │
+│ in Bb)                                                                       │
+│                                                                              │
+│ 1: Ryan Elliott                                                              │
+│ 2: Leo Bennett                                                               │
+│ 3: Heather Sullivan                                                          │
+│ 4: Blake Elliott                                                             │
+│ 5: Chester Edwards (c)                                                       │
+│ 6: Lenny Howard                                                              │
+│                                                                              │
+│ Rung half muffled on the back six for Remembrance Day.                       │
+│                                                                              │
+│ [Imported Bellboard peal ID: 1668297]                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> n
+[User input: "False"]
+Try again in prompt mode? [y/n] (y): 
+>>> y
+[User input: "True"]
+No linked association
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+🏛 Association: None
+🔔 Bell type: Tower
+🏰 Tower: Bath, Bathwick, Somerset, England, Blessed Virgin Mary
+🔢 Changes: 1260
+Matched "Grandsire Doubles" to method "Grandsire Doubles" (ID: m10587)
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+📕 Title: Grandsire Doubles
+No composer attributed
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+🎼 Composer: Unknown
+📅 Date: Sunday, 12 November 2023
+🔔 Tenor: 2120 in Eb
+⏱ Duration: 49
+1: "Ryan Elliott" -> Ryan Elliott
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Bell number(s) in the tower (1): 
+>>> 5
+[User input: "5"]
+👤 Ringer: 1 [5]: Ryan Elliott
+2: "Leonardo Bennett" -> Leo Bennett
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Bell number(s) in the tower (6): 
+>>> 
+[User input: "6"]
+👤 Ringer: 2 [6]: Leo Bennett
+3: "Heather Sullivan" -> Heather Sullivan
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Bell number(s) in the tower (7): 
+>>> 
+[User input: "7"]
+👤 Ringer: 3 [7]: Heather Sullivan
+4: Found 2 ringers matching "Blake Elliott" (or aliases)
+Options: 1) Blake Elliott (31), 2) Blake Elliott (68), 3) None
+Select action: 
+>>> 1
+[User input: "Blake Elliott (1)"]
+Bell number(s) in the tower (8): 
+>>> 
+[User input: "8"]
+👤 Ringer: 4 [8]: Blake Elliott
+5: "Chester Edwards" -> Chester Edwards
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Bell number(s) in the tower (9): 
+>>> 
+[User input: "9"]
+👤 Ringer: 5 [9]: Chester Edwards (c)
+6: "Lenny Howard" -> Lenny Howard
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Bell number(s) in the tower (10): 
+>>> 
+[User input: "10"]
+👤 Ringer: 6 [10]: Lenny Howard
+Footnote 1 text:
+  > Rung half muffled on the back six for Remembrance Day.
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Possible half-muffled ringing
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+📝 Footnote: Rung half muffled on the back six for Remembrance Day.
+🔗 Event link: None
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Warning: Footnote suggests ringing on the back None, but the tenor entered   │
+│ is the 6                                                                     │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Add new footnote? [y/n] (n): 
+>>> 
+[User input: "False"]
+🔕 Muffles: Half
+╭───────────────── http://localhost:8080/view.php?id=1668297 ──────────────────╮
+│ Bath, Somerset, England                                                      │
+│ Blessed Virgin Mary, Bathwick                                                │
+│ On Sunday, 12 November 2023                                                  │
+│ A Quarter Peal of 1260 Grandsire Doubles (half-muffled) in 49 mins (18-3-20  │
+│ in Eb)                                                                       │
+│                                                                              │
+│ 1 [5]: Ryan Elliott                                                          │
+│ 2 [6]: Leo Bennett                                                           │
+│ 3 [7]: Heather Sullivan                                                      │
+│ 4 [8]: Blake Elliott                                                         │
+│ 5 [9]: Chester Edwards (c)                                                   │
+│ 6 [10]: Lenny Howard                                                         │
+│                                                                              │
+│ Rung half muffled on the back six for Remembrance Day.                       │
+│                                                                              │
+│ [Imported Bellboard peal ID: 1668297]                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Peal 1668297 added
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 21                                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Options: 
+1) Find recent peals
+2) Add peals by search
+3) Add peals by search URL
+4) Add peal by ID/URL
+5) Add random peal
+6) View peal
+7) Update static data
+8) Exit
+Select action (1): 
+>>> 8
+[User input: "8"]
+===
+Bath, Somerset, England
+Blessed Virgin Mary, Bathwick
+On Sunday, 12 November 2023
+A Quarter Peal of 1260 Grandsire Doubles (half-muffled) in 49 mins (18-3-20 in Eb)
+
+1 [5]: Ryan Elliott
+2 [6]: Leo Bennett
+3 [7]: Heather Sullivan
+4 [8]: Blake Elliott
+5 [9]: Chester Edwards (c)
+6 [10]: Lenny Howard
+
+Rung half muffled on the back six for Remembrance Day.
+
+[Imported Bellboard peal ID: 1668297]

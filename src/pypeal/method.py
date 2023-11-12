@@ -7,6 +7,7 @@ from pypeal.db import Database
 
 
 class Stage(Enum):
+
     TWO = 2
     SINGLES = 3
     MINIMUS = 4
