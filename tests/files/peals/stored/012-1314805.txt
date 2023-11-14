@@ -72,10 +72,6 @@ Options:
 Select action (3): 
 >>> 
 [User input: "Surprise (3)"]
-Spliced Surprise Major (2m)
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
 📕 Title: Spliced Surprise Major (2m)
 Adding changes of methods to multi-method peal...
 Matched "640 changes Cambridge" to method "Cambridge Surprise Major" (ID: 
@@ -205,7 +201,7 @@ Add new footnote? [y/n] (n):
 Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
-[User input: "MuffleType.NONE (1)"]
+[User input: "None (1)"]
 🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1314805 ──────────────────╮
 │ Bath and Wells Diocesan Association                                          │

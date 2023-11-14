@@ -2,6 +2,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
+import json
 from pypeal import config, utils
 from pypeal.association import Association
 from pypeal.db import Database
@@ -10,19 +11,25 @@ from pypeal.ringer import Ringer
 from pypeal.tower import Bell, Ring
 from pypeal.utils import format_date_full, get_bell_label
 
-PEAL_FIELD_LIST: list[str] = ['bellboard_id', 'bell_type', 'date', 'association_id', 'ring_id', 'place', 'sub_place', 'address',
+PEAL_FIELD_LIST: list[str] = ['bellboard_id', 'type', 'bell_type', 'date', 'association_id', 'ring_id', 'place', 'sub_place', 'address',
                               'dedication', 'county', 'country', 'tenor_weight', 'tenor_note', 'changes', 'stage', 'classification',
-                              'is_spliced', 'is_mixed', 'is_variable_cover', 'num_methods', 'num_principles', 'num_variants', 'method_id',
-                              'description', 'detail', 'composer_id', 'composition_url', 'duration', 'event_url', 'muffles']
+                              'is_variable_cover', 'num_methods', 'num_principles', 'num_variants', 'method_id', 'description', 'detail',
+                              'composer_id', 'composition_url', 'duration', 'event_url', 'muffles']
 
 
 class PealType(Enum):
+    SINGLE_METHOD = 1
+    MIXED_METHODS = 2
+    SPLICED_METHODS = 3
+    GENERAL_RINGING = 0
+
+
+class PealLengthType(Enum):
     TOUCH = 1
     QUARTER_PEAL = 2
     HALF_PEAL = 3
     PEAL = 4
     LONG_LENGTH = 5
-    GENERAL = 0
 
 
 class BellType(Enum):
@@ -33,13 +40,13 @@ class BellType(Enum):
 class MuffleType(Enum):
     HALF = 1
     FULL = 2
-    NONE = 0
 
 
 @dataclass
 class Peal:
 
     bellboard_id: int
+    type: PealType
     bell_type: BellType
     date: datetime.date
     association: Association
@@ -48,8 +55,6 @@ class Peal:
     changes: int
     stage: Stage
     classification: str
-    is_spliced: bool
-    is_mixed: bool
     is_variable_cover: bool
     num_methods: int
     num_principles: int
@@ -83,7 +88,8 @@ class Peal:
 
     def __init__(self,
                  bellboard_id: int = None,
-                 bell_type: int = BellType.TOWER,
+                 type: int = None,
+                 bell_type: int = None,
                  date: datetime.date = None,
                  association_id: int = None,
                  ring_id: int = None,
@@ -98,8 +104,6 @@ class Peal:
                  changes: int = None,
                  stage: int = None,
                  classification: str = None,
-                 is_spliced: bool = None,
-                 is_mixed: bool = None,
                  is_variable_cover: bool = False,
                  num_methods: int = 0,
                  num_principles: int = 0,
@@ -111,10 +115,11 @@ class Peal:
                  composition_url: str = None,
                  duration: int = None,
                  event_url: str = None,
-                 muffles: int = MuffleType.NONE,
+                 muffles: int = None,
                  id: int = None):
         self.bellboard_id = bellboard_id
         self.bell_type = BellType(bell_type) if type else None
+        self.type = PealType(type) if type else None
         self.date = date
         self.association = Association.get(association_id) if association_id else None
         self.ring = Ring.get(ring_id) if ring_id else None
@@ -129,8 +134,6 @@ class Peal:
         self.__tenor_note = tenor_note
         self.stage = Stage(stage) if stage else None
         self.classification = classification
-        self.is_spliced = is_spliced
-        self.is_mixed = is_mixed
         self.is_variable_cover = is_variable_cover
         self.num_methods = num_methods
         self.num_principles = num_principles
@@ -299,35 +302,31 @@ class Peal:
         return (self.num_methods or 0) + (self.num_variants or 0) + (self.num_principles or 0)
 
     @property
-    def is_multi_method(self) -> bool:
-        return self.is_mixed or self.is_spliced
-
-    @property
-    def type(self) -> PealType:
+    def length_type(self) -> PealLengthType:
         if self.changes is None:
-            return PealType.GENERAL
+            return None
         elif config.get_config('general', 'allow_short_quarter_peals_under_triples') or (self.stage and self.stage.value < 7):
             if self.changes < 1250:
-                return PealType.TOUCH
+                return PealLengthType.TOUCH
             elif self.changes < 5000:
-                return PealType.QUARTER_PEAL
+                return PealLengthType.QUARTER_PEAL
         else:
             if self.changes < 1260:
-                return PealType.TOUCH
+                return PealLengthType.TOUCH
             elif self.changes < 5040:
-                return PealType.QUARTER_PEAL
+                return PealLengthType.QUARTER_PEAL
         if self.changes < 10_000:
-            return PealType.PEAL
+            return PealLengthType.PEAL
         else:
-            return PealType.LONG_LENGTH
+            return PealLengthType.LONG_LENGTH
 
     @property
     def title(self) -> str:
         if self.method and self.method.full_name:
             return self.method.full_name
         text = ''
-        text += 'Spliced ' if self.is_spliced else ''
-        text += 'Mixed ' if self.is_mixed else ''
+        text += 'Spliced ' if self.type == PealType.SPLICED_METHODS else ''
+        text += 'Mixed ' if self.type == PealType.MIXED_METHODS else ''
         text += f'{self.description} ' if self.description else ''
         text += f'{self.classification} ' if self.classification else ''
         if self.stage and self.is_variable_cover and self.stage.value % 2 == 0:
@@ -436,13 +435,12 @@ class Peal:
             result = Database.get_connection().query(
                 f'INSERT INTO peals ({",".join(PEAL_FIELD_LIST)}) ' +
                 f'VALUES ({("%s,"*len(PEAL_FIELD_LIST)).strip(",")})',
-                (self.bellboard_id, self.bell_type.value, self.date, self.association.id if self.association else None,
+                (self.bellboard_id, self.type.value, self.bell_type.value, self.date, self.association.id if self.association else None,
                  self.ring.id if self.ring else None, self.__place, self.__sub_place, self.address, self.dedication, self.__county,
                  self.__country, self.__tenor_weight, self.__tenor_note, self.changes, self.stage.value if self.stage else None,
-                 self.classification, self.is_spliced, self.is_mixed, self.is_variable_cover, self.num_methods or 0,
-                 self.num_principles or 0, self.num_variants or 0, self.method.id if self.method else None, self.description,
-                 self.detail, self.composer.id if self.composer else None, self.composition_url, self.duration, self.event_url,
-                 self.muffles.value))
+                 self.classification, self.is_variable_cover, self.num_methods or 0, self.num_principles or 0, self.num_variants or 0,
+                 self.method.id if self.method else None, self.description, self.detail, self.composer.id if self.composer else None,
+                 self.composition_url, self.duration, self.event_url, self.muffles.value if self.muffles else None))
             Database.get_connection().commit()
             self.id = result.lastrowid
             for method, changes in self.methods:
@@ -481,7 +479,7 @@ class Peal:
                 text += ' (in hand)'
             text += '\n'
         text += f'On {format_date_full(self.date)}\n' if self.date else ''
-        text += f'A {self.type.name.replace("_", " ").title()} of ' if self.type else ''
+        text += f'A {self.length_type.name.replace("_", " ").title()} of ' if self.length_type else ''
         text += f'{self.changes} ' if self.changes else ''
         text += self.title or 'Unknown'
         text += ' (half-muffled)' if self.muffles == MuffleType.HALF else ''
@@ -510,6 +508,10 @@ class Peal:
         text += f'\n[Composition URL: {self.composition_url}]' if self.composition_url else ''
         text += f'\n[Event URL: {self.event_url}]' if self.event_url else ''
         return text
+
+    def to_json(self):
+        json_fields = {}
+        return json.dumps(json_fields)
 
     @classmethod
     def get(self, id: int = None, bellboard_id: int = None) -> Peal:

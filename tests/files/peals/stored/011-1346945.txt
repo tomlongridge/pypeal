@@ -62,13 +62,13 @@ Is this a mixed peal? [y/n] (n):
 >>> y
 [User input: "True"]
 Multi-method peal: "8 Methods/variations Doubles"...
-Number of methods: 
+Number of methods (0): 
 >>> 4
 [User input: "4"]
-Number of principles: 
+Number of principles (0): 
 >>> 0
 [User input: "0"]
-Number of variants: 
+Number of variants (0): 
 >>> 4
 [User input: "4"]
 Stage (5): 
@@ -88,10 +88,6 @@ Select action (7):
 Is this peal variable cover? [y/n] (n): 
 >>> n
 [User input: "False"]
-Mixed Doubles (4m/4v)
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
 📕 Title: Mixed Doubles (4m/4v)
 Adding changes of methods to multi-method peal...
 No methods match "Being Stedman Doubles"
@@ -379,7 +375,7 @@ Add new footnote? [y/n] (n):
 Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 1
-[User input: "MuffleType.NONE (1)"]
+[User input: "None (1)"]
 🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1346945 ──────────────────╮
 │ Saxmundham, Suffolk, England                                                 │

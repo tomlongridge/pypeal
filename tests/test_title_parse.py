@@ -2,7 +2,7 @@ import pytest
 from pypeal.method import Stage
 
 from pypeal.parsers import parse_method_title
-from pypeal.peal import Peal, Method
+from pypeal.peal import Peal, Method, PealType
 
 methods = [
     (
@@ -80,8 +80,10 @@ def test_parse_method_title(title: str, expected_details: tuple[Method, bool, bo
     method, is_spliced, is_mixed, num_methods, num_variants, num_principles = method_details
     peal = Peal(1)
     peal.method = method
-    peal.is_spliced = is_spliced
-    peal.is_mixed = is_mixed
+    if is_spliced:
+        peal.type = PealType.SPLICED_METHODS
+    elif is_mixed:
+        peal.type = PealType.MIXED_METHODS
     peal.stage = method.stage
     peal.classification = method.classification
     peal.num_methods = num_methods

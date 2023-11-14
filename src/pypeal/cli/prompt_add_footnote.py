@@ -31,9 +31,9 @@ def prompt_new_footnote(peal: Peal):
 
 
 def prompt_add_muffle_type(peal: Peal):
-    if peal.muffles == MuffleType.NONE:
+    if peal.muffles is None:
         peal.muffles = choose_option(['None', 'Half-muffled', 'Fully-muffled'],
-                                     values=[MuffleType.NONE, MuffleType.HALF, MuffleType.FULL],
+                                     values=[None, MuffleType.HALF, MuffleType.FULL],
                                      default='None',
                                      return_option=True)
 
@@ -57,12 +57,12 @@ def _prompt_add_single_footnote(bells: list[int], text: str, original_text: str,
                 break
         text, bells = _prompt_footnote_details(bells, text, peal.num_bells, quick_mode)
 
-    muffle_type = MuffleType.NONE
+    muffle_type = None
     if re.match(HALF_MUFFLED_REGEX, text):
         muffle_type = MuffleType.HALF
     elif re.match(MUFFLED_REGEX, text):
         muffle_type = MuffleType.FULL
-    if muffle_type != MuffleType.NONE and \
+    if muffle_type is not None and \
             (quick_mode or confirm(f'Possible {muffle_type.name.lower()}-muffled ringing')):
         peal.muffles = muffle_type
 

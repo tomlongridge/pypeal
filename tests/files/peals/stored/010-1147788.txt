@@ -54,15 +54,15 @@ Is this a spliced peal? [y/n] (n):
 >>> y
 [User input: "True"]
 Multi-method peal: "Grandsire Caters and Royal"...
-Number of methods: 
+Number of methods (0): 
 >>> 2
 [User input: "2"]
-Number of principles: 
+Number of principles (0): 
 >>> 
-[User input: "None"]
-Number of variants: 
+[User input: "0"]
+Number of variants (0): 
 >>> 
-[User input: "None"]
+[User input: "0"]
 Stage (10): 
 >>> 9
 [User input: "9"]
@@ -78,10 +78,6 @@ Select action (7):
 >>> 7
 [User input: "None (7)"]
 Is this peal variable cover? [y/n] (n): 
->>> y
-[User input: "True"]
-Spliced Caters and Royal (2m)
-Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 📕 Title: Spliced Caters and Royal (2m)
@@ -291,7 +287,7 @@ Add new footnote? [y/n] (n):
 Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
-[User input: "MuffleType.NONE (1)"]
+[User input: "None (1)"]
 🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1147788 ──────────────────╮
 │ Bath, Somerset, England                                                      │

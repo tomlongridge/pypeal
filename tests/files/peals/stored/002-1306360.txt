@@ -71,10 +71,6 @@ Select action (7):
 Is this peal variable cover? [y/n] (n): 
 >>> n
 [User input: "False"]
-Mixed Doubles (5m/3v/1p)
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
 📕 Title: Mixed Doubles (5m/3v/1p)
 Adding changes of methods to multi-method peal...
 Add changes of method? [y/n] (y): 
@@ -162,7 +158,7 @@ Add new footnote? [y/n] (n):
 Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
-[User input: "MuffleType.NONE (1)"]
+[User input: "None (1)"]
 🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1306360 ──────────────────╮
 │ Bath and Wells Diocesan Association                                          │

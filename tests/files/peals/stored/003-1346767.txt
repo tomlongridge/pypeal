@@ -53,13 +53,13 @@ Is this a mixed peal? [y/n] (n):
 >>> y
 [User input: "True"]
 Multi-method peal: "8 Methods Minor"...
-Number of methods: 
+Number of methods (0): 
 >>> 8
 [User input: "8"]
-Number of principles: 
+Number of principles (0): 
 >>> 0
 [User input: "0"]
-Number of variants: 
+Number of variants (0): 
 >>> 0
 [User input: "0"]
 Stage (6): 
@@ -76,10 +76,6 @@ Options:
 Select action (7): 
 >>> 3
 [User input: "Surprise (3)"]
-Mixed Surprise Minor (8m)
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
 📕 Title: Mixed Surprise Minor (8m)
 Adding changes of methods to multi-method peal...
 No methods match "Being seven extents in eight methods Surprise Minor"
@@ -520,7 +516,7 @@ Add new footnote? [y/n] (n):
 Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
-[User input: "MuffleType.NONE (1)"]
+[User input: "None (1)"]
 🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1346767 ──────────────────╮
 │ Suffolk Guild                                                                │

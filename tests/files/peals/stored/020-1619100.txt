@@ -157,7 +157,7 @@ Given name(s) (Martin):
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Saturday, 6 May 2023                                                      │
-│ A General of General Ringing (18-3-20 in Eb)                                 │
+│ General Ringing (18-3-20 in Eb)                                              │
 │                                                                              │
 │ Arnold Johnson                                                               │
 │ Ryan Elliott                                                                 │
@@ -203,7 +203,7 @@ Select action (1):
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Saturday, 6 May 2023
-A General of General Ringing (18-3-20 in Eb)
+General Ringing (18-3-20 in Eb)
 
 Ryan Elliott
 Chester Edwards

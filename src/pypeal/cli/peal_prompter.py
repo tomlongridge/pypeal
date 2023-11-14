@@ -64,11 +64,11 @@ class PealPromptListener(PealGeneratorListener):
             print(f'📕 Title: {self.peal.title}')
 
     def method_details(self, value: str):
-        if self.peal.type == PealType.GENERAL:
+        if self.peal.length_type is None:
             self.peal.detail = value
             if value:
                 print(f'📝 Details: {value}')
-        elif value or self.peal.is_multi_method:
+        elif value or self.peal.type in [PealType.MIXED_METHODS, PealType.SPLICED_METHODS]:
             prompt_add_change_of_method(value, self.peal, self.quick_mode)
             print('📝 Method details:')
             for method in self.peal.methods:
