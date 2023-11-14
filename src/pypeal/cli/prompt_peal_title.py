@@ -166,9 +166,9 @@ def set_peal_title(peal: Peal,
                    peal_type: PealType,
                    stage: Stage = None,
                    classification: str = None,
-                   num_methods: int = 0,
-                   num_principles: int = 0,
-                   num_variants: int = 0,
+                   num_methods: int = None,
+                   num_principles: int = None,
+                   num_variants: int = None,
                    is_variable_cover: bool = False):
     peal.type = peal_type
     peal.stage = stage

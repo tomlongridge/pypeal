@@ -12,6 +12,8 @@ pytest = "*"
 typer = {version = "*", extras = ["all"]}
 pytest-xprocess = "*"
 pytest-mock = "*"
+fastapi = "*"
+uvicorn = {extras = ["standard"], version = "*"}
 
 [dev-packages]
 

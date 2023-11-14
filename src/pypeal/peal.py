@@ -105,9 +105,9 @@ class Peal:
                  stage: int = None,
                  classification: str = None,
                  is_variable_cover: bool = False,
-                 num_methods: int = 0,
-                 num_principles: int = 0,
-                 num_variants: int = 0,
+                 num_methods: int = None,
+                 num_principles: int = None,
+                 num_variants: int = None,
                  method_id: int = None,
                  description: str = None,
                  detail: str = None,
@@ -438,7 +438,7 @@ class Peal:
                 (self.bellboard_id, self.type.value, self.bell_type.value, self.date, self.association.id if self.association else None,
                  self.ring.id if self.ring else None, self.__place, self.__sub_place, self.address, self.dedication, self.__county,
                  self.__country, self.__tenor_weight, self.__tenor_note, self.changes, self.stage.value if self.stage else None,
-                 self.classification, self.is_variable_cover, self.num_methods or 0, self.num_principles or 0, self.num_variants or 0,
+                 self.classification, self.is_variable_cover, self.num_methods, self.num_principles, self.num_variants,
                  self.method.id if self.method else None, self.description, self.detail, self.composer.id if self.composer else None,
                  self.composition_url, self.duration, self.event_url, self.muffles.value if self.muffles else None))
             Database.get_connection().commit()
@@ -495,6 +495,7 @@ class Peal:
                 text += f'{method.title}, '
             text = text.rstrip(', ')
             text += ')\n'
+        text += f'{self.detail}\n' if self.detail else ''
         text += f'Composed by: {self.composer}\n' if self.composer else ''
         text += '\n'
         for ringer in self.ringers:
