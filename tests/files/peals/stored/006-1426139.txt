@@ -167,7 +167,7 @@ Select action (1):
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 19 May 2002                                                       │
-│ A Quarter Peal of 1260 Plain Bob Royal in 49 mins (18-3-20 in Eb)            │
+│ A Quarter Peal of 1260 Plain Bob Royal in 49 minutes (18-3-20 in Eb)         │
 │                                                                              │
 │ 1: Daniel Miller                                                             │
 │ 2: Blake Elliott                                                             │
@@ -210,7 +210,7 @@ Select action (1):
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Sunday, 19 May 2002
-A Quarter Peal of 1260 Plain Bob Royal in 49 mins (18-3-20 in Eb)
+A Quarter Peal of 1260 Plain Bob Royal in 49 minutes (18-3-20 in Eb)
 
 1: Daniel Miller
 2: Blake Elliott

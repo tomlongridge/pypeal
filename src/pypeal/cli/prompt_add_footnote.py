@@ -1,6 +1,7 @@
 import re
-from pypeal.cli.prompts import ask, choose_option, confirm, error
-from pypeal.parsers import parse_footnote
+from pypeal.cli.prompt_add_composer import prompt_add_composer
+from pypeal.cli.prompts import ask, choose_option, confirm, error, warning
+from pypeal.parsers import parse_footnote, parse_footnote_for_composer
 from pypeal.peal import MuffleType, Peal
 
 
@@ -20,14 +21,21 @@ def prompt_add_footnote(text: str, peal: Peal, quick_mode: bool):
             line_parts = [line]
 
         for line_part in line_parts:
-            _prompt_add_single_footnote(*parse_footnote(line_part), text, peal, quick_mode)
+            composer_name = parse_footnote_for_composer(text)
+            if composer_name and peal.composer is None and \
+                    (quick_mode or confirm(f'Possible composer: {composer_name}')):
+                prompt_add_composer(composer_name, None, peal, quick_mode)
+            else:
+                conductor_bells = [bell for conductor in peal.conductors for bell in conductor[1]]
+                bells, text = parse_footnote(line_part, peal.num_bells, conductor_bells)
+                _prompt_add_single_footnote(bells, text, peal, quick_mode)
 
 
 def prompt_new_footnote(peal: Peal):
     while True:
         if not confirm(None, confirm_message='Add new footnote?', default=False):
             break
-        _prompt_add_single_footnote(None, None, None, peal, False)
+        _prompt_add_single_footnote(None, None, peal, False)
 
 
 def prompt_add_muffle_type(peal: Peal):
@@ -38,13 +46,11 @@ def prompt_add_muffle_type(peal: Peal):
                                      return_option=True)
 
 
-def _prompt_add_single_footnote(bells: list[int], text: str, original_text: str, peal: Peal, quick_mode: bool = False):
+def _prompt_add_single_footnote(bells: list[int], text: str, peal: Peal, quick_mode: bool = False):
     ringers = None
-    # original_bells_str = str(bells)
     while True:
         if text:
             # Repeat the footnote, if it's different from the original
-            # if original_text is None or text.strip('. ') != original_text.strip('. ') or str(bells) != original_bells_str:
             ringers = [peal.get_ringer(bell) for bell in bells] if bells else None
             if not quick_mode:
                 print(f'Footnote {len(peal.footnotes) + 1} text:')
@@ -53,6 +59,9 @@ def _prompt_add_single_footnote(bells: list[int], text: str, original_text: str,
                 print('Referenced ringer(s):')
                 for bell, ringer in zip(bells, ringers):
                     print(f'  - {bell}: {ringer}')
+                    if bell > peal.num_bells:
+                        warning(f'Bell referenced in footnote ({bell}) is greater than number of bells ({peal.num_bells})')
+                        quick_mode = False
             if quick_mode or confirm(None):
                 break
         text, bells = _prompt_footnote_details(bells, text, peal.num_bells, quick_mode)

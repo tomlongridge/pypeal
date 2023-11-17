@@ -6,7 +6,7 @@ import json
 from pypeal import config, utils
 from pypeal.association import Association
 from pypeal.db import Database
-from pypeal.method import Method, Stage
+from pypeal.method import Classification, Method, Stage
 from pypeal.ringer import Ringer
 from pypeal.tower import Bell, Ring
 from pypeal.utils import format_date_full, get_bell_label
@@ -54,7 +54,7 @@ class Peal:
     address: str
     changes: int
     stage: Stage
-    classification: str
+    classification: Classification
     is_variable_cover: bool
     num_methods: int
     num_principles: int
@@ -118,8 +118,8 @@ class Peal:
                  muffles: int = None,
                  id: int = None):
         self.bellboard_id = bellboard_id
-        self.bell_type = BellType(bell_type) if type else None
-        self.type = PealType(type) if type else None
+        self.bell_type = BellType(bell_type) if bell_type else None
+        self.type = PealType(type) if type is not None else None
         self.date = date
         self.association = Association.get(association_id) if association_id else None
         self.ring = Ring.get(ring_id) if ring_id else None
@@ -133,7 +133,7 @@ class Peal:
         self.__tenor_weight = tenor_weight
         self.__tenor_note = tenor_note
         self.stage = Stage(stage) if stage else None
-        self.classification = classification
+        self.classification = Classification(classification) if classification else None
         self.is_variable_cover = is_variable_cover
         self.num_methods = num_methods
         self.num_principles = num_principles
@@ -232,7 +232,7 @@ class Peal:
     def tenor_weight(self) -> int:
         if self.__tenor_weight:
             return self.__tenor_weight
-        elif self.ring:
+        elif self.tenor:
             return self.tenor.weight
         else:
             return None
@@ -328,7 +328,7 @@ class Peal:
         text += 'Spliced ' if self.type == PealType.SPLICED_METHODS else ''
         text += 'Mixed ' if self.type == PealType.MIXED_METHODS else ''
         text += f'{self.description} ' if self.description else ''
-        text += f'{self.classification} ' if self.classification else ''
+        text += f'{self.classification.value} ' if self.classification else ''
         if self.stage and self.is_variable_cover and self.stage.value % 2 == 0:
             text += f'{Stage(self.stage.value - 1).name.capitalize()} and '
         text += f'{self.stage.name.capitalize()} ' if self.stage else ''
@@ -406,6 +406,14 @@ class Peal:
         self.__ringers_by_bell_num = None
 
     @property
+    def conductors(self) -> list[tuple[Ringer, list[int]]]:
+        conductor_list = []
+        for ringer in self.ringers:
+            if ringer[3]:
+                conductor_list.append((ringer[0], ringer[1]))
+        return conductor_list
+
+    @property
     def num_bells(self) -> int:
         return sum([len(ringer[1]) if ringer[1] else 0 for ringer in self.ringers])
 
@@ -438,9 +446,10 @@ class Peal:
                 (self.bellboard_id, self.type.value, self.bell_type.value, self.date, self.association.id if self.association else None,
                  self.ring.id if self.ring else None, self.__place, self.__sub_place, self.address, self.dedication, self.__county,
                  self.__country, self.__tenor_weight, self.__tenor_note, self.changes, self.stage.value if self.stage else None,
-                 self.classification, self.is_variable_cover, self.num_methods, self.num_principles, self.num_variants,
-                 self.method.id if self.method else None, self.description, self.detail, self.composer.id if self.composer else None,
-                 self.composition_url, self.duration, self.event_url, self.muffles.value if self.muffles else None))
+                 self.classification.value if self.classification else None, self.is_variable_cover, self.num_methods, self.num_principles,
+                 self.num_variants, self.method.id if self.method else None, self.description, self.detail,
+                 self.composer.id if self.composer else None, self.composition_url, self.duration, self.event_url,
+                 self.muffles.value if self.muffles else None))
             Database.get_connection().commit()
             self.id = result.lastrowid
             for method, changes in self.methods:
@@ -485,7 +494,7 @@ class Peal:
         text += ' (half-muffled)' if self.muffles == MuffleType.HALF else ''
         text += ' (muffled)' if self.muffles == MuffleType.FULL else ''
         text += ' '
-        text += f'in {self.duration} mins ' if self.duration else ''
+        text += f'in {utils.get_time_str(self.duration)} ' if self.duration else ''
         text += f'({self.tenor_description})' if self.tenor_description else ''
         text += '\n'
         if len(self.methods) > 0:
@@ -522,18 +531,18 @@ class Peal:
             f'SELECT {",".join(PEAL_FIELD_LIST)}, id ' +
             'FROM peals ' +
             'WHERE true ' +
-            (f'AND id = {id} ' if id else '') +
-            (f'AND bellboard_id = {bellboard_id} ' if bellboard_id else '')).fetchone()
+            ('AND id = %s ' if id else '') +
+            ('AND bellboard_id = %s ' if bellboard_id else ''),
+            (id or bellboard_id,)).fetchone()
         if result is None:
             return None
         return Peal(*result)
 
     @classmethod
-    def get_all(self) -> dict[str, Peal]:
-        return {result[0]: Peal(*result) for result in Database.get_connection().query(
-            f'SELECT {",".join(PEAL_FIELD_LIST)}, id ' +
-            'FROM peals').fetchall()
-        }
+    def get_all(self) -> list[Peal]:
+        return [
+            Peal(*result) for result in Database.get_connection().query(
+                f'SELECT {",".join(PEAL_FIELD_LIST)}, id FROM peals').fetchall()]
 
     @classmethod
     def clear_data(cls):

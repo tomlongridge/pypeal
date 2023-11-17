@@ -194,7 +194,7 @@ Select action (1):
 │ Bexhill on Sea, East Sussex, England                                         │
 │ S Peter                                                                      │
 │ On Sunday, 13 September 2009                                                 │
-│ A Quarter Peal of 1260 Grandsire Triples in 45 mins (17-2-15 in E)           │
+│ A Quarter Peal of 1260 Grandsire Triples in 45 minutes (17-2-15 in E)        │
 │                                                                              │
 │ 1 [3]: Aston Mitchell                                                        │
 │ 2 [4]: Dominik Warren                                                        │
@@ -233,7 +233,7 @@ Select action (1):
 Bexhill on Sea, East Sussex, England
 S Peter
 On Sunday, 13 September 2009
-A Quarter Peal of 1260 Grandsire Triples in 45 mins (17-2-15 in E)
+A Quarter Peal of 1260 Grandsire Triples in 45 minutes (17-2-15 in E)
 
 1 [3]: Aston Mitchell
 2 [4]: Dominik Warren

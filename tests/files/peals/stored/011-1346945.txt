@@ -75,16 +75,18 @@ Stage (5):
 >>> 5
 [User input: "5"]
 Options: 
-1) Bob
-2) Place
-3) Surprise
-4) Delight
-5) Treble Bob
-6) Treble Place
-7) None
-Select action (7): 
->>> 7
-[User input: "None (7)"]
+1) Alliance
+2) Bob
+3) Delight
+4) Hybrid
+5) Place
+6) Surprise
+7) Treble Bob
+8) Treble Place
+9) None
+Select action (9): 
+>>> 9
+[User input: "None"]
 Is this peal variable cover? [y/n] (n): 
 >>> n
 [User input: "False"]
@@ -103,15 +105,17 @@ Stage (5):
 >>> 5
 [User input: "5"]
 Options: 
-1) Bob
-2) Place
-3) Surprise
-4) Delight
-5) Treble Bob
-6) Treble Place
-7) None
+1) Alliance
+2) Bob
+3) Delight
+4) Hybrid
+5) Place
+6) Surprise
+7) Treble Bob
+8) Treble Place
+9) None
 Select action: 
->>> 7
+>>> 9
 [User input: "None"]
 Is this a differential method? [y/n]: 
 >>> 
@@ -151,15 +155,17 @@ Stage (5):
 >>> 5
 [User input: "5"]
 Options: 
-1) Bob
-2) Place
-3) Surprise
-4) Delight
-5) Treble Bob
-6) Treble Place
-7) None
-Select action (1): 
->>> 7
+1) Alliance
+2) Bob
+3) Delight
+4) Hybrid
+5) Place
+6) Surprise
+7) Treble Bob
+8) Treble Place
+9) None
+Select action (2): 
+>>> 9
 [User input: "None"]
 Is this a differential method? [y/n]: 
 >>> 
@@ -192,16 +198,18 @@ Stage (5):
 >>> 5
 [User input: "5"]
 Options: 
-1) Bob
-2) Place
-3) Surprise
-4) Delight
-5) Treble Bob
-6) Treble Place
-7) None
-Select action (1): 
->>> 2
-[User input: "Place (2)"]
+1) Alliance
+2) Bob
+3) Delight
+4) Hybrid
+5) Place
+6) Surprise
+7) Treble Bob
+8) Treble Place
+9) None
+Select action (2): 
+>>> 5
+[User input: "Place (5)"]
 Is this a differential method? [y/n]: 
 >>> 
 [User input: "None"]
@@ -256,16 +264,18 @@ Stage (5):
 >>> 5
 [User input: "5"]
 Options: 
-1) Bob
-2) Place
-3) Surprise
-4) Delight
-5) Treble Bob
-6) Treble Place
-7) None
-Select action (1): 
->>> 1
-[User input: "Bob (1)"]
+1) Alliance
+2) Bob
+3) Delight
+4) Hybrid
+5) Place
+6) Surprise
+7) Treble Bob
+8) Treble Place
+9) None
+Select action (2): 
+>>> 2
+[User input: "Bob (2)"]
 Is this a differential method? [y/n]: 
 >>> 
 [User input: "None"]
@@ -381,7 +391,7 @@ Select action (1):
 │ Saxmundham, Suffolk, England                                                 │
 │ S John Bapt                                                                  │
 │ On Monday, 27 March 1967                                                     │
-│ A Peal of 5040 Mixed Doubles (4m/4v) in 149 mins (8-3-7 in A)                │
+│ A Peal of 5040 Mixed Doubles (4m/4v) in 2 hours, 29 minutes (8-3-7 in A)     │
 │ (630 Stedman Doubles, 630 Grandsire Bob Doubles, 630 Reverse Canterbury      │
 │ Pleasure Place Doubles, 630 Winchendon Place Doubles, 630 St Nicholas Bob    │
 │ Doubles, 630 St Simon's Bob Doubles, 630 St Martin's Bob Doubles, 630 Plain  │
@@ -424,7 +434,7 @@ Select action (1):
 Saxmundham, Suffolk, England
 S John Bapt
 On Monday, 27 March 1967
-A Peal of 5040 Mixed Doubles (4m/4v) in 149 mins (8-3-7 in A)
+A Peal of 5040 Mixed Doubles (4m/4v) in 2 hours, 29 minutes (8-3-7 in A)
 (630 Reverse Canterbury Pleasure Place Doubles, 630 Winchendon Place Doubles, 630 St Nicholas Bob Doubles, 630 Plain Bob Doubles, 630 St Martin's Bob Doubles, 630 St Simon's Bob Doubles, 630 Grandsire Bob Doubles, 630 Stedman Doubles)
 
 1: Lydia Reed

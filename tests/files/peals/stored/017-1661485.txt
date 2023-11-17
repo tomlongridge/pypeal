@@ -147,7 +147,7 @@ Select action (1):
 │ Bath, Somerset, England                                                      │
 │ S Stephen, Lansdown                                                          │
 │ On Friday, 6 October 2023                                                    │
-│ A Quarter Peal of 1296 Honeywell Delight Minor in 36 mins (2-3-9 in F)       │
+│ A Quarter Peal of 1296 Honeywell Delight Minor in 36 minutes (2-3-9 in F)    │
 │ Composed by: Byron Miller                                                    │
 │                                                                              │
 │ 1: Leo Bennett                                                               │
@@ -185,7 +185,7 @@ Select action (1):
 Bath, Somerset, England
 S Stephen, Lansdown
 On Friday, 6 October 2023
-A Quarter Peal of 1296 Honeywell Delight Minor in 36 mins (2-3-9 in F)
+A Quarter Peal of 1296 Honeywell Delight Minor in 36 minutes (2-3-9 in F)
 Composed by: Byron Miller
 
 1: Leo Bennett

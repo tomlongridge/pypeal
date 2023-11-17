@@ -303,4 +303,4 @@ def get_peal_list(force_update: bool = False):
 
 def update_peal_list():
     global __peals
-    __peals = Peal.get_all()
+    __peals = {peal.bellboard_id: peal for peal in Peal.get_all()}

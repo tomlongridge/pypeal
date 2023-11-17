@@ -124,7 +124,7 @@ def choose_option(options: list[any],
     choice = None
     if type(default) is int:
         default_value = default
-    elif default in options:
+    elif default in option_list:
         default_value = option_list.index(default) + 1
     else:
         default_value = None

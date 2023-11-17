@@ -62,16 +62,18 @@ Stage (8):
 >>> 
 [User input: "8"]
 Options: 
-1) Bob
-2) Place
-3) Surprise
-4) Delight
-5) Treble Bob
-6) Treble Place
-7) None
-Select action (3): 
+1) Alliance
+2) Bob
+3) Delight
+4) Hybrid
+5) Place
+6) Surprise
+7) Treble Bob
+8) Treble Place
+9) None
+Select action (6): 
 >>> 
-[User input: "Surprise (3)"]
+[User input: "Surprise (6)"]
 📕 Title: Spliced Surprise Major (2m)
 Adding changes of methods to multi-method peal...
 Matched "640 changes Cambridge" to method "Cambridge Surprise Major" (ID: 
@@ -208,7 +210,7 @@ Select action (1):
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 15 December 2019                                                  │
-│ A Quarter Peal of 1280 Spliced Surprise Major (2m) in 48 mins (18-3-20 in    │
+│ A Quarter Peal of 1280 Spliced Surprise Major (2m) in 48 minutes (18-3-20 in │
 │ Eb)                                                                          │
 │ (640 Cambridge Surprise Major, 640 Yorkshire Surprise Major)                 │
 │                                                                              │
@@ -250,7 +252,7 @@ Bath and Wells Diocesan Association
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Sunday, 15 December 2019
-A Quarter Peal of 1280 Spliced Surprise Major (2m) in 48 mins (18-3-20 in Eb)
+A Quarter Peal of 1280 Spliced Surprise Major (2m) in 48 minutes (18-3-20 in Eb)
 (640 Cambridge Surprise Major, 640 Yorkshire Surprise Major)
 
 1 [3]: Leo Bennett

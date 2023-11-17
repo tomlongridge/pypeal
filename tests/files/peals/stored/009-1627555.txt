@@ -168,7 +168,7 @@ Select action (1):
 │ Longney, Gloucestershire, England                                            │
 │ S Lawrence                                                                   │
 │ On Saturday, 13 May 2023                                                     │
-│ A Quarter Peal of 1280 London Surprise Major in 46 mins (10-3-17 in F)       │
+│ A Quarter Peal of 1280 London Surprise Major in 46 minutes (10-3-17 in F)    │
 │                                                                              │
 │ 1: Aston Mitchell (c)                                                        │
 │ 2: Carina Warren                                                             │
@@ -208,7 +208,7 @@ Select action (1):
 Longney, Gloucestershire, England
 S Lawrence
 On Saturday, 13 May 2023
-A Quarter Peal of 1280 London Surprise Major in 46 mins (10-3-17 in F)
+A Quarter Peal of 1280 London Surprise Major in 46 minutes (10-3-17 in F)
 
 1: Aston Mitchell (c)
 2: Carina Warren

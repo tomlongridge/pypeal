@@ -122,7 +122,7 @@ class HTMLPealGenerator():
         for full_name, bells, is_conductor in zip(ringer_names, ringer_bells, conductors):
             if bells is not None:
                 bells = [int(bell) for bell in bells.split('–')]
-            listener.ringer(full_name, bells, is_conductor)
+            listener.ringer(full_name, bells, None, is_conductor)
 
         found_footnote: bool = False
         for footnote in soup.select('div.footnote'):

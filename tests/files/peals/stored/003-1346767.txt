@@ -66,16 +66,18 @@ Stage (6):
 >>> 6
 [User input: "6"]
 Options: 
-1) Bob
-2) Place
-3) Surprise
-4) Delight
-5) Treble Bob
-6) Treble Place
-7) None
-Select action (7): 
->>> 3
-[User input: "Surprise (3)"]
+1) Alliance
+2) Bob
+3) Delight
+4) Hybrid
+5) Place
+6) Surprise
+7) Treble Bob
+8) Treble Place
+9) None
+Select action (9): 
+>>> 6
+[User input: "Surprise (6)"]
 📕 Title: Mixed Surprise Minor (8m)
 Adding changes of methods to multi-method peal...
 No methods match "Being seven extents in eight methods Surprise Minor"
@@ -100,16 +102,18 @@ Stage (6):
 >>> 6
 [User input: "6"]
 Options: 
-1) Bob
-2) Place
-3) Surprise
-4) Delight
-5) Treble Bob
-6) Treble Place
-7) None
-Select action (3): 
->>> 3
-[User input: "Surprise (3)"]
+1) Alliance
+2) Bob
+3) Delight
+4) Hybrid
+5) Place
+6) Surprise
+7) Treble Bob
+8) Treble Place
+9) None
+Select action (6): 
+>>> 6
+[User input: "Surprise (6)"]
 Is this a differential method? [y/n]: 
 >>> 
 [User input: "None"]
@@ -141,16 +145,18 @@ Stage (6):
 >>> 6
 [User input: "6"]
 Options: 
-1) Bob
-2) Place
-3) Surprise
-4) Delight
-5) Treble Bob
-6) Treble Place
-7) None
-Select action (3): 
->>> 3
-[User input: "Surprise (3)"]
+1) Alliance
+2) Bob
+3) Delight
+4) Hybrid
+5) Place
+6) Surprise
+7) Treble Bob
+8) Treble Place
+9) None
+Select action (6): 
+>>> 6
+[User input: "Surprise (6)"]
 Is this a differential method? [y/n]: 
 >>> 
 [User input: "None"]
@@ -181,16 +187,18 @@ Stage (6):
 >>> 6
 [User input: "6"]
 Options: 
-1) Bob
-2) Place
-3) Surprise
-4) Delight
-5) Treble Bob
-6) Treble Place
-7) None
-Select action (3): 
->>> 3
-[User input: "Surprise (3)"]
+1) Alliance
+2) Bob
+3) Delight
+4) Hybrid
+5) Place
+6) Surprise
+7) Treble Bob
+8) Treble Place
+9) None
+Select action (6): 
+>>> 6
+[User input: "Surprise (6)"]
 Is this a differential method? [y/n]: 
 >>> 
 [User input: "None"]
@@ -227,16 +235,18 @@ Stage (6):
 >>> 6
 [User input: "6"]
 Options: 
-1) Bob
-2) Place
-3) Surprise
-4) Delight
-5) Treble Bob
-6) Treble Place
-7) None
-Select action (1): 
->>> 1
-[User input: "Bob (1)"]
+1) Alliance
+2) Bob
+3) Delight
+4) Hybrid
+5) Place
+6) Surprise
+7) Treble Bob
+8) Treble Place
+9) None
+Select action (2): 
+>>> 2
+[User input: "Bob (2)"]
 Is this a differential method? [y/n]: 
 >>> 
 [User input: "None"]
@@ -267,16 +277,18 @@ Stage (6):
 >>> 6
 [User input: "6"]
 Options: 
-1) Bob
-2) Place
-3) Surprise
-4) Delight
-5) Treble Bob
-6) Treble Place
-7) None
-Select action (1): 
->>> 1
-[User input: "Bob (1)"]
+1) Alliance
+2) Bob
+3) Delight
+4) Hybrid
+5) Place
+6) Surprise
+7) Treble Bob
+8) Treble Place
+9) None
+Select action (2): 
+>>> 2
+[User input: "Bob (2)"]
 Is this a differential method? [y/n]: 
 >>> 
 [User input: "None"]
@@ -307,16 +319,18 @@ Stage (6):
 >>> 6
 [User input: "6"]
 Options: 
-1) Bob
-2) Place
-3) Surprise
-4) Delight
-5) Treble Bob
-6) Treble Place
-7) None
-Select action (1): 
->>> 1
-[User input: "Bob (1)"]
+1) Alliance
+2) Bob
+3) Delight
+4) Hybrid
+5) Place
+6) Surprise
+7) Treble Bob
+8) Treble Place
+9) None
+Select action (2): 
+>>> 2
+[User input: "Bob (2)"]
 Is this a differential method? [y/n]: 
 >>> 
 [User input: "None"]
@@ -348,16 +362,18 @@ Stage (6):
 >>> 6
 [User input: "6"]
 Options: 
-1) Bob
-2) Place
-3) Surprise
-4) Delight
-5) Treble Bob
-6) Treble Place
-7) None
-Select action (5): 
->>> 5
-[User input: "Treble Bob (5)"]
+1) Alliance
+2) Bob
+3) Delight
+4) Hybrid
+5) Place
+6) Surprise
+7) Treble Bob
+8) Treble Place
+9) None
+Select action (7): 
+>>> 7
+[User input: "Treble Bob (7)"]
 Is this a differential method? [y/n]: 
 >>> 
 [User input: "None"]
@@ -391,16 +407,18 @@ Stage:
 >>> 6
 [User input: "6"]
 Options: 
-1) Bob
-2) Place
-3) Surprise
-4) Delight
-5) Treble Bob
-6) Treble Place
-7) None
-Select action: 
->>> 1
-[User input: "Bob (1)"]
+1) Alliance
+2) Bob
+3) Delight
+4) Hybrid
+5) Place
+6) Surprise
+7) Treble Bob
+8) Treble Place
+9) None
+Select action (9): 
+>>> 2
+[User input: "Bob (2)"]
 Is this a differential method? [y/n]: 
 >>> 
 [User input: "None"]
@@ -523,7 +541,8 @@ Select action (1):
 │ Blythburgh, Suffolk, England                                                 │
 │ Holy Trinity                                                                 │
 │ On Monday, 25 March 1963                                                     │
-│ A Peal of 5040 Mixed Surprise Minor (8m) in 162 mins (10-1-10 in G)          │
+│ A Peal of 5040 Mixed Surprise Minor (8m) in 2 hours, 42 minutes (10-1-10 in  │
+│ G)                                                                           │
 │ (Norwich Surprise Minor, Ipswich Surprise Minor, Cambridge Surprise Minor,   │
 │ Single Oxford Bob Minor, Plain Bob Minor, St Clement's College Bob Minor,    │
 │ Oxford Treble Bob Minor, Double Oxford Bob Minor)                            │
@@ -565,7 +584,7 @@ Suffolk Guild
 Blythburgh, Suffolk, England
 Holy Trinity
 On Monday, 25 March 1963
-A Peal of 5040 Mixed Surprise Minor (8m) in 162 mins (10-1-10 in G)
+A Peal of 5040 Mixed Surprise Minor (8m) in 2 hours, 42 minutes (10-1-10 in G)
 (Single Oxford Bob Minor, Double Oxford Bob Minor, Plain Bob Minor, St Clement's College Bob Minor, Norwich Surprise Minor, Ipswich Surprise Minor, Cambridge Surprise Minor, Oxford Treble Bob Minor)
 
 1: Blake Howard

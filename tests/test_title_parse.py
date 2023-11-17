@@ -61,6 +61,16 @@ methods = [
         'Mixed Doubles (2m)'
     ),
     (
+        '6 Minor',
+        (Method(stage=Stage.MINOR), False, True, 6, None, None),
+        'Mixed Minor (6m)'
+    ),
+    (
+        '3 Surprise Major',
+        (Method(stage=Stage.MAJOR, classification='Surprise'), False, True, 3, None, None),
+        'Mixed Surprise Major (3m)'
+    ),
+    (
         'Spliced Surprise Minor (8m)',
         (Method(classification='Surprise', stage=Stage.MINOR), True, False, 8, 0, 0),
         None

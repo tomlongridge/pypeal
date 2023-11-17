@@ -22,7 +22,9 @@ def prompt_add_change_of_method(method_details: str, peal: Peal, quick_mode: boo
             if not method_obj.classification:
                 method_obj.classification = peal.classification
 
-            if not (new_method := prompt_add_method(method_obj, method, quick_mode)):
+            new_method, quick_mode = prompt_add_method(method_obj, method, quick_mode)
+            if not new_method:
+                quick_mode = False
                 continue
 
             if not quick_mode:
@@ -43,7 +45,8 @@ def prompt_add_change_of_method(method_details: str, peal: Peal, quick_mode: boo
                             confirm_message='Do you want to add more?',
                             default=False):
             break
-        if method := prompt_add_method(None, None, quick_mode):
+        method, quick_mode = prompt_add_method(None, None, quick_mode)
+        if method:
             changes = ask_int('Number of changes', default=None)
             peal.add_method(method, changes)
             method_count += 1

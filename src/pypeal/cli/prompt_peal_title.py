@@ -1,10 +1,13 @@
 from pypeal.cli.prompts import ask, ask_int, choose_option, confirm
-from pypeal.method import Method, Stage
+from pypeal.method import Classification, Method, Stage
 from pypeal.parsers import parse_method_title
 from pypeal.peal import Peal, PealType
+from pypeal.utils import strip_internal_space
 
 
 def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
+
+    title = strip_internal_space(title)
 
     while True:
 
@@ -93,9 +96,10 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
 
             name = ask('Name', default=parsed_method.name, required=False)
             stage = Stage(ask_int('Stage', default=parsed_method.stage.value if parsed_method.stage else None, min=2, max=22))
-            classification = choose_option(['Bob', 'Place', 'Surprise', 'Delight', 'Treble Bob', 'Treble Place'],
-                                           default=parsed_method.classification,
-                                           return_option=True)
+            classification = choose_option([classification for classification in Classification],
+                                           default=parsed_method.classification or 'None',
+                                           return_option=True,
+                                           cancel_option='None')
             is_differential = confirm(None, 'Is this a differential method?', default=parsed_method.is_differential)
             is_little = confirm(None, 'Is this a little method?', default=parsed_method.is_little)
             is_treble_dodging = confirm(None, 'Is this a treble dodging method?', default=parsed_method.is_treble_dodging)
@@ -139,8 +143,9 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
                     if num_methods + num_principles + num_variants > 0:
                         break
                 stage = Stage(ask_int('Stage', default=stage.value if stage else None, min=2, max=22))
-                classification = choose_option(['Bob', 'Place', 'Surprise', 'Delight', 'Treble Bob', 'Treble Place', None],
-                                               default=classification,
+                classification = choose_option([classification for classification in Classification],
+                                               default=classification or 'None',
+                                               cancel_option='None',
                                                return_option=True)
                 if classification is None:
                     is_variable_cover = confirm(None, 'Is this peal variable cover?', default=is_variable_cover)
@@ -165,7 +170,7 @@ def set_peal_title(peal: Peal,
                    title: any,
                    peal_type: PealType,
                    stage: Stage = None,
-                   classification: str = None,
+                   classification: Classification = None,
                    num_methods: int = None,
                    num_principles: int = None,
                    num_variants: int = None,
@@ -187,4 +192,4 @@ def set_peal_title(peal: Peal,
         peal.description = None
         peal.method = title
         peal.stage = title.stage
-        peal.classification = title.classification
+        peal.classification = Classification(title.classification)

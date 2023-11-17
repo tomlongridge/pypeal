@@ -58,16 +58,18 @@ Stage (5):
 >>> 
 [User input: "5"]
 Options: 
-1) Bob
-2) Place
-3) Surprise
-4) Delight
-5) Treble Bob
-6) Treble Place
-7) None
-Select action (7): 
+1) Alliance
+2) Bob
+3) Delight
+4) Hybrid
+5) Place
+6) Surprise
+7) Treble Bob
+8) Treble Place
+9) None
+Select action (9): 
 >>> 
-[User input: "None (7)"]
+[User input: "None"]
 Is this peal variable cover? [y/n] (n): 
 >>> 
 [User input: "False"]
@@ -86,16 +88,18 @@ Stage (5):
 >>> 
 [User input: "5"]
 Options: 
-1) Bob
-2) Place
-3) Surprise
-4) Delight
-5) Treble Bob
-6) Treble Place
-7) None
-Select action (2): 
+1) Alliance
+2) Bob
+3) Delight
+4) Hybrid
+5) Place
+6) Surprise
+7) Treble Bob
+8) Treble Place
+9) None
+Select action (5): 
 >>> 
-[User input: "Place (2)"]
+[User input: "Place (5)"]
 Is this a differential method? [y/n]: 
 >>> 
 [User input: "None"]
@@ -268,7 +272,7 @@ Select action (1):
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 10 September 2023                                                 │
-│ A Quarter Peal of 1260 Mixed Doubles (3m) in 41 mins (7-3-12 in Bb)          │
+│ A Quarter Peal of 1260 Mixed Doubles (3m) in 41 minutes (7-3-12 in Bb)       │
 │ (360 Reverse Canterbury Pleasure Place Doubles, 360 Plain Bob Doubles, 540   │
 │ Grandsire Bob Doubles)                                                       │
 │                                                                              │
@@ -309,7 +313,7 @@ Select action (1):
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Sunday, 10 September 2023
-A Quarter Peal of 1260 Mixed Doubles (3m) in 41 mins (7-3-12 in Bb)
+A Quarter Peal of 1260 Mixed Doubles (3m) in 41 minutes (7-3-12 in Bb)
 (360 Reverse Canterbury Pleasure Place Doubles, 360 Plain Bob Doubles, 540 Grandsire Bob Doubles)
 
 1: Ryan Elliott

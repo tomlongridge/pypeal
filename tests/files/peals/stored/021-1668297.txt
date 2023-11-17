@@ -65,16 +65,16 @@ First bell number(s) in the tower (1):
 │ largest bell rung (Bb) on Dove                                               │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 ╭──────────────────────────────────────────────────────────────────────────────╮
-│ Warning: Footnote suggests ringing on the back None, but the tenor entered   │
-│ is the 6                                                                     │
+│ Warning: Footnote suggests ringing on the back 6, but the tenor entered is   │
+│ the 6                                                                        │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 🔕 Muffles: Half
 ╭───────────────── http://localhost:8080/view.php?id=1668297 ──────────────────╮
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 12 November 2023                                                  │
-│ A Quarter Peal of 1260 Grandsire Doubles (half-muffled) in 49 mins (7-3-12   │
-│ in Bb)                                                                       │
+│ A Quarter Peal of 1260 Grandsire Doubles (half-muffled) in 49 minutes        │
+│ (7-3-12 in Bb)                                                               │
 │                                                                              │
 │ 1: Ryan Elliott                                                              │
 │ 2: Leo Bennett                                                               │
@@ -176,8 +176,8 @@ Is this correct? [y/n] (y):
 📝 Footnote: Rung half muffled on the back six for Remembrance Day.
 🔗 Event link: None
 ╭──────────────────────────────────────────────────────────────────────────────╮
-│ Warning: Footnote suggests ringing on the back None, but the tenor entered   │
-│ is the 6                                                                     │
+│ Warning: Footnote suggests ringing on the back 6, but the tenor entered is   │
+│ the 6                                                                        │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Add new footnote? [y/n] (n): 
 >>> 
@@ -187,8 +187,8 @@ Add new footnote? [y/n] (n):
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 12 November 2023                                                  │
-│ A Quarter Peal of 1260 Grandsire Doubles (half-muffled) in 49 mins (18-3-20  │
-│ in Eb)                                                                       │
+│ A Quarter Peal of 1260 Grandsire Doubles (half-muffled) in 49 minutes        │
+│ (18-3-20 in Eb)                                                              │
 │                                                                              │
 │ 1 [5]: Ryan Elliott                                                          │
 │ 2 [6]: Leo Bennett                                                           │
@@ -225,7 +225,7 @@ Select action (1):
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Sunday, 12 November 2023
-A Quarter Peal of 1260 Grandsire Doubles (half-muffled) in 49 mins (18-3-20 in Eb)
+A Quarter Peal of 1260 Grandsire Doubles (half-muffled) in 49 minutes (18-3-20 in Eb)
 
 1 [5]: Ryan Elliott
 2 [6]: Leo Bennett

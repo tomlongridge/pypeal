@@ -95,8 +95,8 @@ class PealPromptListener(PealGeneratorListener):
             self.peal.duration = parse_duration(value)
         print(f'⏱ Duration: {self.peal.duration or "Unknown"}')
 
-    def ringer(self, name: str, bells: list[int], is_conductor: bool):
-        prompt_add_ringer(name, bells, is_conductor, self.peal, self.quick_mode)
+    def ringer(self, name: str, bell_nums: list[int], bells: list[int], is_conductor: bool):
+        prompt_add_ringer(name, bell_nums, bells, is_conductor, self.peal, self.quick_mode)
         print(f'👤 Ringer: {self.peal.get_ringer_line(self.peal.ringers[-1])}')
 
     def footnote(self, value: str):

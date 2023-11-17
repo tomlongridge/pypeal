@@ -1,11 +1,13 @@
+import copy
 from pypeal.cli.prompts import ask, ask_int, choose_option, confirm
-from pypeal.method import Method, Stage
+from pypeal.method import Classification, Method, Stage
 
 
-def prompt_add_method(method: Method, original_title: str, quick_mode: bool) -> Method:
+def prompt_add_method(method: Method, original_title: str, quick_mode: bool) -> tuple[Method, bool]:
 
     matched_method: Method = None
     exact_match: bool = True
+    original_method = copy.deepcopy(method)
     while matched_method is None:
 
         if method is not None:
@@ -26,9 +28,8 @@ def prompt_add_method(method: Method, original_title: str, quick_mode: bool) -> 
                         print('Enter search criteria:')
                         name = ask('Name', default=method.name if method else None, required=False)
                         stage = Stage(ask_int('Stage', default=method.stage.value if method else None, min=2, max=22))
-                        classification_list = ['Bob', 'Place', 'Surprise', 'Delight', 'Treble Bob', 'Treble Place']
-                        classification = choose_option(classification_list,
-                                                       default=method.classification if method else None,
+                        classification = choose_option([classification for classification in Classification],
+                                                       default=method.classification if method else 'None',
                                                        return_option=True,
                                                        cancel_option='None')
                         is_differential = confirm(None, 'Is this a differential method?',
@@ -56,14 +57,16 @@ def prompt_add_method(method: Method, original_title: str, quick_mode: bool) -> 
                 matched_method = choose_option(full_method_match, cancel_option='None', return_option=True)
 
         if matched_method is None:
-            if method is None or confirm('No method matched', confirm_message=f'Remove "{original_title}"?'):
-                return None
+            if original_method is None or confirm('No method matched', confirm_message=f'Remove "{original_title}"?'):
+                return None, False
+            else:
+                method = original_method
 
     if (quick_mode or
             (original_title is not None and
                 confirm(f'Matched "{original_title}" to method "{matched_method}" (ID: {matched_method.id})')) or
             (original_title is None and
                 confirm(f'Add "{matched_method}" (ID: {matched_method.id})'))):
-        return matched_method
+        return matched_method, quick_mode
     else:
-        return None
+        return None, False

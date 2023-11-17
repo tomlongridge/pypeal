@@ -1,20 +1,20 @@
 import pytest
 
 from pypeal.parsers import parse_single_method
-from pypeal.method import Stage
+from pypeal.method import Classification, Stage
 
 methods = [
     (
         '640 changes Cambridge Surprise Major',
         Stage.MAJOR,
-        'Surprise',
+        Classification.SURPRISE,
         'Cambridge',
         640
     ),
     (
         '120 Cambridge Surprise Major',
         Stage.MAJOR,
-        'Surprise',
+        Classification.SURPRISE,
         'Cambridge',
         120
     ),
@@ -29,7 +29,7 @@ methods = [
 
 
 @pytest.mark.parametrize('title,expected_stage,expected_classification,expected_method,expected_changes', methods)
-def test_parse_method_title(title: str, expected_stage: Stage, expected_classification: str, expected_method: str, expected_changes: int):
+def test_parse_method_title(title: str, expected_stage: Stage, expected_classification: Classification, expected_method: str, expected_changes: int):
     stage, classification, method, changes = parse_single_method(title)
     assert stage == expected_stage
     assert classification == expected_classification

@@ -49,6 +49,21 @@ class Stage(Enum):
                 return stage
 
 
+class Classification(Enum):
+
+    ALLIANCE = 'Alliance'
+    BOB = 'Bob'
+    DELIGHT = 'Delight'
+    HYBRID = 'Hybrid'
+    PLACE = 'Place'
+    SURPRISE = 'Surprise'
+    TREBLE_BOB = 'Treble Bob'
+    TREBLE_PLACE = 'Treble Place'
+
+    def __str__(self):
+        return self.value
+
+
 @dataclass
 class Method():
 
@@ -58,14 +73,34 @@ class Method():
     is_little: bool = None
     is_plain: bool = None
     is_treble_dodging: bool = None
-    classification: str = None
+    classification: Classification = None
     stage: Stage = None
     id: str = None
+
+    def __init__(self,
+                 full_name: str = None,
+                 name: str = None,
+                 is_differential: bool = None,
+                 is_little: bool = None,
+                 is_plain: bool = None,
+                 is_treble_dodging: bool = None,
+                 classification: str = None,
+                 stage: int = None,
+                 id: str = None):
+        self.full_name = full_name
+        self.name = name
+        self.is_differential = is_differential
+        self.is_little = is_little
+        self.is_plain = is_plain
+        self.is_treble_dodging = is_treble_dodging
+        self.classification = Classification(classification) if classification else None
+        self.stage = Stage(stage) if stage else None
+        self.id = id
 
     @property
     def title(self) -> str:
         text = f'{self.name} ' if self.name else ''
-        text += f'{self.classification} ' if self.classification else ''
+        text += f'{self.classification.value} ' if self.classification else ''
         text += self.stage.name.capitalize() if self.stage else ''
         return text
 
@@ -80,15 +115,14 @@ class Method():
             result = Database.get_connection().query(
                 'SELECT full_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, stage, id ' +
                 'FROM methods WHERE id = %s', (id,)).fetchone()
-            return Cache.get_cache().add(cls.__name__, result[-1], Method(*result[:-2], Stage(result[-2]), result[-1]))
+            return Cache.get_cache().add(cls.__name__, result[-1], Method(*result))
 
     @classmethod
     def get_by_name(cls, name: str):
         results = Database.get_connection().query(
             'SELECT full_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, stage, id FROM methods ' +
             f'WHERE full_name = "{name}"').fetchall()
-        return Cache.get_cache().add_all(cls.__name__,
-                                         {result[-1]: Method(*result[:-2], Stage(result[-2]), result[-1]) for result in results})
+        return Cache.get_cache().add_all(cls.__name__, {result[-1]: Method(*result) for result in results})
 
     @classmethod
     def search(cls,
@@ -97,9 +131,16 @@ class Method():
                is_little: bool = None,
                is_plain: bool = None,
                is_treble_dodging: bool = None,
-               classification: str = None,
+               classification: Classification = None,
                stage: Stage = None,
                exact_match: bool = False) -> list[Method]:
+
+        if exact_match:
+            if name and '%' in name:
+                raise ValueError('Exact match specified in method search, but name contains wildcard')
+        else:
+            name = f'{name}%' if name and '%' not in name else name
+
         query = 'SELECT full_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, stage, id ' + \
                 'FROM methods WHERE 1=1 '
         params = {}
@@ -124,27 +165,25 @@ class Method():
             params['is_treble_dodging'] = is_treble_dodging
         if classification:
             query += 'AND classification = %(classification)s '
-            params['classification'] = classification
+            params['classification'] = classification.value
         if stage:
             query += 'AND stage = %(stage)s '
             params['stage'] = stage.value
         results = Database.get_connection().query(query, params).fetchall()
-        return Cache.get_cache().add_all(cls.__name__,
-                                         {result[-1]: Method(*result[:-2], Stage(result[-2]), result[-1]) for result in results})
+        return Cache.get_cache().add_all(cls.__name__, {result[-1]: Method(*result) for result in results})
 
     @classmethod
     def get_all(cls) -> list[Method]:
         results = Database.get_connection().query(
             'SELECT full_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, stage, id ' +
             'FROM methods').fetchall()
-        return Cache.get_cache().add_all(cls.__name__,
-                                         {result[-1]: Method(*result[:-2], Stage(result[-2]), result[-1]) for result in results})
+        return Cache.get_cache().add_all(cls.__name__, {result[-1]: Method(*result) for result in results})
 
     def commit(self):
         Database.get_connection().query(
             'INSERT INTO methods (full_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, stage, id) ' +
             'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)',
-            (self.full_name, self.name, self.is_differential, self.is_little, self.is_plain, self.is_treble_dodging, self.classification,
-             self.stage.value, self.id))
+            (self.full_name, self.name, self.is_differential, self.is_little, self.is_plain, self.is_treble_dodging,
+             self.classification.value if self.classification else None, self.stage.value if self.stage else None, self.id))
         Database.get_connection().commit()
         Cache.get_cache().add(self.__class__.__name__, self.id, self)

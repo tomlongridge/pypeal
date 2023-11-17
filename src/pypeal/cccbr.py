@@ -8,7 +8,7 @@ import xml.etree.ElementTree as ET
 import requests
 from pypeal.config import get_config
 from pypeal.db import Database
-from pypeal.method import Method, Stage
+from pypeal.method import Method
 
 XML_NAMESPACE = '{http://www.cccbr.org.uk/methods/schemas/2007/05/methods}'
 
@@ -55,7 +55,7 @@ def update_methods():
         for method in method_set.findall(f'{XML_NAMESPACE}method'):
             method_obj = Method(
                 id=method.attrib['id'],
-                stage=Stage(int(stage)),
+                stage=int(stage),
                 classification=classification,
                 name=method.find(f'{XML_NAMESPACE}name').text,
                 full_name=method.find(f'{XML_NAMESPACE}title').text,

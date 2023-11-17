@@ -8,7 +8,7 @@ from pypeal.utils import get_bell_label, split_full_name
 _logger = logging.getLogger('pypeal')
 
 
-def prompt_add_ringer(name: str, bell_nums: list[int], is_conductor: bool, peal: Peal, quick_mode: bool):
+def prompt_add_ringer(name: str, bell_nums: list[int], bells: list[int], is_conductor: bool, peal: Peal, quick_mode: bool):
 
     bell_label = get_bell_label(bell_nums) + ': ' if bell_nums else ''
 
@@ -20,49 +20,51 @@ def prompt_add_ringer(name: str, bell_nums: list[int], is_conductor: bool, peal:
 
     prompt_commit_ringer(matched_ringer, name, peal, quick_mode)
 
-    bells = []
-    while bell_nums is not None and len(bells) < len(bell_nums):
+    if bells is None:
 
-        if peal.stage is not None and peal.ring is not None and peal.stage.num_bells == len(peal.ring.bells):
-            # There is no choice of bells as the stage size matches the number of bells in the tower
-            bells += bell_nums
-        else:
+        bells = []
+        while bell_nums is not None and len(bells) < len(bell_nums):
 
-            suggested_bells = []
-            if len(peal.ringers) and peal.ringers[-1][2] is not None:
-                last_bell: int = peal.ringers[-1][2][-1]
-                for i in range(len(bell_nums)):
-                    suggested_bells.append(last_bell + i + 1)
+            if peal.stage is not None and peal.ring is not None and peal.stage.num_bells == len(peal.ring.bells):
+                # There is no choice of bells as the stage size matches the number of bells in the tower
+                bells += bell_nums
             else:
-                suggested_bells = bell_nums
-            bell_nums_str = get_bell_label(suggested_bells)
-            if quick_mode:
-                if bell_nums[0] == 1:
-                    bell_nums_str = ask('First bell number(s) in the tower', default=bell_nums_str)
+
+                suggested_bells = []
+                if len(peal.ringers) and peal.ringers[-1][2] is not None:
+                    last_bell: int = peal.ringers[-1][2][-1]
+                    for i in range(len(bell_nums)):
+                        suggested_bells.append(last_bell + i + 1)
                 else:
-                    pass  # Use the default for subsequent bells in quick mode
-            else:
-                bell_nums_str = ask('Bell number(s) in the tower', default=bell_nums_str)
-            for bell in bell_nums_str.split(','):
-                bell_list = bell.split('-')
-                if len(bell_list) == 1:
-                    if bell.isnumeric() and _validate_bell([int(bell)], peal):
-                        bells.append(int(bell))
-                        continue
+                    suggested_bells = bell_nums
+                bell_nums_str = get_bell_label(suggested_bells)
+                if quick_mode:
+                    if bell_nums[0] == 1:
+                        bell_nums_str = ask('First bell number(s) in the tower', default=bell_nums_str)
+                    else:
+                        pass  # Use the default for subsequent bells in quick mode
                 else:
-                    if bell_list[0].isnumeric() and bell_list[1].isnumeric():
-                        bell_range = list(range(int(bell_list[0]), int(bell_list[1]) + 1))
-                        if _validate_bell(bell_range, peal):
-                            bells += bell_range
+                    bell_nums_str = ask('Bell number(s) in the tower', default=bell_nums_str)
+                for bell in bell_nums_str.split(','):
+                    bell_list = bell.split('-')
+                    if len(bell_list) == 1:
+                        if bell.isnumeric() and _validate_bell([int(bell)], peal):
+                            bells.append(int(bell))
                             continue
-                error(f'Invalid bell number, list or range: {bell}')
-                bells = []
-                quick_mode = False
-                break
-            if len(bells) > len(bell_nums):
-                if not confirm(f'More bells ({len(bells)}) than expected ({len(bell_nums)}) for this ringer', default=False):
+                    else:
+                        if bell_list[0].isnumeric() and bell_list[1].isnumeric():
+                            bell_range = list(range(int(bell_list[0]), int(bell_list[1]) + 1))
+                            if _validate_bell(bell_range, peal):
+                                bells += bell_range
+                                continue
+                    error(f'Invalid bell number, list or range: {bell}')
                     bells = []
                     quick_mode = False
+                    break
+                if len(bells) > len(bell_nums):
+                    if not confirm(f'More bells ({len(bells)}) than expected ({len(bell_nums)}) for this ringer', default=False):
+                        bells = []
+                        quick_mode = False
 
     peal.add_ringer(matched_ringer, bell_nums, bells if len(bells) > 0 else None, is_conductor)
 

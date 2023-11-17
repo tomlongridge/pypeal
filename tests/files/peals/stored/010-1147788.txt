@@ -67,16 +67,18 @@ Stage (10):
 >>> 9
 [User input: "9"]
 Options: 
-1) Bob
-2) Place
-3) Surprise
-4) Delight
-5) Treble Bob
-6) Treble Place
-7) None
-Select action (7): 
->>> 7
-[User input: "None (7)"]
+1) Alliance
+2) Bob
+3) Delight
+4) Hybrid
+5) Place
+6) Surprise
+7) Treble Bob
+8) Treble Place
+9) None
+Select action (9): 
+>>> 9
+[User input: "None"]
 Is this peal variable cover? [y/n] (n): 
 >>> y
 [User input: "True"]
@@ -97,15 +99,17 @@ Stage:
 >>> 9
 [User input: "9"]
 Options: 
-1) Bob
-2) Place
-3) Surprise
-4) Delight
-5) Treble Bob
-6) Treble Place
-7) None
-Select action: 
->>> 7
+1) Alliance
+2) Bob
+3) Delight
+4) Hybrid
+5) Place
+6) Surprise
+7) Treble Bob
+8) Treble Place
+9) None
+Select action (9): 
+>>> 9
 [User input: "None"]
 Is this a differential method? [y/n]: 
 >>> 
@@ -139,15 +143,17 @@ Stage:
 >>> 10
 [User input: "10"]
 Options: 
-1) Bob
-2) Place
-3) Surprise
-4) Delight
-5) Treble Bob
-6) Treble Place
-7) None
-Select action: 
->>> 7
+1) Alliance
+2) Bob
+3) Delight
+4) Hybrid
+5) Place
+6) Surprise
+7) Treble Bob
+8) Treble Place
+9) None
+Select action (9): 
+>>> 9
 [User input: "None"]
 Is this a differential method? [y/n]: 
 >>> 
@@ -293,8 +299,8 @@ Select action (1):
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 11 January 2015                                                   │
-│ A Quarter Peal of 1260 Spliced Caters and Royal (2m) in 48 mins (18-3-20 in  │
-│ Eb)                                                                          │
+│ A Quarter Peal of 1260 Spliced Caters and Royal (2m) in 48 minutes (18-3-20  │
+│ in Eb)                                                                       │
 │ (Grandsire Bob Caters, Grandsire Bob Royal)                                  │
 │                                                                              │
 │ 1: Byron Miller                                                              │
@@ -338,7 +344,7 @@ Select action (1):
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Sunday, 11 January 2015
-A Quarter Peal of 1260 Spliced Caters and Royal (2m) in 48 mins (18-3-20 in Eb)
+A Quarter Peal of 1260 Spliced Caters and Royal (2m) in 48 minutes (18-3-20 in Eb)
 (Grandsire Bob Caters, Grandsire Bob Royal)
 
 1: Byron Miller

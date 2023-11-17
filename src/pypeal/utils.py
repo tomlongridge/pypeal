@@ -103,11 +103,35 @@ def num_to_word(num: int) -> str:
 
 
 def word_to_num(word: str) -> str:
-    if word in NUM_TO_WORD:
-        return WORD_TO_NUM[word]
+    if word is not None and word.lower() in WORD_TO_NUM:
+        return WORD_TO_NUM[word.lower()]
     else:
         return None
 
 
 def get_num_words() -> list[str]:
     return WORD_TO_NUM.keys()
+
+
+def get_time_str(mins: int) -> str:
+    if mins is None:
+        return 'Unknown'
+    hours = mins // 60
+    mins = mins % 60
+    value = ''
+    if hours == 1:
+        value += '1 hour, '
+    elif hours > 1:
+        value += f'{hours} hours, '
+    value += f'{mins} minutes'
+    return value
+
+
+def strip_internal_space(value: str) -> str:
+    if value is None:
+        return None
+    new_value = ''
+    for word in value.split(' '):
+        if len(word) > 0:
+            new_value += word.strip() + ' '
+    return new_value.strip()

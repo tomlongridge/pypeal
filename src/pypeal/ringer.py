@@ -84,6 +84,13 @@ class Ringer():
         results = Database.get_connection().query(query, params=params).fetchall()
         return Cache.get_cache().add_all(self.__class__.__name__, {result[-1]: Ringer(*result) for result in results})
 
+    def get_peals(self):
+        from pypeal.peal import Peal
+        results = Database.get_connection().query(
+            'SELECT peal_id FROM pealringers WHERE ringer_id = %s ',
+            (self.id,)).fetchall()
+        return [Peal.get(result[0]) for result in results]
+
     @classmethod
     def get(cls, id: int) -> Ringer:
         if (ringer := Cache.get_cache().get(cls.__name__, id)) is not None:
@@ -92,7 +99,10 @@ class Ringer():
             # Get ringers with no link ID (i.e. the actual ringer, not aliases)
             result = Database.get_connection().query(
                 f'SELECT {",".join(FIELD_LIST)}, id FROM ringers WHERE id = %s AND link_id IS NULL', (id,)).fetchone()
-            return Cache.get_cache().add(cls.__name__, result[-1], Ringer(*result))
+            if result:
+                return Cache.get_cache().add(cls.__name__, result[-1], Ringer(*result))
+            else:
+                return None
 
     @classmethod
     def get_by_name(cls,
