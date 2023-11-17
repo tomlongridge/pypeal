@@ -21,6 +21,10 @@ class PealPreviewListener(PealGeneratorListener):
     def title(self, value: str):
         self.__lines['title'] += value
 
+    def method_details(self, value: str):
+        if value:
+            self.__lines['method_details'] = value
+
     def date(self, value: datetime.date):
         self.__lines['date'] = format_date_full(value)
 
@@ -57,6 +61,7 @@ class PealPreviewListener(PealGeneratorListener):
         text += (self.__lines['association'] + '\n') if 'association' in self.__lines else ''
         text += (self.__lines['location'] + '\n') if 'location' in self.__lines else ''
         text += (self.__lines['title'] + '\n') if 'title' in self.__lines else ''
+        text += (self.__lines['method_details'] + '\n') if 'method_details' in self.__lines else ''
         text += (self.__lines['date'] + '\n') if 'date' in self.__lines else ''
         text += '\n'
         text += (self.__lines['ringers'] + '\n') if 'ringers' in self.__lines else ''

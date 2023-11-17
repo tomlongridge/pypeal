@@ -5,7 +5,7 @@ from pypeal.cli.prompt_add_footnote import prompt_add_footnote, prompt_add_muffl
 from pypeal.cli.prompt_validate_footnotes import prompt_validate_footnotes
 from pypeal.cli.prompt_validate_tenor import prompt_validate_tenor
 from pypeal.cli.prompt_add_association import prompt_add_association
-from pypeal.cli.prompt_add_change_of_method import prompt_add_change_of_method
+from pypeal.cli.prompt_add_change_of_method import prompt_add_change_of_method_from_string
 from pypeal.cli.prompt_add_composer import prompt_add_composer
 from pypeal.cli.prompt_add_location import prompt_add_location
 from pypeal.cli.prompt_add_ringer import prompt_add_ringer
@@ -68,16 +68,27 @@ class PealPromptListener(PealGeneratorListener):
             print(f'📕 Title: {self.peal.title}')
 
     def method_details(self, value: str):
+        # A non-peal performance will have general text about the performance
+        # e.g. "Rounds and call changes"
         if self.peal.length_type is None:
             self.peal.detail = value
             if value:
                 print(f'📝 Details: {value}')
-        elif value or self.peal.type in [PealType.MIXED_METHODS, PealType.SPLICED_METHODS]:
-            self._run_cancellable_prompt(
-                lambda peal: prompt_add_change_of_method(value, peal, self.quick_mode))
+            return
+
+        # If we have method details then prompt for entry, but also if the peal is multi-method but we haven't got 
+        # any specific methods yet. If the title contained the methods, these will already have been added
+        # e.g. "Spliced Cambridge and Yorkshire Royal"
+        if value or self.peal.type in [PealType.MIXED_METHODS, PealType.SPLICED_METHODS]:
+            if len(self.peal.methods) == 0:
+                self._run_cancellable_prompt(
+                    lambda peal: prompt_add_change_of_method_from_string(value, peal, self.quick_mode))
             print('📝 Method details:')
-            for method in self.peal.methods:
-                print(f'  - {method[0].full_name}' + (f' ({method[1]})' if method[1] else ''))
+            if len(self.peal.methods) > 0:
+                for method in self.peal.methods:
+                    print(f'  - {method[0].full_name}' + (f' ({method[1]})' if method[1] else ''))
+            else:
+                print('  - None')
 
     def composer(self, name: str, url: str):
         self._run_cancellable_prompt(

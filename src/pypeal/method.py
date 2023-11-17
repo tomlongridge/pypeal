@@ -102,7 +102,7 @@ class Method():
         text = f'{self.name} ' if self.name else ''
         text += f'{self.classification.value} ' if self.classification else ''
         text += self.stage.name.capitalize() if self.stage else ''
-        return text
+        return text.strip()
 
     def __str__(self) -> str:
         return self.full_name or self.title

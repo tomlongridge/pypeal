@@ -21,6 +21,7 @@ Bellboard URL or peal ID:
 ╭───────────────── http://localhost:8080/view.php?id=1657469 ──────────────────╮
 │ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
 │ 1260 Doubles (3m)                                                            │
+│ 360 each Reverse Canterbury Pleasure Place, Plain Bob; 540 Grandsire.        │
 │ Sunday, 10 September 2023 (7–3–12 in B♭) in 41m                              │
 │                                                                              │
 │ 1: Ryan Elliott                                                              │
@@ -109,7 +110,7 @@ Is this a little method? [y/n]:
 Is this a treble dodging method? [y/n]: 
 >>> 
 [User input: "None"]
-Matched "360 each Reverse Canterbury Pleasure Place" to method "Reverse 
+Matched "each Reverse Canterbury Pleasure Place Doubles" to method "Reverse 
 Canterbury Pleasure Place Doubles" (ID: m10521)
 Is this correct? [y/n] (y): 
 >>> y
@@ -118,7 +119,7 @@ Number of changes (360):
 >>> 
 [User input: "360"]
 Method 1: Reverse Canterbury Pleasure Place Doubles (360 changes)
-Matched "Plain Bob" to method "Plain Bob Doubles" (ID: m10550)
+Matched "Plain Bob Doubles" to method "Plain Bob Doubles" (ID: m10550)
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
@@ -126,7 +127,7 @@ Number of changes:
 >>> 360
 [User input: "360"]
 Method 2: Plain Bob Doubles (360 changes)
-Matched "540 Grandsire." to method "Grandsire Doubles" (ID: m10587)
+Matched "Grandsire Doubles" to method "Grandsire Doubles" (ID: m10587)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]

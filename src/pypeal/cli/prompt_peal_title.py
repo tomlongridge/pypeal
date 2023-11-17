@@ -1,3 +1,4 @@
+from pypeal.cli.prompt_add_change_of_method import prompt_add_change_of_method
 from pypeal.cli.prompts import ask, ask_int, choose_option, confirm
 from pypeal.method import Classification, Method, Stage
 from pypeal.parsers import parse_method_title
@@ -36,13 +37,15 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
         print(f'Matching peal titled "{title}"...')
 
         # Parse method title for inspiration and future search
-        parsed_method: Method
-        parsed_method, is_spliced, is_mixed, num_methods, \
+        parsed_methods: list[Method]
+        parsed_methods, is_spliced, is_mixed, num_methods, \
             num_variants, num_principles = parse_method_title(title)
 
         # We haven't matched a method but it's not multi-method, start a single method search
         # (note - "is not True" here is correct as if it's None we want to do this)
-        if is_spliced is not True and is_mixed is not True:
+        if is_spliced is not True and is_mixed is not True and len(parsed_methods) == 1:
+
+            parsed_method = parsed_methods[0]
 
             # Attempt non-exact search using name parsed from title
             non_exact_method_match = Method.search(name=parsed_method.name,
@@ -91,6 +94,8 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
         # Search for a single method
         if is_spliced is False and is_mixed is False:
 
+            parsed_method = parsed_methods[0]
+
             print(f'Unable to match single method from title "{title}". Please enter search criteria manually:')
             quick_mode = False
 
@@ -131,9 +136,20 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
 
             print(f'Multi-method peal: "{title}"...')
 
-            stage = parsed_method.stage
-            classification = parsed_method.classification
             is_variable_cover = False
+            match len(parsed_methods):
+                case 2:
+                    stage = parsed_methods[0].stage
+                    if parsed_methods[0].stage != parsed_methods[1].stage:
+                        is_variable_cover = True
+                    if parsed_methods[0].classification == parsed_methods[1].classification:
+                        classification = parsed_methods[0].classification
+                case 1:
+                    stage = parsed_methods[0].stage
+                    classification = parsed_methods[0].classification
+                case 0:
+                    stage = None
+                    classification = None
 
             if not quick_mode:
                 while True:
@@ -159,6 +175,11 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
                            num_principles,
                            num_variants,
                            is_variable_cover)
+
+            # We have identified two methods from the title - add them to method details
+            if len(parsed_methods) > 1:
+                prompt_add_change_of_method([(method, None) for method in parsed_methods], peal, quick_mode)
+
             return
 
         # All options abandoned, loop round again

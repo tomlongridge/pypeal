@@ -6,23 +6,32 @@ from pypeal.parsers import parse_single_method
 from pypeal.peal import Peal
 
 
-def prompt_add_change_of_method(method_details: str, peal: Peal, quick_mode: bool):
+def prompt_add_change_of_method_from_string(method_details: str, peal: Peal, quick_mode: bool):
 
-    print('Adding changes of methods to multi-method peal...')
-
-    # Parse method details
-    if method_details:  # method_details is None if no methods were listed but it is a multi-method peal in title
-
+    methods: list[tuple[Method, int]] = []
+    if method_details:
         for method in [detail.strip() for detail in re.split(r',|;', method_details)]:
-
             method_obj = Method(None)
             method_obj.stage, method_obj.classification, method_obj.name, changes = parse_single_method(method)
             if not method_obj.stage:
                 method_obj.stage = peal.stage
             if not method_obj.classification:
                 method_obj.classification = peal.classification
+            methods.append((method_obj, changes))
 
-            new_method, quick_mode = prompt_add_method(method_obj, method, quick_mode)
+    prompt_add_change_of_method(methods, peal, quick_mode)
+
+
+def prompt_add_change_of_method(method_details: list[tuple[Method, int]], peal: Peal, quick_mode: bool):
+
+    print('Adding changes of methods to multi-method peal...')
+
+    # Parse method details
+    if method_details:  # method_details is None if no methods were listed but it is a multi-method peal in title
+
+        for method_obj, changes in method_details:
+
+            new_method, quick_mode = prompt_add_method(method_obj, quick_mode)
             if not new_method:
                 quick_mode = False
                 continue
@@ -45,7 +54,7 @@ def prompt_add_change_of_method(method_details: str, peal: Peal, quick_mode: boo
                             confirm_message='Do you want to add more?',
                             default=False):
             break
-        method, quick_mode = prompt_add_method(None, None, quick_mode)
+        method, quick_mode = prompt_add_method(None, quick_mode)
         if method:
             changes = ask_int('Number of changes', default=None)
             peal.add_method(method, changes)

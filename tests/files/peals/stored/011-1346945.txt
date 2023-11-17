@@ -22,6 +22,8 @@ Bellboard URL or peal ID:
 │ Suffolk Guild                                                                │
 │ St John the Baptist, Saxmundham, Suffolk                                     │
 │ 5040 8 Methods/variations Doubles                                            │
+│ Being Stedman, Grandsire, Reverse Canterbury Pleasure Place Bob, Winchendon  │
+│ Place Bob, St Nicholas Bob, St Simon's Bob, St Martin's Bob, and Plain Bob.  │
 │ Monday, 27 March 1967 (8–3–7 in A) in 2h 29                                  │
 │                                                                              │
 │ 1: Lydia Reed                                                                │
@@ -126,7 +128,7 @@ Is this a little method? [y/n]:
 Is this a treble dodging method? [y/n]: 
 >>> 
 [User input: "None"]
-Matched "Being Stedman" to method "Stedman Doubles" (ID: m27834)
+Matched "Being Stedman Doubles" to method "Stedman Doubles" (ID: m27834)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -134,7 +136,7 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 1: Stedman Doubles (630 changes)
-Matched "Grandsire" to method "Grandsire Doubles" (ID: m10587)
+Matched "Grandsire Doubles" to method "Grandsire Doubles" (ID: m10587)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -176,8 +178,8 @@ Is this a little method? [y/n]:
 Is this a treble dodging method? [y/n]: 
 >>> 
 [User input: "None"]
-Matched "Reverse Canterbury Pleasure Place Bob" to method "Reverse Canterbury 
-Pleasure Place Doubles" (ID: m10521)
+Matched "Reverse Canterbury Pleasure Place Bob Doubles" to method "Reverse 
+Canterbury Pleasure Place Doubles" (ID: m10521)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -219,7 +221,8 @@ Is this a little method? [y/n]:
 Is this a treble dodging method? [y/n]: 
 >>> 
 [User input: "None"]
-Matched "Winchendon Place Bob" to method "Winchendon Place Doubles" (ID: m10524)
+Matched "Winchendon Place Bob Doubles" to method "Winchendon Place Doubles" (ID:
+m10524)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -227,7 +230,8 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 4: Winchendon Place Doubles (630 changes)
-Matched "St Nicholas Bob" to method "St Nicholas Bob Doubles" (ID: m10526)
+Matched "St Nicholas Bob Doubles" to method "St Nicholas Bob Doubles" (ID: 
+m10526)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -235,7 +239,7 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 5: St Nicholas Bob Doubles (630 changes)
-Matched "St Simon's Bob" to method "St Simon's Bob Doubles" (ID: m10560)
+Matched "St Simon's Bob Doubles" to method "St Simon's Bob Doubles" (ID: m10560)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -243,7 +247,8 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 6: St Simon's Bob Doubles (630 changes)
-Matched "St Martin's Bob" to method "St Martin's Bob Doubles" (ID: m10555)
+Matched "St Martin's Bob Doubles" to method "St Martin's Bob Doubles" (ID: 
+m10555)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -285,7 +290,7 @@ Is this a little method? [y/n]:
 Is this a treble dodging method? [y/n]: 
 >>> 
 [User input: "None"]
-Matched "and Plain Bob." to method "Plain Bob Doubles" (ID: m10550)
+Matched "and Plain Bob Doubles" to method "Plain Bob Doubles" (ID: m10550)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]

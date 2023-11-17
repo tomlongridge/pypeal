@@ -4,9 +4,19 @@ from pypeal import utils
 from pypeal.method import Classification, Method, Stage
 
 METHOD_TITLE_MIXED_METHODS_REGEX = \
-    re.compile(r'^(?P<num_methods>[0-9]+|' + '|'.join(utils.get_num_words()) + r')+ ' +
-               r'(?P<classification>' + '|'.join([s.name for s in Classification]) + r')?\s?' +
+    re.compile(r'^(?P<num_methods>[0-9]+|' + '|'.join(utils.get_num_words()) + r')?\s?' +
+               r'(?P<classification>' + '|'.join([s.value for s in Classification]) + r')?\s?' +
                r'(?P<stage>' + '|'.join([s.name for s in Stage]) + ')',
+               re.IGNORECASE)
+
+METHOD_TITLE_TWO_METHODS_REGEX = \
+    re.compile(r'^(?:(?P<method_1>[\w\s\d]+?)\s)?' +
+               r'(?:(?P<classification_1>' + '|'.join([s.value for s in Classification]) + r')\s)?' +
+               r'(?:(?P<stage_1>' + '|'.join([s.name for s in Stage]) + r')\s)?' +
+               r'and\s' +
+               r'(?:(?P<method_2>[\w\s\d]+?)\s)?' +
+               r'(?:(?P<classification_2>' + '|'.join([s.value for s in Classification]) + r')\s)?' +
+               r'(?:(?P<stage_2>' + '|'.join([s.name for s in Stage]) + r'))?',
                re.IGNORECASE)
 
 # Match either a number and one of m, v or p as part of the title or, if in brackets, then allow just m, v or p with no number
@@ -35,42 +45,45 @@ FOOTNOTE_ALL_BAND_REGEX = \
     re.compile(r'.*(?:for|by) all(?: the band)?(?: (?:except for|except|apart from)(?: the)? (?P<exceptions>[^\.]+))?', re.IGNORECASE)
 
 
-def parse_method_title(title: str) -> tuple[Method, bool, bool, int, int, int]:
+def parse_method_title(title: str) -> tuple[list[Method], bool, bool, int, int, int]:
 
-    method: Method = Method()
+    methods: list[Method] = [Method()]
+    methods[0].name = title
     is_spliced: bool = None
     is_mixed: bool = None
     num_methods: int = None
     num_variants: int = None
     num_principles: int = None
 
-    if title.lower().startswith('mixed'):
+    if methods[0].name.lower().startswith('mixed'):
         is_spliced = False
         is_mixed = True
-        title = title[5:].strip()
+        methods[0].name = methods[0].name[5:].strip()
 
-    if title.lower().startswith('spliced'):
+    if methods[0].name.lower().startswith('spliced'):
         is_spliced = True
         is_mixed = False
-        title = title[7:].strip()
+        methods[0].name = methods[0].name[7:].strip()
     else:
         is_spliced = False  # It's not spliced if it doesn't say in title (unlike mixed)
 
     # Catch titles such as "12 Doubles"
-    if match := re.match(METHOD_TITLE_MIXED_METHODS_REGEX, title):
+    if match := re.match(METHOD_TITLE_MIXED_METHODS_REGEX, methods[0].name):
         is_mixed = True
         match_details = match.groupdict()
-        method.stage = Stage.from_method(match_details['stage'])
-        method.classification = Classification(match_details['classification']) if match_details['classification'] else None
-        if match_details['num_methods'].isnumeric():
-            num_methods = int(match_details['num_methods'])
-        else:
-            num_methods = utils.word_to_num(match_details['num_methods'])
-        title = title[len(match_details['num_methods']) + 1:].strip()
+        if match_details['num_methods']:
+            methods[0].name = methods[0].name[len(match_details['num_methods']) + 1:].strip()
+            if match_details['num_methods'].isnumeric():
+                num_methods = int(match_details['num_methods'])
+            else:
+                num_methods = utils.word_to_num(match_details['num_methods'])
+        if match_details['classification']:
+            methods[0].classification = Classification(match_details['classification'])
+        methods[0].stage = Stage.from_method(match_details['stage'])
 
     # Parse m/v/p detail in brackets
-    elif re.search(METHOD_TITLE_NUM_METHODS_REGEX, title):
-        multi_method_match = re.findall(METHOD_TITLE_NUM_METHODS_GROUP_REGEX, title.strip('()'))
+    if re.search(METHOD_TITLE_NUM_METHODS_REGEX, methods[0].name):
+        multi_method_match = re.findall(METHOD_TITLE_NUM_METHODS_GROUP_REGEX, methods[0].name.strip('()'))
         if len(multi_method_match) > 0:
             is_mixed = not is_spliced
             num_methods = num_variants = num_principles = 0
@@ -82,29 +95,50 @@ def parse_method_title(title: str) -> tuple[Method, bool, bool, int, int, int]:
                         num_variants = int(multi_method.removesuffix('v'))
                     case 'p':
                         num_principles = int(multi_method.removesuffix('p'))
+        methods[0].name = re.sub(METHOD_TITLE_NUM_METHODS_REGEX, '', methods[0].name).strip()
+        methods[0].stage, methods[0].classification, methods[0].name, _ = parse_single_method(methods[0].name, expect_changes=False)
 
-        title = re.sub(METHOD_TITLE_NUM_METHODS_REGEX, '', title).strip()
+    # Two named methods as the title
+    elif match_details := re.search(METHOD_TITLE_TWO_METHODS_REGEX, methods[0].name):
+        match_details = match_details.groupdict()
+        methods[0].name = match_details['method_1']
+        methods[0].classification = Classification(match_details['classification_1']) if match_details['classification_1'] else None
+        methods[0].stage = Stage.from_method(match_details['stage_1']) if match_details['stage_1'] else None
+        methods.append(Method())
+        methods[1].name = match_details['method_2']
+        methods[1].classification = Classification(match_details['classification_2']) if match_details['classification_2'] else None
+        methods[1].stage = Stage.from_method(match_details['stage_2']) if match_details['stage_2'] else None
+        # If no method name given for second method, assume the same as the first
+        # e.g. "Grandsire Caters and Royal"
+        methods[1].name = methods[1].name or methods[0].name
+        # If no stage or classification given for the first method, assume the same as the second
+        # e.g. "Cambridge and Yorkshire Surprise Major"
+        methods[0].classification = methods[0].classification or methods[1].classification
+        methods[0].stage = methods[0].stage or methods[1].stage
+        num_methods = 2
+        is_mixed = not is_spliced
+    else:
+        methods[0].stage, methods[0].classification, methods[0].name, _ = parse_single_method(methods[0].name, expect_changes=False)
 
-    method.stage, method.classification, title, _ = parse_single_method(title, expect_changes=False)
-
-    if title.lower().endswith('little'):
-        method.is_little = True
-        title = title[:-6].strip()
-    elif title.lower().endswith('differential'):
-        method.is_differential = True
-        title = title[:-12].strip()
-    elif title.lower().endswith('treble dodging'):
-        method.is_treble_dodging = True
-        title = title[:-13].strip()
+    for method in methods:
+        if method.name is None:
+            continue
+        if method.name.lower().endswith('plain'):
+            method.is_plain = True
+        elif method.name.lower().endswith('little'):
+            method.is_little = True
+        elif method.name.lower().endswith('differential'):
+            method.is_differential = True
+        elif method.name.lower().endswith('treble dodging'):
+            method.is_treble_dodging = True
+        method.name = method.name if len(method.name) > 0 else None
 
     # If there's no title left after parsing, it's a multi-method mixed peal with no number of methods specified
     # (exception – Little Bob)
-    if is_spliced is not True and len(title) == 0 and method.is_little is not True:
-        is_mixed = True
+    # if is_spliced is not True and len(title) == 0 and method.is_little is not True:
+    #     is_mixed = True
 
-    method.name = title if len(title) > 0 else None
-
-    return (method, is_spliced, is_mixed, num_methods, num_variants, num_principles)
+    return (methods, is_spliced, is_mixed, num_methods, num_variants, num_principles)
 
 
 def parse_single_method(method: str, expect_changes: bool = True) -> tuple[Stage, Classification, str, int]:

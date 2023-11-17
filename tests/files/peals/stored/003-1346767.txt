@@ -22,6 +22,9 @@ Bellboard URL or peal ID:
 │ Suffolk Guild                                                                │
 │ Holy Trinity, Blythburgh, Suffolk                                            │
 │ 5040 8 Methods Minor                                                         │
+│ Being seven extents in eight methods, Viz: (1) Norwich Surprise, (2) Ipswich │
+│ Surprise, (3) Cambridge Surprise, (4)Single Oxford Bob, (5) Plain Bob, (6)   │
+│ St Clement's College Bob and Double Oxford Bob, (7) Oxford Treble Bob.       │
 │ Monday, 25 March 1963 (10–1–10 in G) in 2h 42                                │
 │                                                                              │
 │ 1: Blake Howard                                                              │
@@ -86,7 +89,7 @@ Select action (1):
 >>> 2
 [User input: "Cancel"]
 No method matched
-Remove "Being seven extents in eight methods"? [y/n] (y): 
+Remove "Being seven extents in eight methods Surprise Minor"? [y/n] (y): 
 >>> y
 [User input: "True"]
 No methods match "Viz: (1) Norwich Surprise Minor"
@@ -123,8 +126,8 @@ Is this a little method? [y/n]:
 Is this a treble dodging method? [y/n]: 
 >>> 
 [User input: "None"]
-Matched "Viz: (1) Norwich Surprise" to method "Norwich Surprise Minor" (ID: 
-m14317)
+Matched "Viz: (1) Norwich Surprise Minor" to method "Norwich Surprise Minor" 
+(ID: m14317)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -166,7 +169,8 @@ Is this a little method? [y/n]:
 Is this a treble dodging method? [y/n]: 
 >>> 
 [User input: "None"]
-Matched "(2) Ipswich Surprise" to method "Ipswich Surprise Minor" (ID: m14563)
+Matched "(2) Ipswich Surprise Minor" to method "Ipswich Surprise Minor" (ID: 
+m14563)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -213,7 +217,7 @@ Options: 1) Cambridge Surprise Minor, 2) New Cambridge Surprise Minor, 3) None
 Select action: 
 >>> 1
 [User input: "Cambridge Surprise Minor (1)"]
-Matched "(3) Cambridge Surprise" to method "Cambridge Surprise Minor" (ID: 
+Matched "(3) Cambridge Surprise Minor" to method "Cambridge Surprise Minor" (ID:
 m14568)
 Is this correct? [y/n] (y): 
 >>> y
@@ -256,7 +260,8 @@ Is this a little method? [y/n]:
 Is this a treble dodging method? [y/n]: 
 >>> 
 [User input: "None"]
-Matched "(4)Single Oxford Bob" to method "Single Oxford Bob Minor" (ID: m11104)
+Matched "(4)Single Oxford Bob Minor" to method "Single Oxford Bob Minor" (ID: 
+m11104)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -298,7 +303,7 @@ Is this a little method? [y/n]:
 Is this a treble dodging method? [y/n]: 
 >>> 
 [User input: "None"]
-Matched "(5) Plain Bob" to method "Plain Bob Minor" (ID: m11349)
+Matched "(5) Plain Bob Minor" to method "Plain Bob Minor" (ID: m11349)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -340,7 +345,7 @@ Is this a little method? [y/n]:
 Is this a treble dodging method? [y/n]: 
 >>> 
 [User input: "None"]
-Matched "(6) St Clement's College Bob and Double Oxford Bob" to method "St 
+Matched "(6) St Clement's College Bob and Double Oxford Bob Minor" to method "St
 Clement's College Bob Minor" (ID: m11369)
 Is this correct? [y/n] (y): 
 >>> y
@@ -383,7 +388,7 @@ Is this a little method? [y/n]:
 Is this a treble dodging method? [y/n]: 
 >>> 
 [User input: "None"]
-Matched "(7) Oxford Treble Bob." to method "Oxford Treble Bob Minor" (ID: 
+Matched "(7) Oxford Treble Bob Minor" to method "Oxford Treble Bob Minor" (ID: 
 m25915)
 Is this correct? [y/n] (y): 
 >>> y

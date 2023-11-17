@@ -21,6 +21,7 @@ Bellboard URL or peal ID:
 ╭───────────────── http://localhost:8080/view.php?id=1619100 ──────────────────╮
 │ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
 │ General Ringing                                                              │
+│ Including Call Changes to Kings and Queens on 10                             │
 │ Saturday, 6 May 2023 (18–3–20 in E♭)                                         │
 │                                                                              │
 │ Arnold Johnson                                                               │

@@ -323,8 +323,11 @@ class Peal:
 
     @property
     def title(self) -> str:
-        if self.method and self.method.full_name:
-            return self.method.full_name
+        if self.method:
+            if self.method.full_name:
+                return self.method.full_name
+            if self.method.title:
+                return self.method.title
         text = ''
         text += 'Spliced ' if self.type == PealType.SPLICED_METHODS else ''
         text += 'Mixed ' if self.type == PealType.MIXED_METHODS else ''

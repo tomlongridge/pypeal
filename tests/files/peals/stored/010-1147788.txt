@@ -50,11 +50,8 @@ Is this correct? [y/n] (y):
 🏰 Tower: Bath, Bathwick, Somerset, England, Blessed Virgin Mary
 🔢 Changes: 1260
 Matching peal titled "Grandsire Caters and Royal"...
-Is this a spliced peal? [y/n] (n): 
->>> y
-[User input: "True"]
 Multi-method peal: "Grandsire Caters and Royal"...
-Number of methods (0): 
+Number of methods (2): 
 >>> 2
 [User input: "2"]
 Number of principles (0): 
@@ -63,7 +60,7 @@ Number of principles (0):
 Number of variants (0): 
 >>> 
 [User input: "0"]
-Stage (10): 
+Stage (9): 
 >>> 9
 [User input: "9"]
 Options: 
@@ -79,48 +76,11 @@ Options:
 Select action (9): 
 >>> 9
 [User input: "None"]
-Is this peal variable cover? [y/n] (n): 
+Is this peal variable cover? [y/n] (y): 
 >>> y
 [User input: "True"]
-📕 Title: Spliced Caters and Royal (2m)
 Adding changes of methods to multi-method peal...
-Add changes of method? [y/n] (y): 
->>> y
-[User input: "True"]
-Options: 1) Search alternatives, 2) Cancel
-Select action (1): 
->>> 1
-[User input: "1"]
-Enter search criteria:
-Name: 
->>> grandsire
-[User input: "grandsire"]
-Stage: 
->>> 9
-[User input: "9"]
-Options: 
-1) Alliance
-2) Bob
-3) Delight
-4) Hybrid
-5) Place
-6) Surprise
-7) Treble Bob
-8) Treble Place
-9) None
-Select action (9): 
->>> 9
-[User input: "None"]
-Is this a differential method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a little method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a treble dodging method? [y/n]: 
->>> 
-[User input: "None"]
-Add "Grandsire Caters" (ID: m13833)
+Matched "Grandsire Caters" to method "Grandsire Caters" (ID: m13833)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -128,43 +88,7 @@ Number of changes:
 >>> 
 [User input: "None"]
 Method 1: Grandsire Bob Caters (unknown changes)
-Add changes of method? [y/n] (y): 
->>> y
-[User input: "True"]
-Options: 1) Search alternatives, 2) Cancel
-Select action (1): 
->>> 1
-[User input: "1"]
-Enter search criteria:
-Name: 
->>> grandsire
-[User input: "grandsire"]
-Stage: 
->>> 10
-[User input: "10"]
-Options: 
-1) Alliance
-2) Bob
-3) Delight
-4) Hybrid
-5) Place
-6) Surprise
-7) Treble Bob
-8) Treble Place
-9) None
-Select action (9): 
->>> 9
-[User input: "None"]
-Is this a differential method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a little method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a treble dodging method? [y/n]: 
->>> 
-[User input: "None"]
-Add "Grandsire Royal" (ID: m14030)
+Matched "Grandsire Royal" to method "Grandsire Royal" (ID: m14030)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -172,9 +96,10 @@ Number of changes:
 >>> 
 [User input: "None"]
 Method 2: Grandsire Bob Royal (unknown changes)
-Add changes of method? [y/n] (n): 
+Add more changes of method? [y/n] (n): 
 >>> n
 [User input: "False"]
+📕 Title: Mixed Caters and Royal (2m)
 📝 Method details:
   - Grandsire Caters
   - Grandsire Royal
@@ -299,8 +224,8 @@ Select action (1):
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 11 January 2015                                                   │
-│ A Quarter Peal of 1260 Spliced Caters and Royal (2m) in 48 minutes (18-3-20  │
-│ in Eb)                                                                       │
+│ A Quarter Peal of 1260 Mixed Caters and Royal (2m) in 48 minutes (18-3-20 in │
+│ Eb)                                                                          │
 │ (Grandsire Bob Caters, Grandsire Bob Royal)                                  │
 │                                                                              │
 │ 1: Byron Miller                                                              │
@@ -344,7 +269,7 @@ Select action (1):
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Sunday, 11 January 2015
-A Quarter Peal of 1260 Spliced Caters and Royal (2m) in 48 minutes (18-3-20 in Eb)
+A Quarter Peal of 1260 Mixed Caters and Royal (2m) in 48 minutes (18-3-20 in Eb)
 (Grandsire Bob Caters, Grandsire Bob Royal)
 
 1: Byron Miller

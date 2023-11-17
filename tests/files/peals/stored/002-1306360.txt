@@ -79,6 +79,7 @@ Add changes of method? [y/n] (y):
 >>> n
 [User input: "False"]
 📝 Method details:
+  - None
 No composer attributed
 Is this correct? [y/n] (y): 
 >>> y

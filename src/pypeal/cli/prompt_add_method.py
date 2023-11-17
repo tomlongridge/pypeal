@@ -3,7 +3,7 @@ from pypeal.cli.prompts import ask, ask_int, choose_option, confirm
 from pypeal.method import Classification, Method, Stage
 
 
-def prompt_add_method(method: Method, original_title: str, quick_mode: bool) -> tuple[Method, bool]:
+def prompt_add_method(method: Method, quick_mode: bool) -> tuple[Method, bool]:
 
     matched_method: Method = None
     exact_match: bool = True
@@ -57,15 +57,15 @@ def prompt_add_method(method: Method, original_title: str, quick_mode: bool) -> 
                 matched_method = choose_option(full_method_match, cancel_option='None', return_option=True)
 
         if matched_method is None:
-            if original_method is None or confirm('No method matched', confirm_message=f'Remove "{original_title}"?'):
+            if original_method is None or confirm('No method matched', confirm_message=f'Remove "{original_method.title}"?'):
                 return None, False
             else:
                 method = original_method
 
     if (quick_mode or
-            (original_title is not None and
-                confirm(f'Matched "{original_title}" to method "{matched_method}" (ID: {matched_method.id})')) or
-            (original_title is None and
+            (original_method is not None and
+                confirm(f'Matched "{original_method.title}" to method "{matched_method}" (ID: {matched_method.id})')) or
+            (original_method is None and
                 confirm(f'Add "{matched_method}" (ID: {matched_method.id})'))):
         return matched_method, quick_mode
     else:
