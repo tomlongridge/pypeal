@@ -64,7 +64,7 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
                 case _:
                     print(f'{len(non_exact_method_match)} methods match "{parsed_method}"')
                     if quick_mode:
-                        set_peal_title(peal, full_method_match[0], PealType.SINGLE_METHOD)
+                        set_peal_title(peal, non_exact_method_match[0], PealType.SINGLE_METHOD)
                     else:
                         set_peal_title(peal,
                                        choose_option(non_exact_method_match, cancel_option='None', return_option=True),
@@ -192,4 +192,4 @@ def set_peal_title(peal: Peal,
         peal.description = None
         peal.method = title
         peal.stage = title.stage
-        peal.classification = Classification(title.classification)
+        peal.classification = Classification(title.classification) if title.classification else None

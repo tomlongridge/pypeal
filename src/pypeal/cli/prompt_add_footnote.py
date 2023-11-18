@@ -1,4 +1,5 @@
 import re
+from pypeal import utils
 from pypeal.cli.prompt_add_composer import prompt_add_composer
 from pypeal.cli.prompts import ask, choose_option, confirm, error, warning
 from pypeal.parsers import parse_footnote, parse_footnote_for_composer
@@ -47,6 +48,7 @@ def prompt_add_muffle_type(peal: Peal):
 
 
 def _prompt_add_single_footnote(bells: list[int], text: str, peal: Peal, quick_mode: bool = False):
+    text = utils.strip_internal_space(text)
     ringers = None
     while True:
         if text:

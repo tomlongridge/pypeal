@@ -19,14 +19,20 @@ DURATION_REGEX = re.compile(r'^(?:(?P<hours>\d{1,2})[h])$|^(?:(?P<mins>\d+)[m]?)
 TENOR_INFO_REGEX = re.compile(r'(?P<tenor_weight>[^in]+|size\s[0-9]+)(?:\sin\s(?P<tenor_note>.*))?$')
 
 FOOTNOTE_RINGER_SEPARATORS = [' ', ',', '&', 'and']
-FOOTNOTE_RINGER_REGEX_PREFIX = re.compile(r'^(?P<bells>[0-9\s(?:' + '|'.join(FOOTNOTE_RINGER_SEPARATORS) +
-                                          r')]+)\s?[-:]\s?(?P<footnote>.*)$')
-FOOTNOTE_RINGER_REGEX_SUFFIX = re.compile(r'^(?P<footnote>.*)\s?[-:]\s?(?P<bells>[0-9\s(?:' + '|'.join(FOOTNOTE_RINGER_SEPARATORS) +
-                                          r')]+)\.?$')
+FOOTNOTE_RINGER_REGEX_PREFIX = re.compile(r'^(?P<bells>(?:(?:(?:[0-9]+(?:st|nd|rd|th)?)|' +
+                                          r'(?:treble|tenor|' + '|'.join(utils.get_num_words()) + r'))\s?(?:' +
+                                          '|'.join(FOOTNOTE_RINGER_SEPARATORS) +
+                                          r')?\s?)+)' +
+                                          r'\s?[-:]\s?(?P<footnote>.*)\.?$', re.IGNORECASE)
+FOOTNOTE_RINGER_REGEX_SUFFIX = re.compile(r'^(?P<footnote>.*)\s?[-:]\s?(?P<bells>(?:(?:(?:[0-9]+(?:st|nd|rd|th)?)|' +
+                                          r'(?:treble|tenor|' + '|'.join(utils.get_num_words()) + r'))\s?(?:' +
+                                          '|'.join(FOOTNOTE_RINGER_SEPARATORS) +
+                                          r')?\s?)+)' +
+                                          r'\.?$', re.IGNORECASE)
 FOOTNOTE_CONDUCTOR_REGEX = re.compile(r'.*as conductor.*', re.IGNORECASE)
 FOOTNOTE_COMPOSER_REGEX = re.compile(r'.*composed by\s(?P<composer>.*)$', re.IGNORECASE)
 FOOTNOTE_ALL_BAND_REGEX = \
-    re.compile(r'.*for all(?: the band)?(?: (?:except for|except|apart from)(?: the)? (?P<exceptions>[^\.]+))?', re.IGNORECASE)
+    re.compile(r'.*(?:for|by) all(?: the band)?(?: (?:except for|except|apart from)(?: the)? (?P<exceptions>[^\.]+))?', re.IGNORECASE)
 
 
 def parse_method_title(title: str) -> tuple[Method, bool, bool, int, int, int]:
@@ -192,8 +198,17 @@ def parse_footnote(footnote: str, num_bells: int, conductor_bells: list[int]) ->
             text = footnote_info['footnote'].strip()
             bells = []
             for bell in re.split('|'.join(FOOTNOTE_RINGER_SEPARATORS), footnote_info['bells']):
-                if len(bell) > 0:
+                if len(bell) == 0:
+                    continue
+                elif bell[0].isnumeric():
+                    bell = bell.replace('st', '').replace('nd', '').replace('rd', '').replace('th', '')
                     bells.append(int(bell))
+                elif utils.word_to_num(bell) is not None:
+                    bells.append(utils.word_to_num(bell))
+                elif bell.lower() == 'treble':
+                    bells.append(1)
+                elif bell.lower() == 'tenor':
+                    bells.append(num_bells)
         text += '.'
         if re.match(FOOTNOTE_CONDUCTOR_REGEX, text):
             bells += conductor_bells

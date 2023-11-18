@@ -105,7 +105,7 @@ class Method():
         return text
 
     def __str__(self) -> str:
-        return self.full_name
+        return self.full_name or self.title
 
     @classmethod
     def get(cls, id: str) -> Method:
