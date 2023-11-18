@@ -18,7 +18,7 @@ methods = [
     (
         'Spliced Kent and Oxford Treble Bob Major',
         ([Method(name='Kent', classification='Treble Bob', stage=Stage.MAJOR),
-          Method(name='Oxford', classification='Treble Bob', stage=Stage.MAJOR)], 
+          Method(name='Oxford', classification='Treble Bob', stage=Stage.MAJOR)],
          True, False, 2, None, None),
         'Spliced Treble Bob Major (2m)'
     ),

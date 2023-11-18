@@ -29,7 +29,11 @@ methods = [
 
 
 @pytest.mark.parametrize('title,expected_stage,expected_classification,expected_method,expected_changes', methods)
-def test_parse_method_title(title: str, expected_stage: Stage, expected_classification: Classification, expected_method: str, expected_changes: int):
+def test_parse_method_title(title: str,
+                            expected_stage: Stage,
+                            expected_classification: Classification,
+                            expected_method: str,
+                            expected_changes: int):
     stage, classification, method, changes = parse_single_method(title)
     assert stage == expected_stage
     assert classification == expected_classification

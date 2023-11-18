@@ -76,7 +76,7 @@ class PealPromptListener(PealGeneratorListener):
                 print(f'📝 Details: {value}')
             return
 
-        # If we have method details then prompt for entry, but also if the peal is multi-method but we haven't got 
+        # If we have method details then prompt for entry, but also if the peal is multi-method but we haven't got
         # any specific methods yet. If the title contained the methods, these will already have been added
         # e.g. "Spliced Cambridge and Yorkshire Royal"
         if value or self.peal.type in [PealType.MIXED_METHODS, PealType.SPLICED_METHODS]:
