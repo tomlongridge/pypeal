@@ -1,4 +1,5 @@
 from __future__ import annotations
+import copy
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
@@ -522,6 +523,9 @@ class Peal:
     def to_json(self):
         json_fields = {}
         return json.dumps(json_fields)
+
+    def copy(self):
+        return copy.deepcopy(self)
 
     @classmethod
     def get(self, id: int = None, bellboard_id: int = None) -> Peal:

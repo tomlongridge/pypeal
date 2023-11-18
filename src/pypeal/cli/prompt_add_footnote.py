@@ -12,31 +12,30 @@ MUFFLED_REGEX = re.compile(r'.*(?:fully?)?\s?\-?\s?muffled.*', re.IGNORECASE)
 
 def prompt_add_footnote(text: str, peal: Peal, quick_mode: bool):
 
-    for line in text.strip('. ').split('\n'):
+    if text:
+        for line in text.strip('. ').split('\n'):
 
-        if line.strip('. ').count('.') > 0 and \
-                (quick_mode or
-                 confirm(f'Footnote line:\n  > {line}', confirm_message='Split footnote by sentences?', default=True)):
-            line_parts = line.strip(' ').split('.')
-        else:
-            line_parts = [line]
-
-        for line_part in line_parts:
-            composer_name = parse_footnote_for_composer(text)
-            if composer_name and peal.composer is None and \
-                    (quick_mode or confirm(f'Possible composer: {composer_name}')):
-                prompt_add_composer(composer_name, None, peal, quick_mode)
+            if line.strip('. ').count('.') > 0 and \
+                    (quick_mode or
+                        confirm(f'Footnote line:\n  > {line}', confirm_message='Split footnote by sentences?', default=True)):
+                line_parts = line.strip(' ').split('.')
             else:
-                conductor_bells = [bell for conductor in peal.conductors for bell in conductor[1]]
-                bells, text = parse_footnote(line_part, peal.num_bells, conductor_bells)
-                _prompt_add_single_footnote(bells, text, peal, quick_mode)
+                line_parts = [line]
 
-
-def prompt_new_footnote(peal: Peal):
-    while True:
-        if not confirm(None, confirm_message='Add new footnote?', default=False):
-            break
-        _prompt_add_single_footnote(None, None, peal, False)
+            for line_part in line_parts:
+                composer_name = parse_footnote_for_composer(text)
+                if composer_name and peal.composer is None and \
+                        (quick_mode or confirm(f'Possible composer: {composer_name}')):
+                    prompt_add_composer(composer_name, None, peal, quick_mode)
+                else:
+                    conductor_bells = [bell for conductor in peal.conductors for bell in conductor[1]]
+                    bells, text = parse_footnote(line_part, peal.num_bells, conductor_bells)
+                    _prompt_add_single_footnote(bells, text, peal, quick_mode)
+    else:
+        while True:
+            if not confirm(None, confirm_message='Add new footnote?', default=False):
+                break
+            _prompt_add_single_footnote(None, None, peal, False)
 
 
 def prompt_add_muffle_type(peal: Peal):
@@ -47,7 +46,11 @@ def prompt_add_muffle_type(peal: Peal):
                                      return_option=True)
 
 
-def _prompt_add_single_footnote(bells: list[int], text: str, peal: Peal, quick_mode: bool = False):
+def _prompt_add_single_footnote(bells: list[int],
+                                text: str,
+                                peal: Peal,
+                                quick_mode: bool = False) -> MuffleType:
+
     text = utils.strip_internal_space(text)
     ringers = None
     while True:
@@ -68,15 +71,6 @@ def _prompt_add_single_footnote(bells: list[int], text: str, peal: Peal, quick_m
                 break
         text, bells = _prompt_footnote_details(bells, text, peal.num_bells, quick_mode)
 
-    muffle_type = None
-    if re.match(HALF_MUFFLED_REGEX, text):
-        muffle_type = MuffleType.HALF
-    elif re.match(MUFFLED_REGEX, text):
-        muffle_type = MuffleType.FULL
-    if muffle_type is not None and \
-            (quick_mode or confirm(f'Possible {muffle_type.name.lower()}-muffled ringing')):
-        peal.muffles = muffle_type
-
     if bells:
         for bell, ringer in zip(bells, ringers):
             peal.add_footnote(text, bell, ringer)
@@ -86,6 +80,14 @@ def _prompt_add_single_footnote(bells: list[int], text: str, peal: Peal, quick_m
         peal.footnotes[-1] = (peal.footnotes[-1][0] + ' ' + text, None, None)
     else:
         peal.add_footnote(text, None, None)
+
+    muffle_type = None
+    if re.match(HALF_MUFFLED_REGEX, text):
+        muffle_type = MuffleType.HALF
+    elif re.match(MUFFLED_REGEX, text):
+        muffle_type = MuffleType.FULL
+    if muffle_type and (quick_mode or confirm(f'Possible {muffle_type.name.lower()}-muffled ringing')):
+        peal.muffles = muffle_type
 
 
 def _prompt_footnote_details(default_bells: list[int],

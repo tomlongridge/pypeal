@@ -9,8 +9,8 @@ from pypeal.peal import Peal
 def prompt_add_change_of_method(method_details: str, peal: Peal, quick_mode: bool):
 
     print('Adding changes of methods to multi-method peal...')
-    method_count: int = 0
 
+    # Parse method details
     if method_details:  # method_details is None if no methods were listed but it is a multi-method peal in title
 
         for method in [detail.strip() for detail in re.split(r',|;', method_details)]:
@@ -30,9 +30,9 @@ def prompt_add_change_of_method(method_details: str, peal: Peal, quick_mode: boo
             if not quick_mode:
                 changes = ask_int('Number of changes', default=changes)
             peal.add_method(new_method, changes)
-            method_count += 1
-            print(f'Method {method_count}: {new_method.title} ({changes if changes else "unknown"} changes)')
+            print(f'Method {len(peal.methods)}: {new_method.title} ({changes if changes else "unknown"} changes)')
 
+    # Prompt for additional methods
     while True:
         if quick_mode or \
            not confirm(None,
@@ -40,7 +40,7 @@ def prompt_add_change_of_method(method_details: str, peal: Peal, quick_mode: boo
                        default=len(peal.methods) < peal.num_methods_in_title):
             break
         elif len(peal.methods) >= peal.num_methods_in_title and \
-                not confirm(f'Number of methods ({method_count}) does not match number of methods from peal title ' +
+                not confirm(f'Number of methods ({len(peal.methods)}) does not match number of methods from peal title ' +
                             f'({peal.num_methods_in_title}).',
                             confirm_message='Do you want to add more?',
                             default=False):
@@ -49,5 +49,4 @@ def prompt_add_change_of_method(method_details: str, peal: Peal, quick_mode: boo
         if method:
             changes = ask_int('Number of changes', default=None)
             peal.add_method(method, changes)
-            method_count += 1
-            print(f'Method {method_count}: {method.title} ({changes if changes else "unknown"} changes)')
+            print(f'Method {len(peal.methods)}: {method.title} ({changes if changes else "unknown"} changes)')
