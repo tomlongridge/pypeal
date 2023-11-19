@@ -48,7 +48,7 @@ Matching peal titled "Doubles (3m)"...
 What kind of peal is being rung?: 1) Single Method, 2) Mixed Methods, 3) Spliced
 Methods, 4) General Ringing
 Select action (2): 
->>>
+>>> 
 [User input: "PealType.MIXED_METHODS (2)"]
 Multi-method peal: "Doubles (3m)"...
 Number of methods (3): 
@@ -294,6 +294,7 @@ Select action (1):
 │ [6: Grace Perry] Testing new footnote with ringers.                          │
 │                                                                              │
 │ [Imported Bellboard peal ID: 1657469]                                        │
+│ [Original title: Doubles (3m)]                                               │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -334,3 +335,4 @@ Rung for Morning Service. Testing the new footnote function.
 [6: Grace Perry] Testing new footnote with ringers.
 
 [Imported Bellboard peal ID: 1657469]
+[Original title: Doubles (3m)]

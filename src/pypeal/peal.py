@@ -331,7 +331,6 @@ class Peal:
         text = ''
         text += 'Spliced ' if self.type == PealType.SPLICED_METHODS else ''
         text += 'Mixed ' if self.type == PealType.MIXED_METHODS else ''
-        text += f'{self.description} ' if self.description else ''
         text += f'{self.classification.value} ' if self.classification else ''
         if self.stage and self.is_variable_cover and self.stage.value % 2 == 0:
             text += f'{Stage(self.stage.value - 1).name.capitalize()} and '
@@ -346,7 +345,10 @@ class Peal:
             text = text.rstrip('/')
             text += ')'
         text = text.strip()
-        return text if len(text) > 0 else None
+        if len(text) > 0:
+            return text
+        else:
+            return self.description or 'Unknown'
 
     @property
     def ringers(self) -> list[tuple[Ringer, list[int], list[int], bool]]:
@@ -494,7 +496,7 @@ class Peal:
         text += f'On {format_date_full(self.date)}\n' if self.date else ''
         text += f'A {self.length_type.name.replace("_", " ").title()} of ' if self.length_type else ''
         text += f'{self.changes} ' if self.changes else ''
-        text += self.title or 'Unknown'
+        text += self.title
         text += ' (half-muffled)' if self.muffles == MuffleType.HALF else ''
         text += ' (muffled)' if self.muffles == MuffleType.FULL else ''
         text += ' '
@@ -521,6 +523,7 @@ class Peal:
         text += f'[Imported Bellboard peal ID: {self.bellboard_id}]'
         text += f'\n[Composition URL: {self.composition_url}]' if self.composition_url else ''
         text += f'\n[Event URL: {self.event_url}]' if self.event_url else ''
+        text += f'\n[Original title: {self.description}]' if self.description != self.title else ''
         return text
 
     def to_json(self):

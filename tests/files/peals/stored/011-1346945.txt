@@ -413,6 +413,7 @@ Select action (1):
 │ captain at this tower, who were married at this church on Easter Saturday.   │
 │                                                                              │
 │ [Imported Bellboard peal ID: 1346945]                                        │
+│ [Original title: 8 Methods/variations Doubles]                               │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -451,3 +452,4 @@ A Peal of 5040 Mixed Doubles (4m/4v) in 2 hours, 29 minutes (8-3-7 in A)
 Rung as a wedding compliment To Terry Lee Nash, of Lindenhurst, Long Island, New York, U.S.A., and Mrs Linda Archer of Saxmundham, daughter of the tower captain at this tower, who were married at this church on Easter Saturday.
 
 [Imported Bellboard peal ID: 1346945]
+[Original title: 8 Methods/variations Doubles]

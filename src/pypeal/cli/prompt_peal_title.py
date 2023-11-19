@@ -10,6 +10,8 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
 
     title = strip_internal_space(title)
 
+    peal.description = title
+
     while True:
 
         # Attempt an easy match against a single method using the exact title
@@ -209,13 +211,10 @@ def set_peal_title(peal: Peal,
     peal.num_principles = num_principles
     peal.num_variants = num_variants
     if title is None:
-        peal.description = None
         peal.method = None
     elif type(title) is str:
-        peal.description = title
         peal.method = None
     elif type(title) is Method:
-        peal.description = None
         peal.method = title
         peal.stage = title.stage
         peal.classification = Classification(title.classification) if title.classification else None

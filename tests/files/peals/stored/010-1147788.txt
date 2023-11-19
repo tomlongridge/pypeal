@@ -249,6 +249,7 @@ Select action (1):
 │ 900th Quarter of Grandsire on the bells.                                     │
 │                                                                              │
 │ [Imported Bellboard peal ID: 1147788]                                        │
+│ [Original title: Grandsire Caters and Royal]                                 │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -292,3 +293,4 @@ For Morning Service, and to welcome Rafe Jackson-Swift, son of Russell and Angel
 900th Quarter of Grandsire on the bells.
 
 [Imported Bellboard peal ID: 1147788]
+[Original title: Grandsire Caters and Royal]

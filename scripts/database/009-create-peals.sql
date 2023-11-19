@@ -20,7 +20,7 @@ CREATE TABLE @db_name.`peals` (
     `num_principles` TINYINT UNSIGNED DEFAULT NULL,
     `num_variants` TINYINT UNSIGNED DEFAULT NULL,
     `method_id` VARCHAR(10) NULL,
-    `description` VARCHAR(128) NULL,
+    `description` VARCHAR(128) NOT NULL,
     `detail` VARCHAR(1024) NULL,
     `composer_id` INT UNSIGNED NULL,
     `composition_url` VARCHAR(128) NULL,
