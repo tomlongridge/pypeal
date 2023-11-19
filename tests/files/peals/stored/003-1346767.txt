@@ -49,12 +49,11 @@ Is this correct? [y/n] (y):
 🏰 Tower: Blythburgh, Suffolk, England, Holy Trinity
 🔢 Changes: 5040
 Matching peal titled "8 Methods Minor"...
-Is this a spliced peal? [y/n] (n): 
->>> n
-[User input: "False"]
-Is this a mixed peal? [y/n] (n): 
->>> y
-[User input: "True"]
+What kind of peal is being rung?: 1) Single Method, 2) Mixed Methods, 3) Spliced
+Methods, 4) General Ringing
+Select action (1): 
+>>> 2
+[User input: "PealType.MIXED_METHODS (2)"]
 Multi-method peal: "8 Methods Minor"...
 Number of methods (0): 
 >>> 8

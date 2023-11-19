@@ -50,6 +50,11 @@ Is this correct? [y/n] (y):
 🏰 Tower: Bath, Bathwick, Somerset, England, Blessed Virgin Mary
 🔢 Changes: 1260
 Matching peal titled "Grandsire Caters and Royal"...
+What kind of peal is being rung?: 1) Single Method, 2) Mixed Methods, 3) Spliced
+Methods, 4) General Ringing
+Select action (3): 
+>>> 3
+[User input: "PealType.SPLICED_METHODS (3)"]
 Multi-method peal: "Grandsire Caters and Royal"...
 Number of methods (2): 
 >>> 2
@@ -99,7 +104,7 @@ Method 2: Grandsire Bob Royal (unknown changes)
 Add more changes of method? [y/n] (n): 
 >>> n
 [User input: "False"]
-📕 Title: Mixed Caters and Royal (2m)
+📕 Title: Spliced Caters and Royal (2m)
 📝 Method details:
   - Grandsire Caters
   - Grandsire Royal
@@ -224,8 +229,8 @@ Select action (1):
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 11 January 2015                                                   │
-│ A Quarter Peal of 1260 Mixed Caters and Royal (2m) in 48 minutes (18-3-20 in │
-│ Eb)                                                                          │
+│ A Quarter Peal of 1260 Spliced Caters and Royal (2m) in 48 minutes (18-3-20  │
+│ in Eb)                                                                       │
 │ (Grandsire Bob Caters, Grandsire Bob Royal)                                  │
 │                                                                              │
 │ 1: Byron Miller                                                              │
@@ -269,7 +274,7 @@ Select action (1):
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Sunday, 11 January 2015
-A Quarter Peal of 1260 Mixed Caters and Royal (2m) in 48 minutes (18-3-20 in Eb)
+A Quarter Peal of 1260 Spliced Caters and Royal (2m) in 48 minutes (18-3-20 in Eb)
 (Grandsire Bob Caters, Grandsire Bob Royal)
 
 1: Byron Miller

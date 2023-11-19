@@ -44,6 +44,11 @@ Is this correct? [y/n] (y):
 🏰 Tower: Portbury, Somerset, England, Blessed Virgin Mary
 🔢 Changes: 1260
 Matching peal titled "Doubles (1p/5m/3v)"...
+What kind of peal is being rung?: 1) Single Method, 2) Mixed Methods, 3) Spliced
+Methods, 4) General Ringing
+Select action (2): 
+>>> 2
+[User input: "PealType.MIXED_METHODS (2)"]
 Multi-method peal: "Doubles (1p/5m/3v)"...
 Number of methods (5): 
 >>> 

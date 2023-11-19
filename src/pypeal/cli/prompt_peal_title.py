@@ -38,12 +38,12 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
 
         # Parse method title for inspiration and future search
         parsed_methods: list[Method]
-        parsed_methods, is_spliced, is_mixed, num_methods, \
+        parsed_methods, peal_type, num_methods, \
             num_variants, num_principles = parse_method_title(title)
 
-        # We haven't matched a method but it's not multi-method, start a single method search
-        # (note - "is not True" here is correct as if it's None we want to do this)
-        if is_spliced is not True and is_mixed is not True and len(parsed_methods) == 1:
+        # We haven't matched a method but it's not multi-method, try a single (inexact) method search
+        # e.g. a single method spelt differently
+        if peal_type in [None, PealType.SINGLE_METHOD]:
 
             parsed_method = parsed_methods[0]
 
@@ -75,24 +75,29 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
                     if peal.method:
                         return
 
-        # If it's not clear from the title, prompt for multi-method peal
-        if not quick_mode and (is_spliced is None or is_mixed is None):
-            is_spliced = confirm(None,
-                                 confirm_message='Is this a spliced peal?',
-                                 default=False if is_spliced is None else is_spliced)
-            if is_spliced:
-                is_mixed = False
-            else:
-                is_mixed = confirm(None,
-                                   confirm_message='Is this a mixed peal?',
-                                   default=False if is_mixed is None else is_mixed)
-                if not is_mixed:
-                    if confirm(None, confirm_message='Is this a (non-peal) general performance?', default=False):
-                        set_peal_title(peal, title, PealType.GENERAL_RINGING)
-                        return
+        # Prompt for peal type as we haven't matched a single method yet
+        # (use parsed spliced/mixed for quick mode but allow to change it for prompt mode)
+        if not quick_mode or peal_type in [None, PealType.SINGLE_METHOD]:
+            default_peal_type = PealType.SINGLE_METHOD
+            if (parsed_methods[0].name is None) or \
+                    ((num_methods or 0) + (num_variants or 0) + (num_principles or 0) > 1):
+                if parsed_methods[0].stage.value <= Stage.DOUBLES.value:
+                    default_peal_type = PealType.MIXED_METHODS
+                else:
+                    default_peal_type = PealType.SPLICED_METHODS
 
-        # Search for a single method
-        if is_spliced is False and is_mixed is False:
+            peal_type = choose_option([pt.name.title().replace('_', ' ') for pt in PealType],
+                                      [pt for pt in PealType],
+                                      'What kind of peal is being rung?',
+                                      default=default_peal_type.name.title().replace('_', ' '),
+                                      return_option=True)
+
+        if peal_type == PealType.GENERAL_RINGING:
+            set_peal_title(peal, title, PealType.GENERAL_RINGING)
+            return
+
+        # Interactive search for a single method
+        if peal_type == PealType.SINGLE_METHOD:
 
             parsed_method = parsed_methods[0]
 
@@ -132,7 +137,7 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
                         return
 
         # Add multi-method title
-        if is_spliced or is_mixed:
+        if peal_type in [PealType.MIXED_METHODS, PealType.SPLICED_METHODS]:
 
             print(f'Multi-method peal: "{title}"...')
 
@@ -168,7 +173,7 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
 
             set_peal_title(peal,
                            None,
-                           PealType.MIXED_METHODS if is_mixed else PealType.SPLICED_METHODS,
+                           peal_type,
                            stage,
                            classification,
                            num_methods,

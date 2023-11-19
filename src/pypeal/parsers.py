@@ -2,8 +2,9 @@
 import re
 from pypeal import utils
 from pypeal.method import Classification, Method, Stage
+from pypeal.peal import PealType
 
-METHOD_TITLE_MIXED_METHODS_REGEX = \
+METHOD_TITLE_NUMER_OF_METHODS_REGEX = \
     re.compile(r'^(?P<num_methods>[0-9]+|' + '|'.join(utils.get_num_words()) + r')?\s?' +
                r'(?P<classification>' + '|'.join([s.value for s in Classification]) + r')?\s?' +
                r'(?P<stage>' + '|'.join([s.name for s in Stage]) + ')',
@@ -45,31 +46,26 @@ FOOTNOTE_ALL_BAND_REGEX = \
     re.compile(r'.*(?:for|by) all(?: the band)?(?: (?:except for|except|apart from)(?: the)? (?P<exceptions>[^\.]+))?', re.IGNORECASE)
 
 
-def parse_method_title(title: str) -> tuple[list[Method], bool, bool, int, int, int]:
+def parse_method_title(title: str) -> tuple[list[Method], PealType, int, int, int]:
 
     methods: list[Method] = [Method()]
     methods[0].name = title
-    is_spliced: bool = None
-    is_mixed: bool = None
+    peal_type: PealType = None
     num_methods: int = None
     num_variants: int = None
     num_principles: int = None
 
     if methods[0].name.lower().startswith('mixed'):
-        is_spliced = False
-        is_mixed = True
+        peal_type = PealType.MIXED_METHODS
         methods[0].name = methods[0].name[5:].strip()
 
     if methods[0].name.lower().startswith('spliced'):
-        is_spliced = True
-        is_mixed = False
+        peal_type = PealType.SPLICED_METHODS
         methods[0].name = methods[0].name[7:].strip()
-    else:
-        is_spliced = False  # It's not spliced if it doesn't say in title (unlike mixed)
 
     # Catch titles such as "12 Doubles"
-    if match := re.match(METHOD_TITLE_MIXED_METHODS_REGEX, methods[0].name):
-        is_mixed = True
+    if match := re.match(METHOD_TITLE_NUMER_OF_METHODS_REGEX, methods[0].name):
+        peal_type = peal_type or PealType.SPLICED_METHODS
         match_details = match.groupdict()
         if match_details['num_methods']:
             methods[0].name = methods[0].name[len(match_details['num_methods']) + 1:].strip()
@@ -80,26 +76,32 @@ def parse_method_title(title: str) -> tuple[list[Method], bool, bool, int, int, 
         if match_details['classification']:
             methods[0].classification = Classification(match_details['classification'])
         methods[0].stage = Stage.from_method(match_details['stage'])
+        methods[0].name = re.sub(METHOD_TITLE_NUMER_OF_METHODS_REGEX, '', methods[0].name).strip()
 
-    # Parse m/v/p detail in brackets
-    if re.search(METHOD_TITLE_NUM_METHODS_REGEX, methods[0].name):
-        multi_method_match = re.findall(METHOD_TITLE_NUM_METHODS_GROUP_REGEX, methods[0].name.strip('()'))
-        if len(multi_method_match) > 0:
-            is_mixed = not is_spliced
-            num_methods = num_variants = num_principles = 0
-            for multi_method in multi_method_match:
-                match multi_method[-1]:
-                    case 'm':
-                        num_methods = int(multi_method.removesuffix('m'))
-                    case 'v':
-                        num_variants = int(multi_method.removesuffix('v'))
-                    case 'p':
-                        num_principles = int(multi_method.removesuffix('p'))
-        methods[0].name = re.sub(METHOD_TITLE_NUM_METHODS_REGEX, '', methods[0].name).strip()
-        methods[0].stage, methods[0].classification, methods[0].name, _ = parse_single_method(methods[0].name, expect_changes=False)
+        # Parse m/v/p detail in brackets
+        if re.search(METHOD_TITLE_NUM_METHODS_REGEX, methods[0].name):
+            peal_type = peal_type or PealType.SPLICED_METHODS
+            multi_method_match = re.findall(METHOD_TITLE_NUM_METHODS_GROUP_REGEX, methods[0].name.strip('()'))
+            if len(multi_method_match) > 0:
+                peal_type = peal_type or PealType.SPLICED_METHODS
+                num_methods = num_variants = num_principles = 0
+                for multi_method in multi_method_match:
+                    match multi_method[-1]:
+                        case 'm':
+                            num_methods = int(multi_method.removesuffix('m'))
+                        case 'v':
+                            num_variants = int(multi_method.removesuffix('v'))
+                        case 'p':
+                            num_principles = int(multi_method.removesuffix('p'))
+            methods[0].name = re.sub(METHOD_TITLE_NUM_METHODS_REGEX, '', methods[0].name).strip()
+            stage, classification, methods[0].name, _ = parse_single_method(methods[0].name, expect_changes=False)
+            methods[0].stage = methods[0].stage or stage
+            methods[0].classification = methods[0].classification or classification
 
     # Two named methods as the title
     elif match_details := re.search(METHOD_TITLE_TWO_METHODS_REGEX, methods[0].name):
+        peal_type = peal_type or PealType.SPLICED_METHODS
+        num_methods = 2
         match_details = match_details.groupdict()
         methods[0].name = match_details['method_1']
         methods[0].classification = Classification(match_details['classification_1']) if match_details['classification_1'] else None
@@ -115,10 +117,13 @@ def parse_method_title(title: str) -> tuple[list[Method], bool, bool, int, int, 
         # e.g. "Cambridge and Yorkshire Surprise Major"
         methods[0].classification = methods[0].classification or methods[1].classification
         methods[0].stage = methods[0].stage or methods[1].stage
-        num_methods = 2
-        is_mixed = not is_spliced
     else:
         methods[0].stage, methods[0].classification, methods[0].name, _ = parse_single_method(methods[0].name, expect_changes=False)
+        if methods[0].stage is not None or methods[0].classification is not None:
+            peal_type = PealType.SINGLE_METHOD
+        else:
+            # We've only matched a name (no stage or classification, so it's most likely general ringing)
+            peal_type = PealType.GENERAL_RINGING
 
     for method in methods:
         if method.name is None:
@@ -133,12 +138,7 @@ def parse_method_title(title: str) -> tuple[list[Method], bool, bool, int, int, 
             method.is_treble_dodging = True
         method.name = method.name if len(method.name) > 0 else None
 
-    # If there's no title left after parsing, it's a multi-method mixed peal with no number of methods specified
-    # (exception – Little Bob)
-    # if is_spliced is not True and len(title) == 0 and method.is_little is not True:
-    #     is_mixed = True
-
-    return (methods, is_spliced, is_mixed, num_methods, num_variants, num_principles)
+    return (methods, peal_type, num_methods, num_variants, num_principles)
 
 
 def parse_single_method(method: str, expect_changes: bool = True) -> tuple[Stage, Classification, str, int]:
