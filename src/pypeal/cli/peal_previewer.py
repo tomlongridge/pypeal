@@ -6,6 +6,9 @@ from pypeal.utils import format_date_full, get_bell_label
 class PealPreviewListener(PealGeneratorListener):
 
     def __init__(self):
+        self.__lines = None
+
+    def new_peal(self, id: int):
         self.__lines = {}
 
     def association(self, value: str):

@@ -10,7 +10,7 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
 
     title = strip_internal_space(title)
 
-    peal.description = title
+    peal.published_title = title
 
     while True:
 
@@ -214,6 +214,7 @@ def set_peal_title(peal: Peal,
         peal.method = None
     elif type(title) is str:
         peal.method = None
+        peal.title = title
     elif type(title) is Method:
         peal.method = title
         peal.stage = title.stage

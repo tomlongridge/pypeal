@@ -14,7 +14,7 @@ from pypeal.bellboard.html_generator import HTMLPealGenerator
 from pypeal.cccbr import update_methods
 from pypeal.cli.peal_prompter import PealPromptListener
 from pypeal.cli.peal_previewer import PealPreviewListener
-from pypeal.cli.prompts import UserCancelled, ask_date, choose_option, ask, confirm, panel, error
+from pypeal.cli.prompts import UserCancelled, ask_date, ask_int, choose_option, ask, confirm, panel, error
 from pypeal.db import initialize as initialize_db
 from pypeal.dove import update_associations, update_bells, update_towers
 from pypeal.peal import Peal, BellType
@@ -214,9 +214,10 @@ def search():
     date_from = ask_date('Date from (yyyy-mm-dd)', max=datetime.date(datetime.now()), required=False)
     date_to = ask_date('Date to (yyyy-mm-dd)', min=date_from, max=datetime.date(datetime.now()), required=False)
     association = ask('Association', required=False)
-    place = ask('Place', required=False)
-    county = ask('County/Region/Country', required=False)
-    dedication = ask('Dedication', required=False)
+    tower_id = ask_int('Dove Tower ID', required=False)
+    place = ask('Place', required=False) if not tower_id else None
+    county = ask('County/Region/Country', required=False) if not tower_id else None
+    dedication = ask('Dedication', required=False) if not tower_id else None
     title = ask('Title', required=False)
     bell_type = choose_option(['Any', 'Tower', 'Handbells'],
                               values=[None, BellType.TOWER, BellType.HANDBELLS],

@@ -29,6 +29,9 @@ Date to (yyyy-mm-dd):
 Association: 
 >>> 
 [User input: "None"]
+Dove Tower ID: 
+>>> 
+[User input: "None"]
 Place: 
 >>> 
 [User input: "None"]

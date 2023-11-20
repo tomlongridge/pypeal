@@ -183,7 +183,7 @@ Select action (1):
 │ 6: David Rogers                                                              │
 │                                                                              │
 │ [Imported Bellboard peal ID: 1306360]                                        │
-│ [Original title: Doubles (1p/5m/3v)]                                         │
+│ [Published title: Doubles (1p/5m/3v)]                                        │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -220,4 +220,4 @@ A Quarter Peal of 1260 Mixed Doubles (5m/3v/1p) in 44 minutes (21 cwt in Eb)
 6: David Rogers
 
 [Imported Bellboard peal ID: 1306360]
-[Original title: Doubles (1p/5m/3v)]
+[Published title: Doubles (1p/5m/3v)]

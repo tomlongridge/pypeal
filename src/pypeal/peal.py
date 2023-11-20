@@ -6,16 +6,17 @@ from enum import Enum
 import json
 from pypeal import config, utils
 from pypeal.association import Association
+from pypeal.cache import Cache
 from pypeal.db import Database
 from pypeal.method import Classification, Method, Stage
 from pypeal.ringer import Ringer
 from pypeal.tower import Bell, Ring
 from pypeal.utils import format_date_full, get_bell_label
 
-PEAL_FIELD_LIST: list[str] = ['bellboard_id', 'type', 'bell_type', 'date', 'association_id', 'ring_id', 'place', 'sub_place', 'address',
-                              'dedication', 'county', 'country', 'tenor_weight', 'tenor_note', 'changes', 'stage', 'classification',
-                              'is_variable_cover', 'num_methods', 'num_principles', 'num_variants', 'method_id', 'description', 'detail',
-                              'composer_id', 'composition_url', 'duration', 'event_url', 'muffles']
+FIELD_LIST: list[str] = ['bellboard_id', 'type', 'bell_type', 'date', 'association_id', 'ring_id', 'place', 'sub_place', 'address',
+                         'dedication', 'county', 'country', 'tenor_weight', 'tenor_note', 'changes', 'stage', 'classification',
+                         'is_variable_cover', 'num_methods', 'num_principles', 'num_variants', 'method_id', 'title', 'published_title',
+                         'detail', 'composer_id', 'composition_url', 'duration', 'event_url', 'muffles']
 
 
 class PealType(Enum):
@@ -61,7 +62,7 @@ class Peal:
     num_principles: int
     num_variants: int
     method: Method
-    description: str
+    published_title: str
     detail: str
     composer: Ringer
     composition_url: str
@@ -69,6 +70,8 @@ class Peal:
     event_url: str
     muffles: MuffleType
     id: int
+
+    __title: str
 
     # Fields shared with Tower
     __place: str
@@ -110,7 +113,8 @@ class Peal:
                  num_principles: int = None,
                  num_variants: int = None,
                  method_id: int = None,
-                 description: str = None,
+                 title: str = None,
+                 published_title: str = None,
                  detail: str = None,
                  composer_id: int = None,
                  composition_url: str = None,
@@ -140,7 +144,8 @@ class Peal:
         self.num_principles = num_principles
         self.num_variants = num_variants
         self.method = Method.get(method_id) if method_id else None
-        self.description = description
+        self.__title = title
+        self.published_title = published_title
         self.detail = detail
         self.composer = Ringer.get(composer_id) if composer_id else None
         self.composition_url = composition_url
@@ -347,8 +352,14 @@ class Peal:
         text = text.strip()
         if len(text) > 0:
             return text
+        elif self.__title:
+            return self.__title
         else:
-            return self.description or 'Unknown'
+            return 'Unknown'
+
+    @title.setter
+    def title(self, value: str):
+        self.__title = value
 
     @property
     def ringers(self) -> list[tuple[Ringer, list[int], list[int], bool]]:
@@ -447,13 +458,13 @@ class Peal:
     def commit(self):
         if self.id is None:
             result = Database.get_connection().query(
-                f'INSERT INTO peals ({",".join(PEAL_FIELD_LIST)}) ' +
-                f'VALUES ({("%s,"*len(PEAL_FIELD_LIST)).strip(",")})',
+                f'INSERT INTO peals ({",".join(FIELD_LIST)}) ' +
+                f'VALUES ({("%s,"*len(FIELD_LIST)).strip(",")})',
                 (self.bellboard_id, self.type.value, self.bell_type.value, self.date, self.association.id if self.association else None,
                  self.ring.id if self.ring else None, self.__place, self.__sub_place, self.address, self.dedication, self.__county,
                  self.__country, self.__tenor_weight, self.__tenor_note, self.changes, self.stage.value if self.stage else None,
                  self.classification.value if self.classification else None, self.is_variable_cover, self.num_methods, self.num_principles,
-                 self.num_variants, self.method.id if self.method else None, self.description, self.detail,
+                 self.num_variants, self.method.id if self.method else None, self.title, self.published_title, self.detail,
                  self.composer.id if self.composer else None, self.composition_url, self.duration, self.event_url,
                  self.muffles.value if self.muffles else None))
             Database.get_connection().commit()
@@ -523,7 +534,7 @@ class Peal:
         text += f'[Imported Bellboard peal ID: {self.bellboard_id}]'
         text += f'\n[Composition URL: {self.composition_url}]' if self.composition_url else ''
         text += f'\n[Event URL: {self.event_url}]' if self.event_url else ''
-        text += f'\n[Original title: {self.description}]' if self.description != self.title else ''
+        text += f'\n[Published title: {self.published_title}]' if self.published_title != self.title else ''
         return text
 
     def to_json(self):
@@ -534,25 +545,108 @@ class Peal:
         return copy.deepcopy(self)
 
     @classmethod
-    def get(self, id: int = None, bellboard_id: int = None) -> Peal:
+    def get(cls, id: int = None, bellboard_id: int = None) -> Peal:
+        if id:
+            key = f'D{id}'
+        elif bellboard_id:
+            key = f'B{bellboard_id}'
+        else:
+            raise ValueError('Either database or BellBoard ID must be specified')
         if id is None and bellboard_id is None:
             raise ValueError('Either peal database ID or Bellboard ID must be specified')
-        result = Database.get_connection().query(
-            f'SELECT {",".join(PEAL_FIELD_LIST)}, id ' +
-            'FROM peals ' +
-            'WHERE true ' +
-            ('AND id = %s ' if id else '') +
-            ('AND bellboard_id = %s ' if bellboard_id else ''),
-            (id or bellboard_id,)).fetchone()
+        if (peal := Cache.get_cache().get(cls.__name__, key)) is not None:
+            return peal
+        else:
+            result = Database.get_connection().query(
+                f'SELECT {",".join(FIELD_LIST)}, id ' +
+                'FROM peals ' +
+                'WHERE true ' +
+                ('AND id = %s ' if id else '') +
+                ('AND bellboard_id = %s ' if bellboard_id else ''),
+                (key,)).fetchone()
+
         if result is None:
             return None
-        return Peal(*result)
+
+        peal = Peal(*result)
+        Cache.get_cache().add(cls.__name__, f'D{peal.id}', peal)
+        Cache.get_cache().add(cls.__name__, f'B{peal.bellboard_id}', peal)
+        return peal
 
     @classmethod
-    def get_all(self) -> list[Peal]:
-        return [
-            Peal(*result) for result in Database.get_connection().query(
-                f'SELECT {",".join(PEAL_FIELD_LIST)}, id FROM peals').fetchall()]
+    def search(cls,
+               ringer_name: str = None,
+               date_from: datetime.date = None,
+               date_to: datetime.date = None,
+               tower_id: int = None,
+               place: str = None,
+               county: str = None,
+               dedication: str = None,
+               association: str = None,
+               title: str = None,
+               bell_type: BellType = None,
+               order_descending: bool = True) -> list[Peal]:
+
+        query = f'SELECT {",".join(["peals."+field for field in FIELD_LIST])}, peals.id ' + \
+                'FROM peals ' + \
+                'LEFT JOIN pealringers pr ON peals.id = pr.peal_id ' + \
+                'LEFT JOIN ringers r ON pr.ringer_id = r.id ' + \
+                'LEFT JOIN rings ri ON peals.ring_id = ri.id ' + \
+                'LEFT JOIN towers t ON ri.tower_id = t.id ' + \
+                'LEFT JOIN associations a ON peals.association_id = a.id ' + \
+                'WHERE 1=1 '
+        params = {}
+        if ringer_name:
+            query += 'AND CONCAT(r.given_names, " ", r.last_name) LIKE %(ringer_name)s '
+            params['name'] = f'%{ringer_name}%'
+        if date_from is not None:
+            query += 'AND peals.date >= %(date_from)s '
+            params['date_from'] = date_from.strftime('%Y-%m-%d')
+        if date_to is not None:
+            query += 'AND peals.date >= %(date_to)s '
+            params['date_to'] = date_to.strftime('%Y-%m-%d')
+        if tower_id is not None:
+            query += 'AND ri.tower_id = %(tower_id)s '
+            params['tower_id'] = tower_id
+        if place is not None:
+            query += 'AND (' + \
+                     '(peals.place LIKE %(place)s) OR ' + \
+                     '(peals.sub_place LIKE %(place)s) OR ' + \
+                     '(t.place LIKE %(place)s) OR ' + \
+                     '(t.sub_place LIKE %(place)s)' + \
+                     ')'
+            params['place'] = place
+        if county is not None:
+            query += 'AND (' + \
+                     '(peals.county LIKE %(county)s) OR ' + \
+                     '(t.county LIKE %(county)s) OR ' + \
+                     ')'
+            params['county'] = county
+        if dedication is not None:
+            query += 'AND (' + \
+                     '(peals.dedication LIKE %(dedication)s) OR ' + \
+                     '(t.dedication LIKE %(dedication)s) OR ' + \
+                     ')'
+            params['dedication'] = dedication
+        if association is not None:
+            query += 'AND a.name = %(association)s '
+            params['association'] = association
+        if title is not None:
+            query += 'AND peals.title LIKE %(title)s '
+            params['title'] = f'%{title}%'
+        if bell_type is not None:
+            query += 'AND peals.bell_type = %(bell_type)s '
+            params['bell_type'] = bell_type.value
+        query += 'ORDER BY peals.date ' + ('DESC' if order_descending else 'ASC')
+        results = Database.get_connection().query(query, params).fetchall()
+        cached_peals = Cache.get_cache().add_all(cls.__name__, {f'D{result[-1]}': Peal(*result) for result in results})
+        return Cache.get_cache().add_all(cls.__name__, {f'B{peal.bellboard_id}': peal for peal in cached_peals})
+
+    @classmethod
+    def get_all(cls) -> list[Peal]:
+        results = Database.get_connection().query(f'SELECT {",".join(FIELD_LIST)}, id FROM peals').fetchall()
+        cached_peals = Cache.get_cache().add_all(cls.__name__, {f'D{result[-1]}': Peal(*result) for result in results})
+        return Cache.get_cache().add_all(cls.__name__, {f'B{peal.bellboard_id}': peal for peal in cached_peals})
 
     @classmethod
     def clear_data(cls):

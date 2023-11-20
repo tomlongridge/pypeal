@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 import logging
 import time
 
@@ -22,7 +22,7 @@ class BellboardError(Exception):
 def search(criteria: dict[str, any] = None, page: int = 1) -> [str, str]:
     query_str = ''
     for key, value in criteria.items():
-        if type(value) is datetime:
+        if type(value) in [datetime, date]:
             value = urllib.parse.quote(value.strftime("%d/%m/%Y"))
         query_str += f'&{key}={value}'
 

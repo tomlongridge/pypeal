@@ -18,6 +18,7 @@ class BellboardSearchNoResultFoundError(BellboardError):
 def search(ringer_name: str = None,
            date_from: datetime.date = None,
            date_to: datetime.date = None,
+           tower_id: int = None,
            place: str = None,
            county: str = None,
            dedication: str = None,
@@ -30,9 +31,11 @@ def search(ringer_name: str = None,
     if ringer_name:
         criteria['ringer'] = ringer_name
     if date_from:
-        criteria['date_from'] = date_from
+        criteria['from'] = date_from
     if date_to:
-        criteria['date_to'] = date_to
+        criteria['to'] = date_to
+    if tower_id:
+        criteria['dove_tower'] = tower_id
     if place:
         criteria['place'] = place
     if county:
@@ -77,12 +80,9 @@ def _perform_search(criteria: dict[str, any]) -> Iterator[int]:
 
         found_peals = False
         page += 1
-        url, xml_response = do_search(criteria, page)
+        _, xml_response = do_search(criteria, page)
         tree = ET.fromstring(xml_response)
 
         for performance in tree.findall(f'./{XML_NAMESPACE}performance'):
             found_peals = True
             yield int(performance.attrib['href'].split('=')[1])
-
-    if page == 1:
-        raise BellboardSearchNoResultFoundError(url)

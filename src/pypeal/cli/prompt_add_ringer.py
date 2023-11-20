@@ -1,5 +1,5 @@
 import logging
-from pypeal.cli.prompts import error
+from pypeal.cli.prompts import error, warning
 from pypeal.cli.prompts import ask, choose_option, confirm, prompt_names
 from pypeal.peal import Peal
 from pypeal.ringer import Ringer
@@ -75,19 +75,14 @@ def prompt_add_ringer_by_search(name: str, label: str, quick_mode: bool) -> Ring
     while True:
         match choose_option(['Add new ringer', 'Search ringers'], default=1) if not quick_mode else 1:
             case 1:
-                if not quick_mode or confirm(None, confirm_message='Add new ringer?', default=True):
-                    return Ringer(*prompt_names(last_name, given_names))
-                else:
-                    quick_mode = False
-                    continue
+                if new_ringer := prompt_add_new_ringer(last_name, given_names, quick_mode):
+                    return new_ringer
             case 2:
-                quick_mode = False
                 search_last_name, search_given_names = prompt_names(last_name, given_names)
                 potential_ringers = Ringer.get_by_name(search_last_name, search_given_names)
                 match len(potential_ringers):
                     case 0:
                         print(f'No existing ringers match (given name: "{search_given_names}", last name: "{search_last_name}")')
-                        continue
                     case 1:
                         if confirm(f'{label}"{name}" -> {potential_ringers[0]}', default=True):
                             return potential_ringers[0]
@@ -141,7 +136,31 @@ def prompt_add_ringer_by_name_match(name: str, label: str, quick_mode: bool) -> 
     return None
 
 
+def prompt_add_new_ringer(default_last_name: str, default_given_names: str, quick_mode: bool):
+
+    if quick_mode and confirm(None, confirm_message=f'Add new ringer as "{default_given_names}" "{default_last_name}"?', default=True):
+        new_ringer = Ringer(default_last_name, default_given_names)
+    elif not quick_mode or confirm(None, confirm_message='Add new ringer with different name?', default=True):
+        new_ringer = Ringer(*prompt_names(default_last_name, default_given_names))
+    else:
+        return None
+
+    existing_ringers = Ringer.get_by_name(new_ringer.last_name,
+                                          f'{new_ringer.given_names[0]}%' if new_ringer.given_names else None,
+                                          exact_match=False)
+    if len(existing_ringers) == 0:
+        return new_ringer
+    else:
+        warning(f'Found {len(existing_ringers)} existing ringers with similar names:\n' +
+                '\n'.join([f'  - {r.name}' for r in existing_ringers]))
+        if confirm(None, confirm_message=f'Add "{default_given_names} {default_last_name}"?', default=True):
+            return new_ringer
+        else:
+            return None
+
+
 def prompt_commit_ringer(ringer: Ringer, used_name: str, peal: Peal, quick_mode: bool):
+
     if ringer.id is None:
         ringer.commit()
 

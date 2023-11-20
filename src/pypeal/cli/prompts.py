@@ -35,13 +35,14 @@ def ask(prompt: str, default: str = None, required: bool = True) -> str:
         raise UserCancelled()
 
 
-def ask_int(prompt: str, default: int = None, min: int = None, max: int = None) -> int:
+def ask_int(prompt: str, default: int = None, min: int = None, max: int = None, required: bool = True) -> int:
     try:
         while True:
             response = IntPrompt.ask(prompt, default=default, show_default=(default is not None))
-            if default is None and response is None:
-                break
-            if response is not None:
+            if response is None:
+                if not required or default is None:
+                    break
+            else:
                 if min is not None and response < min:
                     error(f'Number must be {min} or more')
                     continue
@@ -171,9 +172,9 @@ def panel(content: str, title: str = 'pypeal'):
     print(Panel(escape(content), title=title))
 
 
-def warning(message: str):
-    print(Panel(f'[bold yellow]Warning:[/] {message}'))
+def warning(message: str, title: str = None):
+    print(Panel(f'[bold yellow]Warning:[/] {message}', title=title))
 
 
-def error(message: str):
-    print(Panel(f'[bold red]Error:[/] {message}'))
+def error(message: str, title: str = None):
+    print(Panel(f'[bold red]Error:[/] {message}', title=title))

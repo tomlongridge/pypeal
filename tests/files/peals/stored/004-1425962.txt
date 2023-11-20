@@ -73,6 +73,13 @@ Last name (Mitchell):
 Given name(s) (Aston): 
 >>> 
 [User input: "Aston"]
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Warning: Found 1 existing ringers with similar names:                        │
+│   - Aston Mitchell                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Add "Aston Mitchell"? [y/n] (y): 
+>>> y
+[User input: "True"]
 Bell number(s) in the tower (1): 
 >>> 3
 [User input: "3"]

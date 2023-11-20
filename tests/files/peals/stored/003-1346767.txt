@@ -562,7 +562,7 @@ Select action (1):
 │ Also a birthday compliment to Vernon B Bedford.                              │
 │                                                                              │
 │ [Imported Bellboard peal ID: 1346767]                                        │
-│ [Original title: 8 Methods Minor]                                            │
+│ [Published title: 8 Methods Minor]                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -602,4 +602,4 @@ A Peal of 5040 Mixed Surprise Minor (8m) in 2 hours, 42 minutes (10-1-10 in G)
 Rung as a wedding compliment to Miss Ann Pearce and Mr George Bradlaugh; Also a birthday compliment to Vernon B Bedford.
 
 [Imported Bellboard peal ID: 1346767]
-[Original title: 8 Methods Minor]
+[Published title: 8 Methods Minor]
