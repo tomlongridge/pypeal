@@ -98,8 +98,10 @@ Add new ringer as "Martin" "Morgan"? [y/n] (y):
 [User input: "True"]
 👤 Ringer: Martin Morgan
 👤 Ringer: Joyce Sullivan
-📝 Footnote: Rung prior to the Coronation of King Charles III and Queen Camilla.
+📝 Footnotes:
+  - Rung prior to the Coronation of King Charles III and Queen Camilla.
 🔗 Event link: http://localhost:8080/event.php?id=16774
+📷 Photo link: None
 🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1619100 ──────────────────╮
 │ Bath, Somerset, England                                                      │

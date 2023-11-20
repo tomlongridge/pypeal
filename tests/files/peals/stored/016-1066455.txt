@@ -156,7 +156,6 @@ Footnote 1 text:
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-📝 Footnote: Birthday compliment to Paul Clewett.
 Footnote 2 text:
   > First on a mini-ring.
 Referenced ringer(s):
@@ -165,11 +164,15 @@ Referenced ringer(s):
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-📝 Footnote: [6: Arnold Johnson] First on a mini-ring.
-🔗 Event link: None
 Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
+📝 Footnotes:
+  - Birthday compliment to Paul Clewett.
+  - [3: Daryl Mason] First on a mini-ring.
+  - [6: Arnold Johnson] First on a mini-ring.
+🔗 Event link: None
+📷 Photo link: None
 Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 

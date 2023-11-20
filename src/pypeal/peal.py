@@ -90,6 +90,8 @@ class Peal:
 
     __footnotes: list[(str, int)]
 
+    __photos: list[(int, str, str, str)]
+
     def __init__(self,
                  bellboard_id: int = None,
                  type: int = None,
@@ -161,6 +163,7 @@ class Peal:
         self.__ringers_by_bell_num = None
 
         self.__footnotes = None
+        self.__photos = None
 
     @property
     def place(self) -> str:
@@ -448,52 +451,91 @@ class Peal:
     def add_footnote(self, footnote: str, bell: int, ringer: Ringer):
         self.footnotes.append((footnote, bell, ringer))
 
-    def get_footnote_line(self, footnote: (str, int, Ringer)) -> str:
+    def get_footnote_line(self, footnote_num: int) -> str:
         text = ''
-        if footnote[1]:
-            text += f'[{footnote[1]}: {footnote[2]}] '
-        text += f'{footnote[0]}'
+        if self.__footnotes[footnote_num][1]:
+            text += f'[{self.__footnotes[footnote_num][1]}: {self.__footnotes[footnote_num][2]}] '
+        text += f'{self.__footnotes[footnote_num][0]}'
         return text
 
-    def commit(self):
+    @property
+    def photos(self) -> list[tuple[int, str, str, str]]:
+        if self.__photos is None:
+            self.__photos = []
+            if self.id is not None:
+                results = Database.get_connection().query(
+                    'SELECT url, caption, credit, id FROM pealphotos WHERE peal_id = %s', (self.id,)).fetchall()
+                for url, caption, credit, photo_id in results:
+                    self.__photos.append((photo_id, url, caption, credit))
+        return self.__photos
+
+    def add_photo(self, url: str, caption: str, credit: str):
+        self.photos.append((None, url, caption, credit))
+
+    def get_photo_bytes(self, photo_id: int) -> bytes:
         if self.id is None:
-            result = Database.get_connection().query(
-                f'INSERT INTO peals ({",".join(FIELD_LIST)}) ' +
-                f'VALUES ({("%s,"*len(FIELD_LIST)).strip(",")})',
-                (self.bellboard_id, self.type.value, self.bell_type.value, self.date, self.association.id if self.association else None,
-                 self.ring.id if self.ring else None, self.__place, self.__sub_place, self.address, self.dedication, self.__county,
-                 self.__country, self.__tenor_weight, self.__tenor_note, self.changes, self.stage.value if self.stage else None,
-                 self.classification.value if self.classification else None, self.is_variable_cover, self.num_methods, self.num_principles,
-                 self.num_variants, self.method.id if self.method else None, self.title, self.published_title, self.detail,
-                 self.composer.id if self.composer else None, self.composition_url, self.duration, self.event_url,
-                 self.muffles.value if self.muffles else None))
-            Database.get_connection().commit()
-            self.id = result.lastrowid
-            for method, changes in self.methods:
-                Database.get_connection().query(
-                    'INSERT INTO pealmethods (peal_id, method_id, changes) VALUES (%s, %s, %s)',
-                    (self.id, method.id, changes))
-            Database.get_connection().commit()
-            for ringer, bell_nums, bells, is_conductor in self.ringers:
-                if bells is None:
-                    Database.get_connection().query(
-                        'INSERT INTO pealringers (peal_id, ringer_id, is_conductor) VALUES (%s, %s, %s)',
-                        (self.id, ringer.id, is_conductor))
-                else:
-                    for bell_num, bell in zip(bell_nums, bells):
-                        Database.get_connection().query(
-                            'INSERT INTO pealringers (peal_id, ringer_id, bell_num, bell, is_conductor) ' +
-                            'VALUES (%s, %s, %s, %s, %s)',
-                            (self.id, ringer.id, bell_num, bell, is_conductor))
-            footnote_num = 1
-            for footnote, bell, ringer in self.footnotes:
-                Database.get_connection().query(
-                    'INSERT INTO pealfootnotes (peal_id, footnote_num, bell, ringer_id, text) VALUES (%s, %s, %s, %s, %s)',
-                    (self.id, footnote_num, bell, ringer.id if ringer else None, footnote))
-                footnote_num += 1
-            Database.get_connection().commit()
+            raise ValueError('Peal must be committed to database before photos can be retrieved')
+        results = Database.get_connection().query(
+            'SELECT photo FROM pealphotos WHERE id = %s', (photo_id,)).fetchone()
+        if results is None:
+            return None
         else:
+            return results[0]
+
+    def set_photo_bytes(self, photo_id: int, photo: bytes):
+        if self.id is None:
+            raise ValueError('Peal must be committed to database before photo data can be added')
+        Database.get_connection().query(
+            'UPDATE pealphotos SET photo = %s WHERE id = %s', (photo, photo_id)).fetchone()
+        Database.get_connection().commit()
+
+    def commit(self):
+        if self.id is not None:
             raise NotImplementedError('Updating existing peals is not yet supported')
+
+        result = Database.get_connection().query(
+            f'INSERT INTO peals ({",".join(FIELD_LIST)}) ' +
+            f'VALUES ({("%s,"*len(FIELD_LIST)).strip(",")})',
+            (self.bellboard_id, self.type.value, self.bell_type.value, self.date, self.association.id if self.association else None,
+                self.ring.id if self.ring else None, self.__place, self.__sub_place, self.address, self.dedication, self.__county,
+                self.__country, self.__tenor_weight, self.__tenor_note, self.changes, self.stage.value if self.stage else None,
+                self.classification.value if self.classification else None, self.is_variable_cover, self.num_methods, self.num_principles,
+                self.num_variants, self.method.id if self.method else None, self.title, self.published_title, self.detail,
+                self.composer.id if self.composer else None, self.composition_url, self.duration, self.event_url,
+                self.muffles.value if self.muffles else None))
+        Database.get_connection().commit()
+        self.id = result.lastrowid
+        for method, changes in self.methods:
+            Database.get_connection().query(
+                'INSERT INTO pealmethods (peal_id, method_id, changes) VALUES (%s, %s, %s)',
+                (self.id, method.id, changes))
+        Database.get_connection().commit()
+        for ringer, bell_nums, bells, is_conductor in self.ringers:
+            if bells is None:
+                Database.get_connection().query(
+                    'INSERT INTO pealringers (peal_id, ringer_id, is_conductor) VALUES (%s, %s, %s)',
+                    (self.id, ringer.id, is_conductor))
+            else:
+                for bell_num, bell in zip(bell_nums, bells):
+                    Database.get_connection().query(
+                        'INSERT INTO pealringers (peal_id, ringer_id, bell_num, bell, is_conductor) ' +
+                        'VALUES (%s, %s, %s, %s, %s)',
+                        (self.id, ringer.id, bell_num, bell, is_conductor))
+        footnote_num = 1
+        for footnote, bell, ringer in self.footnotes:
+            Database.get_connection().query(
+                'INSERT INTO pealfootnotes (peal_id, footnote_num, bell, ringer_id, text) VALUES (%s, %s, %s, %s, %s)',
+                (self.id, footnote_num, bell, ringer.id if ringer else None, footnote))
+            footnote_num += 1
+        Database.get_connection().commit()
+
+        for i, photo in enumerate(self.photos):
+            _, url, caption, credit = photo
+            result = Database.get_connection().query(
+                'INSERT INTO pealphotos (peal_id, url, caption, credit) VALUES (%s, %s, %s, %s)',
+                (self.id, url, caption, credit))
+            Database.get_connection().commit()
+            self.__photos[i] = (result.lastrowid, url, caption, credit)
 
     def __str__(self):
         text = ''
@@ -527,8 +569,8 @@ class Peal:
         for ringer in self.ringers:
             text += f'{self.get_ringer_line(ringer)}\n'
         text += '\n' if len(self.footnotes) else ''
-        for footnote in self.footnotes:
-            text += self.get_footnote_line(footnote)
+        for i in range(0, len(self.__footnotes)):
+            text += self.get_footnote_line(i)
             text += '\n'
         text += '\n'
         text += f'[Imported Bellboard peal ID: {self.bellboard_id}]'
@@ -556,15 +598,17 @@ class Peal:
             raise ValueError('Either peal database ID or Bellboard ID must be specified')
         if (peal := Cache.get_cache().get(cls.__name__, key)) is not None:
             return peal
-        else:
-            result = Database.get_connection().query(
-                f'SELECT {",".join(FIELD_LIST)}, id ' +
-                'FROM peals ' +
-                'WHERE true ' +
-                ('AND id = %s ' if id else '') +
-                ('AND bellboard_id = %s ' if bellboard_id else ''),
-                (key,)).fetchone()
 
+        query = f'SELECT {",".join(FIELD_LIST)}, id FROM peals WHERE 1=1 '
+        params = {}
+        if id is not None:
+            query += 'AND id = %(id)s '
+            params['id'] = id
+        if bellboard_id is not None:
+            query += 'AND bellboard_id = %(bellboard_id)s '
+            params['bellboard_id'] = bellboard_id
+
+        result = Database.get_connection().query(query, params).fetchone()
         if result is None:
             return None
 

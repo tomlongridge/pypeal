@@ -174,17 +174,19 @@ Referenced ringer(s):
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-📝 Footnote: [6: Eric Ryan] First quarter peal.
 Footnote 2 text:
   > For evensong.
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-📝 Footnote: For evensong.
-🔗 Event link: None
 Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
+📝 Footnotes:
+  - [6: Eric Ryan] First quarter peal.
+  - For evensong.
+🔗 Event link: None
+📷 Photo link: None
 Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 

@@ -32,15 +32,18 @@ class BellboardMockServer(BaseHTTPRequestHandler):
             self.respond_with_content(
                 '<performances xmlns="http://bb.ringingworld.co.uk/NS/performances#"></performances>',
                 content_type='application/xml')
+        elif self.path.startswith('/uploads'):
+            with open(os.path.join(os.path.dirname(__file__), '..', 'files', 'peals') + self.path, 'rb') as f:
+                self.respond_with_content(f.read(), content_type='image/jpeg', encoding=None)
         else:
             self.send_response(404)
             self.end_headers()
 
-    def respond_with_content(self, content: str, content_type: str = 'text/html'):
+    def respond_with_content(self, content: str, content_type: str = 'text/html', encoding: str = 'utf-8'):
         self.send_response(200)
         self.send_header('Content-type', f'{content_type}; charset=utf-8')
         self.end_headers()
-        self.wfile.write(content.encode('utf-8'))
+        self.wfile.write(content.encode(encoding) if encoding is not None else content)
 
     def respond_with_file(self, file: str, content_type: str = 'text/html'):
         if not os.path.exists(file):

@@ -104,6 +104,13 @@ class MethodDetail(BaseModel):
     method: Method | None
 
 
+class PhotoDetail(BaseModel):
+    caption: str | None
+    credit: str | None
+    original_url: str
+    url: str
+
+
 class PerformanceDetail(BaseModel):
     changes: int | None
     title: str
@@ -114,8 +121,10 @@ class PerformanceDetail(BaseModel):
     classification: str | None
     is_variable_cover: bool
     methods: list[MethodDetail] | None
-    description: str | None
+    title: str | None
+    published_title: str | None
     detail: str | None
+    photos: list[PhotoDetail] | None
 
     @classmethod
     def from_object(cls, peal: PealDataClass):
@@ -125,9 +134,16 @@ class PerformanceDetail(BaseModel):
             methods = [MethodDetail(changes=method[1], method=Method.from_object(method[0])) for method in peal.methods]
         else:
             methods = []
+        if peal.photos:
+            photos = [PhotoDetail(caption=photo[1],
+                                  credit=photo[2],
+                                  original_url=photo[3],
+                                  url=f'/peals/{peal.bellboard_id}/photos/{i}')
+                      for i, photo in enumerate(peal.photos)]
+        else:
+            photos = None
         return cls(
             changes=peal.changes,
-            title=peal.title,
             num_methods=peal.num_methods,
             num_principles=peal.num_principles,
             num_variants=peal.num_variants,
@@ -135,8 +151,10 @@ class PerformanceDetail(BaseModel):
             classification=peal.classification.value if peal.classification else None,
             is_variable_cover=peal.is_variable_cover,
             methods=methods,
-            description=peal.description,
+            title=peal.title,
+            published_title=peal.published_title,
             detail=peal.detail,
+            photos=photos,
         )
 
 

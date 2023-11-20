@@ -26,7 +26,8 @@ class Database:
         db_host = get_config('database', 'host')
         db_user = get_config('database', 'user')
         db_password = get_config('database', 'password')
-        logger.debug(f'Connecting to database server {db_host} as user {db_user}')
+        db_name = get_config('database', 'db_name')
+        logger.debug(f'Connecting to database server {db_host} as user {db_user} (database: {db_name})')
         try:
             self.db = mysql.connector.connect(user=db_user, password=db_password, host=db_host)
             self.cursor = self.db.cursor()

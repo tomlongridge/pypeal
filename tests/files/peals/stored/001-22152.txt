@@ -227,8 +227,14 @@ Referenced ringer(s):
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-📝 Footnote: [4: Alen Henderson] First of Grandsire inside.
+Add new footnote? [y/n] (n): 
+>>> n
+[User input: "False"]
+📝 Footnotes:
+  - [1: Lydia Ferguson] First away from cover on 8.
+  - [4: Alen Henderson] First of Grandsire inside.
 🔗 Event link: None
+📷 Photo link: None
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Warning: Tenor weight 17 cwt reported on Bellboard does not match the weight │
 │ of largest bell rung (17-1-10) on Dove                                       │
@@ -236,9 +242,6 @@ Is this correct? [y/n] (y):
 Use Dove value (17-1-10)? [y/n] (y): 
 >>> y
 [User input: "True"]
-Add new footnote? [y/n] (n): 
->>> n
-[User input: "False"]
 Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 

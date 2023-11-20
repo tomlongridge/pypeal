@@ -530,11 +530,13 @@ Footnote 1 text:
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-📝 Footnote: Rung as a wedding compliment to Miss Ann Pearce and Mr George Bradlaugh; Also a birthday compliment to Vernon B Bedford.
-🔗 Event link: None
 Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
+📝 Footnotes:
+  - Rung as a wedding compliment to Miss Ann Pearce and Mr George Bradlaugh; Also a birthday compliment to Vernon B Bedford.
+🔗 Event link: None
+📷 Photo link: None
 Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 

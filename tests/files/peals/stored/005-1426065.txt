@@ -208,11 +208,14 @@ Referenced ringer(s):
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-📝 Footnote: [4: Chester Edwards] First of Triples "inside".
-🔗 Event link: None
 Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
+📝 Footnotes:
+  - Rung for Morning Service.
+  - [4: Chester Edwards] First of Triples "inside".
+🔗 Event link: None
+📷 Photo link: None
 Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 

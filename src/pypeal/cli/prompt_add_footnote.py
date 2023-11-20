@@ -15,10 +15,10 @@ def prompt_add_footnote(text: str, peal: Peal, quick_mode: bool):
     if text:
         for line in text.strip('. ').split('\n'):
 
-            if line.strip('. ').count('.') > 0 and \
+            if line.strip('. ').count('. ') > 0 and \
                     (quick_mode or
                         confirm(f'Footnote line:\n  > {line}', confirm_message='Split footnote by sentences?', default=True)):
-                line_parts = line.strip(' ').split('.')
+                line_parts = line.strip(' ').split('. ')
             else:
                 line_parts = [line]
 

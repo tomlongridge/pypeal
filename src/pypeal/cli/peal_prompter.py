@@ -121,21 +121,29 @@ class PealPromptListener(PealGeneratorListener):
         if value:
             self._run_cancellable_prompt(
                 lambda peal: prompt_add_footnote(value, peal, self.quick_mode))
-            print(f'📝 Footnote: {self.peal.get_footnote_line(self.peal.footnotes[-1])}')
+        else:
+            if not self.quick_mode:
+                self._run_cancellable_prompt(lambda peal: prompt_add_footnote(None, peal, False))
+            if len(self.peal.footnotes) == 0:
+                print('📝 Footnotes: None')
+            else:
+                print('📝 Footnotes:')
+                for i in range(0, len(self.peal.footnotes)):
+                    print(f'  - {self.peal.get_footnote_line(i)}')
 
     def event(self, url: str):
         if url:
             self.peal.event_url = url
         print(f'🔗 Event link: {self.peal.event_url or "None"}')
 
+    def photo(self, url: str, caption: str, credit: str):
+        if url:
+            self.peal.add_photo(url, caption, credit)
+        print(f'📷 Photo link: {url or "None"}')
+
     def end_peal(self):
         self._run_cancellable_prompt(lambda peal: prompt_validate_tenor(peal, self.quick_mode))
         self._run_cancellable_prompt(lambda peal: prompt_validate_footnotes(peal, self.quick_mode))
-
-        if not self.quick_mode:
-            self._run_cancellable_prompt(lambda peal: prompt_add_footnote(None, peal, False))
-        if len(self.peal.footnotes) == 0:
-            print('📝 Footnotes: None')
 
         if not self.quick_mode:
             self._run_cancellable_prompt(lambda peal: prompt_add_muffle_type(peal))

@@ -40,7 +40,7 @@ def get_peal(id: int) -> tuple[int, str]:
     return (get_id_from_url(response[0]), response[1])
 
 
-def request(url: str, headers: dict[str, str] = None) -> tuple[str, str]:
+def _request(url: str, headers: dict[str, str] = None) -> Response:
 
     # Rate-limit requests to avoid affecting BellBoard service
     global __last_call
@@ -51,14 +51,25 @@ def request(url: str, headers: dict[str, str] = None) -> tuple[str, str]:
     __last_call = datetime.now()
 
     try:
+        __logger.debug(f'GET request to {url}')
         response: Response = get_request(url, headers=headers if headers else None)
         if response.status_code == 404:
-            raise BellboardError(f'No such peal in Bellboard at {url}')
-        return (response.url, response.text)
+            raise BellboardError(f'No such file in Bellboard at {url}')
+        return response
     except ConnectionError as e:
         raise BellboardError(f'Unable to connect to Bellboard at {url}') from e
     except RequestException as e:
         raise BellboardError(f'Error whilst connecting to Bellboard at {url}: {e}') from e
+
+
+def request(url: str, headers: dict[str, str] = None) -> tuple[str, str]:
+    response = _request(url, headers=headers)
+    return (response.url, response.text)
+
+
+def request_bytes(url: str, headers: dict[str, str] = None) -> tuple[str, bytes]:
+    response = _request(url, headers=headers)
+    return (response.url, response.content)
 
 
 def get_url_from_id(id: int) -> str:

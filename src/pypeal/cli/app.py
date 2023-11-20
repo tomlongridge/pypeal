@@ -14,6 +14,7 @@ from pypeal.bellboard.html_generator import HTMLPealGenerator
 from pypeal.cccbr import update_methods
 from pypeal.cli.peal_prompter import PealPromptListener
 from pypeal.cli.peal_previewer import PealPreviewListener
+from pypeal.cli.prompt_commit_peal import prompt_commit_peal
 from pypeal.cli.prompts import UserCancelled, ask_date, ask_int, choose_option, ask, confirm, panel, error
 from pypeal.db import initialize as initialize_db
 from pypeal.dove import update_associations, update_bells, update_towers
@@ -162,14 +163,11 @@ def add_peal(peal_id: int = None):
             generator.parse(prompt_listener)
 
             peal = prompt_listener.peal
-            panel(str(peal), title=get_url_from_id(peal.bellboard_id))
-            if confirm('Save this peal?'):
-                peal.commit()
-                print(f'Peal {peal.bellboard_id} added')
-            elif prompt_listener.quick_mode:
-                if confirm(None, confirm_message='Try again in prompt mode?', default=True):
-                    prompt_listener.quick_mode = False
-                    continue
+            if not prompt_commit_peal(peal) and \
+                    prompt_listener.quick_mode and \
+                    confirm(None, confirm_message='Try again in prompt mode?', default=True):
+                prompt_listener.quick_mode = False
+                continue
             return
 
     except BellboardError as e:

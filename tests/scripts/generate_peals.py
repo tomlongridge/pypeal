@@ -31,6 +31,7 @@ def generate_peal(url: str):
                      *soup.select('ul.control'),
                      *soup.select('script'),
                      *soup.select('td#page-footer'),
+                     *soup.select('div.like'),
                      *soup.select('link[rel="stylesheet"]')]:
         metadata.replace_with('')
     bell_num = 1

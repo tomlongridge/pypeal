@@ -12,6 +12,7 @@ DATE_LINE_INFO_REGEX = re.compile(r'[A-Za-z]+,\s(?P<date>[0-9]+\s[A-Za-z0-9]+\s[
                                   r'in\s(?P<duration>[A-Za-z0-9\s]+))?\s?(?:\((?P<tenor>.*)\))?$')
 DURATION_REGEX = re.compile(r'^(?:(?P<hours>\d{1,2})[h])$|^(?:(?P<mins>\d+)[m]?)$|' +
                             r'^(?:(?:(?P<hours_2>\d{1,2})[h])\s(?:(?P<mins_2>(?:[0]?|[1-5]{1})[0-9])[m]?))$')
+PHOTO_URL_REGEX = re.compile(r'/\.(?P<url>/uploads/\w+/\w+)\-\w+\.jpg')
 
 
 class HTMLPealGenerator():
@@ -124,14 +125,11 @@ class HTMLPealGenerator():
                 bells = [int(bell) for bell in bells.split('–')]
             listener.ringer(full_name, bells, None, is_conductor)
 
-        found_footnote: bool = False
         for footnote in soup.select('div.footnote'):
             text = footnote.text.strip()
             if len(text) > 0:
                 listener.footnote(text)
-                found_footnote = True
-        if not found_footnote:
-            listener.footnote(None)
+        listener.footnote(None)
 
         element = soup.select('p.paragraphs.linked-events.section')
         if len(element) > 0:
@@ -140,5 +138,21 @@ class HTMLPealGenerator():
                            event_url[event_url.rfind('/'):])
         else:
             listener.event(None)
+
+        element = soup.select('div.image')
+        if len(element) > 0:
+            photo_url = element[0].select('img')[0]['src']
+            caption_element = element[0].select('p.caption')[0]
+            credit_element = caption_element.select('i')[0]
+            credit = credit_element.text.strip()[len('Photo: ')+1:-1]
+            credit_element.decompose()
+            caption = caption_element.text.strip()
+            if not (url_parts := re.match(PHOTO_URL_REGEX, photo_url)):
+                raise BellboardError('Unexpected photo URL format: ', photo_url)
+            listener.photo(config.get_config('bellboard', 'url') + url_parts.groupdict()['url'] + '.jpg',
+                           caption,
+                           credit)
+        else:
+            listener.photo(None, None, None)
 
         listener.end_peal()

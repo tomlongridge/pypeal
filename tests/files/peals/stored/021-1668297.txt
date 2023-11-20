@@ -54,8 +54,10 @@ First bell number(s) in the tower (1):
 👤 Ringer: 4: Blake Elliott
 👤 Ringer: 5: Chester Edwards (c)
 👤 Ringer: 6: Lenny Howard
-📝 Footnote: Rung half muffled on the back six for Remembrance Day.
+📝 Footnotes:
+  - Rung half muffled on the back six for Remembrance Day.
 🔗 Event link: None
+📷 Photo link: None
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Warning: Tenor weight 18-3-20 reported on Bellboard does not match the       │
 │ weight of largest bell rung (7-3-12) on Dove                                 │
@@ -173,15 +175,17 @@ Possible half-muffled ringing
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
-📝 Footnote: Rung half muffled on the back six for Remembrance Day.
+Add new footnote? [y/n] (n): 
+>>> 
+[User input: "False"]
+📝 Footnotes:
+  - Rung half muffled on the back six for Remembrance Day.
 🔗 Event link: None
+📷 Photo link: None
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Warning: Footnote suggests ringing on the back 6, but the tenor entered is   │
 │ the 6                                                                        │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Add new footnote? [y/n] (n): 
->>> 
-[User input: "False"]
 🔕 Muffles: Half
 ╭───────────────── http://localhost:8080/view.php?id=1668297 ──────────────────╮
 │ Bath, Somerset, England                                                      │

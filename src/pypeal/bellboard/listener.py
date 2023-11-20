@@ -53,5 +53,8 @@ class PealGeneratorListener():
     def event(self, url: str):
         pass
 
+    def photo(self, caption: str, credit: str, url: str):
+        pass
+
     def end_peal(self):
         pass

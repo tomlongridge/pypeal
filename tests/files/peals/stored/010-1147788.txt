@@ -206,7 +206,6 @@ Footnote 1 text:
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-📝 Footnote: For Morning Service, and to welcome Rafe Jackson-Swift, son of Russell and Angela, born on 8th January.
 Footnote 2 text:
   > 900th Quarter of Grandsire on the bells.
 Is this correct? [y/n] (y): 
@@ -215,11 +214,14 @@ Is this correct? [y/n] (y):
 Add this to previous footnote? [y/n] (y): 
 >>> n
 [User input: "False"]
-📝 Footnote: 900th Quarter of Grandsire on the bells.
-🔗 Event link: None
 Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
+📝 Footnotes:
+  - For Morning Service, and to welcome Rafe Jackson-Swift, son of Russell and Angela, born on 8th January.
+  - 900th Quarter of Grandsire on the bells.
+🔗 Event link: None
+📷 Photo link: None
 Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 

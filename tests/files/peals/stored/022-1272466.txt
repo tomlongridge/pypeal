@@ -1,0 +1,139 @@
+
+===
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 21                                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Options: 
+1) Find recent peals
+2) Add peals by search
+3) Add peals by search URL
+4) Add peal by ID/URL
+5) Add random peal
+6) View peal
+7) Update static data
+8) Exit
+Select action (1): 
+>>> 4
+[User input: "4"]
+Bellboard URL or peal ID: 
+>>> 1272466
+[User input: "1272466"]
+╭───────────────── http://localhost:8080/view.php?id=1272466 ──────────────────╮
+│ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
+│ 1260 Grandsire Triples                                                       │
+│ Sunday, 17 February 2019 (18–3–20 in E♭) in 46m                              │
+│                                                                              │
+│ 1: Lenny Howard                                                              │
+│ 2: Chester Edwards                                                           │
+│ 3: Paul Armstrong                                                            │
+│ 4: Arnold Johnson                                                            │
+│ 5: Daryl Mason                                                               │
+│ 6: Melissa Baker                                                             │
+│ 7: Joyce Sullivan (c)                                                        │
+│ 8: Leonardo Bennett                                                          │
+│                                                                              │
+│ Rung for Morning Service.                                                    │
+│ And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps    │
+│ and 6th North Staffordshire Regiment, a ringer at St Paul's,                 │
+│ Burton-on-Trent, who died on the 18th February 1919, aged 29.                │
+│ https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
+│ -staffordshire-regiment/                                                     │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Try for a quick-add? [y/n] (y): 
+>>> 
+[User input: "True"]
+🏛 Association: None
+🔔 Bell type: Tower
+🏰 Tower: Bath, Bathwick, Somerset, England, Blessed Virgin Mary
+🔢 Changes: 1260
+📕 Title: Grandsire Triples
+Composer: Attempting to find "Albert P Wakley"
+Add new ringer as "Albert P" "Wakley"? [y/n] (y): 
+>>> y
+[User input: "True"]
+🎼 Composer: Albert P Wakley
+📅 Date: Sunday, 17 February 2019
+🔔 Tenor: 2120 in Eb
+⏱ Duration: 46
+First bell number(s) in the tower (1): 
+>>> 3
+[User input: "3"]
+👤 Ringer: 1 [3]: Lenny Howard
+👤 Ringer: 2 [4]: Chester Edwards
+👤 Ringer: 3 [5]: Paul Armstrong
+👤 Ringer: 4 [6]: Arnold Johnson
+👤 Ringer: 5 [7]: Daryl Mason
+👤 Ringer: 6 [8]: Melissa Baker
+👤 Ringer: 7 [9]: Joyce Sullivan (c)
+👤 Ringer: 8 [10]: Leo Bennett
+📝 Footnotes:
+  - Rung for Morning Service. And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
+🔗 Event link: None
+📷 Photo link: http://localhost:8080/uploads/57/002a57.jpg
+🔕 Muffles: None
+╭───────────────── http://localhost:8080/view.php?id=1272466 ──────────────────╮
+│ Bath, Somerset, England                                                      │
+│ Blessed Virgin Mary, Bathwick                                                │
+│ On Sunday, 17 February 2019                                                  │
+│ A Quarter Peal of 1260 Grandsire Triples in 46 minutes (18-3-20 in Eb)       │
+│ Composed by: Albert P Wakley                                                 │
+│                                                                              │
+│ 1 [3]: Lenny Howard                                                          │
+│ 2 [4]: Chester Edwards                                                       │
+│ 3 [5]: Paul Armstrong                                                        │
+│ 4 [6]: Arnold Johnson                                                        │
+│ 5 [7]: Daryl Mason                                                           │
+│ 6 [8]: Melissa Baker                                                         │
+│ 7 [9]: Joyce Sullivan (c)                                                    │
+│ 8 [10]: Leo Bennett                                                          │
+│                                                                              │
+│ Rung for Morning Service. And in memory of the composer: Sergeant Albert     │
+│ Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at │
+│ St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.     │
+│ https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
+│ -staffordshire-regiment/.                                                    │
+│                                                                              │
+│ [Imported Bellboard peal ID: 1272466]                                        │
+│ [Composition URL: http://localhost:8080/comp.php?id=2271034]                 │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Peal 1272466 added
+Saving photo http://localhost:8080/uploads/57/002a57.jpg...
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Number of peals: 22                                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Options: 
+1) Find recent peals
+2) Add peals by search
+3) Add peals by search URL
+4) Add peal by ID/URL
+5) Add random peal
+6) View peal
+7) Update static data
+8) Exit
+Select action (1): 
+>>> 8
+[User input: "8"]
+===
+Bath, Somerset, England
+Blessed Virgin Mary, Bathwick
+On Sunday, 17 February 2019
+A Quarter Peal of 1260 Grandsire Triples in 46 minutes (18-3-20 in Eb)
+Composed by: Albert P Wakley
+
+1 [3]: Lenny Howard
+2 [4]: Chester Edwards
+3 [5]: Paul Armstrong
+4 [6]: Arnold Johnson
+5 [7]: Daryl Mason
+6 [8]: Melissa Baker
+7 [9]: Joyce Sullivan (c)
+8 [10]: Leo Bennett
+
+Rung for Morning Service. And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
+
+[Imported Bellboard peal ID: 1272466]
+[Composition URL: http://localhost:8080/comp.php?id=2271034]

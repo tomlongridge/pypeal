@@ -55,8 +55,10 @@ First bell number(s) in the tower (1):
 👤 Ringer: 4 [8]: Joyce Sullivan
 👤 Ringer: 5 [9]: Leo Bennett
 👤 Ringer: 6 [10]: Grace Perry
-📝 Footnote: For morning service, and to mark the coronation of King Charles III and Queen Camilla.
+📝 Footnotes:
+  - For morning service, and to mark the coronation of King Charles III and Queen Camilla.
 🔗 Event link: http://localhost:8080/event.php?id=16774
+📷 Photo link: None
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Warning: Tenor weight 7-3-12 reported on Bellboard does not match the weight │
 │ of largest bell rung (18-3-20) on Dove                                       │
@@ -162,11 +164,13 @@ Footnote 1 text:
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
-📝 Footnote: For morning service, and to mark the coronation of King Charles III and Queen Camilla.
-🔗 Event link: http://localhost:8080/event.php?id=16774
 Add new footnote? [y/n] (n): 
 >>> 
 [User input: "False"]
+📝 Footnotes:
+  - For morning service, and to mark the coronation of King Charles III and Queen Camilla.
+🔗 Event link: http://localhost:8080/event.php?id=16774
+📷 Photo link: None
 Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 

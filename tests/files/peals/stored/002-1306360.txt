@@ -158,11 +158,12 @@ Given name(s) (David):
 >>> 
 [User input: "David"]
 👤 Ringer: 6: David Rogers
-🔗 Event link: None
 Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
 📝 Footnotes: None
+🔗 Event link: None
+📷 Photo link: None
 Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 

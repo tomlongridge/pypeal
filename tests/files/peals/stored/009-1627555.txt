@@ -154,11 +154,13 @@ Footnote 1 text:
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-📝 Footnote: 31/50.
-🔗 Event link: http://localhost:8080/event.php?id=17567
 Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
+📝 Footnotes:
+  - 31/50.
+🔗 Event link: http://localhost:8080/event.php?id=17567
+📷 Photo link: None
 Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 

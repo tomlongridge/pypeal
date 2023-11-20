@@ -145,7 +145,6 @@ Footnote 1 text:
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-📝 Footnote: Rung for Morning Service and as a 60th Wedding Anniversary compliment to Phyllis and Melvin Chapman.
 Footnote 2 text:
   > 1st of Royal.
 Referenced ringer(s):
@@ -153,11 +152,14 @@ Referenced ringer(s):
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-📝 Footnote: [4: Chester Edwards] 1st of Royal.
-🔗 Event link: None
 Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
+📝 Footnotes:
+  - Rung for Morning Service and as a 60th Wedding Anniversary compliment to Phyllis and Melvin Chapman.
+  - [4: Chester Edwards] 1st of Royal.
+🔗 Event link: None
+📷 Photo link: None
 Options: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select action (1): 
 >>> 
