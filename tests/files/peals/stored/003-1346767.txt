@@ -82,16 +82,16 @@ Select action (9):
 [User input: "Surprise (6)"]
 📕 Title: Mixed Surprise Minor (8m)
 Adding changes of methods to multi-method peal...
-No methods match "Being seven extents in eight methods Surprise Minor"
+No methods match "seven extents in eight methods" (or similar)
 Options: 1) Search alternatives, 2) Cancel
 Select action (1): 
 >>> 2
 [User input: "Cancel"]
 No method matched
-Remove "Being seven extents in eight methods Surprise Minor"? [y/n] (y): 
+Remove this method? [y/n] (y): 
 >>> y
 [User input: "True"]
-No methods match "Viz: (1) Norwich Surprise Minor"
+No methods match "Viz: (1) Norwich Surprise" (or similar)
 Options: 1) Search alternatives, 2) Cancel
 Select action (1): 
 >>> 1
@@ -125,8 +125,7 @@ Is this a little method? [y/n]:
 Is this a treble dodging method? [y/n]: 
 >>> 
 [User input: "None"]
-Matched "Viz: (1) Norwich Surprise Minor" to method "Norwich Surprise Minor" 
-(ID: m14317)
+Matched "Viz: (1) Norwich Surprise" to method "Norwich Surprise Minor"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -134,42 +133,7 @@ Number of changes:
 >>> 
 [User input: "None"]
 Method 1: Norwich Surprise Minor (unknown changes)
-No methods match "(2) Ipswich Surprise Minor"
-Options: 1) Search alternatives, 2) Cancel
-Select action (1): 
->>> 1
-[User input: "1"]
-Enter search criteria:
-Name ((2) Ipswich): 
->>> Ipswich
-[User input: "Ipswich"]
-Stage (6): 
->>> 6
-[User input: "6"]
-Options: 
-1) Alliance
-2) Bob
-3) Delight
-4) Hybrid
-5) Place
-6) Surprise
-7) Treble Bob
-8) Treble Place
-9) None
-Select action (6): 
->>> 6
-[User input: "Surprise (6)"]
-Is this a differential method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a little method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a treble dodging method? [y/n]: 
->>> 
-[User input: "None"]
-Matched "(2) Ipswich Surprise Minor" to method "Ipswich Surprise Minor" (ID: 
-m14563)
+Matched "Ipswich Surprise" to method "Ipswich Surprise Minor"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -177,47 +141,7 @@ Number of changes:
 >>> 
 [User input: "None"]
 Method 2: Ipswich Surprise Minor (unknown changes)
-No methods match "(3) Cambridge Surprise Minor"
-Options: 1) Search alternatives, 2) Cancel
-Select action (1): 
->>> 1
-[User input: "1"]
-Enter search criteria:
-Name ((3) Cambridge): 
->>> Cambridge
-[User input: "Cambridge"]
-Stage (6): 
->>> 6
-[User input: "6"]
-Options: 
-1) Alliance
-2) Bob
-3) Delight
-4) Hybrid
-5) Place
-6) Surprise
-7) Treble Bob
-8) Treble Place
-9) None
-Select action (6): 
->>> 6
-[User input: "Surprise (6)"]
-Is this a differential method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a little method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a treble dodging method? [y/n]: 
->>> 
-[User input: "None"]
-2 methods match "Cambridge Surprise Minor"
-Options: 1) Cambridge Surprise Minor, 2) New Cambridge Surprise Minor, 3) None
-Select action: 
->>> 1
-[User input: "Cambridge Surprise Minor (1)"]
-Matched "(3) Cambridge Surprise Minor" to method "Cambridge Surprise Minor" (ID:
-m14568)
+Matched "Cambridge Surprise" to method "Cambridge Surprise Minor"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -225,42 +149,7 @@ Number of changes:
 >>> 
 [User input: "None"]
 Method 3: Cambridge Surprise Minor (unknown changes)
-No methods match "(4)Single Oxford Bob Minor"
-Options: 1) Search alternatives, 2) Cancel
-Select action (1): 
->>> 1
-[User input: "1"]
-Enter search criteria:
-Name ((4)Single Oxford): 
->>> single oxford
-[User input: "single oxford"]
-Stage (6): 
->>> 6
-[User input: "6"]
-Options: 
-1) Alliance
-2) Bob
-3) Delight
-4) Hybrid
-5) Place
-6) Surprise
-7) Treble Bob
-8) Treble Place
-9) None
-Select action (2): 
->>> 2
-[User input: "Bob (2)"]
-Is this a differential method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a little method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a treble dodging method? [y/n]: 
->>> 
-[User input: "None"]
-Matched "(4)Single Oxford Bob Minor" to method "Single Oxford Bob Minor" (ID: 
-m11104)
+Matched "Single Oxford Bob" to method "Single Oxford Bob Minor"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -268,41 +157,7 @@ Number of changes:
 >>> 
 [User input: "None"]
 Method 4: Single Oxford Bob Minor (unknown changes)
-No methods match "(5) Plain Bob Minor"
-Options: 1) Search alternatives, 2) Cancel
-Select action (1): 
->>> 1
-[User input: "1"]
-Enter search criteria:
-Name ((5) Plain): 
->>> plain
-[User input: "plain"]
-Stage (6): 
->>> 6
-[User input: "6"]
-Options: 
-1) Alliance
-2) Bob
-3) Delight
-4) Hybrid
-5) Place
-6) Surprise
-7) Treble Bob
-8) Treble Place
-9) None
-Select action (2): 
->>> 2
-[User input: "Bob (2)"]
-Is this a differential method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a little method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a treble dodging method? [y/n]: 
->>> 
-[User input: "None"]
-Matched "(5) Plain Bob Minor" to method "Plain Bob Minor" (ID: m11349)
+Matched "Plain Bob" to method "Plain Bob Minor"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -310,42 +165,7 @@ Number of changes:
 >>> 
 [User input: "None"]
 Method 5: Plain Bob Minor (unknown changes)
-No methods match "(6) St Clement's College Bob and Double Oxford Bob Minor"
-Options: 1) Search alternatives, 2) Cancel
-Select action (1): 
->>> 1
-[User input: "1"]
-Enter search criteria:
-Name ((6) St Clement's College Bob and Double Oxford): 
->>> clement
-[User input: "clement"]
-Stage (6): 
->>> 6
-[User input: "6"]
-Options: 
-1) Alliance
-2) Bob
-3) Delight
-4) Hybrid
-5) Place
-6) Surprise
-7) Treble Bob
-8) Treble Place
-9) None
-Select action (2): 
->>> 2
-[User input: "Bob (2)"]
-Is this a differential method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a little method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a treble dodging method? [y/n]: 
->>> 
-[User input: "None"]
-Matched "(6) St Clement's College Bob and Double Oxford Bob Minor" to method "St
-Clement's College Bob Minor" (ID: m11369)
+Matched "St Clement's College Bob" to method "St Clement's College Bob Minor"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -353,93 +173,22 @@ Number of changes:
 >>> 
 [User input: "None"]
 Method 6: St Clement's College Bob Minor (unknown changes)
-No methods match "(7) Oxford Treble Bob Minor"
-Options: 1) Search alternatives, 2) Cancel
-Select action (1): 
->>> 1
-[User input: "1"]
-Enter search criteria:
-Name ((7) Oxford): 
->>> oxford
-[User input: "oxford"]
-Stage (6): 
->>> 6
-[User input: "6"]
-Options: 
-1) Alliance
-2) Bob
-3) Delight
-4) Hybrid
-5) Place
-6) Surprise
-7) Treble Bob
-8) Treble Place
-9) None
-Select action (7): 
->>> 7
-[User input: "Treble Bob (7)"]
-Is this a differential method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a little method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a treble dodging method? [y/n]: 
->>> 
-[User input: "None"]
-Matched "(7) Oxford Treble Bob Minor" to method "Oxford Treble Bob Minor" (ID: 
-m25915)
+Matched "Double Oxford Bob" to method "Double Oxford Bob Minor"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 Number of changes: 
 >>> 
 [User input: "None"]
-Method 7: Oxford Treble Bob Minor (unknown changes)
-Add more changes of method? [y/n] (y): 
->>> y
-[User input: "True"]
-Options: 1) Search alternatives, 2) Cancel
-Select action (1): 
->>> 1
-[User input: "1"]
-Enter search criteria:
-Name: 
->>> double oxford
-[User input: "double oxford"]
-Stage: 
->>> 6
-[User input: "6"]
-Options: 
-1) Alliance
-2) Bob
-3) Delight
-4) Hybrid
-5) Place
-6) Surprise
-7) Treble Bob
-8) Treble Place
-9) None
-Select action (9): 
->>> 2
-[User input: "Bob (2)"]
-Is this a differential method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a little method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a treble dodging method? [y/n]: 
->>> 
-[User input: "None"]
-Add "Double Oxford Bob Minor" (ID: m11121)
+Method 7: Double Oxford Bob Minor (unknown changes)
+Matched "Oxford Treble Bob" to method "Oxford Treble Bob Minor"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 Number of changes: 
 >>> 
 [User input: "None"]
-Method 8: Double Oxford Bob Minor (unknown changes)
+Method 8: Oxford Treble Bob Minor (unknown changes)
 Add more changes of method? [y/n] (n): 
 >>> n
 [User input: "False"]
@@ -450,8 +199,8 @@ Add more changes of method? [y/n] (n):
   - Single Oxford Bob Minor
   - Plain Bob Minor
   - St Clement's College Bob Minor
-  - Oxford Treble Bob Minor
   - Double Oxford Bob Minor
+  - Oxford Treble Bob Minor
 No composer attributed
 Is this correct? [y/n] (y): 
 >>> y
@@ -551,7 +300,7 @@ Select action (1):
 │ G)                                                                           │
 │ (Norwich Surprise Minor, Ipswich Surprise Minor, Cambridge Surprise Minor,   │
 │ Single Oxford Bob Minor, Plain Bob Minor, St Clement's College Bob Minor,    │
-│ Oxford Treble Bob Minor, Double Oxford Bob Minor)                            │
+│ Double Oxford Bob Minor, Oxford Treble Bob Minor)                            │
 │                                                                              │
 │ 1: Blake Howard                                                              │
 │ 2: Aston Mitchell                                                            │

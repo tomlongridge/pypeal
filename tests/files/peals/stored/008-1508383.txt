@@ -73,18 +73,15 @@ Is this correct? [y/n] (y):
 Composer: Attempting to find "Christopher I Rowson"
 Options: 1) Add new ringer, 2) Search ringers, 3) None
 Select action (1): 
->>> 1
-[User input: "1"]
-Last name (Rowson): 
->>> 
-[User input: "Rowson"]
-Given name(s) (Christopher I): 
->>> 
-[User input: "Christopher I"]
+>>> 3
+[User input: "None"]
+Composer description (e.g. RW Diary) (Christopher I Rowson): 
+>>> Traditional
+[User input: "Traditional"]
 Composition URL (http://localhost:8080/comp.php?id=2284506): 
 >>> 
 [User input: "http://localhost:8080/comp.php?id=2284506"]
-🎼 Composer: Christopher I Rowson
+🎼 Composer: Traditional
 📅 Date: Wednesday, 29 March 1972
 🔔 Tenor: Unknown
 ⏱ Duration: 183
@@ -180,7 +177,7 @@ Select action (1):
 │ 80 Lambourne Drive, Cox Green (in hand)                                      │
 │ On Wednesday, 29 March 1972                                                  │
 │ A Peal of 5232 Bristol Surprise Maximus in 3 hours, 3 minutes                │
-│ Composed by: Christopher I Rowson                                            │
+│ Composed by: Traditional                                                     │
 │                                                                              │
 │ 1,2: Sam Wells                                                               │
 │ 3,4: Rubie Owens                                                             │
@@ -220,7 +217,7 @@ Maidenhead, Kent, England
 80 Lambourne Drive, Cox Green (in hand)
 On Wednesday, 29 March 1972
 A Peal of 5232 Bristol Surprise Maximus in 3 hours, 3 minutes 
-Composed by: Christopher I Rowson
+Composed by: Traditional
 
 1,2: Sam Wells
 3,4: Rubie Owens

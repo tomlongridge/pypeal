@@ -81,42 +81,8 @@ Is this peal variable cover? [y/n] (n):
 [User input: "False"]
 📕 Title: Mixed Doubles (3m)
 Adding changes of methods to multi-method peal...
-No methods match "each Reverse Canterbury Pleasure Place Doubles"
-Options: 1) Search alternatives, 2) Cancel
-Select action (1): 
->>> 1
-[User input: "1"]
-Enter search criteria:
-Name (each Reverse Canterbury Pleasure): 
->>> Canterbury
-[User input: "Canterbury"]
-Stage (5): 
->>> 
-[User input: "5"]
-Options: 
-1) Alliance
-2) Bob
-3) Delight
-4) Hybrid
-5) Place
-6) Surprise
-7) Treble Bob
-8) Treble Place
-9) None
-Select action (5): 
->>> 
-[User input: "Place (5)"]
-Is this a differential method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a little method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a treble dodging method? [y/n]: 
->>> 
-[User input: "None"]
-Matched "each Reverse Canterbury Pleasure Place Doubles" to method "Reverse 
-Canterbury Pleasure Place Doubles" (ID: m10521)
+Matched "360 each Reverse Canterbury Pleasure Place" to method "Reverse 
+Canterbury Pleasure Place Doubles"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -124,7 +90,7 @@ Number of changes (360):
 >>> 
 [User input: "360"]
 Method 1: Reverse Canterbury Pleasure Place Doubles (360 changes)
-Matched "Plain Bob Doubles" to method "Plain Bob Doubles" (ID: m10550)
+Matched "Plain Bob" to method "Plain Bob Doubles"
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
@@ -132,14 +98,14 @@ Number of changes:
 >>> 360
 [User input: "360"]
 Method 2: Plain Bob Doubles (360 changes)
-Matched "Grandsire Doubles" to method "Grandsire Doubles" (ID: m10587)
+Matched "540 Grandsire" to method "Grandsire Doubles"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 Number of changes (540): 
 >>> 
 [User input: "540"]
-Method 3: Grandsire Bob Doubles (540 changes)
+Method 3: Grandsire Doubles (540 changes)
 Add more changes of method? [y/n] (n): 
 >>> n
 [User input: "False"]
@@ -284,7 +250,7 @@ Select action (1):
 │ On Sunday, 10 September 2023                                                 │
 │ A Quarter Peal of 1260 Mixed Doubles (3m) in 41 minutes (7-3-12 in Bb)       │
 │ (360 Reverse Canterbury Pleasure Place Doubles, 360 Plain Bob Doubles, 540   │
-│ Grandsire Bob Doubles)                                                       │
+│ Grandsire Doubles)                                                           │
 │                                                                              │
 │ 1: Ryan Elliott                                                              │
 │ 2: Leo Bennett                                                               │
@@ -325,7 +291,7 @@ Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Sunday, 10 September 2023
 A Quarter Peal of 1260 Mixed Doubles (3m) in 41 minutes (7-3-12 in Bb)
-(360 Reverse Canterbury Pleasure Place Doubles, 360 Plain Bob Doubles, 540 Grandsire Bob Doubles)
+(360 Reverse Canterbury Pleasure Place Doubles, 360 Plain Bob Doubles, 540 Grandsire Doubles)
 
 1: Ryan Elliott
 2: Leo Bennett

@@ -24,6 +24,7 @@ CREATE TABLE @db_name.`peals` (
     `published_title` VARCHAR(128) NULL,
     `detail` VARCHAR(1024) NULL,
     `composer_id` INT UNSIGNED NULL,
+    `composer_description` VARCHAR(128) NULL,
     `composition_url` VARCHAR(128) NULL,
     `duration` INT UNSIGNED NULL,
     `tenor_weight` INT UNSIGNED NULL,

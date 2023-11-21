@@ -3,7 +3,7 @@ from pypeal.cli.prompts import ask, ask_int, choose_option, confirm
 from pypeal.method import Classification, Method, Stage
 
 
-def prompt_add_method(method: Method, quick_mode: bool) -> tuple[Method, bool]:
+def prompt_add_method(method: Method, original_name: str, quick_mode: bool) -> tuple[Method, bool]:
 
     matched_method: Method = None
     exact_match: bool = True
@@ -12,16 +12,24 @@ def prompt_add_method(method: Method, quick_mode: bool) -> tuple[Method, bool]:
 
         if method is not None:
             full_method_match = Method.search(name=method.name,
-                                              exact_match=exact_match,
                                               classification=method.classification,
-                                              stage=method.stage)
+                                              stage=method.stage,
+                                              exact_match=exact_match)
+            if not full_method_match:  # Try without the classification
+                full_method_match = Method.search(name=method.name,
+                                                  stage=method.stage,
+                                                  exact_match=exact_match)
+            if not full_method_match and exact_match:  # Try with inexact match
+                full_method_match = Method.search(name=method.name,
+                                                  stage=method.stage,
+                                                  exact_match=False)
         else:
             full_method_match = []
 
         match len(full_method_match):
             case 0:
                 if method:
-                    print(f'No methods match "{method.title}"')
+                    print(f'No methods match "{original_name or method.name}" (or similar)')
                     quick_mode = False
                 match choose_option(['Search alternatives'], default=1, cancel_option='Cancel'):
                     case 1:
@@ -52,21 +60,21 @@ def prompt_add_method(method: Method, quick_mode: bool) -> tuple[Method, bool]:
             case 1:
                 matched_method = full_method_match[0]
             case _:
-                print(f'{len(full_method_match)} methods match "{method.title}"')
+                print(f'{len(full_method_match)} methods match "{original_name or method.name}" (or similar)')
                 quick_mode = False
                 matched_method = choose_option(full_method_match, cancel_option='None', return_option=True)
 
         if matched_method is None:
-            if original_method is None or confirm('No method matched', confirm_message=f'Remove "{original_method.title}"?'):
+            if original_method is None or confirm('No method matched', confirm_message='Remove this method?'):
                 return None, False
             else:
                 method = original_method
 
     if (quick_mode or
             (original_method is not None and
-                confirm(f'Matched "{original_method.title}" to method "{matched_method}" (ID: {matched_method.id})')) or
+                confirm(f'Matched "{original_name or method.name}" to method "{matched_method.full_name}"')) or
             (original_method is None and
-                confirm(f'Add "{matched_method}" (ID: {matched_method.id})'))):
+                confirm(f'Add "{matched_method.full_name}"'))):
         return matched_method, quick_mode
     else:
         return None, False

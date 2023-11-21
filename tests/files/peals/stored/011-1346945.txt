@@ -93,41 +93,7 @@ Is this peal variable cover? [y/n] (n):
 [User input: "False"]
 📕 Title: Mixed Doubles (4m/4v)
 Adding changes of methods to multi-method peal...
-No methods match "Being Stedman Doubles"
-Options: 1) Search alternatives, 2) Cancel
-Select action (1): 
->>> 1
-[User input: "1"]
-Enter search criteria:
-Name (Being Stedman): 
->>> stedman
-[User input: "stedman"]
-Stage (5): 
->>> 5
-[User input: "5"]
-Options: 
-1) Alliance
-2) Bob
-3) Delight
-4) Hybrid
-5) Place
-6) Surprise
-7) Treble Bob
-8) Treble Place
-9) None
-Select action: 
->>> 9
-[User input: "None"]
-Is this a differential method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a little method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a treble dodging method? [y/n]: 
->>> 
-[User input: "None"]
-Matched "Being Stedman Doubles" to method "Stedman Doubles" (ID: m27834)
+Matched "Stedman" to method "Stedman Doubles"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -135,15 +101,15 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 1: Stedman Doubles (630 changes)
-Matched "Grandsire Doubles" to method "Grandsire Doubles" (ID: m10587)
+Matched "Grandsire" to method "Grandsire Doubles"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 Number of changes: 
 >>> 630
 [User input: "630"]
-Method 2: Grandsire Bob Doubles (630 changes)
-No methods match "Reverse Canterbury Pleasure Place Bob Doubles"
+Method 2: Grandsire Doubles (630 changes)
+No methods match "Reverse Canterbury Pleasure Place Bob" (or similar)
 Options: 1) Search alternatives, 2) Cancel
 Select action (1): 
 >>> 1
@@ -177,8 +143,8 @@ Is this a little method? [y/n]:
 Is this a treble dodging method? [y/n]: 
 >>> 
 [User input: "None"]
-Matched "Reverse Canterbury Pleasure Place Bob Doubles" to method "Reverse 
-Canterbury Pleasure Place Doubles" (ID: m10521)
+Matched "Reverse Canterbury Pleasure Place Bob" to method "Reverse Canterbury 
+Pleasure Place Doubles"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -186,7 +152,7 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 3: Reverse Canterbury Pleasure Place Doubles (630 changes)
-No methods match "Winchendon Place Bob Doubles"
+No methods match "Winchendon Place Bob" (or similar)
 Options: 1) Search alternatives, 2) Cancel
 Select action (1): 
 >>> 1
@@ -220,8 +186,7 @@ Is this a little method? [y/n]:
 Is this a treble dodging method? [y/n]: 
 >>> 
 [User input: "None"]
-Matched "Winchendon Place Bob Doubles" to method "Winchendon Place Doubles" (ID:
-m10524)
+Matched "Winchendon Place Bob" to method "Winchendon Place Doubles"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -229,8 +194,7 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 4: Winchendon Place Doubles (630 changes)
-Matched "St Nicholas Bob Doubles" to method "St Nicholas Bob Doubles" (ID: 
-m10526)
+Matched "St Nicholas Bob" to method "St Nicholas Bob Doubles"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -238,7 +202,7 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 5: St Nicholas Bob Doubles (630 changes)
-Matched "St Simon's Bob Doubles" to method "St Simon's Bob Doubles" (ID: m10560)
+Matched "St Simon's Bob" to method "St Simon's Bob Doubles"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -246,8 +210,7 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 6: St Simon's Bob Doubles (630 changes)
-Matched "St Martin's Bob Doubles" to method "St Martin's Bob Doubles" (ID: 
-m10555)
+Matched "St Martin's Bob" to method "St Martin's Bob Doubles"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -255,41 +218,7 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 7: St Martin's Bob Doubles (630 changes)
-No methods match "and Plain Bob Doubles"
-Options: 1) Search alternatives, 2) Cancel
-Select action (1): 
->>> 1
-[User input: "1"]
-Enter search criteria:
-Name (and Plain): 
->>> plain
-[User input: "plain"]
-Stage (5): 
->>> 5
-[User input: "5"]
-Options: 
-1) Alliance
-2) Bob
-3) Delight
-4) Hybrid
-5) Place
-6) Surprise
-7) Treble Bob
-8) Treble Place
-9) None
-Select action (2): 
->>> 2
-[User input: "Bob (2)"]
-Is this a differential method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a little method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a treble dodging method? [y/n]: 
->>> 
-[User input: "None"]
-Matched "and Plain Bob Doubles" to method "Plain Bob Doubles" (ID: m10550)
+Matched "Plain Bob" to method "Plain Bob Doubles"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -391,10 +320,10 @@ Select action (1):
 │ S John Bapt                                                                  │
 │ On Monday, 27 March 1967                                                     │
 │ A Peal of 5040 Mixed Doubles (4m/4v) in 2 hours, 29 minutes (8-3-7 in A)     │
-│ (630 Stedman Doubles, 630 Grandsire Bob Doubles, 630 Reverse Canterbury      │
-│ Pleasure Place Doubles, 630 Winchendon Place Doubles, 630 St Nicholas Bob    │
-│ Doubles, 630 St Simon's Bob Doubles, 630 St Martin's Bob Doubles, 630 Plain  │
-│ Bob Doubles)                                                                 │
+│ (630 Stedman Doubles, 630 Grandsire Doubles, 630 Reverse Canterbury Pleasure │
+│ Place Doubles, 630 Winchendon Place Doubles, 630 St Nicholas Bob Doubles,    │
+│ 630 St Simon's Bob Doubles, 630 St Martin's Bob Doubles, 630 Plain Bob       │
+│ Doubles)                                                                     │
 │                                                                              │
 │ 1: Lydia Reed                                                                │
 │ 2: Victoria Morrison                                                         │
@@ -435,7 +364,7 @@ Saxmundham, Suffolk, England
 S John Bapt
 On Monday, 27 March 1967
 A Peal of 5040 Mixed Doubles (4m/4v) in 2 hours, 29 minutes (8-3-7 in A)
-(630 Reverse Canterbury Pleasure Place Doubles, 630 Winchendon Place Doubles, 630 St Nicholas Bob Doubles, 630 Plain Bob Doubles, 630 St Martin's Bob Doubles, 630 St Simon's Bob Doubles, 630 Grandsire Bob Doubles, 630 Stedman Doubles)
+(630 Reverse Canterbury Pleasure Place Doubles, 630 Winchendon Place Doubles, 630 St Nicholas Bob Doubles, 630 Plain Bob Doubles, 630 St Martin's Bob Doubles, 630 St Simon's Bob Doubles, 630 Grandsire Doubles, 630 Stedman Doubles)
 
 1: Lydia Reed
 2: Victoria Morrison

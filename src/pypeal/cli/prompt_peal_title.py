@@ -185,7 +185,7 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
 
             # We have identified two methods from the title - add them to method details
             if len(parsed_methods) > 1:
-                prompt_add_change_of_method([(method, None) for method in parsed_methods], peal, quick_mode)
+                prompt_add_change_of_method([(method, None, None) for method in parsed_methods], peal, quick_mode)
 
             return
 

@@ -82,8 +82,7 @@ Select action (6):
 [User input: "Surprise (6)"]
 📕 Title: Spliced Surprise Major (2m)
 Adding changes of methods to multi-method peal...
-Matched "Cambridge Surprise Major" to method "Cambridge Surprise Major" (ID: 
-m16694)
+Matched "640 changes Cambridge" to method "Cambridge Surprise Major"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -91,8 +90,7 @@ Number of changes (640):
 >>> 
 [User input: "640"]
 Method 1: Cambridge Surprise Major (640 changes)
-Matched "Yorkshire Surprise Major" to method "Yorkshire Surprise Major" (ID: 
-m17060)
+Matched "640 changes Yorkshire" to method "Yorkshire Surprise Major"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]

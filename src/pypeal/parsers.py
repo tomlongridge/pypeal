@@ -149,7 +149,7 @@ def parse_single_method(method: str, expect_changes: bool = True) -> tuple[Stage
 
     method = method.strip(' .,')
 
-    if expect_changes and (match := re.match(r'^(?P<changes>[0-9]+)\s+(?:changes\s)?(?P<method>.*)$', method)):
+    if expect_changes and (match := re.match(r'^(?P<changes>[0-9]+)\s+(?:changes\s|each\s)?(?P<method>.*)$', method)):
         changes = int(match.groupdict()['changes'])
         method = match.groupdict()['method'].strip(' .,')
 

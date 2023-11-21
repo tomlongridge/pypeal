@@ -92,6 +92,8 @@ def prompt_add_ringer_by_search(name: str, label: str, allow_none: bool, quick_m
                     case _:
                         print(f'{len(potential_ringers)} existing ringers match "{(search_given_names + " " + search_last_name).strip()}"')
                         return choose_option(potential_ringers, cancel_option='None', return_option=True)
+            case None:
+                return None
 
 
 def prompt_add_ringer_by_name_match(name: str, label: str, quick_mode: bool) -> Ringer:

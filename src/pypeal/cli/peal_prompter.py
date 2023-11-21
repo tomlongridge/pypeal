@@ -33,6 +33,7 @@ class PealPromptListener(PealGeneratorListener):
         print(f'🔔 Bell type: {value.name.capitalize()}')
 
     def association(self, value: str):
+        value = _clean_str_input(value)
         self._run_cancellable_prompt(
             lambda peal: prompt_add_association(value, peal, self.quick_mode))
         print(f'🏛 Association: {value or "None"}')
@@ -49,6 +50,9 @@ class PealPromptListener(PealGeneratorListener):
             print(f'Tower ID {dove_id or towerbase_id} not found')
 
     def location(self, address_dedication: str, place: str, county: str):
+        address_dedication = _clean_str_input(address_dedication)
+        place = _clean_str_input(place)
+        county = _clean_str_input(county)
         if self.peal.ring is None:
             self._run_cancellable_prompt(
                 lambda peal: prompt_add_location(address_dedication, place, county, peal, self.quick_mode))
@@ -62,12 +66,14 @@ class PealPromptListener(PealGeneratorListener):
         print(f'🔢 Changes: {value or "Unknown"}')
 
     def title(self, value: str):
+        value = _clean_str_input(value)
         self._run_cancellable_prompt(
             lambda peal: prompt_peal_title(value, peal, self.quick_mode))
         if self.peal.title:
             print(f'📕 Title: {self.peal.title}')
 
     def method_details(self, value: str):
+        value = _clean_str_input(value)
         # A non-peal performance will have general text about the performance
         # e.g. "Rounds and call changes"
         if self.peal.length_type is None:
@@ -91,15 +97,18 @@ class PealPromptListener(PealGeneratorListener):
                 print('  - None')
 
     def composer(self, name: str, url: str):
+        name = _clean_str_input(name)
+        url = _clean_str_input(url)
         self._run_cancellable_prompt(
             lambda peal: prompt_add_composition_details(name, url, peal, self.quick_mode))
-        print(f'🎼 Composer: {self.peal.composer or "Unknown"}')
+        print(f'🎼 Composer: {self.peal.composer or self.peal.composer_description or "Unknown"}')
 
     def date(self, value: datetime.date):
         self.peal.date = value
         print(f'📅 Date: {utils.format_date_full(value)}')
 
     def tenor(self, value: str):
+        value = _clean_str_input(value)
         if value:
             self.peal.tenor_weight, self.peal.tenor_note = parse_tenor_info(value)
             print(f'🔔 Tenor: {self.peal.tenor_weight}' +
@@ -108,16 +117,19 @@ class PealPromptListener(PealGeneratorListener):
             print('🔔 Tenor: Unknown')
 
     def duration(self, value: str):
+        value = _clean_str_input(value)
         if value:
             self.peal.duration = parse_duration(value)
         print(f'⏱ Duration: {self.peal.duration or "Unknown"}')
 
     def ringer(self, name: str, bell_nums: list[int], bells: list[int], is_conductor: bool):
+        name = _clean_str_input(name)
         self._run_cancellable_prompt(
             lambda peal: prompt_add_ringer(name, bell_nums, bells, is_conductor, peal, self.quick_mode))
         print(f'👤 Ringer: {self.peal.get_ringer_line(self.peal.ringers[-1])}')
 
     def footnote(self, value: str):
+        value = _clean_str_input(value)
         if value:
             self._run_cancellable_prompt(
                 lambda peal: prompt_add_footnote(value, peal, self.quick_mode))
@@ -132,14 +144,22 @@ class PealPromptListener(PealGeneratorListener):
                     print(f'  - {self.peal.get_footnote_line(i)}')
 
     def event(self, url: str):
+        url = _clean_str_input(url)
         if url:
             self.peal.event_url = url
         print(f'🔗 Event link: {self.peal.event_url or "None"}')
 
     def photo(self, url: str, caption: str, credit: str):
+        url = _clean_str_input(url)
+        caption = _clean_str_input(caption)
+        credit = _clean_str_input(credit)
         if url:
             self.peal.add_photo(url, caption, credit)
         print(f'📷 Photo link: {url or "None"}')
+        if caption:
+            print(f'  - {caption}')
+        if credit:
+            print(f'  - Photo credit: {credit}')
 
     def end_peal(self):
         self._run_cancellable_prompt(lambda peal: prompt_validate_tenor(peal, self.quick_mode))
@@ -163,3 +183,11 @@ class PealPromptListener(PealGeneratorListener):
                 else:
                     raise e
         self.peal = working_peal
+
+
+def _clean_str_input(input: str) -> str:
+    input = utils.strip_internal_space(input)
+    input = utils.strip_smart_quotes(input)
+    if input and len(input.strip()) == 0:
+        input = None
+    return input

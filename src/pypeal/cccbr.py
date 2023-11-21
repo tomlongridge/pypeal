@@ -6,6 +6,7 @@ import zipfile
 import xml.etree.ElementTree as ET
 
 import requests
+from pypeal import utils
 from pypeal.config import get_config
 from pypeal.db import Database
 from pypeal.method import Method
@@ -57,7 +58,7 @@ def update_methods():
                 id=method.attrib['id'],
                 stage=int(stage),
                 classification=classification,
-                name=method.find(f'{XML_NAMESPACE}name').text,
+                name=utils.get_searchable_string(method.find(f'{XML_NAMESPACE}name').text),
                 full_name=method.find(f'{XML_NAMESPACE}title').text,
                 is_differential=is_differential,
                 is_little=is_little,

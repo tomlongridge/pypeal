@@ -85,22 +85,22 @@ Is this peal variable cover? [y/n] (y):
 >>> y
 [User input: "True"]
 Adding changes of methods to multi-method peal...
-Matched "Grandsire Caters" to method "Grandsire Caters" (ID: m13833)
+Matched "Grandsire" to method "Grandsire Caters"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 Number of changes: 
 >>> 
 [User input: "None"]
-Method 1: Grandsire Bob Caters (unknown changes)
-Matched "Grandsire Royal" to method "Grandsire Royal" (ID: m14030)
+Method 1: Grandsire Caters (unknown changes)
+Matched "Grandsire" to method "Grandsire Royal"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 Number of changes: 
 >>> 
 [User input: "None"]
-Method 2: Grandsire Bob Royal (unknown changes)
+Method 2: Grandsire Royal (unknown changes)
 Add more changes of method? [y/n] (n): 
 >>> n
 [User input: "False"]
@@ -233,7 +233,7 @@ Select action (1):
 │ On Sunday, 11 January 2015                                                   │
 │ A Quarter Peal of 1260 Spliced Caters and Royal (2m) in 48 minutes (18-3-20  │
 │ in Eb)                                                                       │
-│ (Grandsire Bob Caters, Grandsire Bob Royal)                                  │
+│ (Grandsire Caters, Grandsire Royal)                                          │
 │                                                                              │
 │ 1: Byron Miller                                                              │
 │ 2: Paul Armstrong                                                            │
@@ -278,7 +278,7 @@ Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Sunday, 11 January 2015
 A Quarter Peal of 1260 Spliced Caters and Royal (2m) in 48 minutes (18-3-20 in Eb)
-(Grandsire Bob Caters, Grandsire Bob Royal)
+(Grandsire Caters, Grandsire Royal)
 
 1: Byron Miller
 2: Paul Armstrong

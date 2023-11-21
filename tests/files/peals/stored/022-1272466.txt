@@ -70,6 +70,8 @@ First bell number(s) in the tower (1):
   - Rung for Morning Service. And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
 🔗 Event link: None
 📷 Photo link: http://localhost:8080/uploads/57/002a57.jpg
+  - The CWGC grave marker of Sgt A P Wakley in Stapenhill Cemetery, Burton-on-Trent (Staffordshire)
+  - Photo credit: Michael W Day
 🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1272466 ──────────────────╮
 │ Bath, Somerset, England                                                      │

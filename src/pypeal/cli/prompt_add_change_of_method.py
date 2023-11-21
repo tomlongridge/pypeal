@@ -5,33 +5,39 @@ from pypeal.method import Method
 from pypeal.parsers import parse_single_method
 from pypeal.peal import Peal
 
+METHOD_LIST_SEPARATORS_REGEX = re.compile(r',|;|\sand\s')
+METHOD_PREFIX_IGNORE_REGEX = re.compile(r'^(and\s+|being\s+|\(?\d+[\)\.:]{1}\s?)', re.IGNORECASE)
+
 
 def prompt_add_change_of_method_from_string(method_details: str, peal: Peal, quick_mode: bool):
 
-    methods: list[tuple[Method, int]] = []
+    methods: list[tuple[Method, str, int]] = []
     if method_details:
-        for method in [detail.strip() for detail in re.split(r',|;', method_details)]:
+        for method_name in [detail.strip(' .') for detail in re.split(METHOD_LIST_SEPARATORS_REGEX, method_details)]:
+            method_name = re.sub(METHOD_PREFIX_IGNORE_REGEX, '', method_name, 1)
+            if not method_name:
+                continue
             method_obj = Method(None)
-            method_obj.stage, method_obj.classification, method_obj.name, changes = parse_single_method(method)
+            method_obj.stage, method_obj.classification, method_obj.name, changes = parse_single_method(method_name)
             if not method_obj.stage:
                 method_obj.stage = peal.stage
             if not method_obj.classification:
                 method_obj.classification = peal.classification
-            methods.append((method_obj, changes))
+            methods.append((method_obj, method_name, changes))
 
     prompt_add_change_of_method(methods, peal, quick_mode)
 
 
-def prompt_add_change_of_method(method_details: list[tuple[Method, int]], peal: Peal, quick_mode: bool):
+def prompt_add_change_of_method(method_details: list[tuple[Method, str, int]], peal: Peal, quick_mode: bool):
 
     print('Adding changes of methods to multi-method peal...')
 
     # Parse method details
     if method_details:  # method_details is None if no methods were listed but it is a multi-method peal in title
 
-        for method_obj, changes in method_details:
+        for method_obj, original_name, changes in method_details:
 
-            new_method, quick_mode = prompt_add_method(method_obj, quick_mode)
+            new_method, quick_mode = prompt_add_method(method_obj, original_name, quick_mode)
             if not new_method:
                 quick_mode = False
                 continue
@@ -39,7 +45,7 @@ def prompt_add_change_of_method(method_details: list[tuple[Method, int]], peal: 
             if not quick_mode:
                 changes = ask_int('Number of changes', default=changes)
             peal.add_method(new_method, changes)
-            print(f'Method {len(peal.methods)}: {new_method.title} ({changes if changes else "unknown"} changes)')
+            print(f'Method {len(peal.methods)}: {new_method.full_name} ({changes if changes else "unknown"} changes)')
 
     # Prompt for additional methods
     while True:
@@ -54,8 +60,8 @@ def prompt_add_change_of_method(method_details: list[tuple[Method, int]], peal: 
                             confirm_message='Do you want to add more?',
                             default=False):
             break
-        method, quick_mode = prompt_add_method(None, quick_mode)
+        method, quick_mode = prompt_add_method(None, None, quick_mode)
         if method:
             changes = ask_int('Number of changes', default=None)
             peal.add_method(method, changes)
-            print(f'Method {len(peal.methods)}: {method.title} ({changes if changes else "unknown"} changes)')
+            print(f'Method {len(peal.methods)}: {method.full_name} ({changes if changes else "unknown"} changes)')

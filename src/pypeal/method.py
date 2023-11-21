@@ -1,6 +1,7 @@
 from __future__ import annotations
 from dataclasses import dataclass
 from enum import Enum
+from pypeal import utils
 from pypeal.cache import Cache
 
 from pypeal.db import Database
@@ -97,15 +98,17 @@ class Method():
         self.stage = Stage(stage) if stage else None
         self.id = id
 
-    @property
-    def title(self) -> str:
-        text = f'{self.name} ' if self.name else ''
-        text += f'{self.classification.value} ' if self.classification else ''
-        text += self.stage.name.capitalize() if self.stage else ''
-        return text.strip()
-
     def __str__(self) -> str:
-        return self.full_name or self.title
+        return self.full_name or 'Unknown'
+
+    def commit(self):
+        Database.get_connection().query(
+            'INSERT INTO methods (full_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, stage, id) ' +
+            'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)',
+            (self.full_name, self.name, self.is_differential, self.is_little, self.is_plain, self.is_treble_dodging,
+             self.classification.value if self.classification else None, self.stage.value if self.stage else None, self.id))
+        Database.get_connection().commit()
+        Cache.get_cache().add(self.__class__.__name__, self.id, self)
 
     @classmethod
     def get(cls, id: str) -> Method:
@@ -145,6 +148,7 @@ class Method():
                 'FROM methods WHERE 1=1 '
         params = {}
         if name:
+            name = utils.get_searchable_string(name)
             if exact_match:
                 query += 'AND name = %(name)s '
                 params['name'] = f'{name}'
@@ -178,12 +182,3 @@ class Method():
             'SELECT full_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, stage, id ' +
             'FROM methods').fetchall()
         return Cache.get_cache().add_all(cls.__name__, {result[-1]: Method(*result) for result in results})
-
-    def commit(self):
-        Database.get_connection().query(
-            'INSERT INTO methods (full_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, stage, id) ' +
-            'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)',
-            (self.full_name, self.name, self.is_differential, self.is_little, self.is_plain, self.is_treble_dodging,
-             self.classification.value if self.classification else None, self.stage.value if self.stage else None, self.id))
-        Database.get_connection().commit()
-        Cache.get_cache().add(self.__class__.__name__, self.id, self)

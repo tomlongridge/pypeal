@@ -1,4 +1,5 @@
 from datetime import datetime
+import re
 
 NUM_TO_WORD = {
     2: 'two',
@@ -156,3 +157,22 @@ def strip_internal_space(value: str) -> str:
         if len(word) > 0:
             new_value += word.strip() + ' '
     return new_value.strip()
+
+
+def strip_smart_quotes(value: str) -> str:
+    if value is None:
+        return None
+    return value.replace(u'\u201c', '"') \
+                .replace(u'\u201d', '"') \
+                .replace(u'\u2018', "'") \
+                .replace(u'\u2019', "'")
+
+
+def get_searchable_string(value: str) -> str:
+    if value is None:
+        return None
+    value = value.replace('-', ' ')
+    value = value.replace('&', 'and')
+    value = re.sub(r'[^\w\d\s]', '', value)
+    value = value.replace('  ', ' ')
+    return value.lower()
