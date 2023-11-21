@@ -6,7 +6,7 @@ from pypeal.cli.prompt_validate_footnotes import prompt_validate_footnotes
 from pypeal.cli.prompt_validate_tenor import prompt_validate_tenor
 from pypeal.cli.prompt_add_association import prompt_add_association
 from pypeal.cli.prompt_add_change_of_method import prompt_add_change_of_method_from_string
-from pypeal.cli.prompt_add_composer import prompt_add_composer
+from pypeal.cli.prompt_add_composition_details import prompt_add_composition_details
 from pypeal.cli.prompt_add_location import prompt_add_location
 from pypeal.cli.prompt_add_ringer import prompt_add_ringer
 from pypeal.cli.prompt_peal_title import prompt_peal_title
@@ -92,7 +92,7 @@ class PealPromptListener(PealGeneratorListener):
 
     def composer(self, name: str, url: str):
         self._run_cancellable_prompt(
-            lambda peal: prompt_add_composer(name, url, peal, self.quick_mode))
+            lambda peal: prompt_add_composition_details(name, url, peal, self.quick_mode))
         print(f'🎼 Composer: {self.peal.composer or "Unknown"}')
 
     def date(self, value: datetime.date):

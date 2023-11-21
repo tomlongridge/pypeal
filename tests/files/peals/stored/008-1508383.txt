@@ -71,7 +71,7 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 📕 Title: Bristol Surprise Maximus
 Composer: Attempting to find "Christopher I Rowson"
-Options: 1) Add new ringer, 2) Search ringers
+Options: 1) Add new ringer, 2) Search ringers, 3) None
 Select action (1): 
 >>> 1
 [User input: "1"]

@@ -50,7 +50,7 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 📕 Title: Honeywell Delight Minor
 Composer: Attempting to find "G A A Taylor"
-Options: 1) Add new ringer, 2) Search ringers
+Options: 1) Add new ringer, 2) Search ringers, 3) None
 Select action (1): 
 >>> 2
 [User input: "2"]

@@ -16,7 +16,7 @@ def prompt_add_ringer(name: str, bell_nums: list[int], bells: list[int], is_cond
 
     while not matched_ringer:
         print(f'{get_bell_label(bell_nums) or "Ringer"}: Couldn\'t find ringer matching "{name}" (or aliases)')
-        matched_ringer = prompt_add_ringer_by_search(name, bell_label, quick_mode)
+        matched_ringer = prompt_add_ringer_by_search(name, bell_label, False, quick_mode)
 
     prompt_commit_ringer(matched_ringer, name, peal, quick_mode)
 
@@ -69,13 +69,16 @@ def prompt_add_ringer(name: str, bell_nums: list[int], bells: list[int], is_cond
     peal.add_ringer(matched_ringer, bell_nums, bells if len(bells) > 0 else None, is_conductor)
 
 
-def prompt_add_ringer_by_search(name: str, label: str, quick_mode: bool) -> Ringer:
+def prompt_add_ringer_by_search(name: str, label: str, allow_none: bool, quick_mode: bool) -> Ringer:
 
     last_name, given_names = split_full_name(name)
     while True:
-        match choose_option(['Add new ringer', 'Search ringers'], default=1) if not quick_mode else 1:
+        match choose_option(['Add new ringer', 'Search ringers'],
+                            default=1,
+                            cancel_option=('None' if allow_none else None)) if not quick_mode else 1:
             case 1:
-                if new_ringer := prompt_add_new_ringer(last_name, given_names, quick_mode):
+                new_ringer = prompt_add_new_ringer(last_name, given_names, quick_mode)
+                if new_ringer or allow_none:
                     return new_ringer
             case 2:
                 search_last_name, search_given_names = prompt_names(last_name, given_names)

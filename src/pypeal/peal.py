@@ -16,7 +16,7 @@ from pypeal.utils import format_date_full, get_bell_label
 FIELD_LIST: list[str] = ['bellboard_id', 'type', 'bell_type', 'date', 'association_id', 'ring_id', 'place', 'sub_place', 'address',
                          'dedication', 'county', 'country', 'tenor_weight', 'tenor_note', 'changes', 'stage', 'classification',
                          'is_variable_cover', 'num_methods', 'num_principles', 'num_variants', 'method_id', 'title', 'published_title',
-                         'detail', 'composer_id', 'composition_url', 'duration', 'event_url', 'muffles']
+                         'detail', 'composer_id', 'composition_url', 'duration', 'event_url', 'muffles', 'external_reference']
 
 
 class PealType(Enum):
@@ -69,6 +69,7 @@ class Peal:
     duration: int
     event_url: str
     muffles: MuffleType
+    external_reference: str
     id: int
 
     __title: str
@@ -123,6 +124,7 @@ class Peal:
                  duration: int = None,
                  event_url: str = None,
                  muffles: int = None,
+                 external_reference: str = None,
                  id: int = None):
         self.bellboard_id = bellboard_id
         self.bell_type = BellType(bell_type) if bell_type else None
@@ -154,6 +156,7 @@ class Peal:
         self.duration = duration
         self.event_url = event_url
         self.muffles = MuffleType(muffles) if muffles else None
+        self.external_reference = external_reference
         self.id = id
 
         self.__methods = None
@@ -502,7 +505,7 @@ class Peal:
                 self.classification.value if self.classification else None, self.is_variable_cover, self.num_methods, self.num_principles,
                 self.num_variants, self.method.id if self.method else None, self.title, self.published_title, self.detail,
                 self.composer.id if self.composer else None, self.composition_url, self.duration, self.event_url,
-                self.muffles.value if self.muffles else None))
+                self.muffles.value if self.muffles else None, self.external_reference))
         Database.get_connection().commit()
         self.id = result.lastrowid
         for method, changes in self.methods:
@@ -577,6 +580,7 @@ class Peal:
         text += f'\n[Composition URL: {self.composition_url}]' if self.composition_url else ''
         text += f'\n[Event URL: {self.event_url}]' if self.event_url else ''
         text += f'\n[Published title: {self.published_title}]' if self.published_title != self.title else ''
+        text += f'\n[External reference: {self.external_reference}]' if self.external_reference else ''
         return text
 
     def to_json(self):

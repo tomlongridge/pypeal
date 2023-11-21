@@ -1,6 +1,6 @@
 import re
 from pypeal import utils
-from pypeal.cli.prompt_add_composer import prompt_add_composer
+from pypeal.cli.prompt_add_composition_details import prompt_add_composition_details
 from pypeal.cli.prompts import ask, choose_option, confirm, error, warning
 from pypeal.parsers import parse_footnote, parse_footnote_for_composer
 from pypeal.peal import MuffleType, Peal
@@ -26,7 +26,7 @@ def prompt_add_footnote(text: str, peal: Peal, quick_mode: bool):
                 composer_name = parse_footnote_for_composer(text)
                 if composer_name and peal.composer is None and \
                         (quick_mode or confirm(f'Possible composer: {composer_name}')):
-                    prompt_add_composer(composer_name, None, peal, quick_mode)
+                    prompt_add_composition_details(composer_name, None, peal, quick_mode)
                 else:
                     conductor_bells = [bell for conductor in peal.conductors for bell in conductor[1]]
                     bells, text = parse_footnote(line_part, peal.num_bells, conductor_bells)
