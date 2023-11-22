@@ -23,14 +23,14 @@ def prompt_add_footnote(text: str, peal: Peal, quick_mode: bool):
                 line_parts = [line]
 
             for line_part in line_parts:
-                composer_name = parse_footnote_for_composer(text)
+                composer_name = parse_footnote_for_composer(line_part)
                 if composer_name and peal.composer is None and \
                         (quick_mode or confirm(f'Possible composer: {composer_name}')):
                     prompt_add_composition_details(composer_name, None, peal, quick_mode)
                 else:
                     conductor_bells = [bell for conductor in peal.conductors for bell in conductor[1]]
-                    bells, text = parse_footnote(line_part, peal.num_bells, conductor_bells)
-                    _prompt_add_single_footnote(bells, text, peal, quick_mode)
+                    bells, footnote_str = parse_footnote(line_part, peal.num_bells, conductor_bells)
+                    _prompt_add_single_footnote(bells, footnote_str, peal, quick_mode)
     else:
         while True:
             if not confirm(None, confirm_message='Add new footnote?', default=False):

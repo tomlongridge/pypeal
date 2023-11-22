@@ -8,12 +8,12 @@ methods = [
     (
         'Plain Bob Triples',
         ([Method(name='Plain', classification='Bob', stage=Stage.TRIPLES, is_plain=True)], PealType.SINGLE_METHOD, None, None, None),
-        None
+        'FULL_METHOD_NAME'
     ),
     (
         'Kent Treble Bob Major',
         ([Method(name='Kent', classification='Treble Bob', stage=Stage.MAJOR)], PealType.SINGLE_METHOD, None, None, None),
-        None
+        'FULL_METHOD_NAME'
     ),
     (
         'Spliced Kent and Oxford Treble Bob Major',
@@ -25,17 +25,17 @@ methods = [
     (
         'Bainton Treble Place Minimus',
         ([Method(name='Bainton', classification='Treble Place', stage=Stage.MINIMUS)], PealType.SINGLE_METHOD, None, None, None),
-        None
+        'FULL_METHOD_NAME'
     ),
     (
         'Stedman Caters',
         ([Method(name='Stedman', stage=Stage.CATERS)], PealType.SINGLE_METHOD, None, None, None),
-        None
+        'FULL_METHOD_NAME'
     ),
     (
         'Zanussi Surprise Maximus',
         ([Method(name='Zanussi', classification='Surprise', stage=Stage.MAXIMUS)], PealType.SINGLE_METHOD, None, None, None),
-        None
+        'FULL_METHOD_NAME'
     ),
     (
         'Doubles (2m)',
@@ -80,7 +80,7 @@ methods = [
     (
         'Rounds',
         ([Method(name='Rounds')], PealType.GENERAL_RINGING, None, None, None),
-        None
+        'FULL_METHOD_NAME'
     ),
     (
         'Spliced Cambridge and Yorkshire Surprise Major',
@@ -122,15 +122,20 @@ def test_parse_method_title(title: str, expected_details: tuple[list[Method], Pe
     methods, peal_type, num_methods, num_variants, num_principles = method_details
     peal = Peal(1)
     if len(methods) == 1:
+        methods[0].full_name = 'FULL_METHOD_NAME'  # The real method will have a full name used in peal.title
         peal.method = methods[0]
         peal.stage = methods[0].stage
         peal.classification = methods[0].classification
     elif len(methods) == 2:
+        methods[0].full_name = 'FULL_METHOD_NAME_1'
+        methods[1].full_name = 'FULL_METHOD_NAME_2'
         peal.stage = methods[0].stage
         if methods[0].stage != methods[1].stage:
             peal.is_variable_cover = True
         if methods[0].classification == methods[1].classification:
             peal.classification = methods[0].classification
+    else:
+        raise AssertionError('Unexpected number of methods')
     peal.type = peal_type
     if peal_type in [PealType.MIXED_METHODS, PealType.SPLICED_METHODS]:
         peal.method = None
