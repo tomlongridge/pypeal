@@ -46,6 +46,7 @@ Is this correct? [y/n] (y):
 🔔 Bell type: Tower
 🏰 Tower: Bath, Bathwick, Somerset, England, Blessed Virgin Mary
 🔢 Changes: 1260
+Matching peal titled "Plain Bob Triples"...
 Matched "Plain Bob Triples" to method "Plain Bob Triples" (ID: m12399)
 Is this correct? [y/n] (y): 
 >>> y

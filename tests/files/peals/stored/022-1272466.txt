@@ -46,6 +46,7 @@ Try for a quick-add? [y/n] (y):
 🔔 Bell type: Tower
 🏰 Tower: Bath, Bathwick, Somerset, England, Blessed Virgin Mary
 🔢 Changes: 1260
+Matching peal titled "Grandsire Triples"...
 📕 Title: Grandsire Triples
 Composer: Attempting to find "Albert P Wakley"
 Add new ringer as "Albert P" "Wakley"? [y/n] (y): 

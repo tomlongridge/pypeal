@@ -41,6 +41,7 @@ Try for a quick-add? [y/n] (y):
 🔔 Bell type: Tower
 🏰 Tower: Bath, Bathwick, Somerset, England, Blessed Virgin Mary
 🔢 Changes: 1260
+Matching peal titled "Grandsire Doubles"...
 📕 Title: Grandsire Doubles
 🎼 Composer: Unknown
 📅 Date: Sunday, 7 May 2023
@@ -98,6 +99,7 @@ Is this correct? [y/n] (y):
 🔔 Bell type: Tower
 🏰 Tower: Bath, Bathwick, Somerset, England, Blessed Virgin Mary
 🔢 Changes: 1260
+Matching peal titled "Grandsire Doubles"...
 Matched "Grandsire Doubles" to method "Grandsire Doubles" (ID: m10587)
 Is this correct? [y/n] (y): 
 >>> 

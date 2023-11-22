@@ -43,6 +43,7 @@ Is this correct? [y/n] (y):
 🔔 Bell type: Tower
 🏰 Tower: Bath, Lansdown, Somerset, England, S Stephen
 🔢 Changes: 1296
+Matching peal titled "Honeywell Delight Minor"...
 Matched "Honeywell Delight Minor" to method "Honeywell Delight Minor" (ID: 
 m23748)
 Is this correct? [y/n] (y): 

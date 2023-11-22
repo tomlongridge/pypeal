@@ -48,6 +48,7 @@ Is this correct? [y/n] (y):
 🔔 Bell type: Tower
 🏰 Tower: Shrivenham, Oxfordshire, England, S Andrew
 🔢 Changes: 1296
+Matching peal titled "Little Bob Royal"...
 Matched "Little Bob Royal" to method "Little Bob Royal" (ID: m14020)
 Is this correct? [y/n] (y): 
 >>> y
