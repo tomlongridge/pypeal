@@ -118,14 +118,14 @@ class Method():
             result = Database.get_connection().query(
                 'SELECT full_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, stage, id ' +
                 'FROM methods WHERE id = %s', (id,)).fetchone()
-            return Cache.get_cache().add(cls.__name__, result[-1], Method(*result))
+            return Cache.get_cache().add(cls.__name__, result[-1], Method(*result)) if result else None
 
     @classmethod
-    def get_by_name(cls, name: str):
-        results = Database.get_connection().query(
+    def get_by_name(cls, name: str) -> Method:
+        result = Database.get_connection().query(
             'SELECT full_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, stage, id FROM methods ' +
-            f'WHERE full_name = "{name}"').fetchall()
-        return Cache.get_cache().add_all(cls.__name__, {result[-1]: Method(*result) for result in results})
+            f'WHERE full_name = "{name}"').fetchone()
+        return Cache.get_cache().add(cls.__name__, result[-1], Method(*result)) if result else None
 
     @classmethod
     def search(cls,

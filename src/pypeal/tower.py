@@ -191,8 +191,7 @@ class Ring():
             result = Database.get_connection().query(
                 f'SELECT {",".join(RING_FIELD_LIST)}, id ' +
                 'FROM rings WHERE id = %s', (id,)).fetchone()
-            ring: Ring = Cache.get_cache().add(cls.__name__, result[-1], Ring(*result))
-            return ring
+            return Cache.get_cache().add(cls.__name__, result[-1], Ring(*result)) if result else None
 
 
 @dataclass
@@ -242,4 +241,4 @@ class Bell():
             result = Database.get_connection().query(
                 f'SELECT {",".join(BELL_FIELD_LIST)}, id ' +
                 'FROM bells WHERE id = %s', (id,)).fetchone()
-            return Cache.get_cache().add(cls.__name__, result[-1], Bell(*result))
+            return Cache.get_cache().add(cls.__name__, result[-1], Bell(*result)) if result else None

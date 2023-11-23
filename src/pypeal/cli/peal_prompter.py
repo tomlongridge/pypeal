@@ -67,6 +67,8 @@ class PealPromptListener(PealGeneratorListener):
 
     def title(self, value: str):
         value = _clean_str_input(value)
+        if not value:
+            raise ValueError('Peal title cannot be empty')
         self._run_cancellable_prompt(
             lambda peal: prompt_peal_title(value, peal, self.quick_mode))
         if self.peal.title:

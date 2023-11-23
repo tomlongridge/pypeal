@@ -32,7 +32,7 @@ class Association():
             result = Database.get_connection().query(
                 f'SELECT {",".join(FIELD_LIST)}, id ' +
                 'FROM associations WHERE id = %s', (id,)).fetchone()
-            return Cache.get_cache().add(cls.__name__, id, Association(*result))
+            return Cache.get_cache().add(cls.__name__, id, Association(*result)) if result else None
 
     @classmethod
     def search(cls,

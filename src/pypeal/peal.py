@@ -479,18 +479,14 @@ class Peal:
     def get_photo_bytes(self, photo_id: int) -> bytes:
         if self.id is None:
             raise ValueError('Peal must be committed to database before photos can be retrieved')
-        results = Database.get_connection().query(
-            'SELECT photo FROM pealphotos WHERE id = %s', (photo_id,)).fetchone()
-        if results is None:
-            return None
-        else:
-            return results[0]
+        result = Database.get_connection().query('SELECT photo FROM pealphotos WHERE id = %s', (photo_id,)).fetchone()
+        return result[0] if result else None
 
     def set_photo_bytes(self, photo_id: int, photo: bytes):
         if self.id is None:
             raise ValueError('Peal must be committed to database before photo data can be added')
         Database.get_connection().query(
-            'UPDATE pealphotos SET photo = %s WHERE id = %s', (photo, photo_id)).fetchone()
+            'UPDATE pealphotos SET photo = %s WHERE id = %s', (photo, photo_id))
         Database.get_connection().commit()
 
     def commit(self):
@@ -703,6 +699,7 @@ class Peal:
     @classmethod
     def clear_data(cls):
         Database.get_connection().query('SET FOREIGN_KEY_CHECKS=0;')
+        Database.get_connection().query('TRUNCATE TABLE pealphotos')
         Database.get_connection().query('TRUNCATE TABLE pealfootnotes')
         Database.get_connection().query('TRUNCATE TABLE pealringers')
         Database.get_connection().query('TRUNCATE TABLE pealmethods')

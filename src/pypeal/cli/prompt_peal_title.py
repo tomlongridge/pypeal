@@ -8,45 +8,28 @@ from pypeal.utils import strip_internal_space
 
 def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
 
-    if title:
-        title = strip_internal_space(title)
-        peal.published_title = title
-        print(f'Matching peal titled "{title}"...')
+    title = strip_internal_space(title)
+    peal.published_title = title
+    print(f'Matching peal titled "{title}"...')
 
     excluded_methods: list[str] = []  # Stores method IDs that have been rejected in a prompt
+
     method_matches: list[Method]
+    parsed_methods: list[Method]
 
     while True:
 
         # Attempt an easy match against a single method using the exact title
-        if title:
-            method_matches = list(filter(lambda m: m.id not in excluded_methods,
-                                         Method.get_by_name(title)))
-            match len(method_matches):
-                case 0:
-                    # Continue to non-exact search
-                    pass
-                case 1:
-                    if quick_mode or confirm(f'Matched "{title}" to method "{method_matches[0]}" (ID: {method_matches[0].id})'):
-                        _set_peal_title(peal, method_matches[0], PealType.SINGLE_METHOD)
-                        return
-                    else:
-                        excluded_methods.append(method_matches[0].id)
-                case _:
-                    print(f'{len(method_matches)} methods match "{title}"')
-                    if quick_mode:
-                        _set_peal_title(peal, method_matches[0], PealType.SINGLE_METHOD)
-                    else:
-                        _set_peal_title(peal,
-                                        choose_option(method_matches, cancel_option='None', return_option=True),
-                                        PealType.SINGLE_METHOD)
-                    if peal.method:
-                        return
-                    else:
-                        excluded_methods += [m.id for m in method_matches]
+        named_method_match: Method = Method.get_by_name(title)
+        if named_method_match and named_method_match.id not in excluded_methods:
+
+            if quick_mode or confirm(f'Matched "{title}" to method "{named_method_match}" (ID: {named_method_match.id})'):
+                _set_peal_title(peal, named_method_match, PealType.SINGLE_METHOD)
+                return
+            else:
+                excluded_methods.append(named_method_match.id)
 
         # Parse method title for inspiration and future search
-        parsed_methods: list[Method]
         parsed_methods, peal_type, num_methods, \
             num_variants, num_principles = parse_method_title(title)
 
@@ -78,12 +61,10 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
                         excluded_methods.append(method_matches[0].id)
                 case _:
                     print(f'{len(method_matches)} methods match "{parsed_method}"')
-                    if quick_mode:
-                        _set_peal_title(peal, method_matches[0], PealType.SINGLE_METHOD)
-                    else:
-                        _set_peal_title(peal,
-                                        choose_option(method_matches, cancel_option='None', return_option=True),
-                                        PealType.SINGLE_METHOD)
+                    quick_mode = False
+                    _set_peal_title(peal,
+                                    choose_option(method_matches, cancel_option='None', return_option=True),
+                                    PealType.SINGLE_METHOD)
                     if peal.method:
                         return
                     else:
