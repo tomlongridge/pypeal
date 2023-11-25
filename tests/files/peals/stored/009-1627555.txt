@@ -3,16 +3,17 @@
 ╭─────────────────────────────────── pypeal ───────────────────────────────────╮
 │ Number of peals: 8                                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Options: 
-1) Find recent peals
-2) Add peals by search
-3) Add peals by search URL
-4) Add peal by ID/URL
-5) Add random peal
-6) View peal
-7) Update static data
-8) Exit
-Select action (1): 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal                                                           │
+│ 6) View peal                                                                 │
+│ 7) Update static data                                                        │
+│ 8) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
 >>> 4
 [User input: "4"]
 Bellboard URL or peal ID: 
@@ -61,14 +62,14 @@ Is this correct? [y/n] (y):
 🔔 Tenor: 1221 in F
 ⏱ Duration: 46
 1: Found 2 ringers matching "Aston Mitchell" (or aliases)
-Options: 1) Aston Mitchell (15), 2) Aston Mitchell (19), 3) None
-Select action: 
+1) Aston Mitchell (15), 2) Aston Mitchell (19)
+Select option (x = None): 
 >>> 2
-[User input: "Aston Mitchell (2)"]
+[User input: "Aston Mitchell"]
 👤 Ringer: 1: Aston Mitchell (c)
 2: Couldn't find ringer matching "Carina Warren" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Warren): 
@@ -79,8 +80,8 @@ Given name(s) (Carina):
 [User input: "Carina"]
 👤 Ringer: 2: Carina Warren
 3: Couldn't find ringer matching "Ellia Armstrong" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Armstrong): 
@@ -91,8 +92,8 @@ Given name(s) (Ellia):
 [User input: "Ellia"]
 👤 Ringer: 3: Ellia Armstrong
 4: Couldn't find ringer matching "Edward Dixon" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Dixon): 
@@ -103,8 +104,8 @@ Given name(s) (Edward):
 [User input: "Edward"]
 👤 Ringer: 4: Edward Dixon
 5: Couldn't find ringer matching "Ned Andrews" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Andrews): 
@@ -115,8 +116,8 @@ Given name(s) (Ned):
 [User input: "Ned"]
 👤 Ringer: 5: Ned Andrews
 6: Couldn't find ringer matching "Richard Higgins" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Higgins): 
@@ -127,8 +128,8 @@ Given name(s) (Richard):
 [User input: "Richard"]
 👤 Ringer: 6: Richard Higgins
 7: Couldn't find ringer matching "Carl Johnston" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Johnston): 
@@ -139,8 +140,8 @@ Given name(s) (Carl):
 [User input: "Carl"]
 👤 Ringer: 7: Carl Johnston
 8: Couldn't find ringer matching "Michael Williams" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Williams): 
@@ -162,10 +163,10 @@ Add new footnote? [y/n] (n):
   - 31/50.
 🔗 Event link: http://localhost:8080/event.php?id=17567
 📷 Photo link: None
-Options: 1) None, 2) Half-muffled, 3) Fully-muffled
-Select action (1): 
+Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
+Select option (1): 
 >>> 
-[User input: "None (1)"]
+[User input: "None"]
 🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1627555 ──────────────────╮
 │ Longney, Gloucestershire, England                                            │
@@ -195,16 +196,17 @@ Peal 1627555 added
 ╭─────────────────────────────────── pypeal ───────────────────────────────────╮
 │ Number of peals: 9                                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Options: 
-1) Find recent peals
-2) Add peals by search
-3) Add peals by search URL
-4) Add peal by ID/URL
-5) Add random peal
-6) View peal
-7) Update static data
-8) Exit
-Select action (1): 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal                                                           │
+│ 6) View peal                                                                 │
+│ 7) Update static data                                                        │
+│ 8) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
 >>> 8
 [User input: "8"]
 ===

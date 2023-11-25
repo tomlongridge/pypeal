@@ -1,5 +1,6 @@
 import re
-from pypeal.cli.prompts import ask, confirm, choose_option
+from pypeal.cli.prompts import ask, confirm
+from pypeal.cli.chooser import choose_option
 from pypeal.peal import Peal
 
 DEDICATION_REGEX = re.compile(r'^st?\s|cath|blessed|holy|all saints|chapel|christ|abbey|our lady|our blessed')
@@ -42,7 +43,7 @@ def prompt_add_location(address_dedication: str, place: str, county: str, peal: 
         peal.place = ask('Place', place) if not quick_mode else place
 
         if sub_place:
-            match choose_option([sub_place, 'None', 'Other'], default=1, prompt='Sub-place/area') if not quick_mode else 1:
+            match choose_option([sub_place, 'None', 'Other'], default=1, title='Sub-place/area') if not quick_mode else 1:
                 case 1:
                     peal.sub_place = sub_place
                 case 2:

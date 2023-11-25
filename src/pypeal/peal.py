@@ -651,7 +651,7 @@ class Peal:
             query += 'AND peals.date >= %(date_from)s '
             params['date_from'] = date_from.strftime('%Y-%m-%d')
         if date_to is not None:
-            query += 'AND peals.date >= %(date_to)s '
+            query += 'AND peals.date <= %(date_to)s '
             params['date_to'] = date_to.strftime('%Y-%m-%d')
         if tower_id is not None:
             query += 'AND ri.tower_id = %(tower_id)s '

@@ -3,16 +3,17 @@
 ╭─────────────────────────────────── pypeal ───────────────────────────────────╮
 │ Number of peals: 13                                                          │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Options: 
-1) Find recent peals
-2) Add peals by search
-3) Add peals by search URL
-4) Add peal by ID/URL
-5) Add random peal
-6) View peal
-7) Update static data
-8) Exit
-Select action (1): 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal                                                           │
+│ 6) View peal                                                                 │
+│ 7) Update static data                                                        │
+│ 8) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
 >>> 4
 [User input: "4"]
 Bellboard URL or peal ID: 
@@ -93,10 +94,10 @@ Bell number(s) in the tower (6):
 [User input: "6"]
 👤 Ringer: 4 [6]: Heather Sullivan
 5: Found 2 ringers matching "Blake Elliott" (or aliases)
-Options: 1) Blake Elliott (31), 2) Blake Elliott (67), 3) None
-Select action: 
+1) Blake Elliott (31), 2) Blake Elliott (67)
+Select option (x = None): 
 >>> 2
-[User input: "Blake Elliott (2)"]
+[User input: "Blake Elliott"]
 Bell number(s) in the tower (7): 
 >>> 
 [User input: "7"]
@@ -137,10 +138,10 @@ Add new footnote? [y/n] (n):
   - For morning service and to mark the christening of Naomi Rebecca Grace Pearson.
 🔗 Event link: None
 📷 Photo link: None
-Options: 1) None, 2) Half-muffled, 3) Fully-muffled
-Select action (1): 
+Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
+Select option (1): 
 >>> 
-[User input: "None (1)"]
+[User input: "None"]
 🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1660822 ──────────────────╮
 │ Bath, Somerset, England                                                      │
@@ -170,16 +171,17 @@ Peal 1660822 added
 ╭─────────────────────────────────── pypeal ───────────────────────────────────╮
 │ Number of peals: 14                                                          │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Options: 
-1) Find recent peals
-2) Add peals by search
-3) Add peals by search URL
-4) Add peal by ID/URL
-5) Add random peal
-6) View peal
-7) Update static data
-8) Exit
-Select action (1): 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal                                                           │
+│ 6) View peal                                                                 │
+│ 7) Update static data                                                        │
+│ 8) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
 >>> 8
 [User input: "8"]
 ===

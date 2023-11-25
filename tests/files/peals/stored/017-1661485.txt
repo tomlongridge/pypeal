@@ -3,16 +3,17 @@
 ╭─────────────────────────────────── pypeal ───────────────────────────────────╮
 │ Number of peals: 16                                                          │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Options: 
-1) Find recent peals
-2) Add peals by search
-3) Add peals by search URL
-4) Add peal by ID/URL
-5) Add random peal
-6) View peal
-7) Update static data
-8) Exit
-Select action (1): 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal                                                           │
+│ 6) View peal                                                                 │
+│ 7) Update static data                                                        │
+│ 8) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
 >>> 4
 [User input: "4"]
 Bellboard URL or peal ID: 
@@ -51,8 +52,8 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 📕 Title: Honeywell Delight Minor
 Composer: Attempting to find "G A A Taylor"
-Options: 1) Add new ringer, 2) Search ringers, 3) None
-Select action (1): 
+1) Add new ringer, 2) Search ringers, 3) None
+Select option (1): 
 >>> 2
 [User input: "2"]
 Last name (Taylor): 
@@ -73,7 +74,7 @@ Add an alias for this ringer? [y/n] (y):
 >>> y
 [User input: "True"]
 Which name should be displayed?: 1) G A A Taylor, 2) Byron Miller
-Select action (2): 
+Select option (2): 
 >>> 2
 [User input: "2"]
 Composition URL (http://localhost:8080/comp.php?id=2293479): 
@@ -89,8 +90,8 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 👤 Ringer: 1: Leo Bennett
 2: Couldn't find ringer matching "Michelle Edwards" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Edwards): 
@@ -111,8 +112,8 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 👤 Ringer: 4: Paul Armstrong
 5: Couldn't find ringer matching "Deanna Bennett" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Bennett): 
@@ -123,8 +124,8 @@ Given name(s) (Deanna):
 [User input: "Deanna"]
 👤 Ringer: 5: Deanna Bennett
 6: Couldn't find ringer matching "Brooke Adams" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Adams): 
@@ -140,10 +141,10 @@ Add new footnote? [y/n] (n):
 📝 Footnotes: None
 🔗 Event link: http://localhost:8080/event.php?id=17514
 📷 Photo link: None
-Options: 1) None, 2) Half-muffled, 3) Fully-muffled
-Select action (1): 
+Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
+Select option (1): 
 >>> 
-[User input: "None (1)"]
+[User input: "None"]
 🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1661485 ──────────────────╮
 │ Bath, Somerset, England                                                      │
@@ -171,16 +172,17 @@ Peal 1661485 added
 ╭─────────────────────────────────── pypeal ───────────────────────────────────╮
 │ Number of peals: 17                                                          │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Options: 
-1) Find recent peals
-2) Add peals by search
-3) Add peals by search URL
-4) Add peal by ID/URL
-5) Add random peal
-6) View peal
-7) Update static data
-8) Exit
-Select action (1): 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal                                                           │
+│ 6) View peal                                                                 │
+│ 7) Update static data                                                        │
+│ 8) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
 >>> 8
 [User input: "8"]
 ===

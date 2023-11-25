@@ -3,16 +3,17 @@
 ╭─────────────────────────────────── pypeal ───────────────────────────────────╮
 │ Number of peals: 21                                                          │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Options: 
-1) Find recent peals
-2) Add peals by search
-3) Add peals by search URL
-4) Add peal by ID/URL
-5) Add random peal
-6) View peal
-7) Update static data
-8) Exit
-Select action (1): 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal                                                           │
+│ 6) View peal                                                                 │
+│ 7) Update static data                                                        │
+│ 8) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
 >>> 4
 [User input: "4"]
 Bellboard URL or peal ID: 
@@ -108,16 +109,17 @@ Saving photo http://localhost:8080/uploads/57/002a57.jpg...
 ╭─────────────────────────────────── pypeal ───────────────────────────────────╮
 │ Number of peals: 22                                                          │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Options: 
-1) Find recent peals
-2) Add peals by search
-3) Add peals by search URL
-4) Add peal by ID/URL
-5) Add random peal
-6) View peal
-7) Update static data
-8) Exit
-Select action (1): 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal                                                           │
+│ 6) View peal                                                                 │
+│ 7) Update static data                                                        │
+│ 8) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
 >>> 8
 [User input: "8"]
 ===

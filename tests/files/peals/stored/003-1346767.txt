@@ -3,16 +3,17 @@
 ╭─────────────────────────────────── pypeal ───────────────────────────────────╮
 │ Number of peals: 2                                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Options: 
-1) Find recent peals
-2) Add peals by search
-3) Add peals by search URL
-4) Add peal by ID/URL
-5) Add random peal
-6) View peal
-7) Update static data
-8) Exit
-Select action (1): 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal                                                           │
+│ 6) View peal                                                                 │
+│ 7) Update static data                                                        │
+│ 8) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
 >>> 4
 [User input: "4"]
 Bellboard URL or peal ID: 
@@ -49,11 +50,10 @@ Is this correct? [y/n] (y):
 🏰 Tower: Blythburgh, Suffolk, England, Holy Trinity
 🔢 Changes: 5040
 Matching peal titled "8 Methods Minor"...
-What kind of peal is being rung?: 1) Single Method, 2) Mixed Methods, 3) Spliced
-Methods, 4) General Ringing
-Select action (1): 
+What kind of peal is being rung?: 1) Single Method, 2) Mixed Methods, 3) Spliced Methods, 4) General Ringing
+Select option (1): 
 >>> 2
-[User input: "PealType.MIXED_METHODS (2)"]
+[User input: "PealType.MIXED_METHODS"]
 Multi-method peal: "8 Methods Minor"...
 Number of methods (0): 
 >>> 8
@@ -67,33 +67,38 @@ Number of variants (0):
 Stage (6): 
 >>> 6
 [User input: "6"]
-Options: 
-1) Alliance
-2) Bob
-3) Delight
-4) Hybrid
-5) Place
-6) Surprise
-7) Treble Bob
-8) Treble Place
-9) None
-Select action (9): 
+Classification:
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Alliance                                                                  │
+│ 2) Bob                                                                       │
+│ 3) Delight                                                                   │
+│ 4) Hybrid                                                                    │
+│ 5) Place                                                                     │
+│ 6) Surprise                                                                  │
+│ 7) Treble Bob                                                                │
+│ 8) Treble Place                                                              │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) None                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option: 
 >>> 6
-[User input: "Surprise (6)"]
+[User input: "Surprise"]
 📕 Title: Mixed Surprise Minor (8m)
 Adding changes of methods to multi-method peal...
+Matching method "seven extents in eight methods"...
 No methods match "seven extents in eight methods" (or similar)
-Options: 1) Search alternatives, 2) Cancel
-Select action (1): 
+1) Search alternatives, 2) Remove method
+Select option (1): 
 >>> 2
-[User input: "Cancel"]
+[User input: "2"]
 No method matched
 Remove this method? [y/n] (y): 
 >>> y
 [User input: "True"]
+Matching method "Viz: (1) Norwich Surprise"...
 No methods match "Viz: (1) Norwich Surprise" (or similar)
-Options: 1) Search alternatives, 2) Cancel
-Select action (1): 
+1) Search alternatives, 2) Remove method
+Select option (1): 
 >>> 1
 [User input: "1"]
 Enter search criteria:
@@ -103,19 +108,22 @@ Name (Viz: (1) Norwich):
 Stage (6): 
 >>> 6
 [User input: "6"]
-Options: 
-1) Alliance
-2) Bob
-3) Delight
-4) Hybrid
-5) Place
-6) Surprise
-7) Treble Bob
-8) Treble Place
-9) None
-Select action (6): 
+Classification:
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Alliance                                                                  │
+│ 2) Bob                                                                       │
+│ 3) Delight                                                                   │
+│ 4) Hybrid                                                                    │
+│ 5) Place                                                                     │
+│ 6) Surprise                                                                  │
+│ 7) Treble Bob                                                                │
+│ 8) Treble Place                                                              │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) None                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (6): 
 >>> 6
-[User input: "Surprise (6)"]
+[User input: "Surprise"]
 Is this a differential method? [y/n]: 
 >>> 
 [User input: "None"]
@@ -133,6 +141,7 @@ Number of changes:
 >>> 
 [User input: "None"]
 Method 1: Norwich Surprise Minor (unknown changes)
+Matching method "Ipswich Surprise"...
 Matched "Ipswich Surprise" to method "Ipswich Surprise Minor"
 Is this correct? [y/n] (y): 
 >>> y
@@ -141,6 +150,7 @@ Number of changes:
 >>> 
 [User input: "None"]
 Method 2: Ipswich Surprise Minor (unknown changes)
+Matching method "Cambridge Surprise"...
 Matched "Cambridge Surprise" to method "Cambridge Surprise Minor"
 Is this correct? [y/n] (y): 
 >>> y
@@ -149,6 +159,7 @@ Number of changes:
 >>> 
 [User input: "None"]
 Method 3: Cambridge Surprise Minor (unknown changes)
+Matching method "Single Oxford Bob"...
 Matched "Single Oxford Bob" to method "Single Oxford Bob Minor"
 Is this correct? [y/n] (y): 
 >>> y
@@ -157,6 +168,7 @@ Number of changes:
 >>> 
 [User input: "None"]
 Method 4: Single Oxford Bob Minor (unknown changes)
+Matching method "Plain Bob"...
 Matched "Plain Bob" to method "Plain Bob Minor"
 Is this correct? [y/n] (y): 
 >>> y
@@ -165,6 +177,7 @@ Number of changes:
 >>> 
 [User input: "None"]
 Method 5: Plain Bob Minor (unknown changes)
+Matching method "St Clement's College Bob"...
 Matched "St Clement's College Bob" to method "St Clement's College Bob Minor"
 Is this correct? [y/n] (y): 
 >>> y
@@ -173,6 +186,7 @@ Number of changes:
 >>> 
 [User input: "None"]
 Method 6: St Clement's College Bob Minor (unknown changes)
+Matching method "Double Oxford Bob"...
 Matched "Double Oxford Bob" to method "Double Oxford Bob Minor"
 Is this correct? [y/n] (y): 
 >>> y
@@ -181,6 +195,7 @@ Number of changes:
 >>> 
 [User input: "None"]
 Method 7: Double Oxford Bob Minor (unknown changes)
+Matching method "Oxford Treble Bob"...
 Matched "Oxford Treble Bob" to method "Oxford Treble Bob Minor"
 Is this correct? [y/n] (y): 
 >>> y
@@ -210,8 +225,8 @@ Is this correct? [y/n] (y):
 🔔 Tenor: 1158 in G
 ⏱ Duration: 162
 1: Couldn't find ringer matching "Blake Howard" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Howard): 
@@ -222,8 +237,8 @@ Given name(s) (Blake):
 [User input: "Blake"]
 👤 Ringer: 1: Blake Howard
 2: Couldn't find ringer matching "Aston Mitchell" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Mitchell): 
@@ -234,8 +249,8 @@ Given name(s) (Aston):
 [User input: "Aston"]
 👤 Ringer: 2: Aston Mitchell
 3: Couldn't find ringer matching "John Parker" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Parker): 
@@ -251,8 +266,8 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 👤 Ringer: 4: Alen Henderson
 5: Couldn't find ringer matching "Dominik Warren" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Warren): 
@@ -263,8 +278,8 @@ Given name(s) (Dominik):
 [User input: "Dominik"]
 👤 Ringer: 5: Dominik Warren
 6: Couldn't find ringer matching "Sienna Murphy" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Murphy): 
@@ -286,10 +301,10 @@ Add new footnote? [y/n] (n):
   - Rung as a wedding compliment to Miss Ann Pearce and Mr George Bradlaugh; Also a birthday compliment to Vernon B Bedford.
 🔗 Event link: None
 📷 Photo link: None
-Options: 1) None, 2) Half-muffled, 3) Fully-muffled
-Select action (1): 
+Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
+Select option (1): 
 >>> 
-[User input: "None (1)"]
+[User input: "None"]
 🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1346767 ──────────────────╮
 │ Suffolk Guild                                                                │
@@ -323,16 +338,17 @@ Peal 1346767 added
 ╭─────────────────────────────────── pypeal ───────────────────────────────────╮
 │ Number of peals: 3                                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Options: 
-1) Find recent peals
-2) Add peals by search
-3) Add peals by search URL
-4) Add peal by ID/URL
-5) Add random peal
-6) View peal
-7) Update static data
-8) Exit
-Select action (1): 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal                                                           │
+│ 6) View peal                                                                 │
+│ 7) Update static data                                                        │
+│ 8) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
 >>> 8
 [User input: "8"]
 ===

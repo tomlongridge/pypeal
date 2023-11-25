@@ -1,7 +1,7 @@
 import re
-from pypeal import utils
 from pypeal.cli.prompt_add_composition_details import prompt_add_composition_details
-from pypeal.cli.prompts import ask, choose_option, confirm, error, warning
+from pypeal.cli.prompts import ask, confirm, error, warning
+from pypeal.cli.chooser import choose_option
 from pypeal.parsers import parse_footnote, parse_footnote_for_composer
 from pypeal.peal import MuffleType, Peal
 
@@ -42,8 +42,8 @@ def prompt_add_muffle_type(peal: Peal):
     if peal.muffles is None:
         peal.muffles = choose_option(['None', 'Half-muffled', 'Fully-muffled'],
                                      values=[None, MuffleType.HALF, MuffleType.FULL],
-                                     default='None',
-                                     return_option=True)
+                                     title='Muffle type',
+                                     default=1)
 
 
 def _prompt_add_single_footnote(bells: list[int],
@@ -51,7 +51,6 @@ def _prompt_add_single_footnote(bells: list[int],
                                 peal: Peal,
                                 quick_mode: bool = False) -> MuffleType:
 
-    text = utils.strip_internal_space(text)
     ringers = None
     while True:
         if text:

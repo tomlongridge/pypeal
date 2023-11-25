@@ -1,14 +1,13 @@
 from pypeal.cli.prompt_add_change_of_method import prompt_add_change_of_method
-from pypeal.cli.prompts import ask, ask_int, choose_option, confirm, error
+from pypeal.cli.prompts import ask, ask_int, confirm, error
+from pypeal.cli.chooser import choose_option
 from pypeal.method import Classification, Method, Stage
 from pypeal.parsers import parse_method_title
 from pypeal.peal import Peal, PealType
-from pypeal.utils import strip_internal_space
 
 
 def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
 
-    title = strip_internal_space(title)
     peal.published_title = title
     print(f'Matching peal titled "{title}"...')
 
@@ -63,7 +62,7 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
                     print(f'{len(method_matches)} methods match "{parsed_method}"')
                     quick_mode = False
                     _set_peal_title(peal,
-                                    choose_option(method_matches, cancel_option='None', return_option=True),
+                                    choose_option(method_matches, none_option='None'),
                                     PealType.SINGLE_METHOD)
                     if peal.method:
                         return
@@ -82,10 +81,9 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
                     default_peal_type = PealType.SPLICED_METHODS
 
             peal_type = choose_option([pt.name.title().replace('_', ' ') for pt in PealType],
-                                      [pt for pt in PealType],
-                                      'What kind of peal is being rung?',
-                                      default=default_peal_type.name.title().replace('_', ' '),
-                                      return_option=True)
+                                      values=[pt for pt in PealType],
+                                      title='What kind of peal is being rung?',
+                                      default=default_peal_type)
 
         if peal_type == PealType.GENERAL_RINGING:
             _set_peal_title(peal, title, PealType.GENERAL_RINGING)
@@ -111,9 +109,9 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
                 classification = prompt_methods[0].classification
             else:
                 classification = choose_option([classification for classification in Classification],
-                                               default=parsed_method.classification or 'None',
-                                               return_option=True,
-                                               cancel_option='None')
+                                               default=parsed_method.classification,
+                                               title='Classification',
+                                               none_option='None')
             if prompt_methods[0].is_differential is not None:
                 is_differential = prompt_methods[0].is_differential
             else:
@@ -147,10 +145,10 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
                         excluded_methods += method_matches[0].id
                 case _:
                     print(f'{len(method_matches)} methods match search criteria')
-                    _set_peal_title(peal,
-                                    choose_option(method_matches, cancel_option='None', return_option=True),
-                                    PealType.SINGLE_METHOD)
-                    if peal.method:
+                    if matched_method := choose_option(method_matches, none_option='None'):
+                        _set_peal_title(peal,
+                                        matched_method,
+                                        PealType.SINGLE_METHOD)
                         return
                     else:
                         excluded_methods += [m.id for m in method_matches]
@@ -184,9 +182,9 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
                         break
                 stage = Stage(ask_int('Stage', default=stage.value if stage else None, min=2, max=22))
                 classification = choose_option([classification for classification in Classification],
-                                               default=classification or 'None',
-                                               cancel_option='None',
-                                               return_option=True)
+                                               default=classification,
+                                               title='Classification',
+                                               none_option='None')
                 if classification is None:
                     is_variable_cover = confirm(None, 'Is this peal variable cover?', default=is_variable_cover)
 

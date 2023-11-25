@@ -1,6 +1,7 @@
 import logging
 from pypeal.cli.prompts import error, warning
-from pypeal.cli.prompts import ask, choose_option, confirm, prompt_names
+from pypeal.cli.prompts import ask, confirm, prompt_names
+from pypeal.cli.chooser import choose_option
 from pypeal.peal import Peal
 from pypeal.ringer import Ringer
 from pypeal.utils import get_bell_label, split_full_name
@@ -73,9 +74,8 @@ def prompt_add_ringer_by_search(name: str, label: str, allow_none: bool, quick_m
 
     last_name, given_names = split_full_name(name)
     while True:
-        match choose_option(['Add new ringer', 'Search ringers'],
-                            default=1,
-                            cancel_option=('None' if allow_none else None)) if not quick_mode else 1:
+        match choose_option(['Add new ringer', 'Search ringers'] + (['None'] if allow_none else []),
+                            default=1) if not quick_mode else 1:
             case 1:
                 new_ringer = prompt_add_new_ringer(last_name, given_names, quick_mode)
                 if new_ringer or allow_none:
@@ -91,8 +91,8 @@ def prompt_add_ringer_by_search(name: str, label: str, allow_none: bool, quick_m
                             return potential_ringers[0]
                     case _:
                         print(f'{len(potential_ringers)} existing ringers match "{(search_given_names + " " + search_last_name).strip()}"')
-                        return choose_option(potential_ringers, cancel_option='None', return_option=True)
-            case None:
+                        return choose_option(potential_ringers, none_option='None')
+            case 3:
                 return None
 
 
@@ -135,8 +135,7 @@ def prompt_add_ringer_by_name_match(name: str, label: str, quick_mode: bool) -> 
                 else:
                     return choose_option([f'{r.name} ({r.id})' for r in name_match],
                                          values=name_match,
-                                         cancel_option='None',
-                                         return_option=True)
+                                         none_option='None')
 
     return None
 
@@ -179,8 +178,8 @@ def prompt_commit_ringer(ringer: Ringer, used_name: str, peal: Peal, quick_mode:
         ringer.add_alias(last_name,
                          given_names,
                          is_primary=choose_option([used_name, ringer.name],
-                                                  prompt='Which name should be displayed?',
-                                                  default=ringer.name) == 1)
+                                                  title='Which name should be displayed?',
+                                                  default=2) == 1)
 
 
 def _validate_bell(bells: list[int], peal: Peal) -> bool:

@@ -3,16 +3,17 @@
 ╭─────────────────────────────────── pypeal ───────────────────────────────────╮
 │ Number of peals: 5                                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Options: 
-1) Find recent peals
-2) Add peals by search
-3) Add peals by search URL
-4) Add peal by ID/URL
-5) Add random peal
-6) View peal
-7) Update static data
-8) Exit
-Select action (1): 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal                                                           │
+│ 6) View peal                                                                 │
+│ 7) Update static data                                                        │
+│ 8) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
 >>> 4
 [User input: "4"]
 Bellboard URL or peal ID: 
@@ -74,8 +75,8 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 👤 Ringer: 2: Blake Elliott
 3: Couldn't find ringer matching "Joyce Sullivan" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Sullivan): 
@@ -91,8 +92,8 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 👤 Ringer: 4: Chester Edwards
 5: Couldn't find ringer matching "Patrick Bennett" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Bennett): 
@@ -118,8 +119,8 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 👤 Ringer: 8: Clark Elliott
 9: Couldn't find ringer matching "Heather Sullivan" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Sullivan): 
@@ -130,8 +131,8 @@ Given name(s) (Heather):
 [User input: "Heather"]
 👤 Ringer: 9: Heather Sullivan
 10: Couldn't find ringer matching "Vivian Murray" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Murray): 
@@ -161,10 +162,10 @@ Add new footnote? [y/n] (n):
   - [4: Chester Edwards] 1st of Royal.
 🔗 Event link: None
 📷 Photo link: None
-Options: 1) None, 2) Half-muffled, 3) Fully-muffled
-Select action (1): 
+Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
+Select option (1): 
 >>> 
-[User input: "None (1)"]
+[User input: "None"]
 🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1426139 ──────────────────╮
 │ Bath, Somerset, England                                                      │
@@ -197,16 +198,17 @@ Peal 1426139 added
 ╭─────────────────────────────────── pypeal ───────────────────────────────────╮
 │ Number of peals: 6                                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Options: 
-1) Find recent peals
-2) Add peals by search
-3) Add peals by search URL
-4) Add peal by ID/URL
-5) Add random peal
-6) View peal
-7) Update static data
-8) Exit
-Select action (1): 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal                                                           │
+│ 6) View peal                                                                 │
+│ 7) Update static data                                                        │
+│ 8) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
 >>> 8
 [User input: "8"]
 ===

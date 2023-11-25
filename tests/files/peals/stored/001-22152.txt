@@ -3,16 +3,17 @@
 ╭─────────────────────────────────── pypeal ───────────────────────────────────╮
 │ Number of peals: 0                                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Options: 
-1) Find recent peals
-2) Add peals by search
-3) Add peals by search URL
-4) Add peal by ID/URL
-5) Add random peal
-6) View peal
-7) Update static data
-8) Exit
-Select action (1): 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal                                                           │
+│ 6) View peal                                                                 │
+│ 7) Update static data                                                        │
+│ 8) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
 >>> 2
 [User input: "2"]
 Enter search criteria.
@@ -45,13 +46,13 @@ Title:
 >>> 
 [User input: "None"]
 Type: 1) Any, 2) Tower, 3) Handbells
-Select action (1): 
+Select option (1): 
 >>> 
-[User input: "1"]
+[User input: "None"]
 Order of results: 1) Newest, 2) Oldest
-Select action (1): 
+Select option (1): 
 >>> 
-[User input: "True (1)"]
+[User input: "True"]
 ╭────────────────── http://localhost:8080/view.php?id=22152 ───────────────────╮
 │ S John the Evangelist, Withycombe Raleigh, Devon                             │
 │ 1260 Grandsire Triples                                                       │
@@ -95,8 +96,8 @@ Is this correct? [y/n] (y):
 🔔 Tenor: 1904
 ⏱ Duration: 49
 1: Couldn't find ringer matching "Lydia Ferguson" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Ferguson): 
@@ -110,8 +111,8 @@ Bell number(s) in the tower (1):
 [User input: "5"]
 👤 Ringer: 1 [5]: Lydia Ferguson
 2: Couldn't find ringer matching "Harold Gray" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Gray): 
@@ -125,8 +126,8 @@ Bell number(s) in the tower (6):
 [User input: "6"]
 👤 Ringer: 2 [6]: Harold Gray
 3: Couldn't find ringer matching "Chloe Henderson" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Henderson): 
@@ -140,8 +141,8 @@ Bell number(s) in the tower (7):
 [User input: "7"]
 👤 Ringer: 3 [7]: Chloe Henderson
 4: Couldn't find ringer matching "Alen Henderson" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Henderson): 
@@ -155,8 +156,8 @@ Bell number(s) in the tower (8):
 [User input: "8"]
 👤 Ringer: 4 [8]: Alen Henderson
 5: Couldn't find ringer matching "Lucas Wright" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Wright): 
@@ -170,8 +171,8 @@ Bell number(s) in the tower (9):
 [User input: "9"]
 👤 Ringer: 5 [9]: Lucas Wright
 6: Couldn't find ringer matching "Lucas Farrell" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Farrell): 
@@ -185,8 +186,8 @@ Bell number(s) in the tower (10):
 [User input: "10"]
 👤 Ringer: 6 [10]: Lucas Farrell (c)
 7: Couldn't find ringer matching "Ryan Elliott" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Elliott): 
@@ -200,8 +201,8 @@ Bell number(s) in the tower (11):
 [User input: "11"]
 👤 Ringer: 7 [11]: Ryan Elliott
 8: Couldn't find ringer matching "Ted Harris" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Harris): 
@@ -243,10 +244,10 @@ Add new footnote? [y/n] (n):
 Use Dove value (17-1-10)? [y/n] (y): 
 >>> y
 [User input: "True"]
-Options: 1) None, 2) Half-muffled, 3) Fully-muffled
-Select action (1): 
+Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
+Select option (1): 
 >>> 
-[User input: "None (1)"]
+[User input: "None"]
 🔕 Muffles: None
 ╭────────────────── http://localhost:8080/view.php?id=22152 ───────────────────╮
 │ Withycombe Raleigh, Devon, England                                           │
@@ -280,16 +281,17 @@ Add next peal? [y/n] (y):
 ╭─────────────────────────────────── pypeal ───────────────────────────────────╮
 │ Number of peals: 1                                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Options: 
-1) Find recent peals
-2) Add peals by search
-3) Add peals by search URL
-4) Add peal by ID/URL
-5) Add random peal
-6) View peal
-7) Update static data
-8) Exit
-Select action (1): 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal                                                           │
+│ 6) View peal                                                                 │
+│ 7) Update static data                                                        │
+│ 8) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
 >>> 8
 [User input: "8"]
 ===

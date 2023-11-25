@@ -1,5 +1,6 @@
 from pypeal.association import Association
-from pypeal.cli.prompts import ask, confirm, choose_option
+from pypeal.cli.prompts import ask, confirm
+from pypeal.cli.chooser import choose_option
 from pypeal.peal import Peal
 
 
@@ -24,21 +25,20 @@ def prompt_add_association(association: str, peal: Peal, quick_mode: bool):
                 if association:
                     print(f'No associations match "{association}"')
                 quick_mode = False
-                match choose_option(['Search alternatives'], default=1, cancel_option='None'):
+                match choose_option(['Search alternatives', 'Remove association'], default=1):
                     case 1:
                         print('Enter search criteria:')
                         association = ask('Name', default=association, required=False)
                         exact_match = False
                         continue
-                    case None:
-                        if confirm('No association matched', confirm_message=f'Remove "{original_association_name}"?'):
-                            return
+                    case 2:
+                        return
             case 1:
                 matched_association = association_results[0]
             case _:
                 print(f'{len(association_results)} methods match "{association}"')
                 quick_mode = False
-                matched_association = choose_option(association_results, cancel_option='None', return_option=True)
+                matched_association = choose_option(association_results, none_option='None')
 
         if (quick_mode or
             (original_association_name is not None and

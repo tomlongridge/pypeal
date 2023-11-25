@@ -128,9 +128,9 @@ def parse_method_title(title: str) -> tuple[list[Method], PealType, int, int, in
     for method in methods:
         if method.name is None:
             continue
+        # Only trim Little and Differential methods as they appear in the title
         if method.name.lower().endswith('plain'):
             method.is_plain = True
-            method.name = method.name[:-5]
         elif method.name.lower().endswith('little'):
             method.is_little = True
             method.name = method.name[:-6]
@@ -139,7 +139,6 @@ def parse_method_title(title: str) -> tuple[list[Method], PealType, int, int, in
             method.name = method.name[:-12]
         elif method.name.lower().endswith('treble dodging'):
             method.is_treble_dodging = True
-            method.name = method.name[:-14]
         method.name = method.name if len(method.name) > 0 else None
 
     return (methods, peal_type, num_methods, num_variants, num_principles)

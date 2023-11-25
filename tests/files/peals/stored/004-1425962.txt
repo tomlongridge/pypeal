@@ -3,16 +3,17 @@
 ╭─────────────────────────────────── pypeal ───────────────────────────────────╮
 │ Number of peals: 3                                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Options: 
-1) Find recent peals
-2) Add peals by search
-3) Add peals by search URL
-4) Add peal by ID/URL
-5) Add random peal
-6) View peal
-7) Update static data
-8) Exit
-Select action (1): 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal                                                           │
+│ 6) View peal                                                                 │
+│ 7) Update static data                                                        │
+│ 8) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
 >>> 4
 [User input: "4"]
 Bellboard URL or peal ID: 
@@ -64,8 +65,8 @@ Is this correct? [y/n] (y):
 >>> n
 [User input: "False"]
 1: Couldn't find ringer matching "Aston Mitchell" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Mitchell): 
@@ -94,8 +95,8 @@ Bell number(s) in the tower (4):
 [User input: "4"]
 👤 Ringer: 2 [4]: Dominik Warren
 3: Couldn't find ringer matching "Melissa Evans" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Evans): 
@@ -109,8 +110,8 @@ Bell number(s) in the tower (5):
 [User input: "5"]
 👤 Ringer: 3 [5]: Melissa Evans
 4: Couldn't find ringer matching "Valeria Perkins" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Perkins): 
@@ -124,8 +125,8 @@ Bell number(s) in the tower (6):
 [User input: "6"]
 👤 Ringer: 4 [6]: Valeria Perkins
 5: Couldn't find ringer matching "Savana Davis" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Davis): 
@@ -139,8 +140,8 @@ Bell number(s) in the tower (7):
 [User input: "7"]
 👤 Ringer: 5 [7]: Savana Davis
 6: Couldn't find ringer matching "Fenton Bailey" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Bailey): 
@@ -154,8 +155,8 @@ Bell number(s) in the tower (8):
 [User input: "8"]
 👤 Ringer: 6 [8]: Fenton Bailey
 7: Couldn't find ringer matching "Blake Harper" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Harper): 
@@ -169,8 +170,8 @@ Bell number(s) in the tower (9):
 [User input: "9"]
 👤 Ringer: 7 [9]: Blake Harper (c)
 8: Couldn't find ringer matching "Lenny Howard" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Howard): 
@@ -195,10 +196,10 @@ Add new footnote? [y/n] (n):
   - For Evensong.
 🔗 Event link: None
 📷 Photo link: None
-Options: 1) None, 2) Half-muffled, 3) Fully-muffled
-Select action (1): 
+Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
+Select option (1): 
 >>> 
-[User input: "None (1)"]
+[User input: "None"]
 🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1425962 ──────────────────╮
 │ Bexhill on Sea, East Sussex, England                                         │
@@ -227,16 +228,17 @@ Peal 1425962 added
 ╭─────────────────────────────────── pypeal ───────────────────────────────────╮
 │ Number of peals: 4                                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Options: 
-1) Find recent peals
-2) Add peals by search
-3) Add peals by search URL
-4) Add peal by ID/URL
-5) Add random peal
-6) View peal
-7) Update static data
-8) Exit
-Select action (1): 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal                                                           │
+│ 6) View peal                                                                 │
+│ 7) Update static data                                                        │
+│ 8) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
 >>> 8
 [User input: "8"]
 ===

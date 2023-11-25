@@ -111,59 +111,6 @@ def confirm(prompt: str, confirm_message: str = 'Is this correct?', default: boo
         raise UserCancelled()
 
 
-def choose_option(options: list[any],
-                  values: list[any] = None,
-                  prompt: str = 'Options',
-                  default: any = None,
-                  return_option: bool = False,
-                  cancel_option: str = None,
-                  required: bool = True) -> any:
-    prompt_text = f'{prompt}: '
-    option_list = [*options] + ([cancel_option] if cancel_option else [])
-    for i, option in enumerate(option_list):
-        prompt_text += '\n' if len(option_list) > 5 else ''
-        prompt_text += f'{i + 1}) {option}'
-        prompt_text += ', ' if len(option_list) <= 5 and i < len(option_list) - 1 else ''
-    choice = None
-    if type(default) is int:
-        default_value = default
-    elif default in option_list:
-        default_value = option_list.index(default) + 1
-    else:
-        default_value = None
-    while not choice:
-        print(prompt_text)
-        try:
-            choice = IntPrompt.ask('Select action',
-                                   choices=[str(v) for v in range(1, len(option_list)+1)],
-                                   default=default_value,
-                                   show_choices=False,
-                                   show_default=True)
-        except KeyboardInterrupt:
-            print_user_input(prompt_text, '[Abort]')
-            print()  # Ensure subsequent prompt is on a new line
-            raise UserCancelled()
-
-        if choice is None:
-            if required:
-                error('Please choose an option')
-                continue
-            else:
-                response = None
-                print_user_input(prompt_text, 'None')
-        elif cancel_option and choice == len(option_list):
-            response = None
-            print_user_input(prompt_text, cancel_option)
-        elif return_option:
-            response = values[choice - 1] if values else options[choice - 1]
-            print_user_input(prompt_text, f'{response} ({choice})')
-        else:
-            response = choice
-            print_user_input(prompt_text, f'{choice}')
-
-    return response
-
-
 def prompt_names(default_last_name: str = None, default_given_names: str = None) -> tuple[str, str]:
     last_name = ask('Last name', default=default_last_name, required=True)
     given_names = ask('Given name(s)', default=default_given_names, required=False)

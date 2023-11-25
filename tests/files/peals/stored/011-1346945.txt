@@ -3,16 +3,17 @@
 ╭─────────────────────────────────── pypeal ───────────────────────────────────╮
 │ Number of peals: 10                                                          │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Options: 
-1) Find recent peals
-2) Add peals by search
-3) Add peals by search URL
-4) Add peal by ID/URL
-5) Add random peal
-6) View peal
-7) Update static data
-8) Exit
-Select action (1): 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal                                                           │
+│ 6) View peal                                                                 │
+│ 7) Update static data                                                        │
+│ 8) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
 >>> 4
 [User input: "4"]
 Bellboard URL or peal ID: 
@@ -44,24 +45,19 @@ Matched "Suffolk Guild" to association: Suffolk Guild (ID: 286)
 Is this correct? [y/n] (y): 
 >>> n
 [User input: "False"]
-Options: 1) Search alternatives, 2) None
-Select action (1): 
+1) Search alternatives, 2) Remove association
+Select option (1): 
 >>> 2
-[User input: "None"]
-No association matched
-Remove "Suffolk Guild"? [y/n] (y): 
->>> y
-[User input: "True"]
+[User input: "2"]
 🏛 Association: Suffolk Guild
 🔔 Bell type: Tower
 🏰 Tower: Saxmundham, Suffolk, England, S John Bapt
 🔢 Changes: 5040
 Matching peal titled "8 Methods/variations Doubles"...
-What kind of peal is being rung?: 1) Single Method, 2) Mixed Methods, 3) Spliced
-Methods, 4) General Ringing
-Select action (1): 
+What kind of peal is being rung?: 1) Single Method, 2) Mixed Methods, 3) Spliced Methods, 4) General Ringing
+Select option (1): 
 >>> 2
-[User input: "PealType.MIXED_METHODS (2)"]
+[User input: "PealType.MIXED_METHODS"]
 Multi-method peal: "8 Methods/variations Doubles"...
 Number of methods (0): 
 >>> 4
@@ -75,24 +71,28 @@ Number of variants (0):
 Stage (5): 
 >>> 5
 [User input: "5"]
-Options: 
-1) Alliance
-2) Bob
-3) Delight
-4) Hybrid
-5) Place
-6) Surprise
-7) Treble Bob
-8) Treble Place
-9) None
-Select action (9): 
->>> 9
+Classification:
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Alliance                                                                  │
+│ 2) Bob                                                                       │
+│ 3) Delight                                                                   │
+│ 4) Hybrid                                                                    │
+│ 5) Place                                                                     │
+│ 6) Surprise                                                                  │
+│ 7) Treble Bob                                                                │
+│ 8) Treble Place                                                              │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) None                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option: 
+>>> x
 [User input: "None"]
 Is this peal variable cover? [y/n] (n): 
 >>> n
 [User input: "False"]
 📕 Title: Mixed Doubles (4m/4v)
 Adding changes of methods to multi-method peal...
+Matching method "Stedman"...
 Matched "Stedman" to method "Stedman Doubles"
 Is this correct? [y/n] (y): 
 >>> y
@@ -101,6 +101,7 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 1: Stedman Doubles (630 changes)
+Matching method "Grandsire"...
 Matched "Grandsire" to method "Grandsire Doubles"
 Is this correct? [y/n] (y): 
 >>> y
@@ -109,9 +110,10 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 2: Grandsire Doubles (630 changes)
+Matching method "Reverse Canterbury Pleasure Place Bob"...
 No methods match "Reverse Canterbury Pleasure Place Bob" (or similar)
-Options: 1) Search alternatives, 2) Cancel
-Select action (1): 
+1) Search alternatives, 2) Remove method
+Select option (1): 
 >>> 1
 [User input: "1"]
 Enter search criteria:
@@ -121,18 +123,21 @@ Name (Reverse Canterbury Pleasure Place):
 Stage (5): 
 >>> 5
 [User input: "5"]
-Options: 
-1) Alliance
-2) Bob
-3) Delight
-4) Hybrid
-5) Place
-6) Surprise
-7) Treble Bob
-8) Treble Place
-9) None
-Select action (2): 
->>> 9
+Classification:
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Alliance                                                                  │
+│ 2) Bob                                                                       │
+│ 3) Delight                                                                   │
+│ 4) Hybrid                                                                    │
+│ 5) Place                                                                     │
+│ 6) Surprise                                                                  │
+│ 7) Treble Bob                                                                │
+│ 8) Treble Place                                                              │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) None                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (2): 
+>>> x
 [User input: "None"]
 Is this a differential method? [y/n]: 
 >>> 
@@ -152,9 +157,10 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 3: Reverse Canterbury Pleasure Place Doubles (630 changes)
+Matching method "Winchendon Place Bob"...
 No methods match "Winchendon Place Bob" (or similar)
-Options: 1) Search alternatives, 2) Cancel
-Select action (1): 
+1) Search alternatives, 2) Remove method
+Select option (1): 
 >>> 1
 [User input: "1"]
 Enter search criteria:
@@ -164,19 +170,22 @@ Name (Winchendon Place):
 Stage (5): 
 >>> 5
 [User input: "5"]
-Options: 
-1) Alliance
-2) Bob
-3) Delight
-4) Hybrid
-5) Place
-6) Surprise
-7) Treble Bob
-8) Treble Place
-9) None
-Select action (2): 
+Classification:
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Alliance                                                                  │
+│ 2) Bob                                                                       │
+│ 3) Delight                                                                   │
+│ 4) Hybrid                                                                    │
+│ 5) Place                                                                     │
+│ 6) Surprise                                                                  │
+│ 7) Treble Bob                                                                │
+│ 8) Treble Place                                                              │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) None                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (2): 
 >>> 5
-[User input: "Place (5)"]
+[User input: "Place"]
 Is this a differential method? [y/n]: 
 >>> 
 [User input: "None"]
@@ -194,6 +203,7 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 4: Winchendon Place Doubles (630 changes)
+Matching method "St Nicholas Bob"...
 Matched "St Nicholas Bob" to method "St Nicholas Bob Doubles"
 Is this correct? [y/n] (y): 
 >>> y
@@ -202,6 +212,7 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 5: St Nicholas Bob Doubles (630 changes)
+Matching method "St Simon's Bob"...
 Matched "St Simon's Bob" to method "St Simon's Bob Doubles"
 Is this correct? [y/n] (y): 
 >>> y
@@ -210,6 +221,7 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 6: St Simon's Bob Doubles (630 changes)
+Matching method "St Martin's Bob"...
 Matched "St Martin's Bob" to method "St Martin's Bob Doubles"
 Is this correct? [y/n] (y): 
 >>> y
@@ -218,6 +230,7 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 7: St Martin's Bob Doubles (630 changes)
+Matching method "Plain Bob"...
 Matched "Plain Bob" to method "Plain Bob Doubles"
 Is this correct? [y/n] (y): 
 >>> y
@@ -247,8 +260,8 @@ Is this correct? [y/n] (y):
 🔔 Tenor: 987 in A
 ⏱ Duration: 149
 1: Couldn't find ringer matching "Lydia Reed" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Reed): 
@@ -259,8 +272,8 @@ Given name(s) (Lydia):
 [User input: "Lydia"]
 👤 Ringer: 1: Lydia Reed
 2: Couldn't find ringer matching "Victoria Morrison" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Morrison): 
@@ -271,8 +284,8 @@ Given name(s) (Victoria):
 [User input: "Victoria"]
 👤 Ringer: 2: Victoria Morrison
 3: Couldn't find ringer matching "Stuart Murray" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Murray): 
@@ -288,10 +301,10 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 👤 Ringer: 4: Ned Andrews
 5: Found 2 ringers matching "Aston Mitchell" (or aliases)
-Options: 1) Aston Mitchell (15), 2) Aston Mitchell (19), 3) None
-Select action: 
+1) Aston Mitchell (15), 2) Aston Mitchell (19)
+Select option (x = None): 
 >>> 1
-[User input: "Aston Mitchell (1)"]
+[User input: "Aston Mitchell"]
 👤 Ringer: 5: Aston Mitchell (c)
 6: "Carina Warren" -> Carina Warren
 Is this correct? [y/n] (y): 
@@ -310,10 +323,10 @@ Add new footnote? [y/n] (n):
   - Rung as a wedding compliment To Terry Lee Nash, of Lindenhurst, Long Island, New York, U.S.A., and Mrs Linda Archer of Saxmundham, daughter of the tower captain at this tower, who were married at this church on Easter Saturday.
 🔗 Event link: None
 📷 Photo link: None
-Options: 1) None, 2) Half-muffled, 3) Fully-muffled
-Select action (1): 
+Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
+Select option (1): 
 >>> 1
-[User input: "None (1)"]
+[User input: "None"]
 🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1346945 ──────────────────╮
 │ Saxmundham, Suffolk, England                                                 │
@@ -347,16 +360,17 @@ Peal 1346945 added
 ╭─────────────────────────────────── pypeal ───────────────────────────────────╮
 │ Number of peals: 11                                                          │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Options: 
-1) Find recent peals
-2) Add peals by search
-3) Add peals by search URL
-4) Add peal by ID/URL
-5) Add random peal
-6) View peal
-7) Update static data
-8) Exit
-Select action (1): 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal                                                           │
+│ 6) View peal                                                                 │
+│ 7) Update static data                                                        │
+│ 8) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
 >>> 8
 [User input: "8"]
 ===

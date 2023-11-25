@@ -3,16 +3,17 @@
 ╭─────────────────────────────────── pypeal ───────────────────────────────────╮
 │ Number of peals: 14                                                          │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Options: 
-1) Find recent peals
-2) Add peals by search
-3) Add peals by search URL
-4) Add peal by ID/URL
-5) Add random peal
-6) View peal
-7) Update static data
-8) Exit
-Select action (1): 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal                                                           │
+│ 6) View peal                                                                 │
+│ 7) Update static data                                                        │
+│ 8) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
 >>> 4
 [User input: "4"]
 Bellboard URL or peal ID: 
@@ -45,11 +46,10 @@ Is this correct? [y/n] (y):
 🏰 Tower: Bath, Bathwick, Somerset, England, Blessed Virgin Mary
 🔢 Changes: 1260
 Matching peal titled "Doubles (3m)"...
-What kind of peal is being rung?: 1) Single Method, 2) Mixed Methods, 3) Spliced
-Methods, 4) General Ringing
-Select action (2): 
+What kind of peal is being rung?: 1) Single Method, 2) Mixed Methods, 3) Spliced Methods, 4) General Ringing
+Select option (2): 
 >>> 
-[User input: "PealType.MIXED_METHODS (2)"]
+[User input: "PealType.MIXED_METHODS"]
 Multi-method peal: "Doubles (3m)"...
 Number of methods (3): 
 >>> 
@@ -63,17 +63,20 @@ Number of variants (0):
 Stage (5): 
 >>> 
 [User input: "5"]
-Options: 
-1) Alliance
-2) Bob
-3) Delight
-4) Hybrid
-5) Place
-6) Surprise
-7) Treble Bob
-8) Treble Place
-9) None
-Select action (9): 
+Classification:
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Alliance                                                                  │
+│ 2) Bob                                                                       │
+│ 3) Delight                                                                   │
+│ 4) Hybrid                                                                    │
+│ 5) Place                                                                     │
+│ 6) Surprise                                                                  │
+│ 7) Treble Bob                                                                │
+│ 8) Treble Place                                                              │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) None                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option: 
 >>> 
 [User input: "None"]
 Is this peal variable cover? [y/n] (n): 
@@ -81,6 +84,7 @@ Is this peal variable cover? [y/n] (n):
 [User input: "False"]
 📕 Title: Mixed Doubles (3m)
 Adding changes of methods to multi-method peal...
+Matching method "360 each Reverse Canterbury Pleasure Place"...
 Matched "360 each Reverse Canterbury Pleasure Place" to method "Reverse 
 Canterbury Pleasure Place Doubles"
 Is this correct? [y/n] (y): 
@@ -90,6 +94,7 @@ Number of changes (360):
 >>> 
 [User input: "360"]
 Method 1: Reverse Canterbury Pleasure Place Doubles (360 changes)
+Matching method "Plain Bob"...
 Matched "Plain Bob" to method "Plain Bob Doubles"
 Is this correct? [y/n] (y): 
 >>> 
@@ -98,6 +103,7 @@ Number of changes:
 >>> 360
 [User input: "360"]
 Method 2: Plain Bob Doubles (360 changes)
+Matching method "540 Grandsire"...
 Matched "540 Grandsire" to method "Grandsire Doubles"
 Is this correct? [y/n] (y): 
 >>> y
@@ -138,8 +144,8 @@ Bell number(s) in the tower (2):
 [User input: "2"]
 👤 Ringer: 2: Leo Bennett
 3: Couldn't find ringer matching "George Roberts" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 
 [User input: "1"]
 Last name (Roberts): 
@@ -169,8 +175,8 @@ Bell number(s) in the tower (5):
 [User input: "5"]
 👤 Ringer: 5: Joyce Sullivan (c)
 6: Couldn't find ringer matching "Grace Perry" (or aliases)
-Options: 1) Add new ringer, 2) Search ringers
-Select action (1): 
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 1
 [User input: "1"]
 Last name (Perry): 
@@ -239,10 +245,10 @@ Add new footnote? [y/n] (n):
   - [6: Grace Perry] Testing new footnote with ringers.
 🔗 Event link: None
 📷 Photo link: None
-Options: 1) None, 2) Half-muffled, 3) Fully-muffled
-Select action (1): 
+Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
+Select option (1): 
 >>> 
-[User input: "None (1)"]
+[User input: "None"]
 🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1657469 ──────────────────╮
 │ Bath, Somerset, England                                                      │
@@ -274,16 +280,17 @@ Peal 1657469 added
 ╭─────────────────────────────────── pypeal ───────────────────────────────────╮
 │ Number of peals: 15                                                          │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Options: 
-1) Find recent peals
-2) Add peals by search
-3) Add peals by search URL
-4) Add peal by ID/URL
-5) Add random peal
-6) View peal
-7) Update static data
-8) Exit
-Select action (1): 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal                                                           │
+│ 6) View peal                                                                 │
+│ 7) Update static data                                                        │
+│ 8) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
 >>> 8
 [User input: "8"]
 ===

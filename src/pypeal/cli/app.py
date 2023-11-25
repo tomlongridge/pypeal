@@ -15,7 +15,8 @@ from pypeal.cccbr import update_methods
 from pypeal.cli.peal_prompter import PealPromptListener
 from pypeal.cli.peal_previewer import PealPreviewListener
 from pypeal.cli.prompt_commit_peal import prompt_commit_peal
-from pypeal.cli.prompts import UserCancelled, ask_date, ask_int, choose_option, ask, confirm, panel, error
+from pypeal.cli.prompts import UserCancelled, ask_date, ask_int, ask, confirm, panel, error
+from pypeal.cli.chooser import choose_option
 from pypeal.db import initialize as initialize_db
 from pypeal.dove import update_associations, update_bells, update_towers
 from pypeal.peal import Peal, BellType
@@ -89,16 +90,18 @@ def run_interactive(peal_id_or_url: str):
             panel(f'Number of peals: {len(get_peal_list(force_update=True))}')
 
             try:
-                selected_option = choose_option([
-                    'Find recent peals',
-                    'Add peals by search',
-                    'Add peals by search URL',
-                    'Add peal by ID/URL',
-                    'Add random peal',
-                    'View peal',
-                    'Update static data',
-                    'Exit'
-                ], default=1)
+                selected_option = choose_option(
+                    [
+                        'Find recent peals',
+                        'Add peals by search',
+                        'Add peals by search URL',
+                        'Add peal by ID/URL',
+                        'Add random peal',
+                        'View peal',
+                        'Update static data',
+                        'Exit'
+                    ],
+                    default=1)
             except UserCancelled:
                 raise typer.Exit()
 
@@ -219,15 +222,12 @@ def search():
     title = ask('Title', required=False)
     bell_type = choose_option(['Any', 'Tower', 'Handbells'],
                               values=[None, BellType.TOWER, BellType.HANDBELLS],
-                              prompt='Type',
-                              required=False,
-                              default='Any')
+                              title='Type',
+                              default=1)
     order_descending = choose_option(['Newest', 'Oldest'],
                                      values=[True, False],
-                                     prompt='Order of results',
-                                     required=False,
-                                     return_option=True,
-                                     default='Newest')
+                                     title='Order of results',
+                                     default=1)
 
     try:
         count_duplicate = 0

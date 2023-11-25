@@ -125,6 +125,7 @@ class PerformanceDetail(BaseModel):
     published_title: str | None
     detail: str | None
     photos: list[PhotoDetail] | None
+    external_reference: str | None
 
     @classmethod
     def from_object(cls, peal: PealDataClass):
@@ -155,6 +156,7 @@ class PerformanceDetail(BaseModel):
             published_title=peal.published_title,
             detail=peal.detail,
             photos=photos,
+            external_reference=peal.external_reference,
         )
 
 

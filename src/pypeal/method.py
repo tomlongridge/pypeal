@@ -99,7 +99,16 @@ class Method():
         self.id = id
 
     def __str__(self) -> str:
-        return self.full_name or 'Unknown'
+        if self.full_name:
+            return self.full_name
+        else:
+            value = ''
+            value += f'{self.name} ' if self.name else ''
+            value += 'Differential ' if self.is_differential else ''
+            value += 'Little ' if self.is_little else ''
+            value += f'{self.classification} ' if self.classification else ''
+            value += f'{self.stage} ' if self.stage else ''
+            return value.strip()
 
     def commit(self):
         Database.get_connection().query(
@@ -136,7 +145,8 @@ class Method():
                is_treble_dodging: bool = None,
                classification: Classification = None,
                stage: Stage = None,
-               exact_match: bool = False) -> list[Method]:
+               exact_match: bool = False,
+               limit: int = 30) -> list[Method]:
 
         if exact_match:
             if name and '%' in name:
@@ -145,7 +155,8 @@ class Method():
             name = f'{name}%' if name and '%' not in name else name
 
         query = 'SELECT full_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, stage, id ' + \
-                'FROM methods WHERE 1=1 '
+                'FROM methods ' + \
+                'WHERE 1=1 '
         params = {}
         if name:
             name = utils.get_searchable_string(name)
@@ -155,6 +166,8 @@ class Method():
             else:
                 query += 'AND name LIKE %(name)s '
                 params['name'] = f'%{name}%'
+        elif exact_match:
+            query += 'AND name IS NULL '
         if is_differential is not None:
             query += 'AND is_differential = %(is_differential)s '
             params['is_differential'] = is_differential
@@ -173,6 +186,10 @@ class Method():
         if stage:
             query += 'AND stage = %(stage)s '
             params['stage'] = stage.value
+        query += 'ORDER BY (SELECT COUNT(*) FROM pealmethods WHERE pealmethods.method_id = methods.id) DESC, methods.full_name ASC '
+        query += 'LIMIT %(limit)s'
+        params['limit'] = limit
+
         results = Database.get_connection().query(query, params).fetchall()
         return Cache.get_cache().add_all(cls.__name__, {result[-1]: Method(*result) for result in results})
 
