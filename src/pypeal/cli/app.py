@@ -148,18 +148,19 @@ def poll_for_new_peals():
 
 def add_peal(peal_id: int = None):
 
-    if peal_id in get_peal_list():
-        error(f'Peal {peal_id} already added to database')
-        return
-
     generator = HTMLPealGenerator()
     preview_listener = PealPreviewListener()
     prompt_listener = PealPromptListener()
 
     try:
-        generator.download(peal_id)
+        peal_id = generator.download(peal_id)
         generator.parse(preview_listener)
         panel(preview_listener.text, title=get_url_from_id(peal_id))
+
+        if peal_id in get_peal_list():
+            error(f'Peal {peal_id} already added to database')
+            return
+
         prompt_listener.quick_mode = confirm(None, confirm_message='Try for a quick-add?', default=True)
 
         while True:

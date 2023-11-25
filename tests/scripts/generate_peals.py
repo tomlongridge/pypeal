@@ -1,8 +1,10 @@
 import hashlib
 import os
+import re
 from bs4 import BeautifulSoup
 
 import sys
+from pypeal.bellboard.html_generator import METADATA_IMPORTED_REGEX, METADATA_SUBMITTED_REGEX
 sys.path.append('src')
 from pypeal.bellboard.interface import get_id_from_url, request  # noqa: E402
 
@@ -26,18 +28,30 @@ def generate_peal(url: str):
     print('##############################################\n')
 
     print('Stripping changing and personal information...')
-    for metadata in [*soup.select('p.metadata'),
-                     *soup.select('div#performance-ad'),
+    for metadata in [*soup.select('div#performance-ad'),
                      *soup.select('ul.control'),
                      *soup.select('script'),
                      *soup.select('td#page-footer'),
                      *soup.select('div.like'),
                      *soup.select('link[rel="stylesheet"]')]:
         metadata.replace_with('')
+    for metadata in [*soup.select('p.metadata')]:
+        if metadata.text.startswith('This performance has been viewed'):
+            metadata.replace_with('')
     bell_num = 1
-    for metadata in [*soup.select('span.ringer.persona')]:
-        metadata.string.replace_with(anonymize_ringer(metadata.string))
+    for ringer in [*soup.select('span.ringer.persona')]:
+        ringer.string.replace_with(anonymize_ringer(ringer.string))
         bell_num += 1
+
+    for metadata in [*soup.select('p.metadata')]:
+        if match := re.match(METADATA_SUBMITTED_REGEX, metadata.text):
+            submitter = match.groupdict()['submitter']
+            if submitter is not None:
+                metadata.string.replace_with(metadata.text.replace(submitter, anonymize_ringer(submitter)))
+        elif match := re.match(METADATA_IMPORTED_REGEX, metadata.text):
+            submitter = match.groupdict()['submitter']
+            if submitter is not None:
+                metadata.string.replace_with(metadata.text.replace(submitter, anonymize_ringer(submitter)))
 
     print(f'Writing peal to {file_path}...')
     with open(file_path, 'w') as f:

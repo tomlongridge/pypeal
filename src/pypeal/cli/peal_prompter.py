@@ -163,6 +163,19 @@ class PealPromptListener(PealGeneratorListener):
         if credit:
             print(f'  - Photo credit: {credit}')
 
+    def bellboard_metadata(self, submitter: str, date: datetime.date):
+        submitter = _clean_str_input(submitter)
+        self.peal.bellboard_submitter = submitter
+        self.peal.bellboard_submitted_date = date
+        print(f'📮 Submitted by: {self.peal.bellboard_submitter or "Unknown"} on ' +
+              utils.format_date_full(self.peal.bellboard_submitted_date)
+              if self.peal.bellboard_submitted_date else 'Unknown')
+
+    def external_reference(self, value: str):
+        value = _clean_str_input(value)
+        self.peal.external_reference = value
+        print(f'🔗 External reference: {self.peal.external_reference or "None"}')
+
     def end_peal(self):
         self._run_cancellable_prompt(lambda peal: prompt_validate_tenor(peal, self.quick_mode))
         self._run_cancellable_prompt(lambda peal: prompt_validate_footnotes(peal, self.quick_mode))

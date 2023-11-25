@@ -39,6 +39,9 @@ Bellboard URL or peal ID:
 │ Burton-on-Trent, who died on the 18th February 1919, aged 29.                │
 │ https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
 │ -staffordshire-regiment/                                                     │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=1272466 (submitted by Joyce     │
+│ Sullivan on Sunday, 17 February 2019)                                        │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
 >>> 
@@ -74,6 +77,7 @@ First bell number(s) in the tower (1):
 📷 Photo link: http://localhost:8080/uploads/57/002a57.jpg
   - The CWGC grave marker of Sgt A P Wakley in Stapenhill Cemetery, Burton-on-Trent (Staffordshire)
   - Photo credit: Michael W Day
+📮 Submitted by: Joyce Sullivan on Sunday, 17 February 2019
 🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1272466 ──────────────────╮
 │ Bath, Somerset, England                                                      │
@@ -97,7 +101,8 @@ First bell number(s) in the tower (1):
 │ https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
 │ -staffordshire-regiment/.                                                    │
 │                                                                              │
-│ [Imported Bellboard peal ID: 1272466]                                        │
+│ [BellBoard: http://localhost:8080/view.php?id=1272466 (Joyce Sullivan,       │
+│ Sunday, 17 February 2019)]                                                   │
 │ [Composition URL: http://localhost:8080/comp.php?id=2271034]                 │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -140,5 +145,5 @@ Composed by: Albert P Wakley
 
 Rung for Morning Service. And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
 
-[Imported Bellboard peal ID: 1272466]
+[BellBoard: http://localhost:8080/view.php?id=1272466 (Joyce Sullivan, Sunday, 17 February 2019)]
 [Composition URL: http://localhost:8080/comp.php?id=2271034]

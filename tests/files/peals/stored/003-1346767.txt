@@ -37,6 +37,9 @@ Bellboard URL or peal ID:
 │                                                                              │
 │ Rung as a wedding compliment to Miss Ann Pearce and Mr George Bradlaugh;     │
 │ Also a birthday compliment to Vernon B Bedford.                              │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=1346767 (submitted by Ned       │
+│ Andrews on Monday, 13 April 2020)                                            │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
 >>> n
@@ -301,6 +304,7 @@ Add new footnote? [y/n] (n):
   - Rung as a wedding compliment to Miss Ann Pearce and Mr George Bradlaugh; Also a birthday compliment to Vernon B Bedford.
 🔗 Event link: None
 📷 Photo link: None
+📮 Submitted by: Ned Andrews on Monday, 13 April 2020
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 
@@ -327,7 +331,8 @@ Select option (1):
 │ Rung as a wedding compliment to Miss Ann Pearce and Mr George Bradlaugh;     │
 │ Also a birthday compliment to Vernon B Bedford.                              │
 │                                                                              │
-│ [Imported Bellboard peal ID: 1346767]                                        │
+│ [BellBoard: http://localhost:8080/view.php?id=1346767 (Ned Andrews, Monday,  │
+│ 13 April 2020)]                                                              │
 │ [Published title: 8 Methods Minor]                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -368,5 +373,5 @@ A Peal of 5040 Mixed Surprise Minor (8m) in 2 hours, 42 minutes (10-1-10 in G)
 
 Rung as a wedding compliment to Miss Ann Pearce and Mr George Bradlaugh; Also a birthday compliment to Vernon B Bedford.
 
-[Imported Bellboard peal ID: 1346767]
+[BellBoard: http://localhost:8080/view.php?id=1346767 (Ned Andrews, Monday, 13 April 2020)]
 [Published title: 8 Methods Minor]

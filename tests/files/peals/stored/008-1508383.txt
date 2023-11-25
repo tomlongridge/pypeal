@@ -33,6 +33,9 @@ Bellboard URL or peal ID:
 │ 11,12: John Parker                                                           │
 │                                                                              │
 │ First peal of Bristol Maximus rung in hand.                                  │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=1508383 (submitted by Albert    │
+│ Mason on Thursday, 31 March 2022)                                            │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
 >>> n
@@ -168,6 +171,7 @@ Add new footnote? [y/n] (n):
   - First peal of Bristol Maximus rung in hand.
 🔗 Event link: None
 📷 Photo link: None
+📮 Submitted by: Albert Mason on Thursday, 31 March 2022
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 
@@ -190,7 +194,8 @@ Select option (1):
 │                                                                              │
 │ First peal of Bristol Maximus rung in hand.                                  │
 │                                                                              │
-│ [Imported Bellboard peal ID: 1508383]                                        │
+│ [BellBoard: http://localhost:8080/view.php?id=1508383 (Albert Mason,         │
+│ Thursday, 31 March 2022)]                                                    │
 │ [Composition URL: http://localhost:8080/comp.php?id=2284506]                 │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -231,5 +236,5 @@ Composed by: Traditional
 
 First peal of Bristol Maximus rung in hand.
 
-[Imported Bellboard peal ID: 1508383]
+[BellBoard: http://localhost:8080/view.php?id=1508383 (Albert Mason, Thursday, 31 March 2022)]
 [Composition URL: http://localhost:8080/comp.php?id=2284506]

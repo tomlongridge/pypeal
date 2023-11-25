@@ -25,8 +25,7 @@ METHOD_TITLE_TWO_METHODS_REGEX = \
 METHOD_TITLE_NUM_METHODS_REGEX = re.compile(r'(([0-9]+[mvp]\/?)+)|\(([0-9]*[mvp]\/?)+\)')
 METHOD_TITLE_NUM_METHODS_GROUP_REGEX = re.compile(r'([0-9]+[mvp])\/?')
 
-DURATION_REGEX = re.compile(r'^(?:(?P<hours>\d{1,2})[h])$|^(?:(?P<mins>\d+)[m]?)$|' +
-                            r'^(?:(?:(?P<hours_2>\d{1,2})[h])\s(?:(?P<mins_2>(?:[0]?|[1-5]{1})[0-9])[m]?))$')
+DURATION_REGEX = re.compile(r'^(?:(?P<hours>[0-9]{1,2})\s?(?:hours|hrs|hr|h))?\s?(?P<mins>[0-9]{1,2})?\s?(?:minutes|mins|min|m)?$')
 TENOR_INFO_REGEX = re.compile(r'(?P<tenor_weight>[^in]+|size\s[0-9]+)(?:\sin\s(?P<tenor_note>.*))?$')
 
 FOOTNOTE_RINGER_SEPARATORS = [' ', ',', '&', 'and']
@@ -218,9 +217,7 @@ def parse_duration(duration_str: str) -> int:
         raise ValueError(f'Unable to parse duration: {duration_str}')
     duration_info = duration_match.groupdict()
     duration = int(duration_info['hours'] or 0) * 60
-    duration += int(duration_info['hours_2'] or 0) * 60
     duration += int(duration_info['mins'] or 0)
-    duration += int(duration_info['mins_2'] or 0)
     return duration
 
 

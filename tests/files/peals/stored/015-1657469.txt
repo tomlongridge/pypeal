@@ -33,6 +33,9 @@ Bellboard URL or peal ID:
 │ 6: Grace Perry                                                               │
 │                                                                              │
 │ Rung for Morning Service.                                                    │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=1657469 (submitted by Joyce     │
+│ Sullivan on Sunday, 10 September 2023)                                       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
 >>> n
@@ -245,6 +248,7 @@ Add new footnote? [y/n] (n):
   - [6: Grace Perry] Testing new footnote with ringers.
 🔗 Event link: None
 📷 Photo link: None
+📮 Submitted by: Joyce Sullivan on Sunday, 10 September 2023
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 
@@ -269,7 +273,8 @@ Select option (1):
 │ [1: Ryan Elliott] Testing new footnote with ringers.                         │
 │ [6: Grace Perry] Testing new footnote with ringers.                          │
 │                                                                              │
-│ [Imported Bellboard peal ID: 1657469]                                        │
+│ [BellBoard: http://localhost:8080/view.php?id=1657469 (Joyce Sullivan,       │
+│ Sunday, 10 September 2023)]                                                  │
 │ [Published title: Doubles (3m)]                                              │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -311,5 +316,5 @@ Rung for Morning Service. Testing the new footnote function.
 [1: Ryan Elliott] Testing new footnote with ringers.
 [6: Grace Perry] Testing new footnote with ringers.
 
-[Imported Bellboard peal ID: 1657469]
+[BellBoard: http://localhost:8080/view.php?id=1657469 (Joyce Sullivan, Sunday, 10 September 2023)]
 [Published title: Doubles (3m)]

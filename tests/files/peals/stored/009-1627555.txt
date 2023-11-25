@@ -34,7 +34,10 @@ Bellboard URL or peal ID:
 │ 8: Michael Williams                                                          │
 │                                                                              │
 │ 31/50                                                                        │
+│                                                                              │
 │ Linked event: http://localhost:8080/event.php?id=17567                       │
+│ Bellboard: http://localhost:8080/view.php?id=1627555 (submitted by Carl      │
+│ Johnston on Saturday, 13 May 2023)                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
 >>> n
@@ -163,6 +166,7 @@ Add new footnote? [y/n] (n):
   - 31/50.
 🔗 Event link: http://localhost:8080/event.php?id=17567
 📷 Photo link: None
+📮 Submitted by: Carl Johnston on Saturday, 13 May 2023
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 
@@ -185,7 +189,8 @@ Select option (1):
 │                                                                              │
 │ 31/50.                                                                       │
 │                                                                              │
-│ [Imported Bellboard peal ID: 1627555]                                        │
+│ [BellBoard: http://localhost:8080/view.php?id=1627555 (Carl Johnston,        │
+│ Saturday, 13 May 2023)]                                                      │
 │ [Event URL: http://localhost:8080/event.php?id=17567]                        │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -226,5 +231,5 @@ A Quarter Peal of 1280 London Surprise Major in 46 minutes (10-3-17 in F)
 
 31/50.
 
-[Imported Bellboard peal ID: 1627555]
+[BellBoard: http://localhost:8080/view.php?id=1627555 (Carl Johnston, Saturday, 13 May 2023)]
 [Event URL: http://localhost:8080/event.php?id=17567]

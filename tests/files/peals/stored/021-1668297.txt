@@ -32,6 +32,9 @@ Bellboard URL or peal ID:
 │ 6: Lenny Howard                                                              │
 │                                                                              │
 │ Rung half muffled on the back six for Remembrance Day.                       │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=1668297 (submitted by Chester   │
+│ Edwards on Sunday, 12 November 2023)                                         │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
 >>> y
@@ -60,6 +63,7 @@ First bell number(s) in the tower (1):
   - Rung half muffled on the back six for Remembrance Day.
 🔗 Event link: None
 📷 Photo link: None
+📮 Submitted by: Chester Edwards on Sunday, 12 November 2023
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Warning: Tenor weight 18-3-20 reported on Bellboard does not match the       │
 │ weight of largest bell rung (7-3-12) on Dove                                 │
@@ -89,7 +93,8 @@ First bell number(s) in the tower (1):
 │                                                                              │
 │ Rung half muffled on the back six for Remembrance Day.                       │
 │                                                                              │
-│ [Imported Bellboard peal ID: 1668297]                                        │
+│ [BellBoard: http://localhost:8080/view.php?id=1668297 (Chester Edwards,      │
+│ Sunday, 12 November 2023)]                                                   │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -185,6 +190,7 @@ Add new footnote? [y/n] (n):
   - Rung half muffled on the back six for Remembrance Day.
 🔗 Event link: None
 📷 Photo link: None
+📮 Submitted by: Chester Edwards on Sunday, 12 November 2023
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Warning: Footnote suggests ringing on the back 6, but the tenor entered is   │
 │ the 6                                                                        │
@@ -206,7 +212,8 @@ Add new footnote? [y/n] (n):
 │                                                                              │
 │ Rung half muffled on the back six for Remembrance Day.                       │
 │                                                                              │
-│ [Imported Bellboard peal ID: 1668297]                                        │
+│ [BellBoard: http://localhost:8080/view.php?id=1668297 (Chester Edwards,      │
+│ Sunday, 12 November 2023)]                                                   │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -244,4 +251,4 @@ A Quarter Peal of 1260 Grandsire Doubles (half-muffled) in 49 minutes (18-3-20 i
 
 Rung half muffled on the back six for Remembrance Day.
 
-[Imported Bellboard peal ID: 1668297]
+[BellBoard: http://localhost:8080/view.php?id=1668297 (Chester Edwards, Sunday, 12 November 2023)]

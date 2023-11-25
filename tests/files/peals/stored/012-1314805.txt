@@ -36,6 +36,9 @@ Bellboard URL or peal ID:
 │ 8: Byron Robinson (c)                                                        │
 │                                                                              │
 │ Rung for morning service                                                     │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=1314805 (submitted by Byron     │
+│ Robinson on Sunday, 15 December 2019)                                        │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
 >>> n
@@ -211,6 +214,7 @@ Add new footnote? [y/n] (n):
   - Rung for morning service.
 🔗 Event link: None
 📷 Photo link: None
+📮 Submitted by: Byron Robinson on Sunday, 15 December 2019
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 
@@ -236,7 +240,8 @@ Select option (1):
 │                                                                              │
 │ Rung for morning service.                                                    │
 │                                                                              │
-│ [Imported Bellboard peal ID: 1314805]                                        │
+│ [BellBoard: http://localhost:8080/view.php?id=1314805 (Byron Robinson,       │
+│ Sunday, 15 December 2019)]                                                   │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -278,4 +283,4 @@ A Quarter Peal of 1280 Spliced Surprise Major (2m) in 48 minutes (18-3-20 in Eb)
 
 Rung for morning service.
 
-[Imported Bellboard peal ID: 1314805]
+[BellBoard: http://localhost:8080/view.php?id=1314805 (Byron Robinson, Sunday, 15 December 2019)]

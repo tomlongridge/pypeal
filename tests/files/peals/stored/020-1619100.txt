@@ -41,7 +41,10 @@ Bellboard URL or peal ID:
 │ Joyce Sullivan                                                               │
 │                                                                              │
 │ Rung prior to the Coronation of King Charles III and Queen Camilla.          │
+│                                                                              │
 │ Linked event: http://localhost:8080/event.php?id=16774                       │
+│ Bellboard: http://localhost:8080/view.php?id=1619100 (submitted by Chester   │
+│ Edwards on Saturday, 6 May 2023)                                             │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
 >>> y
@@ -103,6 +106,7 @@ Add new ringer as "Martin" "Morgan"? [y/n] (y):
   - Rung prior to the Coronation of King Charles III and Queen Camilla.
 🔗 Event link: http://localhost:8080/event.php?id=16774
 📷 Photo link: None
+📮 Submitted by: Chester Edwards on Saturday, 6 May 2023
 🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1619100 ──────────────────╮
 │ Bath, Somerset, England                                                      │
@@ -128,7 +132,8 @@ Add new ringer as "Martin" "Morgan"? [y/n] (y):
 │                                                                              │
 │ Rung prior to the Coronation of King Charles III and Queen Camilla.          │
 │                                                                              │
-│ [Imported Bellboard peal ID: 1619100]                                        │
+│ [BellBoard: http://localhost:8080/view.php?id=1619100 (Chester Edwards,      │
+│ Saturday, 6 May 2023)]                                                       │
 │ [Event URL: http://localhost:8080/event.php?id=16774]                        │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -176,5 +181,5 @@ Martin Morgan
 
 Rung prior to the Coronation of King Charles III and Queen Camilla.
 
-[Imported Bellboard peal ID: 1619100]
+[BellBoard: http://localhost:8080/view.php?id=1619100 (Chester Edwards, Saturday, 6 May 2023)]
 [Event URL: http://localhost:8080/event.php?id=16774]

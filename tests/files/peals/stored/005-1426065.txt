@@ -34,6 +34,10 @@ Bellboard URL or peal ID:
 │ 8: Leonardo Bennett                                                          │
 │                                                                              │
 │ Rung for Morning Service. First of Triples "inside"-4.                       │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=1426065 (submitted by Nicholas  │
+│ Hunt on Sunday, 15 January 2012)                                             │
+│ External reference: Campanophile ID: 2972                                    │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
 >>> n
@@ -218,6 +222,8 @@ Add new footnote? [y/n] (n):
   - [4: Chester Edwards] First of Triples "inside".
 🔗 Event link: None
 📷 Photo link: None
+📮 Submitted by: Nicholas Hunt on Sunday, 15 January 2012
+🔗 External reference: Campanophile ID: 2972
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 
@@ -242,7 +248,9 @@ Select option (1):
 │ Rung for Morning Service.                                                    │
 │ [4: Chester Edwards] First of Triples "inside".                              │
 │                                                                              │
-│ [Imported Bellboard peal ID: 1426065]                                        │
+│ [BellBoard: http://localhost:8080/view.php?id=1426065 (Nicholas Hunt,        │
+│ Sunday, 15 January 2012)]                                                    │
+│ [External reference: Campanophile ID: 2972]                                  │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -284,4 +292,5 @@ A Quarter Peal of 1260 Grandsire Triples in 50 minutes (18-3-20 in Eb)
 Rung for Morning Service.
 [4: Chester Edwards] First of Triples "inside".
 
-[Imported Bellboard peal ID: 1426065]
+[BellBoard: http://localhost:8080/view.php?id=1426065 (Nicholas Hunt, Sunday, 15 January 2012)]
+[External reference: Campanophile ID: 2972]

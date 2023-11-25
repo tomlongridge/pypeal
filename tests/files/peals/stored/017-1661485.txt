@@ -32,6 +32,8 @@ Bellboard URL or peal ID:
 │ 6: Brooke Adams (c)                                                          │
 │                                                                              │
 │ Linked event: http://localhost:8080/event.php?id=17514                       │
+│ Bellboard: http://localhost:8080/view.php?id=1661485 (submitted by Brooke    │
+│ Adams on Friday, 6 October 2023)                                             │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
 >>> n
@@ -141,6 +143,7 @@ Add new footnote? [y/n] (n):
 📝 Footnotes: None
 🔗 Event link: http://localhost:8080/event.php?id=17514
 📷 Photo link: None
+📮 Submitted by: Brooke Adams on Friday, 6 October 2023
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 
@@ -160,7 +163,8 @@ Select option (1):
 │ 5: Deanna Bennett                                                            │
 │ 6: Brooke Adams (c)                                                          │
 │                                                                              │
-│ [Imported Bellboard peal ID: 1661485]                                        │
+│ [BellBoard: http://localhost:8080/view.php?id=1661485 (Brooke Adams, Friday, │
+│ 6 October 2023)]                                                             │
 │ [Composition URL: http://localhost:8080/comp.php?id=2293479]                 │
 │ [Event URL: http://localhost:8080/event.php?id=17514]                        │
 ╰──────────────────────────────────────────────────────────────────────────────╯
@@ -199,6 +203,6 @@ Composed by: Byron Miller
 5: Deanna Bennett
 6: Brooke Adams (c)
 
-[Imported Bellboard peal ID: 1661485]
+[BellBoard: http://localhost:8080/view.php?id=1661485 (Brooke Adams, Friday, 6 October 2023)]
 [Composition URL: http://localhost:8080/comp.php?id=2293479]
 [Event URL: http://localhost:8080/event.php?id=17514]

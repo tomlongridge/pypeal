@@ -34,6 +34,9 @@ Bellboard URL or peal ID:
 │                                                                              │
 │ First quarter peal: 6                                                        │
 │ For evensong                                                                 │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=1433691 (submitted by Richard   │
+│ Higgins on Friday, 19 October 2018)                                          │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
 >>> n
@@ -189,6 +192,7 @@ Add new footnote? [y/n] (n):
   - For evensong.
 🔗 Event link: None
 📷 Photo link: None
+📮 Submitted by: Richard Higgins on Friday, 19 October 2018
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 
@@ -211,7 +215,8 @@ Select option (1):
 │ [6: Eric Ryan] First quarter peal.                                           │
 │ For evensong.                                                                │
 │                                                                              │
-│ [Imported Bellboard peal ID: 1433691]                                        │
+│ [BellBoard: http://localhost:8080/view.php?id=1433691 (Richard Higgins,      │
+│ Friday, 19 October 2018)]                                                    │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -251,4 +256,4 @@ A Quarter Peal of 1320 Plain Bob Doubles (7-1-11 in B)
 [6: Eric Ryan] First quarter peal.
 For evensong.
 
-[Imported Bellboard peal ID: 1433691]
+[BellBoard: http://localhost:8080/view.php?id=1433691 (Richard Higgins, Friday, 19 October 2018)]

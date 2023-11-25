@@ -36,7 +36,10 @@ Bellboard URL or peal ID:
 │ 10: Cadie Nelson                                                             │
 │                                                                              │
 │ Rung half muffled for morning service on remembrance day                     │
+│                                                                              │
 │ Linked event: http://localhost:8080/event.php?id=14097                       │
+│ Bellboard: http://localhost:8080/view.php?id=1471264 (submitted by Dominik   │
+│ Warren on Sunday, 14 November 2021)                                          │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
 >>> y
@@ -65,6 +68,7 @@ Matching peal titled "Grandsire Caters"...
   - Rung half muffled for morning service on remembrance day.
 🔗 Event link: http://localhost:8080/event.php?id=14097
 📷 Photo link: None
+📮 Submitted by: Dominik Warren on Sunday, 14 November 2021
 🔕 Muffles: Half
 ╭───────────────── http://localhost:8080/view.php?id=1471264 ──────────────────╮
 │ Bath, Somerset, England                                                      │
@@ -86,7 +90,8 @@ Matching peal titled "Grandsire Caters"...
 │                                                                              │
 │ Rung half muffled for morning service on remembrance day.                    │
 │                                                                              │
-│ [Imported Bellboard peal ID: 1471264]                                        │
+│ [BellBoard: http://localhost:8080/view.php?id=1471264 (Dominik Warren,       │
+│ Sunday, 14 November 2021)]                                                   │
 │ [Event URL: http://localhost:8080/event.php?id=14097]                        │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -129,5 +134,5 @@ A Quarter Peal of 1259 Grandsire Caters (half-muffled) in 49 minutes (18-3-20 in
 
 Rung half muffled for morning service on remembrance day.
 
-[Imported Bellboard peal ID: 1471264]
+[BellBoard: http://localhost:8080/view.php?id=1471264 (Dominik Warren, Sunday, 14 November 2021)]
 [Event URL: http://localhost:8080/event.php?id=14097]

@@ -13,6 +13,12 @@ DATE_LINE_INFO_REGEX = re.compile(r'[A-Za-z]+,\s(?P<date>[0-9]+\s[A-Za-z0-9]+\s[
 DURATION_REGEX = re.compile(r'^(?:(?P<hours>\d{1,2})[h])$|^(?:(?P<mins>\d+)[m]?)$|' +
                             r'^(?:(?:(?P<hours_2>\d{1,2})[h])\s(?:(?P<mins_2>(?:[0]?|[1-5]{1})[0-9])[m]?))$')
 PHOTO_URL_REGEX = re.compile(r'/\.(?P<url>/uploads/\w+/\w+)\-\w+\.jpg')
+METADATA_SUBMITTED_REGEX = \
+    re.compile(r'.*?[\s]*First submitted (?P<date>[\w\d\s,]+) at [0-9\:]+(?: by (?P<submitter>[\w\d\s]+))\.$',
+               re.MULTILINE)
+METADATA_IMPORTED_REGEX = \
+    re.compile(r'.*?[\s]*Imported from (?P<source>[\w\d\s]+) entry (?P<id>[\d]+)(?:\s+\(submitted by (?P<submitter>[\w\d\s]+)\))?.$',
+               re.MULTILINE)
 
 
 class HTMLPealGenerator():
@@ -21,8 +27,9 @@ class HTMLPealGenerator():
         self.__peal_id = None
         self.__html = None
 
-    def download(self, peal_id: int = None):
+    def download(self, peal_id: int = None) -> int:
         self.__peal_id, self.__html = get_peal(peal_id)
+        return self.__peal_id
 
     def parse(self, listener: PealGeneratorListener):
 
@@ -154,5 +161,22 @@ class HTMLPealGenerator():
                            credit)
         else:
             listener.photo(None, None, None)
+
+        submitter_info = submitter = submitted_date = external_source = external_ref = None
+        for element in soup.select('p.metadata'):
+            if match := re.match(METADATA_SUBMITTED_REGEX, element.text.strip()):
+                submitter_info = match.groupdict()
+                submitter = submitter_info['submitter'] if 'submitter' in submitter_info else None
+                submitted_date = datetime.date(datetime.strptime(submitter_info['date'], '%A, %d %B %Y'))
+            elif match := re.match(METADATA_IMPORTED_REGEX, element.text.strip()):
+                submitter_info = match.groupdict()
+                if submitter is None and 'submitter' in submitter_info:
+                    submitter = submitter_info['submitter']
+                external_source = submitter_info['source']
+                external_ref = submitter_info['id']
+
+        listener.bellboard_metadata(submitter, submitted_date)
+        if external_source:
+            listener.external_reference(f'{external_source.strip()} ID: {external_ref}')
 
         listener.end_peal()

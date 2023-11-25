@@ -31,6 +31,9 @@ Bellboard URL or peal ID:
 │ 4: Michelle Thompson                                                         │
 │ 5: Ted Harris (c)                                                            │
 │ 6: David Rogers                                                              │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=1306360 (submitted by Arnold    │
+│ Morrison on Thursday, 17 October 2019)                                       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
 >>> n
@@ -167,6 +170,7 @@ Add new footnote? [y/n] (n):
 📝 Footnotes: None
 🔗 Event link: None
 📷 Photo link: None
+📮 Submitted by: Arnold Morrison on Thursday, 17 October 2019
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 
@@ -186,7 +190,8 @@ Select option (1):
 │ 5: Ted Harris (c)                                                            │
 │ 6: David Rogers                                                              │
 │                                                                              │
-│ [Imported Bellboard peal ID: 1306360]                                        │
+│ [BellBoard: http://localhost:8080/view.php?id=1306360 (Arnold Morrison,      │
+│ Thursday, 17 October 2019)]                                                  │
 │ [Published title: Doubles (1p/5m/3v)]                                        │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -224,5 +229,5 @@ A Quarter Peal of 1260 Mixed Doubles (5m/3v/1p) in 44 minutes (21 cwt in Eb)
 5: Ted Harris (c)
 6: David Rogers
 
-[Imported Bellboard peal ID: 1306360]
+[BellBoard: http://localhost:8080/view.php?id=1306360 (Arnold Morrison, Thursday, 17 October 2019)]
 [Published title: Doubles (1p/5m/3v)]

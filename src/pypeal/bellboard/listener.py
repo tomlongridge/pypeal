@@ -56,5 +56,11 @@ class PealGeneratorListener():
     def photo(self, caption: str, credit: str, url: str):
         pass
 
+    def bellboard_metadata(self, submitter: str, date: datetime.date):
+        pass
+
+    def external_reference(self, value: str):
+        pass
+
     def end_peal(self):
         pass

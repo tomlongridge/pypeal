@@ -21,6 +21,11 @@ def prompt_add_ringer(name: str, bell_nums: list[int], bells: list[int], is_cond
 
     prompt_commit_ringer(matched_ringer, name, peal, quick_mode)
 
+    if bells is not None \
+       and not quick_mode \
+       and not confirm(f'Use bell(s) {get_bell_label(bells)} for {matched_ringer.name}?', default=True):
+        bells = None
+
     if bells is None:
 
         bells = []

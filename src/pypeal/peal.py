@@ -6,6 +6,7 @@ from enum import Enum
 import json
 from pypeal import config, utils
 from pypeal.association import Association
+from pypeal.bellboard.interface import get_url_from_id
 from pypeal.cache import Cache
 from pypeal.db import Database
 from pypeal.method import Classification, Method, Stage
@@ -17,7 +18,7 @@ FIELD_LIST: list[str] = ['bellboard_id', 'type', 'bell_type', 'date', 'associati
                          'dedication', 'county', 'country', 'tenor_weight', 'tenor_note', 'changes', 'stage', 'classification',
                          'is_variable_cover', 'num_methods', 'num_principles', 'num_variants', 'method_id', 'title', 'published_title',
                          'detail', 'composer_id', 'composer_description', 'composition_url', 'duration', 'event_url', 'muffles',
-                         'external_reference']
+                         'external_reference', 'bellboard_submitter', 'bellboard_submitted_date']
 
 
 class PealType(Enum):
@@ -72,6 +73,8 @@ class Peal:
     event_url: str
     muffles: MuffleType
     external_reference: str
+    bellboard_submitter: str
+    bellboard_submitted_date: datetime.date
     id: int
 
     __title: str
@@ -128,6 +131,8 @@ class Peal:
                  event_url: str = None,
                  muffles: int = None,
                  external_reference: str = None,
+                 bellboard_submitter: str = None,
+                 bellboard_submitted_date: datetime.date = None,
                  id: int = None):
         self.bellboard_id = bellboard_id
         self.bell_type = BellType(bell_type) if bell_type else None
@@ -161,6 +166,8 @@ class Peal:
         self.event_url = event_url
         self.muffles = MuffleType(muffles) if muffles else None
         self.external_reference = external_reference
+        self.bellboard_submitter = bellboard_submitter
+        self.bellboard_submitted_date = bellboard_submitted_date
         self.id = id
 
         self.__methods = None
@@ -502,7 +509,8 @@ class Peal:
                 self.classification.value if self.classification else None, self.is_variable_cover, self.num_methods, self.num_principles,
                 self.num_variants, self.method.id if self.method else None, self.title, self.published_title, self.detail,
                 self.composer.id if self.composer else None, self.composer_description, self.composition_url, self.duration, self.event_url,
-                self.muffles.value if self.muffles else None, self.external_reference))
+                self.muffles.value if self.muffles else None, self.external_reference, self.bellboard_submitter,
+                self.bellboard_submitted_date))
         Database.get_connection().commit()
         self.id = result.lastrowid
         for method, changes in self.methods:
@@ -571,17 +579,22 @@ class Peal:
         text += '\n'
         for ringer in self.ringers:
             text += f'{self.get_ringer_line(ringer)}\n'
-        text += '\n' if len(self.footnotes) else ''
-        for i in range(0, len(self.__footnotes)):
-            text += self.get_footnote_line(i)
+        if len(self.footnotes):
             text += '\n'
-        text += '\n'
-        text += f'[Imported Bellboard peal ID: {self.bellboard_id}]'
+            for i in range(0, len(self.__footnotes)):
+                text += self.get_footnote_line(i)
+                text += '\n'
+        if self.bellboard_id:
+            text += f'\n[BellBoard: {get_url_from_id(self.bellboard_id)}'
+            text += ' (' if self.bellboard_submitter or self.bellboard_submitted_date else ''
+            text += f'{self.bellboard_submitter}, ' if self.bellboard_submitter else ''
+            text += f'{format_date_full(self.bellboard_submitted_date)})' if self.bellboard_submitted_date else ''
+            text += ']'
         text += f'\n[Composition URL: {self.composition_url}]' if self.composition_url else ''
         text += f'\n[Event URL: {self.event_url}]' if self.event_url else ''
         text += f'\n[Published title: {self.published_title}]' if self.published_title != self.title else ''
         text += f'\n[External reference: {self.external_reference}]' if self.external_reference else ''
-        return text
+        return text.strip()
 
     def to_json(self):
         json_fields = {}

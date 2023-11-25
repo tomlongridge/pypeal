@@ -38,6 +38,10 @@ Bellboard URL or peal ID:
 │ Rung for Morning Service and as a 60th Wedding Anniversary compliment to     │
 │ Phyllis and Melvin Chapman.                                                  │
 │ 1st of Royal-4.                                                              │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=1426139 (submitted by Myra      │
+│ Scott)                                                                       │
+│ External reference: Campanophile ID: 5506                                    │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
 >>> n
@@ -162,6 +166,8 @@ Add new footnote? [y/n] (n):
   - [4: Chester Edwards] 1st of Royal.
 🔗 Event link: None
 📷 Photo link: None
+Unknown
+🔗 External reference: Campanophile ID: 5506
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 
@@ -188,7 +194,8 @@ Select option (1):
 │ Phyllis and Melvin Chapman.                                                  │
 │ [4: Chester Edwards] 1st of Royal.                                           │
 │                                                                              │
-│ [Imported Bellboard peal ID: 1426139]                                        │
+│ [BellBoard: http://localhost:8080/view.php?id=1426139 (Myra Scott, ]         │
+│ [External reference: Campanophile ID: 5506]                                  │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -231,4 +238,5 @@ A Quarter Peal of 1260 Plain Bob Royal in 49 minutes (18-3-20 in Eb)
 Rung for Morning Service and as a 60th Wedding Anniversary compliment to Phyllis and Melvin Chapman.
 [4: Chester Edwards] 1st of Royal.
 
-[Imported Bellboard peal ID: 1426139]
+[BellBoard: http://localhost:8080/view.php?id=1426139 (Myra Scott, ]
+[External reference: Campanophile ID: 5506]

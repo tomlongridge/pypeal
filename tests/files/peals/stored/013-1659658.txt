@@ -37,6 +37,9 @@ Bellboard URL or peal ID:
 │                                                                              │
 │ Rung as a birthday compliment to Matthew Skues.                              │
 │ 6: First quarter of Little Bob Royal.                                        │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=1659658 (submitted by Chester   │
+│ Edwards on Saturday, 23 September 2023)                                      │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
 >>> n
@@ -206,6 +209,7 @@ Add new footnote? [y/n] (n):
   - [7: Melissa Baker] First quarter of Royal.
 🔗 Event link: None
 📷 Photo link: None
+📮 Submitted by: Chester Edwards on Saturday, 23 September 2023
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 
@@ -232,7 +236,8 @@ Select option (1):
 │ Rung as a birthday compliment to Matthew Skues.                              │
 │ [7: Melissa Baker] First quarter of Royal.                                   │
 │                                                                              │
-│ [Imported Bellboard peal ID: 1659658]                                        │
+│ [BellBoard: http://localhost:8080/view.php?id=1659658 (Chester Edwards,      │
+│ Saturday, 23 September 2023)]                                                │
 │ [Composition URL: http://localhost:8080/comp.php?id=2293307]                 │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -277,5 +282,5 @@ Composed by: Alex W Tatlow
 Rung as a birthday compliment to Matthew Skues.
 [7: Melissa Baker] First quarter of Royal.
 
-[Imported Bellboard peal ID: 1659658]
+[BellBoard: http://localhost:8080/view.php?id=1659658 (Chester Edwards, Saturday, 23 September 2023)]
 [Composition URL: http://localhost:8080/comp.php?id=2293307]

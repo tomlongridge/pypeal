@@ -34,6 +34,9 @@ Bellboard URL or peal ID:
 │ 8: Lenny Howard                                                              │
 │                                                                              │
 │ For Evensong                                                                 │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=1425962 (submitted by Savana    │
+│ Davis on Monday, 22 March 2021)                                              │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
 >>> n
@@ -196,6 +199,7 @@ Add new footnote? [y/n] (n):
   - For Evensong.
 🔗 Event link: None
 📷 Photo link: None
+📮 Submitted by: Savana Davis on Monday, 22 March 2021
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 
@@ -218,7 +222,8 @@ Select option (1):
 │                                                                              │
 │ For Evensong.                                                                │
 │                                                                              │
-│ [Imported Bellboard peal ID: 1425962]                                        │
+│ [BellBoard: http://localhost:8080/view.php?id=1425962 (Savana Davis, Monday, │
+│ 22 March 2021)]                                                              │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -258,4 +263,4 @@ A Quarter Peal of 1260 Grandsire Triples in 45 minutes (17-2-15 in E)
 
 For Evensong.
 
-[Imported Bellboard peal ID: 1425962]
+[BellBoard: http://localhost:8080/view.php?id=1425962 (Savana Davis, Monday, 22 March 2021)]

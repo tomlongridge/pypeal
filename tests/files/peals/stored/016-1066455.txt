@@ -35,6 +35,10 @@ Bellboard URL or peal ID:
 │                                                                              │
 │ Birthday compliment to Paul Clewett                                          │
 │ First on a mini-ring: 3 & 6                                                  │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=1066455 (submitted by Heather   │
+│ Sullivan on Sunday, 21 September 2014)                                       │
+│ External reference: Campanophile ID: 183937                                  │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
 >>> n
@@ -175,6 +179,8 @@ Add new footnote? [y/n] (n):
   - [6: Arnold Johnson] First on a mini-ring.
 🔗 Event link: None
 📷 Photo link: None
+📮 Submitted by: Heather Sullivan on Sunday, 21 September 2014
+🔗 External reference: Campanophile ID: 183937
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 
@@ -199,7 +205,9 @@ Select option (1):
 │ [3: Daryl Mason] First on a mini-ring.                                       │
 │ [6: Arnold Johnson] First on a mini-ring.                                    │
 │                                                                              │
-│ [Imported Bellboard peal ID: 1066455]                                        │
+│ [BellBoard: http://localhost:8080/view.php?id=1066455 (Heather Sullivan,     │
+│ Sunday, 21 September 2014)]                                                  │
+│ [External reference: Campanophile ID: 183937]                                │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -241,4 +249,5 @@ Birthday compliment to Paul Clewett.
 [3: Daryl Mason] First on a mini-ring.
 [6: Arnold Johnson] First on a mini-ring.
 
-[Imported Bellboard peal ID: 1066455]
+[BellBoard: http://localhost:8080/view.php?id=1066455 (Heather Sullivan, Sunday, 21 September 2014)]
+[External reference: Campanophile ID: 183937]

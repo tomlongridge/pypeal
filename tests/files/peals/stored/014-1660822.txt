@@ -35,6 +35,9 @@ Bellboard URL or peal ID:
 │                                                                              │
 │ For morning service and to mark the christening of Naomi Rebecca Grace       │
 │ Pearson                                                                      │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=1660822 (submitted by Dominik   │
+│ Warren on Sunday, 1 October 2023)                                            │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
 >>> n
@@ -138,6 +141,7 @@ Add new footnote? [y/n] (n):
   - For morning service and to mark the christening of Naomi Rebecca Grace Pearson.
 🔗 Event link: None
 📷 Photo link: None
+📮 Submitted by: Dominik Warren on Sunday, 1 October 2023
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 
@@ -161,7 +165,8 @@ Select option (1):
 │ For morning service and to mark the christening of Naomi Rebecca Grace       │
 │ Pearson.                                                                     │
 │                                                                              │
-│ [Imported Bellboard peal ID: 1660822]                                        │
+│ [BellBoard: http://localhost:8080/view.php?id=1660822 (Dominik Warren,       │
+│ Sunday, 1 October 2023)]                                                     │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -201,4 +206,4 @@ A Quarter Peal of 1260 Plain Bob Triples in 47 minutes (18-3-20 in Eb)
 
 For morning service and to mark the christening of Naomi Rebecca Grace Pearson.
 
-[Imported Bellboard peal ID: 1660822]
+[BellBoard: http://localhost:8080/view.php?id=1660822 (Dominik Warren, Sunday, 1 October 2023)]

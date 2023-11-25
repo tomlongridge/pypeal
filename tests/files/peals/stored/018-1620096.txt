@@ -33,7 +33,10 @@ Bellboard URL or peal ID:
 │                                                                              │
 │ For morning service, and to mark the coronation of King Charles III and      │
 │ Queen Camilla                                                                │
+│                                                                              │
 │ Linked event: http://localhost:8080/event.php?id=16774                       │
+│ Bellboard: http://localhost:8080/view.php?id=1620096 (submitted by Heather   │
+│ Sullivan on Sunday, 7 May 2023)                                              │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
 >>> y
@@ -61,6 +64,7 @@ First bell number(s) in the tower (1):
   - For morning service, and to mark the coronation of King Charles III and Queen Camilla.
 🔗 Event link: http://localhost:8080/event.php?id=16774
 📷 Photo link: None
+📮 Submitted by: Heather Sullivan on Sunday, 7 May 2023
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Warning: Tenor weight 7-3-12 reported on Bellboard does not match the weight │
 │ of largest bell rung (18-3-20) on Dove                                       │
@@ -82,7 +86,8 @@ First bell number(s) in the tower (1):
 │ For morning service, and to mark the coronation of King Charles III and      │
 │ Queen Camilla.                                                               │
 │                                                                              │
-│ [Imported Bellboard peal ID: 1620096]                                        │
+│ [BellBoard: http://localhost:8080/view.php?id=1620096 (Heather Sullivan,     │
+│ Sunday, 7 May 2023)]                                                         │
 │ [Event URL: http://localhost:8080/event.php?id=16774]                        │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -174,6 +179,7 @@ Add new footnote? [y/n] (n):
   - For morning service, and to mark the coronation of King Charles III and Queen Camilla.
 🔗 Event link: http://localhost:8080/event.php?id=16774
 📷 Photo link: None
+📮 Submitted by: Heather Sullivan on Sunday, 7 May 2023
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 
@@ -195,7 +201,8 @@ Select option (1):
 │ For morning service, and to mark the coronation of King Charles III and      │
 │ Queen Camilla.                                                               │
 │                                                                              │
-│ [Imported Bellboard peal ID: 1620096]                                        │
+│ [BellBoard: http://localhost:8080/view.php?id=1620096 (Heather Sullivan,     │
+│ Sunday, 7 May 2023)]                                                         │
 │ [Event URL: http://localhost:8080/event.php?id=16774]                        │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -234,5 +241,5 @@ A Quarter Peal of 1260 Grandsire Doubles in 40 minutes (7-3-12 in Bb)
 
 For morning service, and to mark the coronation of King Charles III and Queen Camilla.
 
-[Imported Bellboard peal ID: 1620096]
+[BellBoard: http://localhost:8080/view.php?id=1620096 (Heather Sullivan, Sunday, 7 May 2023)]
 [Event URL: http://localhost:8080/event.php?id=16774]

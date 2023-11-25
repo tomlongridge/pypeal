@@ -1,4 +1,5 @@
 from datetime import datetime
+from pypeal.bellboard.interface import get_url_from_id
 from pypeal.bellboard.listener import PealGeneratorListener
 from pypeal.utils import format_date_full, get_bell_label
 
@@ -10,6 +11,7 @@ class PealPreviewListener(PealGeneratorListener):
 
     def new_peal(self, id: int):
         self.__lines = {}
+        self.__lines['id'] = id
 
     def association(self, value: str):
         if value:
@@ -58,6 +60,13 @@ class PealPreviewListener(PealGeneratorListener):
         if url:
             self.__lines['event'] = url
 
+    def bellboard_metadata(self, submitter: str, date: date):
+        self.__lines['bb_metadata'] = f'submitted by {submitter or "Unknown"}'
+        self.__lines['bb_metadata'] += f' on {format_date_full(date)}' if date else ''
+
+    def external_reference(self, value: str):
+        self.__lines['external_reference'] = value
+
     @property
     def text(self) -> str:
         text = ''
@@ -68,6 +77,11 @@ class PealPreviewListener(PealGeneratorListener):
         text += (self.__lines['date'] + '\n') if 'date' in self.__lines else ''
         text += '\n'
         text += (self.__lines['ringers'] + '\n') if 'ringers' in self.__lines else ''
-        text += (self.__lines['footnotes']) if 'footnotes' in self.__lines else ''
-        text += ('Linked event: ' + self.__lines['event'] + '\n') if 'event' in self.__lines else ''
+        if 'footnotes' in self.__lines:
+            text += (self.__lines['footnotes'])
+            text += '\n'
+        text += (f'Linked event: {self.__lines["event"]}\n') if 'event' in self.__lines else ''
+        text += (f'Bellboard: {get_url_from_id(self.__lines["id"])} ({self.__lines["bb_metadata"]})\n') \
+            if 'bb_metadata' in self.__lines else ''
+        text += (f'External reference: {self.__lines["external_reference"]}\n') if 'external_reference' in self.__lines else ''
         return text.strip()

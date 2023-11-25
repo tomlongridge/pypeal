@@ -37,6 +37,9 @@ Bellboard URL or peal ID:
 │ Rung as a wedding compliment To Terry Lee Nash, of Lindenhurst, Long Island, │
 │ New York, U.S.A., and Mrs Linda Archer of Saxmundham, daughter of the tower  │
 │ captain at this tower, who were married at this church on Easter Saturday.   │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=1346945 (submitted by Ned       │
+│ Andrews on Monday, 13 April 2020)                                            │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
 >>> n
@@ -323,6 +326,7 @@ Add new footnote? [y/n] (n):
   - Rung as a wedding compliment To Terry Lee Nash, of Lindenhurst, Long Island, New York, U.S.A., and Mrs Linda Archer of Saxmundham, daughter of the tower captain at this tower, who were married at this church on Easter Saturday.
 🔗 Event link: None
 📷 Photo link: None
+📮 Submitted by: Ned Andrews on Monday, 13 April 2020
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 1
@@ -349,7 +353,8 @@ Select option (1):
 │ New York, U.S.A., and Mrs Linda Archer of Saxmundham, daughter of the tower  │
 │ captain at this tower, who were married at this church on Easter Saturday.   │
 │                                                                              │
-│ [Imported Bellboard peal ID: 1346945]                                        │
+│ [BellBoard: http://localhost:8080/view.php?id=1346945 (Ned Andrews, Monday,  │
+│ 13 April 2020)]                                                              │
 │ [Published title: 8 Methods/variations Doubles]                              │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -389,5 +394,5 @@ A Peal of 5040 Mixed Doubles (4m/4v) in 2 hours, 29 minutes (8-3-7 in A)
 
 Rung as a wedding compliment To Terry Lee Nash, of Lindenhurst, Long Island, New York, U.S.A., and Mrs Linda Archer of Saxmundham, daughter of the tower captain at this tower, who were married at this church on Easter Saturday.
 
-[Imported Bellboard peal ID: 1346945]
+[BellBoard: http://localhost:8080/view.php?id=1346945 (Ned Andrews, Monday, 13 April 2020)]
 [Published title: 8 Methods/variations Doubles]

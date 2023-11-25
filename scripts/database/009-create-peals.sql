@@ -32,6 +32,8 @@ CREATE TABLE @db_name.`peals` (
     `event_url` VARCHAR(128) NULL,
     `muffles` TINYINT UNSIGNED NULL,
     `external_reference` VARCHAR(128) NULL,
+    `bellboard_submitter` VARCHAR(128) NULL,
+    `bellboard_submitted_date` DATE NULL,
     PRIMARY KEY (`id`),
     UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
     UNIQUE INDEX `bellboard_id_UNIQUE` (`bellboard_id` ASC) VISIBLE,
