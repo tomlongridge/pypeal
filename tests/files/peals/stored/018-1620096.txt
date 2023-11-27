@@ -69,19 +69,21 @@ First bell number(s) in the tower (1):
 │ Warning: Tenor weight 7-3-12 reported on Bellboard does not match the weight │
 │ of largest bell rung (18-3-20) on Dove                                       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
+Suggested tenor, based on weight: 6 (7-3-12)
+Shifting band by -4 bells
 🔕 Muffles: None
 ╭───────────────── http://localhost:8080/view.php?id=1620096 ──────────────────╮
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 7 May 2023                                                        │
-│ A Quarter Peal of 1260 Grandsire Doubles in 40 minutes (18-3-20 in Eb)       │
+│ A Quarter Peal of 1260 Grandsire Doubles in 40 minutes (7-3-12 in Bb)        │
 │                                                                              │
-│ 1 [5]: Ryan Elliott                                                          │
-│ 2 [6]: Arnold Johnson                                                        │
-│ 3 [7]: Heather Sullivan (c)                                                  │
-│ 4 [8]: Joyce Sullivan                                                        │
-│ 5 [9]: Leo Bennett                                                           │
-│ 6 [10]: Grace Perry                                                          │
+│ 1: Ryan Elliott                                                              │
+│ 2: Arnold Johnson                                                            │
+│ 3: Heather Sullivan (c)                                                      │
+│ 4: Joyce Sullivan                                                            │
+│ 5: Leo Bennett                                                               │
+│ 6: Grace Perry                                                               │
 │                                                                              │
 │ For morning service, and to mark the coronation of King Charles III and      │
 │ Queen Camilla.                                                               │

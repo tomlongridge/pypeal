@@ -247,9 +247,9 @@ Add new footnote? [y/n] (n):
 │ Warning: Tenor weight 17 cwt reported on Bellboard does not match the weight │
 │ of largest bell rung (17-1-10) on Dove                                       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Use Dove value (17-1-10)? [y/n] (y): 
->>> y
-[User input: "True"]
+Confirm tenor bell (12): 
+>>> 12
+[User input: "12"]
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 

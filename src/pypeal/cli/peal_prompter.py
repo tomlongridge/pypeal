@@ -2,7 +2,6 @@ from datetime import datetime
 from pypeal import utils
 from pypeal.bellboard.listener import PealGeneratorListener
 from pypeal.cli.prompt_add_footnote import prompt_add_footnote, prompt_add_muffle_type
-from pypeal.cli.prompt_validate_footnotes import prompt_validate_footnotes
 from pypeal.cli.prompt_validate_tenor import prompt_validate_tenor
 from pypeal.cli.prompt_add_association import prompt_add_association
 from pypeal.cli.prompt_add_change_of_method import prompt_add_change_of_method_from_string
@@ -178,7 +177,6 @@ class PealPromptListener(PealGeneratorListener):
 
     def end_peal(self):
         self._run_cancellable_prompt(lambda peal: prompt_validate_tenor(peal, self.quick_mode))
-        self._run_cancellable_prompt(lambda peal: prompt_validate_footnotes(peal, self.quick_mode))
 
         if not self.quick_mode:
             self._run_cancellable_prompt(lambda peal: prompt_add_muffle_type(peal))

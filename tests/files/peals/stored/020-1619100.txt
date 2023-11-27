@@ -112,7 +112,7 @@ Add new ringer as "Martin" "Morgan"? [y/n] (y):
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Saturday, 6 May 2023                                                      │
-│ General Ringing (18-3-20 in Eb)                                              │
+│ General Ringing                                                              │
 │ Including Call Changes to Kings and Queens on 10                             │
 │                                                                              │
 │ Arnold Johnson                                                               │
@@ -161,7 +161,7 @@ Select option (1):
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Saturday, 6 May 2023
-General Ringing (18-3-20 in Eb)
+General Ringing 
 Including Call Changes to Kings and Queens on 10
 
 Ryan Elliott

@@ -1,7 +1,34 @@
+import re
+
 from pypeal import utils
-from pypeal.cli.prompts import confirm, warning
+from pypeal.cli.prompts import ask_int, warning
 from pypeal.peal import Peal
 from pypeal.tower import Bell
+from pypeal.utils import get_num_words, word_to_num
+
+
+RING_POSITION_REGEX = \
+    re.compile(r'.*(?P<location>front|back) (?P<stage>[0-9]+|' + '|'.join(get_num_words()) + ').*',
+               re.IGNORECASE)
+
+
+def _prompt_shift_band(peal: Peal, suggested_tenor: Bell, quick_mode: bool):
+
+    new_tenor = ask_int('Confirm tenor bell',
+                        default=suggested_tenor.role if suggested_tenor else peal.ring.tenor.role,
+                        min=1,
+                        max=peal.ring.tenor.role,
+                        required=True) if not quick_mode and not suggested_tenor else suggested_tenor.role
+    if new_tenor != peal.tenor.role:
+        peal_ringers = peal.ringers
+        band_shift = new_tenor - peal.tenor.role
+        print(f'Shifting band by {band_shift} bell{"s" if abs(band_shift) > 1 else ""}')
+        peal.clear_ringers()
+        for ringer, bell_nums, bells, conductor in peal_ringers:
+            new_bells = []
+            for bell in bells:
+                new_bells.append(bell + band_shift)
+            peal.add_ringer(ringer, bell_nums, new_bells, conductor)
 
 
 def prompt_validate_tenor(peal: Peal, quick_mode: bool):
@@ -9,16 +36,47 @@ def prompt_validate_tenor(peal: Peal, quick_mode: bool):
     if peal.ring is None:
         return
 
-    tenor: Bell = peal.tenor
+    reported_tenor: Bell = peal.tenor
+    suggested_tenor: Bell = None
 
-    if tenor and tenor.weight != peal.tenor_weight:
+    # Check for a footnote declaring position of the band
+    if len(peal.ringers) > 0 and peal.ringers[-1][1] is not None:
+
+        for footnote in peal.footnotes:
+            if match := re.match(RING_POSITION_REGEX, footnote[0]):
+                location, stage = match.groups()
+                if stage.isnumeric():
+                    stage = int(stage)
+                else:
+                    stage = word_to_num(stage)
+                if location == 'front':
+                    suggested_tenor = peal.ring.get_bell(peal.num_bells)
+                else:
+                    suggested_tenor = peal.ring.tenor
+
+                if suggested_tenor is not None and suggested_tenor != reported_tenor:
+                    warning(f'Footnote suggests ringing on the {location} {stage}, but the tenor entered is the {reported_tenor.role}')
+                    _prompt_shift_band(peal, suggested_tenor, quick_mode)
+
+                break
+
+    # Update the reported tenor in case it changed above
+    reported_tenor = peal.tenor
+
+    # Check tenor weight on BellBoard vs the selected bells
+    if reported_tenor and reported_tenor.weight != peal.tenor_weight:
         warning(f'Tenor weight {utils.get_weight_str(peal.tenor_weight)} reported on Bellboard does not match ' +
-                f'the weight of largest bell rung ({utils.get_weight_str(tenor.weight)}) on Dove')
-        if quick_mode or confirm(None, confirm_message=f'Use Dove value ({utils.get_weight_str(tenor.weight)})?', default=True):
-            peal.tenor_weight = None
+                f'the weight of largest bell rung ({utils.get_weight_str(reported_tenor.weight)}) on Dove')
+        # Does the reported tenor weight match any bell in the ring?
+        bell: Bell
+        for bell in peal.ring.bells.values():
+            if bell.weight == peal.tenor_weight:
+                suggested_tenor = bell
+                print(f'Suggested tenor, based on weight: {bell.role} ({utils.get_weight_str(bell.weight)})')
+                break
 
-    if tenor and tenor.note != peal.tenor_note:
-        warning(f'Tenor note {peal.tenor_note} reported on Bellboard does not match ' +
-                f'the note of largest bell rung ({tenor.note}) on Dove')
-        if quick_mode or confirm(None, confirm_message=f'Use Dove value ({tenor.note})?', default=True):
-            peal.tenor_note = None
+        _prompt_shift_band(peal, suggested_tenor, quick_mode)
+
+    # Clear tenor details as it's linked to a ring
+    peal.tenor_weight = None
+    peal.tenor_note = None
