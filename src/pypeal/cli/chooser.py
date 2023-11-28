@@ -100,8 +100,10 @@ def _print_options_page(title: str, options: list[any], actions: list[str]):
                 row.append(f'{index + 1}) {options[index]}')
             else:
                 break
-        else:
+        if len(row) > 0:
             table.add_row(*row)
+        else:
+            break
     if actions:
         table.add_section()
         for action in actions:

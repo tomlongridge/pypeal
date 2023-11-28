@@ -62,7 +62,7 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
                     print(f'{len(method_matches)} methods match "{parsed_method}"')
                     quick_mode = False
                     _set_peal_title(peal,
-                                    choose_option(method_matches, none_option='None'),
+                                    choose_option(method_matches, cancel_option='None'),
                                     PealType.SINGLE_METHOD)
                     if peal.method:
                         return
@@ -111,7 +111,7 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
                 classification = choose_option([classification for classification in Classification],
                                                default=parsed_method.classification,
                                                title='Classification',
-                                               none_option='None')
+                                               cancel_option='None')
             if prompt_methods[0].is_differential is not None:
                 is_differential = prompt_methods[0].is_differential
             else:
@@ -145,7 +145,7 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
                         excluded_methods += method_matches[0].id
                 case _:
                     print(f'{len(method_matches)} methods match search criteria')
-                    if matched_method := choose_option(method_matches, none_option='None'):
+                    if matched_method := choose_option(method_matches, cancel_option='None'):
                         _set_peal_title(peal,
                                         matched_method,
                                         PealType.SINGLE_METHOD)

@@ -93,8 +93,10 @@ def prompt_add_ringer_by_search(name: str, label: str, allow_none: bool, quick_m
                             default=1) if not quick_mode else 1:
             case 1:
                 new_ringer = prompt_add_new_ringer(last_name, given_names, quick_mode)
-                if new_ringer or allow_none:
+                if new_ringer:
                     return new_ringer
+                else:
+                    quick_mode = False
             case 2:
                 search_last_name, search_given_names = prompt_names(last_name, given_names)
                 potential_ringers = Ringer.get_by_name(search_last_name, search_given_names)

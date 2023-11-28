@@ -40,11 +40,12 @@ def prompt_validate_tenor(peal: Peal, quick_mode: bool):
     suggested_tenor: Bell = None
 
     # Check for a footnote declaring position of the band
+    match_ring_position = None
     if len(peal.ringers) > 0 and peal.ringers[-1].nums is not None:
 
         for footnote in peal.footnotes:
-            if match := re.match(RING_POSITION_REGEX, footnote.text):
-                location, stage = match.groups()
+            if match_ring_position := re.match(RING_POSITION_REGEX, footnote.text):
+                location, stage = match_ring_position.groups()
                 if stage.isnumeric():
                     stage = int(stage)
                 else:
@@ -60,11 +61,9 @@ def prompt_validate_tenor(peal: Peal, quick_mode: bool):
 
                 break
 
-    # Update the reported tenor in case it changed above
-    reported_tenor = peal.tenor
-
-    # Check tenor weight on BellBoard vs the selected bells
-    if reported_tenor and reported_tenor.weight != peal.tenor_weight:
+    # Check tenor weight on BellBoard vs the selected bells, but only if it hasn't been shifted already
+    #  (trust the footnote over the recorded weight)
+    if match_ring_position is None and reported_tenor and reported_tenor.weight != peal.tenor_weight:
         warning(f'Tenor weight {utils.get_weight_str(peal.tenor_weight)} reported on Bellboard does not match ' +
                 f'the weight of largest bell rung ({utils.get_weight_str(reported_tenor.weight)}) on Dove')
         # Does the reported tenor weight match any bell in the ring?

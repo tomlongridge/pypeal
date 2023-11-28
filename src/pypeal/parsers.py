@@ -64,7 +64,6 @@ def parse_method_title(title: str) -> tuple[list[Method], PealType, int, int, in
 
     # Catch titles such as "12 Doubles"
     if match := re.match(METHOD_TITLE_NUMER_OF_METHODS_REGEX, methods[0].name):
-        peal_type = peal_type or PealType.SPLICED_METHODS
         match_details = match.groupdict()
         if match_details['num_methods']:
             methods[0].name = methods[0].name[len(match_details['num_methods']) + 1:].strip()
@@ -97,6 +96,11 @@ def parse_method_title(title: str) -> tuple[list[Method], PealType, int, int, in
             methods[0].stage = methods[0].stage or stage
             methods[0].classification = methods[0].classification or classification
 
+        if methods[0].stage.value <= Stage.DOUBLES.value:
+            peal_type = peal_type or PealType.MIXED_METHODS
+        else:
+            peal_type = peal_type or PealType.SPLICED_METHODS
+
     # Two named methods as the title
     elif match_details := re.search(METHOD_TITLE_TWO_METHODS_REGEX, methods[0].name):
         peal_type = peal_type or PealType.SPLICED_METHODS
@@ -116,6 +120,11 @@ def parse_method_title(title: str) -> tuple[list[Method], PealType, int, int, in
         # e.g. "Cambridge and Yorkshire Surprise Major"
         methods[0].classification = methods[0].classification or methods[1].classification
         methods[0].stage = methods[0].stage or methods[1].stage
+
+        if max(methods[0].stage.value, methods[1].stage.value) <= Stage.DOUBLES.value:
+            peal_type = peal_type or PealType.MIXED_METHODS
+        else:
+            peal_type = peal_type or PealType.SPLICED_METHODS
     else:
         methods[0].stage, methods[0].classification, methods[0].name, _ = parse_single_method(methods[0].name, expect_changes=False)
         if methods[0].stage is not None or methods[0].classification is not None:
