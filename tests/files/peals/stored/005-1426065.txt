@@ -75,7 +75,10 @@ Is this correct? [y/n] (y):
 🎼 Composer: Unknown
 📅 Date: Sunday, 2 December 2001
 🔔 Tenor: Unknown
-⏱ Duration: 50
+Duration (50): 
+>>> 
+[User input: "50"]
+⏱ Duration: 50 minutes
 1: Couldn't find ringer matching "Julia Fowler" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 

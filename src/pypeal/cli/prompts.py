@@ -25,7 +25,7 @@ def print_user_input(prompt: str, message: str):
 def ask(prompt: str, default: str = None, required: bool = True) -> str:
     try:
         while True:
-            response = Prompt.ask(prompt, default=default, show_default=(default is not None))
+            response = Prompt.ask(prompt, default=str(default) if default else None, show_default=default is not None)
             if response is not None and response.strip() == '':  # Allow empty string to indicate no value when there's a default value
                 response = None
             if not required or response:

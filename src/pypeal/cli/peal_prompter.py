@@ -1,6 +1,7 @@
 from datetime import datetime
 from pypeal import utils
 from pypeal.bellboard.listener import PealGeneratorListener
+from pypeal.cli.prompt_add_duration import prompt_add_duration
 from pypeal.cli.prompt_add_footnote import prompt_add_footnote, prompt_add_muffle_type
 from pypeal.cli.prompt_validate_tenor import prompt_validate_tenor
 from pypeal.cli.prompt_add_association import prompt_add_association
@@ -10,7 +11,7 @@ from pypeal.cli.prompt_add_location import prompt_add_location
 from pypeal.cli.prompt_add_ringer import prompt_add_ringer
 from pypeal.cli.prompt_peal_title import prompt_peal_title
 from pypeal.cli.prompts import UserCancelled, confirm, error
-from pypeal.parsers import parse_duration, parse_tenor_info
+from pypeal.parsers import parse_tenor_info
 from pypeal.peal import Peal, BellType, PealType
 from pypeal.tower import Tower
 
@@ -119,9 +120,9 @@ class PealPromptListener(PealGeneratorListener):
 
     def duration(self, value: str):
         value = _clean_str_input(value)
-        if value:
-            self.peal.duration = parse_duration(value)
-        print(f'⏱ Duration: {self.peal.duration or "Unknown"}')
+        self._run_cancellable_prompt(
+            lambda peal: prompt_add_duration(value, peal, self.quick_mode))
+        print(f'⏱ Duration: {utils.get_time_str(self.peal.duration)}')
 
     def ringer(self, name: str, bell_nums: list[int], bells: list[int], is_conductor: bool):
         name = _clean_str_input(name)

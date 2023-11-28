@@ -63,7 +63,10 @@ Is this correct? [y/n] (y):
 🎼 Composer: Unknown
 📅 Date: Saturday, 13 May 2023
 🔔 Tenor: 1221 in F
-⏱ Duration: 46
+Duration (46): 
+>>> 
+[User input: "46"]
+⏱ Duration: 46 minutes
 1: Found 2 ringers matching "Aston Mitchell" (or aliases)
 1) Aston Mitchell (15), 2) Aston Mitchell (19)
 Select option (x = None): 

@@ -47,8 +47,8 @@ def prompt_add_ringer(name: str, bell_nums: list[int], bells: list[int], is_cond
             else:
 
                 suggested_bells = []
-                if len(peal.ringers) and peal.ringers[-1][2] is not None:
-                    last_bell: int = peal.ringers[-1][2][-1]
+                if len(peal.ringers) and peal.ringers[-1].bells is not None:
+                    last_bell: int = peal.ringers[-1].bells[-1]
                     for i in range(len(bell_nums)):
                         suggested_bells.append(last_bell + i + 1)
                 else:
@@ -198,16 +198,16 @@ def prompt_commit_ringer(ringer: Ringer, used_name: str, peal: Peal, quick_mode:
 
 
 def _validate_bell(bell_nums: list[int], bells: list[int], peal: Peal) -> bool:
-    if len(peal.ringers) > 0 and bells[-1] <= peal.ringers[-1][2][-1]:
-        error(f'Bell number ({bells[-1]}) is not greater than the last bell ({peal.ringers[-1][2][-1]})')
+    if len(peal.ringers) > 0 and bells[-1] <= peal.ringers[-1].bells[-1]:
+        error(f'Bell number ({bells[-1]}) is not greater than the last bell ({peal.ringers[-1].bells[-1]})')
         return False
     for bell in bells:
         if peal.ring is not None and peal.ring.num_bells < bell:
             error(f'Bell number ({bell}) exceeds number of bells in the tower')
             return False
-        for ringer, _, existing_bells, _ in peal.ringers:
-            if bell in existing_bells:
-                error(f'Bell {bell} already assigned to {ringer.name}')
+        for ringer in peal.ringers:
+            if bell in ringer.bells:
+                error(f'Bell {bell} already assigned to {ringer.ringer}')
                 return False
     if peal.ring is not None and peal.stage is not None:
         max_possible_bells = peal.stage.value + (1 if peal.stage.value % 2 == 1 else 0)

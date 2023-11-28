@@ -28,7 +28,7 @@ def prompt_add_footnote(text: str, peal: Peal, quick_mode: bool):
                         (quick_mode or confirm(f'Possible composer: {composer_name}')):
                     prompt_add_composition_details(composer_name, None, peal, quick_mode)
                 else:
-                    conductor_bells = [bell for conductor in peal.conductors for bell in conductor[1]]
+                    conductor_bells = [bell for conductor in peal.conductors for bell in conductor.nums]
                     bells, footnote_str = parse_footnote(line_part, peal.num_bells, conductor_bells)
                     _prompt_add_single_footnote(bells, footnote_str, peal, quick_mode)
     else:
@@ -74,9 +74,9 @@ def _prompt_add_single_footnote(bells: list[int],
         for bell, ringer in zip(bells, ringers):
             peal.add_footnote(text, bell, ringer)
     elif len(peal.footnotes) > 0 and \
-            peal.footnotes[-1][1] is None and \
+            peal.footnotes[-1].bell is None and \
             (quick_mode or confirm(None, confirm_message='Add this to previous footnote?', default=True)):
-        peal.footnotes[-1] = (peal.footnotes[-1][0] + ' ' + text, None, None)
+        peal.footnotes[-1].text = peal.footnotes[-1].text + ' ' + text
     else:
         peal.add_footnote(text, None, None)
 

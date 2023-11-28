@@ -25,7 +25,7 @@ METHOD_TITLE_TWO_METHODS_REGEX = \
 METHOD_TITLE_NUM_METHODS_REGEX = re.compile(r'(([0-9]+[mvp]\/?)+)|\(([0-9]*[mvp]\/?)+\)')
 METHOD_TITLE_NUM_METHODS_GROUP_REGEX = re.compile(r'([0-9]+[mvp])\/?')
 
-DURATION_REGEX = re.compile(r'^(?:(?P<hours>[0-9]{1,2})\s?(?:hours|hrs|hr|h))?\s?(?P<mins>[0-9]{1,2})?\s?(?:minutes|mins|min|m)?$')
+DURATION_REGEX = re.compile(r'^(?:(?P<hours>[0-9]{1,2})\s?(?:hours|hrs|hr|h))?\s?(?P<mins>[0-9]{1,4})?\s?(?:minutes|mins|min|m)?$')
 TENOR_INFO_REGEX = re.compile(r'(?P<tenor_weight>[^in]+|size\s[0-9]+)(?:\sin\s(?P<tenor_note>.*))?$')
 
 FOOTNOTE_RINGER_SEPARATORS = [' ', ',', '&', 'and']

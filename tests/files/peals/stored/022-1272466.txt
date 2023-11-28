@@ -59,7 +59,7 @@ Add new ringer as "Albert P" "Wakley"? [y/n] (y):
 🎼 Composer: Albert P Wakley
 📅 Date: Sunday, 17 February 2019
 🔔 Tenor: 2120 in Eb
-⏱ Duration: 46
+⏱ Duration: 46 minutes
 First bell number(s) in the tower (1): 
 >>> 3
 [User input: "3"]

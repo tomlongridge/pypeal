@@ -85,6 +85,9 @@ Is this correct? [y/n] (y):
 🎼 Composer: Unknown
 📅 Date: Sunday, 21 September 2014
 🔔 Tenor: Unknown
+Duration: 
+>>> 
+[User input: "None"]
 ⏱ Duration: Unknown
 1: "Vivian Murray" -> Vivian Murray
 Is this correct? [y/n] (y): 

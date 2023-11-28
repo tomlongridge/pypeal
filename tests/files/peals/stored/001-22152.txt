@@ -98,7 +98,10 @@ Is this correct? [y/n] (y):
 🎼 Composer: Unknown
 📅 Date: Saturday, 30 June 2001
 🔔 Tenor: 1904
-⏱ Duration: 49
+Duration (49): 
+>>> 
+[User input: "49"]
+⏱ Duration: 49 minutes
 1: Couldn't find ringer matching "Lydia Ferguson" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 

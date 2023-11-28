@@ -50,7 +50,7 @@ Matching peal titled "Grandsire Doubles"...
 🎼 Composer: Unknown
 📅 Date: Sunday, 7 May 2023
 🔔 Tenor: 880
-⏱ Duration: 40
+⏱ Duration: 40 minutes
 First bell number(s) in the tower (1): 
 >>> 5
 [User input: "5"]
@@ -120,7 +120,10 @@ Is this correct? [y/n] (y):
 🎼 Composer: Unknown
 📅 Date: Sunday, 7 May 2023
 🔔 Tenor: 880
-⏱ Duration: 40
+Duration (40): 
+>>> 
+[User input: "40"]
+⏱ Duration: 40 minutes
 1: "Ryan Elliott" -> Ryan Elliott
 Is this correct? [y/n] (y): 
 >>> 

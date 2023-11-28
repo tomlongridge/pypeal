@@ -81,6 +81,9 @@ Is this correct? [y/n] (y):
 🎼 Composer: Unknown
 📅 Date: Sunday, 5 December 1976
 🔔 Tenor: 823 in B
+Duration: 
+>>> 
+[User input: "None"]
 ⏱ Duration: Unknown
 1: Couldn't find ringer matching "Edward Chapman" (or aliases)
 1) Add new ringer, 2) Search ringers

@@ -130,7 +130,10 @@ Is this correct? [y/n] (y):
 🎼 Composer: Unknown
 📅 Date: Sunday, 15 December 2019
 🔔 Tenor: 2120 in Eb
-⏱ Duration: 48
+Duration (48): 
+>>> 
+[User input: "48"]
+⏱ Duration: 48 minutes
 1: "Leonardo Bennett" -> Leo Bennett
 Is this correct? [y/n] (y): 
 >>> y

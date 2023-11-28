@@ -261,7 +261,10 @@ Is this correct? [y/n] (y):
 🎼 Composer: Unknown
 📅 Date: Monday, 27 March 1967
 🔔 Tenor: 987 in A
-⏱ Duration: 149
+Duration (149): 
+>>> 
+[User input: "149"]
+⏱ Duration: 2 hours, 29 minutes
 1: Couldn't find ringer matching "Lydia Reed" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 

@@ -124,7 +124,10 @@ Is this correct? [y/n] (y):
 🎼 Composer: Unknown
 📅 Date: Sunday, 11 January 2015
 🔔 Tenor: 2120
-⏱ Duration: 48
+Duration (48): 
+>>> 
+[User input: "48"]
+⏱ Duration: 48 minutes
 1: Couldn't find ringer matching "Byron Miller" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 

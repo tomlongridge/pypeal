@@ -98,7 +98,10 @@ Is this correct? [y/n] (y):
 🎼 Composer: Unknown
 📅 Date: Thursday, 17 October 2019
 🔔 Tenor: 2352 in Eb
-⏱ Duration: 44
+Duration (44): 
+>>> 50 mins
+[User input: "50 mins"]
+⏱ Duration: 50 minutes
 1: Couldn't find ringer matching "Dainton Casey" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 
@@ -181,7 +184,7 @@ Select option (1):
 │ Portbury, Somerset, England                                                  │
 │ Blessed Virgin Mary                                                          │
 │ On Thursday, 17 October 2019                                                 │
-│ A Quarter Peal of 1260 Mixed Doubles (5m/3v/1p) in 44 minutes (21 cwt in Eb) │
+│ A Quarter Peal of 1260 Mixed Doubles (5m/3v/1p) in 50 minutes (21 cwt in Eb) │
 │                                                                              │
 │ 1: Dainton Casey                                                             │
 │ 2: Daryl Mason                                                               │
@@ -220,7 +223,7 @@ Bath and Wells Diocesan Association
 Portbury, Somerset, England
 Blessed Virgin Mary
 On Thursday, 17 October 2019
-A Quarter Peal of 1260 Mixed Doubles (5m/3v/1p) in 44 minutes (21 cwt in Eb)
+A Quarter Peal of 1260 Mixed Doubles (5m/3v/1p) in 50 minutes (21 cwt in Eb)
 
 1: Dainton Casey
 2: Daryl Mason

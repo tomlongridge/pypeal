@@ -162,7 +162,7 @@ class PerformanceDetail(BaseModel):
 
 class PealRinger(BaseModel):
     bells: list[int] | None
-    bell_nums: list[int] | None
+    nums: list[int] | None
     ringer: RingerBasic
     is_conductor: bool
 
@@ -200,15 +200,15 @@ class Peal(BaseModel):
             composition=CompositionDetail.from_object(peal),
             muffles=peal.muffles,
             ringers=[
-                PealRinger(bells=ringer[1],
-                           bell_nums=ringer[2],
-                           ringer=RingerBasic.from_object(ringer[0]),
-                           is_conductor=ringer[3])
+                PealRinger(bells=ringer.bells,
+                           nums=ringer.nums,
+                           ringer=RingerBasic.from_object(ringer.ringer),
+                           is_conductor=ringer.is_conductor)
                 for ringer in peal.ringers] if peal.ringers else None,
             footnotes=[
-                FootnoteDetail(text=footnote[0],
-                               bell=footnote[1],
-                               ringer=RingerBasic.from_object(footnote[2]) if footnote[2] else None)
+                FootnoteDetail(text=footnote.text,
+                               bell=footnote.bell,
+                               ringer=RingerBasic.from_object(footnote.ringer) if footnote.ringer else None)
                 for footnote in peal.footnotes],
             event_url=peal.event_url,
         )

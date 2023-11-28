@@ -24,11 +24,11 @@ def _prompt_shift_band(peal: Peal, suggested_tenor: Bell, quick_mode: bool):
         band_shift = new_tenor - peal.tenor.role
         print(f'Shifting band by {band_shift} bell{"s" if abs(band_shift) > 1 else ""}')
         peal.clear_ringers()
-        for ringer, bell_nums, bells, conductor in peal_ringers:
+        for ringer in peal_ringers:
             new_bells = []
-            for bell in bells:
+            for bell in ringer.bells:
                 new_bells.append(bell + band_shift)
-            peal.add_ringer(ringer, bell_nums, new_bells, conductor)
+            peal.add_ringer(ringer.ringer, ringer.nums, new_bells, ringer.is_conductor)
 
 
 def prompt_validate_tenor(peal: Peal, quick_mode: bool):
@@ -40,10 +40,10 @@ def prompt_validate_tenor(peal: Peal, quick_mode: bool):
     suggested_tenor: Bell = None
 
     # Check for a footnote declaring position of the band
-    if len(peal.ringers) > 0 and peal.ringers[-1][1] is not None:
+    if len(peal.ringers) > 0 and peal.ringers[-1].nums is not None:
 
         for footnote in peal.footnotes:
-            if match := re.match(RING_POSITION_REGEX, footnote[0]):
+            if match := re.match(RING_POSITION_REGEX, footnote.text):
                 location, stage = match.groups()
                 if stage.isnumeric():
                     stage = int(stage)

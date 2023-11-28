@@ -226,7 +226,10 @@ Is this correct? [y/n] (y):
 🎼 Composer: Unknown
 📅 Date: Monday, 25 March 1963
 🔔 Tenor: 1158 in G
-⏱ Duration: 162
+Duration (162): 
+>>> 2h 42
+[User input: "2h 42"]
+⏱ Duration: 2 hours, 42 minutes
 1: Couldn't find ringer matching "Blake Howard" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 
