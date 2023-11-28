@@ -351,8 +351,7 @@ Select option (1):
 │ 6: Grace Perry                                                               │
 │                                                                              │
 │ Rung for Morning Service. Testing the new footnote function.                 │
-│ [1: Ryan Elliott] Testing new footnote with ringers.                         │
-│ [6: Grace Perry] Testing new footnote with ringers.                          │
+│ 1,6: Testing new footnote with ringers.                                      │
 │                                                                              │
 │ [BellBoard: http://localhost:8080/view.php?id=1657469 (Joyce Sullivan,       │
 │ Sunday, 10 September 2023)]                                                  │
@@ -394,8 +393,7 @@ A Quarter Peal of 1260 Mixed Doubles (3m) in 41 minutes (7-3-12 in Bb)
 6: Grace Perry
 
 Rung for Morning Service. Testing the new footnote function.
-[1: Ryan Elliott] Testing new footnote with ringers.
-[6: Grace Perry] Testing new footnote with ringers.
+1,6: Testing new footnote with ringers.
 
 [BellBoard: http://localhost:8080/view.php?id=1657469 (Joyce Sullivan, Sunday, 10 September 2023)]
 [Published title: Doubles (3m)]

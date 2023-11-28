@@ -237,7 +237,7 @@ Select option (1):
 │ 10: Chester Edwards (c)                                                      │
 │                                                                              │
 │ Rung as a birthday compliment to Matthew Skues.                              │
-│ [7: Melissa Baker] First quarter of Royal.                                   │
+│ 7: First quarter of Royal.                                                   │
 │                                                                              │
 │ [BellBoard: http://localhost:8080/view.php?id=1659658 (Chester Edwards,      │
 │ Saturday, 23 September 2023)]                                                │
@@ -283,7 +283,7 @@ Composed by: Alex W Tatlow
 10: Chester Edwards (c)
 
 Rung as a birthday compliment to Matthew Skues.
-[7: Melissa Baker] First quarter of Royal.
+7: First quarter of Royal.
 
 [BellBoard: http://localhost:8080/view.php?id=1659658 (Chester Edwards, Saturday, 23 September 2023)]
 [Composition URL: http://localhost:8080/comp.php?id=2293307]

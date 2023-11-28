@@ -142,8 +142,8 @@ class PealPromptListener(PealGeneratorListener):
                 print('📝 Footnotes: None')
             else:
                 print('📝 Footnotes:')
-                for i in range(0, len(self.peal.footnotes)):
-                    print(f'  - {self.peal.get_footnote_line(i)}')
+                for footnote in self.peal.footnotes:
+                    print(f'  - {footnote}')
 
     def event(self, url: str):
         url = _clean_str_input(url)

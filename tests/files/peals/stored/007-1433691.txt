@@ -215,8 +215,8 @@ Select option (1):
 │ 5: Jack Spencer (c)                                                          │
 │ 6: Eric Ryan                                                                 │
 │                                                                              │
-│ [6: Eric Ryan] First quarter peal.                                           │
 │ For evensong.                                                                │
+│ 6: First quarter peal.                                                       │
 │                                                                              │
 │ [BellBoard: http://localhost:8080/view.php?id=1433691 (Richard Higgins,      │
 │ Friday, 19 October 2018)]                                                    │
@@ -256,7 +256,7 @@ A Quarter Peal of 1320 Plain Bob Doubles (7-1-11 in B)
 5: Jack Spencer (c)
 6: Eric Ryan
 
-[6: Eric Ryan] First quarter peal.
 For evensong.
+6: First quarter peal.
 
 [BellBoard: http://localhost:8080/view.php?id=1433691 (Richard Higgins, Friday, 19 October 2018)]

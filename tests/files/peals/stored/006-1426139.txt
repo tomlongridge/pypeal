@@ -195,7 +195,7 @@ Select option (1):
 │                                                                              │
 │ Rung for Morning Service and as a 60th Wedding Anniversary compliment to     │
 │ Phyllis and Melvin Chapman.                                                  │
-│ [4: Chester Edwards] 1st of Royal.                                           │
+│ 4: 1st of Royal.                                                             │
 │                                                                              │
 │ [BellBoard: http://localhost:8080/view.php?id=1426139 (Myra Scott, ]         │
 │ [External reference: Campanophile ID: 5506]                                  │
@@ -239,7 +239,7 @@ A Quarter Peal of 1260 Plain Bob Royal in 49 minutes (18-3-20 in Eb)
 10: Vivian Murray (c)
 
 Rung for Morning Service and as a 60th Wedding Anniversary compliment to Phyllis and Melvin Chapman.
-[4: Chester Edwards] 1st of Royal.
+4: 1st of Royal.
 
 [BellBoard: http://localhost:8080/view.php?id=1426139 (Myra Scott, ]
 [External reference: Campanophile ID: 5506]

@@ -249,7 +249,7 @@ Select option (1):
 │ 8 [10]: Leo Bennett                                                          │
 │                                                                              │
 │ Rung for Morning Service.                                                    │
-│ [4: Chester Edwards] First of Triples "inside".                              │
+│ 4: First of Triples "inside".                                                │
 │                                                                              │
 │ [BellBoard: http://localhost:8080/view.php?id=1426065 (Nicholas Hunt,        │
 │ Sunday, 15 January 2012)]                                                    │
@@ -293,7 +293,7 @@ A Quarter Peal of 1260 Grandsire Triples in 50 minutes (18-3-20 in Eb)
 8 [10]: Leo Bennett
 
 Rung for Morning Service.
-[4: Chester Edwards] First of Triples "inside".
+4: First of Triples "inside".
 
 [BellBoard: http://localhost:8080/view.php?id=1426065 (Nicholas Hunt, Sunday, 15 January 2012)]
 [External reference: Campanophile ID: 2972]

@@ -205,8 +205,7 @@ Select option (1):
 │ 8: Heather Sullivan (c)                                                      │
 │                                                                              │
 │ Birthday compliment to Paul Clewett.                                         │
-│ [3: Daryl Mason] First on a mini-ring.                                       │
-│ [6: Arnold Johnson] First on a mini-ring.                                    │
+│ 3,6: First on a mini-ring.                                                   │
 │                                                                              │
 │ [BellBoard: http://localhost:8080/view.php?id=1066455 (Heather Sullivan,     │
 │ Sunday, 21 September 2014)]                                                  │
@@ -249,8 +248,7 @@ A Quarter Peal of 1280 Cambridge Surprise Major
 8: Heather Sullivan (c)
 
 Birthday compliment to Paul Clewett.
-[3: Daryl Mason] First on a mini-ring.
-[6: Arnold Johnson] First on a mini-ring.
+3,6: First on a mini-ring.
 
 [BellBoard: http://localhost:8080/view.php?id=1066455 (Heather Sullivan, Sunday, 21 September 2014)]
 [External reference: Campanophile ID: 183937]

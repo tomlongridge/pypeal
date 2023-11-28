@@ -55,10 +55,18 @@ class PealRinger:
 
 
 class Footnote:
+
     def __init__(self, text: str, bell: int, ringer: Ringer):
         self.text = text
         self.bell = bell
         self.ringer = ringer
+
+    def __str__(self):
+        value = ''
+        if self.bell:
+            value += f'[{self.bell}: {self.ringer}] '
+        value += f'{self.text}'
+        return value
 
 
 @dataclass
@@ -477,13 +485,6 @@ class Peal:
     def add_footnote(self, footnote: str, bell: int, ringer: Ringer):
         self.footnotes.append(Footnote(footnote, bell, ringer))
 
-    def get_footnote_line(self, footnote_num: int) -> str:
-        text = ''
-        if self.__footnotes[footnote_num].bell:
-            text += f'[{self.__footnotes[footnote_num].bell}: {self.__footnotes[footnote_num].ringer}] '
-        text += f'{self.__footnotes[footnote_num].text}'
-        return text
-
     @property
     def photos(self) -> list[tuple[int, str, str, str]]:
         if self.__photos is None:
@@ -560,6 +561,20 @@ class Peal:
             Database.get_connection().commit()
             self.__photos[i] = (result.lastrowid, url, caption, credit)
 
+    def _get_footnote_summary(self) -> str:
+        footnote_map: dict[str, list[int]] = {}
+        for footnote in self.footnotes:
+            if footnote.text not in footnote_map:
+                footnote_map[footnote.text] = []
+            if footnote.bell:
+                footnote_map[footnote.text].append(footnote.bell)
+                footnote_map[footnote.text].sort()
+        summary = ''
+        for text, bells in sorted(footnote_map.items(), key=lambda item: item[1][0] if len(item[1]) > 0 else 0):
+            summary += f'{utils.get_bell_label(bells)}: ' if bells else ''
+            summary += f'{text}\n'
+        return summary
+
     def __str__(self):
         text = ''
         text += f'{self.association.name}\n' if self.association else ''
@@ -596,9 +611,7 @@ class Peal:
             text += f'{self.get_ringer_line(ringer)}\n'
         if len(self.footnotes):
             text += '\n'
-            for i in range(0, len(self.__footnotes)):
-                text += self.get_footnote_line(i)
-                text += '\n'
+            text += self._get_footnote_summary()
         if self.bellboard_id:
             text += f'\n[BellBoard: {get_url_from_id(self.bellboard_id)}'
             text += ' (' if self.bellboard_submitter or self.bellboard_submitted_date else ''

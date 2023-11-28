@@ -273,8 +273,8 @@ Select option (1):
 │ 7 [11]: Ryan Elliott                                                         │
 │ 8 [12]: Ted Harris                                                           │
 │                                                                              │
-│ [1: Lydia Ferguson] First away from cover on 8.                              │
-│ [4: Alen Henderson] First of Grandsire inside.                               │
+│ 1: First away from cover on 8.                                               │
+│ 4: First of Grandsire inside.                                                │
 │                                                                              │
 │ [BellBoard: http://localhost:8080/view.php?id=22152 (Nicholas Hunt, Sunday,  │
 │ 15 January 2012)]                                                            │
@@ -320,8 +320,8 @@ A Quarter Peal of 1260 Grandsire Triples in 49 minutes (17-1-10 in D#)
 7 [11]: Ryan Elliott
 8 [12]: Ted Harris
 
-[1: Lydia Ferguson] First away from cover on 8.
-[4: Alen Henderson] First of Grandsire inside.
+1: First away from cover on 8.
+4: First of Grandsire inside.
 
 [BellBoard: http://localhost:8080/view.php?id=22152 (Nicholas Hunt, Sunday, 15 January 2012)]
 [External reference: Campanophile ID: 1593]
