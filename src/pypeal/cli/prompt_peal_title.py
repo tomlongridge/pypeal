@@ -62,7 +62,7 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
                     print(f'{len(method_matches)} methods match "{parsed_method}"')
                     quick_mode = False
                     _set_peal_title(peal,
-                                    choose_option(method_matches, cancel_option='None'),
+                                    choose_option(method_matches, none_option='None'),
                                     PealType.SINGLE_METHOD)
                     if peal.method:
                         return

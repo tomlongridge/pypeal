@@ -54,13 +54,15 @@ def parse_method_title(title: str) -> tuple[list[Method], PealType, int, int, in
     num_variants: int = None
     num_principles: int = None
 
-    if methods[0].name.lower().startswith('mixed'):
-        peal_type = PealType.MIXED_METHODS
-        methods[0].name = methods[0].name[5:].strip()
-
-    if methods[0].name.lower().startswith('spliced'):
-        peal_type = PealType.SPLICED_METHODS
-        methods[0].name = methods[0].name[7:].strip()
+    # Catch titles with the number before the spliced/mixed definition
+    # e.g. "Six Spliced Major"
+    for title_word in methods[0].name.split(' ', 1):
+        if title_word.lower().startswith('mixed'):
+            peal_type = PealType.MIXED_METHODS
+            methods[0].name = re.sub(r'[Mm]ixed ', '', methods[0].name)
+        if title_word.lower().startswith('spliced'):
+            peal_type = PealType.SPLICED_METHODS
+            methods[0].name = re.sub(r'[Ss]pliced ', '', methods[0].name)
 
     # Catch titles such as "12 Doubles"
     if match := re.match(METHOD_TITLE_NUMER_OF_METHODS_REGEX, methods[0].name):
