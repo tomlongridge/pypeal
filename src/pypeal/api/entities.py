@@ -200,8 +200,8 @@ class Peal(BaseModel):
             composition=CompositionDetail.from_object(peal),
             muffles=peal.muffles,
             ringers=[
-                PealRinger(bells=ringer.bells,
-                           nums=ringer.nums,
+                PealRinger(bells=ringer.bell_ids,
+                           nums=ringer.bell_nums,
                            ringer=RingerBasic.from_object(ringer.ringer),
                            is_conductor=ringer.is_conductor)
                 for ringer in peal.ringers] if peal.ringers else None,

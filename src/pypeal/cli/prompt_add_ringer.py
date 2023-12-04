@@ -4,58 +4,66 @@ from pypeal.cli.prompts import ask, confirm, prompt_names
 from pypeal.cli.chooser import choose_option
 from pypeal.peal import Peal
 from pypeal.ringer import Ringer
+from pypeal.tower import Bell
 from pypeal.utils import get_bell_label, split_full_name
 
 _logger = logging.getLogger('pypeal')
 
 
-def prompt_add_ringer(name: str, bell_nums: list[int], bells: list[int], is_conductor: bool, peal: Peal, quick_mode: bool):
+def prompt_add_ringer(name: str,
+                      bell_nums_in_peal: list[int],
+                      bell_nums_in_ring: list[int],
+                      is_conductor: bool,
+                      peal: Peal,
+                      quick_mode: bool):
 
     if peal.stage is not None:
         max_possible_bells = peal.stage.value + (1 if peal.stage.value % 2 == 1 else 0)
-        if bell_nums[-1] > max_possible_bells:
-            error(f'Bell number ({bell_nums[-1]}) exceeds expected number of bells in the peal ({max_possible_bells}), based on method(s)')
+        if bell_nums_in_peal[-1] > max_possible_bells:
+            error(f'Bell number ({bell_nums_in_peal[-1]}) exceeds expected number of bells in the peal ({max_possible_bells}), ' +
+                  'based on method(s)')
             return
 
-    if bells and peal.ring and bells[-1] > peal.ring.num_bells:
-        warning(f'Bell role ({bells[-1]}) exceeds number of bells in the tower ({peal.ring.num_bells}) - ignoring')
+    if bell_nums_in_ring and peal.ring and bell_nums_in_ring[-1] > peal.ring.num_bells:
+        warning(f'Bell role ({bell_nums_in_ring[-1]}) exceeds number of bells in the tower ({peal.ring.num_bells}) - ignoring')
         bells = None
 
-    bell_label = get_bell_label(bell_nums) + ': ' if bell_nums else ''
+    bell_label = get_bell_label(bell_nums_in_peal) + ': ' if bell_nums_in_peal else ''
 
     matched_ringer: Ringer = prompt_add_ringer_by_name_match(name, bell_label, quick_mode)
 
     while not matched_ringer:
-        print(f'{get_bell_label(bell_nums) or "Ringer"}: Couldn\'t find ringer matching "{name}" (or aliases)')
+        print(f'{get_bell_label(bell_nums_in_peal) or "Ringer"}: Couldn\'t find ringer matching "{name}" (or aliases)')
         matched_ringer = prompt_add_ringer_by_search(name, bell_label, False, quick_mode)
 
     prompt_commit_ringer(matched_ringer, name, peal, quick_mode)
 
-    if bells is not None \
+    if bell_nums_in_ring is not None \
        and not quick_mode \
-       and not confirm(f'Use bell(s) {get_bell_label(bells)} for {matched_ringer.name}?', default=True):
-        bells = None
+       and not confirm(f'Use bell(s) {get_bell_label(bell_nums_in_ring)} for {matched_ringer.name}?', default=True):
+        bell_nums_in_ring = None
 
-    if bells is None:
+    if bell_nums_in_ring is None:
 
-        bells = []
-        while bell_nums is not None and len(bells) < len(bell_nums):
+        bell_nums_in_ring = []
+        while bell_nums_in_peal is not None and len(bell_nums_in_ring) < len(bell_nums_in_peal):
 
             if peal.stage is not None and peal.ring is not None and peal.stage.num_bells == len(peal.ring.bells):
                 # There is no choice of bells as the stage size matches the number of bells in the tower
-                bells += bell_nums
+                bell_nums_in_ring += bell_nums_in_peal
             else:
 
                 suggested_bells = []
-                if len(peal.ringers) and peal.ringers[-1].bells is not None:
-                    last_bell: int = peal.ringers[-1].bells[-1]
-                    for i in range(len(bell_nums)):
+                if len(peal.ringers) and peal.ringers[-1].bell_ids is not None:
+                    last_bell_id: int = peal.ringers[-1].bell_ids[-1]
+                    last_bell = Bell.get(last_bell_id).role
+                    for i in range(len(bell_nums_in_peal)):
                         suggested_bells.append(last_bell + i + 1)
                 else:
-                    suggested_bells = bell_nums
+                    suggested_bells = bell_nums_in_peal
                 bell_nums_str = get_bell_label(suggested_bells)
                 if quick_mode:
-                    if bell_nums[0] == 1:
+                    if bell_nums_in_peal[0] == 1:
                         bell_nums_str = ask('First bell number(s) in the tower', default=bell_nums_str)
                     else:
                         pass  # Use the default for subsequent bells in quick mode
@@ -64,25 +72,29 @@ def prompt_add_ringer(name: str, bell_nums: list[int], bells: list[int], is_cond
                 for bell in bell_nums_str.split(','):
                     bell_list = bell.split('-')
                     if len(bell_list) == 1:
-                        if bell.isnumeric() and _validate_bell(bell_nums, [int(bell)], peal):
-                            bells.append(int(bell))
+                        if bell.isnumeric() and _validate_bell(bell_nums_in_peal, [int(bell)], peal):
+                            bell_nums_in_ring.append(int(bell))
                             continue
                     else:
                         if bell_list[0].isnumeric() and bell_list[1].isnumeric():
                             bell_range = list(range(int(bell_list[0]), int(bell_list[1]) + 1))
-                            if _validate_bell(bell_nums, bell_range, peal):
-                                bells += bell_range
+                            if _validate_bell(bell_nums_in_peal, bell_range, peal):
+                                bell_nums_in_ring += bell_range
                                 continue
                     error(f'Invalid bell number, list or range: {bell}')
-                    bells = []
+                    bell_nums_in_ring = []
                     quick_mode = False
                     break
-                if len(bells) > len(bell_nums):
-                    if not confirm(f'More bells ({len(bells)}) than expected ({len(bell_nums)}) for this ringer', default=False):
-                        bells = []
+                if len(bell_nums_in_ring) > len(bell_nums_in_peal):
+                    if not confirm(f'More bells ({len(bells)}) than expected ({len(bell_nums_in_peal)}) for this ringer', default=False):
+                        bell_nums_in_ring = []
                         quick_mode = False
 
-    peal.add_ringer(matched_ringer, bell_nums, bells if len(bells) > 0 else None, is_conductor)
+    if peal.ring and len(bell_nums_in_ring) > 0:
+        bell_ids = [peal.ring.bells[bell].id for bell in bell_nums_in_ring]
+    else:
+        bell_ids = None
+    peal.add_ringer(matched_ringer, bell_ids, bell_nums_in_peal, is_conductor)
 
 
 def prompt_add_ringer_by_search(name: str, label: str, allow_none: bool, quick_mode: bool) -> Ringer:
@@ -199,22 +211,24 @@ def prompt_commit_ringer(ringer: Ringer, used_name: str, peal: Peal, quick_mode:
                                                   default=2) == 1)
 
 
-def _validate_bell(bell_nums: list[int], bells: list[int], peal: Peal) -> bool:
-    if len(peal.ringers) > 0 and bells[-1] <= peal.ringers[-1].bells[-1]:
-        error(f'Bell number ({bells[-1]}) is not greater than the last bell ({peal.ringers[-1].bells[-1]})')
-        return False
-    for bell in bells:
+def _validate_bell(bell_nums_in_peal: list[int], bell_nums_in_ring: list[int], peal: Peal) -> bool:
+    if len(peal.ringers) > 0 and peal.ringers[-1].bell_ids:
+        last_bell_num = Bell.get(peal.ringers[-1].bell_ids[-1]).role
+        if bell_nums_in_ring[-1] <= last_bell_num:
+            error(f'Bell number ({bell_nums_in_ring[-1]}) is not greater than the last bell ({last_bell_num})')
+            return False
+    for bell in bell_nums_in_ring:
         if peal.ring is not None and peal.ring.num_bells < bell:
             error(f'Bell number ({bell}) exceeds number of bells in the tower')
             return False
         for ringer in peal.ringers:
-            if bell in ringer.bells:
+            if bell in ringer.bell_nums:
                 error(f'Bell {bell} already assigned to {ringer.ringer}')
                 return False
     if peal.ring is not None and peal.stage is not None:
         max_possible_bells = peal.stage.value + (1 if peal.stage.value % 2 == 1 else 0)
-        if max_possible_bells - bell_nums[-1] > peal.ring.num_bells - bells[-1]:
-            error(f'No room for {max_possible_bells - bell_nums[-1]} more ringers for performance of {max_possible_bells} ' +
+        if max_possible_bells - bell_nums_in_peal[-1] > peal.ring.num_bells - bell_nums_in_ring[-1]:
+            error(f'No room for {max_possible_bells - bell_nums_in_peal[-1]} more ringers for performance of {max_possible_bells} ' +
                   f'on {peal.ring.num_bells} bells')
             return False
     return True

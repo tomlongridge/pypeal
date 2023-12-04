@@ -39,18 +39,18 @@ methods = [
     ),
     (
         'Doubles (2m)',
-        ([Method(stage=Stage.DOUBLES)], PealType.SPLICED_METHODS, 2, 0, 0),
-        'Spliced Doubles (2m)'
+        ([Method(stage=Stage.DOUBLES)], PealType.MIXED_METHODS, 2, 0, 0),
+        'Mixed Doubles (2m)'
     ),
     (
         'Doubles (11m/v/p)',
-        ([Method(stage=Stage.DOUBLES)], PealType.SPLICED_METHODS, 11, 0, 0),
-        'Spliced Doubles (11m)',
+        ([Method(stage=Stage.DOUBLES)], PealType.MIXED_METHODS, 11, 0, 0),
+        'Mixed Doubles (11m)',
     ),
     (
         'Doubles',
-        ([Method(stage=Stage.DOUBLES)], PealType.SPLICED_METHODS, None, None, None),
-        'Spliced Doubles',
+        ([Method(stage=Stage.DOUBLES)], PealType.MIXED_METHODS, None, None, None),
+        'Mixed Doubles',
     ),
     (
         'Mixed Doubles (3m/1p/2v)',
@@ -59,8 +59,8 @@ methods = [
     ),
     (
         'Doubles 2m',
-        ([Method(stage=Stage.DOUBLES)], PealType.SPLICED_METHODS, 2, 0, 0),
-        'Spliced Doubles (2m)'
+        ([Method(stage=Stage.DOUBLES)], PealType.MIXED_METHODS, 2, 0, 0),
+        'Mixed Doubles (2m)'
     ),
     (
         '6 Minor',

@@ -4,7 +4,7 @@ from pypeal import utils
 from pypeal.method import Classification, Method, Stage
 from pypeal.peal import PealType
 
-METHOD_TITLE_NUMER_OF_METHODS_REGEX = \
+METHOD_TITLE_NUMBER_OF_METHODS_REGEX = \
     re.compile(r'^(?P<num_methods>[0-9]+|' + '|'.join(utils.get_num_words()) + r')?\s?' +
                r'(?P<classification>' + '|'.join([s.value for s in Classification]) + r')?\s?' +
                r'(?P<stage>' + '|'.join([s.name for s in Stage]) + ')',
@@ -65,7 +65,7 @@ def parse_method_title(title: str) -> tuple[list[Method], PealType, int, int, in
             methods[0].name = re.sub(r'[Ss]pliced ', '', methods[0].name)
 
     # Catch titles such as "12 Doubles"
-    if match := re.match(METHOD_TITLE_NUMER_OF_METHODS_REGEX, methods[0].name):
+    if match := re.match(METHOD_TITLE_NUMBER_OF_METHODS_REGEX, methods[0].name):
         match_details = match.groupdict()
         if match_details['num_methods']:
             methods[0].name = methods[0].name[len(match_details['num_methods']) + 1:].strip()
@@ -76,14 +76,12 @@ def parse_method_title(title: str) -> tuple[list[Method], PealType, int, int, in
         if match_details['classification']:
             methods[0].classification = Classification(match_details['classification'])
         methods[0].stage = Stage.from_method(match_details['stage'])
-        methods[0].name = re.sub(METHOD_TITLE_NUMER_OF_METHODS_REGEX, '', methods[0].name).strip()
+        methods[0].name = re.sub(METHOD_TITLE_NUMBER_OF_METHODS_REGEX, '', methods[0].name).strip()
 
         # Parse m/v/p detail in brackets
         if re.search(METHOD_TITLE_NUM_METHODS_REGEX, methods[0].name):
-            peal_type = peal_type or PealType.SPLICED_METHODS
             multi_method_match = re.findall(METHOD_TITLE_NUM_METHODS_GROUP_REGEX, methods[0].name.strip('()'))
             if len(multi_method_match) > 0:
-                peal_type = peal_type or PealType.SPLICED_METHODS
                 num_methods = num_variants = num_principles = 0
                 for multi_method in multi_method_match:
                     match multi_method[-1]:

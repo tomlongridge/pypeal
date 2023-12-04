@@ -3,6 +3,7 @@ import copy
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
+from itertools import zip_longest
 import json
 from pypeal import config, utils
 from pypeal.association import Association
@@ -47,11 +48,11 @@ class MuffleType(Enum):
 
 
 class PealRinger:
-    def __init__(self, ringer: Ringer, nums: list[int], bells: list[int], is_conductor: bool):
-        self.ringer = ringer
-        self.nums = nums
-        self.bells = bells
-        self.is_conductor = is_conductor
+    def __init__(self, ringer: Ringer, bells: list[int], nums: list[int], is_conductor: bool):
+        self.ringer: Ringer = ringer
+        self.bell_ids: list[int] = bells
+        self.bell_nums: list[int] = nums
+        self.is_conductor: bool = is_conductor
 
 
 class Footnote:
@@ -269,9 +270,8 @@ class Peal:
 
     @property
     def tenor(self) -> Bell:
-        if self.ring and len(self.ringers) > 0 and self.ringers[-1].bells:
-            largest_bell_num_rung = self.ringers[-1].bells[-1]
-            return self.ring.get_bell(largest_bell_num_rung)
+        if self.ring and len(self.ringers) > 0 and self.ringers[-1].bell_ids:
+            return Bell.get(self.ringers[-1].bell_ids[-1])
         return None
 
     @property
@@ -406,24 +406,27 @@ class Peal:
             self.__ringers_by_num = {}
             if self.id is not None:
                 results = Database.get_connection().query(
-                    'SELECT r.id, pr.bell_num, pr.bell, pr.is_conductor ' +
+                    'SELECT r.id, pr.bell_id, pr.bell_num, pr.is_conductor ' +
                     'FROM pealringers pr ' +
                     'JOIN ringers r ON pr.ringer_id = r.id ' +
                     'WHERE pr.peal_id = %s ' +
-                    'ORDER BY pr.bell ASC',
+                    'ORDER BY pr.bell_num ASC',
                     (self.id,)).fetchall()
                 last_ringer = None
-                for ringer_id, num, bell, is_conductor in results:
+                for ringer_id, bell_id, bell_num, is_conductor in results:
                     if ringer_id == last_ringer:
-                        self.__ringers[-1].nums.append(num)
-                        self.__ringers[-1].bells.append(bell)
+                        self.__ringers[-1].bell_nums.append(bell_num)
+                        if bell_id:
+                            self.__ringers[-1].bell_ids.append(bell_id)
                     else:
                         ringer = Ringer.get(ringer_id)
-                        if bell == 0:  # 0 means no particular bell, for general performances
+                        if bell_num == 0:
                             self.__ringers.append(PealRinger(ringer, None, None, is_conductor))
                         else:
-                            self.__ringers.append(PealRinger(ringer, [num], [bell], is_conductor))
-                            self.__ringers_by_num[num] = ringer
+                            self.__ringers.append(PealRinger(ringer, None, [bell_num], is_conductor))
+                            if bell_id:
+                                self.__ringers[-1].bell_ids = [bell_id]
+                            self.__ringers_by_num[bell_num] = ringer
                             self.__ringers_by_id[ringer_id] = ringer
                     last_ringer = ringer_id
         return self.__ringers
@@ -436,23 +439,24 @@ class Peal:
 
     def get_ringer_line(self, peal_ringer: PealRinger) -> str:
         text = ''
-        if peal_ringer.nums:
-            text += get_bell_label(peal_ringer.nums)
-            if peal_ringer.nums != peal_ringer.bells:
-                text += f' [{get_bell_label(peal_ringer.bells)}]'
-            text += ': ' if peal_ringer.bells else ''
+        if peal_ringer.bell_nums:
+            text += get_bell_label(peal_ringer.bell_nums)
+            if peal_ringer.bell_ids:  # This is only applicable for tower bell peals
+                bell_nums_in_tower = [Bell.get(bell_id).role for bell_id in peal_ringer.bell_ids]
+                if bell_nums_in_tower != peal_ringer.bell_nums:
+                    text += f' [{get_bell_label(bell_nums_in_tower)}]'
+            text += ': '
         text += str(peal_ringer.ringer)
         if peal_ringer.is_conductor:
             text += " (c)"
         return text
 
-    def add_ringer(self, ringer: Ringer, nums: list[int] = None, bells: list[int] = None, is_conductor: bool = False):
-        self.ringers.append(PealRinger(ringer, nums, bells, is_conductor))
+    def add_ringer(self, ringer: Ringer, bell_ids: list[int] = None, bell_nums: list[int] = None, is_conductor: bool = False):
+        self.ringers.append(PealRinger(ringer, bell_ids, bell_nums, is_conductor))
         if ringer.id and ringer.id in self.__ringers_by_id:
             self.__ringers_by_id[ringer.id] = ringer
-        if nums is not None:
-            for bell in nums:
-                self.__ringers_by_num[bell] = ringer
+        for bell in bell_nums or []:
+            self.__ringers_by_num[bell] = ringer
 
     def clear_ringers(self):
         self.__ringers = None
@@ -469,7 +473,7 @@ class Peal:
 
     @property
     def num_bells(self) -> int:
-        return sum([len(ringer.nums) if ringer.nums else 0 for ringer in self.ringers])
+        return sum([len(ringer.bell_nums) if ringer.bell_nums else 0 for ringer in self.ringers])
 
     @property
     def footnotes(self) -> list[Footnote]:
@@ -535,16 +539,16 @@ class Peal:
                 (self.id, method.id, changes))
         Database.get_connection().commit()
         for peal_ringer in self.ringers:
-            if peal_ringer.bells is None:
+            if peal_ringer.bell_nums is None:
                 Database.get_connection().query(
                     'INSERT INTO pealringers (peal_id, ringer_id, is_conductor) VALUES (%s, %s, %s)',
                     (self.id, peal_ringer.ringer.id, peal_ringer.is_conductor))
             else:
-                for bell_num, bell in zip(peal_ringer.nums, peal_ringer.bells):
+                for bell_id, bell_num in zip_longest(peal_ringer.bell_ids or [], peal_ringer.bell_nums):
                     Database.get_connection().query(
-                        'INSERT INTO pealringers (peal_id, ringer_id, bell_num, bell, is_conductor) ' +
+                        'INSERT INTO pealringers (peal_id, ringer_id, bell_id, bell_num, is_conductor) ' +
                         'VALUES (%s, %s, %s, %s, %s)',
-                        (self.id, peal_ringer.ringer.id, bell_num, bell, peal_ringer.is_conductor))
+                        (self.id, peal_ringer.ringer.id, bell_id, bell_num, peal_ringer.is_conductor))
         footnote_num = 1
         for footnote in self.footnotes:
             Database.get_connection().query(

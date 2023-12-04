@@ -124,10 +124,10 @@ class PealPromptListener(PealGeneratorListener):
             lambda peal: prompt_add_duration(value, peal, self.quick_mode))
         print(f'⏱ Duration: {utils.get_time_str(self.peal.duration)}')
 
-    def ringer(self, name: str, bell_nums: list[int], bells: list[int], is_conductor: bool):
+    def ringer(self, name: str, bell_nums_in_peal: list[int], bell_nums_in_ring: list[int], is_conductor: bool):
         name = _clean_str_input(name)
         self._run_cancellable_prompt(
-            lambda peal: prompt_add_ringer(name, bell_nums, bells, is_conductor, peal, self.quick_mode))
+            lambda peal: prompt_add_ringer(name, bell_nums_in_peal, bell_nums_in_ring, is_conductor, peal, self.quick_mode))
         print(f'👤 Ringer: {self.peal.get_ringer_line(self.peal.ringers[-1])}')
 
     def footnote(self, value: str):
