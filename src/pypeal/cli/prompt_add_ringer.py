@@ -4,8 +4,8 @@ from pypeal.cli.prompts import ask, confirm, prompt_names
 from pypeal.cli.chooser import choose_option
 from pypeal.peal import Peal
 from pypeal.ringer import Ringer
-from pypeal.tower import Bell
 from pypeal.utils import get_bell_label, split_full_name
+
 
 _logger = logging.getLogger('pypeal')
 
@@ -20,9 +20,10 @@ def prompt_add_ringer(name: str,
     if peal.stage is not None:
         max_possible_bells = peal.stage.value + (1 if peal.stage.value % 2 == 1 else 0)
         if bell_nums_in_peal[-1] > max_possible_bells:
-            error(f'Bell number ({bell_nums_in_peal[-1]}) exceeds expected number of bells in the peal ({max_possible_bells}), ' +
-                  'based on method(s)')
-            return
+            warning(f'Bell number ({bell_nums_in_peal[-1]}) exceeds expected number of bells in the peal ({max_possible_bells}), ' +
+                    'based on method(s)')
+            if not confirm(None, default=False):
+                return
 
     if bell_nums_in_ring and peal.ring and bell_nums_in_ring[-1] > peal.ring.num_bells:
         warning(f'Bell role ({bell_nums_in_ring[-1]}) exceeds number of bells in the tower ({peal.ring.num_bells}) - ignoring')
@@ -56,7 +57,7 @@ def prompt_add_ringer(name: str,
                 suggested_bells = []
                 if len(peal.ringers) and peal.ringers[-1].bell_ids is not None:
                     last_bell_id: int = peal.ringers[-1].bell_ids[-1]
-                    last_bell = Bell.get(last_bell_id).role
+                    last_bell = peal.ring.get_bell_by_id(last_bell_id).role
                     for i in range(len(bell_nums_in_peal)):
                         suggested_bells.append(last_bell + i + 1)
                 else:
@@ -213,7 +214,7 @@ def prompt_commit_ringer(ringer: Ringer, used_name: str, peal: Peal, quick_mode:
 
 def _validate_bell(bell_nums_in_peal: list[int], bell_nums_in_ring: list[int], peal: Peal) -> bool:
     if len(peal.ringers) > 0 and peal.ringers[-1].bell_ids:
-        last_bell_num = Bell.get(peal.ringers[-1].bell_ids[-1]).role
+        last_bell_num = peal.ring.get_bell_by_id(peal.ringers[-1].bell_ids[-1]).role
         if bell_nums_in_ring[-1] <= last_bell_num:
             error(f'Bell number ({bell_nums_in_ring[-1]}) is not greater than the last bell ({last_bell_num})')
             return False

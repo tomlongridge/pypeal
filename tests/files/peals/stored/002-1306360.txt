@@ -45,6 +45,12 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 🏛 Association: Bath & Wells Diocesan Association
 🔔 Bell type: Tower
+📅 Date: Thursday, 17 October 2019
+🔔 Tenor: 2352 in Eb
+Duration (44): 
+>>> 50 mins
+[User input: "50 mins"]
+⏱ Duration: 50 minutes
 🏰 Tower: Portbury, Somerset, England, Blessed Virgin Mary
 🔢 Changes: 1260
 Matching peal titled "Doubles (1p/5m/3v)"...
@@ -96,12 +102,6 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 🎼 Composer: Unknown
-📅 Date: Thursday, 17 October 2019
-🔔 Tenor: 2352 in Eb
-Duration (44): 
->>> 50 mins
-[User input: "50 mins"]
-⏱ Duration: 50 minutes
 1: Couldn't find ringer matching "Dainton Casey" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 

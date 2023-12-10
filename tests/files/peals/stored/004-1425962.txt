@@ -47,6 +47,12 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 🏛 Association: None
 🔔 Bell type: Tower
+📅 Date: Sunday, 13 September 2009
+🔔 Tenor: 1975 in E
+Duration (45): 
+>>> 
+[User input: "45"]
+⏱ Duration: 45 minutes
 🏰 Tower: Bexhill on Sea, East Sussex, England, S Peter
 🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
@@ -60,12 +66,6 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 🎼 Composer: Unknown
-📅 Date: Sunday, 13 September 2009
-🔔 Tenor: 1975 in E
-Duration (45): 
->>> 
-[User input: "45"]
-⏱ Duration: 45 minutes
 1: "Aston Mitchell" -> Aston Mitchell
 Is this correct? [y/n] (y): 
 >>> n

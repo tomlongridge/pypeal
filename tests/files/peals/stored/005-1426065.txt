@@ -60,6 +60,12 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 🏛 Association: None
 🔔 Bell type: Tower
+📅 Date: Sunday, 2 December 2001
+🔔 Tenor: Unknown
+Duration (50): 
+>>> 
+[User input: "50"]
+⏱ Duration: 50 minutes
 🏰 Tower: Bath, Bathwick, Somerset, England, Blessed Virgin Mary
 🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
@@ -73,12 +79,6 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 🎼 Composer: Unknown
-📅 Date: Sunday, 2 December 2001
-🔔 Tenor: Unknown
-Duration (50): 
->>> 
-[User input: "50"]
-⏱ Duration: 50 minutes
 1: Couldn't find ringer matching "Julia Fowler" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 

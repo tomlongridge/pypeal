@@ -39,7 +39,7 @@ class Tower():
         results = Database.get_connection().query(
             'SELECT id FROM rings ' +
             'WHERE tower_id = %s ' +
-            'AND date_removed IS NULL OR date_removed > %s ' +
+            'AND (date_removed IS NULL OR date_removed > %s) ' +
             'ORDER BY -date_removed DESC ' +
             'LIMIT 1',
             (self.id, at_date)).fetchone()
@@ -118,6 +118,7 @@ class Ring():
     id: int = None
 
     __bells: dict[int, Bell] = None
+    __bells_by_id: dict[int, Bell] = None
 
     def __init__(self,
                  tower_id: int = None,
@@ -133,22 +134,30 @@ class Ring():
     def bells(self) -> dict[int, Bell]:
         if self.__bells is None:
             self.__bells = {}
+            self.__bells_by_id = {}
             if self.id is not None:
                 results = Database.get_connection().query(
-                    'SELECT bell_id, bell_role FROM ringbells ' +
+                    'SELECT rb.bell_id, rb.bell_role, IFNULL(rb.bell_weight, b.weight) AS weight, IFNULL(rb.bell_note, b.note) AS note ' +
+                    'FROM ringbells rb ' +
+                    'LEFT JOIN bells b ON rb.bell_id = b.id ' +
                     'WHERE ring_id = %s ' +
                     'ORDER BY bell_role ASC',
                     (self.id,)).fetchall()
-                self.__bells = {int(result[1]): Bell.get(result[0]) for result in results}
-                if len(self.__bells) == 0:
+                if not results:
                     _logger.debug(f'No bells found for ring {self.id}, adding bells from tower {self.tower.id}')
                     results = Database.get_connection().query(
-                        'SELECT id, role FROM bells ' +
+                        'SELECT id, role, weight, note FROM bells ' +
                         'WHERE tower_id = %s ' +
                         'ORDER BY role ASC',
                         (self.tower.id,)).fetchall()
-                    for result in results:
-                        self.add_bell(result[1], Bell.get(result[0]))
+                for result in results:
+                    bell = Bell.get(result[0])
+                    # Overwrite tower's bell role, weight and note with ring's bell role
+                    bell.role = result[1]
+                    bell.weight = result[2]
+                    bell.note = result[3]
+                    self.__bells_by_id[int(result[0])] = bell
+                    self.__bells[int(result[1])] = bell
         return self.__bells
 
     @property
@@ -159,21 +168,22 @@ class Ring():
     def tenor(self) -> Bell:
         return self.bells[list(self.bells.keys())[-1]]
 
+    def get_bell(self, bell_num: int) -> Bell:
+        return self.bells[bell_num]
+
+    def get_bell_by_id(self, bell_id: int) -> Bell:
+        self.bells  # ensure bells are loaded
+        return self.__bells_by_id[bell_id]
+
     def add_bell(self, role: int, bell: Bell):
         self.bells[role] = bell
-
-    def get_bell(self, bell_num: int) -> Bell:
-        if bell_num <= len(self.bells):
-            return self.bells[bell_num]
-        else:
-            return None
+        self.__bells_by_id[bell.id] = bell
 
     def commit(self):
         result = Database.get_connection().query(
             f'INSERT INTO rings ({",".join(RING_FIELD_LIST)}) ' +
             'VALUES (%s, %s, %s)',
             (self.tower.id, self.description, self.date_removed))
-        Database.get_connection().commit()
         self.id = result.lastrowid
         Database.get_connection().query(
             'DELETE FROM ringbells WHERE ring_id = %s', (self.id,))
@@ -182,6 +192,7 @@ class Ring():
                 'INSERT INTO ringbells (ring_id, bell_id, bell_role) ' +
                 'VALUES (%s, %s, %s)',
                 (self.id, bell.id, role))
+        Database.get_connection().commit()
 
     @classmethod
     def get(cls, id: int) -> Ring:

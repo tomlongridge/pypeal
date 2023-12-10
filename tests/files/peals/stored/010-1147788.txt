@@ -52,6 +52,12 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 🏛 Association: None
 🔔 Bell type: Tower
+📅 Date: Sunday, 11 January 2015
+🔔 Tenor: 2120
+Duration (48): 
+>>> 
+[User input: "48"]
+⏱ Duration: 48 minutes
 🏰 Tower: Bath, Bathwick, Somerset, England, Blessed Virgin Mary
 🔢 Changes: 1260
 Matching peal titled "Grandsire Caters and Royal"...
@@ -122,12 +128,6 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 🎼 Composer: Unknown
-📅 Date: Sunday, 11 January 2015
-🔔 Tenor: 2120
-Duration (48): 
->>> 
-[User input: "48"]
-⏱ Duration: 48 minutes
 1: Couldn't find ringer matching "Byron Miller" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 

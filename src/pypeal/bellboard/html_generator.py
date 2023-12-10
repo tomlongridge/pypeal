@@ -49,6 +49,19 @@ class HTMLPealGenerator():
         else:
             listener.bell_type(BellType.TOWER)
 
+        # The date line is the first line of the performance div that doesn't have a class
+        for peal_detail in soup.select('div.performance')[0].children:
+            if not peal_detail.attrs or 'class' not in peal_detail.attrs:
+                date_line = peal_detail.text.strip()
+                if not (date_line_match := re.match(DATE_LINE_INFO_REGEX, date_line)):
+                    raise BellboardError(f'Unable to parse date line: {date_line}')
+
+                date_line_info = date_line_match.groupdict()
+                listener.date(datetime.date(datetime.strptime(date_line_info['date'], '%d %B %Y')))
+                listener.tenor(date_line_info['tenor'])
+                listener.duration(date_line_info['duration'])
+                break
+
         place = None
         county = None
         address_dedication = None
@@ -98,19 +111,6 @@ class HTMLPealGenerator():
             if len(url_element) > 0:
                 url_str = config.get_config('bellboard', 'url') + url_element[0]['href']
         listener.composer(composer_str,  url_str)
-
-        # The date line is the first line of the performance div that doesn't have a class
-        for peal_detail in soup.select('div.performance')[0].children:
-            if not peal_detail.attrs or 'class' not in peal_detail.attrs:
-                date_line = peal_detail.text.strip()
-                if not (date_line_match := re.match(DATE_LINE_INFO_REGEX, date_line)):
-                    raise BellboardError(f'Unable to parse date line: {date_line}')
-
-                date_line_info = date_line_match.groupdict()
-                listener.date(datetime.date(datetime.strptime(date_line_info['date'], '%d %B %Y')))
-                listener.tenor(date_line_info['tenor'])
-                listener.duration(date_line_info['duration'])
-                break
 
         # Get ringers and their bells and add them to the ringers list
         ringer_names = []

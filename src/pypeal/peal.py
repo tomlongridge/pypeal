@@ -271,7 +271,7 @@ class Peal:
     @property
     def tenor(self) -> Bell:
         if self.ring and len(self.ringers) > 0 and self.ringers[-1].bell_ids:
-            return Bell.get(self.ringers[-1].bell_ids[-1])
+            return self.ring.get_bell_by_id(self.ringers[-1].bell_ids[-1])
         return None
 
     @property
@@ -442,7 +442,7 @@ class Peal:
         if peal_ringer.bell_nums:
             text += get_bell_label(peal_ringer.bell_nums)
             if peal_ringer.bell_ids:  # This is only applicable for tower bell peals
-                bell_nums_in_tower = [Bell.get(bell_id).role for bell_id in peal_ringer.bell_ids]
+                bell_nums_in_tower = [self.ring.get_bell_by_id(bell_id).role for bell_id in peal_ringer.bell_ids]
                 if bell_nums_in_tower != peal_ringer.bell_nums:
                     text += f' [{get_bell_label(bell_nums_in_tower)}]'
             text += ': '

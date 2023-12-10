@@ -50,6 +50,12 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 🏛 Association: Bath & Wells Diocesan Association
 🔔 Bell type: Tower
+📅 Date: Sunday, 15 December 2019
+🔔 Tenor: 2120 in Eb
+Duration (48): 
+>>> 
+[User input: "48"]
+⏱ Duration: 48 minutes
 🏰 Tower: Bath, Bathwick, Somerset, England, Blessed Virgin Mary
 🔢 Changes: 1280
 Matching peal titled "Spliced Surprise Major (2m)"...
@@ -128,12 +134,6 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 🎼 Composer: Unknown
-📅 Date: Sunday, 15 December 2019
-🔔 Tenor: 2120 in Eb
-Duration (48): 
->>> 
-[User input: "48"]
-⏱ Duration: 48 minutes
 1: "Leonardo Bennett" -> Leo Bennett
 Is this correct? [y/n] (y): 
 >>> y

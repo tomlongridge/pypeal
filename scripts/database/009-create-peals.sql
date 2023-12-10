@@ -28,7 +28,7 @@ CREATE TABLE @db_name.`peals` (
     `composition_url` VARCHAR(128) NULL,
     `duration` INT UNSIGNED NULL,
     `tenor_weight` INT UNSIGNED NULL,
-    `tenor_note` VARCHAR(45) NULL,
+    `tenor_note` VARCHAR(10) NULL,
     `event_url` VARCHAR(128) NULL,
     `muffles` TINYINT UNSIGNED NULL,
     `external_reference` VARCHAR(128) NULL,

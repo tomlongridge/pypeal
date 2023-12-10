@@ -50,6 +50,12 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 🏛 Association: None
 🔔 Bell type: Tower
+📅 Date: Saturday, 23 September 2023
+🔔 Tenor: 1458 in F
+Duration (50): 
+>>> 
+[User input: "50"]
+⏱ Duration: 50 minutes
 🏰 Tower: Shrivenham, Oxfordshire, England, S Andrew
 🔢 Changes: 1296
 Matching peal titled "Little Bob Royal"...
@@ -73,12 +79,6 @@ Composition URL (http://localhost:8080/comp.php?id=2293307):
 >>> 
 [User input: "http://localhost:8080/comp.php?id=2293307"]
 🎼 Composer: Alex W Tatlow
-📅 Date: Saturday, 23 September 2023
-🔔 Tenor: 1458 in F
-Duration (50): 
->>> 
-[User input: "50"]
-⏱ Duration: 50 minutes
 1: Couldn't find ringer matching "Garry Scott" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 

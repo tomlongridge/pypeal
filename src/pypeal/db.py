@@ -42,11 +42,23 @@ class Database:
     def initialise(self):
         logger.info('Creating new database...')
         for path in sorted(pathlib.Path(os.path.join(os.path.dirname(__file__), '..', '..', 'scripts', 'database')).glob('*.sql')):
-            self.__execute_file(path)
+            self.run_script(path)
 
     def query(self, query, params=None):
         self.__execute('USE ' + get_config('database', 'db_name'))
         return self.__execute(query, params)
+
+    def run_script(self, path: str):
+        try:
+            with open(path, 'r') as f:
+                logger.info(f'Running script {path}...')
+                for stmt in self.__substitute_sql_params(f.read()).split(';'):
+                    if len(stmt.strip()) > 0:
+                        self.__execute(stmt)
+                self.commit()
+        except mysql.connector.Error as e:
+            logger.debug(e, exc_info=True)
+            raise DatabaseError(f'Error running database install script {path}: {e.msg}') from e
 
     def commit(self):
         self.db.commit()
@@ -65,16 +77,6 @@ class Database:
         logger.debug(f'Executing query: {query} with params {params}')
         self.cursor.execute(query, params)
         return self.cursor
-
-    def __execute_file(self, path: str):
-        try:
-            with open(path, 'r') as f:
-                logger.info(f'Running script {path}...')
-                self.__execute(self.__substitute_sql_params(f.read()))
-                self.commit()
-        except mysql.connector.Error as e:
-            logger.debug(e, exc_info=True)
-            raise DatabaseError(f'Error running database install script {path}: {e.msg}') from e
 
 
 def initialize(reset_db: bool = False) -> bool:

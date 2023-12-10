@@ -51,15 +51,15 @@ Try for a quick-add? [y/n] (y):
 [User input: "True"]
 🏛 Association: None
 🔔 Bell type: Tower
+📅 Date: Saturday, 6 May 2023
+🔔 Tenor: 2120 in Eb
+⏱ Duration: Unknown
 🏰 Tower: Bath, Bathwick, Somerset, England, Blessed Virgin Mary
 🔢 Changes: Unknown
 Matching peal titled "General Ringing"...
 📕 Title: General Ringing
 📝 Details: Including Call Changes to Kings and Queens on 10
 🎼 Composer: Unknown
-📅 Date: Saturday, 6 May 2023
-🔔 Tenor: 2120 in Eb
-⏱ Duration: Unknown
 👤 Ringer: Arnold Johnson
 👤 Ringer: Ryan Elliott
 👤 Ringer: Heather Sullivan

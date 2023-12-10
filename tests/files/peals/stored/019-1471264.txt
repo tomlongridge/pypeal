@@ -46,14 +46,14 @@ Try for a quick-add? [y/n] (y):
 [User input: "True"]
 🏛 Association: None
 🔔 Bell type: Tower
+📅 Date: Sunday, 14 November 2021
+🔔 Tenor: 2120 in Eb
+⏱ Duration: 49 minutes
 🏰 Tower: Bath, Bathwick, Somerset, England, Blessed Virgin Mary
 🔢 Changes: 1259
 Matching peal titled "Grandsire Caters"...
 📕 Title: Grandsire Caters
 🎼 Composer: Unknown
-📅 Date: Sunday, 14 November 2021
-🔔 Tenor: 2120 in Eb
-⏱ Duration: 49 minutes
 👤 Ringer: 1: Lenny Howard
 👤 Ringer: 2: Jacob Cole
 👤 Ringer: 3: Heather Sullivan

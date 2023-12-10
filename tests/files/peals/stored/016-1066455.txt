@@ -49,6 +49,12 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 🏛 Association: None
 🔔 Bell type: Tower
+📅 Date: Sunday, 21 September 2014
+🔔 Tenor: Unknown
+Duration: 
+>>> 
+[User input: "None"]
+⏱ Duration: Unknown
 Address (Pig-le-Tower): 
 >>> 
 [User input: "Pig-le-Tower"]
@@ -83,12 +89,6 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 🎼 Composer: Unknown
-📅 Date: Sunday, 21 September 2014
-🔔 Tenor: Unknown
-Duration: 
->>> 
-[User input: "None"]
-⏱ Duration: Unknown
 1: "Vivian Murray" -> Vivian Murray
 Is this correct? [y/n] (y): 
 >>> y
@@ -99,7 +99,7 @@ Bell number(s) in the tower (1):
 👤 Ringer: 1: Vivian Murray
 2: "Byron Robinson" -> Byron Robinson
 Is this correct? [y/n] (y): 
->>> Y
+>>> y
 [User input: "True"]
 Bell number(s) in the tower (2): 
 >>> 

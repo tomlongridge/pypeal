@@ -18,7 +18,7 @@ from pypeal.cli.prompt_commit_peal import prompt_commit_peal
 from pypeal.cli.prompts import UserCancelled, ask_date, ask_int, ask, confirm, panel, error
 from pypeal.cli.chooser import choose_option
 from pypeal.db import initialize as initialize_db
-from pypeal.dove import update_associations, update_bells, update_towers
+from pypeal.dove import update_associations, update_bells, update_rings, update_towers
 from pypeal.peal import Peal, BellType
 from pypeal.ringer import Ringer
 from pypeal.config import set_config_file
@@ -289,6 +289,7 @@ def initialize_or_exit(reset_db: bool, clear_data: bool):
         update_associations()
         update_towers()
         update_bells()
+        update_rings()
         update_methods()
     if clear_data:
         Peal.clear_data()

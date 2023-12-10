@@ -54,7 +54,7 @@ def _prompt_add_single_footnote(bells: list[int],
     ringers = None
     while True:
         if text:
-            # Repeat the footnote, if it's different from the original
+            text = text[0].upper() + text[1:]  # Sentence case the text
             ringers = [peal.get_ringer(bell) for bell in bells] if bells else None
             if not quick_mode:
                 print(f'Footnote {len(peal.footnotes) + 1} text:')

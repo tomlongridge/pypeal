@@ -66,6 +66,12 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 🏛 Association: Middlesex County Association & London Diocesan Guild
 🔔 Bell type: Tower
+📅 Date: Sunday, 5 December 1976
+🔔 Tenor: 823 in B
+Duration: 
+>>> 
+[User input: "None"]
+⏱ Duration: Unknown
 🏰 Tower: Twickenham, Greater London, England, All Hallows
 🔢 Changes: 1320
 Matching peal titled "Plain Bob Doubles"...
@@ -79,12 +85,6 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 🎼 Composer: Unknown
-📅 Date: Sunday, 5 December 1976
-🔔 Tenor: 823 in B
-Duration: 
->>> 
-[User input: "None"]
-⏱ Duration: Unknown
 1: Couldn't find ringer matching "Edward Chapman" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 

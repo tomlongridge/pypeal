@@ -1,5 +1,7 @@
 import csv
 import logging
+import os
+import pathlib
 
 import requests
 from pypeal import utils
@@ -60,6 +62,8 @@ def update_towers():
 
     _logger.debug('Reinstate foreign key checks')
     Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')
+
+    Database.get_connection().commit()
 
 
 def update_associations():
@@ -150,6 +154,20 @@ def update_bells():
         else:
             bell_obj.commit()
             _logger.debug(f'Added bell {bell_obj.id} to database')
+
+    _logger.debug('Reinstate foreign key checks')
+    Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')
+
+
+def update_rings():
+
+    _logger.debug('Disable foreign keys and truncate existing bell data')
+    Database.get_connection().query('SET FOREIGN_KEY_CHECKS=0;')
+    Database.get_connection().query('TRUNCATE TABLE ringbells;')
+    Database.get_connection().query('TRUNCATE TABLE rings;')
+
+    for path in sorted(pathlib.Path(os.path.join(os.path.dirname(__file__), '..', '..', 'scripts', 'rings')).glob('*.sql')):
+        Database.get_connection().run_script(path)
 
     _logger.debug('Reinstate foreign key checks')
     Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')

@@ -44,6 +44,12 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 🏛 Association: None
 🔔 Bell type: Tower
+📅 Date: Friday, 6 October 2023
+🔔 Tenor: 317 in F
+Duration (36): 
+>>> 
+[User input: "36"]
+⏱ Duration: 36 minutes
 🏰 Tower: Bath, Lansdown, Somerset, England, S Stephen
 🔢 Changes: 1296
 Matching peal titled "Honeywell Delight Minor"...
@@ -83,12 +89,6 @@ Composition URL (http://localhost:8080/comp.php?id=2293479):
 >>> 
 [User input: "http://localhost:8080/comp.php?id=2293479"]
 🎼 Composer: Byron Miller
-📅 Date: Friday, 6 October 2023
-🔔 Tenor: 317 in F
-Duration (36): 
->>> 
-[User input: "36"]
-⏱ Duration: 36 minutes
 1: "Leonardo Bennett" -> Leo Bennett
 Is this correct? [y/n] (y): 
 >>> y

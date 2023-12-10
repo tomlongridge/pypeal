@@ -14,11 +14,15 @@ RING_POSITION_REGEX = \
 
 def _prompt_shift_band(peal: Peal, suggested_tenor: Bell, quick_mode: bool):
 
+    if quick_mode and not suggested_tenor:
+        quick_mode = False  # Force a prompt for this in quick mode
+
     new_tenor = ask_int('Confirm tenor bell',
                         default=suggested_tenor.role if suggested_tenor else peal.ring.tenor.role,
                         min=1,
                         max=peal.ring.tenor.role,
-                        required=True) if not quick_mode and not suggested_tenor else suggested_tenor.role
+                        required=True) if not quick_mode else suggested_tenor.role
+
     if new_tenor != peal.tenor.role:
 
         peal_ringers = peal.ringers

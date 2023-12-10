@@ -48,6 +48,12 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 🏛 Association: None
 🔔 Bell type: Tower
+📅 Date: Sunday, 1 October 2023
+🔔 Tenor: 2120 in Eb
+Duration (47): 
+>>> 
+[User input: "47"]
+⏱ Duration: 47 minutes
 🏰 Tower: Bath, Bathwick, Somerset, England, Blessed Virgin Mary
 🔢 Changes: 1260
 Matching peal titled "Plain Bob Triples"...
@@ -61,12 +67,6 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 🎼 Composer: Unknown
-📅 Date: Sunday, 1 October 2023
-🔔 Tenor: 2120 in Eb
-Duration (47): 
->>> 
-[User input: "47"]
-⏱ Duration: 47 minutes
 1: "Melissa Baker" -> Melissa Baker
 Is this correct? [y/n] (y): 
 >>> y

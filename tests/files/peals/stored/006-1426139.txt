@@ -52,6 +52,12 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 🏛 Association: None
 🔔 Bell type: Tower
+📅 Date: Sunday, 19 May 2002
+🔔 Tenor: Unknown
+Duration (49): 
+>>> 
+[User input: "49"]
+⏱ Duration: 49 minutes
 🏰 Tower: Bath, Bathwick, Somerset, England, Blessed Virgin Mary
 🔢 Changes: 1260
 Matching peal titled "Plain Bob Royal"...
@@ -65,12 +71,6 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 🎼 Composer: Unknown
-📅 Date: Sunday, 19 May 2002
-🔔 Tenor: Unknown
-Duration (49): 
->>> 
-[User input: "49"]
-⏱ Duration: 49 minutes
 1: "Daniel Miller" -> Daniel Miller
 Is this correct? [y/n] (y): 
 >>> y

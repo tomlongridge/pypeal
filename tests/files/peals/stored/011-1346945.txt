@@ -54,6 +54,12 @@ Select option (1):
 [User input: "2"]
 🏛 Association: Suffolk Guild
 🔔 Bell type: Tower
+📅 Date: Monday, 27 March 1967
+🔔 Tenor: 987 in A
+Duration (149): 
+>>> 
+[User input: "149"]
+⏱ Duration: 2 hours, 29 minutes
 🏰 Tower: Saxmundham, Suffolk, England, S John Bapt
 🔢 Changes: 5040
 Matching peal titled "8 Methods/variations Doubles"...
@@ -259,12 +265,6 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 🎼 Composer: Unknown
-📅 Date: Monday, 27 March 1967
-🔔 Tenor: 987 in A
-Duration (149): 
->>> 
-[User input: "149"]
-⏱ Duration: 2 hours, 29 minutes
 1: Couldn't find ringer matching "Lydia Reed" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 

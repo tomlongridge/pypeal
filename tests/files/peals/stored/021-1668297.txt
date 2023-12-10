@@ -41,14 +41,14 @@ Try for a quick-add? [y/n] (y):
 [User input: "True"]
 🏛 Association: None
 🔔 Bell type: Tower
+📅 Date: Sunday, 12 November 2023
+🔔 Tenor: 2120 in Eb
+⏱ Duration: 49 minutes
 🏰 Tower: Bath, Bathwick, Somerset, England, Blessed Virgin Mary
 🔢 Changes: 1260
 Matching peal titled "Grandsire Doubles"...
 📕 Title: Grandsire Doubles
 🎼 Composer: Unknown
-📅 Date: Sunday, 12 November 2023
-🔔 Tenor: 2120 in Eb
-⏱ Duration: 49 minutes
 First bell number(s) in the tower (1): 
 >>> 
 [User input: "1"]
@@ -102,6 +102,12 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 🏛 Association: None
 🔔 Bell type: Tower
+📅 Date: Sunday, 12 November 2023
+🔔 Tenor: 2120 in Eb
+Duration (49): 
+>>> 
+[User input: "49"]
+⏱ Duration: 49 minutes
 🏰 Tower: Bath, Bathwick, Somerset, England, Blessed Virgin Mary
 🔢 Changes: 1260
 Matching peal titled "Grandsire Doubles"...
@@ -115,12 +121,6 @@ Is this correct? [y/n] (y):
 >>> 
 [User input: "True"]
 🎼 Composer: Unknown
-📅 Date: Sunday, 12 November 2023
-🔔 Tenor: 2120 in Eb
-Duration (49): 
->>> 
-[User input: "49"]
-⏱ Duration: 49 minutes
 1: "Ryan Elliott" -> Ryan Elliott
 Is this correct? [y/n] (y): 
 >>> 
@@ -191,6 +191,9 @@ Add new footnote? [y/n] (n):
 │ Warning: Footnote suggests ringing on the back 6, but the tenor entered is   │
 │ the 6                                                                        │
 ╰──────────────────────────────────────────────────────────────────────────────╯
+Confirm tenor bell (10): 
+>>> 10
+[User input: "10"]
 Shifting band by 4 bells
 🔕 Muffles: Half
 ╭───────────────── http://localhost:8080/view.php?id=1668297 ──────────────────╮
