@@ -33,7 +33,7 @@ class RingerBasic(BaseModel):
 
 
 class Ringer(RingerBasic):
-    aliases: list[RingerBasic]
+    aliases: list[str]
 
     @classmethod
     def from_object(cls, ringer: RingerDataClass):
@@ -41,7 +41,7 @@ class Ringer(RingerBasic):
             id=ringer.id,
             last_name=ringer.last_name,
             given_names=ringer.given_names,
-            aliases=[RingerBasic.from_object(alias) for alias in ringer.get_aliases()],
+            aliases=ringer.aliases,
         )
 
 

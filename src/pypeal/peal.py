@@ -446,7 +446,7 @@ class Peal:
                 if bell_nums_in_tower != peal_ringer.bell_nums:
                     text += f' [{get_bell_label(bell_nums_in_tower)}]'
             text += ': '
-        text += str(peal_ringer.ringer)
+        text += peal_ringer.ringer.get_name(self.date)
         if peal_ringer.is_conductor:
             text += " (c)"
         return text

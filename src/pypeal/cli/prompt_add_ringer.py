@@ -41,7 +41,7 @@ def prompt_add_ringer(name: str,
 
     if bell_nums_in_ring is not None \
        and not quick_mode \
-       and not confirm(f'Use bell(s) {get_bell_label(bell_nums_in_ring)} for {matched_ringer.name}?', default=True):
+       and not confirm(f'Use bell(s) {get_bell_label(bell_nums_in_ring)} for {name}?', default=True):
         bell_nums_in_ring = None
 
     if bell_nums_in_ring is None:
@@ -199,17 +199,19 @@ def prompt_commit_ringer(ringer: Ringer, used_name: str, peal: Peal, quick_mode:
         ringer.commit()
 
     last_name, given_names = split_full_name(used_name)
-    if used_name != ringer.name and \
-            len(ringer.get_aliases(last_name=last_name, given_names=given_names)) == 0:
+    stored_name = ringer.get_name(peal.date)
+    if used_name != stored_name and \
+            not ringer.has_alias(last_name=last_name, given_names=given_names):
         if quick_mode:
-            print(f'Adding alias for ringer "{used_name}" and "{ringer.name}"')
+            print(f'Adding alias for ringer "{used_name}" and "{stored_name}"')
         elif not confirm(None, confirm_message='Add an alias for this ringer?'):
             return
         ringer.add_alias(last_name,
                          given_names,
-                         is_primary=choose_option([used_name, ringer.name],
+                         is_primary=choose_option([used_name, stored_name],
                                                   title='Which name should be displayed?',
                                                   default=2) == 1)
+        ringer.commit()
 
 
 def _validate_bell(bell_nums_in_peal: list[int], bell_nums_in_ring: list[int], peal: Peal) -> bool:

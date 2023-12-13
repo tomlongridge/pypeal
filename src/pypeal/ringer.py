@@ -1,88 +1,86 @@
 from __future__ import annotations
 from dataclasses import dataclass
+from datetime import datetime
 from pypeal.cache import Cache
 
 from pypeal.db import Database
 
-FIELD_LIST: list[str] = ['last_name', 'given_names', 'is_composer', 'link_id']
+FIELD_LIST: list[str] = ['last_name', 'given_names', 'is_composer', 'link_id', 'date_to']
 
 
-@dataclass
 class Ringer():
 
-    last_name: str
-    given_names: str
-    is_composer: bool = False
-    link: Ringer = None
-    id: int = None
+    def __init__(self, last_name: str = None, given_names: str = None):
+        self.__names: list[self._RingerName] = []
+        self.__aliases: list[self._RingerName] = []
+        if last_name:
+            self.__names.append(self._RingerName(last_name, given_names, False, None, None))
 
-    def __init__(self,
-                 last_name: str,
-                 given_names: str,
-                 is_composer: int = 0,
-                 link_id: int = None,
-                 id: int = None):
-        self.last_name = last_name
-        self.given_names = given_names
-        self.is_composer = is_composer == 1
-        self.link = Ringer.get(link_id) if link_id else None
-        self.id = id
+    def __str__(self) -> str:
+        return self.__names[-1].name if self.__names else 'Unknown'
+
+    @property
+    def id(self) -> int:
+        return self.__names[-1].id if self.__names else None
+
+    @property
+    def last_name(self) -> str:
+        return self.__names[-1].last_name if self.__names else None
+
+    @property
+    def given_names(self) -> str:
+        return self.__names[-1].given_names if self.__names else None
 
     @property
     def name(self) -> str:
-        text = ''
-        text += f'{self.given_names} ' if self.given_names else ''
-        text += f'{self.last_name}' if self.last_name else ''
-        return text if len(text) > 0 else None
+        return self.get_name()
 
-    def __str__(self) -> str:
-        return self.name
+    @property
+    def is_composer(self) -> bool:
+        return self.__names[-1].is_composer if self.__names else False
+
+    @is_composer.setter
+    def is_composer(self, value: bool):
+        self.__names[-1].is_composer = value
+
+    @property
+    def aliases(self) -> list[str]:
+        return [alias.name for alias in self.__aliases]
+
+    def get_name(self, date: datetime = None) -> str:
+        if not self.__names:
+            return 'Unknown'
+        if date is None:
+            return self.__names[-1].name
+        else:
+            for ringer_name in self.__names:
+                if ringer_name.date_to is None or ringer_name.date_to >= date:
+                    return ringer_name.name
+            raise ValueError(f'No name found for ringer {self.id} on date {date}')
 
     def commit(self):
-        if self.id:
-            result = Database.get_connection().query(
-                'UPDATE ringers ' +
-                'SET last_name = %s, given_names = %s, is_composer = %s, link_id = %s ' +
-                'WHERE id = %s',
-                (self.last_name, self.given_names, self.is_composer, self.link.id if self.link else None, self.id))
-            Database.get_connection().commit()
-        else:
-            result = Database.get_connection().query(
-                f'INSERT INTO ringers ({",".join(FIELD_LIST)}) VALUES (%s, %s, %s, %s)',
-                (self.last_name, self.given_names, self.is_composer, self.link.id if self.link else None))
-            Database.get_connection().commit()
-            self.id = result.lastrowid
-        Cache.get_cache().add(self.__class__.__name__, self.id, self)
+        self.__names[-1].commit()
+        for ringer_name in self.__names[:-1] + self.__aliases:
+            ringer_name.link = self.__names[-1].id
+            ringer_name.commit()
 
     def add_alias(self, last_name: str, given_names: str, is_primary: bool = False):
         if is_primary:
             # Create new alias with current details then update self to the new details
             # (this saves updating all references to self.id)
-            new_alias = Ringer(self.last_name, self.given_names, self.is_composer, self.id)
-            new_alias.commit()
-            self.last_name = last_name
-            self.given_names = given_names
-            self.is_composer = self.is_composer
-            self.link = None
-            self.commit()
+            original_name = self.__names[-1]
+            self.__aliases.append(self._RingerName(original_name.last_name,
+                                                   original_name.given_names,
+                                                   False,
+                                                   original_name.id,
+                                                   None))
+            original_name.last_name = last_name
+            original_name.given_names = given_names
         else:
-            alias = Ringer(last_name, given_names, False, self.id)
-            alias.commit()
-            return alias
+            self.__aliases.append(self._RingerName(last_name, given_names, False, self.id, None))
 
-    def get_aliases(self, last_name: str = None, given_names: str = None) -> list[Ringer]:
-        query = f'SELECT {",".join(FIELD_LIST)}, id ' + \
-                 'FROM ringers ' + \
-                 'WHERE link_id = %(id)s '
-        params = {'id': self.id}
-        if last_name:
-            query += 'AND last_name = %(last_name)s '
-            params['last_name'] = last_name
-        if given_names:
-            query += 'AND given_names = %(given_names)s '
-            params['given_names'] = given_names
-        results = Database.get_connection().query(query, params=params).fetchall()
-        return Cache.get_cache().add_all(self.__class__.__name__, {result[-1]: Ringer(*result) for result in results})
+    def has_alias(self, last_name: str, given_names: str) -> bool:
+        return any(alias.matches(last_name, given_names) for alias in self.__aliases)
 
     def get_peals(self):
         from pypeal.peal import Peal
@@ -97,15 +95,30 @@ class Ringer():
             return ringer
         else:
             # Get ringers with no link ID (i.e. the actual ringer, not aliases)
-            result = Database.get_connection().query(
-                f'SELECT {",".join(FIELD_LIST)}, id FROM ringers WHERE id = %s AND link_id IS NULL', (id,)).fetchone()
-            return Cache.get_cache().add(cls.__name__, result[-1], Ringer(*result)) if result else None
+            results = Database.get_connection().query(
+                f'SELECT {",".join(FIELD_LIST)}, id FROM ringers ' +
+                'WHERE id = %s OR link_id = %s ' +
+                'ORDER BY -date_to ASC', (id, id)).fetchall()
+
+            if not results:
+                return None
+
+            ringer = Ringer()
+            for result in results:
+                ringer_name = cls._RingerName(*result)
+                if ringer_name.link_id and not ringer_name.date_to:
+                    ringer.__aliases.append(ringer_name)
+                else:
+                    ringer.__names.append(ringer_name)
+
+            return Cache.get_cache().add(cls.__name__, id, ringer)
 
     @classmethod
     def get_by_name(cls,
                     last_name: str = None,
                     given_names: str = None,
                     is_composer: bool = None,
+                    date: datetime = None,
                     exact_match: bool = False) -> list[Ringer]:
 
         if last_name is None and given_names is None:
@@ -121,6 +134,7 @@ class Ringer():
             given_names = f'{given_names}%' if given_names and '%' not in given_names else given_names
 
         name_clause = ''
+        date_clause = ''
         params = {}
         if last_name:
             name_clause += f'AND @tbl.last_name {"=" if exact_match else "LIKE"} %(last_name)s '
@@ -135,15 +149,20 @@ class Ringer():
         if is_composer is not None:
             name_clause += 'AND @tbl.is_composer = %(is_composer)s '
             params['is_composer'] = is_composer
+        if date:
+            date_clause += 'AND (@tbl.date_to IS NULL OR @tbl.date_to >= %(date)s) '
+            params['date'] = date
 
         results = Database.get_connection().query(
-            f'SELECT {",".join(FIELD_LIST)}, id FROM ringers AS r ' +
+            'SELECT id FROM ringers AS r ' +
             f'WHERE 1=1 {name_clause.replace("@tbl", "r")} AND r.link_id IS NULL ' +
             'OR (r.id IN (SELECT lr.link_id FROM ringers AS lr ' +
-            f'WHERE 1=1 {name_clause.replace("@tbl", "lr")} AND lr.link_id IS NOT NULL))',
+            f'WHERE 1=1 {name_clause.replace("@tbl", "lr")} ' +
+            f' {date_clause.replace("@tbl", "lr")}'
+            'AND lr.link_id IS NOT NULL))',
             params
         ).fetchall()
-        return Cache.get_cache().add_all(cls.__name__, {result[-1]: Ringer(*result) for result in results})
+        return [cls.get(result[0]) for result in results]
 
     @classmethod
     def clear_data(cls):
@@ -152,3 +171,38 @@ class Ringer():
         Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')
         Database.get_connection().commit()
         Cache.get_cache().clear(cls.__name__)
+
+    @dataclass
+    class _RingerName():
+        last_name: str
+        given_names: str
+        is_composer: bool = False
+        link_id: int = None
+        date_to: datetime.date = None
+        id: int = None
+
+        @property
+        def name(self) -> str:
+            text = ''
+            text += f'{self.given_names} ' if self.given_names else ''
+            text += f'{self.last_name}' if self.last_name else ''
+            return text if len(text) > 0 else None
+
+        def matches(self, last_name: str, given_names: str) -> bool:
+            return self.last_name.lower() == last_name.lower() \
+                   and (self.given_names or '').lower() == (given_names or '').lower()
+
+        def commit(self):
+            if self.id:
+                result = Database.get_connection().query(
+                    'UPDATE ringers ' +
+                    'SET last_name = %s, given_names = %s, is_composer = %s, link_id = %s, date_to = %s ' +
+                    'WHERE id = %s',
+                    (self.last_name, self.given_names, self.is_composer, self.link_id, self.date_to, self.id))
+                Database.get_connection().commit()
+            else:
+                result = Database.get_connection().query(
+                    f'INSERT INTO ringers ({",".join(FIELD_LIST)}) VALUES (%s, %s, %s, %s, %s)',
+                    (self.last_name, self.given_names, self.is_composer, self.link_id, self.date_to))
+                Database.get_connection().commit()
+                self.id = result.lastrowid

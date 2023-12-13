@@ -4,6 +4,7 @@ CREATE TABLE @db_name.`ringers` (
     `given_names` VARCHAR(45) NULL,
     `is_composer` BOOLEAN NULL DEFAULT FALSE,
     `link_id` INT UNSIGNED NULL,
+    `date_to` DATE NULL,
     PRIMARY KEY (`id`),
     UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
     CONSTRAINT `fk_ringers_link` FOREIGN KEY (`link_id`) REFERENCES `ringers` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
