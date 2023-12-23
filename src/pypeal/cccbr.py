@@ -1,6 +1,7 @@
 import io
 import logging
 import os
+import pathlib
 import zipfile
 
 import xml.etree.ElementTree as ET
@@ -67,6 +68,9 @@ def update_methods():
             )
             method_obj.commit()
             _logger.debug(f'Added method {method_obj} to database')
+
+    for path in sorted(pathlib.Path(os.path.join(os.path.dirname(__file__), '..', '..', 'scripts', 'methods')).glob('*.sql')):
+        Database.get_connection().run_script(path)
 
     _logger.debug('Reinstate foreign key checks')
     Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')

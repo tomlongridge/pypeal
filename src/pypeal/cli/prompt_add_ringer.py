@@ -187,7 +187,7 @@ def prompt_add_new_ringer(default_last_name: str, default_given_names: str, quic
     else:
         warning(f'Found {len(existing_ringers)} existing ringers with similar names:\n' +
                 '\n'.join([f'  - {r.name}' for r in existing_ringers]))
-        if confirm(None, confirm_message=f'Add "{default_given_names} {default_last_name}"?', default=True):
+        if confirm(None, confirm_message=f'Add "{new_ringer.name}"?', default=True):
             return new_ringer
         else:
             return None
@@ -202,9 +202,7 @@ def prompt_commit_ringer(ringer: Ringer, used_name: str, peal: Peal, quick_mode:
     stored_name = ringer.get_name(peal.date)
     if used_name != stored_name and \
             not ringer.has_alias(last_name=last_name, given_names=given_names):
-        if quick_mode:
-            print(f'Adding alias for ringer "{used_name}" and "{stored_name}"')
-        elif not confirm(None, confirm_message='Add an alias for this ringer?'):
+        if not confirm(None, confirm_message='Add an alias for this ringer?'):
             return
         ringer.add_alias(last_name,
                          given_names,

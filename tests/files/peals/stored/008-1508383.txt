@@ -23,6 +23,7 @@ Bellboard URL or peal ID:
 │ Oxford Diocesan Guild                                                        │
 │ 80 Lambourne Drive, Cox Green, Maidenhead, [no county]                       │
 │ 5232 Bristol Surprise Maximus                                                │
+│ Composer: Christopher I Rowson                                               │
 │ Wednesday, 29 March 1972 in 3h 3                                             │
 │                                                                              │
 │ 1,2: Sam Wells                                                               │

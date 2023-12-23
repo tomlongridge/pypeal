@@ -22,6 +22,7 @@ Bellboard URL or peal ID:
 ╭───────────────── http://localhost:8080/view.php?id=1272466 ──────────────────╮
 │ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
 │ 1260 Grandsire Triples                                                       │
+│ Composer: Albert P Wakley                                                    │
 │ Sunday, 17 February 2019 (18–3–20 in E♭) in 46m                              │
 │                                                                              │
 │ 1: Lenny Howard                                                              │

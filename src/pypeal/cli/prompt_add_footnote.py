@@ -29,7 +29,7 @@ def prompt_add_footnote(text: str, peal: Peal, quick_mode: bool):
                     prompt_add_composition_details(composer_name, None, peal, quick_mode)
                 else:
                     conductor_bells = [bell for conductor in peal.conductors for bell in conductor.bell_nums]
-                    bells, footnote_str = parse_footnote(line_part, peal.num_bells, conductor_bells)
+                    bells, conductor_bells, footnote_str = parse_footnote(line_part, peal.num_bells, conductor_bells)
                     _prompt_add_single_footnote(bells, footnote_str, peal, quick_mode)
     else:
         while True:
@@ -63,7 +63,7 @@ def _prompt_add_single_footnote(bells: list[int],
                 print('Referenced ringer(s):')
                 for bell, ringer in zip(bells, ringers):
                     print(f'  - {bell}: {ringer}')
-                    if bell > peal.num_bells:
+                    if bell < 1 or bell > peal.num_bells:
                         warning(f'Bell referenced in footnote ({bell}) is greater than number of bells ({peal.num_bells})')
                         quick_mode = False
             if quick_mode or confirm(None):

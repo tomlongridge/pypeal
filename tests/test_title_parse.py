@@ -111,6 +111,12 @@ methods = [
         ([Method(name='Stedman', stage=Stage.TRIPLES),
           Method(name='Grandsire', stage=Stage.TRIPLES)], PealType.SPLICED_METHODS, 2, None, None),
         'Spliced Triples (2m)'
+    ),
+    (
+        'St Simons and St Martins Triples',
+        ([Method(name='St Simons', stage=Stage.TRIPLES),
+          Method(name='St Martins', stage=Stage.TRIPLES)], PealType.SPLICED_METHODS, 2, None, None),
+        'Spliced Triples (2m)'
     )
 ]
 

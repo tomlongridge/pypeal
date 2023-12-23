@@ -1,6 +1,6 @@
 
 import re
-from pypeal import utils
+from pypeal import config, utils
 from pypeal.method import Classification, Method, Stage
 from pypeal.peal import PealType
 
@@ -17,7 +17,7 @@ METHOD_TITLE_TWO_METHODS_REGEX = \
                r'and\s' +
                r'(?:(?P<method_2>[\w\s\d]+?)\s)?' +
                r'(?:(?P<classification_2>' + '|'.join([s.value for s in Classification]) + r')\s)?' +
-               r'(?:(?P<stage_2>' + '|'.join([s.name for s in Stage]) + r'))?',
+               r'(?:(?P<stage_2>' + '|'.join([s.name for s in Stage]) + r'))?$',
                re.IGNORECASE)
 
 # Match either a number and one of m, v or p as part of the title or, if in brackets, then allow just m, v or p with no number
@@ -29,20 +29,38 @@ DURATION_REGEX = re.compile(r'^(?:(?P<hours>[0-9]{1,2})\s?(?:hours|hrs|hr|h))?\s
 TENOR_INFO_REGEX = re.compile(r'(?P<tenor_weight>[^in]+|size\s[0-9]+)(?:\sin\s(?P<tenor_note>.*))?$')
 
 FOOTNOTE_RINGER_SEPARATORS = [' ', ',', '&', 'and']
-FOOTNOTE_RINGER_REGEX_PREFIX = re.compile(r'^(?P<bells>(?:(?:(?:[0-9]+(?:st|nd|rd|th)?)|' +
-                                          r'(?:treble|tenor|' + '|'.join(utils.get_num_words()) + r'))\s?(?:' +
-                                          '|'.join(FOOTNOTE_RINGER_SEPARATORS) +
-                                          r')?\s?)+)' +
+FOOTNOTE_RINGER_LIST_PATTERN = r'(?P<bells>(?:(?:(?:[0-9]+(?:st|nd|rd|th)?)|' + \
+                               r'(?:treble|tenor|' + '|'.join(utils.get_num_words()) + r'))\s?' + \
+                               r'(?:' + '|'.join(FOOTNOTE_RINGER_SEPARATORS) + r')?\s?)+)'
+FOOTNOTE_RINGER_REGEX_PREFIX = re.compile(r'^' + FOOTNOTE_RINGER_LIST_PATTERN +
                                           r'\s?[-:]\s?(?P<footnote>.*)\.?$', re.IGNORECASE)
-FOOTNOTE_RINGER_REGEX_SUFFIX = re.compile(r'^(?P<footnote>.*)\s?[-:]\s?(?P<bells>(?:(?:(?:[0-9]+(?:st|nd|rd|th)?)|' +
-                                          r'(?:treble|tenor|' + '|'.join(utils.get_num_words()) + r'))\s?(?:' +
-                                          '|'.join(FOOTNOTE_RINGER_SEPARATORS) +
-                                          r')?\s?)+)' +
+FOOTNOTE_RINGER_REGEX_SUFFIX = re.compile(r'^(?P<footnote>.*)\s?[-:]\s?' + FOOTNOTE_RINGER_LIST_PATTERN +
                                           r'\.?$', re.IGNORECASE)
 FOOTNOTE_CONDUCTOR_REGEX = re.compile(r'.*as conductor.*', re.IGNORECASE)
-FOOTNOTE_COMPOSER_REGEX = re.compile(r'.*composed by\s(?P<composer>.*)$', re.IGNORECASE)
+FOOTNOTE_COMPOSER_REGEX = re.compile(r'.*(composed|composition) by\s(?P<composer>.*)$', re.IGNORECASE)
 FOOTNOTE_ALL_BAND_REGEX = \
     re.compile(r'.*(?:for|by) all(?: the band)?(?: (?:except for|except|apart from)(?: the)? (?P<exceptions>[^\.]+))?', re.IGNORECASE)
+FOOTNOTE_JOINT_CONDUCTORS_REGEX = re.compile(r'Joint(?:ly)? conducted\s?(?:by)?\s?(?:(?:all )?the band)?' +
+                                             FOOTNOTE_RINGER_LIST_PATTERN + r'?')
+
+
+def _referenced_bells_to_list(bells_description: str, num_bells: int):
+    bells = []
+    for bell in re.split('|'.join(FOOTNOTE_RINGER_SEPARATORS), bells_description):
+        if len(bell) == 0:
+            continue
+        elif bell[0].isnumeric():
+            bell = bell.replace('st', '').replace('nd', '').replace('rd', '').replace('th', '')
+            bells.append(int(bell))
+        elif utils.word_to_num(bell) is not None:
+            bells.append(utils.word_to_num(bell))
+        elif bell.lower() == 'treble':
+            bells.append(1)
+        elif bell.lower() == 'tenor':
+            bells.append(num_bells)
+    if config.get_config('general', 'footnote_shift'):
+        bells = [bell + config.get_config('general', 'footnote_shift') for bell in bells]
+    return bells
 
 
 def parse_method_title(title: str) -> tuple[list[Method], PealType, int, int, int]:
@@ -230,33 +248,32 @@ def parse_duration(duration_str: str) -> int:
     return duration
 
 
-def parse_footnote(footnote: str, num_bells: int, conductor_bells: list[int]) -> tuple[list[int], str]:
+def parse_footnote(footnote: str, num_bells: int, conductor_bells: list[int]) -> tuple[list[int], list[int], str]:
     bells = []
     not_bells = []
     text = footnote.strip(' .')
-    if len(text) > 0:
+    if len(text) == 0:
+        text = None
+    elif footnote_match := re.match(FOOTNOTE_JOINT_CONDUCTORS_REGEX, text):
+        footnote_info = footnote_match.groupdict()
+        if footnote_info['bells']:
+            text = 'Jointly conducted.'
+            conductor_bells = _referenced_bells_to_list(footnote_info['bells'], num_bells)
+        else:
+            text = 'Jointly conducted by all the band.'
+            conductor_bells = list(range(1, num_bells + 1))
+        bells = conductor_bells
+    else:
         if (footnote_match := re.match(FOOTNOTE_RINGER_REGEX_PREFIX, text)) or \
                 (footnote_match := re.match(FOOTNOTE_RINGER_REGEX_SUFFIX, text)):
             footnote_info = footnote_match.groupdict()
             text = footnote_info['footnote'].strip()
-            bells = []
-            for bell in re.split('|'.join(FOOTNOTE_RINGER_SEPARATORS), footnote_info['bells']):
-                if len(bell) == 0:
-                    continue
-                elif bell[0].isnumeric():
-                    bell = bell.replace('st', '').replace('nd', '').replace('rd', '').replace('th', '')
-                    bells.append(int(bell))
-                elif utils.word_to_num(bell) is not None:
-                    bells.append(utils.word_to_num(bell))
-                elif bell.lower() == 'treble':
-                    bells.append(1)
-                elif bell.lower() == 'tenor':
-                    bells.append(num_bells)
+            bells = _referenced_bells_to_list(footnote_info['bells'], num_bells)
         text += '.'
         if re.match(FOOTNOTE_CONDUCTOR_REGEX, text):
             bells += conductor_bells
         if all_band_match := re.match(FOOTNOTE_ALL_BAND_REGEX, text):
-            bells += range(1, num_bells + 1)
+            bells += list(range(1, num_bells + 1))
             excluded_ringers = all_band_match.groupdict()['exceptions']
             if excluded_ringers is not None:
                 if 'conductor' in excluded_ringers:
@@ -267,9 +284,7 @@ def parse_footnote(footnote: str, num_bells: int, conductor_bells: list[int]) ->
                     if len(bell) > 0:
                         not_bells += [int(bell)]
         bells = [bell for bell in bells if bell not in not_bells]
-    else:
-        text = None
-    return (sorted(bells) if len(bells) > 0 else None, text)
+    return (sorted(bells) if len(bells) > 0 else None, conductor_bells, text)
 
 
 def parse_footnote_for_composer(footnote: str) -> str:

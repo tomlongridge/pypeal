@@ -1,4 +1,5 @@
 from pypeal.cli.prompt_add_change_of_method import prompt_add_change_of_method
+from pypeal.cli.prompt_add_method import search_method
 from pypeal.cli.prompts import ask, ask_int, confirm, error
 from pypeal.cli.chooser import choose_option
 from pypeal.method import Classification, Method, Stage
@@ -39,14 +40,7 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
             parsed_method = parsed_methods[0]
 
             # Attempt non-exact search using name parsed from title
-            method_matches = list(filter(lambda m: m.id not in excluded_methods,
-                                         Method.search(name=parsed_method.name,
-                                                       classification=parsed_method.classification,
-                                                       stage=parsed_method.stage,
-                                                       is_differential=parsed_method.is_differential,
-                                                       is_little=parsed_method.is_little,
-                                                       is_treble_dodging=parsed_method.is_treble_dodging,
-                                                       exact_match=False)))
+            method_matches = search_method(parsed_method)
             match len(method_matches):
                 case 0:
                     # Continue to search
@@ -111,7 +105,7 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
                 classification = choose_option([classification for classification in Classification],
                                                default=parsed_method.classification,
                                                title='Classification',
-                                               cancel_option='None')
+                                               none_option='None')
             if prompt_methods[0].is_differential is not None:
                 is_differential = prompt_methods[0].is_differential
             else:

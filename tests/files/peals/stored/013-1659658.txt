@@ -22,6 +22,7 @@ Bellboard URL or peal ID:
 ╭───────────────── http://localhost:8080/view.php?id=1659658 ──────────────────╮
 │ St Andrew, Shrivenham, Oxfordshire                                           │
 │ 1296 Little Bob Royal                                                        │
+│ Composer: Alex W Tatlow                                                      │
 │ Saturday, 23 September 2023 (13–0–2 in F) in 50m                             │
 │                                                                              │
 │ 1: Garry Scott                                                               │

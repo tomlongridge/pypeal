@@ -22,6 +22,7 @@ Bellboard URL or peal ID:
 ╭───────────────── http://localhost:8080/view.php?id=1661485 ──────────────────╮
 │ St Stephen, Lansdown, Bath, Somerset                                         │
 │ 1296 Honeywell Delight Minor                                                 │
+│ Composer: G A A Taylor                                                       │
 │ Friday, 6 October 2023 (2–3–9 in F) in 36m                                   │
 │                                                                              │
 │ 1: Leonardo Bennett                                                          │

@@ -1,3 +1,4 @@
+from pypeal import utils
 from pypeal.cli.prompts import ask, ask_int, confirm
 from pypeal.cli.chooser import choose_option
 from pypeal.method import Classification, Method, Stage
@@ -10,28 +11,7 @@ def prompt_add_method(method: Method, original_name: str, quick_mode: bool) -> t
 
     if method is not None:
         print(f'Matching method "{original_name or method}"...')
-
-        method_matches = Method.search(name=method.name,
-                                       classification=method.classification,
-                                       stage=method.stage,
-                                       is_differential=method.is_differential,
-                                       is_little=method.is_little,
-                                       is_treble_dodging=method.is_treble_dodging,
-                                       exact_match=True)
-        if not method_matches:  # Try without the classification
-            method_matches = Method.search(name=method.name,
-                                           stage=method.stage,
-                                           is_differential=method.is_differential,
-                                           is_little=method.is_little,
-                                           is_treble_dodging=method.is_treble_dodging,
-                                           exact_match=True)
-        if not method_matches:  # Try with inexact match
-            method_matches = Method.search(name=method.name,
-                                           stage=method.stage,
-                                           is_differential=method.is_differential,
-                                           is_little=method.is_little,
-                                           is_treble_dodging=method.is_treble_dodging,
-                                           exact_match=False)
+        method_matches = search_method(method)
 
         match len(method_matches):
             case 0:
@@ -98,3 +78,42 @@ def prompt_add_method(method: Method, original_name: str, quick_mode: bool) -> t
             (method is None and
                 confirm(f'Add "{matched_method.full_name}"')):
             return matched_method, quick_mode
+
+
+def search_method(method: Method, excluded_methods: list[str] = []) -> list[Method]:
+
+    method_name = utils.get_searchable_string(method.name)
+
+    method_matches = list(filter(lambda m: m.id not in excluded_methods,
+                                 Method.search(name=method_name,
+                                               classification=method.classification,
+                                               stage=method.stage,
+                                               is_differential=method.is_differential,
+                                               is_little=method.is_little,
+                                               is_treble_dodging=method.is_treble_dodging,
+                                               exact_match=True)))
+    if not method_matches:  # Try without the classification
+        method_matches = list(filter(lambda m: m.id not in excluded_methods,
+                                     Method.search(name=method_name,
+                                                   stage=method.stage,
+                                                   is_differential=method.is_differential,
+                                                   is_little=method.is_little,
+                                                   is_treble_dodging=method.is_treble_dodging,
+                                                   exact_match=True)))
+    if not method_matches:  # Try with inexact match
+        method_matches = list(filter(lambda m: m.id not in excluded_methods,
+                                     Method.search(name=method_name,
+                                                   stage=method.stage,
+                                                   is_differential=method.is_differential,
+                                                   is_little=method.is_little,
+                                                   is_treble_dodging=method.is_treble_dodging,
+                                                   exact_match=False)))
+
+    if len(method_matches) == 2:
+        if not method_name.startswith('double') and \
+            ((method_matches[0].name.startswith('single') and method_matches[1].name.startswith('double')) or
+             (method_matches[0].name.startswith('double') and method_matches[1].name.startswith('single'))) and \
+           method_matches[0].name[7:] == method_matches[1].name[7:]:
+            return [method_matches[0]]
+
+    return method_matches

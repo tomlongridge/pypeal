@@ -35,7 +35,7 @@ def get_config(section: str, key: str = None) -> dict | list | int | float | boo
             value = config_section[key]
             if value.startswith('[') or value.startswith('{'):
                 return json.loads(value)
-            elif value.isnumeric():
+            elif value.isnumeric() or (value.startswith('-') and value[1:].isnumeric()):
                 return int(value)
             elif value.replace('.', '', 1).isnumeric():
                 return float(value)

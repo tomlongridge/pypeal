@@ -1,4 +1,5 @@
 from datetime import datetime
+from pypeal import utils
 from pypeal.bellboard.interface import get_url_from_id
 from pypeal.bellboard.listener import PealGeneratorListener
 from pypeal.utils import format_date_full, get_bell_label
@@ -24,11 +25,15 @@ class PealPreviewListener(PealGeneratorListener):
         self.__lines['title'] = f'{value} ' if value else ''
 
     def title(self, value: str):
-        self.__lines['title'] += value
+        self.__lines['title'] += utils.strip_internal_space(value)
 
     def method_details(self, value: str):
         if value:
             self.__lines['method_details'] = value
+
+    def composer(self, name: str, url: str):
+        if name:
+            self.__lines['composer'] = name
 
     def date(self, value: datetime.date):
         self.__lines['date'] = format_date_full(value)
@@ -77,6 +82,7 @@ class PealPreviewListener(PealGeneratorListener):
         text += (self.__lines['location'] + '\n') if 'location' in self.__lines else ''
         text += (self.__lines['title'] + '\n') if 'title' in self.__lines else ''
         text += (self.__lines['method_details'] + '\n') if 'method_details' in self.__lines else ''
+        text += f'Composer: {self.__lines["composer"]}\n' if 'composer' in self.__lines else ''
         text += (self.__lines['date'] + '\n') if 'date' in self.__lines else ''
         text += '\n'
         text += (self.__lines['ringers'] + '\n') if 'ringers' in self.__lines else ''

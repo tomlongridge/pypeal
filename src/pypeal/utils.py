@@ -171,8 +171,10 @@ def strip_smart_quotes(value: str) -> str:
 def get_searchable_string(value: str) -> str:
     if value is None:
         return None
+    value = value.lower()
+    value = value.replace('single ', '', 1)
     value = value.replace('-', ' ')
     value = value.replace('&', 'and')
     value = re.sub(r'[^\w\d\s]', '', value)
     value = value.replace('  ', ' ')
-    return value.lower()
+    return value
