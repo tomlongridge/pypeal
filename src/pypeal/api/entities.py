@@ -1,9 +1,10 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, computed_field
 
 from pypeal.association import Association as AssociationDataClass
 from pypeal.peal import Peal as PealDataClass
 from pypeal.method import Method as MethodDataClass
 from pypeal.ringer import Ringer as RingerDataClass
+from pypeal.tower import Tower as TowerDataClass, Ring as RingDataClass, Bell as BellDataClass
 
 
 class Association(BaseModel):
@@ -22,6 +23,16 @@ class RingerBasic(BaseModel):
     id: int
     last_name: str
     given_names: str | None
+
+    @computed_field
+    @property
+    def url(self) -> str:
+        return f'/ringers/{self.id}/'
+
+    @computed_field
+    @property
+    def peals(self) -> str:
+        return f'/ringers/{self.id}/peals'
 
     @classmethod
     def from_object(cls, ringer: RingerDataClass):
@@ -63,6 +74,100 @@ class FootnoteDetail(BaseModel):
     ringer: RingerBasic | None
 
 
+class Bell(BaseModel):
+    id: int
+    role: int | None
+    weight: int | None
+    note: str | None
+    cast_year: int | None
+    founder: str | None
+
+    @classmethod
+    def from_object(cls, bell: BellDataClass):
+        return cls(
+            id=bell.id,
+            role=bell.role,
+            weight=bell.weight,
+            note=bell.note,
+            cast_year=bell.cast_year,
+            founder=bell.founder,
+        )
+
+
+class Ring(BaseModel):
+
+    id: int
+    tower_id: int
+    description: str | None
+    date_removed: str | None
+    bells: list[Bell]
+
+    @computed_field
+    @property
+    def url(self) -> str:
+        return f'/towers/{self.tower_id}/rings/{self.id}'
+
+    @computed_field
+    @property
+    def peals(self) -> str:
+        return f'/towers/{self.tower_id}/rings/{self.id}/peals'
+
+    @classmethod
+    def from_object(cls, ring: RingDataClass):
+        return cls(
+            id=ring.id,
+            tower_id=ring.tower.id,
+            description=ring.description,
+            date_removed=ring.date_removed.strftime('%Y-%m-%d') if ring.date_removed else None,
+            bells=[Bell.from_object(bell) for bell in ring.bells.values()]
+        )
+
+
+class TowerBasic(BaseModel):
+    id: int
+    towerbase_id: int | None
+
+    @computed_field
+    @property
+    def url(self) -> str:
+        return f'/towers/{self.id}/'
+
+    @classmethod
+    def from_object(cls, tower: TowerDataClass):
+        return cls(
+            id=tower.id,
+            towerbase_id=tower.towerbase_id,
+        )
+
+
+class Tower(TowerBasic):
+    place: str
+    sub_place: str | None
+    dedication: str | None
+    county: str
+    country: str
+    country_code: str
+    latitude: float | None
+    longitude: float | None
+    rings: list[Ring]
+
+    @classmethod
+    def from_object(cls, tower: TowerDataClass):
+        return cls(
+            id=tower.id,
+            towerbase_id=tower.towerbase_id,
+            place=tower.place,
+            sub_place=tower.sub_place,
+            dedication=tower.dedication,
+            county=tower.county,
+            country=tower.country,
+            country_code=tower.country_code,
+            latitude=tower.latitude,
+            longitude=tower.longitude,
+            rings=[Ring.from_object(ring) for ring in tower.rings],
+        )
+
+
 class Location(BaseModel):
     country: str | None
     county: str | None
@@ -70,6 +175,7 @@ class Location(BaseModel):
     sub_place: str | None
     address: str | None
     dedication: str | None
+    tower: TowerBasic | None
 
     @classmethod
     def from_object(cls, peal: PealDataClass):
@@ -80,6 +186,7 @@ class Location(BaseModel):
             sub_place=peal.sub_place,
             address=peal.address,
             dedication=peal.dedication,
+            tower=TowerBasic.from_object(peal.ring.tower) if peal.ring else None,
         )
 
 
@@ -113,7 +220,6 @@ class PhotoDetail(BaseModel):
 
 class PerformanceDetail(BaseModel):
     changes: int | None
-    title: str
     num_methods: int | None
     num_principles: int | None
     num_variants: int | None
@@ -161,19 +267,58 @@ class PerformanceDetail(BaseModel):
 
 
 class PealRinger(BaseModel):
-    bells: list[int] | None
+    bell_roles: list[int] | None
     nums: list[int] | None
     ringer: RingerBasic
     is_conductor: bool
 
 
-class Peal(BaseModel):
+class PealBase(BaseModel):
     id: int
-    bellboard_id: int
+    bellboard_id: int | None
     date: str
     type: str
     length_type: str | None
     bell_type: str
+
+    @computed_field
+    @property
+    def url(self) -> str:
+        return f'/peals/{self.id}/'
+
+    @classmethod
+    def from_object(cls, peal: PealDataClass):
+        return cls(
+            id=peal.id,
+            bellboard_id=peal.bellboard_id,
+            date=peal.date.strftime('%Y-%m-%d'),
+            type=peal.type.name,
+            length_type=peal.length_type.name if peal.length_type else None,
+            bell_type=peal.bell_type.name if peal.bell_type else None,
+        )
+
+
+class PealBasic(PealBase):
+    location: str
+    changes: int | None
+    title: str
+
+    @classmethod
+    def from_object(cls, peal: PealDataClass):
+        return cls(
+            id=peal.id,
+            bellboard_id=peal.bellboard_id,
+            date=peal.date.strftime('%Y-%m-%d'),
+            type=peal.type.name,
+            length_type=peal.length_type.name if peal.length_type else None,
+            bell_type=peal.bell_type.name if peal.bell_type else None,
+            location=peal.location,
+            changes=peal.changes,
+            title=peal.title
+        )
+
+
+class Peal(PealBase):
     association: Association | None
     location: Location
     performance: PerformanceDetail
@@ -186,6 +331,19 @@ class Peal(BaseModel):
 
     @classmethod
     def from_object(cls, peal: PealDataClass):
+        ringers = []
+        for ringer in peal.ringers:
+            bells = None
+            if peal.ring and ringer.bell_ids:
+                bells = []
+                for bell_id in ringer.bell_ids:
+                    bells.append(peal.ring.get_bell_by_id(bell_id).role)
+            ringers.append(
+                PealRinger(bell_roles=bells,
+                           nums=ringer.bell_nums,
+                           ringer=RingerBasic.from_object(ringer.ringer),
+                           is_conductor=ringer.is_conductor)
+            )
         return cls(
             id=peal.id,
             bellboard_id=peal.bellboard_id,
@@ -199,12 +357,7 @@ class Peal(BaseModel):
             performance=PerformanceDetail.from_object(peal),
             composition=CompositionDetail.from_object(peal),
             muffles=peal.muffles,
-            ringers=[
-                PealRinger(bells=ringer.bell_ids,
-                           nums=ringer.bell_nums,
-                           ringer=RingerBasic.from_object(ringer.ringer),
-                           is_conductor=ringer.is_conductor)
-                for ringer in peal.ringers] if peal.ringers else None,
+            ringers=ringers,
             footnotes=[
                 FootnoteDetail(text=footnote.text,
                                bell=footnote.bell,

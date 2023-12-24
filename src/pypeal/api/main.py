@@ -2,9 +2,12 @@ import logging
 from fastapi import FastAPI, HTTPException, Response
 from fastapi.responses import RedirectResponse
 
-from pypeal.api.entities import Peal as PealEntity, Ringer as RingerEntity
+from pypeal.api.entities import Peal as PealEntity, PealBasic as PealBasicEntity
+from pypeal.api.entities import Ringer as RingerEntity
+from pypeal.api.entities import Tower as TowerEntity, Ring as RingEntity, Bell as BellEntity
 from pypeal.peal import Peal
 from pypeal.ringer import Ringer
+from pypeal.tower import Tower, Ring
 
 logger = logging.getLogger('pypeal')
 logger.setLevel(logging.DEBUG)
@@ -64,8 +67,54 @@ def get_ringer(ringer_id: int) -> RingerEntity:
 
 
 @app.get("/ringers/{ringer_id}/peals")
-def get_ringer_peals(ringer_id: int) -> list[PealEntity]:
+def get_ringer_peals(ringer_id: int) -> list[PealBasicEntity]:
     ringer = Ringer.get(ringer_id)
     if ringer is None:
         raise HTTPException(status_code=404, detail="Ringer not found")
-    return [PealEntity.from_object(peal) for peal in ringer.get_peals()]
+    return [PealBasicEntity.from_object(peal) for peal in ringer.get_peals()]
+
+
+@app.get("/towers/{tower_id}")
+def get_tower(tower_id: int) -> TowerEntity:
+    tower = Tower.get(dove_id=tower_id)
+    if tower is None:
+        raise HTTPException(status_code=404, detail="Tower not found")
+    return TowerEntity.from_object(tower)
+
+
+@app.get("/towers/{tower_id}/peals")
+def get_tower_peals(tower_id: int) -> list[PealBasicEntity]:
+    tower = Tower.get(tower_id)
+    if tower is None:
+        raise HTTPException(status_code=404, detail="Tower not found")
+    return [PealBasicEntity.from_object(peal) for peal in tower.get_peals()]
+
+
+@app.get("/towers/{tower_id}/rings")
+def get_tower_rings(tower_id: int) -> list[RingEntity]:
+    tower = Tower.get(dove_id=tower_id)
+    if tower is None:
+        raise HTTPException(status_code=404, detail="Tower not found")
+    return [RingEntity.from_object(ring) for ring in tower.rings]
+
+
+@app.get("/towers/{tower_id}/rings/{ring_id}")
+def get_tower_ring(tower_id: int, ring_id: int) -> RingEntity:
+    tower = Tower.get(dove_id=tower_id)
+    if tower is None:
+        raise HTTPException(status_code=404, detail="Tower not found")
+    ring = Ring.get(ring_id)
+    if ring is None:
+        raise HTTPException(status_code=404, detail="Ring not found")
+    return RingEntity.from_object(ring)
+
+
+@app.get("/towers/{tower_id}/rings/{ring_id}/peals")
+def get_tower_ring_peals(tower_id: int, ring_id: int) -> list[PealBasicEntity]:
+    tower = Tower.get(dove_id=tower_id)
+    if tower is None:
+        raise HTTPException(status_code=404, detail="Tower not found")
+    ring = Ring.get(ring_id)
+    if ring is None:
+        raise HTTPException(status_code=404, detail="Ring not found")
+    return [PealBasicEntity.from_object(peal) for peal in ring.get_peals()]

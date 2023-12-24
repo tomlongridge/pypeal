@@ -35,6 +35,15 @@ class Tower():
     def tenor_weight_in_cwt(self) -> str:
         return utils.get_weight_str(self.tenor_weight)
 
+    @property
+    def rings(self) -> list[Ring]:
+        results = Database.get_connection().query(
+            'SELECT id FROM rings ' +
+            'WHERE tower_id = %s ' +
+            'ORDER BY -date_removed DESC',
+            (self.id,)).fetchall()
+        return [Ring.get(result[0]) for result in results]
+
     def get_active_ring(self, at_date: datetime.date) -> Ring:
         results = Database.get_connection().query(
             'SELECT id FROM rings ' +
@@ -59,6 +68,14 @@ class Tower():
         text += f', {self.country}' if self.country else ''
         text += f', {self.dedication}' if self.dedication else ''
         return text
+
+    def get_peals(self):
+        from pypeal.peal import Peal
+        ring_ids = ','.join([str(ring.id) for ring in self.rings])
+        results = Database.get_connection().query(
+            'SELECT id FROM peals WHERE ring_id IN (%s) ',
+            (ring_ids,)).fetchall()
+        return [Peal.get(result[0]) for result in results]
 
     def __str__(self):
         text = self.name
@@ -193,6 +210,13 @@ class Ring():
                 'VALUES (%s, %s, %s)',
                 (self.id, bell.id, role))
         Database.get_connection().commit()
+
+    def get_peals(self):
+        from pypeal.peal import Peal
+        results = Database.get_connection().query(
+            'SELECT id FROM peals WHERE ring_id = %s ',
+            (self.id,)).fetchall()
+        return [Peal.get(result[0]) for result in results]
 
     @classmethod
     def get(cls, id: int) -> Ring:
