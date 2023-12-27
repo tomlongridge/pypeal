@@ -110,6 +110,9 @@ class Method():
             value += f'{self.stage} ' if self.stage else ''
             return value.strip()
 
+    def __hash__(self) -> int:
+        return hash(self.id)
+
     def commit(self):
         Database.get_connection().query(
             'INSERT INTO methods (full_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, stage, id) ' +

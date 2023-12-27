@@ -3,11 +3,16 @@ import logging
 from rich.prompt import IntPrompt, Prompt, Confirm
 from rich.panel import Panel
 from rich import print
+from rich.style import Style
+from rich.padding import Padding
 from rich.markup import escape
+from pypeal import utils
 
 from pypeal.config import get_config
 
 logger = logging.getLogger('pypeal')
+
+_heading_style = Style(color="white", bgcolor="cyan", bold=True)
 
 
 class UserCancelled(Exception):
@@ -75,15 +80,9 @@ def ask_date(prompt: str,
             if response is not None:
                 if response.isnumeric() or (response.startswith('-') and response[1:].isnumeric()):
                     response = (default or datetime.date(datetime.now())) + timedelta(days=int(response))
-                else:
-                    try:
-                        response = datetime.date(datetime.strptime(response, '%Y/%m/%d'))
-                    except ValueError:
-                        try:
-                            response = datetime.date(datetime.strptime(response, '%Y-%m-%d'))
-                        except ValueError:
-                            error('Invalid date - please enter in format yyyy/mm/dd')
-                            continue
+                elif not (response := utils.parse_date(response)):
+                    error('Invalid date - please enter in format yyyy/mm/dd')
+                    continue
                 if min is not None and response < min:
                     error(f'Date must be on or after {min.strftime("%Y/%m/%d")}')
                     continue
@@ -127,3 +126,9 @@ def warning(message: str, title: str = None):
 
 def error(message: str, title: str = None):
     print(Panel(f'[bold red]Error:[/] {message}', title=title))
+
+
+def heading(message: str):
+    print()
+    print(Padding(message, (1, 1), style=_heading_style))
+    print()

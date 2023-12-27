@@ -16,10 +16,10 @@ from pypeal.tower import Bell, Ring
 from pypeal.utils import format_date_full, get_bell_label
 
 FIELD_LIST: list[str] = ['bellboard_id', 'type', 'bell_type', 'date', 'association_id', 'ring_id', 'place', 'sub_place', 'address',
-                         'dedication', 'county', 'country', 'tenor_weight', 'tenor_note', 'changes', 'stage', 'classification',
-                         'is_variable_cover', 'num_methods', 'num_principles', 'num_variants', 'method_id', 'title', 'published_title',
-                         'detail', 'composer_id', 'composer_description', 'composition_url', 'duration', 'event_url', 'muffles',
-                         'external_reference', 'bellboard_submitter', 'bellboard_submitted_date']
+                         'dedication', 'county', 'country', 'changes', 'stage', 'classification', 'is_variable_cover', 'num_methods',
+                         'num_principles', 'num_variants', 'method_id', 'title', 'published_title', 'detail', 'composer_id',
+                         'composer_description', 'composition_url', 'duration', 'tenor_weight', 'tenor_note', 'event_url', 'muffles',
+                         'external_reference', 'bellboard_submitter', 'bellboard_submitted_date', 'created_date']
 
 
 class PealType(Enum):
@@ -27,6 +27,9 @@ class PealType(Enum):
     MIXED_METHODS = 2
     SPLICED_METHODS = 3
     GENERAL_RINGING = 0
+
+    def __str__(self):
+        return self.name.replace("_", " ").title()
 
 
 class PealLengthType(Enum):
@@ -36,15 +39,24 @@ class PealLengthType(Enum):
     PEAL = 4
     LONG_LENGTH = 5
 
+    def __str__(self):
+        return self.name.replace("_", " ").title()
+
 
 class BellType(Enum):
     TOWER = 1
     HANDBELLS = 2
 
+    def __str__(self):
+        return self.name.replace("_", " ").title()
+
 
 class MuffleType(Enum):
     HALF = 1
-    FULL = 2
+    FULLY = 2
+
+    def __str__(self):
+        return self.name.replace("_", " ").title() + ' muffled'
 
 
 class PealRinger:
@@ -99,6 +111,7 @@ class Peal:
     external_reference: str
     bellboard_submitter: str
     bellboard_submitted_date: datetime.date
+    created_date: datetime
     id: int
 
     __title: str
@@ -135,8 +148,6 @@ class Peal:
                  dedication: str = None,
                  county: str = None,
                  country: str = None,
-                 tenor_weight: int = None,
-                 tenor_note: str = None,
                  changes: int = None,
                  stage: int = None,
                  classification: str = None,
@@ -152,11 +163,14 @@ class Peal:
                  composer_description: str = None,
                  composition_url: str = None,
                  duration: int = None,
+                 tenor_weight: int = None,
+                 tenor_note: str = None,
                  event_url: str = None,
                  muffles: int = None,
                  external_reference: str = None,
                  bellboard_submitter: str = None,
                  bellboard_submitted_date: datetime.date = None,
+                 created_date: datetime = None,
                  id: int = None):
         self.bellboard_id = bellboard_id
         self.bell_type = BellType(bell_type) if bell_type else None
@@ -192,6 +206,7 @@ class Peal:
         self.external_reference = external_reference
         self.bellboard_submitter = bellboard_submitter
         self.bellboard_submitted_date = bellboard_submitted_date
+        self.created_date = created_date
         self.id = id
 
         self.__methods = None
@@ -530,7 +545,7 @@ class Peal:
                 self.num_variants, self.method.id if self.method else None, self.title, self.published_title, self.detail,
                 self.composer.id if self.composer else None, self.composer_description, self.composition_url, self.duration, self.event_url,
                 self.muffles.value if self.muffles else None, self.external_reference, self.bellboard_submitter,
-                self.bellboard_submitted_date))
+                self.bellboard_submitted_date, datetime.now()))
         Database.get_connection().commit()
         self.id = result.lastrowid
         for method, changes in self.methods:
@@ -593,7 +608,7 @@ class Peal:
         text += f'{self.changes} ' if self.changes else ''
         text += self.title
         text += ' (half-muffled)' if self.muffles == MuffleType.HALF else ''
-        text += ' (muffled)' if self.muffles == MuffleType.FULL else ''
+        text += ' (muffled)' if self.muffles == MuffleType.FULLY else ''
         text += ' '
         text += f'in {utils.get_time_str(self.duration)} ' if self.duration else ''
         text += f'({self.tenor_description})' if self.tenor_description else ''
@@ -668,38 +683,50 @@ class Peal:
 
     @classmethod
     def search(cls,
-               ringer_name: str = None,
                date_from: datetime.date = None,
                date_to: datetime.date = None,
+               ringer_id: int = None,
+               ringer_name: str = None,
+               ring_id: int = None,
                tower_id: int = None,
                place: str = None,
                county: str = None,
                dedication: str = None,
                association: str = None,
-               title: str = None,
                bell_type: BellType = None,
                order_descending: bool = True) -> list[Peal]:
 
         query = f'SELECT {",".join(["peals."+field for field in FIELD_LIST])}, peals.id ' + \
                 'FROM peals ' + \
-                'LEFT JOIN pealringers pr ON peals.id = pr.peal_id ' + \
-                'LEFT JOIN ringers r ON pr.ringer_id = r.id ' + \
                 'LEFT JOIN rings ri ON peals.ring_id = ri.id ' + \
                 'LEFT JOIN towers t ON ri.tower_id = t.id ' + \
                 'LEFT JOIN associations a ON peals.association_id = a.id ' + \
                 'WHERE 1=1 '
         params = {}
-        if ringer_name:
-            query += 'AND CONCAT(r.given_names, " ", r.last_name) LIKE %(ringer_name)s '
-            params['name'] = f'%{ringer_name}%'
         if date_from is not None:
             query += 'AND peals.date >= %(date_from)s '
             params['date_from'] = date_from.strftime('%Y-%m-%d')
         if date_to is not None:
             query += 'AND peals.date <= %(date_to)s '
             params['date_to'] = date_to.strftime('%Y-%m-%d')
+        if ringer_id:
+            query += 'AND peals.id IN (' + \
+                     'SELECT peal_id FROM pealringers pr WHERE pr.peal_id = peals.id ' + \
+                     'AND pr.ringer_id = %(ringer_id)s ' + \
+                     ')'
+            params['ringer_id'] = f'{ringer_id}'
+        if ringer_name:
+            query += 'AND peals.id IN (' + \
+                     'SELECT peal_id FROM pealringers pr WHERE pr.peal_id = peals.id ' + \
+                     'LEFT JOIN ringers r ON pr.ringer_id = r.id ' + \
+                     'WHERE CONCAT(r.given_names, " ", r.last_name) LIKE %(ringer_name)s ' + \
+                     ')'
+            params['ringer_name'] = f'%{ringer_name}%'
+        if ring_id is not None:
+            query += 'AND ri.id = %(ring_id)s '
+            params['ring_id'] = ring_id
         if tower_id is not None:
-            query += 'AND ri.tower_id = %(tower_id)s '
+            query += 'AND t.id = %(tower_id)s '
             params['tower_id'] = tower_id
         if place is not None:
             query += 'AND (' + \
@@ -724,22 +751,21 @@ class Peal:
         if association is not None:
             query += 'AND a.name = %(association)s '
             params['association'] = association
-        if title is not None:
-            query += 'AND peals.title LIKE %(title)s '
-            params['title'] = f'%{title}%'
         if bell_type is not None:
             query += 'AND peals.bell_type = %(bell_type)s '
             params['bell_type'] = bell_type.value
         query += 'ORDER BY peals.date ' + ('DESC' if order_descending else 'ASC')
         results = Database.get_connection().query(query, params).fetchall()
         cached_peals = Cache.get_cache().add_all(cls.__name__, {f'D{result[-1]}': Peal(*result) for result in results})
-        return Cache.get_cache().add_all(cls.__name__, {f'B{peal.bellboard_id}': peal for peal in cached_peals})
+        Cache.get_cache().add_all(cls.__name__, {f'B{peal.bellboard_id}': peal for peal in cached_peals})
+        return cached_peals
 
     @classmethod
     def get_all(cls) -> list[Peal]:
         results = Database.get_connection().query(f'SELECT {",".join(FIELD_LIST)}, id FROM peals').fetchall()
         cached_peals = Cache.get_cache().add_all(cls.__name__, {f'D{result[-1]}': Peal(*result) for result in results})
-        return Cache.get_cache().add_all(cls.__name__, {f'B{peal.bellboard_id}': peal for peal in cached_peals})
+        Cache.get_cache().add_all(cls.__name__, {f'B{peal.bellboard_id}': peal for peal in cached_peals})
+        return cached_peals
 
     @classmethod
     def clear_data(cls):

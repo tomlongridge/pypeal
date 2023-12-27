@@ -117,6 +117,10 @@ def format_date_full(date: datetime.date) -> str:
     return date.strftime("%A, %-d %B %Y")
 
 
+def format_date_short(date: datetime.date) -> str:
+    return date.strftime("%d-%b-%Y")
+
+
 def num_to_word(num: int) -> str:
     if num in NUM_TO_WORD:
         return NUM_TO_WORD[num]
@@ -144,9 +148,21 @@ def get_time_str(mins: int) -> str:
     if hours == 1:
         value += '1 hour, '
     elif hours > 1:
-        value += f'{hours} hours, '
-    value += f'{mins} minutes'
+        value += f'{round(hours)} hours, '
+    value += f'{round(mins)} minutes'
     return value
+
+
+def parse_date(text: str) -> datetime.date:
+    if text is None:
+        return None
+    try:
+        return datetime.date(datetime.strptime(text, '%Y/%m/%d'))
+    except ValueError:
+        try:
+            return datetime.date(datetime.strptime(text, '%Y-%m-%d'))
+        except ValueError:
+            return None
 
 
 def strip_internal_space(value: str) -> str:

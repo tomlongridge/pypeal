@@ -1,0 +1,106 @@
+from rich.console import Console
+from rich.table import Table
+
+from pypeal import config, utils
+from pypeal.cli.prompts import heading
+from pypeal.peal import Peal
+from pypeal.ringer import Ringer
+from pypeal.stats.report import generate_summary
+from rich import box
+
+from pypeal.tower import Ring, Tower
+
+
+def prompt_report_stats():
+    date_from = config.get_config('report', 'date_from')
+    date_to = config.get_config('report', 'date_to')
+    ring_id = config.get_config('report', 'ring_id')
+    tower_id = config.get_config('report', 'tower_id')
+    ringer_id = config.get_config('report', 'ringer_id')
+    peals = Peal.search(date_from=date_from,
+                        date_to=date_to,
+                        ring_id=ring_id,
+                        tower_id=tower_id,
+                        ringer_id=ringer_id)
+    report = generate_summary(peals, ring_id, tower_id, ringer_id)
+
+    console = Console()
+
+    summary_text = ''
+    if ringer_id:
+        summary_text += f' for {Ringer.get(ringer_id).name}'
+    if ring_id:
+        ring = Ring.get(ring_id)
+        summary_text += f' at {ring.tower.name}'
+        if ring.description:
+            summary_text += f' ({ring.description})'
+    elif tower_id:
+        summary_text += f' at {Tower.get(tower_id).name}'
+    if date_from:
+        summary_text += f' from {utils.format_date_short(max(date_from, report["first"]))}'
+    if date_to:
+        summary_text += f' to {utils.format_date_short(min(date_to, report["last"]))}'
+    heading(f'Summary ({summary_text.strip()})' if summary_text else 'Summary')
+
+    summary_data = {}
+    for type in report['types']:
+        summary_data[f'{type}s'] = (report['types'][type]['count'],
+                                    report['types'][type]['conducted_count'] if ringer_id else None)
+    console.print(generate_dict_table(summary_data,
+                                      value_name=('Rung' if ringer_id else 'Count',
+                                                  'Conducted' if ringer_id else None)))
+
+    for type in report['types']:
+        heading(f'{type}s')
+        console.print(generate_peal_length_table(report['types'][type]))
+
+
+def generate_peal_length_table(data: dict) -> Table:
+
+    misc_data = {}
+    for type in data['types']:
+        misc_data[str(type)] = data['types'][type]
+    for type in data['bell_types']:
+        misc_data[str(type)] = data['bell_types'][type]
+    if 'muffles' in data:
+        for type in data['muffles']:
+            misc_data[str(type)] = data['muffles'][type]
+    misc_data['First rung'] = utils.format_date_short(data['first'])
+    misc_data['Last rung'] = utils.format_date_short(data['last'])
+    misc_data['Avg. peal speed'] = utils.get_time_str(data['avg_peal_speed'])
+    misc_data['Avg. duration'] = utils.get_time_str(data['avg_duration'])
+
+    table = Table(show_header=False, show_footer=False, padding=0, box=None, expand=True)
+    table.add_column(None, justify='left', ratio=1)
+    table.add_column(None, justify='center', ratio=1)
+    table.add_column(None, justify='right', ratio=1)
+    table.add_row(
+        generate_dict_table(data['stages'], 'Stage'),
+        generate_dict_table(data['methods'], 'Methods', max_rows=10),
+        generate_dict_table(misc_data, 'Misc'),
+    )
+    table.add_row(
+        generate_dict_table(data['ringers'], 'Top 10 Ringers', max_rows=10),
+        generate_dict_table(data['conductors'], 'Top 10 Conductors', max_rows=10),
+        generate_dict_table(data['associations'], 'Top 10 Associations', max_rows=10),
+    )
+    return table
+
+
+def generate_dict_table(data: dict, key_name: str = '', value_name: str | tuple[str] = 'Count', max_rows: int = 10) -> Table:
+    table = Table(show_footer=False, box=box.HORIZONTALS, expand=True)
+    table.add_column(key_name, justify='left')
+    if type(value_name) is str:
+        table.add_column(value_name or '', justify='left')
+    else:
+        for name in value_name:
+            table.add_column(name or '', justify='left')
+    if len(data) == 0:
+        table.add_row('None')
+    else:
+        for key, value in list(data.items())[:max_rows or len(data)]:
+            if type(value) is tuple:
+                table.add_row(str(key) if key else '', *[str(v) if v else '' for v in value])
+            else:
+                table.add_row(str(key) if key else '', str(value) if value else '')
+    return table

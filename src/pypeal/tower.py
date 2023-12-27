@@ -5,6 +5,8 @@ import logging
 from pypeal import utils
 from pypeal.cache import Cache
 from pypeal.db import Database
+from pypeal import config
+
 
 _logger = logging.getLogger('pypeal')
 
@@ -12,6 +14,8 @@ FIELD_LIST: list[str] = ['towerbase_id', 'place', 'sub_place', 'dedication', 'co
                          'bells', 'tenor_weight', 'tenor_note']
 RING_FIELD_LIST: list[str] = ['tower_id', 'description', 'date_removed']
 BELL_FIELD_LIST: list[str] = ['tower_id', 'role', 'weight', 'note', 'cast_year', 'founder']
+
+DEFAULT_COUNTRY_NAME = config.get_config('general', 'default_country_name')
 
 
 @dataclass
@@ -44,7 +48,7 @@ class Tower():
             (self.id,)).fetchall()
         return [Ring.get(result[0]) for result in results]
 
-    def get_active_ring(self, at_date: datetime.date) -> Ring:
+    def get_active_ring(self, at_date: datetime.date = datetime.now()) -> Ring:
         results = Database.get_connection().query(
             'SELECT id FROM rings ' +
             'WHERE tower_id = %s ' +
@@ -65,7 +69,8 @@ class Tower():
         text = self.place or ''
         text += f', {self.sub_place}' if self.sub_place else ''
         text += f', {self.county}' if self.county else ''
-        text += f', {self.country}' if self.country else ''
+        if self.country and (not DEFAULT_COUNTRY_NAME or self.country.lower() != DEFAULT_COUNTRY_NAME.lower()):
+            text += f', {self.country}'
         text += f', {self.dedication}' if self.dedication else ''
         return text
 
@@ -85,6 +90,9 @@ class Tower():
         text += f'in {self.tenor_note}' if self.tenor_note else ''
         text += '.'
         return text
+
+    def __hash__(self) -> int:
+        return self.id
 
     @classmethod
     def get(cls, dove_id: int = None, towerbase_id: int = None) -> Tower:
@@ -218,6 +226,9 @@ class Ring():
             (self.id,)).fetchall()
         return [Peal.get(result[0]) for result in results]
 
+    def __hash__(self) -> int:
+        return self.id
+
     @classmethod
     def get(cls, id: int) -> Ring:
         if (ring := Cache.get_cache().get(cls.__name__, id)) is not None:
@@ -267,6 +278,9 @@ class Bell():
             (self.tower.id, self.role, self.weight, self.note, self.cast_year, self.founder, self.id))
         Database.get_connection().commit()
         Cache.get_cache().add(self.__class__.__name__, self.id, self)
+
+    def __hash__(self) -> int:
+        return self.id
 
     @classmethod
     def get(cls, id: int) -> Bell:

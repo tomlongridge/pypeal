@@ -16,6 +16,9 @@ class Association():
     def __str__(self):
         return self.name
 
+    def __hash__(self) -> int:
+        return hash(self.id)
+
     def commit(self):
         Database.get_connection().query(
             f'INSERT INTO associations ({",".join(FIELD_LIST)}, id) ' +

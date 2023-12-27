@@ -26,8 +26,8 @@ class Database:
         db_host = get_config('database', 'host')
         db_user = get_config('database', 'user')
         db_password = get_config('database', 'password')
-        db_name = get_config('database', 'db_name')
-        logger.debug(f'Connecting to database server {db_host} as user {db_user} (database: {db_name})')
+        self._db_name = get_config('database', 'db_name')
+        logger.debug(f'Connecting to database server {db_host} as user {db_user} (database: {self._db_name})')
         try:
             self.db = mysql.connector.connect(user=db_user, password=db_password, host=db_host)
             self.cursor = self.db.cursor()
@@ -35,8 +35,7 @@ class Database:
             raise DatabaseError(f'Unable to connect to database server {db_host} as user {db_user}: {e.msg}') from e
 
     def database_exists(self) -> bool:
-        database_name = get_config('database', 'db_name')
-        self.__execute(f'SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "{database_name}"')
+        self.__execute(f'SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = "{self._db_name}"')
         return self.cursor.fetchone() is not None
 
     def initialise(self):
@@ -45,7 +44,7 @@ class Database:
             self.run_script(path)
 
     def query(self, query, params=None):
-        self.__execute('USE ' + get_config('database', 'db_name'))
+        self.__execute('USE ' + self._db_name)
         return self.__execute(query, params)
 
     def run_script(self, path: str):

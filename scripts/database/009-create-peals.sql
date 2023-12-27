@@ -34,6 +34,7 @@ CREATE TABLE @db_name.`peals` (
     `external_reference` VARCHAR(128) NULL,
     `bellboard_submitter` VARCHAR(128) NULL,
     `bellboard_submitted_date` DATE NULL,
+    `created_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`),
     UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
     UNIQUE INDEX `bellboard_id_UNIQUE` (`bellboard_id` ASC) VISIBLE,

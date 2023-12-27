@@ -19,6 +19,9 @@ class Ringer():
     def __str__(self) -> str:
         return self.__names[-1].name if self.__names else 'Unknown'
 
+    def __hash__(self) -> int:
+        return self.id
+
     @property
     def id(self) -> int:
         return self.__names[-1].id if self.__names else None

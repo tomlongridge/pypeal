@@ -6,6 +6,10 @@ import typer
 import urllib.parse
 
 from rich import print
+from rich.console import Console
+from rich.table import Table
+from rich import box
+
 from pypeal import config
 
 from pypeal.bellboard.interface import BellboardError, get_id_from_url, get_url_from_id
@@ -15,13 +19,15 @@ from pypeal.cccbr import update_methods
 from pypeal.cli.peal_prompter import PealPromptListener
 from pypeal.cli.peal_previewer import PealPreviewListener
 from pypeal.cli.prompt_commit_peal import prompt_commit_peal
-from pypeal.cli.prompts import UserCancelled, ask_date, ask_int, ask, confirm, panel, error
+from pypeal.cli.prompt_report_stats import prompt_report_stats
+from pypeal.cli.prompts import UserCancelled, ask_date, ask_int, ask, confirm, heading, panel, error
 from pypeal.cli.chooser import choose_option
 from pypeal.db import initialize as initialize_db
 from pypeal.dove import update_associations, update_bells, update_rings, update_towers
 from pypeal.peal import Peal, BellType
 from pypeal.ringer import Ringer
 from pypeal.config import set_config_file
+from pypeal.stats.report import generate_summary as generate_peal_summary
 
 logger = logging.getLogger('pypeal')
 logger.setLevel(logging.DEBUG)
@@ -41,7 +47,8 @@ logger.addHandler(ch)
 app = typer.Typer()
 
 
-__peals: dict[str, Peal] = None
+__peals: list[Peal] = None
+__bb_peals: dict[str, Peal] = None
 
 
 @app.command()
@@ -87,7 +94,7 @@ def run_interactive(peal_id_or_url: str):
 
     while True:
         try:
-            panel(f'Number of peals: {len(get_peal_list(force_update=True))}')
+            print_summary()
 
             try:
                 selected_option = choose_option(
@@ -98,6 +105,7 @@ def run_interactive(peal_id_or_url: str):
                         'Add peal by ID/URL',
                         'Add random peal',
                         'View peal',
+                        'View statistics',
                         'Update static data',
                         'Exit'
                     ],
@@ -119,16 +127,32 @@ def run_interactive(peal_id_or_url: str):
                 case 6:
                     run_view(peal_id_or_url)
                 case 7:
+                    prompt_report_stats()
+                case 8:
                     update_methods()
                     update_associations()
                     update_towers()
                     update_bells()
-                case 8 | None:
+                case 9 | None:
                     raise typer.Exit()
         except UserCancelled:
             continue
 
         peal_id_or_url = None
+
+
+def print_summary():
+    heading('pypeal Database')
+    summary = generate_peal_summary(get_all_peals())
+    table = Table(show_header=False, show_footer=False, expand=True, box=box.DOUBLE_EDGE)
+    table.add_column(ratio=1)
+    table.add_column(ratio=1, justify='right')
+    type_summary = ''
+    for type, report in summary["types"].items():
+        type_summary += f'{type}s: {report["count"]}\n'
+    table.add_row(type_summary.strip(), f'Last updated: {summary["last_added"]}')
+    console = Console()
+    console.print(table)
 
 
 def poll_for_new_peals():
@@ -157,7 +181,7 @@ def add_peal(peal_id: int = None):
         generator.parse(preview_listener)
         panel(preview_listener.text, title=get_url_from_id(peal_id))
 
-        if peal_id in get_peal_list():
+        if peal_id in get_bb_peals():
             error(f'Peal {peal_id} already added to database')
             return
 
@@ -187,7 +211,7 @@ def search_by_url(url: str = None):
             count_duplicate = 0
             count_added = 0
             for peal_id in bellboard_search_by_url(url or ask('Bellboard URL')):
-                if peal_id in get_peal_list():
+                if peal_id in get_bb_peals():
                     count_duplicate += 1
                     continue
                 else:
@@ -243,7 +267,7 @@ def search():
                                         title=title,
                                         bell_type=bell_type,
                                         order_descending=order_descending):
-            if peal_id in get_peal_list():
+            if peal_id in get_bb_peals():
                 count_duplicate += 1
                 continue
             else:
@@ -296,12 +320,21 @@ def initialize_or_exit(reset_db: bool, clear_data: bool):
         Ringer.clear_data()
 
 
-def get_peal_list(force_update: bool = False):
+def get_all_peals(force_update: bool = False):
+    global __peals
     if not __peals or force_update:
         update_peal_list()
     return __peals
 
 
+def get_bb_peals(force_update: bool = False):
+    global __bb_peals
+    if not __bb_peals or force_update:
+        update_peal_list()
+    return __bb_peals
+
+
 def update_peal_list():
-    global __peals
-    __peals = {peal.bellboard_id: peal for peal in Peal.get_all()}
+    global __peals, __bb_peals
+    __peals = Peal.get_all()
+    __bb_peals = {peal.bellboard_id: peal for peal in __peals}

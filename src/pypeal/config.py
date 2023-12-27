@@ -2,6 +2,8 @@ import configparser
 import json
 import os
 
+from pypeal import utils
+
 _config = None
 
 
@@ -42,6 +44,6 @@ def get_config(section: str, key: str = None) -> dict | list | int | float | boo
             elif value.lower() == 'true' or value.lower() == 'false':
                 return bool(value)
             else:
-                return value
+                return utils.parse_date(value) or value
 
     return None
