@@ -8,7 +8,6 @@ import urllib.parse
 from rich import print
 from rich.console import Console
 from rich.table import Table
-from rich import box
 
 from pypeal import config
 
@@ -144,7 +143,7 @@ def run_interactive(peal_id_or_url: str):
 def print_summary():
     heading('pypeal Database')
     summary = generate_peal_summary(get_all_peals())
-    table = Table(show_header=False, show_footer=False, expand=True, box=box.DOUBLE_EDGE)
+    table = Table(show_header=False, show_footer=False, expand=True, box=None)
     table.add_column(ratio=1)
     table.add_column(ratio=1, justify='right')
     type_summary = ''

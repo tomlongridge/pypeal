@@ -45,6 +45,7 @@ class PealPromptListener(PealGeneratorListener):
             self.peal.county = None
             self.peal.address = None
             self.peal.dedication = None
+            self.dedication = None
             print(f'🏰 Tower: {tower.name}')
         else:
             print(f'Tower ID {dove_id or towerbase_id} not found')

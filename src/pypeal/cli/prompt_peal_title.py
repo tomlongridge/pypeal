@@ -167,6 +167,10 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
                     stage = None
                     classification = None
 
+            # Bob and Place methods aren't usually specified in the title
+            if classification in [Classification.BOB, Classification.PLACE]:
+                classification = None
+
             if not quick_mode:
                 while True:
                     num_methods = ask_int('Number of methods', default=num_methods or 0)

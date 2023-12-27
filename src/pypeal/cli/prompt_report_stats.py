@@ -1,8 +1,10 @@
+from datetime import datetime
 from rich.console import Console
 from rich.table import Table
 
 from pypeal import config, utils
-from pypeal.cli.prompts import heading
+from pypeal.cli.chooser import choose_option
+from pypeal.cli.prompts import confirm, heading
 from pypeal.peal import Peal
 from pypeal.ringer import Ringer
 from pypeal.stats.report import generate_summary
@@ -26,6 +28,54 @@ def prompt_report_stats():
 
     console = Console()
 
+    summary_text = _generate_summary_heading(report, date_from, date_to, ring_id, tower_id, ringer_id)
+    heading(f'Summary ({summary_text.strip()})' if summary_text else 'Summary')
+
+    summary_data = {}
+    for type in report['types']:
+        summary_data[f'{type}s'] = (report['types'][type]['count'],
+                                    report['types'][type]['conducted_count'] if ringer_id else None)
+    console.print(_generate_dict_table(summary_data,
+                                       value_name=('Rung' if ringer_id else 'Count',
+                                                   'Conducted' if ringer_id else None)))
+
+    if len(report['types']) > 1:
+        length_type = choose_option(list(report['types'].keys()), title='Show report for', none_option='Back')
+        if length_type is None:
+            return
+    else:
+        length_type = list(report['types'].keys())[0]
+
+    heading(f'{length_type}s')
+    length_type_report = report['types'][length_type]
+    console.print(_generate_peal_length_table(length_type_report))
+
+    while True:
+        match choose_option(['All methods',
+                             'All ringers',
+                             'All conductors',
+                             'All associations'],
+                            none_option='Back'):
+            case 1:
+                combined_methods = {str(m): v for m, v in length_type_report['methods'].items()} | length_type_report['multimethods']
+                console.print(_generate_dict_table(dict(sorted(combined_methods.items(), key=lambda x: (-x[1], x[0])))))
+            case 2:
+                console.print(_generate_dict_table(length_type_report['ringers'], 'Ringers'))
+            case 3:
+                console.print(_generate_dict_table(length_type_report['conductors'], 'Conductors'))
+            case 4:
+                console.print(_generate_dict_table(length_type_report['associations'], 'Associations'))
+            case None:
+                return
+        confirm(None, confirm_message='Press enter to continue')
+
+
+def _generate_summary_heading(report: dict,
+                              date_from: datetime.date,
+                              date_to: datetime.date,
+                              ring_id: int,
+                              tower_id: int,
+                              ringer_id: int) -> str:
     summary_text = ''
     if ringer_id:
         summary_text += f' for {Ringer.get(ringer_id).name}'
@@ -40,22 +90,9 @@ def prompt_report_stats():
         summary_text += f' from {utils.format_date_short(max(date_from, report["first"]))}'
     if date_to:
         summary_text += f' to {utils.format_date_short(min(date_to, report["last"]))}'
-    heading(f'Summary ({summary_text.strip()})' if summary_text else 'Summary')
-
-    summary_data = {}
-    for type in report['types']:
-        summary_data[f'{type}s'] = (report['types'][type]['count'],
-                                    report['types'][type]['conducted_count'] if ringer_id else None)
-    console.print(generate_dict_table(summary_data,
-                                      value_name=('Rung' if ringer_id else 'Count',
-                                                  'Conducted' if ringer_id else None)))
-
-    for type in report['types']:
-        heading(f'{type}s')
-        console.print(generate_peal_length_table(report['types'][type]))
 
 
-def generate_peal_length_table(data: dict) -> Table:
+def _generate_peal_length_table(data: dict) -> Table:
 
     misc_data = {}
     for type in data['types']:
@@ -70,24 +107,26 @@ def generate_peal_length_table(data: dict) -> Table:
     misc_data['Avg. peal speed'] = utils.get_time_str(data['avg_peal_speed'])
     misc_data['Avg. duration'] = utils.get_time_str(data['avg_duration'])
 
+    combined_methods = {str(m): v for m, v in data['methods'].items()} | data['multimethods']
+
     table = Table(show_header=False, show_footer=False, padding=0, box=None, expand=True)
     table.add_column(None, justify='left', ratio=1)
     table.add_column(None, justify='center', ratio=1)
     table.add_column(None, justify='right', ratio=1)
     table.add_row(
-        generate_dict_table(data['stages'], 'Stage'),
-        generate_dict_table(data['methods'], 'Methods', max_rows=10),
-        generate_dict_table(misc_data, 'Misc'),
+        _generate_dict_table(data['stages'], 'Stage'),
+        _generate_dict_table(combined_methods, 'Methods', max_rows=10),
+        _generate_dict_table(misc_data, 'Misc'),
     )
     table.add_row(
-        generate_dict_table(data['ringers'], 'Top 10 Ringers', max_rows=10),
-        generate_dict_table(data['conductors'], 'Top 10 Conductors', max_rows=10),
-        generate_dict_table(data['associations'], 'Top 10 Associations', max_rows=10),
+        _generate_dict_table(data['ringers'], 'Top 10 Ringers', max_rows=10),
+        _generate_dict_table(data['conductors'], 'Top 10 Conductors', max_rows=10),
+        _generate_dict_table(data['associations'], 'Top 10 Associations', max_rows=10),
     )
     return table
 
 
-def generate_dict_table(data: dict, key_name: str = '', value_name: str | tuple[str] = 'Count', max_rows: int = 10) -> Table:
+def _generate_dict_table(data: dict, key_name: str = '', value_name: str | tuple[str] = 'Count', max_rows: int = None) -> Table:
     table = Table(show_footer=False, box=box.HORIZONTALS, expand=True)
     table.add_column(key_name, justify='left')
     if type(value_name) is str:
