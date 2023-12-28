@@ -25,6 +25,10 @@ def prompt_report_stats():
                         tower_id=tower_id,
                         ringer_id=ringer_id)
     report = generate_summary(peals, ring_id, tower_id, ringer_id)
+    if ringer_id:
+        conducted_report = generate_summary(peals, ring_id, tower_id, ringer_id, conducted_only=True)
+    else:
+        conducted_report = None
 
     console = Console()
 
@@ -32,12 +36,14 @@ def prompt_report_stats():
     heading(f'Summary ({summary_text.strip()})' if summary_text else 'Summary')
 
     summary_data = {}
+    conducted_summary_data = {} if conducted_report else None
     for type in report['types']:
-        summary_data[f'{type}s'] = (report['types'][type]['count'],
-                                    report['types'][type]['conducted_count'] if ringer_id else None)
-    console.print(_generate_dict_table(summary_data,
-                                       value_name=('Rung' if ringer_id else 'Count',
-                                                   'Conducted' if ringer_id else None)))
+        summary_data[f'{type}s'] = report['types'][type]['count']
+        if conducted_report:
+            conducted_summary_data[f'{type}s'] = conducted_report['types'][type]['count']
+    console.print(_generate_dict_table([summary_data, conducted_summary_data],
+                                       value_name=['Rung' if conducted_report else 'Count',
+                                                   'Conducted' if conducted_report else None]))
 
     if len(report['types']) > 1:
         length_type = choose_option(list(report['types'].keys()), title='Show report for', none_option='Back')
@@ -48,7 +54,8 @@ def prompt_report_stats():
 
     heading(f'{length_type}s')
     length_type_report = report['types'][length_type]
-    console.print(_generate_peal_length_table(length_type_report))
+    length_type_conducted_report = conducted_report['types'][length_type]
+    console.print(_generate_peal_length_table(length_type_report, length_type_conducted_report))
 
     while True:
         match choose_option(['All methods',
@@ -57,14 +64,13 @@ def prompt_report_stats():
                              'All associations'],
                             none_option='Back'):
             case 1:
-                combined_methods = {str(m): v for m, v in length_type_report['methods'].items()} | length_type_report['multimethods']
-                console.print(_generate_dict_table(dict(sorted(combined_methods.items(), key=lambda x: (-x[1], x[0])))))
+                console.print(_generate_dict_table(length_type_report['all_methods'], key_name='Methods'))
             case 2:
-                console.print(_generate_dict_table(length_type_report['ringers'], 'Ringers'))
+                console.print(_generate_dict_table(length_type_report['ringers'], key_name='Ringers'))
             case 3:
-                console.print(_generate_dict_table(length_type_report['conductors'], 'Conductors'))
+                console.print(_generate_dict_table(length_type_report['conductors'], key_name='Conductors'))
             case 4:
-                console.print(_generate_dict_table(length_type_report['associations'], 'Associations'))
+                console.print(_generate_dict_table(length_type_report['associations'], key_name='Associations'))
             case None:
                 return
         confirm(None, confirm_message='Press enter to continue')
@@ -90,10 +96,28 @@ def _generate_summary_heading(report: dict,
         summary_text += f' from {utils.format_date_short(max(date_from, report["first"]))}'
     if date_to:
         summary_text += f' to {utils.format_date_short(min(date_to, report["last"]))}'
+    return summary_text
 
 
-def _generate_peal_length_table(data: dict) -> Table:
+def _generate_peal_length_table(data: dict, conducted_data: dict) -> Table:
+    table = Table(show_header=False, show_footer=False, padding=0, box=None, expand=True)
+    table.add_column(None, justify='left', ratio=1)
+    table.add_column(None, justify='center', ratio=1)
+    table.add_column(None, justify='right', ratio=1)
+    table.add_row(
+        _generate_dict_table([data['stages'], conducted_data['stages']], key_name='Stage', value_name=['Rung', 'Conducted']),
+        _generate_dict_table([data['all_methods'], conducted_data['all_methods']], key_name='Methods', value_name=['Rung', 'Conducted'], max_rows=10),
+        _generate_dict_table([_generate_misc_data(data), _generate_misc_data(conducted_data)], key_name='Misc', value_name=['Rung', 'Conducted']),
+    )
+    table.add_row(
+        _generate_dict_table(data['ringers'], key_name='Top 10 Ringers', max_rows=10),
+        _generate_dict_table(data['conductors'], key_name='Top 10 Conductors', max_rows=10),
+        _generate_dict_table(data['associations'], key_name='Top 10 Associations', max_rows=10),
+    )
+    return table
 
+
+def _generate_misc_data(data: dict) -> dict:
     misc_data = {}
     for type in data['types']:
         misc_data[str(type)] = data['types'][type]
@@ -106,27 +130,18 @@ def _generate_peal_length_table(data: dict) -> Table:
     misc_data['Last rung'] = utils.format_date_short(data['last'])
     misc_data['Avg. peal speed'] = utils.get_time_str(data['avg_peal_speed'])
     misc_data['Avg. duration'] = utils.get_time_str(data['avg_duration'])
-
-    combined_methods = {str(m): v for m, v in data['methods'].items()} | data['multimethods']
-
-    table = Table(show_header=False, show_footer=False, padding=0, box=None, expand=True)
-    table.add_column(None, justify='left', ratio=1)
-    table.add_column(None, justify='center', ratio=1)
-    table.add_column(None, justify='right', ratio=1)
-    table.add_row(
-        _generate_dict_table(data['stages'], 'Stage'),
-        _generate_dict_table(combined_methods, 'Methods', max_rows=10),
-        _generate_dict_table(misc_data, 'Misc'),
-    )
-    table.add_row(
-        _generate_dict_table(data['ringers'], 'Top 10 Ringers', max_rows=10),
-        _generate_dict_table(data['conductors'], 'Top 10 Conductors', max_rows=10),
-        _generate_dict_table(data['associations'], 'Top 10 Associations', max_rows=10),
-    )
-    return table
+    return misc_data
 
 
-def _generate_dict_table(data: dict, key_name: str = '', value_name: str | tuple[str] = 'Count', max_rows: int = None) -> Table:
+def _generate_dict_table(data: dict | list[dict], key_name: str = '', value_name: str | list[str] = 'Count', max_rows: int = None) -> Table:
+
+    if type(data) is dict:
+        combined_data = data
+    else:
+        combined_data = {}
+        for key in data[0]:
+            combined_data[key] = [dataset.get(key) for dataset in data]
+
     table = Table(show_footer=False, box=box.HORIZONTALS, expand=True)
     table.add_column(key_name, justify='left')
     if type(value_name) is str:
@@ -134,11 +149,11 @@ def _generate_dict_table(data: dict, key_name: str = '', value_name: str | tuple
     else:
         for name in value_name:
             table.add_column(name or '', justify='left')
-    if len(data) == 0:
+    if len(combined_data) == 0:
         table.add_row('None')
     else:
-        for key, value in list(data.items())[:max_rows or len(data)]:
-            if type(value) is tuple:
+        for key, value in list(combined_data.items())[:max_rows or len(combined_data)]:
+            if type(value) is list:
                 table.add_row(str(key) if key else '', *[str(v) if v else '' for v in value])
             else:
                 table.add_row(str(key) if key else '', str(value) if value else '')

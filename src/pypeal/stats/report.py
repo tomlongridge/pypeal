@@ -2,7 +2,11 @@ from pypeal.method import Stage
 from pypeal.peal import Peal, PealType
 
 
-def generate_summary(peals: list[Peal], ring_id: int = None, tower_id: int = None, ringer_id: int = None) -> dict:
+def generate_summary(peals: list[Peal],
+                     ring_id: int = None,
+                     tower_id: int = None,
+                     ringer_id: int = None,
+                     conducted_only: bool = False) -> dict:
 
     report = {}
     report['count'] = len(peals)
@@ -11,6 +15,15 @@ def generate_summary(peals: list[Peal], ring_id: int = None, tower_id: int = Non
     report['last'] = None
     report['last_added'] = None
     for peal in peals:
+
+        if ringer_id and conducted_only:
+            ringer_is_conductor = False
+            for peal_ringer in peal.ringers:
+                if peal_ringer.ringer.id == ringer_id:
+                    ringer_is_conductor = peal_ringer.is_conductor
+                    break
+            if not ringer_is_conductor:
+                continue
 
         if report['last_added'] is None or report['last_added'] < peal.created_date:
             report['last_added'] = peal.created_date
@@ -31,13 +44,12 @@ def generate_summary(peals: list[Peal], ring_id: int = None, tower_id: int = Non
             report['types'][peal.length_type]['associations'] = dict()
             report['types'][peal.length_type]['stages'] = dict()
             report['types'][peal.length_type]['methods'] = dict()
+            report['types'][peal.length_type]['all_methods'] = dict()
             report['types'][peal.length_type]['muffles'] = dict()
             report['types'][peal.length_type]['ringers'] = dict()
             report['types'][peal.length_type]['conductors'] = dict()
-            report['types'][peal.length_type]['conducted_count'] = 0
             report['types'][peal.length_type]['rings'] = dict()
             report['types'][peal.length_type]['towers'] = dict()
-            report['types'][peal.length_type]['multimethods'] = dict()
         else:
             report['types'][peal.length_type]['count'] += 1
             if peal.date < report['types'][peal.length_type]['first']:
@@ -72,16 +84,20 @@ def generate_summary(peals: list[Peal], ring_id: int = None, tower_id: int = Non
             if peal.method not in report['types'][peal.length_type]['methods']:
                 report['types'][peal.length_type]['methods'][peal.method] = 0
             report['types'][peal.length_type]['methods'][peal.method] += 1
-        elif peal.num_methods_in_title > 0:
-            mixed_description = 'Spliced ' if peal.type == PealType.SPLICED_METHODS else 'Mixed '
-            if peal.classification:
-                mixed_description += f'{peal.classification} '
-            if peal.is_variable_cover:
-                mixed_description += f'{Stage(peal.stage.value - 1)} and '
-            mixed_description += str(peal.stage)
-            if mixed_description not in report['types'][peal.length_type]['multimethods']:
-                report['types'][peal.length_type]['multimethods'][mixed_description] = 0
-            report['types'][peal.length_type]['multimethods'][mixed_description] += 1
+            if peal.num_methods_in_title == 0:
+                if peal.method.full_name not in report['types'][peal.length_type]['all_methods']:
+                    report['types'][peal.length_type]['all_methods'][peal.method.full_name] = 0
+                report['types'][peal.length_type]['all_methods'][peal.method.full_name] += 1
+            else:
+                mixed_description = 'Spliced ' if peal.type == PealType.SPLICED_METHODS else 'Mixed '
+                if peal.classification:
+                    mixed_description += f'{peal.classification} '
+                if peal.is_variable_cover:
+                    mixed_description += f'{Stage(peal.stage.value - 1)} and '
+                mixed_description += str(peal.stage)
+                if mixed_description not in report['types'][peal.length_type]['all_methods']:
+                    report['types'][peal.length_type]['all_methods'][mixed_description] = 0
+                report['types'][peal.length_type]['all_methods'][mixed_description] += 1
 
         if peal.muffles:
             if peal.muffles not in report['types'][peal.length_type]['muffles']:
@@ -98,8 +114,6 @@ def generate_summary(peals: list[Peal], ring_id: int = None, tower_id: int = Non
                     if peal_ringer.ringer.name not in report['types'][peal.length_type]['conductors']:
                         report['types'][peal.length_type]['conductors'][peal_ringer.ringer.name] = 0
                     report['types'][peal.length_type]['conductors'][peal_ringer.ringer.name] += 1
-                elif ringer_id:
-                    report['types'][peal.length_type]['conducted_count'] += 1
 
         if ring_id is None and peal.ring:
             if peal.ring not in report['types'][peal.length_type]['rings']:
