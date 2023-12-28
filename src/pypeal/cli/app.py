@@ -57,7 +57,7 @@ def main(
         clear_data: Annotated[bool, typer.Option(help="Clear peal data")] = False,
         peal_id_or_url: Annotated[str, typer.Option("--peal", help="The Bellboard peal ID or URL")] = None,
         config: Annotated[str, typer.Option(help="Path to config file.")] = None,
-        ):
+):
 
     if config:
         try:

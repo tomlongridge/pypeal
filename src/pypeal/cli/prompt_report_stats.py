@@ -105,9 +105,15 @@ def _generate_peal_length_table(data: dict, conducted_data: dict) -> Table:
     table.add_column(None, justify='center', ratio=1)
     table.add_column(None, justify='right', ratio=1)
     table.add_row(
-        _generate_dict_table([data['stages'], conducted_data['stages']], key_name='Stage', value_name=['Rung', 'Conducted']),
-        _generate_dict_table([data['all_methods'], conducted_data['all_methods']], key_name='Methods', value_name=['Rung', 'Conducted'], max_rows=10),
-        _generate_dict_table([_generate_misc_data(data), _generate_misc_data(conducted_data)], key_name='Misc', value_name=['Rung', 'Conducted']),
+        _generate_dict_table([data['stages'], conducted_data['stages']],
+                             key_name='Stage',
+                             value_name=['Rung', 'Conducted']),
+        _generate_dict_table([data['all_methods'], conducted_data['all_methods']],
+                             key_name='Methods', value_name=['Rung', 'Conducted'],
+                             max_rows=10),
+        _generate_dict_table([_generate_misc_data(data), _generate_misc_data(conducted_data)],
+                             key_name='Misc',
+                             value_name=['Rung', 'Conducted']),
     )
     table.add_row(
         _generate_dict_table(data['ringers'], key_name='Top 10 Ringers', max_rows=10),

@@ -37,8 +37,8 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 
 @pytest.mark.parametrize(
-            'input_file',
-            [file.split('.')[0] for file in sorted(os.listdir(os.path.join(os.path.dirname(__file__), 'files', 'peals', 'stored')))])
+    'input_file',
+    [file.split('.')[0] for file in sorted(os.listdir(os.path.join(os.path.dirname(__file__), 'files', 'peals', 'stored')))])
 def test_app(mock_bellboard_server, input_file: int):
 
     peal_ids = [int(peal_id) for peal_id in input_file.split('-')[1].split('|')]
