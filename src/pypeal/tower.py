@@ -15,8 +15,6 @@ FIELD_LIST: list[str] = ['towerbase_id', 'place', 'sub_place', 'dedication', 'co
 RING_FIELD_LIST: list[str] = ['tower_id', 'description', 'date_removed']
 BELL_FIELD_LIST: list[str] = ['tower_id', 'role', 'weight', 'note', 'cast_year', 'founder']
 
-DEFAULT_COUNTRY_NAME = config.get_config('general', 'default_country_name')
-
 
 @dataclass
 class Tower():
@@ -69,7 +67,8 @@ class Tower():
         text = self.place or ''
         text += f', {self.sub_place}' if self.sub_place else ''
         text += f', {self.county}' if self.county else ''
-        if self.country and (not DEFAULT_COUNTRY_NAME or self.country.lower() != DEFAULT_COUNTRY_NAME.lower()):
+        default_country_name = config.get_config('general', 'default_country_name')
+        if self.country and (not default_country_name or self.country.lower() != default_country_name.lower()):
             text += f', {self.country}'
         text += f', {self.dedication}' if self.dedication else ''
         return text

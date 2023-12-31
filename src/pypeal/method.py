@@ -1,15 +1,16 @@
 from __future__ import annotations
 from dataclasses import dataclass
-from enum import Enum
+from enum import Enum, IntEnum
 from pypeal import utils
 from pypeal.cache import Cache
 
 from pypeal.db import Database
 
 
-class Stage(Enum):
+class Stage(IntEnum):
 
-    TWO = 2
+    UNUS = 1
+    MICROMUS = 2
     SINGLES = 3
     MINIMUS = 4
     DOUBLES = 5

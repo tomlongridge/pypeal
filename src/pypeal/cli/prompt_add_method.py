@@ -37,7 +37,8 @@ def prompt_add_method(method: Method, original_name: str, quick_mode: bool) -> t
 
                 print('Enter search criteria:')
                 name = ask('Name', default=method.name if method else None, required=False)
-                stage = Stage(ask_int('Stage', default=method.stage.value if method else None, min=2, max=22))
+                if state_val := ask_int('Stage', default=method.stage.value if method and method.stage else None, min=2, max=22):
+                    stage = Stage(state_val)
                 classification = choose_option([classification for classification in Classification],
                                                default=method.classification if method else None,
                                                title='Classification',

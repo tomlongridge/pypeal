@@ -2,7 +2,7 @@ from __future__ import annotations
 import copy
 from dataclasses import dataclass
 from datetime import datetime
-from enum import Enum
+from enum import IntEnum
 from itertools import zip_longest
 import json
 from pypeal import config, utils
@@ -22,7 +22,7 @@ FIELD_LIST: list[str] = ['bellboard_id', 'type', 'bell_type', 'date', 'associati
                          'external_reference', 'bellboard_submitter', 'bellboard_submitted_date', 'created_date']
 
 
-class PealType(Enum):
+class PealType(IntEnum):
     SINGLE_METHOD = 1
     MIXED_METHODS = 2
     SPLICED_METHODS = 3
@@ -32,18 +32,19 @@ class PealType(Enum):
         return self.name.replace("_", " ").title()
 
 
-class PealLengthType(Enum):
+class PealLengthType(IntEnum):
     TOUCH = 1
     QUARTER_PEAL = 2
     HALF_PEAL = 3
     PEAL = 4
     LONG_LENGTH = 5
+    NONE = 0
 
     def __str__(self):
         return self.name.replace("_", " ").title()
 
 
-class BellType(Enum):
+class BellType(IntEnum):
     TOWER = 1
     HANDBELLS = 2
 
@@ -51,7 +52,7 @@ class BellType(Enum):
         return self.name.replace("_", " ").title()
 
 
-class MuffleType(Enum):
+class MuffleType(IntEnum):
     HALF = 1
     FULLY = 2
 
@@ -365,7 +366,7 @@ class Peal:
     @property
     def length_type(self) -> PealLengthType:
         if self.changes is None:
-            return None
+            return PealLengthType.NONE
         elif config.get_config('general', 'allow_short_quarter_peals_under_triples') or (self.stage and self.stage.value < 7):
             if self.changes < 1250:
                 return PealLengthType.TOUCH
@@ -534,18 +535,19 @@ class Peal:
     def commit(self):
         if self.id is not None:
             raise NotImplementedError('Updating existing peals is not yet supported')
+        self.created_date = datetime.now()
 
         result = Database.get_connection().query(
             f'INSERT INTO peals ({",".join(FIELD_LIST)}) ' +
             f'VALUES ({("%s,"*len(FIELD_LIST)).strip(",")})',
             (self.bellboard_id, self.type.value, self.bell_type.value, self.date, self.association.id if self.association else None,
                 self.ring.id if self.ring else None, self.__place, self.__sub_place, self.address, self.dedication, self.__county,
-                self.__country, self.__tenor_weight, self.__tenor_note, self.changes, self.stage.value if self.stage else None,
+                self.__country, self.changes, self.stage.value if self.stage else None,
                 self.classification.value if self.classification else None, self.is_variable_cover, self.num_methods, self.num_principles,
                 self.num_variants, self.method.id if self.method else None, self.title, self.published_title, self.detail,
-                self.composer.id if self.composer else None, self.composer_description, self.composition_url, self.duration, self.event_url,
-                self.muffles.value if self.muffles else None, self.external_reference, self.bellboard_submitter,
-                self.bellboard_submitted_date, datetime.now()))
+                self.composer.id if self.composer else None, self.composer_description, self.composition_url, self.duration,
+                self.__tenor_weight, self.__tenor_note, self.event_url, self.muffles.value if self.muffles else None,
+                self.external_reference, self.bellboard_submitter, self.bellboard_submitted_date, self.created_date))
         Database.get_connection().commit()
         self.id = result.lastrowid
         for method, changes in self.methods:

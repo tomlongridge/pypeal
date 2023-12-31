@@ -12,7 +12,7 @@ from pypeal.cli.prompt_add_ringer import prompt_add_ringer
 from pypeal.cli.prompt_peal_title import prompt_peal_title
 from pypeal.cli.prompts import UserCancelled, confirm, error
 from pypeal.parsers import parse_tenor_info
-from pypeal.peal import Peal, BellType, PealType
+from pypeal.peal import Peal, BellType, PealLengthType, PealType
 from pypeal.tower import Tower
 
 
@@ -79,7 +79,7 @@ class PealPromptListener(PealGeneratorListener):
         value = _clean_str_input(value)
         # A non-peal performance will have general text about the performance
         # e.g. "Rounds and call changes"
-        if self.peal.length_type is None:
+        if self.peal.length_type == PealLengthType.NONE:
             self.peal.detail = value
             if value:
                 print(f'📝 Details: {value}')

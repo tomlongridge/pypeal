@@ -6,7 +6,6 @@ import typer
 import urllib.parse
 
 from rich import print
-from rich.console import Console
 from rich.table import Table
 
 from pypeal import config
@@ -25,7 +24,7 @@ from pypeal.db import initialize as initialize_db
 from pypeal.dove import update_associations, update_bells, update_rings, update_towers
 from pypeal.peal import Peal, BellType
 from pypeal.ringer import Ringer
-from pypeal.config import set_config_file
+from pypeal.config import get_config, set_config_file
 from pypeal.stats.report import generate_summary as generate_peal_summary
 
 logger = logging.getLogger('pypeal')
@@ -46,8 +45,8 @@ logger.addHandler(ch)
 app = typer.Typer()
 
 
-__peals: list[Peal] = None
-__bb_peals: dict[str, Peal] = None
+_peals: list[Peal] = None
+_bb_peals: dict[str, Peal] = None
 
 
 @app.command()
@@ -67,6 +66,8 @@ def main(
             raise typer.Exit()
 
     initialize_or_exit(reset_database, clear_data)
+
+    refresh_peal_list()
 
     match action:
         case None:
@@ -141,17 +142,19 @@ def run_interactive(peal_id_or_url: str):
 
 
 def print_summary():
+    global _peals
     heading('pypeal Database')
-    summary = generate_peal_summary(get_all_peals())
-    table = Table(show_header=False, show_footer=False, expand=True, box=None)
-    table.add_column(ratio=1)
-    table.add_column(ratio=1, justify='right')
-    type_summary = ''
-    for type, report in summary["types"].items():
-        type_summary += f'{type}s: {report["count"]}\n'
-    table.add_row(type_summary.strip(), f'Last updated: {summary["last_added"]}')
-    console = Console()
-    console.print(table)
+    summary = generate_peal_summary(_peals)
+    if summary['count'] > 0:
+        table = Table(show_header=False, show_footer=False, expand=True, box=None)
+        table.add_column(ratio=1)
+        table.add_column(ratio=1, justify='right')
+        type_summary = ''
+        for type, report in summary["types"].items():
+            type_summary = f'{type}s: {report["count"]}\n'
+            table.add_row(type_summary.strip(),
+                          f'Last updated: {summary["last_added"]}' if not get_config('diagnostics', 'print_user_input') else '')
+        print(table)
 
 
 def poll_for_new_peals():
@@ -170,6 +173,7 @@ def poll_for_new_peals():
 
 
 def add_peal(peal_id: int = None):
+    global _bb_peals
 
     generator = HTMLPealGenerator()
     preview_listener = PealPreviewListener()
@@ -180,13 +184,14 @@ def add_peal(peal_id: int = None):
         generator.parse(preview_listener)
         panel(preview_listener.text, title=get_url_from_id(peal_id))
 
-        if peal_id in get_bb_peals():
+        if peal_id in _bb_peals:
             error(f'Peal {peal_id} already added to database')
             return
 
         prompt_listener.quick_mode = confirm(None, confirm_message='Try for a quick-add?', default=True)
 
         while True:
+
             generator.parse(prompt_listener)
 
             peal = prompt_listener.peal
@@ -195,6 +200,8 @@ def add_peal(peal_id: int = None):
                     confirm(None, confirm_message='Try again in prompt mode?', default=True):
                 prompt_listener.quick_mode = False
                 continue
+
+            add_to_peal_list(peal)
             return
 
     except BellboardError as e:
@@ -204,13 +211,14 @@ def add_peal(peal_id: int = None):
 
 
 def search_by_url(url: str = None):
+    global _bb_peals
 
     while True:
         try:
             count_duplicate = 0
             count_added = 0
             for peal_id in bellboard_search_by_url(url or ask('Bellboard URL')):
-                if peal_id in get_bb_peals():
+                if peal_id in _bb_peals:
                     count_duplicate += 1
                     continue
                 else:
@@ -266,7 +274,7 @@ def search():
                                         title=title,
                                         bell_type=bell_type,
                                         order_descending=order_descending):
-            if peal_id in get_bb_peals():
+            if peal_id in _bb_peals:
                 count_duplicate += 1
                 continue
             else:
@@ -319,21 +327,14 @@ def initialize_or_exit(reset_db: bool, clear_data: bool):
         Ringer.clear_data()
 
 
-def get_all_peals(force_update: bool = False):
-    global __peals
-    if not __peals or force_update:
-        update_peal_list()
-    return __peals
+def refresh_peal_list():
+    global _peals, _bb_peals
+    _peals = Peal.get_all()
+    _bb_peals = {peal.bellboard_id: peal for peal in _peals}
 
 
-def get_bb_peals(force_update: bool = False):
-    global __bb_peals
-    if not __bb_peals or force_update:
-        update_peal_list()
-    return __bb_peals
-
-
-def update_peal_list():
-    global __peals, __bb_peals
-    __peals = Peal.get_all()
-    __bb_peals = {peal.bellboard_id: peal for peal in __peals}
+def add_to_peal_list(peal: Peal):
+    global _peals, _bb_peals
+    _peals.append(peal)
+    if peal.bellboard_id:
+        _bb_peals[peal.bellboard_id] = peal

@@ -1,8 +1,8 @@
 
 ===
-╭─────────────────────────────────── pypeal ───────────────────────────────────╮
-│ Number of peals: 15                                                          │
-╰──────────────────────────────────────────────────────────────────────────────╯
+pypeal Database
+ Quarter Peals: 12                                                              
+ Peals: 3                                                                       
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) Find recent peals                                                         │
 │ 2) Add peals by search                                                       │
@@ -10,8 +10,9 @@
 │ 4) Add peal by ID/URL                                                        │
 │ 5) Add random peal                                                           │
 │ 6) View peal                                                                 │
-│ 7) Update static data                                                        │
-│ 8) Exit                                                                      │
+│ 7) View statistics                                                           │
+│ 8) Update static data                                                        │
+│ 9) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
 >>> 4
@@ -216,9 +217,9 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 Peal 1066455 added
-╭─────────────────────────────────── pypeal ───────────────────────────────────╮
-│ Number of peals: 16                                                          │
-╰──────────────────────────────────────────────────────────────────────────────╯
+pypeal Database
+ Quarter Peals: 13                                                              
+ Peals: 3                                                                       
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) Find recent peals                                                         │
 │ 2) Add peals by search                                                       │
@@ -226,12 +227,13 @@ Peal 1066455 added
 │ 4) Add peal by ID/URL                                                        │
 │ 5) Add random peal                                                           │
 │ 6) View peal                                                                 │
-│ 7) Update static data                                                        │
-│ 8) Exit                                                                      │
+│ 7) View statistics                                                           │
+│ 8) Update static data                                                        │
+│ 9) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
->>> 8
-[User input: "8"]
+>>> 9
+[User input: "9"]
 ===
 Marston Bigot, Somerset, England
 Pig-le-Tower

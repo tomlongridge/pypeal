@@ -51,12 +51,12 @@ def generate_summary(peals: list[Peal],
             report['types'][peal.length_type]['rings'] = dict()
             report['types'][peal.length_type]['towers'] = dict()
         else:
-            report['types'][peal.length_type]['count'] += 1
             if peal.date < report['types'][peal.length_type]['first']:
                 report['types'][peal.length_type]['first'] = peal.date
             if peal.date > report['types'][peal.length_type]['last']:
                 report['types'][peal.length_type]['last'] = peal.date
 
+        report['types'][peal.length_type]['count'] += 1
         if peal.changes:
             report['types'][peal.length_type]['changes'] += peal.changes
         if peal.duration:
@@ -127,8 +127,10 @@ def generate_summary(peals: list[Peal],
 
     report['types'] = dict(sorted(report['types'].items()))
     for length_type_report in report['types'].values():
-        length_type_report['avg_peal_speed'] = (length_type_report['duration'] / length_type_report['changes']) * 5040
-        length_type_report['avg_duration'] = length_type_report['duration'] / length_type_report['count']
+        if length_type_report['duration']:
+            if length_type_report['changes']:
+                length_type_report['avg_peal_speed'] = (length_type_report['duration'] / length_type_report['changes']) * 5040
+            length_type_report['avg_duration'] = length_type_report['duration'] / length_type_report['count']
         for report_name, nested_reports in length_type_report.items():
             if type(nested_reports) is dict:
                 length_type_report[report_name] = dict(sorted(nested_reports.items(), key=lambda x: (-x[1], str(x[0]))))

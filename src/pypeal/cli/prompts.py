@@ -129,6 +129,9 @@ def error(message: str, title: str = None):
 
 
 def heading(message: str):
-    print()
-    print(Padding(message, (1, 1), style=_heading_style))
-    print()
+    if get_config('diagnostics', 'print_user_input'):
+        print(message)
+    else:
+        print()
+        print(Padding(message, (1, 1), style=_heading_style))
+        print()
