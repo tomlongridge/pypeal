@@ -36,7 +36,7 @@ FOOTNOTE_RINGER_REGEX_PREFIX = re.compile(r'^' + FOOTNOTE_RINGER_LIST_PATTERN +
                                           r'\s?[-:]\s?(?P<footnote>.*)\.?$', re.IGNORECASE)
 FOOTNOTE_RINGER_REGEX_SUFFIX = re.compile(r'^(?P<footnote>.*)\s?[-:]\s?' + FOOTNOTE_RINGER_LIST_PATTERN +
                                           r'\.?$', re.IGNORECASE)
-FOOTNOTE_CONDUCTOR_REGEX = re.compile(r'.*as conductor.*', re.IGNORECASE)
+FOOTNOTE_CONDUCTOR_REGEX = re.compile(r'.*as cond(?:uctor)?.*', re.IGNORECASE)
 FOOTNOTE_COMPOSER_REGEX = re.compile(r'.*(composed|composition) by\s(?P<composer>.*)$', re.IGNORECASE)
 FOOTNOTE_ALL_BAND_REGEX = \
     re.compile(r'.*(?:for|by) all(?: the band)?(?: (?:except for|except|apart from)(?: the)? (?P<exceptions>[^\.]+))?', re.IGNORECASE)
@@ -270,6 +270,8 @@ def parse_footnote(footnote: str, num_bells: int, conductor_bells: list[int]) ->
             text = footnote_info['footnote'].strip()
             bells = _referenced_bells_to_list(footnote_info['bells'], num_bells)
         text += '.'
+        if re.match('.*cond(?!uctor).*', text):
+            text = text.replace('cond', 'conductor')
         if re.match(FOOTNOTE_CONDUCTOR_REGEX, text):
             bells += conductor_bells
         if all_band_match := re.match(FOOTNOTE_ALL_BAND_REGEX, text):
@@ -280,8 +282,17 @@ def parse_footnote(footnote: str, num_bells: int, conductor_bells: list[int]) ->
                     not_bells += conductor_bells
                     excluded_ringers = excluded_ringers.replace('the conductor', '')
                     excluded_ringers = excluded_ringers.replace('conductor', '')
+                elif 'treble' in excluded_ringers:
+                    not_bells += [1]
+                    excluded_ringers = excluded_ringers.replace('the treble', '')
+                    excluded_ringers = excluded_ringers.replace('treble', '')
+                elif 'tenor' in excluded_ringers:
+                    not_bells += [num_bells]
+                    excluded_ringers = excluded_ringers.replace('the tenor', '')
+                    excluded_ringers = excluded_ringers.replace('tenor', '')
                 for bell in re.split('|'.join(FOOTNOTE_RINGER_SEPARATORS), excluded_ringers):
-                    if len(bell) > 0:
+                    bell = bell.strip(' .,()')
+                    if len(bell) > 0 and bell.isnumeric():
                         not_bells += [int(bell)]
         bells = [bell for bell in bells if bell not in not_bells]
     return (sorted(bells) if len(bells) > 0 else None, conductor_bells, text)

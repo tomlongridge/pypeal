@@ -91,6 +91,9 @@ def update_associations():
                 association_obj.commit()
                 _logger.debug(f'Added association "{association_obj}" to database')
 
+    for path in sorted(pathlib.Path(os.path.join(os.path.dirname(__file__), '..', '..', 'scripts', 'associations')).glob('*.sql')):
+        Database.get_connection().run_script(path)
+
     _logger.debug('Reinstate foreign key checks')
     Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')
 

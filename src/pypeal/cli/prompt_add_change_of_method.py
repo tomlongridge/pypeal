@@ -13,6 +13,7 @@ def prompt_add_change_of_method_from_string(method_details: str, peal: Peal, qui
 
     methods: list[tuple[Method, str, int]] = []
     if method_details:
+        last_changes = None
         for method_name in [detail.strip(' .') for detail in re.split(METHOD_LIST_SEPARATORS_REGEX, method_details)]:
             method_name = re.sub(METHOD_PREFIX_IGNORE_REGEX, '', method_name, 1)
             if not method_name:
@@ -23,7 +24,8 @@ def prompt_add_change_of_method_from_string(method_details: str, peal: Peal, qui
                 method_obj.stage = peal.stage
             if not method_obj.classification:
                 method_obj.classification = peal.classification
-            methods.append((method_obj, method_name, changes))
+            methods.append((method_obj, method_name, changes or last_changes))
+            last_changes = changes or last_changes
 
     prompt_add_change_of_method(methods, peal, quick_mode)
 
@@ -31,6 +33,7 @@ def prompt_add_change_of_method_from_string(method_details: str, peal: Peal, qui
 def prompt_add_change_of_method(method_details: list[tuple[Method, str, int]], peal: Peal, quick_mode: bool):
 
     print('Adding changes of methods to multi-method peal...')
+    original_num_methods = len(peal.methods)
 
     # Parse method details
     if method_details:  # method_details is None if no methods were listed but it is a multi-method peal in title
@@ -65,3 +68,14 @@ def prompt_add_change_of_method(method_details: list[tuple[Method, str, int]], p
             changes = ask_int('Number of changes', default=None)
             peal.add_method(method, changes)
             print(f'Method {len(peal.methods)}: {method.full_name} ({changes if changes else "unknown"} changes)')
+
+    # Potentially update number of methods in the peal title if they now do not match
+    while len(peal.methods) != original_num_methods and len(peal.methods) != peal.num_methods_in_title:
+        if confirm(f'Number of methods ({len(peal.methods)}) does not match number of methods from peal title ' +
+                   f'({peal.num_methods_in_title}).',
+                   confirm_message='Do you want to update the title?'):
+            peal.num_methods = ask_int('Number of methods', default=peal.num_methods or 0)
+            peal.num_principles = ask_int('Number of principles', default=peal.num_principles or 0)
+            peal.num_variants = ask_int('Number of variants', default=peal.num_variants or 0)
+        else:
+            break

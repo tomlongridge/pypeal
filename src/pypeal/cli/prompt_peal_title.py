@@ -139,7 +139,7 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
                         excluded_methods += method_matches[0].id
                 case _:
                     print(f'{len(method_matches)} methods match search criteria')
-                    if matched_method := choose_option(method_matches, cancel_option='None'):
+                    if matched_method := choose_option(method_matches, none_option='None'):
                         _set_peal_title(peal,
                                         matched_method,
                                         PealType.SINGLE_METHOD)

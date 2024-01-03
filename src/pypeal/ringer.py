@@ -101,7 +101,7 @@ class Ringer():
             results = Database.get_connection().query(
                 f'SELECT {",".join(FIELD_LIST)}, id FROM ringers ' +
                 'WHERE id = %s OR link_id = %s ' +
-                'ORDER BY -date_to ASC', (id, id)).fetchall()
+                'ORDER BY date_to IS NULL, date_to ASC', (id, id)).fetchall()
 
             if not results:
                 return None
@@ -161,7 +161,7 @@ class Ringer():
             f'WHERE 1=1 {name_clause.replace("@tbl", "r")} AND r.link_id IS NULL ' +
             'OR (r.id IN (SELECT lr.link_id FROM ringers AS lr ' +
             f'WHERE 1=1 {name_clause.replace("@tbl", "lr")} ' +
-            f' {date_clause.replace("@tbl", "lr")}'
+            f' {date_clause.replace("@tbl", "lr")}' +
             'AND lr.link_id IS NOT NULL))',
             params
         ).fetchall()

@@ -38,7 +38,8 @@ def prompt_add_association(association: str, peal: Peal, quick_mode: bool):
             case _:
                 print(f'{len(association_results)} methods match "{association}"')
                 quick_mode = False
-                matched_association = choose_option(association_results, none_option='None')
+                if not (matched_association := choose_option(association_results, none_option='None')):
+                    continue
 
         if (quick_mode or
             (original_association_name is not None and
