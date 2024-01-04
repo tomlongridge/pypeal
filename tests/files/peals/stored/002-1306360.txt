@@ -110,7 +110,10 @@ Select option (1):
 Add new ringer as "Dainton" "Casey"? [y/n] (y): 
 >>> 
 [User input: "True"]
-👤 Ringer: 1: Dainton Casey
+Ringer note: 
+>>> Note 1
+[User input: "Note 1"]
+👤 Ringer: 1: Dainton Casey (Note 1)
 2: Couldn't find ringer matching "Daryl Mason" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 
@@ -119,7 +122,10 @@ Select option (1):
 Add new ringer as "Daryl" "Mason"? [y/n] (y): 
 >>> 
 [User input: "True"]
-👤 Ringer: 2: Daryl Mason
+Ringer note: 
+>>> Note 2
+[User input: "Note 2"]
+👤 Ringer: 2: Daryl Mason (Note 2)
 3: Couldn't find ringer matching "Roland Clark" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 
@@ -128,7 +134,10 @@ Select option (1):
 Add new ringer as "Roland" "Clark"? [y/n] (y): 
 >>> 
 [User input: "True"]
-👤 Ringer: 3: Roland Clark
+Ringer note: 
+>>> Note 3
+[User input: "Note 3"]
+👤 Ringer: 3: Roland Clark (Note 3)
 4: Couldn't find ringer matching "Michelle Thompson" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 
@@ -137,12 +146,18 @@ Select option (1):
 Add new ringer as "Michelle" "Thompson"? [y/n] (y): 
 >>> 
 [User input: "True"]
-👤 Ringer: 4: Michelle Thompson
+Ringer note: 
+>>> Note 4
+[User input: "Note 4"]
+👤 Ringer: 4: Michelle Thompson (Note 4)
 5: "Ted Harris" -> Ted Harris
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-👤 Ringer: 5: Ted Harris (c)
+Ringer note: 
+>>> Note 5
+[User input: "Note 5"]
+👤 Ringer: 5: Ted Harris (Note 5) (c)
 6: Couldn't find ringer matching "David Rogers" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 
@@ -151,7 +166,10 @@ Select option (1):
 Add new ringer as "David" "Rogers"? [y/n] (y): 
 >>> 
 [User input: "True"]
-👤 Ringer: 6: David Rogers
+Ringer note: 
+>>> Note 6
+[User input: "Note 6"]
+👤 Ringer: 6: David Rogers (Note 6)
 Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
@@ -171,12 +189,12 @@ Select option (1):
 │ On Thursday, 17 October 2019                                                 │
 │ A Quarter Peal of 1260 Mixed Doubles (5m/3v/1p) in 50 minutes (21 cwt in Eb) │
 │                                                                              │
-│ 1: Dainton Casey                                                             │
-│ 2: Daryl Mason                                                               │
-│ 3: Roland Clark                                                              │
-│ 4: Michelle Thompson                                                         │
-│ 5: Ted Harris (c)                                                            │
-│ 6: David Rogers                                                              │
+│ 1: Dainton Casey (Note 1)                                                    │
+│ 2: Daryl Mason (Note 2)                                                      │
+│ 3: Roland Clark (Note 3)                                                     │
+│ 4: Michelle Thompson (Note 4)                                                │
+│ 5: Ted Harris (Note 5) (c)                                                   │
+│ 6: David Rogers (Note 6)                                                     │
 │                                                                              │
 │ [BellBoard: http://localhost:8080/view.php?id=1306360 (Arnold Morrison,      │
 │ Thursday, 17 October 2019)]                                                  │
@@ -210,12 +228,12 @@ Blessed Virgin Mary
 On Thursday, 17 October 2019
 A Quarter Peal of 1260 Mixed Doubles (5m/3v/1p) in 50 minutes (21 cwt in Eb)
 
-1: Dainton Casey
-2: Daryl Mason
-3: Roland Clark
-4: Michelle Thompson
-5: Ted Harris (c)
-6: David Rogers
+1: Dainton Casey (Note 1)
+2: Daryl Mason (Note 2)
+3: Roland Clark (Note 3)
+4: Michelle Thompson (Note 4)
+5: Ted Harris (Note 5) (c)
+6: David Rogers (Note 6)
 
 [BellBoard: http://localhost:8080/view.php?id=1306360 (Arnold Morrison, Thursday, 17 October 2019)]
 [Published title: Doubles (1p/5m/3v)]

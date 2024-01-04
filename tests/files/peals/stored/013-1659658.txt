@@ -86,6 +86,9 @@ Select option (1):
 Add new ringer as "Garry" "Scott"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 1: Garry Scott
 2: "Charlie Warren" -> Carina Warren
 Is this correct? [y/n] (y): 
@@ -106,6 +109,9 @@ Add new ringer as "Charlie" "Warren"? [y/n] (y):
 Add "Charlie Warren"? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 2: Charlie Warren
 3: Couldn't find ringer matching "Arnold Johnson" (or aliases)
 1) Add new ringer, 2) Search ringers
@@ -115,16 +121,25 @@ Select option (1):
 Add new ringer as "Arnold" "Johnson"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 3: Arnold Johnson
 4: "Sienna Murphy" -> Sienna Murphy
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 4: Sienna Murphy
 5: "Blake Elliott" -> Blake Elliott
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 5: Blake Elliott
 6: "Blake Elliott" -> Blake Elliott
 Is this correct? [y/n] (y): 
@@ -145,26 +160,41 @@ Add new ringer as "Blake" "Elliott"? [y/n] (y):
 Add "Blake Elliott"? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 6: Blake Elliott
 7: "Melissa Baker" -> Melissa Baker
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 7: Melissa Baker
 8: "Daryl Mason" -> Daryl Mason
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 8: Daryl Mason
 9: "Leonardo Bennett" -> Leo Bennett
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 9: Leo Bennett
 10: "Chester Edwards" -> Chester Edwards
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 10: Chester Edwards (c)
 Footnote 1 text:
   > Rung as a birthday compliment to Matthew Skues.

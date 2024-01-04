@@ -70,6 +70,32 @@ WORD_TO_NUM = {
     'twenty-second': 22
 }
 
+NAME_TITLES = [
+    'Mr',
+    'Mrs',
+    'Miss',
+    'Ms',
+    'Rev',
+    'Revd',
+    'Dr',
+    'Prof',
+    'Sir',
+    'Lady',
+    'Dame',
+    'Lord',
+    'Rt Hon',
+    'Hon',
+    'Preb',
+    'Canon',
+    'Ven',
+    'Fr',
+    'Pastor',
+    'Bishop',
+    'Archbishop',
+    'Cardinal',
+    'Pope'
+]
+
 
 def get_bell_label(bells: list[int]) -> str:
     if bells and len(bells) >= 1:
@@ -126,6 +152,10 @@ def word_to_num(word: str) -> str:
 
 def get_num_words() -> list[str]:
     return WORD_TO_NUM.keys()
+
+
+def get_titles() -> list[str]:
+    return NAME_TITLES
 
 
 def get_time_str(mins: int) -> str:

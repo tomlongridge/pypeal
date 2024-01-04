@@ -95,6 +95,9 @@ Composition URL (http://localhost:8080/comp.php?id=2293479):
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 1: Leo Bennett
 2: Couldn't find ringer matching "Michelle Edwards" (or aliases)
 1) Add new ringer, 2) Search ringers
@@ -104,16 +107,25 @@ Select option (1):
 Add new ringer as "Michelle" "Edwards"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 2: Michelle Edwards
 3: "Dainton Casey" -> Dainton Casey
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 3: Dainton Casey
 4: "Paul Armstrong" -> Paul Armstrong
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 4: Paul Armstrong
 5: Couldn't find ringer matching "Deanna Bennett" (or aliases)
 1) Add new ringer, 2) Search ringers
@@ -123,6 +135,9 @@ Select option (1):
 Add new ringer as "Deanna" "Bennett"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 5: Deanna Bennett
 6: Couldn't find ringer matching "Brooke Adams" (or aliases)
 1) Add new ringer, 2) Search ringers
@@ -132,6 +147,9 @@ Select option (1):
 Add new ringer as "Brooke" "Adams"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 6: Brooke Adams (c)
 Add new footnote? [y/n] (n): 
 >>> n

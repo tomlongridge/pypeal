@@ -76,11 +76,17 @@ Is this correct? [y/n] (y):
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 1: Daniel Miller
 2: "Blake Elliott" -> Blake Elliott
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 2: Blake Elliott
 3: Couldn't find ringer matching "Joyce Sullivan" (or aliases)
 1) Add new ringer, 2) Search ringers
@@ -102,11 +108,17 @@ Given name(s) (Joyce):
 Title: 
 >>> 
 [User input: "None"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 3: Joyce Sullivan
 4: "Chester Edwards" -> Chester Edwards
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 4: Chester Edwards
 5: Couldn't find ringer matching "Patrick Bennett" (or aliases)
 1) Add new ringer, 2) Search ringers
@@ -116,21 +128,33 @@ Select option (1):
 Add new ringer as "Patrick" "Bennett"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 5: Patrick Bennett
 6: "Leonardo Bennett" -> Leo Bennett
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 6: Leo Bennett
 7: "Cadie Nelson" -> Cadie Nelson
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 7: Cadie Nelson
 8: "Clark Elliott" -> Clark Elliott
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 8: Clark Elliott
 9: Couldn't find ringer matching "Heather Sullivan" (or aliases)
 1) Add new ringer, 2) Search ringers
@@ -140,6 +164,9 @@ Select option (1):
 Add new ringer as "Heather" "Sullivan"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 9: Heather Sullivan
 10: Couldn't find ringer matching "Vivian Murray" (or aliases)
 1) Add new ringer, 2) Search ringers
@@ -149,6 +176,9 @@ Select option (1):
 Add new ringer as "Vivian" "Murray"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 10: Vivian Murray (c)
 Footnote 1 text:
   > Rung for Morning Service and as a 60th Wedding Anniversary compliment to Phyllis and Melvin Chapman.

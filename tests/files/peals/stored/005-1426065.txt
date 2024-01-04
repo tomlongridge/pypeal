@@ -88,6 +88,9 @@ Select option (1):
 Add new ringer as "Julia" "Fowler"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 Bell number(s) in the tower (1): 
 >>> 3
 [User input: "3"]
@@ -100,6 +103,9 @@ Select option (1):
 Add new ringer as "Daniel" "Miller"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 Bell number(s) in the tower (4): 
 >>> 
 [User input: "4"]
@@ -112,6 +118,9 @@ Select option (1):
 Add new ringer as "Clark" "Elliott"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 Bell number(s) in the tower (5): 
 >>> 
 [User input: "5"]
@@ -124,6 +133,9 @@ Select option (1):
 Add new ringer as "Chester" "Edwards"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 Bell number(s) in the tower (6): 
 >>> 
 [User input: "6"]
@@ -133,6 +145,9 @@ Bell number(s) in the tower (6):
 Select option (x = None): 
 >>> 1
 [User input: "Aston Mitchell"]
+Ringer note: 
+>>> 
+[User input: "None"]
 Bell number(s) in the tower (7): 
 >>> 
 [User input: "7"]
@@ -145,6 +160,9 @@ Select option (1):
 Add new ringer as "Cadie" "Nelson"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 Bell number(s) in the tower (8): 
 >>> 
 [User input: "8"]
@@ -157,6 +175,9 @@ Select option (1):
 Add new ringer as "Blake" "Elliott"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 Bell number(s) in the tower (9): 
 >>> 
 [User input: "9"]
@@ -188,6 +209,9 @@ Which name should be displayed?: 1) Leonardo Bennett, 2) Leo Bennett
 Select option (2): 
 >>> 2
 [User input: "2"]
+Ringer note: 
+>>> 
+[User input: "None"]
 Bell number(s) in the tower (10): 
 >>> 
 [User input: "10"]

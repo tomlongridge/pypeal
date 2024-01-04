@@ -45,6 +45,10 @@ def prompt_add_ringer(name: str,
        and not confirm(f'Use bell(s) {get_bell_label(bell_nums_in_ring)} for {name}?', default=True):
         bell_nums_in_ring = None
 
+    _, _, _, note = parse_ringer_name(name)
+    if not quick_mode:
+        note = ask('Ringer note', default=note, required=False)
+
     if bell_nums_in_ring is None:
 
         bell_nums_in_ring = []
@@ -96,12 +100,12 @@ def prompt_add_ringer(name: str,
         bell_ids = [peal.ring.bells[bell].id for bell in bell_nums_in_ring]
     else:
         bell_ids = None
-    peal.add_ringer(matched_ringer, bell_ids, bell_nums_in_peal, is_conductor)
+    peal.add_ringer(matched_ringer, bell_ids, bell_nums_in_peal, is_conductor, note)
 
 
 def prompt_add_ringer_by_search(name: str, label: str, allow_none: bool, quick_mode: bool) -> Ringer:
 
-    last_name, given_names, title = parse_ringer_name(name)
+    last_name, given_names, title, _ = parse_ringer_name(name)
     while True:
         match choose_option(['Add new ringer', 'Search ringers'] + (['None'] if allow_none else []),
                             default=1) if not quick_mode else 1:
@@ -133,7 +137,7 @@ def prompt_add_ringer_by_name_match(name: str, label: str, quick_mode: bool) -> 
     if name is None:
         return None
 
-    last_name, given_names, _ = parse_ringer_name(name)
+    last_name, given_names, _, _ = parse_ringer_name(name)
 
     searches = [
         (last_name, given_names, True, quick_mode),
@@ -210,7 +214,7 @@ def prompt_commit_ringer(ringer: Ringer, used_name: str, peal: Peal, quick_mode:
     if ringer.id is None:
         ringer.commit()
 
-    last_name, given_names, _ = parse_ringer_name(used_name)
+    last_name, given_names, _, _ = parse_ringer_name(used_name)
     stored_name = f'{ringer.given_names} {ringer.last_name}'
     if used_name != stored_name and \
             not ringer.has_alias(last_name=last_name, given_names=given_names):

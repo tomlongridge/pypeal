@@ -271,6 +271,7 @@ class PealRinger(BaseModel):
     nums: list[int] | None
     ringer: RingerBasic
     is_conductor: bool
+    note: str | None
 
 
 class PealBase(BaseModel):
@@ -342,7 +343,8 @@ class Peal(PealBase):
                 PealRinger(bell_roles=bells,
                            nums=ringer.bell_nums,
                            ringer=RingerBasic.from_object(ringer.ringer),
-                           is_conductor=ringer.is_conductor)
+                           is_conductor=ringer.is_conductor,
+                           note=ringer.note)
             )
         return cls(
             id=peal.id,

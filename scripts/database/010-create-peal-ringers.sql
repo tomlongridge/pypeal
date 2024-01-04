@@ -4,6 +4,7 @@ CREATE TABLE @db_name.`pealringers` (
     `bell_num` tinyint UNSIGNED  DEFAULT 0,
     `bell_id` int UNSIGNED NULL,
     `is_conductor` tinyint(1) NOT NULL DEFAULT 0,
+    `note` VARCHAR(255) NULL,
     `bell_weight` INT NULL,
     `bell_note` VARCHAR(10) NULL,
     `bell_cast_year` INT NULL,

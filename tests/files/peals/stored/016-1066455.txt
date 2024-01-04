@@ -94,6 +94,9 @@ Is this correct? [y/n] (y):
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 Bell number(s) in the tower (1): 
 >>> 
 [User input: "1"]
@@ -102,6 +105,9 @@ Bell number(s) in the tower (1):
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 Bell number(s) in the tower (2): 
 >>> 
 [User input: "2"]
@@ -110,6 +116,9 @@ Bell number(s) in the tower (2):
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 Bell number(s) in the tower (3): 
 >>> 
 [User input: "3"]
@@ -118,6 +127,9 @@ Bell number(s) in the tower (3):
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 Bell number(s) in the tower (4): 
 >>> 
 [User input: "4"]
@@ -126,6 +138,9 @@ Bell number(s) in the tower (4):
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 Bell number(s) in the tower (5): 
 >>> 
 [User input: "5"]
@@ -134,6 +149,9 @@ Bell number(s) in the tower (5):
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 Bell number(s) in the tower (6): 
 >>> 
 [User input: "6"]
@@ -146,6 +164,9 @@ Select option (1):
 Add new ringer as "Kate" "Crawford"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 Bell number(s) in the tower (7): 
 >>> 
 [User input: "7"]
@@ -154,6 +175,9 @@ Bell number(s) in the tower (7):
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 Bell number(s) in the tower (8): 
 >>> 
 [User input: "8"]

@@ -274,6 +274,9 @@ Select option (1):
 Add new ringer as "Lydia" "Reed"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 1: Lydia Reed
 2: Couldn't find ringer matching "Victoria Morrison" (or aliases)
 1) Add new ringer, 2) Search ringers
@@ -283,6 +286,9 @@ Select option (1):
 Add new ringer as "Victoria" "Morrison"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 2: Victoria Morrison
 3: Couldn't find ringer matching "Stuart Murray" (or aliases)
 1) Add new ringer, 2) Search ringers
@@ -292,22 +298,34 @@ Select option (1):
 Add new ringer as "Stuart" "Murray"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 3: Stuart Murray
 4: "Ned Andrews" -> Ned Andrews
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 4: Ned Andrews
 5: Found 2 ringers matching "Aston Mitchell" (or aliases)
 1) Aston Mitchell (15), 2) Aston Mitchell (19)
 Select option (x = None): 
 >>> 1
 [User input: "Aston Mitchell"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 5: Aston Mitchell (c)
 6: "Carina Warren" -> Carina Warren
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 6: Carina Warren
 Footnote 1 text:
   > Rung as a wedding compliment To Terry Lee Nash, of Lindenhurst, Long Island, New York, U.S.A., and Mrs Linda Archer of Saxmundham, daughter of the tower captain at this tower, who were married at this church on Easter Saturday.

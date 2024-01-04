@@ -238,6 +238,9 @@ Select option (1):
 Add new ringer as "Blake" "Howard"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 1: Blake Howard
 2: Couldn't find ringer matching "Aston Mitchell" (or aliases)
 1) Add new ringer, 2) Search ringers
@@ -247,6 +250,9 @@ Select option (1):
 Add new ringer as "Aston" "Mitchell"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 2: Aston Mitchell
 3: Couldn't find ringer matching "John Parker" (or aliases)
 1) Add new ringer, 2) Search ringers
@@ -256,11 +262,17 @@ Select option (1):
 Add new ringer as "John" "Parker"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 3: John Parker
 4: "Alen Henderson" -> Rev Alen Henderson
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 4: Rev Alen Henderson
 5: Couldn't find ringer matching "Dominik Warren" (or aliases)
 1) Add new ringer, 2) Search ringers
@@ -270,6 +282,9 @@ Select option (1):
 Add new ringer as "Dominik" "Warren"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 5: Dominik Warren
 6: Couldn't find ringer matching "Sienna Murphy" (or aliases)
 1) Add new ringer, 2) Search ringers
@@ -279,6 +294,9 @@ Select option (1):
 Add new ringer as "Sienna" "Murphy"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 6: Sienna Murphy (c)
 Footnote 1 text:
   > Rung as a wedding compliment to Miss Ann Pearce and Mr George Bradlaugh; Also a birthday compliment to Vernon B Bedford.

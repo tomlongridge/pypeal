@@ -137,6 +137,9 @@ Select option (1):
 Add new ringer as "Byron" "Miller"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 1: Byron Miller
 2: Couldn't find ringer matching "Paul Armstrong" (or aliases)
 1) Add new ringer, 2) Search ringers
@@ -146,11 +149,17 @@ Select option (1):
 Add new ringer as "Paul" "Armstrong"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 2: Paul Armstrong
 3: "Clark Elliott" -> Clark Elliott
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 3: Clark Elliott
 4: Couldn't find ringer matching "Alisa Cole" (or aliases)
 1) Add new ringer, 2) Search ringers
@@ -160,16 +169,25 @@ Select option (1):
 Add new ringer as "Alisa" "Cole"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 4: Alisa Cole
 5: "Chester Edwards" -> Chester Edwards
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 5: Chester Edwards
 6: "Heather Sullivan" -> Heather Sullivan
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 6: Heather Sullivan
 7: Couldn't find ringer matching "Jacob Cole" (or aliases)
 1) Add new ringer, 2) Search ringers
@@ -179,16 +197,25 @@ Select option (1):
 Add new ringer as "Jacob" "Cole"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 7: Jacob Cole
 8: "Joyce Sullivan" -> Joyce Sullivan
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 8: Joyce Sullivan
 9: "Leonardo Bennett" -> Leo Bennett
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 9: Leo Bennett (c)
 10: Couldn't find ringer matching "Byron Robinson" (or aliases)
 1) Add new ringer, 2) Search ringers
@@ -198,6 +225,9 @@ Select option (1):
 Add new ringer as "Byron" "Robinson"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 👤 Ringer: 10: Byron Robinson
 Footnote 1 text:
   > For Morning Service, and to welcome Rafe Jackson-Swift, son of Russell and Angela, born on 8th January.

@@ -4,31 +4,11 @@ from pypeal import config, utils
 from pypeal.method import Classification, Method, Stage
 from pypeal.peal import PealType
 
-NAME_TITLES = [
-    'Mr',
-    'Mrs',
-    'Miss',
-    'Ms',
-    'Rev',
-    'Revd',
-    'Dr',
-    'Prof',
-    'Sir',
-    'Lady',
-    'Dame',
-    'Lord',
-    'Rt Hon',
-    'Hon',
-    'Preb',
-    'Canon',
-    'Ven',
-    'Fr',
-    'Pastor',
-    'Bishop',
-    'Archbishop',
-    'Cardinal',
-    'Pope'
-]
+RINGER_NAME_REGEX = \
+    re.compile(r'^(?:(?P<title>(?:' + '|'.join(utils.get_titles()) +
+               r'))\.?\s+)?(?:(?P<given_names>[\s\w]+?)\s+)??(?:(?P<last_name>[\S]+?))' +
+               r'(?:\s\((?P<note>.+)\))?$',
+               re.IGNORECASE)
 
 METHOD_TITLE_NUMBER_OF_METHODS_REGEX = \
     re.compile(r'^(?P<num_methods>[0-9]+|' + '|'.join(utils.get_num_words()) + r')?\s?' +
@@ -329,20 +309,13 @@ def parse_footnote_for_composer(footnote: str) -> str:
         return composer_match.groupdict()['composer']
 
 
-def parse_ringer_name(full_name: str) -> tuple[str, str, str]:
+def parse_ringer_name(full_name: str) -> tuple[str, str, str, str]:
 
     if not full_name:
         return None
-    elif ' ' not in full_name.strip():
-        return full_name, None, None
 
-    split_names = full_name.strip().split(' ')
-    last_name = split_names[-1]
-    given_names = title = None
-    if split_names[0].strip('.') in NAME_TITLES:
-        title = split_names[0].strip('.')
-        if len(split_names) > 2:
-            given_names = ' '.join(split_names[1:-1])
-    else:
-        given_names = ' '.join(split_names[:-1])
-    return last_name, given_names, title
+    if not (match := re.match(RINGER_NAME_REGEX, full_name.strip())):
+        raise ValueError(f'Unable to parse ringer name: {full_name}')
+
+    name_parts = match.groupdict()
+    return (name_parts['last_name'], name_parts['given_names'], name_parts['title'], name_parts['note'])

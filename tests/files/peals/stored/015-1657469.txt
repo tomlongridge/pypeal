@@ -138,6 +138,9 @@ Is this correct? [y/n] (y):
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 Bell number(s) in the tower (1): 
 >>> 10
 [User input: "10"]
@@ -191,6 +194,9 @@ Bell number(s) in the tower (1):
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 Bell number(s) in the tower (6): 
 >>> 5
 [User input: "5"]
@@ -230,6 +236,9 @@ Select option (1):
 Add new ringer as "George" "Roberts"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 Bell number(s) in the tower (7): 
 >>> 
 [User input: "7"]
@@ -238,6 +247,9 @@ Bell number(s) in the tower (7):
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 Bell number(s) in the tower (8): 
 >>> 
 [User input: "8"]
@@ -246,6 +258,9 @@ Bell number(s) in the tower (8):
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 Bell number(s) in the tower (9): 
 >>> 
 [User input: "9"]
@@ -258,6 +273,9 @@ Select option (1):
 Add new ringer as "Grace" "Perry"? [y/n] (y): 
 >>> y
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
 Bell number(s) in the tower (10): 
 >>> 
 [User input: "10"]
