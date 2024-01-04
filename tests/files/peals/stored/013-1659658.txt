@@ -71,12 +71,9 @@ Composer: Attempting to find "Alex W Tatlow"
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Tatlow): 
+Add new ringer as "Alex W" "Tatlow"? [y/n] (y): 
 >>> 
-[User input: "Tatlow"]
-Given name(s) (Alex W): 
->>> 
-[User input: "Alex W"]
+[User input: "True"]
 Composition URL (http://localhost:8080/comp.php?id=2293307): 
 >>> 
 [User input: "http://localhost:8080/comp.php?id=2293307"]
@@ -86,12 +83,9 @@ Composition URL (http://localhost:8080/comp.php?id=2293307):
 Select option (1): 
 >>> 
 [User input: "1"]
-Last name (Scott): 
+Add new ringer as "Garry" "Scott"? [y/n] (y): 
 >>> 
-[User input: "Scott"]
-Given name(s) (Garry): 
->>> 
-[User input: "Garry"]
+[User input: "True"]
 👤 Ringer: 1: Garry Scott
 2: "Charlie Warren" -> Carina Warren
 Is this correct? [y/n] (y): 
@@ -102,12 +96,9 @@ Is this correct? [y/n] (y):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Warren): 
+Add new ringer as "Charlie" "Warren"? [y/n] (y): 
 >>> 
-[User input: "Warren"]
-Given name(s) (Charlie): 
->>> 
-[User input: "Charlie"]
+[User input: "True"]
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Warning: Found 1 existing ringers with similar names:                        │
 │   - Carina Warren                                                            │
@@ -121,12 +112,9 @@ Add "Charlie Warren"? [y/n] (y):
 Select option (1): 
 >>> 
 [User input: "1"]
-Last name (Johnson): 
+Add new ringer as "Arnold" "Johnson"? [y/n] (y): 
 >>> 
-[User input: "Johnson"]
-Given name(s) (Arnold): 
->>> 
-[User input: "Arnold"]
+[User input: "True"]
 👤 Ringer: 3: Arnold Johnson
 4: "Sienna Murphy" -> Sienna Murphy
 Is this correct? [y/n] (y): 
@@ -147,12 +135,9 @@ Is this correct? [y/n] (y):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Elliott): 
+Add new ringer as "Blake" "Elliott"? [y/n] (y): 
 >>> 
-[User input: "Elliott"]
-Given name(s) (Blake): 
->>> 
-[User input: "Blake"]
+[User input: "True"]
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Warning: Found 1 existing ringers with similar names:                        │
 │   - Blake Elliott                                                            │

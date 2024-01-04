@@ -271,36 +271,27 @@ Is this correct? [y/n] (y):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Reed): 
+Add new ringer as "Lydia" "Reed"? [y/n] (y): 
 >>> 
-[User input: "Reed"]
-Given name(s) (Lydia): 
->>> 
-[User input: "Lydia"]
+[User input: "True"]
 👤 Ringer: 1: Lydia Reed
 2: Couldn't find ringer matching "Victoria Morrison" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Morrison): 
+Add new ringer as "Victoria" "Morrison"? [y/n] (y): 
 >>> 
-[User input: "Morrison"]
-Given name(s) (Victoria): 
->>> 
-[User input: "Victoria"]
+[User input: "True"]
 👤 Ringer: 2: Victoria Morrison
 3: Couldn't find ringer matching "Stuart Murray" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Murray): 
+Add new ringer as "Stuart" "Murray"? [y/n] (y): 
 >>> 
-[User input: "Murray"]
-Given name(s) (Stuart): 
->>> 
-[User input: "Stuart"]
+[User input: "True"]
 👤 Ringer: 3: Stuart Murray
 4: "Ned Andrews" -> Ned Andrews
 Is this correct? [y/n] (y): 

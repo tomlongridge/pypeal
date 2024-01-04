@@ -87,12 +87,21 @@ Is this correct? [y/n] (y):
 Select option (1): 
 >>> 1
 [User input: "1"]
+Add new ringer as "Joyce" "Sullivan"? [y/n] (y): 
+>>> n
+[User input: "False"]
+Add new ringer with different name? [y/n] (y): 
+>>> y
+[User input: "True"]
 Last name (Sullivan): 
 >>> Sullivan
 [User input: "Sullivan"]
 Given name(s) (Joyce): 
 >>> 
 [User input: "Joyce"]
+Title: 
+>>> 
+[User input: "None"]
 👤 Ringer: 3: Joyce Sullivan
 4: "Chester Edwards" -> Chester Edwards
 Is this correct? [y/n] (y): 
@@ -104,12 +113,9 @@ Is this correct? [y/n] (y):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Bennett): 
+Add new ringer as "Patrick" "Bennett"? [y/n] (y): 
 >>> 
-[User input: "Bennett"]
-Given name(s) (Patrick): 
->>> 
-[User input: "Patrick"]
+[User input: "True"]
 👤 Ringer: 5: Patrick Bennett
 6: "Leonardo Bennett" -> Leo Bennett
 Is this correct? [y/n] (y): 
@@ -131,24 +137,18 @@ Is this correct? [y/n] (y):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Sullivan): 
+Add new ringer as "Heather" "Sullivan"? [y/n] (y): 
 >>> 
-[User input: "Sullivan"]
-Given name(s) (Heather): 
->>> 
-[User input: "Heather"]
+[User input: "True"]
 👤 Ringer: 9: Heather Sullivan
 10: Couldn't find ringer matching "Vivian Murray" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Murray): 
+Add new ringer as "Vivian" "Murray"? [y/n] (y): 
 >>> 
-[User input: "Murray"]
-Given name(s) (Vivian): 
->>> 
-[User input: "Vivian"]
+[User input: "True"]
 👤 Ringer: 10: Vivian Murray (c)
 Footnote 1 text:
   > Rung for Morning Service and as a 60th Wedding Anniversary compliment to Phyllis and Melvin Chapman.

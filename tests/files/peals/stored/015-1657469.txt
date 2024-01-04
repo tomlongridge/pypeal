@@ -227,12 +227,9 @@ Bell number(s) in the tower (6):
 Select option (1): 
 >>> 
 [User input: "1"]
-Last name (Roberts): 
+Add new ringer as "George" "Roberts"? [y/n] (y): 
 >>> 
-[User input: "Roberts"]
-Given name(s) (George): 
->>> 
-[User input: "George"]
+[User input: "True"]
 Bell number(s) in the tower (7): 
 >>> 
 [User input: "7"]
@@ -258,12 +255,9 @@ Bell number(s) in the tower (9):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Perry): 
->>> 
-[User input: "Perry"]
-Given name(s) (Grace): 
->>> 
-[User input: "Grace"]
+Add new ringer as "Grace" "Perry"? [y/n] (y): 
+>>> y
+[User input: "True"]
 Bell number(s) in the tower (10): 
 >>> 
 [User input: "10"]

@@ -110,12 +110,6 @@ def confirm(prompt: str, confirm_message: str = 'Is this correct?', default: boo
         raise UserCancelled()
 
 
-def prompt_names(default_last_name: str = None, default_given_names: str = None) -> tuple[str, str]:
-    last_name = ask('Last name', default=default_last_name, required=True)
-    given_names = ask('Given name(s)', default=default_given_names, required=False)
-    return last_name, given_names
-
-
 def panel(content: str, title: str = 'pypeal'):
     print(Panel(escape(content), title=title))
 

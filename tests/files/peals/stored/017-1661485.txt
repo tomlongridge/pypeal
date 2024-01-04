@@ -101,12 +101,9 @@ Is this correct? [y/n] (y):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Edwards): 
+Add new ringer as "Michelle" "Edwards"? [y/n] (y): 
 >>> 
-[User input: "Edwards"]
-Given name(s) (Michelle): 
->>> 
-[User input: "Michelle"]
+[User input: "True"]
 👤 Ringer: 2: Michelle Edwards
 3: "Dainton Casey" -> Dainton Casey
 Is this correct? [y/n] (y): 
@@ -123,24 +120,18 @@ Is this correct? [y/n] (y):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Bennett): 
+Add new ringer as "Deanna" "Bennett"? [y/n] (y): 
 >>> 
-[User input: "Bennett"]
-Given name(s) (Deanna): 
->>> 
-[User input: "Deanna"]
+[User input: "True"]
 👤 Ringer: 5: Deanna Bennett
 6: Couldn't find ringer matching "Brooke Adams" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Adams): 
+Add new ringer as "Brooke" "Adams"? [y/n] (y): 
 >>> 
-[User input: "Adams"]
-Given name(s) (Brooke): 
->>> 
-[User input: "Brooke"]
+[User input: "True"]
 👤 Ringer: 6: Brooke Adams (c)
 Add new footnote? [y/n] (n): 
 >>> n

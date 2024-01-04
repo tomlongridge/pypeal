@@ -71,17 +71,6 @@ WORD_TO_NUM = {
 }
 
 
-def split_full_name(full_name: str) -> tuple[str, str]:
-    if not full_name:
-        return None
-    elif ' ' in full_name:
-        last_name = full_name.split(' ')[-1]
-        given_names = ' '.join(full_name.split(' ')[:-1])
-        return last_name, given_names
-    else:
-        return full_name, None
-
-
 def get_bell_label(bells: list[int]) -> str:
     if bells and len(bells) >= 1:
         return ','.join([str(bell) for bell in bells])

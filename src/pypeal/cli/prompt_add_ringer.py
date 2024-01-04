@@ -1,10 +1,11 @@
 import logging
 from pypeal.cli.prompts import error, warning
-from pypeal.cli.prompts import ask, confirm, prompt_names
+from pypeal.cli.prompts import ask, confirm
 from pypeal.cli.chooser import choose_option
 from pypeal.peal import Peal
 from pypeal.ringer import Ringer
-from pypeal.utils import get_bell_label, split_full_name
+from pypeal.utils import get_bell_label
+from pypeal.parsers import parse_ringer_name
 
 
 _logger = logging.getLogger('pypeal')
@@ -100,18 +101,19 @@ def prompt_add_ringer(name: str,
 
 def prompt_add_ringer_by_search(name: str, label: str, allow_none: bool, quick_mode: bool) -> Ringer:
 
-    last_name, given_names = split_full_name(name)
+    last_name, given_names, title = parse_ringer_name(name)
     while True:
         match choose_option(['Add new ringer', 'Search ringers'] + (['None'] if allow_none else []),
                             default=1) if not quick_mode else 1:
             case 1:
-                new_ringer = prompt_add_new_ringer(last_name, given_names, quick_mode)
+                new_ringer = prompt_add_new_ringer(last_name, given_names, title)
                 if new_ringer:
                     return new_ringer
                 else:
                     quick_mode = False
             case 2:
-                search_last_name, search_given_names = prompt_names(last_name, given_names)
+                search_last_name = ask('Last name', default=last_name, required=True)
+                search_given_names = ask('Given name(s)', default=given_names, required=False)
                 potential_ringers = Ringer.get_by_name(search_last_name, search_given_names)
                 match len(potential_ringers):
                     case 0:
@@ -131,7 +133,7 @@ def prompt_add_ringer_by_name_match(name: str, label: str, quick_mode: bool) -> 
     if name is None:
         return None
 
-    last_name, given_names = split_full_name(name)
+    last_name, given_names, _ = parse_ringer_name(name)
 
     searches = [
         (last_name, given_names, True, quick_mode),
@@ -170,12 +172,22 @@ def prompt_add_ringer_by_name_match(name: str, label: str, quick_mode: bool) -> 
     return None
 
 
-def prompt_add_new_ringer(default_last_name: str, default_given_names: str, quick_mode: bool):
+def prompt_add_new_ringer(default_last_name: str, default_given_names: str, default_title: str) -> Ringer:
 
-    if quick_mode and confirm(None, confirm_message=f'Add new ringer as "{default_given_names}" "{default_last_name}"?', default=True):
-        new_ringer = Ringer(default_last_name, default_given_names)
-    elif not quick_mode or confirm(None, confirm_message='Add new ringer with different name?', default=True):
-        new_ringer = Ringer(*prompt_names(default_last_name, default_given_names))
+    default_full_name = f'"{default_last_name}"'
+    if default_given_names:
+        default_full_name = f'"{default_given_names}" ' + default_full_name
+    if default_title:
+        default_full_name = f'"{default_title}" ' + default_full_name
+
+    if confirm(None, confirm_message=f'Add new ringer as {default_full_name}?', default=True):
+        new_ringer = Ringer(default_last_name, default_given_names, default_title)
+    elif confirm(None, confirm_message='Add new ringer with different name?', default=True):
+        new_ringer = Ringer(
+            ask('Last name', default=default_last_name, required=True),
+            ask('Given name(s)', default=default_given_names, required=False),
+            ask('Title', default=default_title, required=False)
+        )
     else:
         return None
 
@@ -198,8 +210,8 @@ def prompt_commit_ringer(ringer: Ringer, used_name: str, peal: Peal, quick_mode:
     if ringer.id is None:
         ringer.commit()
 
-    last_name, given_names = split_full_name(used_name)
-    stored_name = ringer.get_name(peal.date)
+    last_name, given_names, _ = parse_ringer_name(used_name)
+    stored_name = f'{ringer.given_names} {ringer.last_name}'
     if used_name != stored_name and \
             not ringer.has_alias(last_name=last_name, given_names=given_names):
         if not confirm(None, confirm_message='Add an alias for this ringer?'):

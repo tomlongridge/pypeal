@@ -107,48 +107,36 @@ Is this correct? [y/n] (y):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Casey): 
+Add new ringer as "Dainton" "Casey"? [y/n] (y): 
 >>> 
-[User input: "Casey"]
-Given name(s) (Dainton): 
->>> 
-[User input: "Dainton"]
+[User input: "True"]
 👤 Ringer: 1: Dainton Casey
 2: Couldn't find ringer matching "Daryl Mason" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Mason): 
+Add new ringer as "Daryl" "Mason"? [y/n] (y): 
 >>> 
-[User input: "Mason"]
-Given name(s) (Daryl): 
->>> 
-[User input: "Daryl"]
+[User input: "True"]
 👤 Ringer: 2: Daryl Mason
 3: Couldn't find ringer matching "Roland Clark" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 
 [User input: "1"]
-Last name (Clark): 
+Add new ringer as "Roland" "Clark"? [y/n] (y): 
 >>> 
-[User input: "Clark"]
-Given name(s) (Roland): 
->>> 
-[User input: "Roland"]
+[User input: "True"]
 👤 Ringer: 3: Roland Clark
 4: Couldn't find ringer matching "Michelle Thompson" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Thompson): 
+Add new ringer as "Michelle" "Thompson"? [y/n] (y): 
 >>> 
-[User input: "Thompson"]
-Given name(s) (Michelle): 
->>> 
-[User input: "Michelle"]
+[User input: "True"]
 👤 Ringer: 4: Michelle Thompson
 5: "Ted Harris" -> Ted Harris
 Is this correct? [y/n] (y): 
@@ -160,12 +148,9 @@ Is this correct? [y/n] (y):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Rogers): 
+Add new ringer as "David" "Rogers"? [y/n] (y): 
 >>> 
-[User input: "Rogers"]
-Given name(s) (David): 
->>> 
-[User input: "David"]
+[User input: "True"]
 👤 Ringer: 6: David Rogers
 Add new footnote? [y/n] (n): 
 >>> n

@@ -143,12 +143,9 @@ Bell number(s) in the tower (6):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Crawford): 
+Add new ringer as "Kate" "Crawford"? [y/n] (y): 
 >>> 
-[User input: "Crawford"]
-Given name(s) (Kate): 
->>> 
-[User input: "Kate"]
+[User input: "True"]
 Bell number(s) in the tower (7): 
 >>> 
 [User input: "7"]

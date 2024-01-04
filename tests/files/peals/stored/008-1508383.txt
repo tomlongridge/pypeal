@@ -100,12 +100,9 @@ Composition URL (http://localhost:8080/comp.php?id=2284506):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Wells): 
+Add new ringer as "Sam" "Wells"? [y/n] (y): 
 >>> 
-[User input: "Wells"]
-Given name(s) (Sam): 
->>> 
-[User input: "Sam"]
+[User input: "True"]
 Bell number(s) in the tower (1,2): 
 >>> 
 [User input: "1,2"]
@@ -115,12 +112,9 @@ Bell number(s) in the tower (1,2):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Owens): 
+Add new ringer as "Rubie" "Owens"? [y/n] (y): 
 >>> 
-[User input: "Owens"]
-Given name(s) (Rubie): 
->>> 
-[User input: "Rubie"]
+[User input: "True"]
 Bell number(s) in the tower (3,4): 
 >>> 
 [User input: "3,4"]
@@ -146,12 +140,9 @@ Bell number(s) in the tower (7,8):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Holmes): 
+Add new ringer as "Arianna" "Holmes"? [y/n] (y): 
 >>> 
-[User input: "Holmes"]
-Given name(s) (Arianna): 
->>> 
-[User input: "Arianna"]
+[User input: "True"]
 Bell number(s) in the tower (9,10): 
 >>> 
 [User input: "9,10"]

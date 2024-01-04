@@ -4,6 +4,32 @@ from pypeal import config, utils
 from pypeal.method import Classification, Method, Stage
 from pypeal.peal import PealType
 
+NAME_TITLES = [
+    'Mr',
+    'Mrs',
+    'Miss',
+    'Ms',
+    'Rev',
+    'Revd',
+    'Dr',
+    'Prof',
+    'Sir',
+    'Lady',
+    'Dame',
+    'Lord',
+    'Rt Hon',
+    'Hon',
+    'Preb',
+    'Canon',
+    'Ven',
+    'Fr',
+    'Pastor',
+    'Bishop',
+    'Archbishop',
+    'Cardinal',
+    'Pope'
+]
+
 METHOD_TITLE_NUMBER_OF_METHODS_REGEX = \
     re.compile(r'^(?P<num_methods>[0-9]+|' + '|'.join(utils.get_num_words()) + r')?\s?' +
                r'(?P<classification>' + '|'.join([s.value for s in Classification]) + r')?\s?' +
@@ -301,3 +327,22 @@ def parse_footnote(footnote: str, num_bells: int, conductor_bells: list[int]) ->
 def parse_footnote_for_composer(footnote: str) -> str:
     if composer_match := re.match(FOOTNOTE_COMPOSER_REGEX, footnote):
         return composer_match.groupdict()['composer']
+
+
+def parse_ringer_name(full_name: str) -> tuple[str, str, str]:
+
+    if not full_name:
+        return None
+    elif ' ' not in full_name.strip():
+        return full_name, None, None
+
+    split_names = full_name.strip().split(' ')
+    last_name = split_names[-1]
+    given_names = title = None
+    if split_names[0].strip('.') in NAME_TITLES:
+        title = split_names[0].strip('.')
+        if len(split_names) > 2:
+            given_names = ' '.join(split_names[1:-1])
+    else:
+        given_names = ' '.join(split_names[:-1])
+    return last_name, given_names, title

@@ -106,12 +106,9 @@ Is this correct? [y/n] (y):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Ferguson): 
->>> 
-[User input: "Ferguson"]
-Given name(s) (Lydia): 
->>> 
-[User input: "Lydia"]
+Add new ringer as "Lydia" "Ferguson"? [y/n] (y): 
+>>> y
+[User input: "True"]
 Bell number(s) in the tower (1): 
 >>> 5
 [User input: "5"]
@@ -121,12 +118,9 @@ Bell number(s) in the tower (1):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Gray): 
+Add new ringer as "Harold" "Gray"? [y/n] (y): 
 >>> 
-[User input: "Gray"]
-Given name(s) (Harold): 
->>> 
-[User input: "Harold"]
+[User input: "True"]
 Bell number(s) in the tower (6): 
 >>> 
 [User input: "6"]
@@ -136,12 +130,21 @@ Bell number(s) in the tower (6):
 Select option (1): 
 >>> 1
 [User input: "1"]
+Add new ringer as "Chloe" "Henderson"? [y/n] (y): 
+>>> n
+[User input: "False"]
+Add new ringer with different name? [y/n] (y): 
+>>> y
+[User input: "True"]
 Last name (Henderson): 
 >>> 
 [User input: "Henderson"]
 Given name(s) (Chloe): 
 >>> 
 [User input: "Chloe"]
+Title: 
+>>> 
+[User input: "None"]
 Bell number(s) in the tower (7): 
 >>> 
 [User input: "7"]
@@ -151,27 +154,33 @@ Bell number(s) in the tower (7):
 Select option (1): 
 >>> 1
 [User input: "1"]
+Add new ringer as "Alen" "Henderson"? [y/n] (y): 
+>>> n
+[User input: "False"]
+Add new ringer with different name? [y/n] (y): 
+>>> y
+[User input: "True"]
 Last name (Henderson): 
 >>> 
 [User input: "Henderson"]
 Given name(s) (Alen): 
 >>> 
 [User input: "Alen"]
+Title: 
+>>> Rev
+[User input: "Rev"]
 Bell number(s) in the tower (8): 
 >>> 
 [User input: "8"]
-👤 Ringer: 4 [8]: Alen Henderson
+👤 Ringer: 4 [8]: Rev Alen Henderson
 5: Couldn't find ringer matching "Lucas Wright" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Wright): 
+Add new ringer as "Lucas" "Wright"? [y/n] (y): 
 >>> 
-[User input: "Wright"]
-Given name(s) (Lucas): 
->>> 
-[User input: "Lucas"]
+[User input: "True"]
 Bell number(s) in the tower (9): 
 >>> 
 [User input: "9"]
@@ -179,14 +188,11 @@ Bell number(s) in the tower (9):
 6: Couldn't find ringer matching "Lucas Farrell" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 
->>> 1
+>>> 
 [User input: "1"]
-Last name (Farrell): 
+Add new ringer as "Lucas" "Farrell"? [y/n] (y): 
 >>> 
-[User input: "Farrell"]
-Given name(s) (Lucas): 
->>> 
-[User input: "Lucas"]
+[User input: "True"]
 Bell number(s) in the tower (10): 
 >>> 
 [User input: "10"]
@@ -194,14 +200,11 @@ Bell number(s) in the tower (10):
 7: Couldn't find ringer matching "Ryan Elliott" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 
->>> 1
+>>> 
 [User input: "1"]
-Last name (Elliott): 
+Add new ringer as "Ryan" "Elliott"? [y/n] (y): 
 >>> 
-[User input: "Elliott"]
-Given name(s) (Ryan): 
->>> 
-[User input: "Ryan"]
+[User input: "True"]
 Bell number(s) in the tower (11): 
 >>> 
 [User input: "11"]
@@ -211,12 +214,9 @@ Bell number(s) in the tower (11):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Harris): 
+Add new ringer as "Ted" "Harris"? [y/n] (y): 
 >>> 
-[User input: "Harris"]
-Given name(s) (Ted): 
->>> 
-[User input: "Ted"]
+[User input: "True"]
 Bell number(s) in the tower (12): 
 >>> 
 [User input: "12"]
@@ -231,7 +231,7 @@ Is this correct? [y/n] (y):
 Footnote 2 text:
   > First of Grandsire inside.
 Referenced ringer(s):
-  - 4: Alen Henderson
+  - 4: Rev Alen Henderson
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -240,7 +240,7 @@ Add new footnote? [y/n] (n):
 [User input: "False"]
 📝 Footnotes:
   - [1: Lydia Ferguson] First away from cover on 8.
-  - [4: Alen Henderson] First of Grandsire inside.
+  - [4: Rev Alen Henderson] First of Grandsire inside.
 🔗 Event link: None
 📷 Photo link: None
 📮 Submitted by: Nicholas Hunt on Sunday, 15 January 2012
@@ -266,7 +266,7 @@ Select option (1):
 │ 1 [5]: Lydia Ferguson                                                        │
 │ 2 [6]: Harold Gray                                                           │
 │ 3 [7]: Chloe Henderson                                                       │
-│ 4 [8]: Alen Henderson                                                        │
+│ 4 [8]: Rev Alen Henderson                                                    │
 │ 5 [9]: Lucas Wright                                                          │
 │ 6 [10]: Lucas Farrell (c)                                                    │
 │ 7 [11]: Ryan Elliott                                                         │
@@ -313,7 +313,7 @@ A Quarter Peal of 1260 Grandsire Triples in 49 minutes (17-1-10 in D#)
 1 [5]: Lydia Ferguson
 2 [6]: Harold Gray
 3 [7]: Chloe Henderson
-4 [8]: Alen Henderson
+4 [8]: Rev Alen Henderson
 5 [9]: Lucas Wright
 6 [10]: Lucas Farrell (c)
 7 [11]: Ryan Elliott

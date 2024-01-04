@@ -85,12 +85,9 @@ Is this correct? [y/n] (y):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Fowler): 
+Add new ringer as "Julia" "Fowler"? [y/n] (y): 
 >>> 
-[User input: "Fowler"]
-Given name(s) (Julia): 
->>> 
-[User input: "Julia"]
+[User input: "True"]
 Bell number(s) in the tower (1): 
 >>> 3
 [User input: "3"]
@@ -100,12 +97,9 @@ Bell number(s) in the tower (1):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Miller): 
+Add new ringer as "Daniel" "Miller"? [y/n] (y): 
 >>> 
-[User input: "Miller"]
-Given name(s) (Daniel): 
->>> 
-[User input: "Daniel"]
+[User input: "True"]
 Bell number(s) in the tower (4): 
 >>> 
 [User input: "4"]
@@ -115,12 +109,9 @@ Bell number(s) in the tower (4):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Elliott): 
+Add new ringer as "Clark" "Elliott"? [y/n] (y): 
 >>> 
-[User input: "Elliott"]
-Given name(s) (Clark): 
->>> 
-[User input: "Clark"]
+[User input: "True"]
 Bell number(s) in the tower (5): 
 >>> 
 [User input: "5"]
@@ -130,12 +121,9 @@ Bell number(s) in the tower (5):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Edwards): 
+Add new ringer as "Chester" "Edwards"? [y/n] (y): 
 >>> 
-[User input: "Edwards"]
-Given name(s) (Chester): 
->>> 
-[User input: "Chester"]
+[User input: "True"]
 Bell number(s) in the tower (6): 
 >>> 
 [User input: "6"]
@@ -154,12 +142,9 @@ Bell number(s) in the tower (7):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Nelson): 
+Add new ringer as "Cadie" "Nelson"? [y/n] (y): 
 >>> 
-[User input: "Nelson"]
-Given name(s) (Cadie): 
->>> 
-[User input: "Cadie"]
+[User input: "True"]
 Bell number(s) in the tower (8): 
 >>> 
 [User input: "8"]
@@ -169,12 +154,9 @@ Bell number(s) in the tower (8):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Elliott): 
+Add new ringer as "Blake" "Elliott"? [y/n] (y): 
 >>> 
-[User input: "Elliott"]
-Given name(s) (Blake): 
->>> 
-[User input: "Blake"]
+[User input: "True"]
 Bell number(s) in the tower (9): 
 >>> 
 [User input: "9"]
@@ -184,12 +166,21 @@ Bell number(s) in the tower (9):
 Select option (1): 
 >>> 1
 [User input: "1"]
+Add new ringer as "Leonardo" "Bennett"? [y/n] (y): 
+>>> n
+[User input: "False"]
+Add new ringer with different name? [y/n] (y): 
+>>> y
+[User input: "True"]
 Last name (Bennett): 
 >>> Bennett
 [User input: "Bennett"]
 Given name(s) (Leonardo): 
 >>> Leo
 [User input: "Leo"]
+Title: 
+>>> 
+[User input: "None"]
 Add an alias for this ringer? [y/n] (y): 
 >>> y
 [User input: "True"]

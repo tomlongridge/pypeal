@@ -235,65 +235,50 @@ Is this correct? [y/n] (y):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Howard): 
+Add new ringer as "Blake" "Howard"? [y/n] (y): 
 >>> 
-[User input: "Howard"]
-Given name(s) (Blake): 
->>> 
-[User input: "Blake"]
+[User input: "True"]
 👤 Ringer: 1: Blake Howard
 2: Couldn't find ringer matching "Aston Mitchell" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Mitchell): 
+Add new ringer as "Aston" "Mitchell"? [y/n] (y): 
 >>> 
-[User input: "Mitchell"]
-Given name(s) (Aston): 
->>> 
-[User input: "Aston"]
+[User input: "True"]
 👤 Ringer: 2: Aston Mitchell
 3: Couldn't find ringer matching "John Parker" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Parker): 
+Add new ringer as "John" "Parker"? [y/n] (y): 
 >>> 
-[User input: "Parker"]
-Given name(s) (John): 
->>> 
-[User input: "John"]
+[User input: "True"]
 👤 Ringer: 3: John Parker
-4: "Alen Henderson" -> Alen Henderson
+4: "Alen Henderson" -> Rev Alen Henderson
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-👤 Ringer: 4: Alen Henderson
+👤 Ringer: 4: Rev Alen Henderson
 5: Couldn't find ringer matching "Dominik Warren" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Warren): 
+Add new ringer as "Dominik" "Warren"? [y/n] (y): 
 >>> 
-[User input: "Warren"]
-Given name(s) (Dominik): 
->>> 
-[User input: "Dominik"]
+[User input: "True"]
 👤 Ringer: 5: Dominik Warren
 6: Couldn't find ringer matching "Sienna Murphy" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Murphy): 
+Add new ringer as "Sienna" "Murphy"? [y/n] (y): 
 >>> 
-[User input: "Murphy"]
-Given name(s) (Sienna): 
->>> 
-[User input: "Sienna"]
+[User input: "True"]
 👤 Ringer: 6: Sienna Murphy (c)
 Footnote 1 text:
   > Rung as a wedding compliment to Miss Ann Pearce and Mr George Bradlaugh; Also a birthday compliment to Vernon B Bedford.
@@ -327,7 +312,7 @@ Select option (1):
 │ 1: Blake Howard                                                              │
 │ 2: Aston Mitchell                                                            │
 │ 3: John Parker                                                               │
-│ 4: Alen Henderson                                                            │
+│ 4: Rev Alen Henderson                                                        │
 │ 5: Dominik Warren                                                            │
 │ 6: Sienna Murphy (c)                                                         │
 │                                                                              │
@@ -371,7 +356,7 @@ A Peal of 5040 Mixed Surprise Minor (8m) in 2 hours, 42 minutes (10-1-10 in G)
 1: Blake Howard
 2: Aston Mitchell
 3: John Parker
-4: Alen Henderson
+4: Rev Alen Henderson
 5: Dominik Warren
 6: Sienna Murphy (c)
 

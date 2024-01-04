@@ -134,24 +134,18 @@ Is this correct? [y/n] (y):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Miller): 
+Add new ringer as "Byron" "Miller"? [y/n] (y): 
 >>> 
-[User input: "Miller"]
-Given name(s) (Byron): 
->>> 
-[User input: "Byron"]
+[User input: "True"]
 👤 Ringer: 1: Byron Miller
 2: Couldn't find ringer matching "Paul Armstrong" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Armstrong): 
+Add new ringer as "Paul" "Armstrong"? [y/n] (y): 
 >>> 
-[User input: "Armstrong"]
-Given name(s) (Paul): 
->>> 
-[User input: "Paul"]
+[User input: "True"]
 👤 Ringer: 2: Paul Armstrong
 3: "Clark Elliott" -> Clark Elliott
 Is this correct? [y/n] (y): 
@@ -163,12 +157,9 @@ Is this correct? [y/n] (y):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Cole): 
+Add new ringer as "Alisa" "Cole"? [y/n] (y): 
 >>> 
-[User input: "Cole"]
-Given name(s) (Alisa): 
->>> 
-[User input: "Alisa"]
+[User input: "True"]
 👤 Ringer: 4: Alisa Cole
 5: "Chester Edwards" -> Chester Edwards
 Is this correct? [y/n] (y): 
@@ -185,12 +176,9 @@ Is this correct? [y/n] (y):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Cole): 
+Add new ringer as "Jacob" "Cole"? [y/n] (y): 
 >>> 
-[User input: "Cole"]
-Given name(s) (Jacob): 
->>> 
-[User input: "Jacob"]
+[User input: "True"]
 👤 Ringer: 7: Jacob Cole
 8: "Joyce Sullivan" -> Joyce Sullivan
 Is this correct? [y/n] (y): 
@@ -207,12 +195,9 @@ Is this correct? [y/n] (y):
 Select option (1): 
 >>> 1
 [User input: "1"]
-Last name (Robinson): 
+Add new ringer as "Byron" "Robinson"? [y/n] (y): 
 >>> 
-[User input: "Robinson"]
-Given name(s) (Byron): 
->>> 
-[User input: "Byron"]
+[User input: "True"]
 👤 Ringer: 10: Byron Robinson
 Footnote 1 text:
   > For Morning Service, and to welcome Rafe Jackson-Swift, son of Russell and Angela, born on 8th January.

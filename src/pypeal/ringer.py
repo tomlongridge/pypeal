@@ -5,16 +5,16 @@ from pypeal.cache import Cache
 
 from pypeal.db import Database
 
-FIELD_LIST: list[str] = ['last_name', 'given_names', 'is_composer', 'link_id', 'date_to']
+FIELD_LIST: list[str] = ['last_name', 'given_names', 'title', 'is_composer', 'link_id', 'date_to']
 
 
 class Ringer():
 
-    def __init__(self, last_name: str = None, given_names: str = None):
+    def __init__(self, last_name: str = None, given_names: str = None, title: str = None):
         self.__names: list[self._RingerName] = []
         self.__aliases: list[self._RingerName] = []
         if last_name:
-            self.__names.append(self._RingerName(last_name, given_names, False, None, None))
+            self.__names.append(self._RingerName(last_name, given_names, title, False, None, None))
 
     def __str__(self) -> str:
         return self.__names[-1].name if self.__names else 'Unknown'
@@ -33,6 +33,10 @@ class Ringer():
     @property
     def given_names(self) -> str:
         return self.__names[-1].given_names if self.__names else None
+
+    @property
+    def title(self) -> str:
+        return self.__names[-1].title if self.__names else None
 
     @property
     def name(self) -> str:
@@ -74,13 +78,14 @@ class Ringer():
             original_name = self.__names[-1]
             self.__aliases.append(self._RingerName(original_name.last_name,
                                                    original_name.given_names,
+                                                   None,
                                                    False,
                                                    original_name.id,
                                                    None))
             original_name.last_name = last_name
             original_name.given_names = given_names
         else:
-            self.__aliases.append(self._RingerName(last_name, given_names, False, self.id, None))
+            self.__aliases.append(self._RingerName(last_name, given_names, None, False, self.id, None))
 
     def has_alias(self, last_name: str, given_names: str) -> bool:
         return any(alias.matches(last_name, given_names) for alias in self.__aliases)
@@ -179,6 +184,7 @@ class Ringer():
     class _RingerName():
         last_name: str
         given_names: str
+        title: str
         is_composer: bool = False
         link_id: int = None
         date_to: datetime.date = None
@@ -187,6 +193,7 @@ class Ringer():
         @property
         def name(self) -> str:
             text = ''
+            text += f'{self.title} ' if self.title else ''
             text += f'{self.given_names} ' if self.given_names else ''
             text += f'{self.last_name}' if self.last_name else ''
             return text if len(text) > 0 else None
@@ -199,13 +206,13 @@ class Ringer():
             if self.id:
                 result = Database.get_connection().query(
                     'UPDATE ringers ' +
-                    'SET last_name = %s, given_names = %s, is_composer = %s, link_id = %s, date_to = %s ' +
+                    'SET last_name = %s, given_names = %s, title = %s, is_composer = %s, link_id = %s, date_to = %s ' +
                     'WHERE id = %s',
-                    (self.last_name, self.given_names, self.is_composer, self.link_id, self.date_to, self.id))
+                    (self.last_name, self.given_names, self.title, self.is_composer, self.link_id, self.date_to, self.id))
                 Database.get_connection().commit()
             else:
                 result = Database.get_connection().query(
-                    f'INSERT INTO ringers ({",".join(FIELD_LIST)}) VALUES (%s, %s, %s, %s, %s)',
-                    (self.last_name, self.given_names, self.is_composer, self.link_id, self.date_to))
+                    f'INSERT INTO ringers ({",".join(FIELD_LIST)}) VALUES (%s, %s, %s, %s, %s, %s)',
+                    (self.last_name, self.given_names, self.title, self.is_composer, self.link_id, self.date_to))
                 Database.get_connection().commit()
                 self.id = result.lastrowid
