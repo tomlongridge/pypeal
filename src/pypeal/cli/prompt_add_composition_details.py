@@ -6,19 +6,17 @@ from pypeal.ringer import Ringer
 
 def prompt_add_composition_details(name: str, url: str, peal: Peal, quick_mode: bool):
 
-    composer, composer_description = _prompt_add_composer(name, quick_mode)
-
-    if composer:
-        prompt_commit_ringer(composer, name, peal, quick_mode)
+    if composer := _prompt_add_composer(name, quick_mode):
+        prompt_commit_ringer(composer, name)
         peal.composer = composer
-    elif composer_description:
-        peal.composer_description = composer_description
+    elif name and not quick_mode:
+        peal.composition_note = ask('Composition note', required=False)
 
-    if url or composer or composer_description:
+    if url or name or peal.composer:
         peal.composition_url = ask('Composition URL', default=url, required=False) if not quick_mode else url
 
 
-def _prompt_add_composer(name: str, quick_mode: bool) -> (Ringer, str):
+def _prompt_add_composer(name: str, quick_mode: bool) -> Ringer:
 
     matched_ringer: Ringer = prompt_add_ringer_by_name_match(name, 'Composer: ', quick_mode) if name else None
 
@@ -27,20 +25,19 @@ def _prompt_add_composer(name: str, quick_mode: bool) -> (Ringer, str):
         if not matched_ringer:
             if name:
                 print(f'Composer: Attempting to find "{name}"')
-                matched_ringer = prompt_add_ringer_by_search(name, 'Composer: ', True, quick_mode)
+                if not (matched_ringer := prompt_add_ringer_by_search(name, 'Composer: ', True, quick_mode)):
+                    return None  # Chosen to skip conductor
             elif quick_mode or confirm('No composer attributed'):
-                return (None, None)
+                return None
 
-        if matched_ringer is None:  # Allow None option and exit
-            return (None, ask('Composer description (e.g. RW Diary)', required=False, default=name))
-        else:
+        if matched_ringer:
             if matched_ringer.id is None:
                 matched_ringer.is_composer = True  # Not yet saved, just update the field
-                return (matched_ringer, None)
+                return matched_ringer
             elif not matched_ringer.is_composer:
                 if quick_mode or confirm(f'"{matched_ringer}" is not a composer - change to composer?', default=True):
                     matched_ringer.is_composer = True
                     matched_ringer.commit()  # Existing ringer - update the record now
                 else:
                     continue  # Try input again
-        return (matched_ringer, None)
+            return matched_ringer

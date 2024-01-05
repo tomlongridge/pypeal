@@ -2,9 +2,10 @@ from pypeal import utils
 from pypeal.cli.prompts import ask, ask_int, confirm
 from pypeal.cli.chooser import choose_option
 from pypeal.method import Classification, Method, Stage
+from pypeal.peal import Peal
 
 
-def prompt_add_method(method: Method, original_name: str, quick_mode: bool) -> tuple[Method, bool]:
+def prompt_add_method(method: Method, original_name: str, changes: int, peal: Peal, quick_mode: bool) -> bool:
 
     matched_method: Method = None
     excluded_methods: list[str] = []  # Stores method IDs that have been rejected in a prompt
@@ -20,13 +21,11 @@ def prompt_add_method(method: Method, original_name: str, quick_mode: bool) -> t
                 quick_mode = False
             case 1:
                 if quick_mode or confirm(f'Matched "{original_name or method}" to method "{method_matches[0].full_name}"'):
-                    return method_matches[0], quick_mode
+                    matched_method = method_matches[0]
             case _:
                 print(f'{len(method_matches)} methods match "{original_name or method}" (or similar)')
                 quick_mode = False
-                if matched_method := choose_option(method_matches, none_option='None'):
-                    return matched_method, quick_mode
-                else:
+                if not (matched_method := choose_option(method_matches, none_option='None')):
                     excluded_methods += [m.id for m in method_matches]
 
     while matched_method is None:
@@ -39,6 +38,8 @@ def prompt_add_method(method: Method, original_name: str, quick_mode: bool) -> t
                 name = ask('Name', default=method.name if method else None, required=False)
                 if state_val := ask_int('Stage', default=method.stage.value if method and method.stage else None, min=2, max=22):
                     stage = Stage(state_val)
+                else:
+                    stage = None
                 classification = choose_option([classification for classification in Classification],
                                                default=method.classification if method else None,
                                                title='Classification',
@@ -60,7 +61,11 @@ def prompt_add_method(method: Method, original_name: str, quick_mode: bool) -> t
                                                            exact_match=False)))
                 match len(method_matches):
                     case 1:
-                        matched_method = method_matches[0]
+                        if (method is not None and
+                                confirm(f'Matched "{original_name or method}" to method "{method_matches[0].full_name}"')) or \
+                            (method is None and
+                                confirm(f'Add "{method_matches[0].full_name}"')):
+                            matched_method = method_matches[0]
                     case _:
                         print(f'{len(method_matches)} methods match search criteria')
                         quick_mode = False
@@ -70,15 +75,16 @@ def prompt_add_method(method: Method, original_name: str, quick_mode: bool) -> t
             case 2:
                 break
 
-    if matched_method is None and \
-            (method is None or confirm('No method matched', confirm_message='Remove this method?')):
-        return None, False
-    elif matched_method is not None:
-        if (method is not None and
-                confirm(f'Matched "{original_name or method}" to method "{matched_method.full_name}"')) or \
-            (method is None and
-                confirm(f'Add "{matched_method.full_name}"')):
-            return matched_method, quick_mode
+    if matched_method is None:
+        if original_name and (note := ask('Add composition note?', default=original_name, required=False)):
+            peal.composition_note = note
+        return False
+    else:
+        if not quick_mode:
+            changes = ask_int('Number of changes', default=changes, required=False)
+        peal.add_method(matched_method, changes)
+        print(f'Method {len(peal.methods)}: {matched_method.full_name} ({changes if changes else "unknown"} changes)')
+        return quick_mode
 
 
 def search_method(method: Method, excluded_methods: list[str] = []) -> list[Method]:

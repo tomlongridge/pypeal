@@ -38,7 +38,7 @@ def prompt_add_ringer(name: str,
         print(f'{get_bell_label(bell_nums_in_peal) or "Ringer"}: Couldn\'t find ringer matching "{name}" (or aliases)')
         matched_ringer = prompt_add_ringer_by_search(name, bell_label, False, quick_mode)
 
-    prompt_commit_ringer(matched_ringer, name, peal, quick_mode)
+    prompt_commit_ringer(matched_ringer, name)
 
     if bell_nums_in_ring is not None \
        and not quick_mode \
@@ -209,12 +209,13 @@ def prompt_add_new_ringer(default_last_name: str, default_given_names: str, defa
             return None
 
 
-def prompt_commit_ringer(ringer: Ringer, used_name: str, peal: Peal, quick_mode: bool):
+def prompt_commit_ringer(ringer: Ringer, name_str: str):
 
     if ringer.id is None:
         ringer.commit()
 
-    last_name, given_names, _, _ = parse_ringer_name(used_name)
+    last_name, given_names, _, _ = parse_ringer_name(name_str)
+    used_name = f'{given_names} {last_name}'
     stored_name = f'{ringer.given_names} {ringer.last_name}'
     if used_name != stored_name and \
             not ringer.has_alias(last_name=last_name, given_names=given_names):

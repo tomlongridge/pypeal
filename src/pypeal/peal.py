@@ -18,7 +18,7 @@ from pypeal.utils import format_date_full, get_bell_label
 FIELD_LIST: list[str] = ['bellboard_id', 'type', 'bell_type', 'date', 'association_id', 'ring_id', 'place', 'sub_place', 'address',
                          'dedication', 'county', 'country', 'changes', 'stage', 'classification', 'is_variable_cover', 'num_methods',
                          'num_principles', 'num_variants', 'method_id', 'title', 'published_title', 'detail', 'composer_id',
-                         'composer_description', 'composition_url', 'duration', 'tenor_weight', 'tenor_note', 'event_url', 'muffles',
+                         'composition_note', 'composition_url', 'duration', 'tenor_weight', 'tenor_note', 'event_url', 'muffles',
                          'external_reference', 'bellboard_submitter', 'bellboard_submitted_date', 'created_date']
 
 
@@ -105,7 +105,7 @@ class Peal:
     published_title: str
     detail: str
     composer: Ringer
-    composer_description: str
+    composition_note: str
     composition_url: str
     duration: int
     event_url: str
@@ -162,7 +162,7 @@ class Peal:
                  published_title: str = None,
                  detail: str = None,
                  composer_id: int = None,
-                 composer_description: str = None,
+                 composition_note: str = None,
                  composition_url: str = None,
                  duration: int = None,
                  tenor_weight: int = None,
@@ -200,7 +200,7 @@ class Peal:
         self.published_title = published_title
         self.detail = detail
         self.composer = Ringer.get(composer_id) if composer_id else None
-        self.composer_description = composer_description
+        self.composition_note = composition_note
         self.composition_url = composition_url
         self.duration = duration
         self.event_url = event_url
@@ -553,7 +553,7 @@ class Peal:
                 self.__country, self.changes, self.stage.value if self.stage else None,
                 self.classification.value if self.classification else None, self.is_variable_cover, self.num_methods, self.num_principles,
                 self.num_variants, self.method.id if self.method else None, self.title, self.published_title, self.detail,
-                self.composer.id if self.composer else None, self.composer_description, self.composition_url, self.duration,
+                self.composer.id if self.composer else None, self.composition_note, self.composition_url, self.duration,
                 self.__tenor_weight, self.__tenor_note, self.event_url, self.muffles.value if self.muffles else None,
                 self.external_reference, self.bellboard_submitter, self.bellboard_submitted_date, self.created_date))
         Database.get_connection().commit()
@@ -633,8 +633,8 @@ class Peal:
         text += f'{self.detail}\n' if self.detail else ''
         if self.composer:
             text += f'Composed by: {self.composer}\n'
-        elif self.composer_description:
-            text += f'Composed by: {self.composer_description}\n'
+        if self.composition_note:
+            text += f'Composition: {self.composition_note}\n'
         text += '\n'
         for ringer in self.ringers:
             text += f'{self.get_ringer_line(ringer)}\n'

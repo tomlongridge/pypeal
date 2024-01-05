@@ -104,7 +104,9 @@ class PealPromptListener(PealGeneratorListener):
         url = _clean_str_input(url)
         self._run_cancellable_prompt(
             lambda peal: prompt_add_composition_details(name, url, peal, self.quick_mode))
-        print(f'🎼 Composer: {self.peal.composer or self.peal.composer_description or "Unknown"}')
+        print(f'🎼 Composer: {self.peal.composer or "Unknown"}')
+        if self.peal.composition_note:
+            print(f'🎼 Composition: {self.peal.composition_note}')
 
     def date(self, value: datetime.date):
         self.peal.date = value

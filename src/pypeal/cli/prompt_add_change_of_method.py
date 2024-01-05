@@ -39,16 +39,7 @@ def prompt_add_change_of_method(method_details: list[tuple[Method, str, int]], p
     if method_details:  # method_details is None if no methods were listed but it is a multi-method peal in title
 
         for method_obj, original_name, changes in method_details:
-
-            new_method, quick_mode = prompt_add_method(method_obj, original_name, quick_mode)
-            if not new_method:
-                quick_mode = False
-                continue
-
-            if not quick_mode:
-                changes = ask_int('Number of changes', default=changes)
-            peal.add_method(new_method, changes)
-            print(f'Method {len(peal.methods)}: {new_method.full_name} ({changes if changes else "unknown"} changes)')
+            quick_mode = prompt_add_method(method_obj, original_name, changes, peal, quick_mode)
 
     # Prompt for additional methods
     while True:
@@ -63,11 +54,7 @@ def prompt_add_change_of_method(method_details: list[tuple[Method, str, int]], p
                             confirm_message='Do you want to add more?',
                             default=False):
             break
-        method, quick_mode = prompt_add_method(None, None, quick_mode)
-        if method:
-            changes = ask_int('Number of changes', default=None)
-            peal.add_method(method, changes)
-            print(f'Method {len(peal.methods)}: {method.full_name} ({changes if changes else "unknown"} changes)')
+        quick_mode = prompt_add_method(None, None, None, peal, quick_mode)
 
     # Potentially update number of methods in the peal title if they now do not match
     while len(peal.methods) != original_num_methods and len(peal.methods) != peal.num_methods_in_title:

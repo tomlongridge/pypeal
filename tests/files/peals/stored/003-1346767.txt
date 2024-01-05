@@ -100,10 +100,9 @@ No methods match "seven extents in eight methods" (or similar)
 Select option (1): 
 >>> 2
 [User input: "2"]
-No method matched
-Remove this method? [y/n] (y): 
->>> y
-[User input: "True"]
+Add composition note? (seven extents in eight methods): 
+>>> Seven extents in eight methods
+[User input: "Seven extents in eight methods"]
 Matching method "Viz: (1) Norwich Surprise"...
 No methods match "Viz: (1) Norwich Surprise" (or similar)
 1) Search alternatives, 2) Remove method
@@ -230,6 +229,7 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 🎼 Composer: Unknown
+🎼 Composition: Seven extents in eight methods
 1: Couldn't find ringer matching "Blake Howard" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 
@@ -326,6 +326,7 @@ Select option (1):
 │ (Norwich Surprise Minor, Ipswich Surprise Minor, Cambridge Surprise Minor,   │
 │ Single Oxford Bob Minor, Plain Bob Minor, St Clement's College Bob Minor,    │
 │ Double Oxford Bob Minor, Oxford Treble Bob Minor)                            │
+│ Composition: Seven extents in eight methods                                  │
 │                                                                              │
 │ 1: Blake Howard                                                              │
 │ 2: Aston Mitchell                                                            │
@@ -370,6 +371,7 @@ Holy Trinity
 On Monday, 25 March 1963
 A Peal of 5040 Mixed Surprise Minor (8m) in 2 hours, 42 minutes (10-1-10 in G)
 (Single Oxford Bob Minor, Double Oxford Bob Minor, Plain Bob Minor, St Clement's College Bob Minor, Norwich Surprise Minor, Ipswich Surprise Minor, Cambridge Surprise Minor, Oxford Treble Bob Minor)
+Composition: Seven extents in eight methods
 
 1: Blake Howard
 2: Aston Mitchell
