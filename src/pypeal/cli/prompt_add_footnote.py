@@ -64,7 +64,8 @@ def _prompt_add_single_footnote(bells: list[int],
                 for bell, ringer in zip(bells, ringers):
                     print(f'  - {bell}: {ringer}')
                     if bell < 1 or bell > peal.num_bells:
-                        warning(f'Bell referenced in footnote ({bell}) is greater than number of bells ({peal.num_bells})')
+                        warning(f'Bell referenced in footnote ({bell}) is greater than number of bells ({peal.num_bells})\n' +
+                                f'  > {text}')
                         quick_mode = False
             if quick_mode or confirm(None):
                 break

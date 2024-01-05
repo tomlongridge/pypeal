@@ -62,7 +62,8 @@ def prompt_validate_tenor(peal: Peal, quick_mode: bool):
                     suggested_tenor = peal.ring.tenor
 
                 if suggested_tenor is not None and suggested_tenor != reported_tenor:
-                    warning(f'Footnote suggests ringing on the {location} {stage}, but the tenor entered is the {reported_tenor.role}')
+                    warning(f'Footnote suggests ringing on the {location} {stage}, but the tenor entered is the {reported_tenor.role}\n' +
+                            f'  > {footnote.text}')
                     _prompt_shift_band(peal, suggested_tenor, quick_mode)
 
                 break

@@ -217,7 +217,7 @@ def prompt_commit_ringer(ringer: Ringer, name_str: str):
     last_name, given_names, _, _ = parse_ringer_name(name_str)
     used_name = f'{given_names} {last_name}'
     stored_name = f'{ringer.given_names} {ringer.last_name}'
-    if used_name != stored_name and \
+    if used_name.lower() != stored_name.lower() and \
             not ringer.has_alias(last_name=last_name, given_names=given_names):
         if not confirm(None, confirm_message='Add an alias for this ringer?'):
             return
