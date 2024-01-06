@@ -5,7 +5,21 @@ from pypeal.method import Classification, Stage
 
 methods = [
     (
+        '640 changes of Cambridge Surprise Major',
+        Stage.MAJOR,
+        Classification.SURPRISE,
+        'Cambridge',
+        640
+    ),
+    (
         '640 changes Cambridge Surprise Major',
+        Stage.MAJOR,
+        Classification.SURPRISE,
+        'Cambridge',
+        640
+    ),
+    (
+        '640 each of Cambridge Surprise Major',
         Stage.MAJOR,
         Classification.SURPRISE,
         'Cambridge',

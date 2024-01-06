@@ -6,7 +6,7 @@ from pypeal.peal import PealType
 
 RINGER_NAME_REGEX = \
     re.compile(r'^(?:(?P<title>(?:' + '|'.join(utils.get_titles()) +
-               r'))\.?\s+)?(?:(?P<given_names>[\s\w]+?)\s+)??(?:(?P<last_name>[\S]+?))' +
+               r'))\.?\s+)?(?:(?P<given_names>.+?)\s+)??(?:(?P<last_name>[\S]+?))' +
                r'(?:\s\((?P<note>.+)\))?$',
                re.IGNORECASE)
 
@@ -31,6 +31,8 @@ METHOD_TITLE_TWO_METHODS_REGEX = \
 METHOD_TITLE_NUM_METHODS_REGEX = re.compile(r'(([0-9]+[mvp]\/?)+)|\(([0-9]*[mvp]\/?)+\)')
 METHOD_TITLE_NUM_METHODS_GROUP_REGEX = re.compile(r'([0-9]+[mvp])\/?')
 
+CHANGES_PREFIX_REGEX = re.compile(r'^(?P<changes>[0-9]+)\s+(?:changes\s|each\s)?(?:of\s)?(?P<method>.*)$', re.IGNORECASE)
+
 DURATION_REGEX = re.compile(r'^(?:(?P<hours>[0-9]{1,2})\s?(?:hours|hrs|hr|h))?\s?(?P<mins>[0-9]{1,4})?\s?(?:minutes|mins|min|m)?$')
 TENOR_INFO_REGEX = re.compile(r'(?P<tenor_weight>[^in]+|size\s[0-9]+)(?:\sin\s(?P<tenor_note>.*))?$')
 
@@ -38,14 +40,15 @@ FOOTNOTE_RINGER_SEPARATORS = [' ', ',', '&', 'and']
 FOOTNOTE_RINGER_LIST_PATTERN = r'(?P<bells>(?:(?:(?:[0-9]+(?:st|nd|rd|th)?)|' + \
                                r'(?:treble|tenor|' + '|'.join(utils.get_num_words()) + r'))\s?' + \
                                r'(?:' + '|'.join(FOOTNOTE_RINGER_SEPARATORS) + r')?\s?)+)'
-FOOTNOTE_RINGER_REGEX_PREFIX = re.compile(r'^' + FOOTNOTE_RINGER_LIST_PATTERN +
-                                          r'\s?[-:]\s?(?P<footnote>.*)\.?$', re.IGNORECASE)
-FOOTNOTE_RINGER_REGEX_SUFFIX = re.compile(r'^(?P<footnote>.*)\s?[-:]\s?' + FOOTNOTE_RINGER_LIST_PATTERN +
-                                          r'\.?$', re.IGNORECASE)
+FOOTNOTE_RINGER_REGEX_PREFIX = re.compile(r'^\(?' + FOOTNOTE_RINGER_LIST_PATTERN +
+                                          r'\s?[-:\)]\s?(?P<footnote>.*)\.?$', re.IGNORECASE)
+FOOTNOTE_RINGER_REGEX_SUFFIX = re.compile(r'^(?P<footnote>.*)\s?(?:[-:\(]|for)\s?' + FOOTNOTE_RINGER_LIST_PATTERN +
+                                          r'\)?\.?$', re.IGNORECASE)
 FOOTNOTE_CONDUCTOR_REGEX = re.compile(r'.*as cond(?:uctor)?.*', re.IGNORECASE)
 FOOTNOTE_COMPOSER_REGEX = re.compile(r'.*(composed|composition) by\s(?P<composer>.*)$', re.IGNORECASE)
 FOOTNOTE_ALL_BAND_REGEX = \
-    re.compile(r'.*(?:for|by) all(?: the band)?(?: (?:except for|except|apart from)(?: the)? (?P<exceptions>[^\.]+))?', re.IGNORECASE)
+    re.compile(r'.*(?:for|by) (?:all|the whole)(?:(?: the)? band)?(?: (?:except for|except|apart from)(?: the)? (?P<exceptions>[^\.]+))?',
+               re.IGNORECASE)
 FOOTNOTE_JOINT_CONDUCTORS_REGEX = re.compile(r'Joint(?:ly)? conducted\s?(?:by)?\s?(?:(?:all )?the band)?' +
                                              FOOTNOTE_RINGER_LIST_PATTERN + r'?')
 
@@ -184,7 +187,7 @@ def parse_single_method(method: str, expect_changes: bool = True) -> tuple[Stage
 
     method = method.strip(' .,')
 
-    if expect_changes and (match := re.match(r'^(?P<changes>[0-9]+)\s+(?:changes\s|each\s)?(?P<method>.*)$', method)):
+    if expect_changes and (match := re.match(CHANGES_PREFIX_REGEX, method)):
         changes = int(match.groupdict()['changes'])
         method = match.groupdict()['method'].strip(' .,')
 
@@ -270,8 +273,8 @@ def parse_footnote(footnote: str, num_bells: int, conductor_bells: list[int]) ->
             conductor_bells = list(range(1, num_bells + 1))
         bells = conductor_bells
     else:
-        if (footnote_match := re.match(FOOTNOTE_RINGER_REGEX_PREFIX, text)) or \
-                (footnote_match := re.match(FOOTNOTE_RINGER_REGEX_SUFFIX, text)):
+        if (footnote_match := re.match(FOOTNOTE_RINGER_REGEX_SUFFIX, text)) or \
+                (footnote_match := re.match(FOOTNOTE_RINGER_REGEX_PREFIX, text)):
             footnote_info = footnote_match.groupdict()
             text = footnote_info['footnote'].strip()
             bells = _referenced_bells_to_list(footnote_info['bells'], num_bells)
@@ -301,6 +304,7 @@ def parse_footnote(footnote: str, num_bells: int, conductor_bells: list[int]) ->
                     if len(bell) > 0 and bell.isnumeric():
                         not_bells += [int(bell)]
         bells = [bell for bell in bells if bell not in not_bells]
+        bells = list(dict.fromkeys(bells))  # de-dup
     return (sorted(bells) if len(bells) > 0 else None, conductor_bells, text)
 
 
@@ -313,6 +317,10 @@ def parse_ringer_name(full_name: str) -> tuple[str, str, str, str]:
 
     if not full_name:
         return None
+
+    full_name = full_name.replace('.', '')
+    if full_name[0] == '(' and full_name[-1] == ')':
+        full_name = full_name[1:-1]
 
     if not (match := re.match(RINGER_NAME_REGEX, full_name.strip())):
         raise ValueError(f'Unable to parse ringer name: {full_name}')

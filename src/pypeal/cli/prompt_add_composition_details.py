@@ -9,8 +9,8 @@ def prompt_add_composition_details(name: str, url: str, peal: Peal, quick_mode: 
     if composer := _prompt_add_composer(name, quick_mode):
         prompt_commit_ringer(composer, name)
         peal.composer = composer
-    elif name and not quick_mode:
-        peal.composition_note = ask('Composition note', required=False)
+    elif name:
+        peal.composition_note = ask('Composition note', default=name, required=False)
 
     if url or name or peal.composer:
         peal.composition_url = ask('Composition URL', default=url, required=False) if not quick_mode else url

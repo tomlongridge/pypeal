@@ -9,3 +9,6 @@ VALUES ("bw-1", 7, TRUE, "Bob", "Nempnett", "Nempnett Bob Triples");
 
 INSERT INTO @db_name.`methods` (id, stage, name, full_name)
 VALUES ("v2918", 5, "Easter", "Easter Doubles");
+
+INSERT INTO @db_name.`methods` (id, stage, name, full_name)
+VALUES ("v1883", 5, "Reverse St Bartholomew", "Reverse St Bartholomew Doubles");

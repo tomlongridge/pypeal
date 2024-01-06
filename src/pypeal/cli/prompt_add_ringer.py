@@ -4,7 +4,7 @@ from pypeal.cli.prompts import ask, confirm
 from pypeal.cli.chooser import choose_option
 from pypeal.peal import Peal
 from pypeal.ringer import Ringer
-from pypeal.utils import get_bell_label
+from pypeal.utils import get_bell_label, strip_internal_space
 from pypeal.parsers import parse_ringer_name
 
 
@@ -217,7 +217,7 @@ def prompt_commit_ringer(ringer: Ringer, name_str: str):
     last_name, given_names, _, _ = parse_ringer_name(name_str)
     used_name = f'{given_names} {last_name}'
     stored_name = f'{ringer.given_names} {ringer.last_name}'
-    if used_name.lower() != stored_name.lower() and \
+    if strip_internal_space(used_name.lower()) != strip_internal_space(stored_name.lower()) and \
             not ringer.has_alias(last_name=last_name, given_names=given_names):
         if not confirm(None, confirm_message='Add an alias for this ringer?'):
             return

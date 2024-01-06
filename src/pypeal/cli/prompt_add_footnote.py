@@ -13,7 +13,7 @@ MUFFLED_REGEX = re.compile(r'.*(?:fully?)?\s?\-?\s?muffled.*', re.IGNORECASE)
 def prompt_add_footnote(text: str, peal: Peal, quick_mode: bool):
 
     if text:
-        for line in text.strip('. ').split('\n'):
+        for line in text.strip(',. ').split('\n'):
 
             if line.strip('. ').count('. ') > 0 and \
                     (quick_mode or

@@ -6,6 +6,7 @@ names = [
     (None, None),
     ('Smith', ('Smith', None, None, None)),
     ('John Smith', ('Smith', 'John', None, None)),
+    ('J. Smith', ('Smith', 'J', None, None)),
     ('John Smith-Johnson', ('Smith-Johnson', 'John', None, None)),
     ('John Paul Smith', ('Smith', 'John Paul', None, None)),
     ('Rev John Paul Smith', ('Smith', 'John Paul', 'Rev', None)),

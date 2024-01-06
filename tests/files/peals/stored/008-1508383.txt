@@ -88,7 +88,7 @@ Composer: Attempting to find "Christopher I Rowson"
 Select option (1): 
 >>> 3
 [User input: "3"]
-Composition note: 
+Composition note (Christopher I Rowson): 
 >>> Traditional
 [User input: "Traditional"]
 Composition URL (http://localhost:8080/comp.php?id=2284506): 

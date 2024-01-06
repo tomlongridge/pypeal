@@ -5,7 +5,7 @@ from pypeal.method import Method
 from pypeal.parsers import parse_single_method
 from pypeal.peal import Peal
 
-METHOD_LIST_SEPARATORS_REGEX = re.compile(r',|;|\sand\s')
+METHOD_LIST_SEPARATORS_REGEX = re.compile(r',|;|\sand\s|&|\n')
 METHOD_PREFIX_IGNORE_REGEX = re.compile(r'^(and\s+|being\s+|\(?\d+[\)\.:]{1}\s?)', re.IGNORECASE)
 
 
@@ -61,7 +61,7 @@ def prompt_add_change_of_method(method_details: list[tuple[Method, str, int]], p
         if confirm(f'Number of methods ({len(peal.methods)}) does not match number of methods from peal title ' +
                    f'({peal.num_methods_in_title}).',
                    confirm_message='Do you want to update the title?'):
-            peal.num_methods = ask_int('Number of methods', default=peal.num_methods or 0)
+            peal.num_methods = ask_int('Number of methods', default=len(peal.methods) or 0)
             peal.num_principles = ask_int('Number of principles', default=peal.num_principles or 0)
             peal.num_variants = ask_int('Number of variants', default=peal.num_variants or 0)
         else:
