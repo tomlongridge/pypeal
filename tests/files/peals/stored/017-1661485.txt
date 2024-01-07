@@ -80,7 +80,7 @@ Is this correct? [y/n] (y):
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Add an alias for this ringer? [y/n] (y): 
+Add an alias for "Byron Miller"? [y/n] (y): 
 >>> y
 [User input: "True"]
 Which name should be displayed?: 1) G A A Taylor, 2) Byron Miller

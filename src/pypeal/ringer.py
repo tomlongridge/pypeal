@@ -88,7 +88,8 @@ class Ringer():
             self.__aliases.append(self._RingerName(last_name, given_names, None, False, self.id, None))
 
     def has_alias(self, last_name: str, given_names: str) -> bool:
-        return any(alias.matches(last_name, given_names) for alias in self.__aliases)
+        return any(alias.matches(last_name, given_names) for alias in self.__aliases) \
+               or any(name.matches(last_name, given_names) for name in self.__names)
 
     def get_peals(self):
         from pypeal.peal import Peal
@@ -150,8 +151,9 @@ class Ringer():
         elif exact_match:
             name_clause += 'AND @tbl.last_name IS NULL '
         if given_names:
-            name_clause += f'AND @tbl.given_names {"=" if exact_match else "LIKE"} %(given_names)s '
-            params['given_names'] = given_names.strip()
+            # Strip internal spaces when matching as initials vary in format
+            name_clause += 'AND REPLACE(@tbl.given_names, " ", "") LIKE %(given_names)s '
+            params['given_names'] = given_names.strip().replace(' ', '')
         elif exact_match:
             name_clause += 'AND @tbl.given_names IS NULL '
         if is_composer is not None:

@@ -99,7 +99,7 @@ Is this peal variable cover? [y/n] (y):
 >>> y
 [User input: "True"]
 Adding changes of methods to multi-method peal...
-Matching method "Grandsire Caters"...
+Matching method "Grandsire Caters"... [0 methods excluded]
 Matched "Grandsire Caters" to method "Grandsire Caters"
 Is this correct? [y/n] (y): 
 >>> y
@@ -108,7 +108,7 @@ Number of changes:
 >>> 
 [User input: "None"]
 Method 1: Grandsire Caters (unknown changes)
-Matching method "Grandsire Royal"...
+Matching method "Grandsire Royal"... [1 methods excluded]
 Matched "Grandsire Royal" to method "Grandsire Royal"
 Is this correct? [y/n] (y): 
 >>> y

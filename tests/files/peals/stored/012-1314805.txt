@@ -95,7 +95,7 @@ Select option (6):
 [User input: "Surprise"]
 📕 Title: Spliced Surprise Major (2m)
 Adding changes of methods to multi-method peal...
-Matching method "640 changes Cambridge"...
+Matching method "640 changes Cambridge"... [0 methods excluded]
 Matched "640 changes Cambridge" to method "Cambridge Surprise Major"
 Is this correct? [y/n] (y): 
 >>> y
@@ -104,7 +104,7 @@ Number of changes (640):
 >>> 
 [User input: "640"]
 Method 1: Cambridge Surprise Major (640 changes)
-Matching method "640 changes Yorkshire"...
+Matching method "640 changes Yorkshire"... [1 methods excluded]
 Matched "640 changes Yorkshire" to method "Yorkshire Surprise Major"
 Is this correct? [y/n] (y): 
 >>> y
@@ -116,7 +116,10 @@ Method 2: Yorkshire Surprise Major (640 changes)
 Add more changes of method? [y/n] (n): 
 >>> y
 [User input: "True"]
-Number of methods (2) does not match number of methods from peal title (2).
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Warning: Number of methods (2) does not match number of methods from peal    │
+│ title (2).                                                                   │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Do you want to add more? [y/n] (n): 
 >>> y
 [User input: "True"]

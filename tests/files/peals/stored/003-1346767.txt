@@ -94,7 +94,7 @@ Select option:
 [User input: "Surprise"]
 📕 Title: Mixed Surprise Minor (8m)
 Adding changes of methods to multi-method peal...
-Matching method "seven extents in eight methods"...
+Matching method "seven extents in eight methods"... [0 methods excluded]
 No methods match "seven extents in eight methods" (or similar)
 1) Search alternatives, 2) Remove method
 Select option (1): 
@@ -103,7 +103,7 @@ Select option (1):
 Add composition note? (seven extents in eight methods): 
 >>> Seven extents in eight methods
 [User input: "Seven extents in eight methods"]
-Matching method "Viz: (1) Norwich Surprise"...
+Matching method "Viz: (1) Norwich Surprise"... [0 methods excluded]
 No methods match "Viz: (1) Norwich Surprise" (or similar)
 1) Search alternatives, 2) Remove method
 Select option (1): 
@@ -149,7 +149,7 @@ Number of changes:
 >>> 
 [User input: "None"]
 Method 1: Norwich Surprise Minor (unknown changes)
-Matching method "Ipswich Surprise"...
+Matching method "Ipswich Surprise"... [1 methods excluded]
 Matched "Ipswich Surprise" to method "Ipswich Surprise Minor"
 Is this correct? [y/n] (y): 
 >>> y
@@ -158,7 +158,7 @@ Number of changes:
 >>> 
 [User input: "None"]
 Method 2: Ipswich Surprise Minor (unknown changes)
-Matching method "Cambridge Surprise"...
+Matching method "Cambridge Surprise"... [2 methods excluded]
 Matched "Cambridge Surprise" to method "Cambridge Surprise Minor"
 Is this correct? [y/n] (y): 
 >>> y
@@ -167,7 +167,7 @@ Number of changes:
 >>> 
 [User input: "None"]
 Method 3: Cambridge Surprise Minor (unknown changes)
-Matching method "Single Oxford Bob"...
+Matching method "Single Oxford Bob"... [3 methods excluded]
 Matched "Single Oxford Bob" to method "Single Oxford Bob Minor"
 Is this correct? [y/n] (y): 
 >>> y
@@ -176,7 +176,7 @@ Number of changes:
 >>> 
 [User input: "None"]
 Method 4: Single Oxford Bob Minor (unknown changes)
-Matching method "Plain Bob"...
+Matching method "Plain Bob"... [4 methods excluded]
 Matched "Plain Bob" to method "Plain Bob Minor"
 Is this correct? [y/n] (y): 
 >>> y
@@ -185,7 +185,7 @@ Number of changes:
 >>> 
 [User input: "None"]
 Method 5: Plain Bob Minor (unknown changes)
-Matching method "St Clement's College Bob"...
+Matching method "St Clement's College Bob"... [5 methods excluded]
 Matched "St Clement's College Bob" to method "St Clement's College Bob Minor"
 Is this correct? [y/n] (y): 
 >>> y
@@ -194,7 +194,7 @@ Number of changes:
 >>> 
 [User input: "None"]
 Method 6: St Clement's College Bob Minor (unknown changes)
-Matching method "Double Oxford Bob"...
+Matching method "Double Oxford Bob"... [6 methods excluded]
 Matched "Double Oxford Bob" to method "Double Oxford Bob Minor"
 Is this correct? [y/n] (y): 
 >>> y
@@ -203,7 +203,7 @@ Number of changes:
 >>> 
 [User input: "None"]
 Method 7: Double Oxford Bob Minor (unknown changes)
-Matching method "Oxford Treble Bob"...
+Matching method "Oxford Treble Bob"... [7 methods excluded]
 Matched "Oxford Treble Bob" to method "Oxford Treble Bob Minor"
 Is this correct? [y/n] (y): 
 >>> y

@@ -147,7 +147,7 @@ Given name(s) (Mike):
 Title: 
 >>> 
 [User input: "None"]
-Add an alias for this ringer? [y/n] (y): 
+Add an alias for "Michael Sullivan"? [y/n] (y): 
 >>> y
 [User input: "True"]
 Which name should be displayed?: 1) Mike Sullivan, 2) Michael Sullivan

@@ -53,7 +53,7 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
                     else:
                         excluded_methods.append(method_matches[0].id)
                 case _:
-                    print(f'{len(method_matches)} methods match "{parsed_method}"')
+                    print(f'{len(method_matches)} methods match "{parsed_method}" [{len(excluded_methods)} methods excluded]')
                     quick_mode = False
                     _set_peal_title(peal,
                                     choose_option(method_matches, none_option='None'),
@@ -138,7 +138,7 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
                     else:
                         excluded_methods += method_matches[0].id
                 case _:
-                    print(f'{len(method_matches)} methods match search criteria')
+                    print(f'{len(method_matches)} methods match search criteria [{len(excluded_methods)} methods excluded]')
                     if matched_method := choose_option(method_matches, none_option='None'):
                         _set_peal_title(peal,
                                         matched_method,

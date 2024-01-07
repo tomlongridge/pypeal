@@ -8,10 +8,12 @@ from pypeal.peal import Peal
 def prompt_add_method(method: Method, original_name: str, changes: int, peal: Peal, quick_mode: bool) -> bool:
 
     matched_method: Method = None
-    excluded_methods: list[str] = []  # Stores method IDs that have been rejected in a prompt
+
+    # Stores method IDs that have been already been added to the peal or rejected in a prompt
+    excluded_methods: list[str] = [m[0].id for m in peal.methods]
 
     if method is not None:
-        print(f'Matching method "{original_name or method}"...')
+        print(f'Matching method "{original_name or method}"... [{len(excluded_methods)} methods excluded]')
         method_matches = search_method(method)
 
         match len(method_matches):
@@ -60,6 +62,9 @@ def prompt_add_method(method: Method, original_name: str, changes: int, peal: Pe
                                                            is_treble_dodging=is_treble_dodging,
                                                            exact_match=False)))
                 match len(method_matches):
+                    case 0:
+                        print(f'No methods match search criteria [{len(excluded_methods)} methods excluded]')
+                        quick_mode = False
                     case 1:
                         if (method is not None and
                                 confirm(f'Matched "{original_name or method}" to method "{method_matches[0].full_name}"')) or \
@@ -67,7 +72,7 @@ def prompt_add_method(method: Method, original_name: str, changes: int, peal: Pe
                                 confirm(f'Add "{method_matches[0].full_name}"')):
                             matched_method = method_matches[0]
                     case _:
-                        print(f'{len(method_matches)} methods match search criteria')
+                        print(f'{len(method_matches)} methods match search criteria [{len(excluded_methods)} methods excluded]')
                         quick_mode = False
                         if not (matched_method := choose_option(method_matches, none_option='None')):
                             excluded_methods += [m.id for m in method_matches]

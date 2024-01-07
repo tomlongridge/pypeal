@@ -94,7 +94,7 @@ Is this peal variable cover? [y/n] (n):
 [User input: "False"]
 📕 Title: Mixed Doubles (3m)
 Adding changes of methods to multi-method peal...
-Matching method "360 each Reverse Canterbury Pleasure Place"...
+Matching method "360 each Reverse Canterbury Pleasure Place"... [0 methods excluded]
 Matched "360 each Reverse Canterbury Pleasure Place" to method "Reverse 
 Canterbury Pleasure Place Doubles"
 Is this correct? [y/n] (y): 
@@ -104,7 +104,7 @@ Number of changes (360):
 >>> 
 [User input: "360"]
 Method 1: Reverse Canterbury Pleasure Place Doubles (360 changes)
-Matching method "Plain Bob"...
+Matching method "Plain Bob"... [1 methods excluded]
 Matched "Plain Bob" to method "Plain Bob Doubles"
 Is this correct? [y/n] (y): 
 >>> 
@@ -113,7 +113,7 @@ Number of changes (360):
 >>> 360
 [User input: "360"]
 Method 2: Plain Bob Doubles (360 changes)
-Matching method "540 Grandsire"...
+Matching method "540 Grandsire"... [2 methods excluded]
 Matched "540 Grandsire" to method "Grandsire Doubles"
 Is this correct? [y/n] (y): 
 >>> y

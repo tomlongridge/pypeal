@@ -102,7 +102,7 @@ Is this peal variable cover? [y/n] (n):
 [User input: "False"]
 📕 Title: Mixed Doubles (4m/4v)
 Adding changes of methods to multi-method peal...
-Matching method "Stedman"...
+Matching method "Stedman"... [0 methods excluded]
 Matched "Stedman" to method "Stedman Doubles"
 Is this correct? [y/n] (y): 
 >>> y
@@ -111,7 +111,7 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 1: Stedman Doubles (630 changes)
-Matching method "Grandsire"...
+Matching method "Grandsire"... [1 methods excluded]
 Matched "Grandsire" to method "Grandsire Doubles"
 Is this correct? [y/n] (y): 
 >>> y
@@ -120,7 +120,7 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 2: Grandsire Doubles (630 changes)
-Matching method "Reverse Canterbury Pleasure Place Bob"...
+Matching method "Reverse Canterbury Pleasure Place Bob"... [2 methods excluded]
 No methods match "Reverse Canterbury Pleasure Place Bob" (or similar)
 1) Search alternatives, 2) Remove method
 Select option (1): 
@@ -167,7 +167,7 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 3: Reverse Canterbury Pleasure Place Doubles (630 changes)
-Matching method "Winchendon Place Bob"...
+Matching method "Winchendon Place Bob"... [3 methods excluded]
 No methods match "Winchendon Place Bob" (or similar)
 1) Search alternatives, 2) Remove method
 Select option (1): 
@@ -213,7 +213,7 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 4: Winchendon Place Doubles (630 changes)
-Matching method "St Nicholas Bob"...
+Matching method "St Nicholas Bob"... [4 methods excluded]
 Matched "St Nicholas Bob" to method "St Nicholas Bob Doubles"
 Is this correct? [y/n] (y): 
 >>> y
@@ -222,7 +222,7 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 5: St Nicholas Bob Doubles (630 changes)
-Matching method "St Simon's Bob"...
+Matching method "St Simon's Bob"... [5 methods excluded]
 Matched "St Simon's Bob" to method "St Simon's Bob Doubles"
 Is this correct? [y/n] (y): 
 >>> y
@@ -231,7 +231,7 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 6: St Simon's Bob Doubles (630 changes)
-Matching method "St Martin's Bob"...
+Matching method "St Martin's Bob"... [6 methods excluded]
 Matched "St Martin's Bob" to method "St Martin's Bob Doubles"
 Is this correct? [y/n] (y): 
 >>> y
@@ -240,7 +240,7 @@ Number of changes:
 >>> 630
 [User input: "630"]
 Method 7: St Martin's Bob Doubles (630 changes)
-Matching method "Plain Bob"...
+Matching method "Plain Bob"... [7 methods excluded]
 Matched "Plain Bob" to method "Plain Bob Doubles"
 Is this correct? [y/n] (y): 
 >>> y
