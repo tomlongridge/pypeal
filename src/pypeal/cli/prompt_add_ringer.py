@@ -178,15 +178,15 @@ def prompt_add_ringer_by_name_match(name: str, label: str, quick_mode: bool) -> 
 
 def prompt_add_new_ringer(default_last_name: str, default_given_names: str, default_title: str) -> Ringer:
 
-    default_full_name = f'"{default_last_name}"'
+    proposed_full_name = f'"{default_last_name}"'
     if default_given_names:
-        default_full_name = f'"{default_given_names}" ' + default_full_name
+        proposed_full_name = f'"{default_given_names}" ' + proposed_full_name
     if default_title:
-        default_full_name = f'"{default_title}" ' + default_full_name
+        proposed_full_name = f'"{default_title}" ' + proposed_full_name
 
-    if confirm(None, confirm_message=f'Add new ringer as {default_full_name}?', default=True):
+    if default_last_name and confirm(None, confirm_message=f'Add new ringer as {proposed_full_name}?', default=True):
         new_ringer = Ringer(default_last_name, default_given_names, default_title)
-    elif confirm(None, confirm_message='Add new ringer with different name?', default=True):
+    elif default_last_name is None or confirm(None, confirm_message='Add new ringer with different name?', default=True):
         new_ringer = Ringer(
             ask('Last name', default=default_last_name, required=True),
             ask('Given name(s)', default=default_given_names, required=False),
