@@ -316,7 +316,7 @@ def parse_footnote_for_composer(footnote: str) -> str:
 def parse_ringer_name(full_name: str) -> tuple[str, str, str, str]:
 
     if not full_name:
-        return None
+        return (None, None, None, None)
 
     full_name = full_name.replace('.', '')
     if full_name[0] == '(' and full_name[-1] == ')':

@@ -3,7 +3,7 @@ from pypeal import parsers
 
 
 names = [
-    (None, None),
+    (None, (None, None, None, None)),
     ('Smith', ('Smith', None, None, None)),
     ('John Smith', ('Smith', 'John', None, None)),
     ('J. Smith', ('Smith', 'J', None, None)),

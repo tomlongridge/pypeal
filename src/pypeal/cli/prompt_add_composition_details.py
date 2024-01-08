@@ -9,8 +9,9 @@ def prompt_add_composition_details(name: str, url: str, peal: Peal, quick_mode: 
     if composer := _prompt_add_composer(name, quick_mode):
         prompt_commit_ringer(composer, name)
         peal.composer = composer
-    elif name:
-        peal.composition_note = ask('Composition note', default=name, required=False)
+    if peal.composition_note is None and \
+            ((not composer and name) or not quick_mode):
+        peal.composition_note = ask('Composition note', default=name if not composer and name else None, required=False)
 
     if url or name or peal.composer:
         peal.composition_url = ask('Composition URL', default=url, required=False) if not quick_mode else url
@@ -25,10 +26,10 @@ def _prompt_add_composer(name: str, quick_mode: bool) -> Ringer:
         if not matched_ringer:
             if name:
                 print(f'Composer: Attempting to find "{name}"')
-                if not (matched_ringer := prompt_add_ringer_by_search(name, 'Composer: ', True, quick_mode)):
-                    return None  # Chosen to skip conductor
             elif quick_mode or confirm('No composer attributed'):
                 return None
+            if not (matched_ringer := prompt_add_ringer_by_search(name, 'Composer: ', True, quick_mode)):
+                return None  # Chosen to skip conductor
 
         if matched_ringer:
             if matched_ringer.id is None:

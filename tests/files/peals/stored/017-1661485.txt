@@ -87,6 +87,9 @@ Which name should be displayed?: 1) G A A Taylor, 2) Byron Miller
 Select option (2): 
 >>> 2
 [User input: "2"]
+Composition note: 
+>>> 
+[User input: "None"]
 Composition URL (http://localhost:8080/comp.php?id=2293479): 
 >>> 
 [User input: "http://localhost:8080/comp.php?id=2293479"]

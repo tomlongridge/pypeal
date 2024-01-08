@@ -68,6 +68,10 @@ class PealPreviewListener(PealGeneratorListener):
         if url:
             self.__lines['event'] = url
 
+    def photo(self, url: str, caption: str, credit: str):
+        if url:
+            self.__lines['photo'] = url
+
     def bellboard_metadata(self, submitter: str, date: date):
         self.__lines['bb_metadata'] = f'submitted by {submitter or "Unknown"}'
         self.__lines['bb_metadata'] += f' on {format_date_full(date)}' if date else ''
@@ -92,5 +96,6 @@ class PealPreviewListener(PealGeneratorListener):
         text += (f'Linked event: {self.__lines["event"]}\n') if 'event' in self.__lines else ''
         text += (f'Bellboard: {get_url_from_id(self.__lines["id"])} ({self.__lines["bb_metadata"]})\n') \
             if 'bb_metadata' in self.__lines else ''
+        text += (f'Photo: {self.__lines["photo"]}\n') if 'photo' in self.__lines else ''
         text += (f'External reference: {self.__lines["external_reference"]}\n') if 'external_reference' in self.__lines else ''
         return text.strip()

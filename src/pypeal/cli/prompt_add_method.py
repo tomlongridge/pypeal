@@ -81,7 +81,9 @@ def prompt_add_method(method: Method, original_name: str, changes: int, peal: Pe
                 break
 
     if matched_method is None:
-        if original_name and (note := ask('Add composition note?', default=original_name, required=False)):
+        if original_name and \
+                peal.composition_note is None and \
+                (note := ask('Add composition note?', default=original_name, required=False)):
             peal.composition_note = note
         return False
     else:

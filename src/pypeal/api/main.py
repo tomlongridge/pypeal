@@ -4,7 +4,7 @@ from fastapi.responses import RedirectResponse
 
 from pypeal.api.entities import Peal as PealEntity, PealBasic as PealBasicEntity
 from pypeal.api.entities import Ringer as RingerEntity
-from pypeal.api.entities import Tower as TowerEntity, Ring as RingEntity, Bell as BellEntity
+from pypeal.api.entities import Tower as TowerEntity, Ring as RingEntity
 from pypeal.peal import Peal
 from pypeal.ringer import Ringer
 from pypeal.tower import Tower, Ring

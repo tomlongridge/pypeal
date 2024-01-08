@@ -66,6 +66,9 @@ No composer attributed
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Composition note: 
+>>> 
+[User input: "None"]
 🎼 Composer: Unknown
 1: "Aston Mitchell" -> Aston Mitchell
 Is this correct? [y/n] (y): 

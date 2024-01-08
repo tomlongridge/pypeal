@@ -128,6 +128,9 @@ No composer attributed
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Composition note: 
+>>> 
+[User input: "None"]
 🎼 Composer: Unknown
 1: Couldn't find ringer matching "Byron Miller" (or aliases)
 1) Add new ringer, 2) Search ringers

@@ -45,6 +45,7 @@ Bellboard URL or peal ID:
 │                                                                              │
 │ Bellboard: http://localhost:8080/view.php?id=1272466 (submitted by Joyce     │
 │ Sullivan on Sunday, 17 February 2019)                                        │
+│ Photo: http://localhost:8080/uploads/57/002a57.jpg                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
 >>> 

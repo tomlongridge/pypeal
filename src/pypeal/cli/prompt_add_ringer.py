@@ -4,7 +4,7 @@ from pypeal.cli.prompts import ask, confirm
 from pypeal.cli.chooser import choose_option
 from pypeal.peal import Peal
 from pypeal.ringer import Ringer
-from pypeal.utils import get_bell_label, strip_internal_space
+from pypeal.utils import get_bell_label
 from pypeal.parsers import parse_ringer_name
 
 
@@ -215,18 +215,19 @@ def prompt_commit_ringer(ringer: Ringer, name_str: str):
         ringer.commit()
 
     last_name, given_names, _, _ = parse_ringer_name(name_str)
-    used_name = f'{given_names} {last_name}'
-    stored_name = f'{ringer.given_names} {ringer.last_name}'
-    if used_name.lower().replace(' ', '') != stored_name.lower().replace(' ', '') and \
-            not ringer.has_alias(last_name=last_name, given_names=given_names):
-        if not confirm(None, confirm_message=f'Add an alias for "{stored_name}"?'):
-            return
-        ringer.add_alias(last_name,
-                         given_names,
-                         is_primary=choose_option([used_name, stored_name],
-                                                  title='Which name should be displayed?',
-                                                  default=2) == 1)
-        ringer.commit()
+    if last_name:
+        used_name = f'{given_names} {last_name}'.strip()
+        stored_name = f'{ringer.given_names} {ringer.last_name}'.strip()
+        if used_name.lower().replace(' ', '') != stored_name.lower().replace(' ', '') and \
+                not ringer.has_alias(last_name=last_name, given_names=given_names):
+            if not confirm(None, confirm_message=f'Add an alias for "{stored_name}"?'):
+                return
+            ringer.add_alias(last_name,
+                             given_names,
+                             is_primary=choose_option([used_name, stored_name],
+                                                      title='Which name should be displayed?',
+                                                      default=2) == 1)
+            ringer.commit()
 
 
 def _validate_bell(bell_nums_in_peal: list[int], bell_nums_in_ring: list[int], peal: Peal) -> bool:

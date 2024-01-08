@@ -53,7 +53,7 @@ class PealGeneratorListener():
     def event(self, url: str):
         pass
 
-    def photo(self, caption: str, credit: str, url: str):
+    def photo(self, url: str, caption: str, credit: str):
         pass
 
     def bellboard_metadata(self, submitter: str, date: datetime.date):
