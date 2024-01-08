@@ -116,7 +116,7 @@ Bell number(s) in the tower (6):
 [User input: "6"]
 👤 Ringer: 4 [6]: Heather Sullivan
 5: Found 2 ringers matching "Blake Elliott" (or aliases)
-1) Blake Elliott (31), 2) Blake Elliott (67)
+1) Blake Elliott (32), 2) Blake Elliott (68)
 Select option (x = None): 
 >>> 2
 [User input: "Blake Elliott"]

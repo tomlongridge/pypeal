@@ -144,7 +144,7 @@ Bell number(s) in the tower (6):
 [User input: "6"]
 👤 Ringer: 4 [6]: Chester Edwards
 5: Found 2 ringers matching "Aston Mitchell" (or aliases)
-1) Aston Mitchell (15), 2) Aston Mitchell (19)
+1) Aston Mitchell (16), 2) Aston Mitchell (20)
 Select option (x = None): 
 >>> 1
 [User input: "Aston Mitchell"]

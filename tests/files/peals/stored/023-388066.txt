@@ -1,0 +1,217 @@
+
+===
+pypeal Database
+ Nones: 1                                                                       
+ Quarter Peals: 18                                                              
+ Peals: 3                                                                       
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal                                                           │
+│ 6) View peal                                                                 │
+│ 7) View statistics                                                           │
+│ 8) Update static data                                                        │
+│ 9) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> 4
+[User input: "4"]
+Bellboard URL or peal ID: 
+>>> 388066
+[User input: "388066"]
+╭────────────────── http://localhost:8080/view.php?id=388066 ──────────────────╮
+│ Bath & Wells Diocesan Association                                            │
+│ St Mary the Virgin, Bathwick, Somerset                                       │
+│ 1280 Spliced Surprise Major (8 methods)                                      │
+│ Standard 8 methods                                                           │
+│ 160 changes in each method<br/>Change of method every lead                   │
+│ Sunday, 27 February 2011 (18–3–20) in 47m                                    │
+│                                                                              │
+│ 1: Patrick Bennett                                                           │
+│ 2: Byron Miller                                                              │
+│ 3: Clark Elliott                                                             │
+│ 4: John Parker                                                               │
+│ 5: Jacob Cole                                                                │
+│ 6: Eric Ryan                                                                 │
+│ 7: Joyce Sullivan                                                            │
+│ 8: Byron Robinson (c)                                                        │
+│                                                                              │
+│ Rung for morning service                                                     │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=388066 (submitted by Nicholas   │
+│ Hunt on Sunday, 15 January 2012)                                             │
+│ External reference: Campanophile ID: 116670                                  │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Try for a quick-add? [y/n] (y): 
+>>> y
+[User input: "True"]
+🏛 Association: Bath & Wells Diocesan Association
+🔔 Bell type: Tower
+📅 Date: Sunday, 27 February 2011
+🔔 Tenor: 2120
+⏱ Duration: 47 minutes
+🏰 Tower: Bath, Bathwick, Somerset, Blessed Virgin Mary
+🔢 Changes: 1280
+Matching peal titled "Spliced Surprise Major (8 methods)"...
+Multi-method peal: "Spliced Surprise Major (8 methods)"...
+📕 Title: Spliced Surprise Major
+Adding changes of methods to multi-method peal...
+Matching method "Cambridge"... [0 methods excluded]
+Number of changes: 
+>>> 160
+[User input: "160"]
+Method 1: Cambridge Surprise Major (160 changes)
+Matching method "Yorkshire"... [1 methods excluded]
+Number of changes: 
+>>> 160
+[User input: "160"]
+Method 2: Yorkshire Surprise Major (160 changes)
+Matching method "Lincolnshire"... [2 methods excluded]
+Number of changes: 
+>>> 160
+[User input: "160"]
+Method 3: Lincolnshire Surprise Major (160 changes)
+Matching method "Superlative"... [3 methods excluded]
+Number of changes: 
+>>> 160
+[User input: "160"]
+Method 4: Superlative Surprise Major (160 changes)
+Matching method "Rutland"... [4 methods excluded]
+Number of changes: 
+>>> 160
+[User input: "160"]
+Method 5: Rutland Surprise Major (160 changes)
+Matching method "Pudsey"... [5 methods excluded]
+Number of changes: 
+>>> 160
+[User input: "160"]
+Method 6: Pudsey Surprise Major (160 changes)
+Matching method "Bristol"... [6 methods excluded]
+Number of changes: 
+>>> 160
+[User input: "160"]
+Method 7: Bristol Surprise Major (160 changes)
+Matching method "London"... [7 methods excluded]
+Number of changes: 
+>>> 160
+[User input: "160"]
+Method 8: London Surprise Major (160 changes)
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Warning: Number of methods (8) does not match number of methods from peal    │
+│ title (0).                                                                   │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Do you want to update the title? [y/n] (y): 
+>>> y
+[User input: "True"]
+Number of methods (8): 
+>>> 
+[User input: "8"]
+Number of principles (0): 
+>>> 
+[User input: "0"]
+Number of variants (0): 
+>>> 
+[User input: "0"]
+📝 Method details:
+  - Cambridge Surprise Major (160)
+  - Yorkshire Surprise Major (160)
+  - Lincolnshire Surprise Major (160)
+  - Superlative Surprise Major (160)
+  - Rutland Surprise Major (160)
+  - Pudsey Surprise Major (160)
+  - Bristol Surprise Major (160)
+  - London Surprise Major (160)
+🎼 Composer: Unknown
+First bell number(s) in the tower (1): 
+>>> 3
+[User input: "3"]
+👤 Ringer: 1 [3]: Patrick Bennett
+👤 Ringer: 2 [4]: Byron Miller
+👤 Ringer: 3 [5]: Clark Elliott
+👤 Ringer: 4 [6]: John Parker
+👤 Ringer: 5 [7]: Jacob Cole
+👤 Ringer: 6 [8]: Eric Ryan
+👤 Ringer: 7 [9]: Joyce Sullivan
+👤 Ringer: 8 [10]: Byron Robinson (c)
+📝 Footnotes:
+  - Rung for morning service.
+🔗 Event link: None
+📷 Photo link: None
+📮 Submitted by: Nicholas Hunt on Sunday, 15 January 2012
+🔗 External reference: Campanophile ID: 116670
+🔕 Muffles: None
+╭────────────────── http://localhost:8080/view.php?id=388066 ──────────────────╮
+│ Bath and Wells Diocesan Association                                          │
+│ Bath, Somerset, England                                                      │
+│ Blessed Virgin Mary, Bathwick                                                │
+│ On Sunday, 27 February 2011                                                  │
+│ A Quarter Peal of 1280 Spliced Surprise Major (8m) in 47 minutes (18-3-20 in │
+│ Eb)                                                                          │
+│ (160 Cambridge Surprise Major, 160 Yorkshire Surprise Major, 160             │
+│ Lincolnshire Surprise Major, 160 Superlative Surprise Major, 160 Rutland     │
+│ Surprise Major, 160 Pudsey Surprise Major, 160 Bristol Surprise Major, 160   │
+│ London Surprise Major)                                                       │
+│                                                                              │
+│ 1 [3]: Patrick Bennett                                                       │
+│ 2 [4]: Byron Miller                                                          │
+│ 3 [5]: Clark Elliott                                                         │
+│ 4 [6]: John Parker                                                           │
+│ 5 [7]: Jacob Cole                                                            │
+│ 6 [8]: Eric Ryan                                                             │
+│ 7 [9]: Joyce Sullivan                                                        │
+│ 8 [10]: Byron Robinson (c)                                                   │
+│                                                                              │
+│ Rung for morning service.                                                    │
+│                                                                              │
+│ [BellBoard: http://localhost:8080/view.php?id=388066 (Nicholas Hunt, Sunday, │
+│ 15 January 2012)]                                                            │
+│ [Published title: Spliced Surprise Major (8 methods)]                        │
+│ [External reference: Campanophile ID: 116670]                                │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Peal 388066 added
+pypeal Database
+ Nones: 1                                                                       
+ Quarter Peals: 19                                                              
+ Peals: 3                                                                       
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal                                                           │
+│ 6) View peal                                                                 │
+│ 7) View statistics                                                           │
+│ 8) Update static data                                                        │
+│ 9) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> 9
+[User input: "9"]
+===
+Bath and Wells Diocesan Association
+Bath, Somerset, England
+Blessed Virgin Mary, Bathwick
+On Sunday, 27 February 2011
+A Quarter Peal of 1280 Spliced Surprise Major (8m) in 47 minutes (18-3-20 in Eb)
+(160 Superlative Surprise Major, 160 Cambridge Surprise Major, 160 Yorkshire Surprise Major, 160 Rutland Surprise Major, 160 Lincolnshire Surprise Major, 160 Bristol Surprise Major, 160 Pudsey Surprise Major, 160 London Surprise Major)
+
+1 [3]: Patrick Bennett
+2 [4]: Byron Miller
+3 [5]: Clark Elliott
+4 [6]: John Parker
+5 [7]: Jacob Cole
+6 [8]: Eric Ryan
+7 [9]: Joyce Sullivan
+8 [10]: Byron Robinson (c)
+
+Rung for morning service.
+
+[BellBoard: http://localhost:8080/view.php?id=388066 (Nicholas Hunt, Sunday, 15 January 2012)]
+[Published title: Spliced Surprise Major (8 methods)]
+[External reference: Campanophile ID: 116670]

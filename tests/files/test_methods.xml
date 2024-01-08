@@ -160,6 +160,69 @@
       </falseness>
       <extensionConstruction>EP3-1AB/1FG</extensionConstruction>
     </method>
+    <method
+      id="m17167">
+      <title>Lincolnshire Surprise Major</title>
+      <name>Lincolnshire</name>
+      <notation>-38-14-58-16-14-58-36-78,12</notation>
+      <symmetry>palindromic</symmetry>
+      <leadHeadCode>b</leadHeadCode>
+      <leadHead>15738264</leadHead>
+      <falseness>
+        <fchGroups>BLce</fchGroups>
+      </falseness>
+      <extensionConstruction>EP3-1AB/1BC</extensionConstruction>
+    </method>
+    <method
+      id="m16066">
+      <title>Superlative Surprise Major</title>
+      <name>Superlative</name>
+      <notation>-36-14-58-36-14-58-36-78,12</notation>
+      <symmetry>palindromic double rotational</symmetry>
+      <leadHeadCode>b</leadHeadCode>
+      <leadHead>15738264</leadHead>
+      <falseness>
+        <fchGroups>Ed</fchGroups>
+      </falseness>
+      <extensionConstruction>EP3-3ABCD/3FGHI</extensionConstruction>
+    </method>
+    <method
+      id="m19335">
+      <title>Pudsey Surprise Major</title>
+      <name>Pudsey</name>
+      <notation>-58-16-12-38-14-58-16-78,12</notation>
+      <symmetry>palindromic</symmetry>
+      <leadHeadCode>b</leadHeadCode>
+      <leadHead>15738264</leadHead>
+      <falseness>
+        <fchGroups>BcdY</fchGroups>
+      </falseness>
+      <extensionConstruction>EP3-1BC/1DE</extensionConstruction>
+    </method>
+    <method
+      id="m19048">
+      <title>Bristol Surprise Major</title>
+      <name>Bristol</name>
+      <notation>-58-14.58-58.36.14-14.58-14-18,18</notation>
+      <symmetry>palindromic double rotational</symmetry>
+      <leadHeadCode>m</leadHeadCode>
+      <leadHead>14263857</leadHead>
+      <falseness>
+        <fchGroups>c</fchGroups>
+      </falseness>
+    </method>
+    <method
+      id="m17150">
+      <title>Rutland Surprise Major</title>
+      <name>Rutland</name>
+      <notation>-38-14-58-16-14-38-34-18,12</notation>
+      <symmetry>palindromic</symmetry>
+      <leadHeadCode>f</leadHeadCode>
+      <leadHead>14263857</leadHead>
+      <falseness>
+        <fchGroups>Bace</fchGroups>
+      </falseness>
+    </method>
   </methodSet>
   <methodSet>
     <notes>Bob Triples methods with a lead length of 14 and 2 hunt bells</notes>
@@ -372,27 +435,6 @@
         <fchGroups>BDd</fchGroups>
       </falseness>
       <extensionConstruction>EP3-1DE/1EF</extensionConstruction>
-      <performances>
-        <firstTowerbellPeal>
-          <date>1835-11-17</date>
-          <location>
-            <building>St Andrew</building>
-            <town>Norwich</town>
-            <county>Norfolk</county>
-          </location>
-        </firstTowerbellPeal>
-        <firstHandbellPeal>
-          <date>1904-01-26</date>
-          <location>
-            <room>Belfry</room>
-            <building>St Edward</building>
-            <town>Romford</town>
-            <county>Essex</county>
-          </location>
-          <society>Essex Association</society>
-        </firstHandbellPeal>
-      </performances>
-      <references />
     </method>
   </methodSet>
   <methodSet>

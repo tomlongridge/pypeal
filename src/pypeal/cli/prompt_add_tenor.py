@@ -1,7 +1,8 @@
 import re
 
 from pypeal import utils
-from pypeal.cli.prompts import ask_int, warning
+from pypeal.cli.prompts import ask, ask_int, warning, error
+from pypeal.parsers import parse_tenor_info
 from pypeal.peal import Peal
 from pypeal.tower import Bell
 from pypeal.utils import get_num_words, word_to_num
@@ -35,6 +36,22 @@ def _prompt_shift_band(peal: Peal, suggested_tenor: Bell, quick_mode: bool):
             for bell in ringer.bell_nums:
                 new_bells.append(peal.ring.get_bell(ring_start + bell).id)
             peal.add_ringer(ringer.ringer, new_bells, ringer.bell_nums, ringer.is_conductor)
+
+
+def prompt_add_tenor(tenor_info: str, peal: Peal, quick_mode: bool):
+
+    while tenor_info is not None:
+
+        try:
+            peal.tenor_weight, peal.tenor_note = parse_tenor_info(tenor_info)
+            return
+        except ValueError as e:
+            if quick_mode:
+                warning(str(e) + ' - skipping tenor details')
+                return
+            else:
+                error(str(e))
+                tenor_info = ask('Tenor details', default=tenor_info, required=False)
 
 
 def prompt_validate_tenor(peal: Peal, quick_mode: bool):

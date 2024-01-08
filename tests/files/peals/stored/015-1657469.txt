@@ -148,7 +148,7 @@ Bell number(s) in the tower (1):
 >>> 10
 [User input: "10"]
 ╭──────────────────────────────────────────────────────────────────────────────╮
-│ Error: No room for 5 more ringers for performance of 6 on 10 bells           │
+│ Error: No room for 4 more ringers for performance of 5 on 10 bells           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Error: Invalid bell number, list or range: 10                                │
@@ -157,7 +157,7 @@ Bell number(s) in the tower (1):
 >>> 9
 [User input: "9"]
 ╭──────────────────────────────────────────────────────────────────────────────╮
-│ Error: No room for 5 more ringers for performance of 6 on 10 bells           │
+│ Error: No room for 4 more ringers for performance of 5 on 10 bells           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Error: Invalid bell number, list or range: 9                                 │
@@ -166,7 +166,7 @@ Bell number(s) in the tower (1):
 >>> 8
 [User input: "8"]
 ╭──────────────────────────────────────────────────────────────────────────────╮
-│ Error: No room for 5 more ringers for performance of 6 on 10 bells           │
+│ Error: No room for 4 more ringers for performance of 5 on 10 bells           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Error: Invalid bell number, list or range: 8                                 │
@@ -175,19 +175,10 @@ Bell number(s) in the tower (1):
 >>> 7
 [User input: "7"]
 ╭──────────────────────────────────────────────────────────────────────────────╮
-│ Error: No room for 5 more ringers for performance of 6 on 10 bells           │
+│ Error: No room for 4 more ringers for performance of 5 on 10 bells           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Error: Invalid bell number, list or range: 7                                 │
-╰──────────────────────────────────────────────────────────────────────────────╯
-Bell number(s) in the tower (1): 
->>> 6
-[User input: "6"]
-╭──────────────────────────────────────────────────────────────────────────────╮
-│ Error: No room for 5 more ringers for performance of 6 on 10 bells           │
-╰──────────────────────────────────────────────────────────────────────────────╯
-╭──────────────────────────────────────────────────────────────────────────────╮
-│ Error: Invalid bell number, list or range: 6                                 │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Bell number(s) in the tower (1): 
 >>> 5

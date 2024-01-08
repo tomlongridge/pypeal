@@ -121,43 +121,6 @@ Number of changes:
 [User input: "630"]
 Method 2: Grandsire Doubles (630 changes)
 Matching method "Reverse Canterbury Pleasure Place Bob"... [2 methods excluded]
-No methods match "Reverse Canterbury Pleasure Place Bob" (or similar)
-1) Search alternatives, 2) Remove method
-Select option (1): 
->>> 1
-[User input: "1"]
-Enter search criteria:
-Name (Reverse Canterbury Pleasure Place): 
->>> reverse Canterbury
-[User input: "reverse Canterbury"]
-Stage (5): 
->>> 5
-[User input: "5"]
-Classification:
-┌──────────────────────────────────────────────────────────────────────────────┐
-│ 1) Alliance                                                                  │
-│ 2) Bob                                                                       │
-│ 3) Delight                                                                   │
-│ 4) Hybrid                                                                    │
-│ 5) Place                                                                     │
-│ 6) Surprise                                                                  │
-│ 7) Treble Bob                                                                │
-│ 8) Treble Place                                                              │
-├──────────────────────────────────────────────────────────────────────────────┤
-│ x) None                                                                      │
-└──────────────────────────────────────────────────────────────────────────────┘
-Select option (2): 
->>> x
-[User input: "None"]
-Is this a differential method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a little method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a treble dodging method? [y/n]: 
->>> 
-[User input: "None"]
 Matched "Reverse Canterbury Pleasure Place Bob" to method "Reverse Canterbury 
 Pleasure Place Doubles"
 Is this correct? [y/n] (y): 
@@ -168,43 +131,6 @@ Number of changes:
 [User input: "630"]
 Method 3: Reverse Canterbury Pleasure Place Doubles (630 changes)
 Matching method "Winchendon Place Bob"... [3 methods excluded]
-No methods match "Winchendon Place Bob" (or similar)
-1) Search alternatives, 2) Remove method
-Select option (1): 
->>> 1
-[User input: "1"]
-Enter search criteria:
-Name (Winchendon Place): 
->>> Winchendon
-[User input: "Winchendon"]
-Stage (5): 
->>> 5
-[User input: "5"]
-Classification:
-┌──────────────────────────────────────────────────────────────────────────────┐
-│ 1) Alliance                                                                  │
-│ 2) Bob                                                                       │
-│ 3) Delight                                                                   │
-│ 4) Hybrid                                                                    │
-│ 5) Place                                                                     │
-│ 6) Surprise                                                                  │
-│ 7) Treble Bob                                                                │
-│ 8) Treble Place                                                              │
-├──────────────────────────────────────────────────────────────────────────────┤
-│ x) None                                                                      │
-└──────────────────────────────────────────────────────────────────────────────┘
-Select option (2): 
->>> 5
-[User input: "Place"]
-Is this a differential method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a little method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a treble dodging method? [y/n]: 
->>> 
-[User input: "None"]
 Matched "Winchendon Place Bob" to method "Winchendon Place Doubles"
 Is this correct? [y/n] (y): 
 >>> y
@@ -314,7 +240,7 @@ Ringer note:
 [User input: "None"]
 👤 Ringer: 4: Ned Andrews
 5: Found 2 ringers matching "Aston Mitchell" (or aliases)
-1) Aston Mitchell (15), 2) Aston Mitchell (19)
+1) Aston Mitchell (16), 2) Aston Mitchell (20)
 Select option (x = None): 
 >>> 1
 [User input: "Aston Mitchell"]

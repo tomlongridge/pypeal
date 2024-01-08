@@ -245,7 +245,7 @@ def _validate_bell(bell_nums_in_peal: list[int], bell_nums_in_ring: list[int], p
                 error(f'Bell {bell} already assigned to {ringer.ringer}')
                 return False
     if peal.ring is not None and peal.stage is not None:
-        max_possible_bells = peal.stage.value + (1 if peal.stage.value % 2 == 1 else 0)
+        max_possible_bells = peal.stage.value
         if max_possible_bells - bell_nums_in_peal[-1] > peal.ring.num_bells - bell_nums_in_ring[-1]:
             error(f'No room for {max_possible_bells - bell_nums_in_peal[-1]} more ringers for performance of {max_possible_bells} ' +
                   f'on {peal.ring.num_bells} bells')

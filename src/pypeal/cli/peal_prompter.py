@@ -3,7 +3,7 @@ from pypeal import utils
 from pypeal.bellboard.listener import PealGeneratorListener
 from pypeal.cli.prompt_add_duration import prompt_add_duration
 from pypeal.cli.prompt_add_footnote import prompt_add_footnote, prompt_add_muffle_type
-from pypeal.cli.prompt_validate_tenor import prompt_validate_tenor
+from pypeal.cli.prompt_add_tenor import prompt_add_tenor, prompt_validate_tenor
 from pypeal.cli.prompt_add_association import prompt_add_association
 from pypeal.cli.prompt_add_change_of_method import prompt_add_change_of_method_from_string
 from pypeal.cli.prompt_add_composition_details import prompt_add_composition_details
@@ -11,7 +11,6 @@ from pypeal.cli.prompt_add_location import prompt_add_location
 from pypeal.cli.prompt_add_ringer import prompt_add_ringer
 from pypeal.cli.prompt_peal_title import prompt_peal_title
 from pypeal.cli.prompts import UserCancelled, confirm, error
-from pypeal.parsers import parse_tenor_info
 from pypeal.peal import Peal, BellType, PealLengthType, PealType
 from pypeal.tower import Tower
 
@@ -115,7 +114,8 @@ class PealPromptListener(PealGeneratorListener):
     def tenor(self, value: str):
         value = _clean_str_input(value)
         if value:
-            self.peal.tenor_weight, self.peal.tenor_note = parse_tenor_info(value)
+            self._run_cancellable_prompt(
+                lambda peal: prompt_add_tenor(value, peal, self.quick_mode))
             print(f'🔔 Tenor: {self.peal.tenor_weight}' +
                   (f' in {self.peal.tenor_note}' if self.peal.tenor_note else ''))
         else:

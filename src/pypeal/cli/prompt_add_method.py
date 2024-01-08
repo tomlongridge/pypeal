@@ -87,7 +87,7 @@ def prompt_add_method(method: Method, original_name: str, changes: int, peal: Pe
             peal.composition_note = note
         return False
     else:
-        if not quick_mode:
+        if not changes or not quick_mode:
             changes = ask_int('Number of changes', default=changes, required=False)
         peal.add_method(matched_method, changes)
         print(f'Method {len(peal.methods)}: {matched_method.full_name} ({changes if changes else "unknown"} changes)')
@@ -117,6 +117,17 @@ def search_method(method: Method, excluded_methods: list[str] = []) -> list[Meth
     if not method_matches:  # Try with inexact match
         method_matches = list(filter(lambda m: m.id not in excluded_methods,
                                      Method.search(name=method_name,
+                                                   stage=method.stage,
+                                                   is_differential=method.is_differential,
+                                                   is_little=method.is_little,
+                                                   is_treble_dodging=method.is_treble_dodging,
+                                                   exact_match=False)))
+
+    fewer_method_names = method_name
+    while ' ' in fewer_method_names and not method_matches:
+        fewer_method_names = fewer_method_names.rsplit(' ', 1)[0].strip()
+        method_matches = list(filter(lambda m: m.id not in excluded_methods,
+                                     Method.search(name=fewer_method_names,
                                                    stage=method.stage,
                                                    is_differential=method.is_differential,
                                                    is_little=method.is_little,
