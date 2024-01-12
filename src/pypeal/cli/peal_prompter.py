@@ -188,10 +188,11 @@ class PealPromptListener(PealGeneratorListener):
 
     # Runs the prompt with a copy of the peal, so the original is not modified if the user cancels
     def _run_cancellable_prompt(self, prompt: callable):
-        working_peal = self.peal.copy()
         while True:
             try:
+                working_peal = self.peal.copy()
                 prompt(working_peal)
+                self.peal = working_peal
                 break
             except UserCancelled as e:
                 error('Cancelled input')
@@ -199,7 +200,6 @@ class PealPromptListener(PealGeneratorListener):
                     continue
                 else:
                     raise e
-        self.peal = working_peal
 
 
 def _clean_str_input(input: str) -> str:

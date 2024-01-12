@@ -6,20 +6,15 @@ from pypeal.ringer import Ringer
 
 def prompt_add_composition_details(name: str, url: str, peal: Peal, quick_mode: bool):
 
-    if composer := _prompt_add_composer(name, quick_mode):
-        prompt_commit_ringer(composer, name)
-        peal.composer = composer
-    if peal.composition_note is None and \
-            ((not composer and name) or not quick_mode):
-        peal.composition_note = ask('Composition note', default=name if not composer and name else None, required=False)
-
-    if url or name or peal.composer:
-        peal.composition_url = ask('Composition URL', default=url, required=False) if not quick_mode else url
-
-
-def _prompt_add_composer(name: str, quick_mode: bool) -> Ringer:
-
-    matched_ringer: Ringer = prompt_add_ringer_by_name_match(name, 'Composer: ', quick_mode) if name else None
+    matched_ringer = composition_note = None
+    if name:
+        matched_ringer: Ringer = prompt_add_ringer_by_name_match(name, 'Composer: ', quick_mode)
+        if matched_ringer is None and name and \
+                confirm(f'No composer found matching "{name}" exactly',
+                        confirm_message='Add as composition note?',
+                        default=True):
+            composition_note = name
+            name = None
 
     while True:
 
@@ -27,18 +22,30 @@ def _prompt_add_composer(name: str, quick_mode: bool) -> Ringer:
             if name:
                 print(f'Composer: Attempting to find "{name}"')
             elif quick_mode or confirm('No composer attributed'):
-                return None
+                break
             if not (matched_ringer := prompt_add_ringer_by_search(name, 'Composer: ', True, quick_mode)):
-                return None  # Chosen to skip conductor
+                break  # Chosen to skip conductor
 
         if matched_ringer:
             if matched_ringer.id is None:
                 matched_ringer.is_composer = True  # Not yet saved, just update the field
-                return matched_ringer
             elif not matched_ringer.is_composer:
                 if quick_mode or confirm(f'"{matched_ringer}" is not a composer - change to composer?', default=True):
                     matched_ringer.is_composer = True
                     matched_ringer.commit()  # Existing ringer - update the record now
                 else:
                     continue  # Try input again
-            return matched_ringer
+            break
+
+    if matched_ringer:
+        prompt_commit_ringer(matched_ringer, name)
+        peal.composer = matched_ringer
+
+    if (peal.composition_note is None and not quick_mode) or \
+            (not peal.composer and name):
+        if not composition_note and not peal.composer and name:
+            composition_note = name  # Only default to name if it didn't match a ringer
+        peal.composition_note = ask('Composition note', default=composition_note, required=False)
+
+    if url or name or peal.composer:
+        peal.composition_url = ask('Composition URL', default=url, required=False) if not quick_mode else url

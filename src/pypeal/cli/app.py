@@ -85,8 +85,11 @@ def run_add(peal_id_or_url: str):
 
 
 def run_view(peal_id_or_url: str):
-    peal_id = prompt_peal_id(peal_id_or_url)
-    panel(str(Peal.get(bellboard_id=peal_id)))
+    match choose_option(['Bellboard ID/URL', 'Peal ID'], default=1) if not peal_id_or_url else 1:
+        case 1:
+            panel(str(Peal.get(bellboard_id=prompt_peal_id(peal_id_or_url))))
+        case 2:
+            panel(str(Peal.get(id=ask_int('Peal ID', min=1, required=True))))
     confirm(None, 'Continue?')
 
 

@@ -123,16 +123,17 @@ def search_method(method: Method, excluded_methods: list[str] = []) -> list[Meth
                                                    is_treble_dodging=method.is_treble_dodging,
                                                    exact_match=False)))
 
-    fewer_method_names = method_name
-    while ' ' in fewer_method_names and not method_matches:
-        fewer_method_names = fewer_method_names.rsplit(' ', 1)[0].strip()
-        method_matches = list(filter(lambda m: m.id not in excluded_methods,
-                                     Method.search(name=fewer_method_names,
-                                                   stage=method.stage,
-                                                   is_differential=method.is_differential,
-                                                   is_little=method.is_little,
-                                                   is_treble_dodging=method.is_treble_dodging,
-                                                   exact_match=False)))
+    if method_name:
+        fewer_method_names = method_name
+        while ' ' in fewer_method_names and not method_matches:
+            fewer_method_names = fewer_method_names.rsplit(' ', 1)[0].strip()
+            method_matches = list(filter(lambda m: m.id not in excluded_methods,
+                                         Method.search(name=fewer_method_names,
+                                                       stage=method.stage,
+                                                       is_differential=method.is_differential,
+                                                       is_little=method.is_little,
+                                                       is_treble_dodging=method.is_treble_dodging,
+                                                       exact_match=False)))
 
     if len(method_matches) == 2:
         if not method_name.startswith('double') and \

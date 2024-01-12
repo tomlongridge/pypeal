@@ -153,6 +153,8 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
             print(f'Multi-method peal: "{title}"...')
 
             is_variable_cover = False
+            stage = None
+            classification = None
             match len(parsed_methods):
                 case 2:
                     stage = parsed_methods[0].stage
@@ -163,9 +165,6 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
                 case 1:
                     stage = parsed_methods[0].stage
                     classification = parsed_methods[0].classification
-                case 0:
-                    stage = None
-                    classification = None
 
             # Bob and Place methods aren't usually specified in the title
             if classification in [Classification.BOB, Classification.PLACE]:

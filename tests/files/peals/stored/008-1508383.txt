@@ -83,6 +83,10 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 📕 Title: Bristol Surprise Maximus
+No composer found matching "Christopher I Rowson" exactly
+Add as composition note? [y/n] (y): 
+>>> n
+[User input: "False"]
 Composer: Attempting to find "Christopher I Rowson"
 1) Add new ringer, 2) Search ringers, 3) None
 Select option (1): 

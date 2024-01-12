@@ -48,15 +48,16 @@ class PealPreviewListener(PealGeneratorListener):
 
     def ringer(self, name: str, nums: list[int], bells: list[int], is_conductor: bool):
         if 'ringers' not in self.__lines:
-            self.__lines['ringers'] = ''
+            self.__lines['ringers'] = []
+        ringer_line = ''
         if nums:
-            self.__lines['ringers'] += get_bell_label(nums)
-            self.__lines['ringers'] += f' [{get_bell_label(bells)}]' if bells and nums != bells else ''
-            self.__lines['ringers'] += ': '
-        self.__lines['ringers'] += name
+            ringer_line += get_bell_label(nums)
+            ringer_line += f' [{get_bell_label(bells)}]' if bells and nums != bells else ''
+            ringer_line += ': '
+        ringer_line += name
         if is_conductor:
-            self.__lines['ringers'] += ' (c)'
-        self.__lines['ringers'] += '\n'
+            ringer_line += ' (c)'
+        self.__lines['ringers'].append(ringer_line)
 
     def footnote(self, value: str):
         if value and len(value.strip()) > 0:
@@ -89,7 +90,9 @@ class PealPreviewListener(PealGeneratorListener):
         text += f'Composer: {self.__lines["composer"]}\n' if 'composer' in self.__lines else ''
         text += (self.__lines['date'] + '\n') if 'date' in self.__lines else ''
         text += '\n'
-        text += (self.__lines['ringers'] + '\n') if 'ringers' in self.__lines else ''
+        for ringer in self.__lines['ringers']:
+            text += f'{ringer}\n'
+        text += '\n'
         if 'footnotes' in self.__lines:
             text += (self.__lines['footnotes'])
             text += '\n'
@@ -99,3 +102,7 @@ class PealPreviewListener(PealGeneratorListener):
         text += (f'Photo: {self.__lines["photo"]}\n') if 'photo' in self.__lines else ''
         text += (f'External reference: {self.__lines["external_reference"]}\n') if 'external_reference' in self.__lines else ''
         return text.strip()
+
+    @property
+    def data(self) -> dict:
+        return self.__lines

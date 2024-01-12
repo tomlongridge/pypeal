@@ -106,7 +106,7 @@ class HTMLPealGenerator():
         if len(element) > 0:
             composer_element = element[0].select('span.composer.persona')
             if len(composer_element) > 0:
-                composer_str = composer_element[0].text.strip()
+                composer_str = composer_element[0].text.strip().strip('()')
             url_element = element[0].select('a')
             if len(url_element) > 0:
                 url_str = config.get_config('bellboard', 'url') + url_element[0]['href']
@@ -150,9 +150,12 @@ class HTMLPealGenerator():
         if len(element) > 0:
             photo_url = element[0].select('img')[0]['src']
             caption_element = element[0].select('p.caption')[0]
-            credit_element = caption_element.select('i')[0]
-            credit = credit_element.text.strip()[len('Photo: ')+1:-1]
-            credit_element.decompose()
+            credit_element = caption_element.select('i')
+            if len(credit_element) > 0:
+                credit = credit_element[0].text.strip()[len('Photo: ')+1:-1]
+                credit_element[0].decompose()
+            else:
+                credit = None
             caption = caption_element.text.strip()
             if not (url_parts := re.match(PHOTO_URL_REGEX, photo_url)):
                 raise BellboardError('Unexpected photo URL format: ', photo_url)

@@ -61,6 +61,10 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 📕 Title: Honeywell Delight Minor
+No composer found matching "G A A Taylor" exactly
+Add as composition note? [y/n] (y): 
+>>> n
+[User input: "False"]
 Composer: Attempting to find "G A A Taylor"
 1) Add new ringer, 2) Search ringers, 3) None
 Select option (1): 

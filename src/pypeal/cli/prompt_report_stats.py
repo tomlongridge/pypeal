@@ -39,7 +39,7 @@ def prompt_report_stats():
     conducted_summary_data = {} if conducted_report else None
     for type in report['types']:
         summary_data[f'{type}s'] = report['types'][type]['count']
-        if conducted_report:
+        if conducted_report and type in conducted_report['types']:
             conducted_summary_data[f'{type}s'] = conducted_report['types'][type]['count']
     console.print(_generate_dict_table([summary_data, conducted_summary_data],
                                        value_name=['Rung' if conducted_report else 'Count',

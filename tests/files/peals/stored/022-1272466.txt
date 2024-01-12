@@ -59,11 +59,11 @@ Try for a quick-add? [y/n] (y):
 🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
 📕 Title: Grandsire Triples
-Composer: Attempting to find "Albert P Wakley"
-Add new ringer as "Albert P" "Wakley"? [y/n] (y): 
+No composer found matching "Albert P Wakley" exactly
+Add as composition note? [y/n] (y): 
 >>> y
 [User input: "True"]
-🎼 Composer: Albert P Wakley
+🎼 Composer: Unknown
 First bell number(s) in the tower (1): 
 >>> 3
 [User input: "3"]
@@ -88,7 +88,6 @@ First bell number(s) in the tower (1):
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 17 February 2019                                                  │
 │ A Quarter Peal of 1260 Grandsire Triples in 46 minutes (18-3-20 in Eb)       │
-│ Composed by: Albert P Wakley                                                 │
 │                                                                              │
 │ 1 [3]: Lenny Howard                                                          │
 │ 2 [4]: Chester Edwards                                                       │
@@ -138,7 +137,6 @@ Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Sunday, 17 February 2019
 A Quarter Peal of 1260 Grandsire Triples in 46 minutes (18-3-20 in Eb)
-Composed by: Albert P Wakley
 
 1 [3]: Lenny Howard
 2 [4]: Chester Edwards
