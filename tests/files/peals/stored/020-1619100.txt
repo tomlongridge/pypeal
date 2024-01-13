@@ -143,7 +143,439 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 Peal 1619100 added
 pypeal Database
- None count: 1                                                                  
+ General Ringing count: 1                                                       
+ Quarter Peal count: 16                                                         
+ Peal count: 3                                                                  
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal                                                           │
+│ 6) View peal                                                                 │
+│ 7) View statistics                                                           │
+│ 8) Update static data                                                        │
+│ 9) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> 7
+[User input: "7"]
+Summary
+ ────────────────────────────────────────────────────────────────────────────── 
+                                                  Count                         
+ ────────────────────────────────────────────────────────────────────────────── 
+                                                  1                             
+  Quarter Peal                                    16                            
+  Peal                                            3                             
+ ────────────────────────────────────────────────────────────────────────────── 
+Show report for: 1) General Ringing, 2) Quarter Peal, 3) Peal
+Select option (x = Back): 
+>>> 1
+[User input: "General Ringing"]
+General Ringing statistics
+ ─────────────────────────  ─────────────────────────  ──────────────────────── 
+  Stage   Rung   Conduct…    Methods   Rung   Condu…    Misc    Rung    Condu…  
+ ─────────────────────────  ─────────────────────────  ──────────────────────── 
+  None                       None                       Gene…   1               
+ ─────────────────────────  ─────────────────────────   Ring…                   
+                                                        Tower   1               
+                                                        First   06-M…           
+                                                        rung                    
+                                                        Last    06-M…           
+                                                        rung                    
+                                                        Avg.                    
+                                                        peal                    
+                                                        speed                   
+                                                        Avg.                    
+                                                        dura…                   
+                                                       ──────────────────────── 
+ ─────────────────────────  ─────────────────────────  ──────────────────────── 
+  Top 10 Ringers    Count    Top 10                     Top 10                  
+ ─────────────────────────   Conductors        Count    Associations     Count  
+  Arnold Johnson    1       ─────────────────────────  ──────────────────────── 
+  Belinda           1        None                       None                    
+  Thompson                  ─────────────────────────  ──────────────────────── 
+  Caroline          1                                                           
+  Sullivan                                                                      
+  Chester Edwards   1                                                           
+  Fenton Hawkins    1                                                           
+  Grace Perry       1                                                           
+  Heather           1                                                           
+  Sullivan                                                                      
+  Joyce Sullivan    1                                                           
+  Kate Miller       1                                                           
+  Kirsten           1                                                           
+  Richards                                                                      
+ ─────────────────────────                                                      
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 1
+[User input: "1"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Methods                                      Count                            
+ ────────────────────────────────────────────────────────────────────────────── 
+  None                                                                          
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 2
+[User input: "2"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Ringers                                                   Count               
+ ────────────────────────────────────────────────────────────────────────────── 
+  Arnold Johnson                                            1                   
+  Belinda Thompson                                          1                   
+  Caroline Sullivan                                         1                   
+  Chester Edwards                                           1                   
+  Fenton Hawkins                                            1                   
+  Grace Perry                                               1                   
+  Heather Sullivan                                          1                   
+  Joyce Sullivan                                            1                   
+  Kate Miller                                               1                   
+  Kirsten Richards                                          1                   
+  Martin Morgan                                             1                   
+  Olivia West                                               1                   
+  Paul Andrews                                              1                   
+  Ryan Elliott                                              1                   
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 3
+[User input: "3"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Conductors                                        Count                       
+ ────────────────────────────────────────────────────────────────────────────── 
+  None                                                                          
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 4
+[User input: "4"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Associations                                         Count                    
+ ────────────────────────────────────────────────────────────────────────────── 
+  None                                                                          
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> x
+[User input: "None"]
+Show report for: 1) General Ringing, 2) Quarter Peal, 3) Peal
+Select option (x = Back): 
+>>> 2
+[User input: "Quarter Peal"]
+Quarter Peal statistics
+ ─────────────────────────  ─────────────────────────  ──────────────────────── 
+  Stage     Rung   Condu…    Methods   Rung   Condu…    Misc    Rung    Condu…  
+ ─────────────────────────  ─────────────────────────  ──────────────────────── 
+  Doubles   4                Grands…   3                Sing…   12              
+  Triples   4                Triples                    Meth…                   
+  Major     3                Cambri…   1                Mixed   2               
+  Caters    2                Surpri…                    Meth…                   
+  Royal     2                Major                      Spli…   2               
+  Minor     1                Grands…   1                Meth…                   
+ ─────────────────────────   Caters                     Tower   16              
+                             Grands…   1                Half    1               
+                             Doubles                    muff…                   
+                             Honeyw…   1                First   05-D…           
+                             Delight                    rung                    
+                             Minor                      Last    06-O…           
+                             Little    1                rung                    
+                             Bob                        Avg.    2               
+                             Royal                      peal    hour…           
+                             London    1                speed   40              
+                             Surpri…                            minu…           
+                             Major                      Avg.    40              
+                             Plain     1                dura…   minu…           
+                             Bob                       ──────────────────────── 
+                             Doubles                                            
+                             Plain     1                                        
+                             Bob                                                
+                             Royal                                              
+                             Plain     1                                        
+                             Bob                                                
+                             Triples                                            
+                            ─────────────────────────                           
+ ─────────────────────────  ─────────────────────────  ──────────────────────── 
+  Top 10 Ringers    Count    Top 10                     Top 10                  
+ ─────────────────────────   Conductors        Count    Associations     Count  
+  Leo Bennett       10      ─────────────────────────  ──────────────────────── 
+  Chester Edwards   7        Leo Bennett       3        Bath and Wells   3      
+  Joyce Sullivan    7        Heather           2        Diocesan                
+  Heather           6        Sullivan                   Association             
+  Sullivan                   Aston Mitchell    1        Guild of         1      
+  Blake Elliott     5        Blake Elliott     1        Devonshire              
+  Cadie Nelson      4        Blake Harper      1        Ringers                 
+  Daryl Mason       4        Brooke Adams      1       ──────────────────────── 
+  Melissa Baker     4        Byron Robinson    1                                
+  Ryan Elliott      4        Chester Edwards   1                                
+  Arnold Johnson    3        Jack Spencer      1                                
+ ─────────────────────────   Joyce Sullivan    1                                
+                            ─────────────────────────                           
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 1
+[User input: "1"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Methods                                                       Count           
+ ────────────────────────────────────────────────────────────────────────────── 
+  Grandsire Triples                                             3               
+  Cambridge Surprise Major                                      1               
+  Grandsire Caters                                              1               
+  Grandsire Doubles                                             1               
+  Honeywell Delight Minor                                       1               
+  Little Bob Royal                                              1               
+  London Surprise Major                                         1               
+  Plain Bob Doubles                                             1               
+  Plain Bob Royal                                               1               
+  Plain Bob Triples                                             1               
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 2
+[User input: "2"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Ringers                                                    Count              
+ ────────────────────────────────────────────────────────────────────────────── 
+  Leo Bennett                                                10                 
+  Chester Edwards                                            7                  
+  Joyce Sullivan                                             7                  
+  Heather Sullivan                                           6                  
+  Blake Elliott                                              5                  
+  Cadie Nelson                                               4                  
+  Daryl Mason                                                4                  
+  Melissa Baker                                              4                  
+  Ryan Elliott                                               4                  
+  Arnold Johnson                                             3                  
+  Byron Robinson                                             3                  
+  Clark Elliott                                              3                  
+  Harold Gray                                                3                  
+  Jacob Cole                                                 3                  
+  Paul Armstrong                                             3                  
+  Savana Davis                                               3                  
+  Aston Mitchell                                             2                  
+  Blake Elliott                                              2                  
+  Dainton Casey                                              2                  
+  Daniel Miller                                              2                  
+  Grace Perry                                                2                  
+  Lenny Howard                                               2                  
+  Ted Harris                                                 2                  
+  Vivian Murray                                              2                  
+  Alisa Cole                                                 1                  
+  Aston Mitchell                                             1                  
+  Blake Harper                                               1                  
+  Brooke Adams                                               1                  
+  Byron Miller                                               1                  
+  Carina Warren                                              1                  
+  Carl Johnston                                              1                  
+  Charlie Warren                                             1                  
+  Chloe Henderson                                            1                  
+  David Rogers                                               1                  
+  Deanna Bennett                                             1                  
+  Dominik Warren                                             1                  
+  Edward Chapman                                             1                  
+  Edward Dixon                                               1                  
+  Ellia Armstrong                                            1                  
+  Eric Ryan                                                  1                  
+  Fenton Bailey                                              1                  
+  Garry Scott                                                1                  
+  George Roberts                                             1                  
+  Jack Spencer                                               1                  
+  Julia Fowler                                               1                  
+  Kate Crawford                                              1                  
+  Lucas Farrell                                              1                  
+  Lucas Wright                                               1                  
+  Lydia Ferguson                                             1                  
+  Melissa Evans                                              1                  
+  Michael Williams                                           1                  
+  Michelle Edwards                                           1                  
+  Michelle Thompson                                          1                  
+  Mike Sullivan                                              1                  
+  Ned Andrews                                                1                  
+  Olivia West                                                1                  
+  Patrick Bennett                                            1                  
+  Rev Alen Henderson                                         1                  
+  Richard Higgins                                            1                  
+  Roland Clark                                               1                  
+  Sienna Murphy                                              1                  
+  Valeria Perkins                                            1                  
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 3
+[User input: "3"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Conductors                                               Count                
+ ────────────────────────────────────────────────────────────────────────────── 
+  Leo Bennett                                              3                    
+  Heather Sullivan                                         2                    
+  Aston Mitchell                                           1                    
+  Blake Elliott                                            1                    
+  Blake Harper                                             1                    
+  Brooke Adams                                             1                    
+  Byron Robinson                                           1                    
+  Chester Edwards                                          1                    
+  Jack Spencer                                             1                    
+  Joyce Sullivan                                           1                    
+  Lucas Farrell                                            1                    
+  Ted Harris                                               1                    
+  Vivian Murray                                            1                    
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 4
+[User input: "4"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Associations                                                      Count       
+ ────────────────────────────────────────────────────────────────────────────── 
+  Bath and Wells Diocesan Association                               3           
+  Guild of Devonshire Ringers                                       1           
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> x
+[User input: "None"]
+Show report for: 1) General Ringing, 2) Quarter Peal, 3) Peal
+Select option (x = Back): 
+>>> 3
+[User input: "Peal"]
+Peal statistics
+ ─────────────────────────  ─────────────────────────  ──────────────────────── 
+  Stage     Rung   Condu…    Methods   Rung   Condu…    Misc    Rung    Condu…  
+ ─────────────────────────  ─────────────────────────  ──────────────────────── 
+  Doubles   1                Bristol   1                Mixed   2               
+  Maximus   1                Surpri…                    Meth…                   
+  Minor     1                Maximus                    Sing…   1               
+ ─────────────────────────  ─────────────────────────   Meth…                   
+                                                        Tower   2               
+                                                        Hand…   1               
+                                                        First   25-M…           
+                                                        rung                    
+                                                        Last    29-M…           
+                                                        rung                    
+                                                        Avg.    2               
+                                                        peal    hour…           
+                                                        speed   43              
+                                                                minu…           
+                                                        Avg.    2               
+                                                        dura…   hour…           
+                                                                45              
+                                                                minu…           
+                                                       ──────────────────────── 
+ ─────────────────────────  ─────────────────────────  ──────────────────────── 
+  Top 10 Ringers    Count    Top 10                     Top 10                  
+ ─────────────────────────   Conductors        Count    Associations     Count  
+  Aston Mitchell    2       ─────────────────────────  ──────────────────────── 
+  John Parker       2        Aston Mitchell    1        Oxford           1      
+  Arianna Holmes    1        Lenny Howard      1        Diocesan Guild          
+  Blake Howard      1        Sienna Murphy     1        Suffolk Guild    1      
+  Carina Warren     1       ─────────────────────────  ──────────────────────── 
+  Dominik Warren    1                                                           
+  Jack Spencer      1                                                           
+  Lenny Howard      1                                                           
+  Lydia Reed        1                                                           
+  Ned Andrews       1                                                           
+ ─────────────────────────                                                      
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 1
+[User input: "1"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Methods                                                       Count           
+ ────────────────────────────────────────────────────────────────────────────── 
+  Bristol Surprise Maximus                                      1               
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 2
+[User input: "2"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Ringers                                                    Count              
+ ────────────────────────────────────────────────────────────────────────────── 
+  Aston Mitchell                                             2                  
+  John Parker                                                2                  
+  Arianna Holmes                                             1                  
+  Blake Howard                                               1                  
+  Carina Warren                                              1                  
+  Dominik Warren                                             1                  
+  Jack Spencer                                               1                  
+  Lenny Howard                                               1                  
+  Lydia Reed                                                 1                  
+  Ned Andrews                                                1                  
+  Rev Alen Henderson                                         1                  
+  Rubie Owens                                                1                  
+  Sam Wells                                                  1                  
+  Sienna Murphy                                              1                  
+  Stuart Murray                                              1                  
+  Victoria Morrison                                          1                  
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 3
+[User input: "3"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Conductors                                             Count                  
+ ────────────────────────────────────────────────────────────────────────────── 
+  Aston Mitchell                                         1                      
+  Lenny Howard                                           1                      
+  Sienna Murphy                                          1                      
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 4
+[User input: "4"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Associations                                                 Count            
+ ────────────────────────────────────────────────────────────────────────────── 
+  Oxford Diocesan Guild                                        1                
+  Suffolk Guild                                                1                
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> x
+[User input: "None"]
+Show report for: 1) General Ringing, 2) Quarter Peal, 3) Peal
+Select option (x = Back): 
+>>> x
+[User input: "None"]
+pypeal Database
+ General Ringing count: 1                                                       
  Quarter Peal count: 16                                                         
  Peal count: 3                                                                  
 ┌──────────────────────────────────────────────────────────────────────────────┐

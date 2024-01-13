@@ -41,7 +41,10 @@ class PealLengthType(IntEnum):
     NONE = 0
 
     def __str__(self):
-        return self.name.replace("_", " ").title()
+        if self == PealLengthType.NONE:
+            return 'General Ringing'
+        else:
+            return self.name.replace("_", " ").title()
 
 
 class BellType(IntEnum):

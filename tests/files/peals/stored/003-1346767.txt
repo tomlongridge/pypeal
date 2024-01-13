@@ -380,6 +380,230 @@ pypeal Database
 │ 9) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
+>>> 7
+[User input: "7"]
+Summary
+ ────────────────────────────────────────────────────────────────────────────── 
+                                                  Count                         
+ ────────────────────────────────────────────────────────────────────────────── 
+  Quarter Peal                                    2                             
+  Peal                                            1                             
+ ────────────────────────────────────────────────────────────────────────────── 
+Show report for: 1) Quarter Peal, 2) Peal
+Select option (x = Back): 
+>>> 1
+[User input: "Quarter Peal"]
+Quarter Peal statistics
+ ─────────────────────────  ─────────────────────────  ──────────────────────── 
+  Stage     Rung   Condu…    Methods   Rung   Condu…    Misc    Rung    Condu…  
+ ─────────────────────────  ─────────────────────────  ──────────────────────── 
+  Doubles   1                Grands…   1                Mixed   1               
+  Triples   1                Triples                    Meth…                   
+ ─────────────────────────  ─────────────────────────   Sing…   1               
+                                                        Meth…                   
+                                                        Tower   2               
+                                                        First   30-J…           
+                                                        rung                    
+                                                        Last    17-O…           
+                                                        rung                    
+                                                        Avg.    3               
+                                                        peal    hour…           
+                                                        speed   18              
+                                                                minu…           
+                                                        Avg.    50              
+                                                        dura…   minu…           
+                                                       ──────────────────────── 
+ ─────────────────────────  ─────────────────────────  ──────────────────────── 
+  Top 10 Ringers    Count    Top 10                     Top 10                  
+ ─────────────────────────   Conductors        Count    Associations     Count  
+  Ted Harris        2       ─────────────────────────  ──────────────────────── 
+  Chloe Henderson   1        Lucas Farrell     1        Bath and Wells   1      
+  Dainton Casey     1        Ted Harris        1        Diocesan                
+  Daryl Mason       1       ─────────────────────────   Association             
+  David Rogers      1                                  ──────────────────────── 
+  Harold Gray       1                                                           
+  Lucas Farrell     1                                                           
+  Lucas Wright      1                                                           
+  Lydia Ferguson    1                                                           
+  Michelle          1                                                           
+  Thompson                                                                      
+ ─────────────────────────                                                      
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 1
+[User input: "1"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Methods                                                   Count               
+ ────────────────────────────────────────────────────────────────────────────── 
+  Grandsire Triples                                         1                   
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 2
+[User input: "2"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Ringers                                                    Count              
+ ────────────────────────────────────────────────────────────────────────────── 
+  Ted Harris                                                 2                  
+  Chloe Henderson                                            1                  
+  Dainton Casey                                              1                  
+  Daryl Mason                                                1                  
+  David Rogers                                               1                  
+  Harold Gray                                                1                  
+  Lucas Farrell                                              1                  
+  Lucas Wright                                               1                  
+  Lydia Ferguson                                             1                  
+  Michelle Thompson                                          1                  
+  Rev Alen Henderson                                         1                  
+  Roland Clark                                               1                  
+  Ryan Elliott                                               1                  
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 3
+[User input: "3"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Conductors                                            Count                   
+ ────────────────────────────────────────────────────────────────────────────── 
+  Lucas Farrell                                         1                       
+  Ted Harris                                            1                       
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 4
+[User input: "4"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Associations                                                      Count       
+ ────────────────────────────────────────────────────────────────────────────── 
+  Bath and Wells Diocesan Association                               1           
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> x
+[User input: "None"]
+Show report for: 1) Quarter Peal, 2) Peal
+Select option (x = Back): 
+>>> 2
+[User input: "Peal"]
+Peal statistics
+ ─────────────────────────  ─────────────────────────  ──────────────────────── 
+  Stage   Rung   Conduct…    Methods   Rung   Condu…    Misc    Rung    Condu…  
+ ─────────────────────────  ─────────────────────────  ──────────────────────── 
+  Minor   1                  None                       Mixed   1               
+ ─────────────────────────  ─────────────────────────   Meth…                   
+                                                        Tower   1               
+                                                        First   25-M…           
+                                                        rung                    
+                                                        Last    25-M…           
+                                                        rung                    
+                                                        Avg.    2               
+                                                        peal    hour…           
+                                                        speed   42              
+                                                                minu…           
+                                                        Avg.    2               
+                                                        dura…   hour…           
+                                                                42              
+                                                                minu…           
+                                                       ──────────────────────── 
+ ─────────────────────────  ─────────────────────────  ──────────────────────── 
+  Top 10 Ringers    Count    Top 10                     Top 10                  
+ ─────────────────────────   Conductors        Count    Associations     Count  
+  Aston Mitchell    1       ─────────────────────────  ──────────────────────── 
+  Blake Howard      1        Sienna Murphy     1        Suffolk Guild    1      
+  Dominik Warren    1       ─────────────────────────  ──────────────────────── 
+  John Parker       1                                                           
+  Rev Alen          1                                                           
+  Henderson                                                                     
+  Sienna Murphy     1                                                           
+ ─────────────────────────                                                      
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 1
+[User input: "1"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Methods                                      Count                            
+ ────────────────────────────────────────────────────────────────────────────── 
+  None                                                                          
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 2
+[User input: "2"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Ringers                                                    Count              
+ ────────────────────────────────────────────────────────────────────────────── 
+  Aston Mitchell                                             1                  
+  Blake Howard                                               1                  
+  Dominik Warren                                             1                  
+  John Parker                                                1                  
+  Rev Alen Henderson                                         1                  
+  Sienna Murphy                                              1                  
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 3
+[User input: "3"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Conductors                                            Count                   
+ ────────────────────────────────────────────────────────────────────────────── 
+  Sienna Murphy                                         1                       
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 4
+[User input: "4"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Associations                                          Count                   
+ ────────────────────────────────────────────────────────────────────────────── 
+  Suffolk Guild                                         1                       
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> x
+[User input: "None"]
+Show report for: 1) Quarter Peal, 2) Peal
+Select option (x = Back): 
+>>> x
+[User input: "None"]
+pypeal Database
+ Quarter Peal count: 2                                                          
+ Peal count: 1                                                                  
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal                                                           │
+│ 6) View peal                                                                 │
+│ 7) View statistics                                                           │
+│ 8) Update static data                                                        │
+│ 9) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
 >>> 9
 [User input: "9"]
 ===

@@ -54,7 +54,7 @@ def prompt_report_stats():
         else:
             length_type = list(report['types'].keys())[0]
 
-        heading(f'{length_type}s')
+        heading(f'{length_type} statistics')
         length_type_report = report['types'][length_type]
         if conducted_report and length_type in conducted_report['types']:
             length_type_conducted_report = conducted_report['types'][length_type]
