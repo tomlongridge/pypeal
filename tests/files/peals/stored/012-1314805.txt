@@ -1,8 +1,8 @@
 
 ===
 pypeal Database
- Quarter Peals: 8                                                               
- Peals: 3                                                                       
+ Quarter Peal count: 8                                                          
+ Peal count: 3                                                                  
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) Find recent peals                                                         │
 │ 2) Add peals by search                                                       │
@@ -280,8 +280,8 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 Peal 1314805 added
 pypeal Database
- Quarter Peals: 9                                                               
- Peals: 3                                                                       
+ Quarter Peal count: 9                                                          
+ Peal count: 3                                                                  
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) Find recent peals                                                         │
 │ 2) Add peals by search                                                       │

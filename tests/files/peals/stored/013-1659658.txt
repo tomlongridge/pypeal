@@ -1,8 +1,8 @@
 
 ===
 pypeal Database
- Quarter Peals: 9                                                               
- Peals: 3                                                                       
+ Quarter Peal count: 9                                                          
+ Peal count: 3                                                                  
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) Find recent peals                                                         │
 │ 2) Add peals by search                                                       │
@@ -23,7 +23,7 @@ Bellboard URL or peal ID:
 ╭───────────────── http://localhost:8080/view.php?id=1659658 ──────────────────╮
 │ St Andrew, Shrivenham, Oxfordshire                                           │
 │ 1296 Little Bob Royal                                                        │
-│ Composer: Alex W Tatlow                                                      │
+│ Composer: Steven Anderson                                                    │
 │ Saturday, 23 September 2023 (13–0–2 in F) in 50m                             │
 │                                                                              │
 │ 1: Garry Scott                                                               │
@@ -66,7 +66,7 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 📕 Title: Little Bob Royal
-No composer found matching "Alex W Tatlow" exactly
+No composer found matching "Steven Anderson" exactly
 Add as composition note? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -87,14 +87,11 @@ Given name(s):
 Title: 
 >>> 
 [User input: "None"]
-Composition note (Alex W Tatlow): 
->>> Traditional
-[User input: "Traditional"]
 Composition URL (http://localhost:8080/comp.php?id=2293307): 
 >>> 
 [User input: "http://localhost:8080/comp.php?id=2293307"]
 🎼 Composer: ComposerGivenName ComposerSurname
-🎼 Composition: Traditional
+🎼 Composition: Steven Anderson
 1: Couldn't find ringer matching "Garry Scott" (or aliases)
 1) Add new ringer, 2) Search ringers
 Select option (1): 
@@ -258,7 +255,7 @@ Select option (1):
 │ On Saturday, 23 September 2023                                               │
 │ A Quarter Peal of 1296 Little Bob Royal in 50 minutes (13-0-2 in F)          │
 │ Composed by: ComposerGivenName ComposerSurname                               │
-│ Composition: Traditional                                                     │
+│ Composition: Steven Anderson                                                 │
 │                                                                              │
 │ 1: Garry Scott                                                               │
 │ 2: Charlie Warren                                                            │
@@ -284,8 +281,8 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 Peal 1659658 added
 pypeal Database
- Quarter Peals: 10                                                              
- Peals: 3                                                                       
+ Quarter Peal count: 10                                                         
+ Peal count: 3                                                                  
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) Find recent peals                                                         │
 │ 2) Add peals by search                                                       │
@@ -306,7 +303,7 @@ S Andrew
 On Saturday, 23 September 2023
 A Quarter Peal of 1296 Little Bob Royal in 50 minutes (13-0-2 in F)
 Composed by: ComposerGivenName ComposerSurname
-Composition: Traditional
+Composition: Steven Anderson
 
 1: Garry Scott
 2: Charlie Warren

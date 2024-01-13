@@ -1,8 +1,8 @@
 
 ===
 pypeal Database
- Quarter Peals: 13                                                              
- Peals: 3                                                                       
+ Quarter Peal count: 13                                                         
+ Peal count: 3                                                                  
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) Find recent peals                                                         │
 │ 2) Add peals by search                                                       │
@@ -23,7 +23,7 @@ Bellboard URL or peal ID:
 ╭───────────────── http://localhost:8080/view.php?id=1661485 ──────────────────╮
 │ St Stephen, Lansdown, Bath, Somerset                                         │
 │ 1296 Honeywell Delight Minor                                                 │
-│ Composer: G A A Taylor                                                       │
+│ Composer: Maya Armstrong                                                     │
 │ Friday, 6 October 2023 (2–3–9 in F) in 36m                                   │
 │                                                                              │
 │ 1: Leonardo Bennett                                                          │
@@ -61,22 +61,22 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 📕 Title: Honeywell Delight Minor
-No composer found matching "G A A Taylor" exactly
+No composer found matching "Maya Armstrong" exactly
 Add as composition note? [y/n] (y): 
 >>> n
 [User input: "False"]
-Composer: Attempting to find "G A A Taylor"
+Composer: Attempting to find "Maya Armstrong"
 1) Add new ringer, 2) Search ringers, 3) None
 Select option (1): 
 >>> 2
 [User input: "2"]
-Last name (Taylor): 
+Last name (Armstrong): 
 >>> Mil_er
 [User input: "Mil_er"]
-Given name(s) (G A A): 
+Given name(s) (Maya): 
 >>> By%
 [User input: "By%"]
-Composer: "G A A Taylor" -> Byron Miller
+Composer: "Maya Armstrong" -> Byron Miller
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -87,7 +87,7 @@ Is this correct? [y/n] (y):
 Add an alias for "Byron Miller"? [y/n] (y): 
 >>> y
 [User input: "True"]
-Which name should be displayed?: 1) G A A Taylor, 2) Byron Miller
+Which name should be displayed?: 1) Maya Armstrong, 2) Byron Miller
 Select option (2): 
 >>> 2
 [User input: "2"]
@@ -195,8 +195,8 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 Peal 1661485 added
 pypeal Database
- Quarter Peals: 14                                                              
- Peals: 3                                                                       
+ Quarter Peal count: 14                                                         
+ Peal count: 3                                                                  
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) Find recent peals                                                         │
 │ 2) Add peals by search                                                       │

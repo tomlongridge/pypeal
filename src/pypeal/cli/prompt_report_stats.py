@@ -38,42 +38,50 @@ def prompt_report_stats():
     summary_data = {}
     conducted_summary_data = {} if conducted_report else None
     for type in report['types']:
-        summary_data[f'{type}s'] = report['types'][type]['count']
+        summary_data[type] = report['types'][type]['count']
         if conducted_report and type in conducted_report['types']:
             conducted_summary_data[f'{type}s'] = conducted_report['types'][type]['count']
     console.print(_generate_dict_table([summary_data, conducted_summary_data],
                                        value_name=['Rung' if conducted_report else 'Count',
                                                    'Conducted' if conducted_report else None]))
 
-    if len(report['types']) > 1:
-        length_type = choose_option(list(report['types'].keys()), title='Show report for', none_option='Back')
-        if length_type is None:
-            return
-    else:
-        length_type = list(report['types'].keys())[0]
-
-    heading(f'{length_type}s')
-    length_type_report = report['types'][length_type]
-    length_type_conducted_report = conducted_report['types'][length_type]
-    console.print(_generate_peal_length_table(length_type_report, length_type_conducted_report))
-
     while True:
-        match choose_option(['All methods',
-                             'All ringers',
-                             'All conductors',
-                             'All associations'],
-                            none_option='Back'):
-            case 1:
-                console.print(_generate_dict_table(length_type_report['all_methods'], key_name='Methods'))
-            case 2:
-                console.print(_generate_dict_table(length_type_report['ringers'], key_name='Ringers'))
-            case 3:
-                console.print(_generate_dict_table(length_type_report['conductors'], key_name='Conductors'))
-            case 4:
-                console.print(_generate_dict_table(length_type_report['associations'], key_name='Associations'))
-            case None:
+
+        if len(report['types']) > 1:
+            length_type = choose_option(list(report['types'].keys()), title='Show report for', none_option='Back')
+            if length_type is None:
                 return
-        confirm(None, confirm_message='Press enter to continue')
+        else:
+            length_type = list(report['types'].keys())[0]
+
+        heading(f'{length_type}s')
+        length_type_report = report['types'][length_type]
+        if conducted_report and length_type in conducted_report['types']:
+            length_type_conducted_report = conducted_report['types'][length_type]
+        else:
+            length_type_conducted_report = None
+        console.print(_generate_peal_length_table(length_type_report, length_type_conducted_report))
+
+        while True:
+            match choose_option(['All methods',
+                                 'All ringers',
+                                 'All conductors',
+                                 'All associations'],
+                                none_option='Back'):
+                case 1:
+                    console.print(_generate_dict_table(length_type_report['all_methods'], key_name='Methods'))
+                case 2:
+                    console.print(_generate_dict_table(length_type_report['ringers'], key_name='Ringers'))
+                case 3:
+                    console.print(_generate_dict_table(length_type_report['conductors'], key_name='Conductors'))
+                case 4:
+                    console.print(_generate_dict_table(length_type_report['associations'], key_name='Associations'))
+                case None:
+                    break
+            confirm(None, confirm_message='Press enter to continue')
+
+        if len(report['types']) == 1:
+            break
 
 
 def _generate_summary_heading(report: dict,
@@ -105,13 +113,13 @@ def _generate_peal_length_table(data: dict, conducted_data: dict) -> Table:
     table.add_column(None, justify='center', ratio=1)
     table.add_column(None, justify='right', ratio=1)
     table.add_row(
-        _generate_dict_table([data['stages'], conducted_data['stages']],
+        _generate_dict_table([data['stages'], conducted_data['stages'] if conducted_data else None],
                              key_name='Stage',
                              value_name=['Rung', 'Conducted']),
-        _generate_dict_table([data['all_methods'], conducted_data['all_methods']],
+        _generate_dict_table([data['all_methods'], conducted_data['all_methods'] if conducted_data else None],
                              key_name='Methods', value_name=['Rung', 'Conducted'],
                              max_rows=10),
-        _generate_dict_table([_generate_misc_data(data), _generate_misc_data(conducted_data)],
+        _generate_dict_table([_generate_misc_data(data), _generate_misc_data(conducted_data) if conducted_data else None],
                              key_name='Misc',
                              value_name=['Rung', 'Conducted']),
     )
@@ -134,8 +142,8 @@ def _generate_misc_data(data: dict) -> dict:
             misc_data[str(type)] = data['muffles'][type]
     misc_data['First rung'] = utils.format_date_short(data['first'])
     misc_data['Last rung'] = utils.format_date_short(data['last'])
-    misc_data['Avg. peal speed'] = utils.get_time_str(data['avg_peal_speed'])
-    misc_data['Avg. duration'] = utils.get_time_str(data['avg_duration'])
+    misc_data['Avg. peal speed'] = utils.get_time_str(data['avg_peal_speed']) if 'avg_peal_speed' in data else None
+    misc_data['Avg. duration'] = utils.get_time_str(data['avg_duration']) if 'avg_duration' in data else None
     return misc_data
 
 
@@ -146,7 +154,10 @@ def _generate_dict_table(data: dict | list[dict], key_name: str = '', value_name
     else:
         combined_data = {}
         for key in data[0]:
-            combined_data[key] = [dataset.get(key) for dataset in data]
+            combined_data[key] = []
+            for dataset in data:
+                if dataset:
+                    combined_data[key].append(dataset.get(key))
 
     table = Table(show_footer=False, box=box.HORIZONTALS, expand=True)
     table.add_column(key_name, justify='left')

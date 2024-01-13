@@ -19,16 +19,27 @@ def prompt_add_ringer(name: str,
                       quick_mode: bool):
 
     if peal.stage is not None:
+        if len(peal.ringers) > 0 and bell_nums_in_peal and peal.ringers[-1].bell_nums is not None:
+            expected_bell_num_in_peal = peal.ringers[-1].bell_nums[-1] + 1
+            if bell_nums_in_peal[0] != expected_bell_num_in_peal:
+                warning(f'Unexpected bell number ({bell_nums_in_peal[0]}) for "{name}", ' +
+                        f'based on previous bell number ({expected_bell_num_in_peal})')
+                if confirm(None, confirm_message=f'Use {expected_bell_num_in_peal}?', default=True):
+                    for i in range(len(bell_nums_in_peal)):
+                        bell_nums_in_peal[i] = expected_bell_num_in_peal
+                        expected_bell_num_in_peal += 1
+                else:
+                    bell_nums_in_peal = None
         max_possible_bells = peal.stage.value + (1 if peal.stage.value % 2 == 1 else 0)
         if bell_nums_in_peal[-1] > max_possible_bells:
             warning(f'Bell number ({bell_nums_in_peal[-1]}) exceeds expected number of bells in the peal ({max_possible_bells}), ' +
                     'based on method(s)')
             if not confirm(None, default=False):
-                return
+                bell_nums_in_peal = None
 
     if bell_nums_in_ring and peal.ring and bell_nums_in_ring[-1] > peal.ring.num_bells:
         warning(f'Bell role ({bell_nums_in_ring[-1]}) exceeds number of bells in the tower ({peal.ring.num_bells}) - ignoring')
-        bells = None
+        bell_nums_in_ring = None
 
     bell_label = get_bell_label(bell_nums_in_peal) + ': ' if bell_nums_in_peal else ''
 
@@ -92,7 +103,8 @@ def prompt_add_ringer(name: str,
                     quick_mode = False
                     break
                 if len(bell_nums_in_ring) > len(bell_nums_in_peal):
-                    if not confirm(f'More bells ({len(bells)}) than expected ({len(bell_nums_in_peal)}) for this ringer', default=False):
+                    if not confirm(f'More bells ({len(bell_nums_in_ring)}) than expected ({len(bell_nums_in_peal)}) for this ringer',
+                                   default=False):
                         bell_nums_in_ring = []
                         quick_mode = False
 

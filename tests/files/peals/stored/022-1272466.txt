@@ -1,9 +1,9 @@
 
 ===
 pypeal Database
- Nones: 1                                                                       
- Quarter Peals: 17                                                              
- Peals: 3                                                                       
+ None count: 1                                                                  
+ Quarter Peal count: 17                                                         
+ Peal count: 3                                                                  
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) Find recent peals                                                         │
 │ 2) Add peals by search                                                       │
@@ -24,7 +24,7 @@ Bellboard URL or peal ID:
 ╭───────────────── http://localhost:8080/view.php?id=1272466 ──────────────────╮
 │ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
 │ 1260 Grandsire Triples                                                       │
-│ Composer: Albert P Wakley                                                    │
+│ Composer: Camila Chapman                                                     │
 │ Sunday, 17 February 2019 (18–3–20 in E♭) in 46m                              │
 │                                                                              │
 │ 1: Lenny Howard                                                              │
@@ -59,11 +59,12 @@ Try for a quick-add? [y/n] (y):
 🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
 📕 Title: Grandsire Triples
-No composer found matching "Albert P Wakley" exactly
+No composer found matching "Camila Chapman" exactly
 Add as composition note? [y/n] (y): 
 >>> y
 [User input: "True"]
 🎼 Composer: Unknown
+🎼 Composition: Camila Chapman
 First bell number(s) in the tower (1): 
 >>> 3
 [User input: "3"]
@@ -88,6 +89,7 @@ First bell number(s) in the tower (1):
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 17 February 2019                                                  │
 │ A Quarter Peal of 1260 Grandsire Triples in 46 minutes (18-3-20 in Eb)       │
+│ Composition: Camila Chapman                                                  │
 │                                                                              │
 │ 1 [3]: Lenny Howard                                                          │
 │ 2 [4]: Chester Edwards                                                       │
@@ -115,9 +117,9 @@ Is this correct? [y/n] (y):
 Peal 1272466 added
 Saving photo http://localhost:8080/uploads/57/002a57.jpg...
 pypeal Database
- Nones: 1                                                                       
- Quarter Peals: 18                                                              
- Peals: 3                                                                       
+ None count: 1                                                                  
+ Quarter Peal count: 18                                                         
+ Peal count: 3                                                                  
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) Find recent peals                                                         │
 │ 2) Add peals by search                                                       │
@@ -137,6 +139,7 @@ Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Sunday, 17 February 2019
 A Quarter Peal of 1260 Grandsire Triples in 46 minutes (18-3-20 in Eb)
+Composition: Camila Chapman
 
 1 [3]: Lenny Howard
 2 [4]: Chester Edwards

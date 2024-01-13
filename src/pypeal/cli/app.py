@@ -153,10 +153,11 @@ def print_summary():
         table.add_column(ratio=1)
         table.add_column(ratio=1, justify='right')
         type_summary = ''
+        last_updated = f'Last updated: {summary["last_added"]}' if not get_config('diagnostics', 'print_user_input') else ''
         for type, report in summary["types"].items():
-            type_summary = f'{type}s: {report["count"]}\n'
-            table.add_row(type_summary.strip(),
-                          f'Last updated: {summary["last_added"]}' if not get_config('diagnostics', 'print_user_input') else '')
+            type_summary = f'{type} count: {report["count"]}\n'
+            table.add_row(type_summary.strip(), last_updated)
+            last_updated = ''
         print(table)
 
 
@@ -196,21 +197,19 @@ def add_peal(peal_id: int = None):
         while True:
 
             generator.parse(prompt_listener)
-
             peal = prompt_listener.peal
-            if not prompt_commit_peal(peal) and \
-                    prompt_listener.quick_mode and \
+
+            if prompt_commit_peal(peal):
+                add_to_peal_list(peal)
+            elif prompt_listener.quick_mode and \
                     confirm(None, confirm_message='Try again in prompt mode?', default=True):
                 prompt_listener.quick_mode = False
                 continue
-
-            add_to_peal_list(peal)
-            return
+            break
 
     except BellboardError as e:
         logger.exception('Error getting peal from Bellboard: %s', e)
         error(e)
-        return
 
 
 def search_by_url(url: str = None):
@@ -259,6 +258,10 @@ def search():
                               values=[None, BellType.TOWER, BellType.HANDBELLS],
                               title='Type',
                               default=1)
+    order_by_submission_date = choose_option(['Date submitted', 'Date rung'],
+                                             values=[True, False],
+                                             title='Order by',
+                                             default=1)
     order_descending = choose_option(['Newest', 'Oldest'],
                                      values=[True, False],
                                      title='Order of results',
@@ -270,12 +273,14 @@ def search():
         for peal_id in bellboard_search(ringer_name=name,
                                         date_from=date_from,
                                         date_to=date_to,
+                                        tower_id=tower_id,
                                         place=place,
                                         county=county,
                                         dedication=dedication,
                                         association=association,
                                         title=title,
                                         bell_type=bell_type,
+                                        order_by_submission_date=order_by_submission_date,
                                         order_descending=order_descending):
             if peal_id in _bb_peals:
                 count_duplicate += 1

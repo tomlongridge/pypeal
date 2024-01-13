@@ -48,6 +48,10 @@ Type: 1) Any, 2) Tower, 3) Handbells
 Select option (1): 
 >>> 
 [User input: "None"]
+Order by: 1) Date submitted, 2) Date rung
+Select option (1): 
+>>> 
+[User input: "True"]
 Order of results: 1) Newest, 2) Oldest
 Select option (1): 
 >>> 
@@ -316,7 +320,7 @@ Add next peal? [y/n] (y):
 [User input: "False"]
 1 peal(s) added (0 duplicates)
 pypeal Database
- Quarter Peals: 1                                                               
+ Quarter Peal count: 1                                                          
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) Find recent peals                                                         │
 │ 2) Add peals by search                                                       │

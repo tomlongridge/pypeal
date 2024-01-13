@@ -13,7 +13,7 @@ def prompt_add_composition_details(name: str, url: str, peal: Peal, quick_mode: 
                 confirm(f'No composer found matching "{name}" exactly',
                         confirm_message='Add as composition note?',
                         default=True):
-            composition_note = name
+            peal.composition_note = name
             name = None
 
     while True:
@@ -43,8 +43,7 @@ def prompt_add_composition_details(name: str, url: str, peal: Peal, quick_mode: 
 
     if (peal.composition_note is None and not quick_mode) or \
             (not peal.composer and name):
-        if not composition_note and not peal.composer and name:
-            composition_note = name  # Only default to name if it didn't match a ringer
+        composition_note = name if not peal.composer and name else None  # Only default to name if it didn't match a ringer
         peal.composition_note = ask('Composition note', default=composition_note, required=False)
 
     if url or name or peal.composer:

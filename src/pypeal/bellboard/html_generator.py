@@ -1,5 +1,6 @@
 from datetime import datetime
 import re
+from itertools import zip_longest
 
 from bs4 import BeautifulSoup
 from pypeal import config
@@ -114,17 +115,16 @@ class HTMLPealGenerator():
 
         # Get ringers and their bells and add them to the ringers list
         ringer_names = []
+        ringer_bells = []
         conductors = []
-        for ringer in soup.select('span.ringer.persona'):
+        for ringer, bells in zip_longest(soup.select('span.ringer.persona'),  soup.select('span.bell')):
+            if not ringer.text.strip(' -'):  # Remove empty ringer entries (e.g. COVID gaps)
+                continue
             ringer_names.append(ringer.text)
+            ringer_bells.append(bells.text.strip() if bells else None)
             conductors.append(
                 ringer.next_sibling and
                 ringer.next_sibling.lower().strip() == '(c)')
-
-        ringer_bells = [bell.text.strip() for bell in soup.select('span.bell')]
-        if len(ringer_bells) == 0:
-            # Accounting for performances with no assigned bells - ensure the zip iteration completes
-            ringer_bells = [None] * len(ringer_names)
 
         # Loop over the ringers and their bell (or bells) and add them to the peal
         for full_name, bells, is_conductor in zip(ringer_names, ringer_bells, conductors):

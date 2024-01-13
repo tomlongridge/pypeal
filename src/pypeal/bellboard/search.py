@@ -25,6 +25,7 @@ def search(ringer_name: str = None,
            association: str = None,
            title: str = None,
            bell_type: BellType = None,
+           order_by_submission_date: bool = True,
            order_descending: bool = True) -> Iterator[int]:
 
     criteria = {}
@@ -53,6 +54,10 @@ def search(ringer_name: str = None,
             criteria['bells_type'] = 'tower'
         case BellType.HANDBELLS:
             criteria['bells_type'] = 'hand'
+    if order_by_submission_date:
+        criteria['order'] = 'newest'
+    else:
+        criteria['order'] = ''
     if not order_descending:
         criteria['order'] = '+reverse'
 

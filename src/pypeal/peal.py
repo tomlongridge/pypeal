@@ -749,13 +749,13 @@ class Peal:
         if county is not None:
             query += 'AND (' + \
                      '(peals.county LIKE %(county)s) OR ' + \
-                     '(t.county LIKE %(county)s) OR ' + \
+                     '(t.county LIKE %(county)s) ' + \
                      ')'
             params['county'] = county
         if dedication is not None:
             query += 'AND (' + \
                      '(peals.dedication LIKE %(dedication)s) OR ' + \
-                     '(t.dedication LIKE %(dedication)s) OR ' + \
+                     '(t.dedication LIKE %(dedication)s) ' + \
                      ')'
             params['dedication'] = dedication
         if association is not None:

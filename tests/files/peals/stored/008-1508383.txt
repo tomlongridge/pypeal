@@ -1,8 +1,8 @@
 
 ===
 pypeal Database
- Quarter Peals: 6                                                               
- Peals: 1                                                                       
+ Quarter Peal count: 6                                                          
+ Peal count: 1                                                                  
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) Find recent peals                                                         │
 │ 2) Add peals by search                                                       │
@@ -24,7 +24,7 @@ Bellboard URL or peal ID:
 │ Oxford Diocesan Guild                                                        │
 │ 80 Lambourne Drive, Cox Green, Maidenhead, [no county]                       │
 │ 5232 Bristol Surprise Maximus                                                │
-│ Composer: Christopher I Rowson                                               │
+│ Composer: Lenny Howard                                                       │
 │ Wednesday, 29 March 1972 in 3h 3                                             │
 │                                                                              │
 │ 1,2: Sam Wells                                                               │
@@ -83,22 +83,21 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 📕 Title: Bristol Surprise Maximus
-No composer found matching "Christopher I Rowson" exactly
-Add as composition note? [y/n] (y): 
->>> n
-[User input: "False"]
-Composer: Attempting to find "Christopher I Rowson"
-1) Add new ringer, 2) Search ringers, 3) None
-Select option (1): 
->>> 3
-[User input: "3"]
-Composition note (Christopher I Rowson): 
+Composer: "Lenny Howard" -> Lenny Howard
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+"Lenny Howard" is not a composer - change to composer?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Composition note: 
 >>> Traditional
 [User input: "Traditional"]
 Composition URL (http://localhost:8080/comp.php?id=2284506): 
 >>> 
 [User input: "http://localhost:8080/comp.php?id=2284506"]
-🎼 Composer: Unknown
+🎼 Composer: Lenny Howard
 🎼 Composition: Traditional
 1,2: Couldn't find ringer matching "Sam Wells" (or aliases)
 1) Add new ringer, 2) Search ringers
@@ -202,6 +201,7 @@ Select option (1):
 │ 80 Lambourne Drive, Cox Green (in hand)                                      │
 │ On Wednesday, 29 March 1972                                                  │
 │ A Peal of 5232 Bristol Surprise Maximus in 3 hours, 3 minutes                │
+│ Composed by: Lenny Howard                                                    │
 │ Composition: Traditional                                                     │
 │                                                                              │
 │ 1,2: Sam Wells                                                               │
@@ -223,8 +223,8 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 Peal 1508383 added
 pypeal Database
- Quarter Peals: 6                                                               
- Peals: 2                                                                       
+ Quarter Peal count: 6                                                          
+ Peal count: 2                                                                  
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) Find recent peals                                                         │
 │ 2) Add peals by search                                                       │
@@ -245,6 +245,7 @@ Maidenhead, Kent, England
 80 Lambourne Drive, Cox Green (in hand)
 On Wednesday, 29 March 1972
 A Peal of 5232 Bristol Surprise Maximus in 3 hours, 3 minutes 
+Composed by: Lenny Howard
 Composition: Traditional
 
 1,2: Sam Wells

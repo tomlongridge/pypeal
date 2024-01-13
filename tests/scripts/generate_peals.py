@@ -38,10 +38,14 @@ def generate_peal(url: str):
     for metadata in [*soup.select('p.metadata')]:
         if metadata.text.startswith('This performance has been viewed'):
             metadata.replace_with('')
-    bell_num = 1
+
     for ringer in [*soup.select('span.ringer.persona')]:
-        ringer.string.replace_with(anonymize_ringer(ringer.string))
-        bell_num += 1
+        if len(ringer.string.strip(' -')):
+            ringer.string.replace_with(anonymize_ringer(ringer.string))
+
+    composer_element = soup.select('span.composer.persona')
+    if len(composer_element) > 0:
+        composer_element[0].string.replace_with(anonymize_ringer(composer_element[0].string))
 
     for metadata in [*soup.select('p.metadata')]:
         if match := re.match(METADATA_SUBMITTED_REGEX, metadata.text):
