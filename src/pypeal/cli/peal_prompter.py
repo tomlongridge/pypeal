@@ -196,7 +196,7 @@ class PealPromptListener(PealGeneratorListener):
                 break
             except UserCancelled as e:
                 error('Cancelled input')
-                if confirm(None, confirm_message='Retry?', default=True):
+                if confirm(None, confirm_message='Retry current input?', default=True):
                     continue
                 else:
                     raise e

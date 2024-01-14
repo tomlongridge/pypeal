@@ -196,7 +196,13 @@ def add_peal(peal_id: int = None):
 
         while True:
 
-            generator.parse(prompt_listener)
+            try:
+                generator.parse(prompt_listener)
+            except UserCancelled:
+                if confirm(None, confirm_message='Retry entire peal?', default=True):
+                    prompt_listener.quick_mode = False
+                    continue
+
             peal = prompt_listener.peal
 
             if prompt_commit_peal(peal):
@@ -215,11 +221,21 @@ def add_peal(peal_id: int = None):
 def search_by_url(url: str = None):
     global _bb_peals
 
+    if url is None:
+        url = choose_option(config.get_config('bellboard', 'searches'),
+                            values=config.get_config('bellboard', 'searches'),
+                            title='Use saved search?',
+                            none_option='Enter URL',
+                            default=1)
+
+    if url is None:
+        url = ask('Bellboard URL', required=True)
+
     while True:
         try:
             count_duplicate = 0
             count_added = 0
-            for peal_id in bellboard_search_by_url(url or ask('Bellboard URL')):
+            for peal_id in bellboard_search_by_url(url):
                 if peal_id in _bb_peals:
                     count_duplicate += 1
                     continue
