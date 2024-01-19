@@ -327,3 +327,15 @@ def parse_ringer_name(full_name: str) -> tuple[str, str, str, str]:
 
     name_parts = match.groupdict()
     return (name_parts['last_name'], name_parts['given_names'], name_parts['title'], name_parts['note'])
+
+
+def parse_bell_nums(bell_nums_str: str) -> list[int]:
+    bell_nums = []
+    for bell in bell_nums_str.split(','):
+        bell_list = bell.split('-')
+        if len(bell_list) == 1:
+            if bell.isnumeric():
+                bell_nums.append(int(bell))
+        elif bell_list[0].isnumeric() and bell_list[1].isnumeric():
+            bell_nums += list(range(int(bell_list[0]), int(bell_list[1]) + 1))
+    return bell_nums

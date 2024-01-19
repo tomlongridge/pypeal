@@ -1,0 +1,246 @@
+--reset-database
+===
+pypeal Database
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal from BellBoard                                            │
+│ 6) Add peal manually                                                         │
+│ 7) View peal                                                                 │
+│ 8) View statistics                                                           │
+│ 9) Delete peal                                                               │
+│ 10) Update static data                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> 6
+[User input: "6"]
+Try for a quick-add? [y/n] (y): 
+>>> y
+[User input: "True"]
+Association: 
+>>> Bath
+[User input: "Bath"]
+No associations match "Bath"
+1) Search alternatives, 2) Remove association
+Select option (1): 
+>>> 1
+[User input: "1"]
+Enter search criteria:
+Name (Bath): 
+>>> 
+[User input: "Bath"]
+Matched "Bath" to association: Bath and Wells Diocesan Association (ID: 236)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+🏛 Association: Bath
+Bell type: 1) Tower, 2) Handbells
+Select option (1): 
+>>> 
+[User input: "Tower"]
+🔔 Bell type: Tower
+Date (yyyy/mm/dd) ([Today]): 
+>>> 2020/01/01
+[User input: "2020/01/01"]
+📅 Date: Wednesday, 1 January 2020
+Dove ID or tower description: 
+>>> 13019
+[User input: "13019"]
+🏰 Tower: Bath, Bathwick, Somerset, Blessed Virgin Mary
+Number of changes: 
+>>> 1260
+[User input: "1260"]
+🔢 Changes: 1260
+Title: 
+>>> Grandsire Doubles
+[User input: "Grandsire Doubles"]
+Matching peal titled "Grandsire Doubles"...
+📕 Title: Grandsire Doubles
+Method details: 
+>>> 
+[User input: "None"]
+Composer: 
+>>> 
+[User input: "None"]
+Composition URL: 
+>>> 
+[User input: "None"]
+Composition note: 
+>>> 
+[User input: "None"]
+🎼 Composer: Unknown
+Add ringer 1:
+Bell number(s) in peal (1): 
+>>> 1
+[User input: "1"]
+Bell number(s) in ring (1): 
+>>> 
+[User input: "1"]
+Ringer name: 
+>>> Adam Apple
+[User input: "Adam Apple"]
+Is this ringer the conductor [y/n] (y): 
+>>> n
+[User input: "False"]
+1: Couldn't find ringer matching "Adam Apple" (or aliases)
+Add new ringer as "Adam" "Apple"? [y/n] (y): 
+>>> y
+[User input: "True"]
+👤 Ringer: 1: Adam Apple
+Add ringer 2:
+Bell number(s) in peal (2): 
+>>> 
+[User input: "2"]
+Bell number(s) in ring (2): 
+>>> 
+[User input: "2"]
+Ringer name: 
+>>> Ben Bob
+[User input: "Ben Bob"]
+Is this ringer the conductor [y/n] (y): 
+>>> n
+[User input: "False"]
+2: Couldn't find ringer matching "Ben Bob" (or aliases)
+Add new ringer as "Ben" "Bob"? [y/n] (y): 
+>>> y
+[User input: "True"]
+👤 Ringer: 2: Ben Bob
+Add ringer 3:
+Bell number(s) in peal (3): 
+>>> 
+[User input: "3"]
+Bell number(s) in ring (3): 
+>>> 
+[User input: "3"]
+Ringer name: 
+>>> Charlie Cook
+[User input: "Charlie Cook"]
+Is this ringer the conductor [y/n] (y): 
+>>> n
+[User input: "False"]
+3: Couldn't find ringer matching "Charlie Cook" (or aliases)
+Add new ringer as "Charlie" "Cook"? [y/n] (y): 
+>>> y
+[User input: "True"]
+👤 Ringer: 3: Charlie Cook
+Add ringer 4:
+Bell number(s) in peal (4): 
+>>> 
+[User input: "4"]
+Bell number(s) in ring (4): 
+>>> 
+[User input: "4"]
+Ringer name: 
+>>> Darcy Davis
+[User input: "Darcy Davis"]
+Is this ringer the conductor [y/n] (y): 
+>>> n
+[User input: "False"]
+4: Couldn't find ringer matching "Darcy Davis" (or aliases)
+Add new ringer as "Darcy" "Davis"? [y/n] (y): 
+>>> y
+[User input: "True"]
+👤 Ringer: 4: Darcy Davis
+Add ringer 5:
+Bell number(s) in peal (5): 
+>>> 
+[User input: "5"]
+Bell number(s) in ring (5): 
+>>> 
+[User input: "5"]
+Ringer name: 
+>>> Enid Evans
+[User input: "Enid Evans"]
+Is this ringer the conductor [y/n] (y): 
+>>> y
+[User input: "True"]
+5: Couldn't find ringer matching "Enid Evans" (or aliases)
+Add new ringer as "Enid" "Evans"? [y/n] (y): 
+>>> y
+[User input: "True"]
+👤 Ringer: 5: Enid Evans (c)
+Add another ringer? [y/n] (n): 
+>>> y
+[User input: "True"]
+Add ringer 6:
+Bell number(s) in peal (6): 
+>>> 
+[User input: "6"]
+Bell number(s) in ring (6): 
+>>> 
+[User input: "6"]
+Ringer name: 
+>>> Freddie Firth
+[User input: "Freddie Firth"]
+Is this ringer the conductor [y/n] (n): 
+>>> 
+[User input: "False"]
+6: Couldn't find ringer matching "Freddie Firth" (or aliases)
+Add new ringer as "Freddie" "Firth"? [y/n] (y): 
+>>> y
+[User input: "True"]
+👤 Ringer: 6: Freddie Firth
+Add another ringer? [y/n] (n): 
+>>> 
+[User input: "False"]
+Footnote: 
+>>> 
+[User input: "None"]
+🔕 Muffles: None
+╭─────────────────── http://localhost:8080/view.php?random ────────────────────╮
+│ Bath and Wells Diocesan Association                                          │
+│ Bath, Somerset, England                                                      │
+│ Blessed Virgin Mary, Bathwick                                                │
+│ On Wednesday, 1 January 2020                                                 │
+│ A Quarter Peal of 1260 Grandsire Doubles (7-3-12 in Bb)                      │
+│                                                                              │
+│ 1: Adam Apple                                                                │
+│ 2: Ben Bob                                                                   │
+│ 3: Charlie Cook                                                              │
+│ 4: Darcy Davis                                                               │
+│ 5: Enid Evans (c)                                                            │
+│ 6: Freddie Firth                                                             │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Peal (ID 1) added
+pypeal Database
+ Quarter Peal count: 1                                                          
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal from BellBoard                                            │
+│ 6) Add peal manually                                                         │
+│ 7) View peal                                                                 │
+│ 8) View statistics                                                           │
+│ 9) Delete peal                                                               │
+│ 10) Update static data                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> x
+[User input: "None"]
+===
+Bath and Wells Diocesan Association
+Bath, Somerset, England
+Blessed Virgin Mary, Bathwick
+On Wednesday, 1 January 2020
+A Quarter Peal of 1260 Grandsire Doubles (7-3-12 in Bb)
+
+1: Adam Apple
+2: Ben Bob
+3: Charlie Cook
+4: Darcy Davis
+5: Enid Evans (c)
+6: Freddie Firth
+
+[Database ID: 1]

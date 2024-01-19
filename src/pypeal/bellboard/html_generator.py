@@ -7,6 +7,7 @@ from pypeal import config
 
 from pypeal.bellboard.interface import BellboardError, get_peal
 from pypeal.bellboard.listener import PealGeneratorListener
+from pypeal.cli.generator import PealGenerator
 from pypeal.peal import BellType
 
 DATE_LINE_INFO_REGEX = re.compile(r'[A-Za-z]+,\s(?P<date>[0-9]+\s[A-Za-z0-9]+\s[0-9]+)(?:\s' +
@@ -22,7 +23,7 @@ METADATA_IMPORTED_REGEX = \
                re.MULTILINE)
 
 
-class HTMLPealGenerator():
+class HTMLPealGenerator(PealGenerator):
 
     def __init__(self):
         self.__peal_id = None
@@ -79,7 +80,7 @@ class HTMLPealGenerator():
         if len(element) > 0:
             address_dedication = element[0].text.strip()
 
-        listener.location(address_dedication, place, county)
+        listener.location(address_dedication, place, county, None)
 
         element = soup.select('span.changes')
         if len(element) > 0:
@@ -111,7 +112,7 @@ class HTMLPealGenerator():
             url_element = element[0].select('a')
             if len(url_element) > 0:
                 url_str = config.get_config('bellboard', 'url') + url_element[0]['href']
-        listener.composer(composer_str,  url_str)
+        listener.composition_details(composer_str, url_str, None)
 
         # Get ringers and their bells and add them to the ringers list
         ringer_names = []

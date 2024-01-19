@@ -9,11 +9,14 @@ pypeal Database
 │ 2) Add peals by search                                                       │
 │ 3) Add peals by search URL                                                   │
 │ 4) Add peal by ID/URL                                                        │
-│ 5) Add random peal                                                           │
-│ 6) View peal                                                                 │
-│ 7) View statistics                                                           │
-│ 8) Update static data                                                        │
-│ 9) Exit                                                                      │
+│ 5) Add random peal from BellBoard                                            │
+│ 6) Add peal manually                                                         │
+│ 7) View peal                                                                 │
+│ 8) View statistics                                                           │
+│ 9) Delete peal                                                               │
+│ 10) Update static data                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
 >>> 4
@@ -114,7 +117,7 @@ Save this peal?
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
-Peal 1272466 added
+Peal (ID 22) added
 Saving photo http://localhost:8080/uploads/57/002a57.jpg...
 pypeal Database
  General Ringing count: 1                                                       
@@ -125,15 +128,18 @@ pypeal Database
 │ 2) Add peals by search                                                       │
 │ 3) Add peals by search URL                                                   │
 │ 4) Add peal by ID/URL                                                        │
-│ 5) Add random peal                                                           │
-│ 6) View peal                                                                 │
-│ 7) View statistics                                                           │
-│ 8) Update static data                                                        │
-│ 9) Exit                                                                      │
+│ 5) Add random peal from BellBoard                                            │
+│ 6) Add peal manually                                                         │
+│ 7) View peal                                                                 │
+│ 8) View statistics                                                           │
+│ 9) Delete peal                                                               │
+│ 10) Update static data                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
->>> 7
-[User input: "7"]
+>>> 8
+[User input: "8"]
 Summary
  ────────────────────────────────────────────────────────────────────────────── 
                                                   Count                         
@@ -557,15 +563,681 @@ pypeal Database
 │ 2) Add peals by search                                                       │
 │ 3) Add peals by search URL                                                   │
 │ 4) Add peal by ID/URL                                                        │
-│ 5) Add random peal                                                           │
-│ 6) View peal                                                                 │
-│ 7) View statistics                                                           │
-│ 8) Update static data                                                        │
-│ 9) Exit                                                                      │
+│ 5) Add random peal from BellBoard                                            │
+│ 6) Add peal manually                                                         │
+│ 7) View peal                                                                 │
+│ 8) View statistics                                                           │
+│ 9) Delete peal                                                               │
+│ 10) Update static data                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> 4
+[User input: "4"]
+Bellboard URL or peal ID: 
+>>> 1272466
+[User input: "1272466"]
+╭───────────────── http://localhost:8080/view.php?id=1272466 ──────────────────╮
+│ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
+│ 1260 Grandsire Triples                                                       │
+│ Composer: Camila Chapman                                                     │
+│ Sunday, 17 February 2019 (18–3–20 in E♭) in 46m                              │
+│                                                                              │
+│ 1: Lenny Howard                                                              │
+│ 2: Chester Edwards                                                           │
+│ 3: Paul Armstrong                                                            │
+│ 4: Arnold Johnson                                                            │
+│ 5: Daryl Mason                                                               │
+│ 6: Melissa Baker                                                             │
+│ 7: Joyce Sullivan (c)                                                        │
+│ 8: Leonardo Bennett                                                          │
+│                                                                              │
+│ Rung for Morning Service.                                                    │
+│ And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps    │
+│ and 6th North Staffordshire Regiment, a ringer at St Paul's,                 │
+│ Burton-on-Trent, who died on the 18th February 1919, aged 29.                │
+│ https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
+│ -staffordshire-regiment/                                                     │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=1272466 (submitted by Joyce     │
+│ Sullivan on Sunday, 17 February 2019)                                        │
+│ Photo: http://localhost:8080/uploads/57/002a57.jpg                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Peal 1272466 already added to database
+Overwrite? [y/n] (n): 
+>>> y
+[User input: "True"]
+Try for a quick-add? [y/n] (y): 
+>>> 
+[User input: "True"]
+🏛 Association: None
+🔔 Bell type: Tower
+📅 Date: Sunday, 17 February 2019
+🔔 Tenor: 2120 in Eb
+⏱ Duration: 46 minutes
+🏰 Tower: Bath, Bathwick, Somerset, Blessed Virgin Mary
+🔢 Changes: 1260
+Matching peal titled "Grandsire Triples"...
+📕 Title: Grandsire Triples
+No composer found matching "Camila Chapman" exactly
+Add as composition note? [y/n] (y): 
+>>> y
+[User input: "True"]
+🎼 Composer: Unknown
+🎼 Composition: Camila Chapman
+First bell number(s) in the tower (1): 
+>>> 3
+[User input: "3"]
+👤 Ringer: 1 [3]: Lenny Howard
+👤 Ringer: 2 [4]: Chester Edwards
+👤 Ringer: 3 [5]: Paul Armstrong
+👤 Ringer: 4 [6]: Arnold Johnson
+👤 Ringer: 5 [7]: Daryl Mason
+👤 Ringer: 6 [8]: Melissa Baker
+👤 Ringer: 7 [9]: Joyce Sullivan (c)
+👤 Ringer: 8 [10]: Leo Bennett
+📝 Footnotes:
+  - Rung for Morning Service. And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
+🔗 Event link: None
+📷 Photo link: http://localhost:8080/uploads/57/002a57.jpg
+  - The CWGC grave marker of Sgt A P Wakley in Stapenhill Cemetery, Burton-on-Trent (Staffordshire)
+  - Photo credit: Michael W Day
+📮 Submitted by: Joyce Sullivan on Sunday, 17 February 2019
+🔕 Muffles: None
+╭───────────────── http://localhost:8080/view.php?id=1272466 ──────────────────╮
+│ Bath, Somerset, England                                                      │
+│ Blessed Virgin Mary, Bathwick                                                │
+│ On Sunday, 17 February 2019                                                  │
+│ A Quarter Peal of 1260 Grandsire Triples in 46 minutes (18-3-20 in Eb)       │
+│ Composition: Camila Chapman                                                  │
+│                                                                              │
+│ 1 [3]: Lenny Howard                                                          │
+│ 2 [4]: Chester Edwards                                                       │
+│ 3 [5]: Paul Armstrong                                                        │
+│ 4 [6]: Arnold Johnson                                                        │
+│ 5 [7]: Daryl Mason                                                           │
+│ 6 [8]: Melissa Baker                                                         │
+│ 7 [9]: Joyce Sullivan (c)                                                    │
+│ 8 [10]: Leo Bennett                                                          │
+│                                                                              │
+│ Rung for Morning Service. And in memory of the composer: Sergeant Albert     │
+│ Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at │
+│ St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.     │
+│ Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
+│ -staffordshire-regiment/.                                                    │
+│                                                                              │
+│ [BellBoard: http://localhost:8080/view.php?id=1272466 (Joyce Sullivan,       │
+│ Sunday, 17 February 2019)]                                                   │
+│ [Composition URL: http://localhost:8080/comp.php?id=2271034]                 │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Warning: Peal 1272466 already exists                                         │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Overwrite peal? [y/n] (n): 
+>>> y
+[User input: "True"]
+Peal (ID 23) added
+Saving photo http://localhost:8080/uploads/57/002a57.jpg...
+pypeal Database
+ General Ringing count: 1                                                       
+ Quarter Peal count: 18                                                         
+ Peal count: 3                                                                  
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal from BellBoard                                            │
+│ 6) Add peal manually                                                         │
+│ 7) View peal                                                                 │
+│ 8) View statistics                                                           │
+│ 9) Delete peal                                                               │
+│ 10) Update static data                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> 8
+[User input: "8"]
+Summary
+ ────────────────────────────────────────────────────────────────────────────── 
+                                                  Count                         
+ ────────────────────────────────────────────────────────────────────────────── 
+                                                  1                             
+  Quarter Peal                                    18                            
+  Peal                                            3                             
+ ────────────────────────────────────────────────────────────────────────────── 
+Show report for: 1) General Ringing, 2) Quarter Peal, 3) Peal
+Select option (x = Back): 
+>>> 1
+[User input: "General Ringing"]
+General Ringing statistics
+ ─────────────────────────  ─────────────────────────  ──────────────────────── 
+  Stage   Rung   Conduct…    Methods   Rung   Condu…    Misc    Rung    Condu…  
+ ─────────────────────────  ─────────────────────────  ──────────────────────── 
+  None                       None                       Gene…   1               
+ ─────────────────────────  ─────────────────────────   Ring…                   
+                                                        Tower   1               
+                                                        First   06-M…           
+                                                        rung                    
+                                                        Last    06-M…           
+                                                        rung                    
+                                                        Avg.                    
+                                                        peal                    
+                                                        speed                   
+                                                        Avg.                    
+                                                        dura…                   
+                                                       ──────────────────────── 
+ ─────────────────────────  ─────────────────────────  ──────────────────────── 
+  Top 10 Ringers    Count    Top 10                     Top 10                  
+ ─────────────────────────   Conductors        Count    Associations     Count  
+  Arnold Johnson    1       ─────────────────────────  ──────────────────────── 
+  Belinda           1        None                       None                    
+  Thompson                  ─────────────────────────  ──────────────────────── 
+  Caroline          1                                                           
+  Sullivan                                                                      
+  Chester Edwards   1                                                           
+  Fenton Hawkins    1                                                           
+  Grace Perry       1                                                           
+  Heather           1                                                           
+  Sullivan                                                                      
+  Joyce Sullivan    1                                                           
+  Kate Miller       1                                                           
+  Kirsten           1                                                           
+  Richards                                                                      
+ ─────────────────────────                                                      
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 1
+[User input: "1"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Methods                                      Count                            
+ ────────────────────────────────────────────────────────────────────────────── 
+  None                                                                          
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 2
+[User input: "2"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Ringers                                                   Count               
+ ────────────────────────────────────────────────────────────────────────────── 
+  Arnold Johnson                                            1                   
+  Belinda Thompson                                          1                   
+  Caroline Sullivan                                         1                   
+  Chester Edwards                                           1                   
+  Fenton Hawkins                                            1                   
+  Grace Perry                                               1                   
+  Heather Sullivan                                          1                   
+  Joyce Sullivan                                            1                   
+  Kate Miller                                               1                   
+  Kirsten Richards                                          1                   
+  Martin Morgan                                             1                   
+  Olivia West                                               1                   
+  Paul Andrews                                              1                   
+  Ryan Elliott                                              1                   
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 3
+[User input: "3"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Conductors                                        Count                       
+ ────────────────────────────────────────────────────────────────────────────── 
+  None                                                                          
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 4
+[User input: "4"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Associations                                         Count                    
+ ────────────────────────────────────────────────────────────────────────────── 
+  None                                                                          
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> x
+[User input: "None"]
+Show report for: 1) General Ringing, 2) Quarter Peal, 3) Peal
+Select option (x = Back): 
+>>> 2
+[User input: "Quarter Peal"]
+Quarter Peal statistics
+ ─────────────────────────  ─────────────────────────  ──────────────────────── 
+  Stage     Rung   Condu…    Methods   Rung   Condu…    Misc    Rung    Condu…  
+ ─────────────────────────  ─────────────────────────  ──────────────────────── 
+  Doubles   5                Grands…   4                Sing…   14              
+  Triples   5                Triples                    Meth…                   
+  Major     3                Grands…   2                Mixed   2               
+  Caters    2                Doubles                    Meth…                   
+  Royal     2                Cambri…   1                Spli…   2               
+  Minor     1                Surpri…                    Meth…                   
+ ─────────────────────────   Major                      Tower   18              
+                             Grands…   1                Half    2               
+                             Caters                     muff…                   
+                             Honeyw…   1                First   05-D…           
+                             Delight                    rung                    
+                             Minor                      Last    12-N…           
+                             Little    1                rung                    
+                             Bob                        Avg.    2               
+                             Royal                      peal    hour…           
+                             London    1                speed   44              
+                             Surpri…                            minu…           
+                             Major                      Avg.    41              
+                             Plain     1                dura…   minu…           
+                             Bob                       ──────────────────────── 
+                             Doubles                                            
+                             Plain     1                                        
+                             Bob                                                
+                             Royal                                              
+                             Plain     1                                        
+                             Bob                                                
+                             Triples                                            
+                            ─────────────────────────                           
+ ─────────────────────────  ─────────────────────────  ──────────────────────── 
+  Top 10 Ringers    Count    Top 10                     Top 10                  
+ ─────────────────────────   Conductors        Count    Associations     Count  
+  Leo Bennett       12      ─────────────────────────  ──────────────────────── 
+  Chester Edwards   9        Leo Bennett       3        Bath and Wells   3      
+  Joyce Sullivan    8        Chester Edwards   2        Diocesan                
+  Heather           7        Heather           2        Association             
+  Sullivan                   Sullivan                   Guild of         1      
+  Blake Elliott     6        Joyce Sullivan    2        Devonshire              
+  Daryl Mason       5        Aston Mitchell    1        Ringers                 
+  Melissa Baker     5        Blake Elliott     1       ──────────────────────── 
+  Ryan Elliott      5        Blake Harper      1                                
+  Arnold Johnson    4        Brooke Adams      1                                
+  Cadie Nelson      4        Byron Robinson    1                                
+ ─────────────────────────   Jack Spencer      1                                
+                            ─────────────────────────                           
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 1
+[User input: "1"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Methods                                                       Count           
+ ────────────────────────────────────────────────────────────────────────────── 
+  Grandsire Triples                                             4               
+  Grandsire Doubles                                             2               
+  Cambridge Surprise Major                                      1               
+  Grandsire Caters                                              1               
+  Honeywell Delight Minor                                       1               
+  Little Bob Royal                                              1               
+  London Surprise Major                                         1               
+  Plain Bob Doubles                                             1               
+  Plain Bob Royal                                               1               
+  Plain Bob Triples                                             1               
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 2
+[User input: "2"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Ringers                                                    Count              
+ ────────────────────────────────────────────────────────────────────────────── 
+  Leo Bennett                                                12                 
+  Chester Edwards                                            9                  
+  Joyce Sullivan                                             8                  
+  Heather Sullivan                                           7                  
+  Blake Elliott                                              6                  
+  Daryl Mason                                                5                  
+  Melissa Baker                                              5                  
+  Ryan Elliott                                               5                  
+  Arnold Johnson                                             4                  
+  Cadie Nelson                                               4                  
+  Lenny Howard                                               4                  
+  Paul Armstrong                                             4                  
+  Byron Robinson                                             3                  
+  Clark Elliott                                              3                  
+  Harold Gray                                                3                  
+  Jacob Cole                                                 3                  
+  Savana Davis                                               3                  
+  Aston Mitchell                                             2                  
+  Blake Elliott                                              2                  
+  Dainton Casey                                              2                  
+  Daniel Miller                                              2                  
+  Grace Perry                                                2                  
+  Ted Harris                                                 2                  
+  Vivian Murray                                              2                  
+  Alisa Cole                                                 1                  
+  Aston Mitchell                                             1                  
+  Blake Harper                                               1                  
+  Brooke Adams                                               1                  
+  Byron Miller                                               1                  
+  Carina Warren                                              1                  
+  Carl Johnston                                              1                  
+  Charlie Warren                                             1                  
+  Chloe Henderson                                            1                  
+  David Rogers                                               1                  
+  Deanna Bennett                                             1                  
+  Dominik Warren                                             1                  
+  Edward Chapman                                             1                  
+  Edward Dixon                                               1                  
+  Ellia Armstrong                                            1                  
+  Eric Ryan                                                  1                  
+  Fenton Bailey                                              1                  
+  Garry Scott                                                1                  
+  George Roberts                                             1                  
+  Jack Spencer                                               1                  
+  Julia Fowler                                               1                  
+  Kate Crawford                                              1                  
+  Lucas Farrell                                              1                  
+  Lucas Wright                                               1                  
+  Lydia Ferguson                                             1                  
+  Melissa Evans                                              1                  
+  Michael Williams                                           1                  
+  Michelle Edwards                                           1                  
+  Michelle Thompson                                          1                  
+  Mike Sullivan                                              1                  
+  Ned Andrews                                                1                  
+  Olivia West                                                1                  
+  Patrick Bennett                                            1                  
+  Rev Alen Henderson                                         1                  
+  Richard Higgins                                            1                  
+  Roland Clark                                               1                  
+  Sienna Murphy                                              1                  
+  Valeria Perkins                                            1                  
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 3
+[User input: "3"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Conductors                                               Count                
+ ────────────────────────────────────────────────────────────────────────────── 
+  Leo Bennett                                              3                    
+  Chester Edwards                                          2                    
+  Heather Sullivan                                         2                    
+  Joyce Sullivan                                           2                    
+  Aston Mitchell                                           1                    
+  Blake Elliott                                            1                    
+  Blake Harper                                             1                    
+  Brooke Adams                                             1                    
+  Byron Robinson                                           1                    
+  Jack Spencer                                             1                    
+  Lucas Farrell                                            1                    
+  Ted Harris                                               1                    
+  Vivian Murray                                            1                    
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> 4
+[User input: "4"]
+ ────────────────────────────────────────────────────────────────────────────── 
+  Associations                                                      Count       
+ ────────────────────────────────────────────────────────────────────────────── 
+  Bath and Wells Diocesan Association                               3           
+  Guild of Devonshire Ringers                                       1           
+ ────────────────────────────────────────────────────────────────────────────── 
+Press enter to continue [y/n] (y): 
+>>> 
+[User input: "True"]
+1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> x
+[User input: "None"]
+Show report for: 1) General Ringing, 2) Quarter Peal, 3) Peal
+Select option (x = Back): 
+>>> x
+[User input: "None"]
+pypeal Database
+ General Ringing count: 1                                                       
+ Quarter Peal count: 18                                                         
+ Peal count: 3                                                                  
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal from BellBoard                                            │
+│ 6) Add peal manually                                                         │
+│ 7) View peal                                                                 │
+│ 8) View statistics                                                           │
+│ 9) Delete peal                                                               │
+│ 10) Update static data                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
 >>> 9
 [User input: "9"]
+1) Bellboard ID/URL, 2) Peal ID
+Select option (1): 
+>>> 1
+[User input: "1"]
+Bellboard URL or peal ID: 
+>>> 1272466
+[User input: "1272466"]
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Bath, Somerset, England                                                      │
+│ Blessed Virgin Mary, Bathwick                                                │
+│ On Sunday, 17 February 2019                                                  │
+│ A Quarter Peal of 1260 Grandsire Triples in 46 minutes (18-3-20 in Eb)       │
+│ Composition: Camila Chapman                                                  │
+│                                                                              │
+│ 1 [3]: Lenny Howard                                                          │
+│ 2 [4]: Chester Edwards                                                       │
+│ 3 [5]: Paul Armstrong                                                        │
+│ 4 [6]: Arnold Johnson                                                        │
+│ 5 [7]: Daryl Mason                                                           │
+│ 6 [8]: Melissa Baker                                                         │
+│ 7 [9]: Joyce Sullivan (c)                                                    │
+│ 8 [10]: Leo Bennett                                                          │
+│                                                                              │
+│ Rung for Morning Service. And in memory of the composer: Sergeant Albert     │
+│ Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at │
+│ St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.     │
+│ Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
+│ -staffordshire-regiment/.                                                    │
+│                                                                              │
+│ [BellBoard: http://localhost:8080/view.php?id=1272466 (Joyce Sullivan,       │
+│ Sunday, 17 February 2019)]                                                   │
+│ [Composition URL: http://localhost:8080/comp.php?id=2271034]                 │
+│ [Database ID: 23]                                                            │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Continue? [y/n] (y): 
+>>> y
+[User input: "True"]
+pypeal Database
+ General Ringing count: 1                                                       
+ Quarter Peal count: 17                                                         
+ Peal count: 3                                                                  
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal from BellBoard                                            │
+│ 6) Add peal manually                                                         │
+│ 7) View peal                                                                 │
+│ 8) View statistics                                                           │
+│ 9) Delete peal                                                               │
+│ 10) Update static data                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> 8
+[User input: "8"]
+Summary
+ ────────────────────────────────────────────────────────────────────────────── 
+                                                  Count                         
+ ────────────────────────────────────────────────────────────────────────────── 
+                                                  1                             
+  Quarter Peal                                    17                            
+  Peal                                            3                             
+ ────────────────────────────────────────────────────────────────────────────── 
+Show report for: 1) General Ringing, 2) Quarter Peal, 3) Peal
+Select option (x = Back): 
+>>> x
+[User input: "None"]
+pypeal Database
+ General Ringing count: 1                                                       
+ Quarter Peal count: 17                                                         
+ Peal count: 3                                                                  
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal from BellBoard                                            │
+│ 6) Add peal manually                                                         │
+│ 7) View peal                                                                 │
+│ 8) View statistics                                                           │
+│ 9) Delete peal                                                               │
+│ 10) Update static data                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> 4
+[User input: "4"]
+Bellboard URL or peal ID: 
+>>> 1272466
+[User input: "1272466"]
+╭───────────────── http://localhost:8080/view.php?id=1272466 ──────────────────╮
+│ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
+│ 1260 Grandsire Triples                                                       │
+│ Composer: Camila Chapman                                                     │
+│ Sunday, 17 February 2019 (18–3–20 in E♭) in 46m                              │
+│                                                                              │
+│ 1: Lenny Howard                                                              │
+│ 2: Chester Edwards                                                           │
+│ 3: Paul Armstrong                                                            │
+│ 4: Arnold Johnson                                                            │
+│ 5: Daryl Mason                                                               │
+│ 6: Melissa Baker                                                             │
+│ 7: Joyce Sullivan (c)                                                        │
+│ 8: Leonardo Bennett                                                          │
+│                                                                              │
+│ Rung for Morning Service.                                                    │
+│ And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps    │
+│ and 6th North Staffordshire Regiment, a ringer at St Paul's,                 │
+│ Burton-on-Trent, who died on the 18th February 1919, aged 29.                │
+│ https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
+│ -staffordshire-regiment/                                                     │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=1272466 (submitted by Joyce     │
+│ Sullivan on Sunday, 17 February 2019)                                        │
+│ Photo: http://localhost:8080/uploads/57/002a57.jpg                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Peal 1272466 already added to database
+Overwrite? [y/n] (n): 
+>>> y
+[User input: "True"]
+Try for a quick-add? [y/n] (y): 
+>>> 
+[User input: "True"]
+🏛 Association: None
+🔔 Bell type: Tower
+📅 Date: Sunday, 17 February 2019
+🔔 Tenor: 2120 in Eb
+⏱ Duration: 46 minutes
+🏰 Tower: Bath, Bathwick, Somerset, Blessed Virgin Mary
+🔢 Changes: 1260
+Matching peal titled "Grandsire Triples"...
+📕 Title: Grandsire Triples
+No composer found matching "Camila Chapman" exactly
+Add as composition note? [y/n] (y): 
+>>> y
+[User input: "True"]
+🎼 Composer: Unknown
+🎼 Composition: Camila Chapman
+First bell number(s) in the tower (1): 
+>>> 3
+[User input: "3"]
+👤 Ringer: 1 [3]: Lenny Howard
+👤 Ringer: 2 [4]: Chester Edwards
+👤 Ringer: 3 [5]: Paul Armstrong
+👤 Ringer: 4 [6]: Arnold Johnson
+👤 Ringer: 5 [7]: Daryl Mason
+👤 Ringer: 6 [8]: Melissa Baker
+👤 Ringer: 7 [9]: Joyce Sullivan (c)
+👤 Ringer: 8 [10]: Leo Bennett
+📝 Footnotes:
+  - Rung for Morning Service. And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
+🔗 Event link: None
+📷 Photo link: http://localhost:8080/uploads/57/002a57.jpg
+  - The CWGC grave marker of Sgt A P Wakley in Stapenhill Cemetery, Burton-on-Trent (Staffordshire)
+  - Photo credit: Michael W Day
+📮 Submitted by: Joyce Sullivan on Sunday, 17 February 2019
+🔕 Muffles: None
+╭───────────────── http://localhost:8080/view.php?id=1272466 ──────────────────╮
+│ Bath, Somerset, England                                                      │
+│ Blessed Virgin Mary, Bathwick                                                │
+│ On Sunday, 17 February 2019                                                  │
+│ A Quarter Peal of 1260 Grandsire Triples in 46 minutes (18-3-20 in Eb)       │
+│ Composition: Camila Chapman                                                  │
+│                                                                              │
+│ 1 [3]: Lenny Howard                                                          │
+│ 2 [4]: Chester Edwards                                                       │
+│ 3 [5]: Paul Armstrong                                                        │
+│ 4 [6]: Arnold Johnson                                                        │
+│ 5 [7]: Daryl Mason                                                           │
+│ 6 [8]: Melissa Baker                                                         │
+│ 7 [9]: Joyce Sullivan (c)                                                    │
+│ 8 [10]: Leo Bennett                                                          │
+│                                                                              │
+│ Rung for Morning Service. And in memory of the composer: Sergeant Albert     │
+│ Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at │
+│ St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.     │
+│ Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
+│ -staffordshire-regiment/.                                                    │
+│                                                                              │
+│ [BellBoard: http://localhost:8080/view.php?id=1272466 (Joyce Sullivan,       │
+│ Sunday, 17 February 2019)]                                                   │
+│ [Composition URL: http://localhost:8080/comp.php?id=2271034]                 │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Peal (ID 24) added
+Saving photo http://localhost:8080/uploads/57/002a57.jpg...
+pypeal Database
+ General Ringing count: 1                                                       
+ Quarter Peal count: 18                                                         
+ Peal count: 3                                                                  
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal from BellBoard                                            │
+│ 6) Add peal manually                                                         │
+│ 7) View peal                                                                 │
+│ 8) View statistics                                                           │
+│ 9) Delete peal                                                               │
+│ 10) Update static data                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> x
+[User input: "None"]
 ===
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
@@ -586,3 +1258,4 @@ Rung for Morning Service. And in memory of the composer: Sergeant Albert Percy W
 
 [BellBoard: http://localhost:8080/view.php?id=1272466 (Joyce Sullivan, Sunday, 17 February 2019)]
 [Composition URL: http://localhost:8080/comp.php?id=2271034]
+[Database ID: 24]

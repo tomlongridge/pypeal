@@ -1,0 +1,261 @@
+
+===
+pypeal Database
+ General Ringing count: 1                                                       
+ Quarter Peal count: 2                                                          
+ Peal count: 1                                                                  
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal from BellBoard                                            │
+│ 6) Add peal manually                                                         │
+│ 7) View peal                                                                 │
+│ 8) View statistics                                                           │
+│ 9) Delete peal                                                               │
+│ 10) Update static data                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> 6
+[User input: "6"]
+Try for a quick-add? [y/n] (y): 
+>>> y
+[User input: "True"]
+Association: 
+>>> 
+[User input: "None"]
+🏛 Association: None
+Bell type: 1) Tower, 2) Handbells
+Select option (1): 
+>>> 
+[User input: "Tower"]
+🔔 Bell type: Tower
+Date (yyyy/mm/dd) ([Today]): 
+>>> 1981/01/01
+[User input: "1981/01/01"]
+📅 Date: Thursday, 1 January 1981
+Dove ID or tower description: 
+>>> 13019
+[User input: "13019"]
+🏰 Tower: Bath, Bathwick, Somerset, Blessed Virgin Mary
+Number of changes: 
+>>> 1260
+[User input: "1260"]
+🔢 Changes: 1260
+Title: 
+>>> Spliced Surprise Minor (3m)
+[User input: "Spliced Surprise Minor (3m)"]
+Matching peal titled "Spliced Surprise Minor (3m)"...
+Multi-method peal: "Spliced Surprise Minor (3m)"...
+📕 Title: Spliced Surprise Minor (3m)
+Method details: 
+>>> cambridge, ipswich, norwich
+[User input: "cambridge, ipswich, norwich"]
+Adding changes of methods to multi-method peal...
+Matching method "cambridge"... [0 methods excluded]
+Number of changes: 
+>>> 
+[User input: "None"]
+Method 1: Cambridge Surprise Minor (unknown changes)
+Matching method "ipswich"... [1 methods excluded]
+Number of changes: 
+>>> 
+[User input: "None"]
+Method 2: Ipswich Surprise Minor (unknown changes)
+Matching method "norwich"... [2 methods excluded]
+Number of changes: 
+>>> 
+[User input: "None"]
+Method 3: Norwich Surprise Minor (unknown changes)
+📝 Method details:
+  - Cambridge Surprise Minor
+  - Ipswich Surprise Minor
+  - Norwich Surprise Minor
+Composer: 
+>>> 
+[User input: "None"]
+Composition URL: 
+>>> 
+[User input: "None"]
+Composition note: 
+>>> 40 com
+[User input: "40 com"]
+🎼 Composer: Unknown
+🎼 Composition: 40 com
+Add ringer 1:
+Bell number(s) in peal (1): 
+>>> 
+[User input: "1"]
+Bell number(s) in ring (1): 
+>>> 
+[User input: "1"]
+Ringer name: 
+>>> Adam Apple
+[User input: "Adam Apple"]
+Is this ringer the conductor [y/n] (y): 
+>>> n
+[User input: "False"]
+👤 Ringer: 1: Adam Apple
+Add ringer 2:
+Bell number(s) in peal (2): 
+>>> 
+[User input: "2"]
+Bell number(s) in ring (2): 
+>>> 
+[User input: "2"]
+Ringer name: 
+>>> Ben Bob
+[User input: "Ben Bob"]
+Is this ringer the conductor [y/n] (y): 
+>>> n
+[User input: "False"]
+👤 Ringer: 2: Ben Bob
+Add ringer 3:
+Bell number(s) in peal (3): 
+>>> 
+[User input: "3"]
+Bell number(s) in ring (3): 
+>>> 
+[User input: "3"]
+Ringer name: 
+>>> Charlie Cook
+[User input: "Charlie Cook"]
+Is this ringer the conductor [y/n] (y): 
+>>> n
+[User input: "False"]
+👤 Ringer: 3: Charlie Cook
+Add ringer 4:
+Bell number(s) in peal (4): 
+>>> 
+[User input: "4"]
+Bell number(s) in ring (4): 
+>>> 
+[User input: "4"]
+Ringer name: 
+>>> Darcy Davis
+[User input: "Darcy Davis"]
+Is this ringer the conductor [y/n] (y): 
+>>> n
+[User input: "False"]
+👤 Ringer: 4: Darcy Davis
+Add ringer 5:
+Bell number(s) in peal (5): 
+>>> 
+[User input: "5"]
+Bell number(s) in ring (5): 
+>>> 
+[User input: "5"]
+Ringer name: 
+>>> Enid Evans
+[User input: "Enid Evans"]
+Is this ringer the conductor [y/n] (y): 
+>>> n
+[User input: "False"]
+👤 Ringer: 5: Enid Evans
+Add ringer 6:
+Bell number(s) in peal (6): 
+>>> 
+[User input: "6"]
+Bell number(s) in ring (6): 
+>>> 
+[User input: "6"]
+Ringer name: 
+>>> Freddie Firth
+[User input: "Freddie Firth"]
+Is this ringer the conductor [y/n] (y): 
+>>> y
+[User input: "True"]
+👤 Ringer: 6: Freddie Firth (c)
+Add another ringer? [y/n] (n): 
+>>> y
+[User input: "True"]
+Add ringer 7:
+Bell number(s) in peal (7): 
+>>> 
+[User input: "7"]
+Bell number(s) in ring (7): 
+>>> 
+[User input: "7"]
+Ringer name: 
+>>> Gordon Gopher
+[User input: "Gordon Gopher"]
+Is this ringer the conductor [y/n] (n): 
+>>> 
+[User input: "False"]
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Warning: Bell number (7) exceeds expected number of bells in the peal (6),   │
+│ based on method(s)                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Is this correct? [y/n] (n): 
+>>> y
+[User input: "True"]
+👤 Ringer: 7: Gordon Gopher
+Add another ringer? [y/n] (n): 
+>>> 
+[User input: "False"]
+Footnote: 
+>>> 
+[User input: "None"]
+🔕 Muffles: None
+╭─────────────────── http://localhost:8080/view.php?random ────────────────────╮
+│ Bath, Somerset, England                                                      │
+│ Blessed Virgin Mary, Bathwick                                                │
+│ On Thursday, 1 January 1981                                                  │
+│ A Quarter Peal of 1260 Spliced Surprise Minor (3m) (14-1-4 in F)             │
+│ (Cambridge Surprise Minor, Ipswich Surprise Minor, Norwich Surprise Minor)   │
+│ Composition: 40 com                                                          │
+│                                                                              │
+│ 1: Adam Apple                                                                │
+│ 2: Ben Bob                                                                   │
+│ 3: Charlie Cook                                                              │
+│ 4: Darcy Davis                                                               │
+│ 5: Enid Evans                                                                │
+│ 6: Freddie Firth (c)                                                         │
+│ 7: Gordon Gopher                                                             │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Peal (ID 5) added
+pypeal Database
+ General Ringing count: 1                                                       
+ Quarter Peal count: 3                                                          
+ Peal count: 1                                                                  
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal from BellBoard                                            │
+│ 6) Add peal manually                                                         │
+│ 7) View peal                                                                 │
+│ 8) View statistics                                                           │
+│ 9) Delete peal                                                               │
+│ 10) Update static data                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> x
+[User input: "None"]
+===
+Bath, Somerset, England
+Blessed Virgin Mary, Bathwick
+On Thursday, 1 January 1981
+A Quarter Peal of 1260 Spliced Surprise Minor (3m) (14-1-4 in F)
+(Norwich Surprise Minor, Ipswich Surprise Minor, Cambridge Surprise Minor)
+Composition: 40 com
+
+1: Adam Apple
+2: Ben Bob
+3: Charlie Cook
+4: Darcy Davis
+5: Enid Evans
+6: Freddie Firth (c)
+7: Gordon Gopher
+
+[Database ID: 5]

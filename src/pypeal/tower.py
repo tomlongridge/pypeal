@@ -122,6 +122,58 @@ class Tower():
             Cache.get_cache().add(cls.__name__, f'T{tower.towerbase_id}', tower)
             return tower
 
+    @classmethod
+    def search(cls,
+               place: str = None,
+               dedication: str = None,
+               county: str = None,
+               country: str = None,
+               country_code: str = None,
+               num_bells: int = None,
+               exact_match: bool = False,
+               limit: int = 30) -> list[Tower]:
+
+        if exact_match:
+            if place and '%' in place:
+                raise ValueError('Exact match specified in method search, but place contains wildcard')
+        else:
+            place = f'{place}%' if place and '%' not in place else place
+
+        query = f'SELECT {",".join(FIELD_LIST)}, id FROM towers WHERE 1=1 '
+        params = {}
+        if place:
+            if exact_match:
+                query += 'AND (place = %(place)s OR sub_place = %(place)s) '
+            else:
+                query += 'AND (place LIKE %(place)s OR sub_place LIKE %(place)s) '
+            params['place'] = f'{place}'
+        elif exact_match:
+            query += 'AND place IS NULL '
+        if dedication is not None:
+            query += 'AND dedication = %(dedication)s '
+            params['dedication'] = dedication
+        if county is not None:
+            query += 'AND county = %(county)s '
+            params['county'] = county
+        if country is not None:
+            query += 'AND country = %(country)s '
+            params['country'] = country
+        elif country_code is not None:
+            query += 'AND country_code = %(country_code)s '
+            params['country_code'] = country_code
+        if num_bells is not None:
+            query += 'AND num_bells = %(num_bells)s '
+            params['num_bells'] = num_bells
+        query += 'ORDER BY '
+        query += '(SELECT COUNT(*) FROM peals LEFT JOIN rings ON rings.id = peals.ring_id ' + \
+                 ' WHERE rings.tower_id = towers.id) DESC, ' + \
+                 'towers.country, towers.county, towers.place, towers.sub_place, towers.dedication ASC '
+        query += 'LIMIT %(limit)s'
+        params['limit'] = limit
+
+        results = Database.get_connection().query(query, params).fetchall()
+        return Cache.get_cache().add_all(cls.__name__, {result[-1]: Tower(*result) for result in results})
+
     def commit(self):
         Database.get_connection().query(
             f'INSERT INTO towers ({",".join(FIELD_LIST)}, id) ' +

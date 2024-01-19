@@ -1,0 +1,254 @@
+
+===
+pypeal Database
+ Quarter Peal count: 1                                                          
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal from BellBoard                                            │
+│ 6) Add peal manually                                                         │
+│ 7) View peal                                                                 │
+│ 8) View statistics                                                           │
+│ 9) Delete peal                                                               │
+│ 10) Update static data                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> 6
+[User input: "6"]
+Try for a quick-add? [y/n] (y): 
+>>> y
+[User input: "True"]
+Association: 
+>>> 
+[User input: "None"]
+🏛 Association: None
+Bell type: 1) Tower, 2) Handbells
+Select option (1): 
+>>> 1
+[User input: "Tower"]
+🔔 Bell type: Tower
+Date (yyyy/mm/dd) ([Today]): 
+>>> 2000/01/01
+[User input: "2000/01/01"]
+📅 Date: Saturday, 1 January 2000
+Dove ID or tower description: 
+>>> Withycombe Raleigh
+[User input: "Withycombe Raleigh"]
+🏰 Tower: Withycombe Raleigh, Devon, S John Ev
+Number of changes: 
+>>> 1260
+[User input: "1260"]
+🔢 Changes: 1260
+Title: 
+>>> Plain Bob Doubles
+[User input: "Plain Bob Doubles"]
+Matching peal titled "Plain Bob Doubles"...
+📕 Title: Plain Bob Doubles
+Method details: 
+>>> 
+[User input: "None"]
+Composer: 
+>>> Zachary Zeus
+[User input: "Zachary Zeus"]
+Composition URL: 
+>>> http://complib.org/composition/1
+[User input: "http://complib.org/composition/1"]
+Composition note: 
+>>> 
+[User input: "None"]
+No composer found matching "Zachary Zeus" exactly
+Add as composition note? [y/n] (y): 
+>>> n
+[User input: "False"]
+Composer: Attempting to find "Zachary Zeus"
+Add new ringer as "Zachary" "Zeus"? [y/n] (y): 
+>>> y
+[User input: "True"]
+🎼 Composer: Zachary Zeus
+Add ringer 1:
+Bell number(s) in peal (1): 
+>>> 1
+[User input: "1"]
+Bell number(s) in ring (1): 
+>>> 7
+[User input: "7"]
+Ringer name: 
+>>> Gordon Gopher
+[User input: "Gordon Gopher"]
+Is this ringer the conductor [y/n] (y): 
+>>> n
+[User input: "False"]
+1: Couldn't find ringer matching "Gordon Gopher" (or aliases)
+Add new ringer as "Gordon" "Gopher"? [y/n] (y): 
+>>> y
+[User input: "True"]
+👤 Ringer: 1 [7]: Gordon Gopher
+Add ringer 2:
+Bell number(s) in peal (2): 
+>>> 
+[User input: "2"]
+Bell number(s) in ring (8): 
+>>> 
+[User input: "8"]
+Ringer name: 
+>>> Harold Hedgehog
+[User input: "Harold Hedgehog"]
+Is this ringer the conductor [y/n] (y): 
+>>> n
+[User input: "False"]
+2: Couldn't find ringer matching "Harold Hedgehog" (or aliases)
+Add new ringer as "Harold" "Hedgehog"? [y/n] (y): 
+>>> y
+[User input: "True"]
+👤 Ringer: 2 [8]: Harold Hedgehog
+Add ringer 3:
+Bell number(s) in peal (3): 
+>>> 
+[User input: "3"]
+Bell number(s) in ring (9): 
+>>> 
+[User input: "9"]
+Ringer name: 
+>>> Iris Iguana
+[User input: "Iris Iguana"]
+Is this ringer the conductor [y/n] (y): 
+>>> y
+[User input: "True"]
+3: Couldn't find ringer matching "Iris Iguana" (or aliases)
+Add new ringer as "Iris" "Iguana"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 3 [9]: Iris Iguana (c)
+Add ringer 4:
+Bell number(s) in peal (4): 
+>>> 
+[User input: "4"]
+Bell number(s) in ring (10): 
+>>> 
+[User input: "10"]
+Ringer name: 
+>>> Jack Johnson
+[User input: "Jack Johnson"]
+Is this ringer the conductor [y/n] (n): 
+>>> 
+[User input: "False"]
+4: Couldn't find ringer matching "Jack Johnson" (or aliases)
+Add new ringer as "Jack" "Johnson"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 4 [10]: Jack Johnson
+Add ringer 5:
+Bell number(s) in peal (5): 
+>>> 
+[User input: "5"]
+Bell number(s) in ring (11): 
+>>> 
+[User input: "11"]
+Ringer name: 
+>>> Katie Kimble
+[User input: "Katie Kimble"]
+Is this ringer the conductor [y/n] (n): 
+>>> 
+[User input: "False"]
+5: Couldn't find ringer matching "Katie Kimble" (or aliases)
+Add new ringer as "Katie" "Kimble"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 5 [11]: Katie Kimble
+Add another ringer? [y/n] (n): 
+>>> y
+[User input: "True"]
+Add ringer 6:
+Bell number(s) in peal (6): 
+>>> 
+[User input: "6"]
+Bell number(s) in ring (12): 
+>>> 
+[User input: "12"]
+Ringer name: 
+>>> Lisa Lampard
+[User input: "Lisa Lampard"]
+Is this ringer the conductor [y/n] (n): 
+>>> 
+[User input: "False"]
+6: Couldn't find ringer matching "Lisa Lampard" (or aliases)
+Add new ringer as "Lisa" "Lampard"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 6 [12]: Lisa Lampard
+Add another ringer? [y/n] (n): 
+>>> 
+[User input: "False"]
+Footnote: 
+>>> First quarter: 6
+[User input: "First quarter: 6"]
+Referenced ringer(s):
+  - 6: Lisa Lampard
+Footnote: 
+>>> 
+[User input: "None"]
+🔕 Muffles: None
+╭─────────────────── http://localhost:8080/view.php?random ────────────────────╮
+│ Withycombe Raleigh, Devon, England                                           │
+│ S John Ev                                                                    │
+│ On Saturday, 1 January 2000                                                  │
+│ A Quarter Peal of 1260 Plain Bob Doubles (17-1-10 in D#)                     │
+│ Composed by: Zachary Zeus                                                    │
+│                                                                              │
+│ 1 [7]: Gordon Gopher                                                         │
+│ 2 [8]: Harold Hedgehog                                                       │
+│ 3 [9]: Iris Iguana (c)                                                       │
+│ 4 [10]: Jack Johnson                                                         │
+│ 5 [11]: Katie Kimble                                                         │
+│ 6 [12]: Lisa Lampard                                                         │
+│                                                                              │
+│ 6: First quarter.                                                            │
+│                                                                              │
+│ [Composition URL: http://complib.org/composition/1]                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Peal (ID 2) added
+pypeal Database
+ Quarter Peal count: 2                                                          
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal from BellBoard                                            │
+│ 6) Add peal manually                                                         │
+│ 7) View peal                                                                 │
+│ 8) View statistics                                                           │
+│ 9) Delete peal                                                               │
+│ 10) Update static data                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> x
+[User input: "None"]
+===
+Withycombe Raleigh, Devon, England
+S John Ev
+On Saturday, 1 January 2000
+A Quarter Peal of 1260 Plain Bob Doubles (17-1-10 in D#)
+Composed by: Zachary Zeus
+
+1 [7]: Gordon Gopher
+2 [8]: Harold Hedgehog
+3 [9]: Iris Iguana (c)
+4 [10]: Jack Johnson
+5 [11]: Katie Kimble
+6 [12]: Lisa Lampard
+
+6: First quarter.
+
+[Composition URL: http://complib.org/composition/1]
+[Database ID: 2]

@@ -8,8 +8,8 @@ class PealGeneratorListener():
     def __init__(self):
         self.peal = None
 
-    def new_peal(self, id: int):
-        self.peal = Peal(bellboard_id=id)
+    def new_peal(self, bellboard_id: int):
+        self.peal = Peal(bellboard_id=bellboard_id)
 
     def bell_type(self, value: BellType):
         pass
@@ -20,7 +20,7 @@ class PealGeneratorListener():
     def association(self, value: str):
         pass
 
-    def location(self, address_dedication: str, place: str, county: str):
+    def location(self, address_dedication: str, place: str, county: str, country: str):
         pass
 
     def changes(self, value: int):
@@ -32,7 +32,7 @@ class PealGeneratorListener():
     def method_details(self, value: str):
         pass
 
-    def composer(self, name: str, url: str):
+    def composition_details(self, name: str, url: str, note: str):
         pass
 
     def date(self, value: datetime.date):
@@ -44,7 +44,7 @@ class PealGeneratorListener():
     def duration(self, value: str):
         pass
 
-    def ringer(self, name: str, bell_nums: list[int], bells: list[int], is_conductor: bool):
+    def ringer(self, name: str, bell_nums_in_peal: list[int], bell_nums_in_ring: list[int], is_conductor: bool):
         pass
 
     def footnote(self, value: str):

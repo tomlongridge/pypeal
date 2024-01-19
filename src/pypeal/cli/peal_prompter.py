@@ -44,18 +44,17 @@ class PealPromptListener(PealGeneratorListener):
             self.peal.county = None
             self.peal.address = None
             self.peal.dedication = None
-            self.dedication = None
             print(f'🏰 Tower: {tower.name}')
         else:
             print(f'Tower ID {dove_id or towerbase_id} not found')
 
-    def location(self, address_dedication: str, place: str, county: str):
+    def location(self, address_dedication: str, place: str, county: str, country: str):
         address_dedication = _clean_str_input(address_dedication)
         place = _clean_str_input(place)
         county = _clean_str_input(county)
         if self.peal.ring is None:
             self._run_cancellable_prompt(
-                lambda peal: prompt_add_location(address_dedication, place, county, peal, self.quick_mode))
+                lambda peal: prompt_add_location(address_dedication, place, county, country, peal, self.quick_mode))
             if self.peal.location:
                 print('📍 Location', self.peal.location)
             if self.peal.location_detail:
@@ -98,11 +97,11 @@ class PealPromptListener(PealGeneratorListener):
             else:
                 print('  - None')
 
-    def composer(self, name: str, url: str):
+    def composition_details(self, name: str, url: str, note: str):
         name = _clean_str_input(name)
         url = _clean_str_input(url)
         self._run_cancellable_prompt(
-            lambda peal: prompt_add_composition_details(name, url, peal, self.quick_mode))
+            lambda peal: prompt_add_composition_details(name, url, note, peal, self.quick_mode))
         print(f'🎼 Composer: {self.peal.composer or "Unknown"}')
         if self.peal.composition_note:
             print(f'🎼 Composition: {self.peal.composition_note}')

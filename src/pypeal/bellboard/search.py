@@ -66,6 +66,9 @@ def search(ringer_name: str = None,
 
 def search_by_url(url: str) -> Iterator[int]:
 
+    if '?' not in url or '&' not in url:
+        raise ValueError(f'Invalid search URL: {url}')
+
     criteria = {}
     for param in url.split('?')[1].split('&'):
         param_parts = param.split('=')

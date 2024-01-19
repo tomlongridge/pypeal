@@ -8,11 +8,14 @@ pypeal Database
 │ 2) Add peals by search                                                       │
 │ 3) Add peals by search URL                                                   │
 │ 4) Add peal by ID/URL                                                        │
-│ 5) Add random peal                                                           │
-│ 6) View peal                                                                 │
-│ 7) View statistics                                                           │
-│ 8) Update static data                                                        │
-│ 9) Exit                                                                      │
+│ 5) Add random peal from BellBoard                                            │
+│ 6) Add peal manually                                                         │
+│ 7) View peal                                                                 │
+│ 8) View statistics                                                           │
+│ 9) Delete peal                                                               │
+│ 10) Update static data                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
 >>> 4
@@ -150,17 +153,11 @@ Bell number(s) in the tower (1):
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Error: No room for 4 more ringers for performance of 5 on 10 bells           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-╭──────────────────────────────────────────────────────────────────────────────╮
-│ Error: Invalid bell number, list or range: 10                                │
-╰──────────────────────────────────────────────────────────────────────────────╯
 Bell number(s) in the tower (1): 
 >>> 9
 [User input: "9"]
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Error: No room for 4 more ringers for performance of 5 on 10 bells           │
-╰──────────────────────────────────────────────────────────────────────────────╯
-╭──────────────────────────────────────────────────────────────────────────────╮
-│ Error: Invalid bell number, list or range: 9                                 │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Bell number(s) in the tower (1): 
 >>> 8
@@ -168,17 +165,11 @@ Bell number(s) in the tower (1):
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Error: No room for 4 more ringers for performance of 5 on 10 bells           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-╭──────────────────────────────────────────────────────────────────────────────╮
-│ Error: Invalid bell number, list or range: 8                                 │
-╰──────────────────────────────────────────────────────────────────────────────╯
 Bell number(s) in the tower (1): 
 >>> 7
 [User input: "7"]
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Error: No room for 4 more ringers for performance of 5 on 10 bells           │
-╰──────────────────────────────────────────────────────────────────────────────╯
-╭──────────────────────────────────────────────────────────────────────────────╮
-│ Error: Invalid bell number, list or range: 7                                 │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Bell number(s) in the tower (1): 
 >>> 5
@@ -197,26 +188,17 @@ Bell number(s) in the tower (6):
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Error: Bell number (5) is not greater than the last bell (5)                 │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-╭──────────────────────────────────────────────────────────────────────────────╮
-│ Error: Invalid bell number, list or range: 5                                 │
-╰──────────────────────────────────────────────────────────────────────────────╯
 Bell number(s) in the tower (6): 
 >>> 4
 [User input: "4"]
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Error: Bell number (4) is not greater than the last bell (5)                 │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-╭──────────────────────────────────────────────────────────────────────────────╮
-│ Error: Invalid bell number, list or range: 4                                 │
-╰──────────────────────────────────────────────────────────────────────────────╯
 Bell number(s) in the tower (6): 
 >>> 11
 [User input: "11"]
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Error: Bell number (11) exceeds number of bells in the tower                 │
-╰──────────────────────────────────────────────────────────────────────────────╯
-╭──────────────────────────────────────────────────────────────────────────────╮
-│ Error: Invalid bell number, list or range: 11                                │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Bell number(s) in the tower (6): 
 >>> 
@@ -371,7 +353,7 @@ Save this peal?
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
-Peal 1657469 added
+Peal (ID 15) added
 pypeal Database
  Quarter Peal count: 12                                                         
  Peal count: 3                                                                  
@@ -380,15 +362,18 @@ pypeal Database
 │ 2) Add peals by search                                                       │
 │ 3) Add peals by search URL                                                   │
 │ 4) Add peal by ID/URL                                                        │
-│ 5) Add random peal                                                           │
-│ 6) View peal                                                                 │
-│ 7) View statistics                                                           │
-│ 8) Update static data                                                        │
-│ 9) Exit                                                                      │
+│ 5) Add random peal from BellBoard                                            │
+│ 6) Add peal manually                                                         │
+│ 7) View peal                                                                 │
+│ 8) View statistics                                                           │
+│ 9) Delete peal                                                               │
+│ 10) Update static data                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
->>> 7
-[User input: "7"]
+>>> 8
+[User input: "8"]
 Summary
  ────────────────────────────────────────────────────────────────────────────── 
                                                   Count                         
@@ -685,15 +670,18 @@ pypeal Database
 │ 2) Add peals by search                                                       │
 │ 3) Add peals by search URL                                                   │
 │ 4) Add peal by ID/URL                                                        │
-│ 5) Add random peal                                                           │
-│ 6) View peal                                                                 │
-│ 7) View statistics                                                           │
-│ 8) Update static data                                                        │
-│ 9) Exit                                                                      │
+│ 5) Add random peal from BellBoard                                            │
+│ 6) Add peal manually                                                         │
+│ 7) View peal                                                                 │
+│ 8) View statistics                                                           │
+│ 9) Delete peal                                                               │
+│ 10) Update static data                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
->>> 9
-[User input: "9"]
+>>> x
+[User input: "None"]
 ===
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
@@ -713,3 +701,4 @@ Rung for Morning Service. Testing the new footnote function.
 
 [BellBoard: http://localhost:8080/view.php?id=1657469 (Joyce Sullivan, Sunday, 10 September 2023)]
 [Published title: Doubles (3m)]
+[Database ID: 15]

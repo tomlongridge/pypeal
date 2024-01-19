@@ -118,7 +118,7 @@ class Ring(BaseModel):
             id=ring.id,
             tower_id=ring.tower.id,
             description=ring.description,
-            date_removed=ring.date_removed.strftime('%Y-%m-%d') if ring.date_removed else None,
+            date_removed=ring.date_removed.strftime('%Y/%m/%d') if ring.date_removed else None,
             bells=[Bell.from_object(bell) for bell in ring.bells.values()]
         )
 
@@ -292,7 +292,7 @@ class PealBase(BaseModel):
         return cls(
             id=peal.id,
             bellboard_id=peal.bellboard_id,
-            date=peal.date.strftime('%Y-%m-%d'),
+            date=peal.date.strftime('%Y/%m/%d'),
             type=peal.type.name,
             length_type=peal.length_type.name if peal.length_type else None,
             bell_type=peal.bell_type.name if peal.bell_type else None,
@@ -309,7 +309,7 @@ class PealBasic(PealBase):
         return cls(
             id=peal.id,
             bellboard_id=peal.bellboard_id,
-            date=peal.date.strftime('%Y-%m-%d'),
+            date=peal.date.strftime('%Y/%m/%d'),
             type=peal.type.name,
             length_type=peal.length_type.name if peal.length_type else None,
             bell_type=peal.bell_type.name if peal.bell_type else None,
@@ -352,7 +352,7 @@ class Peal(PealBase):
             type=peal.type.name,
             length_type=peal.length_type.name if peal.length_type else None,
             bell_type=peal.bell_type.name if peal.bell_type else None,
-            date=peal.date.strftime('%Y-%m-%d'),
+            date=peal.date.strftime('%Y/%m/%d'),
             duration=peal.duration,
             association=Association.from_object(peal.association) if peal.association else None,
             location=Location.from_object(peal),

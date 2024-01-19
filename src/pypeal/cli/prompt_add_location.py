@@ -6,10 +6,10 @@ from pypeal.peal import Peal
 DEDICATION_REGEX = re.compile(r'^st?\s|cath|blessed|holy|all saints|chapel|christ|abbey|our lady|our blessed')
 
 
-def prompt_add_location(address_dedication: str, place: str, county: str, peal: Peal, quick_mode: bool):
+def prompt_add_location(address_dedication: str, place: str, county: str, country: str, peal: Peal, quick_mode: bool):
 
     while True:
-        probably_dedication = re.match(DEDICATION_REGEX, address_dedication.lower()) is not None
+        probably_dedication = address_dedication and re.match(DEDICATION_REGEX, address_dedication.lower()) is not None
 
         sub_place = None
         address_dedication_less_sub_place = None
@@ -53,8 +53,7 @@ def prompt_add_location(address_dedication: str, place: str, county: str, peal: 
         elif not quick_mode:
             peal.sub_place = ask('Sub-place/area', required=False)
 
-        country = None
-        if county is not None:
+        if country is None and county is not None:
             county_parts = county.split(', ')
             if len(county_parts) > 1:
                 country = county_parts.pop()

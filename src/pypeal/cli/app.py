@@ -14,6 +14,8 @@ from pypeal.bellboard.interface import BellboardError, get_id_from_url, get_url_
 from pypeal.bellboard.search import BellboardSearchNoResultFoundError, search as bellboard_search, search_by_url as bellboard_search_by_url
 from pypeal.bellboard.html_generator import HTMLPealGenerator
 from pypeal.cccbr import update_methods
+from pypeal.cli.generator import PealGenerator
+from pypeal.cli.manual_generator import ManualGenerator
 from pypeal.cli.peal_prompter import PealPromptListener
 from pypeal.cli.peal_previewer import PealPreviewListener
 from pypeal.cli.prompt_commit_peal import prompt_commit_peal
@@ -45,7 +47,7 @@ logger.addHandler(ch)
 app = typer.Typer()
 
 
-_peals: list[Peal] = None
+_peals: dict[int, Peal] = None
 _bb_peals: dict[str, Peal] = None
 
 
@@ -72,16 +74,20 @@ def main(
     match action:
         case None:
             run_interactive(peal_id_or_url)
+        case 'import':
+            run_import_peal(peal_id_or_url)
         case 'add':
-            run_add(peal_id_or_url)
+            run_add_peal(peal_id_or_url)
         case 'view':
             run_view(peal_id_or_url)
+        case 'delete':
+            run_delete(peal_id_or_url)
         case _:
             error(f'Unknown action: {action}')
 
 
-def run_add(peal_id_or_url: str):
-    add_peal(prompt_peal_id(peal_id_or_url))
+def run_import_peal(peal_id_or_url: str):
+    import_peal(prompt_peal_id(peal_id_or_url))
 
 
 def run_view(peal_id_or_url: str):
@@ -91,6 +97,25 @@ def run_view(peal_id_or_url: str):
         case 2:
             panel(str(Peal.get(id=ask_int('Peal ID', min=1, required=True))))
     confirm(None, 'Continue?')
+
+
+def run_delete(peal_id_or_url: str):
+    match choose_option(['Bellboard ID/URL', 'Peal ID'], default=1) if not peal_id_or_url else 1:
+        case 1:
+            peal_id = prompt_peal_id(peal_id_or_url)
+            peal = Peal.get(bellboard_id=peal_id)
+            panel(str(peal))
+            delete_peal(peal.id)
+        case 2:
+            peal_id = ask_int('Peal ID', min=1, required=True)
+            panel(str(Peal.get(id=peal_id)))
+            delete_peal(peal_id)
+    if not confirm(None, 'Continue?'):
+        return
+
+
+def run_add_peal():
+    add_peal(ManualGenerator())
 
 
 def run_interactive(peal_id_or_url: str):
@@ -106,12 +131,14 @@ def run_interactive(peal_id_or_url: str):
                         'Add peals by search',
                         'Add peals by search URL',
                         'Add peal by ID/URL',
-                        'Add random peal',
+                        'Add random peal from BellBoard',
+                        'Add peal manually',
                         'View peal',
                         'View statistics',
-                        'Update static data',
-                        'Exit'
+                        'Delete peal',
+                        'Update static data'
                     ],
+                    none_option='Exit',
                     default=1)
             except UserCancelled:
                 raise typer.Exit()
@@ -124,19 +151,23 @@ def run_interactive(peal_id_or_url: str):
                 case 3:
                     search_by_url()
                 case 4:
-                    add_peal(prompt_peal_id(peal_id_or_url))
+                    run_import_peal(peal_id_or_url)
                 case 5:
-                    add_peal()
+                    import_peal()
                 case 6:
-                    run_view(peal_id_or_url)
+                    run_add_peal()
                 case 7:
-                    prompt_report_stats()
+                    run_view(peal_id_or_url)
                 case 8:
+                    prompt_report_stats()
+                case 9:
+                    run_delete(peal_id_or_url)
+                case 10:
                     update_methods()
                     update_associations()
                     update_towers()
                     update_bells()
-                case 9 | None:
+                case 11 | None:
                     raise typer.Exit()
         except UserCancelled:
             continue
@@ -147,7 +178,7 @@ def run_interactive(peal_id_or_url: str):
 def print_summary():
     global _peals
     heading('pypeal Database')
-    summary = generate_peal_summary(_peals)
+    summary = generate_peal_summary(_peals.values())
     if summary['count'] > 0:
         table = Table(show_header=False, show_footer=False, expand=True, box=None)
         table.add_column(ratio=1)
@@ -176,54 +207,73 @@ def poll_for_new_peals():
         search_by_url(search_url)
 
 
-def add_peal(peal_id: int = None):
+def import_peal(peal_id: int = None) -> Peal:
     global _bb_peals
 
     generator = HTMLPealGenerator()
     preview_listener = PealPreviewListener()
-    prompt_listener = PealPromptListener()
 
     try:
         peal_id = generator.download(peal_id)
         generator.parse(preview_listener)
         panel(preview_listener.text, title=get_url_from_id(peal_id))
 
-        if peal_id in _bb_peals:
-            error(f'Peal {peal_id} already added to database')
+        if peal_id in _bb_peals and \
+                not confirm(f'Peal {peal_id} already added to database', confirm_message='Overwrite?', default=False):
             return
 
-        prompt_listener.quick_mode = confirm(None, confirm_message='Try for a quick-add?', default=True)
-
-        while True:
-
-            try:
-                generator.parse(prompt_listener)
-            except UserCancelled:
-                if confirm(None, confirm_message='Retry entire peal?', default=True):
-                    prompt_listener.quick_mode = False
-                    continue
-
-            peal = prompt_listener.peal
-
-            if prompt_commit_peal(peal):
-                add_to_peal_list(peal)
-            elif prompt_listener.quick_mode and \
-                    confirm(None, confirm_message='Try again in prompt mode?', default=True):
-                prompt_listener.quick_mode = False
-                continue
-            break
+        return add_peal(generator)
 
     except BellboardError as e:
         logger.exception('Error getting peal from Bellboard: %s', e)
         error(e)
 
 
+def add_peal(generator: PealGenerator) -> Peal:
+
+    prompt_listener = PealPromptListener()
+    prompt_listener.quick_mode = confirm(None, confirm_message='Try for a quick-add?', default=True)
+
+    peal: Peal = None
+    while True:
+
+        try:
+            generator.parse(prompt_listener)
+        except UserCancelled:
+            if confirm(None, confirm_message='Retry entire peal?', default=True):
+                prompt_listener.quick_mode = False
+                continue
+
+        peal = prompt_listener.peal
+
+        peal_saved, replaced_peal_id = prompt_commit_peal(peal)
+        if peal_saved:
+            update_peal_list(peal, replaced_peal_id)
+            break
+        elif prompt_listener.quick_mode and \
+                confirm(None, confirm_message='Try again in prompt mode?', default=True):
+            prompt_listener.quick_mode = False
+            continue
+        else:
+            break
+
+    return peal
+
+
+def delete_peal(peal_id: int):
+    peal = Peal.get(peal_id)
+    if peal:
+        peal.delete()
+        update_peal_list(None, peal_id)
+
+
 def search_by_url(url: str = None):
     global _bb_peals
 
-    if url is None:
-        url = choose_option(config.get_config('bellboard', 'searches'),
-                            values=config.get_config('bellboard', 'searches'),
+    saved_searches = config.get_config('bellboard', 'searches')
+    if url is None and saved_searches:
+        url = choose_option(saved_searches,
+                            values=saved_searches,
                             title='Use saved search?',
                             none_option='Enter URL',
                             default=1)
@@ -242,7 +292,7 @@ def search_by_url(url: str = None):
                 else:
                     if count_added > 0 and not confirm(None, confirm_message='Add next peal?'):
                         break
-                    add_peal(peal_id)
+                    import_peal(peal_id)
                     count_added += 1
             print(f'{count_added} peal(s) added ({count_duplicate} duplicates)')
 
@@ -262,8 +312,8 @@ def search():
     print('Enter search criteria.')
     print('% for wildcards, " for absolute match')
     name = ask('Ringer name', required=False)
-    date_from = ask_date('Date from (yyyy-mm-dd)', max=datetime.date(datetime.now()), required=False)
-    date_to = ask_date('Date to (yyyy-mm-dd)', min=date_from, max=datetime.date(datetime.now()), required=False)
+    date_from = ask_date('Date from', max=datetime.date(datetime.now()), required=False)
+    date_to = ask_date('Date to', min=date_from, max=datetime.date(datetime.now()), required=False)
     association = ask('Association', required=False)
     tower_id = ask_int('Dove Tower ID', required=False)
     place = ask('Place', required=False) if not tower_id else None
@@ -304,7 +354,7 @@ def search():
             else:
                 if count_added > 0 and not confirm(None, confirm_message='Add next peal?'):
                     break
-                add_peal(peal_id)
+                import_peal(peal_id)
                 count_added += 1
         print(f'{count_added} peal(s) added ({count_duplicate} duplicates)')
     except BellboardSearchNoResultFoundError as e:
@@ -353,12 +403,15 @@ def initialize_or_exit(reset_db: bool, clear_data: bool):
 
 def refresh_peal_list():
     global _peals, _bb_peals
-    _peals = Peal.get_all()
-    _bb_peals = {peal.bellboard_id: peal for peal in _peals}
+    _peals = {peal.id: peal for peal in Peal.get_all()}
+    _bb_peals = {peal.bellboard_id: peal for peal in _peals.values()}
 
 
-def add_to_peal_list(peal: Peal):
+def update_peal_list(new_peal: Peal = None, overwrite_peal_id: int = None):
     global _peals, _bb_peals
-    _peals.append(peal)
-    if peal.bellboard_id:
-        _bb_peals[peal.bellboard_id] = peal
+    if new_peal:
+        _peals[new_peal.id] = new_peal
+        if new_peal.bellboard_id:
+            _bb_peals[new_peal.bellboard_id] = new_peal
+    if overwrite_peal_id:
+        del _peals[overwrite_peal_id]

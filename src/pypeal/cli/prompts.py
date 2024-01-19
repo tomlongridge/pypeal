@@ -27,7 +27,10 @@ def print_user_input(prompt: str, message: str):
         print(f'\n[User input: "{message}"]')
 
 
-def ask(prompt: str, default: str = None, required: bool = True) -> str:
+def ask(prompt: str, default: any = None, required: bool = True) -> str:
+    if default is not None and type(default) is str and get_config('diagnostics', 'print_user_input'):
+        if datetime.now().strftime('%Y/%m/%d') in default:
+            default = default.replace(datetime.now().strftime('%Y/%m/%d'), '[Today]')
     try:
         while True:
             response = Prompt.ask(prompt, default=str(default) if default else None, show_default=default is not None)
@@ -72,7 +75,7 @@ def ask_date(prompt: str,
              required: bool = True) -> datetime.date:
     try:
         while True:
-            response = ask(prompt,
+            response = ask(f'{prompt} (yyyy/mm/dd)',
                            default=default.strftime('%Y/%m/%d') if default else None,
                            required=required)
             if default is None and response is None:

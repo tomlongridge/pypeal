@@ -5,7 +5,7 @@ from pypeal.cli.chooser import choose_option
 from pypeal.peal import Peal
 from pypeal.ringer import Ringer
 from pypeal.utils import get_bell_label
-from pypeal.parsers import parse_ringer_name
+from pypeal.parsers import parse_bell_nums, parse_ringer_name
 
 
 _logger = logging.getLogger('pypeal')
@@ -79,29 +79,17 @@ def prompt_add_ringer(name: str,
                 else:
                     suggested_bells = bell_nums_in_peal
                 bell_nums_str = get_bell_label(suggested_bells)
-                if quick_mode:
-                    if bell_nums_in_peal[0] == 1:
-                        bell_nums_str = ask('First bell number(s) in the tower', default=bell_nums_str)
-                    else:
-                        pass  # Use the default for subsequent bells in quick mode
+                if quick_mode and bell_nums_in_peal[0] == 1:
+                    prompt_str = 'First bell number(s) in the tower'
+                elif not quick_mode:
+                    prompt_str = 'Bell number(s) in the tower'
                 else:
-                    bell_nums_str = ask('Bell number(s) in the tower', default=bell_nums_str)
-                for bell in bell_nums_str.split(','):
-                    bell_list = bell.split('-')
-                    if len(bell_list) == 1:
-                        if bell.isnumeric() and _validate_bell(bell_nums_in_peal, [int(bell)], peal):
-                            bell_nums_in_ring.append(int(bell))
-                            continue
-                    else:
-                        if bell_list[0].isnumeric() and bell_list[1].isnumeric():
-                            bell_range = list(range(int(bell_list[0]), int(bell_list[1]) + 1))
-                            if _validate_bell(bell_nums_in_peal, bell_range, peal):
-                                bell_nums_in_ring += bell_range
-                                continue
-                    error(f'Invalid bell number, list or range: {bell}')
-                    bell_nums_in_ring = []
-                    quick_mode = False
-                    break
+                    prompt_str = None
+                    bell_nums_in_ring = suggested_bells
+                while prompt_str is not None and len(bell_nums_in_ring) == 0:
+                    bell_nums = parse_bell_nums(ask(prompt_str, default=bell_nums_str))
+                    if len(bell_nums) > 0 and _validate_bell(bell_nums_in_peal, bell_nums, peal):
+                        bell_nums_in_ring = bell_nums
                 if len(bell_nums_in_ring) > len(bell_nums_in_peal):
                     if not confirm(f'More bells ({len(bell_nums_in_ring)}) than expected ({len(bell_nums_in_peal)}) for this ringer',
                                    default=False):

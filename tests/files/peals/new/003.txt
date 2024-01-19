@@ -1,0 +1,261 @@
+
+===
+pypeal Database
+ Quarter Peal count: 2                                                          
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal from BellBoard                                            │
+│ 6) Add peal manually                                                         │
+│ 7) View peal                                                                 │
+│ 8) View statistics                                                           │
+│ 9) Delete peal                                                               │
+│ 10) Update static data                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> 6
+[User input: "6"]
+Try for a quick-add? [y/n] (y): 
+>>> n
+[User input: "False"]
+Association: 
+>>> 
+[User input: "None"]
+No linked association
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+🏛 Association: None
+Bell type: 1) Tower, 2) Handbells
+Select option (1): 
+>>> 2
+[User input: "Handbells"]
+🔔 Bell type: Handbells
+Date (yyyy/mm/dd) ([Today]): 
+>>> 2000/12/31
+[User input: "2000/12/31"]
+📅 Date: Sunday, 31 December 2000
+Address: 
+>>> 1 High Street
+[User input: "1 High Street"]
+Place: 
+>>> Bath
+[User input: "Bath"]
+Sub-place/area: 
+>>> 
+[User input: "None"]
+County/state: 
+>>> Somerset
+[User input: "Somerset"]
+Country: 
+>>> England
+[User input: "England"]
+Bath, Somerset, England
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+📍 Location Bath, Somerset, England
+📍 Detail 1 High Street
+Number of changes: 
+>>> 5040
+[User input: "5040"]
+🔢 Changes: 5040
+Title: 
+>>> Cambridge Minor
+[User input: "Cambridge Minor"]
+Matching peal titled "Cambridge Minor"...
+Matched "Cambridge Minor" to method "Cambridge Surprise Minor" (ID: m14568)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+📕 Title: Cambridge Surprise Minor
+Method details: 
+>>> 
+[User input: "None"]
+Composer: 
+>>> 
+[User input: "None"]
+Composition URL: 
+>>> 
+[User input: "None"]
+Composition note: 
+>>> 
+[User input: "None"]
+No composer attributed
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Composition note: 
+>>> 
+[User input: "None"]
+🎼 Composer: Unknown
+Add ringer 1:
+Bell number(s) in peal (1): 
+>>> 1,2
+[User input: "1,2"]
+Bell number(s) in ring (1): 
+>>> 1,2
+[User input: "1,2"]
+Ringer name: 
+>>> Gordon G
+[User input: "Gordon G"]
+Is this ringer the conductor [y/n] (y): 
+>>> n
+[User input: "False"]
+1,2: "Gordon G" -> Gordon Gopher
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Add an alias for "Gordon Gopher"? [y/n] (y): 
+>>> n
+[User input: "False"]
+Use bell(s) 1,2 for Gordon G?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: 1,2: Gordon Gopher
+Add ringer 2:
+Bell number(s) in peal (3): 
+>>> 3,4
+[User input: "3,4"]
+Bell number(s) in ring (3): 
+>>> 3,4
+[User input: "3,4"]
+Ringer name: 
+>>> Harold Hedgehog
+[User input: "Harold Hedgehog"]
+Is this ringer the conductor [y/n] (y): 
+>>> y
+[User input: "True"]
+3,4: "Harold Hedgehog" -> Harold Hedgehog
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Use bell(s) 3,4 for Harold Hedgehog?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Ringer note: 
+>>> Secretary
+[User input: "Secretary"]
+👤 Ringer: 3,4: Harold Hedgehog (Secretary) (c)
+Add ringer 3:
+Bell number(s) in peal (5): 
+>>> 5,6
+[User input: "5,6"]
+Bell number(s) in ring (5): 
+>>> 5,6
+[User input: "5,6"]
+Ringer name: 
+>>> Iris Iguana
+[User input: "Iris Iguana"]
+Is this ringer the conductor [y/n] (n): 
+>>> 
+[User input: "False"]
+5,6: "Iris Iguana" -> Iris Iguana
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Use bell(s) 5,6 for Iris Iguana?
+Is this correct? [y/n] (y): 
+>>> n
+[User input: "False"]
+Ringer note: 
+>>> 
+[User input: "None"]
+Bell number(s) in the tower (5,6): 
+>>> 
+[User input: "5,6"]
+👤 Ringer: 5,6: Iris Iguana
+Add another ringer? [y/n] (n): 
+>>> 
+[User input: "False"]
+Footnote: 
+>>> First footnote
+[User input: "First footnote"]
+Footnote 1 text:
+  > First footnote.
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Footnote: 
+>>> Second footnote
+[User input: "Second footnote"]
+Footnote 2 text:
+  > Seconductor footnote.
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Add this to previous footnote? [y/n] (y): 
+>>> n
+[User input: "False"]
+Footnote: 
+>>> 
+[User input: "None"]
+Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
+Select option (1): 
+>>> 
+[User input: "None"]
+🔕 Muffles: None
+╭─────────────────── http://localhost:8080/view.php?random ────────────────────╮
+│ Bath, Somerset, England                                                      │
+│ 1 High Street (in hand)                                                      │
+│ On Sunday, 31 December 2000                                                  │
+│ A Peal of 5040 Cambridge Surprise Minor                                      │
+│                                                                              │
+│ 1,2: Gordon Gopher                                                           │
+│ 3,4: Harold Hedgehog (Secretary) (c)                                         │
+│ 5,6: Iris Iguana                                                             │
+│                                                                              │
+│ First footnote.                                                              │
+│ Seconductor footnote.                                                        │
+│                                                                              │
+│ [Published title: Cambridge Minor]                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Peal (ID 3) added
+pypeal Database
+ Quarter Peal count: 2                                                          
+ Peal count: 1                                                                  
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal from BellBoard                                            │
+│ 6) Add peal manually                                                         │
+│ 7) View peal                                                                 │
+│ 8) View statistics                                                           │
+│ 9) Delete peal                                                               │
+│ 10) Update static data                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> x
+[User input: "None"]
+===
+Bath, Somerset, England
+1 High Street (in hand)
+On Sunday, 31 December 2000
+A Peal of 5040 Cambridge Surprise Minor 
+
+1,2: Gordon Gopher
+3,4: Harold Hedgehog (Secretary) (c)
+5,6: Iris Iguana
+
+First footnote.
+Seconductor footnote.
+
+[Published title: Cambridge Minor]
+[Database ID: 3]

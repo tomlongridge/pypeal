@@ -546,13 +546,19 @@ class Peal:
     def commit(self):
         if self.id is not None:
             raise NotImplementedError('Updating existing peals is not yet supported')
+
+        if self.type is None:
+            raise ValueError('Peal type must be specified before it is saved')
+        if not self.ringers:
+            raise ValueError('Peal must have at least one ringer before it is saved')
+
         self.created_date = datetime.now()
 
         result = Database.get_connection().query(
             f'INSERT INTO peals ({",".join(FIELD_LIST)}) ' +
             f'VALUES ({("%s,"*len(FIELD_LIST)).strip(",")})',
             (self.bellboard_id, self.type.value, self.bell_type.value, self.date, self.association.id if self.association else None,
-                self.ring.id if self.ring else None, self.__place, self.__sub_place, self.address, self.dedication, self.__county,
+                self.ring.id if self.ring else None, self.__place, self.__sub_place, self.address, self.__dedication, self.__county,
                 self.__country, self.changes, self.stage.value if self.stage else None,
                 self.classification.value if self.classification else None, self.is_variable_cover, self.num_methods, self.num_principles,
                 self.num_variants, self.method.id if self.method else None, self.title, self.published_title, self.detail,
@@ -592,6 +598,18 @@ class Peal:
                 (self.id, url, caption, credit))
             Database.get_connection().commit()
             self.__photos[i] = (result.lastrowid, url, caption, credit)
+
+    def delete(self):
+        if self.id is None:
+            raise ValueError('Peal must be committed to database before it can be deleted')
+        Database.get_connection().query('DELETE FROM pealphotos WHERE peal_id = %s', (self.id,))
+        Database.get_connection().query('DELETE FROM pealfootnotes WHERE peal_id = %s', (self.id,))
+        Database.get_connection().query('DELETE FROM pealmethods WHERE peal_id = %s', (self.id,))
+        Database.get_connection().query('DELETE FROM pealringers WHERE peal_id = %s', (self.id,))
+        Database.get_connection().query('DELETE FROM peals WHERE id = %s', (self.id,))
+        Database.get_connection().commit()
+        Cache.get_cache().clear(Peal.__name__, f'D{self.id}')
+        Cache.get_cache().clear(Peal.__name__, f'B{self.bellboard_id}')
 
     def _get_footnote_summary(self) -> str:
         footnote_map: dict[str, list[int]] = {}
@@ -654,6 +672,7 @@ class Peal:
         text += f'\n[Event URL: {self.event_url}]' if self.event_url else ''
         text += f'\n[Published title: {self.published_title}]' if self.published_title != self.title else ''
         text += f'\n[External reference: {self.external_reference}]' if self.external_reference else ''
+        text += f'\n[Database ID: {self.id}]' if self.id else ''
         return text.strip()
 
     def to_json(self):

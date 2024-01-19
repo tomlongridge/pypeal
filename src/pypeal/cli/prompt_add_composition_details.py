@@ -4,12 +4,13 @@ from pypeal.peal import Peal
 from pypeal.ringer import Ringer
 
 
-def prompt_add_composition_details(name: str, url: str, peal: Peal, quick_mode: bool):
+def prompt_add_composition_details(name: str, url: str, note: str, peal: Peal, quick_mode: bool):
 
-    matched_ringer = composition_note = None
+    matched_ringer = None
+    peal.composition_note = note
     if name:
         matched_ringer: Ringer = prompt_add_ringer_by_name_match(name, 'Composer: ', quick_mode)
-        if matched_ringer is None and name and \
+        if peal.composition_note is None and matched_ringer is None and name and \
                 confirm(f'No composer found matching "{name}" exactly',
                         confirm_message='Add as composition note?',
                         default=True):

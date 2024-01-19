@@ -18,8 +18,9 @@ class PealPreviewListener(PealGeneratorListener):
         if value:
             self.__lines['association'] = value
 
-    def location(self, address_dedication: str, place: str, county: str):
+    def location(self, address_dedication: str, place: str, county: str, country: str):
         self.__lines['location'] = f'{address_dedication}, {place or "[no place]"}, {county or "[no county]"}'
+        self.__lines['location'] += f', {country}' if country else ''
 
     def changes(self, value: int):
         self.__lines['title'] = f'{value} ' if value else ''
@@ -31,7 +32,7 @@ class PealPreviewListener(PealGeneratorListener):
         if value:
             self.__lines['method_details'] = value
 
-    def composer(self, name: str, url: str):
+    def composition_details(self, name: str, url: str, note: str):
         if name:
             self.__lines['composer'] = name
 

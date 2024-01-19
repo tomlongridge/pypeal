@@ -29,9 +29,12 @@ class Cache():
                 self._data[cache][key] = entity
         return self._data[cache][key]
 
-    def clear(self, cache: str):
+    def clear(self, cache: str, key: str = None):
         if cache in self._data:
-            self._data[cache].clear()
+            if key is not None and key in self._data[cache]:
+                del self._data[cache][key]
+            else:
+                self._data[cache].clear()
 
     @staticmethod
     def get_cache():

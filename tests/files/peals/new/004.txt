@@ -1,0 +1,123 @@
+
+===
+pypeal Database
+ Quarter Peal count: 2                                                          
+ Peal count: 1                                                                  
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal from BellBoard                                            │
+│ 6) Add peal manually                                                         │
+│ 7) View peal                                                                 │
+│ 8) View statistics                                                           │
+│ 9) Delete peal                                                               │
+│ 10) Update static data                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> 6
+[User input: "6"]
+Try for a quick-add? [y/n] (y): 
+>>> y
+[User input: "True"]
+Association: 
+>>> 
+[User input: "None"]
+🏛 Association: None
+Bell type: 1) Tower, 2) Handbells
+Select option (1): 
+>>> 
+[User input: "Tower"]
+🔔 Bell type: Tower
+Date (yyyy/mm/dd) ([Today]): 
+>>> 2010/01/01
+[User input: "2010/01/01"]
+📅 Date: Friday, 1 January 2010
+Dove ID or tower description: 
+>>> 13019
+[User input: "13019"]
+🏰 Tower: Bath, Bathwick, Somerset, Blessed Virgin Mary
+Number of changes: 
+>>> 
+[User input: "None"]
+🔢 Changes: Unknown
+Title: 
+>>> Rounds & Called Changes
+[User input: "Rounds & Called Changes"]
+Matching peal titled "Rounds & Called Changes"...
+📕 Title: Rounds & Called Changes
+Add ringer 1:
+Ringer name: 
+>>> Adam A
+[User input: "Adam A"]
+"Adam A" -> Adam Apple
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Add an alias for "Adam Apple"? [y/n] (y): 
+>>> n
+[User input: "False"]
+👤 Ringer: Adam Apple
+Add another ringer? [y/n] (n): 
+>>> y
+[User input: "True"]
+Add ringer 2:
+Ringer name: 
+>>> Ben Bob
+[User input: "Ben Bob"]
+👤 Ringer: Ben Bob
+Add another ringer? [y/n] (n): 
+>>> n
+[User input: "False"]
+Footnote: 
+>>> 
+[User input: "None"]
+🔕 Muffles: None
+╭─────────────────── http://localhost:8080/view.php?random ────────────────────╮
+│ Bath, Somerset, England                                                      │
+│ Blessed Virgin Mary, Bathwick                                                │
+│ On Friday, 1 January 2010                                                    │
+│ Rounds & Called Changes                                                      │
+│                                                                              │
+│ Adam Apple                                                                   │
+│ Ben Bob                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Peal (ID 4) added
+pypeal Database
+ General Ringing count: 1                                                       
+ Quarter Peal count: 2                                                          
+ Peal count: 1                                                                  
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Find recent peals                                                         │
+│ 2) Add peals by search                                                       │
+│ 3) Add peals by search URL                                                   │
+│ 4) Add peal by ID/URL                                                        │
+│ 5) Add random peal from BellBoard                                            │
+│ 6) Add peal manually                                                         │
+│ 7) View peal                                                                 │
+│ 8) View statistics                                                           │
+│ 9) Delete peal                                                               │
+│ 10) Update static data                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> x
+[User input: "None"]
+===
+Bath, Somerset, England
+Blessed Virgin Mary, Bathwick
+On Friday, 1 January 2010
+Rounds & Called Changes 
+
+Adam Apple
+Ben Bob
+
+[Database ID: 4]

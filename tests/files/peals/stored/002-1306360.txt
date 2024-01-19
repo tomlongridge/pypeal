@@ -7,11 +7,14 @@ pypeal Database
 │ 2) Add peals by search                                                       │
 │ 3) Add peals by search URL                                                   │
 │ 4) Add peal by ID/URL                                                        │
-│ 5) Add random peal                                                           │
-│ 6) View peal                                                                 │
-│ 7) View statistics                                                           │
-│ 8) Update static data                                                        │
-│ 9) Exit                                                                      │
+│ 5) Add random peal from BellBoard                                            │
+│ 6) Add peal manually                                                         │
+│ 7) View peal                                                                 │
+│ 8) View statistics                                                           │
+│ 9) Delete peal                                                               │
+│ 10) Update static data                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
 >>> 4
@@ -207,7 +210,7 @@ Save this peal?
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Peal 1306360 added
+Peal (ID 2) added
 pypeal Database
  Quarter Peal count: 2                                                          
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -215,15 +218,18 @@ pypeal Database
 │ 2) Add peals by search                                                       │
 │ 3) Add peals by search URL                                                   │
 │ 4) Add peal by ID/URL                                                        │
-│ 5) Add random peal                                                           │
-│ 6) View peal                                                                 │
-│ 7) View statistics                                                           │
-│ 8) Update static data                                                        │
-│ 9) Exit                                                                      │
+│ 5) Add random peal from BellBoard                                            │
+│ 6) Add peal manually                                                         │
+│ 7) View peal                                                                 │
+│ 8) View statistics                                                           │
+│ 9) Delete peal                                                               │
+│ 10) Update static data                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
->>> 7
-[User input: "7"]
+>>> 8
+[User input: "8"]
 Summary
  ────────────────────────────────────────────────────────────────────────────── 
                                                   Count                         
@@ -337,15 +343,18 @@ pypeal Database
 │ 2) Add peals by search                                                       │
 │ 3) Add peals by search URL                                                   │
 │ 4) Add peal by ID/URL                                                        │
-│ 5) Add random peal                                                           │
-│ 6) View peal                                                                 │
-│ 7) View statistics                                                           │
-│ 8) Update static data                                                        │
-│ 9) Exit                                                                      │
+│ 5) Add random peal from BellBoard                                            │
+│ 6) Add peal manually                                                         │
+│ 7) View peal                                                                 │
+│ 8) View statistics                                                           │
+│ 9) Delete peal                                                               │
+│ 10) Update static data                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
->>> 9
-[User input: "9"]
+>>> x
+[User input: "None"]
 ===
 Bath and Wells Diocesan Association
 Portbury, Somerset, England
@@ -362,3 +371,4 @@ A Quarter Peal of 1260 Mixed Doubles (5m/3v/1p) in 50 minutes (21 cwt in Eb)
 
 [BellBoard: http://localhost:8080/view.php?id=1306360 (Arnold Morrison, Thursday, 17 October 2019)]
 [Published title: Doubles (1p/5m/3v)]
+[Database ID: 2]
