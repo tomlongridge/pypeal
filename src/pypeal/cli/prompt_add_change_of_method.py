@@ -21,7 +21,7 @@ def prompt_add_change_of_method_from_string(method_details: str, peal: Peal, qui
             last_changes = None
             # Perform 2 splits: first on normal separators, then on numbers followed by a word (e.g "240 Cambridge 360 Yorkshire")
             # this hits a few false positives (e.g London No. 3) but speeds up the majority
-            for method_name_split_1 in [detail.strip(' .') for detail in re.split(METHOD_LIST_SEPARATORS_REGEX, method_details)]:
+            for method_name_split_1 in [detail.strip(' .()') for detail in re.split(METHOD_LIST_SEPARATORS_REGEX, method_details)]:
                 for method_name in re.split(r'(\d+\s+\D+)', method_name_split_1):
                     if not method_name:
                         continue

@@ -22,22 +22,23 @@ Try for a quick-add? [y/n] (y):
 >>> y
 [User input: "True"]
 Association: 
->>> Bath
-[User input: "Bath"]
-No associations match "Bath"
+>>> Bath and Wells
+[User input: "Bath and Wells"]
+No associations match "Bath and Wells"
 1) Search alternatives, 2) Remove association
 Select option (1): 
 >>> 1
 [User input: "1"]
 Enter search criteria:
-Name (Bath): 
+Name (Bath and Wells): 
 >>> 
-[User input: "Bath"]
-Matched "Bath" to association: Bath and Wells Diocesan Association (ID: 236)
+[User input: "Bath and Wells"]
+Matched "Bath and Wells" to association: Bath and Wells Diocesan Association 
+(ID: 236)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-🏛 Association: Bath
+🏛 Association: Bath and Wells
 Bell type: 1) Tower, 2) Handbells
 Select option (1): 
 >>> 
@@ -191,7 +192,7 @@ Footnote:
 >>> 
 [User input: "None"]
 🔕 Muffles: None
-╭─────────────────── http://localhost:8080/view.php?random ────────────────────╮
+╭────────────────────────────── New performance ───────────────────────────────╮
 │ Bath and Wells Diocesan Association                                          │
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │

@@ -62,41 +62,49 @@ Multi-method peal: "Spliced Surprise Major (8 methods)"...
 📕 Title: Spliced Surprise Major
 Adding changes of methods to multi-method peal...
 Matching method "Cambridge"... [0 methods excluded]
+Matched "Cambridge" to method "Cambridge Surprise Major"
 Number of changes: 
 >>> 160
 [User input: "160"]
 Method 1: Cambridge Surprise Major (160 changes)
 Matching method "Yorkshire"... [1 methods excluded]
+Matched "Yorkshire" to method "Yorkshire Surprise Major"
 Number of changes: 
 >>> 160
 [User input: "160"]
 Method 2: Yorkshire Surprise Major (160 changes)
 Matching method "Lincolnshire"... [2 methods excluded]
+Matched "Lincolnshire" to method "Lincolnshire Surprise Major"
 Number of changes: 
 >>> 160
 [User input: "160"]
 Method 3: Lincolnshire Surprise Major (160 changes)
 Matching method "Superlative"... [3 methods excluded]
+Matched "Superlative" to method "Superlative Surprise Major"
 Number of changes: 
 >>> 160
 [User input: "160"]
 Method 4: Superlative Surprise Major (160 changes)
 Matching method "Rutland"... [4 methods excluded]
+Matched "Rutland" to method "Rutland Surprise Major"
 Number of changes: 
 >>> 160
 [User input: "160"]
 Method 5: Rutland Surprise Major (160 changes)
 Matching method "Pudsey"... [5 methods excluded]
+Matched "Pudsey" to method "Pudsey Surprise Major"
 Number of changes: 
 >>> 160
 [User input: "160"]
 Method 6: Pudsey Surprise Major (160 changes)
 Matching method "Bristol"... [6 methods excluded]
+Matched "Bristol" to method "Bristol Surprise Major"
 Number of changes: 
 >>> 160
 [User input: "160"]
 Method 7: Bristol Surprise Major (160 changes)
 Matching method "London"... [7 methods excluded]
+Matched "London" to method "London Surprise Major"
 Number of changes: 
 >>> 160
 [User input: "160"]
@@ -145,7 +153,7 @@ First bell number(s) in the tower (1):
 📮 Submitted by: Nicholas Hunt on Sunday, 15 January 2012
 🔗 External reference: Campanophile ID: 116670
 🔕 Muffles: None
-╭────────────────── http://localhost:8080/view.php?id=388066 ──────────────────╮
+╭────────────────────────────── New performance ───────────────────────────────╮
 │ Bath and Wells Diocesan Association                                          │
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │

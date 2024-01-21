@@ -9,10 +9,12 @@ from rich import print
 from rich.table import Table
 
 from pypeal import config
+from pypeal.association import Association
 
 from pypeal.bellboard.interface import BellboardError, get_id_from_url, get_url_from_id
 from pypeal.bellboard.search import BellboardSearchNoResultFoundError, search as bellboard_search, search_by_url as bellboard_search_by_url
 from pypeal.bellboard.html_generator import HTMLPealGenerator
+from pypeal.cache import Cache
 from pypeal.cccbr import update_methods
 from pypeal.cli.generator import PealGenerator
 from pypeal.cli.manual_generator import ManualGenerator
@@ -24,10 +26,12 @@ from pypeal.cli.prompts import UserCancelled, ask_date, ask_int, ask, confirm, h
 from pypeal.cli.chooser import choose_option
 from pypeal.db import initialize as initialize_db
 from pypeal.dove import update_associations, update_bells, update_rings, update_towers
+from pypeal.method import Method
 from pypeal.peal import Peal, BellType
 from pypeal.ringer import Ringer
 from pypeal.config import get_config, set_config_file
 from pypeal.stats.report import generate_summary as generate_peal_summary
+from pypeal.tower import Bell, Ring, Tower
 
 logger = logging.getLogger('pypeal')
 logger.setLevel(logging.DEBUG)
@@ -390,15 +394,19 @@ def initialize_or_exit(reset_db: bool, clear_data: bool):
     if not initialize_db(reset_db):
         error('Unable to connect to pypeal database')
         raise typer.Exit()
+    if clear_data or reset_db:
+        Peal.clear_data()
+        Ringer.clear_data()
+        Ring.clear_data()
+        Method.clear_data()
+        Tower.clear_data()
+        Association.clear_data()
     if reset_db:
         update_associations()
         update_towers()
         update_bells()
         update_rings()
         update_methods()
-    if clear_data:
-        Peal.clear_data()
-        Ringer.clear_data()
 
 
 def refresh_peal_list():

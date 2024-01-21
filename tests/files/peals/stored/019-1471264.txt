@@ -74,7 +74,7 @@ Matching peal titled "Grandsire Caters"...
 📷 Photo link: None
 📮 Submitted by: Dominik Warren on Sunday, 14 November 2021
 🔕 Muffles: Half
-╭───────────────── http://localhost:8080/view.php?id=1471264 ──────────────────╮
+╭────────────────────────────── New performance ───────────────────────────────╮
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 14 November 2021                                                  │

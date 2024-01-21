@@ -17,11 +17,8 @@ from pypeal.tower import Tower
 
 class PealPromptListener(PealGeneratorListener):
 
-    peal: Peal
-    quick_mode: bool
-
     def __init__(self):
-        self.peal = None
+        super().__init__()
         self.quick_mode = False
 
     def new_peal(self, id: int):
@@ -187,15 +184,15 @@ class PealPromptListener(PealGeneratorListener):
 
     # Runs the prompt with a copy of the peal, so the original is not modified if the user cancels
     def _run_cancellable_prompt(self, prompt: callable):
+        restore_peal = self.peal.copy()
         while True:
             try:
-                working_peal = self.peal.copy()
-                prompt(working_peal)
-                self.peal = working_peal
+                prompt(self.peal)
                 break
             except UserCancelled as e:
                 error('Cancelled input')
                 if confirm(None, confirm_message='Retry current input?', default=True):
+                    self.peal = restore_peal
                     continue
                 else:
                     raise e

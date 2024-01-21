@@ -203,3 +203,11 @@ class Method():
             'SELECT full_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, stage, id ' +
             'FROM methods').fetchall()
         return Cache.get_cache().add_all(cls.__name__, {result[-1]: Method(*result) for result in results})
+
+    @classmethod
+    def clear_data(cls):
+        Database.get_connection().query('SET FOREIGN_KEY_CHECKS=0;')
+        Database.get_connection().query('TRUNCATE TABLE methods')
+        Database.get_connection().commit()
+        Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')
+        Cache.get_cache().clear(cls.__name__)

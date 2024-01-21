@@ -87,9 +87,14 @@ def prompt_add_ringer(name: str,
                     prompt_str = None
                     bell_nums_in_ring = suggested_bells
                 while prompt_str is not None and len(bell_nums_in_ring) == 0:
-                    bell_nums = parse_bell_nums(ask(prompt_str, default=bell_nums_str))
-                    if len(bell_nums) > 0 and _validate_bell(bell_nums_in_peal, bell_nums, peal):
-                        bell_nums_in_ring = bell_nums
+                    try:
+                        bell_nums = parse_bell_nums(
+                            ask(prompt_str, default=bell_nums_str),
+                            max_bell_num=peal.ring.num_bells if peal.ring else None)
+                        if len(bell_nums) > 0 and _validate_bell(bell_nums_in_peal, bell_nums, peal):
+                            bell_nums_in_ring = bell_nums
+                    except ValueError as e:
+                        error(str(e))
                 if len(bell_nums_in_ring) > len(bell_nums_in_peal):
                     if not confirm(f'More bells ({len(bell_nums_in_ring)}) than expected ({len(bell_nums_in_peal)}) for this ringer',
                                    default=False):
@@ -121,12 +126,16 @@ def prompt_add_ringer_by_search(name: str, label: str, allow_none: bool, quick_m
                 potential_ringers = Ringer.get_by_name(search_last_name, search_given_names)
                 match len(potential_ringers):
                     case 0:
-                        print(f'No existing ringers match (given name: "{search_given_names}", last name: "{search_last_name}")')
+                        print('No existing ringers match "' +
+                              ((search_given_names if search_given_names else "") + " " + search_last_name).strip() +
+                              '"')
                     case 1:
                         if confirm(f'{label}"{name}" -> {potential_ringers[0]}', default=True):
                             return potential_ringers[0]
                     case _:
-                        print(f'{len(potential_ringers)} existing ringers match "{(search_given_names + " " + search_last_name).strip()}"')
+                        print(f'{len(potential_ringers)} existing ringers match "' +
+                              ((search_given_names if search_given_names else "") + " " + search_last_name).strip() +
+                              '"')
                         return choose_option(potential_ringers, none_option='None')
             case 3:
                 return None

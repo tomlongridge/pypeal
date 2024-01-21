@@ -56,8 +56,8 @@ Select option (1):
 [User input: "1"]
 Enter search criteria:
 Name: 
->>> bath
-[User input: "bath"]
+>>> bath and wells
+[User input: "bath and wells"]
 Add association Bath and Wells Diocesan Association (ID: 236)
 Is this correct? [y/n] (y): 
 >>> y
@@ -254,7 +254,7 @@ Select option (1):
 >>> 
 [User input: "None"]
 🔕 Muffles: None
-╭───────────────── http://localhost:8080/view.php?id=1426065 ──────────────────╮
+╭────────────────────────────── New performance ───────────────────────────────╮
 │ Bath and Wells Diocesan Association                                          │
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │

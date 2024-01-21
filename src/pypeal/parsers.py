@@ -329,13 +329,20 @@ def parse_ringer_name(full_name: str) -> tuple[str, str, str, str]:
     return (name_parts['last_name'], name_parts['given_names'], name_parts['title'], name_parts['note'])
 
 
-def parse_bell_nums(bell_nums_str: str) -> list[int]:
+def parse_bell_nums(bell_nums_str: str, max_bell_num: int = None) -> list[int]:
     bell_nums = []
     for bell in bell_nums_str.split(','):
-        bell_list = bell.split('-')
-        if len(bell_list) == 1:
-            if bell.isnumeric():
-                bell_nums.append(int(bell))
-        elif bell_list[0].isnumeric() and bell_list[1].isnumeric():
-            bell_nums += list(range(int(bell_list[0]), int(bell_list[1]) + 1))
+        bell_list = bell.strip().split('-')
+        match len(bell_list):
+            case 1:
+                if bell.isnumeric():
+                    bell_nums.append(int(bell))
+            case 2:
+                if bell_list[0].strip().isnumeric() and bell_list[1].strip().isnumeric():
+                    bell_nums += list(range(int(bell_list[0]), int(bell_list[1]) + 1))
+    for bell in bell_nums:
+        if bell < 1 or (max_bell_num and bell > max_bell_num):
+            raise ValueError(f'Unexpected bell number "{bell}" - it must be more than 1 and less than or equal to {max_bell_num}')
+    if len(bell_nums) == 0:
+        raise ValueError(f'Unable to parse bell numbers: {bell_nums_str}')
     return bell_nums

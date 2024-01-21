@@ -7,7 +7,8 @@ from pypeal.ringer import Ringer
 def prompt_add_composition_details(name: str, url: str, note: str, peal: Peal, quick_mode: bool):
 
     matched_ringer = None
-    peal.composition_note = note
+    if note:
+        peal.composition_note = note
     if name:
         matched_ringer: Ringer = prompt_add_ringer_by_name_match(name, 'Composer: ', quick_mode)
         if peal.composition_note is None and matched_ringer is None and name and \
@@ -42,8 +43,7 @@ def prompt_add_composition_details(name: str, url: str, note: str, peal: Peal, q
         prompt_commit_ringer(matched_ringer, name)
         peal.composer = matched_ringer
 
-    if (peal.composition_note is None and not quick_mode) or \
-            (not peal.composer and name):
+    if peal.composition_note is None and (not quick_mode or (not peal.composer and name)):
         composition_note = name if not peal.composer and name else None  # Only default to name if it didn't match a ringer
         peal.composition_note = ask('Composition note', default=composition_note, required=False)
 

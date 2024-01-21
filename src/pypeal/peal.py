@@ -599,6 +599,11 @@ class Peal:
             Database.get_connection().commit()
             self.__photos[i] = (result.lastrowid, url, caption, credit)
 
+    def update_bellboard_id(self, bellboard_id: int):
+        self.bellboard_id = bellboard_id
+        Database.get_connection().query('UPDATE peals SET bellboard_id = %s WHERE id = %s', (self.bellboard_id, self.id))
+        Database.get_connection().commit()
+
     def delete(self):
         if self.id is None:
             raise ValueError('Peal must be committed to database before it can be deleted')
@@ -809,3 +814,4 @@ class Peal:
         Database.get_connection().query('TRUNCATE TABLE peals')
         Database.get_connection().commit()
         Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')
+        Cache.get_cache().clear(cls.__name__)

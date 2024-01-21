@@ -2,7 +2,7 @@ import datetime
 from pypeal.bellboard.listener import PealGeneratorListener
 from pypeal.cli.chooser import choose_option
 from pypeal.cli.generator import PealGenerator
-from pypeal.cli.prompts import ask, ask_date, ask_int, confirm
+from pypeal.cli.prompts import ask, ask_date, ask_int, confirm, error
 from pypeal.parsers import parse_bell_nums
 from pypeal.peal import BellType, PealType
 from pypeal.tower import Tower
@@ -11,7 +11,9 @@ from pypeal.tower import Tower
 class ManualGenerator(PealGenerator):
 
     def parse(self, listener: PealGeneratorListener):
+
         listener.new_peal(None)
+
         listener.association(ask('Association', required=False))
         bell_type = choose_option([e for e in BellType], title='Bell type', default=BellType.TOWER)
         listener.bell_type(bell_type)
@@ -33,7 +35,7 @@ class ManualGenerator(PealGenerator):
         last_bell_num_in_peal = None
         last_bell_num_in_ring = None
         found_conductor = False
-        expected_num_bells = listener.peal.stage.value if listener.peal.stage else None
+        expected_num_bells_in_peal = listener.peal.stage.value if listener.peal.stage else None
 
         while True:
 
@@ -47,12 +49,22 @@ class ManualGenerator(PealGenerator):
                 default_bell_nums_in_peal = str(last_bell_num_in_peal + 1) if last_bell_num_in_peal else '1'
                 bell_nums_in_peal = []
                 while len(bell_nums_in_peal) == 0:
-                    bell_nums_in_peal = parse_bell_nums(ask('Bell number(s) in peal', default=default_bell_nums_in_peal, required=True))
+                    try:
+                        bell_nums_in_peal = parse_bell_nums(
+                            ask('Bell number(s) in peal', default=default_bell_nums_in_peal, required=True),
+                            max_bell_num=listener.peal.ring.num_bells if listener.peal.ring else None)
+                    except ValueError as e:
+                        error(str(e))
 
                 default_bell_nums_in_ring = str(last_bell_num_in_ring + 1) if last_bell_num_in_ring else '1'
                 bell_nums_in_ring = []
                 while len(bell_nums_in_ring) != len(bell_nums_in_peal):
-                    bell_nums_in_ring = parse_bell_nums(ask('Bell number(s) in ring', default=default_bell_nums_in_ring, required=True))
+                    try:
+                        bell_nums_in_ring = parse_bell_nums(
+                            ask('Bell number(s) in ring', default=default_bell_nums_in_ring, required=True),
+                            max_bell_num=listener.peal.ring.num_bells if listener.peal.ring else None)
+                    except ValueError as e:
+                        error(str(e))
 
             name = ask('Ringer name', required=True)
 
@@ -61,7 +73,7 @@ class ManualGenerator(PealGenerator):
 
             listener.ringer(name, bell_nums_in_peal, bell_nums_in_ring, is_conductor)
 
-            if (expected_num_bells is None or bell_nums_in_peal[-1] >= expected_num_bells) and \
+            if (expected_num_bells_in_peal is None or bell_nums_in_peal[-1] >= expected_num_bells_in_peal) and \
                     not confirm(None, confirm_message='Add another ringer?', default=False):
                 break
 

@@ -22,7 +22,10 @@ def prompt_add_method(method: Method, original_name: str, changes: int, peal: Pe
                     print(f'No methods match "{original_name or method}" (or similar)')
                 quick_mode = False
             case 1:
-                if quick_mode or confirm(f'Matched "{original_name or method}" to method "{method_matches[0].full_name}"'):
+                if quick_mode:
+                    print(f'Matched "{original_name or method}" to method "{method_matches[0].full_name}"')
+                    matched_method = method_matches[0]
+                elif confirm(f'Matched "{original_name or method}" to method "{method_matches[0].full_name}"'):
                     matched_method = method_matches[0]
             case _:
                 print(f'{len(method_matches)} methods match "{original_name or method}" (or similar)')

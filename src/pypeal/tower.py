@@ -93,6 +93,16 @@ class Tower():
     def __hash__(self) -> int:
         return self.id
 
+    def commit(self):
+        Database.get_connection().query(
+            f'INSERT INTO towers ({",".join(FIELD_LIST)}, id) ' +
+            'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
+            (self.towerbase_id, self.place, self.sub_place, self.dedication, self.county, self.country, self.country_code, self.latitude,
+             self.longitude, self.bells, self.tenor_weight, self.tenor_note, self.id))
+        Database.get_connection().commit()
+        Cache.get_cache().add(self.__class__.__name__, f'D{self.id}', self)
+        Cache.get_cache().add(self.__class__.__name__, f'T{self.towerbase_id}', self)
+
     @classmethod
     def get(cls, dove_id: int = None, towerbase_id: int = None) -> Tower:
         if dove_id:
@@ -174,15 +184,13 @@ class Tower():
         results = Database.get_connection().query(query, params).fetchall()
         return Cache.get_cache().add_all(cls.__name__, {result[-1]: Tower(*result) for result in results})
 
-    def commit(self):
-        Database.get_connection().query(
-            f'INSERT INTO towers ({",".join(FIELD_LIST)}, id) ' +
-            'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
-            (self.towerbase_id, self.place, self.sub_place, self.dedication, self.county, self.country, self.country_code, self.latitude,
-             self.longitude, self.bells, self.tenor_weight, self.tenor_note, self.id))
+    @classmethod
+    def clear_data(cls):
+        Database.get_connection().query('SET FOREIGN_KEY_CHECKS=0;')
+        Database.get_connection().query('TRUNCATE TABLE towers')
         Database.get_connection().commit()
-        Cache.get_cache().add(self.__class__.__name__, f'D{self.id}', self)
-        Cache.get_cache().add(self.__class__.__name__, f'T{self.towerbase_id}', self)
+        Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')
+        Cache.get_cache().clear(cls.__name__)
 
 
 @dataclass
@@ -289,6 +297,14 @@ class Ring():
                 f'SELECT {",".join(RING_FIELD_LIST)}, id ' +
                 'FROM rings WHERE id = %s', (id,)).fetchone()
             return Cache.get_cache().add(cls.__name__, result[-1], Ring(*result)) if result else None
+
+    @classmethod
+    def clear_data(cls):
+        Database.get_connection().query('SET FOREIGN_KEY_CHECKS=0;')
+        Database.get_connection().query('TRUNCATE TABLE rings')
+        Database.get_connection().commit()
+        Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')
+        Cache.get_cache().clear(cls.__name__)
 
 
 @dataclass
