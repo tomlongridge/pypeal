@@ -3,7 +3,7 @@ from pypeal.cli.prompts import confirm, panel, warning
 from pypeal.peal import Peal
 
 
-def prompt_commit_peal(peal: Peal) -> (bool, int):
+def prompt_commit_peal(peal: Peal) -> (Peal, int):
 
     panel(str(peal), title='New performance')
 
@@ -12,7 +12,7 @@ def prompt_commit_peal(peal: Peal) -> (bool, int):
     if peal.bellboard_id and (existing_peal := Peal.get(bellboard_id=peal.bellboard_id)):
         warning(f'Peal with BellBoard ID {peal.bellboard_id} already exists:\n\n{existing_peal}')
         if not confirm(None, confirm_message='Overwrite peal?', default=False):
-            return False, None
+            return None, None
         else:
             user_confirmed = True
 
@@ -27,14 +27,14 @@ def prompt_commit_peal(peal: Peal) -> (bool, int):
             if dup.bellboard_id != peal.bellboard_id:  # We've already identified matching IDs above
                 warning(f'Possible duplicate peal:\n\n{dup}')
                 if confirm(None, confirm_message='Is this the same peal?'):
-                    if confirm(None, confirm_message='Update BellBoard reference (peal has been edited)?', default=False):
+                    if confirm(None, confirm_message='Update BellBoard reference (peal has been edited)?', default=True):
                         dup.update_bellboard_id(peal.bellboard_id)
-                        return True, None
+                        return dup, None
                     else:
-                        return False, None
+                        return None, None
 
     if not user_confirmed and not confirm('Save this peal?'):
-        return False, None
+        return None, None
 
     removed_peal_id = None
     if existing_peal:
@@ -49,4 +49,4 @@ def prompt_commit_peal(peal: Peal) -> (bool, int):
 
     print(f'Peal (ID {peal.id}) added')
 
-    return True, removed_peal_id
+    return peal, removed_peal_id

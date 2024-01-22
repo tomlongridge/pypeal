@@ -427,9 +427,9 @@ Quarter Peal statistics
   Joyce Sullivan    7        Sullivan                   Guild of         1      
   Blake Elliott     6        Aston Mitchell    1        Devonshire              
   Ryan Elliott      5        Blake Elliott     1        Ringers                 
-  Cadie Nelson      4        Blake Harper      1       ──────────────────────── 
-  Daryl Mason       4        Brooke Adams      1                                
-  Melissa Baker     4        Byron Robinson    1                                
+  Cadie Nelson      4        Blake Harper      1        New              1      
+  Daryl Mason       4        Brooke Adams      1        Association             
+  Melissa Baker     4        Byron Robinson    1       ──────────────────────── 
   Arnold Johnson    3        Jack Spencer      1                                
  ─────────────────────────   Joyce Sullivan    1                                
                             ─────────────────────────                           
@@ -560,6 +560,7 @@ Select option (x = Back):
  ────────────────────────────────────────────────────────────────────────────── 
   Bath and Wells Diocesan Association                               3           
   Guild of Devonshire Ringers                                       1           
+  New Association                                                   1           
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 

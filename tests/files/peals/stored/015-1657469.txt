@@ -46,9 +46,16 @@ Try for a quick-add? [y/n] (y):
 [User input: "False"]
 No linked association
 Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-🏛 Association: None
+>>> n
+[User input: "False"]
+1) Search alternatives, 2) Add new association, 3) Remove association
+Select option (1): 
+>>> 2
+[User input: "2"]
+Name: 
+>>> New Association
+[User input: "New Association"]
+🏛 Association: New Association
 🔔 Bell type: Tower
 📅 Date: Sunday, 10 September 2023
 🔔 Tenor: 880 in Bb
@@ -329,6 +336,7 @@ Select option (1):
 [User input: "None"]
 🔕 Muffles: None
 ╭────────────────────────────── New performance ───────────────────────────────╮
+│ New Association                                                              │
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 10 September 2023                                                 │
@@ -418,9 +426,9 @@ Quarter Peal statistics
   Cadie Nelson      3        Blake Harper      1        Guild of         1      
   Clark Elliott     3        Byron Robinson    1        Devonshire              
   Heather           3        Chester Edwards   1        Ringers                 
-  Sullivan                   Jack Spencer      1       ──────────────────────── 
-  Melissa Baker     3        Joyce Sullivan    1                                
-  Ryan Elliott      3        Lucas Farrell     1                                
+  Sullivan                   Jack Spencer      1        New              1      
+  Melissa Baker     3        Joyce Sullivan    1        Association             
+  Ryan Elliott      3        Lucas Farrell     1       ──────────────────────── 
   Aston Mitchell    2        Ted Harris        1                                
  ─────────────────────────  ─────────────────────────                           
 1) All methods, 2) All ringers, 3) All conductors, 4) All associations
@@ -540,6 +548,7 @@ Select option (x = Back):
  ────────────────────────────────────────────────────────────────────────────── 
   Bath and Wells Diocesan Association                               3           
   Guild of Devonshire Ringers                                       1           
+  New Association                                                   1           
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 
@@ -684,6 +693,7 @@ Select option (1):
 >>> x
 [User input: "None"]
 ===
+New Association
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Sunday, 10 September 2023

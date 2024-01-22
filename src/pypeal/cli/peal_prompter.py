@@ -32,7 +32,7 @@ class PealPromptListener(PealGeneratorListener):
         value = _clean_str_input(value)
         self._run_cancellable_prompt(
             lambda peal: prompt_add_association(value, peal, self.quick_mode))
-        print(f'🏛 Association: {value or "None"}')
+        print(f'🏛 Association: {self.peal.association or "None"}')
 
     def tower(self, dove_id: int = None, towerbase_id: int = None):
         if (tower := Tower.get(dove_id=dove_id, towerbase_id=towerbase_id)):

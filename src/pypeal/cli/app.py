@@ -14,7 +14,6 @@ from pypeal.association import Association
 from pypeal.bellboard.interface import BellboardError, get_id_from_url, get_url_from_id
 from pypeal.bellboard.search import BellboardSearchNoResultFoundError, search as bellboard_search, search_by_url as bellboard_search_by_url
 from pypeal.bellboard.html_generator import HTMLPealGenerator
-from pypeal.cache import Cache
 from pypeal.cccbr import update_methods
 from pypeal.cli.generator import PealGenerator
 from pypeal.cli.manual_generator import ManualGenerator
@@ -31,7 +30,7 @@ from pypeal.peal import Peal, BellType
 from pypeal.ringer import Ringer
 from pypeal.config import get_config, set_config_file
 from pypeal.stats.report import generate_summary as generate_peal_summary
-from pypeal.tower import Bell, Ring, Tower
+from pypeal.tower import Ring, Tower
 
 logger = logging.getLogger('pypeal')
 logger.setLevel(logging.DEBUG)
@@ -250,9 +249,9 @@ def add_peal(generator: PealGenerator) -> Peal:
 
         peal = prompt_listener.peal
 
-        peal_saved, replaced_peal_id = prompt_commit_peal(peal)
-        if peal_saved:
-            update_peal_list(peal, replaced_peal_id)
+        saved_peal, replaced_peal_id = prompt_commit_peal(peal)
+        if saved_peal:
+            update_peal_list(saved_peal, replaced_peal_id)
             break
         elif prompt_listener.quick_mode and \
                 confirm(None, confirm_message='Try again in prompt mode?', default=True):
@@ -261,7 +260,7 @@ def add_peal(generator: PealGenerator) -> Peal:
         else:
             break
 
-    return peal
+    return saved_peal
 
 
 def delete_peal(peal_id: int):

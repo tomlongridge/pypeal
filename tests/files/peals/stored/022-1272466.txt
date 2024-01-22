@@ -298,9 +298,9 @@ Quarter Peal statistics
   Sullivan                   Sullivan                   Guild of         1      
   Blake Elliott     6        Joyce Sullivan    2        Devonshire              
   Daryl Mason       5        Aston Mitchell    1        Ringers                 
-  Melissa Baker     5        Blake Elliott     1       ──────────────────────── 
-  Ryan Elliott      5        Blake Harper      1                                
-  Arnold Johnson    4        Brooke Adams      1                                
+  Melissa Baker     5        Blake Elliott     1        New              1      
+  Ryan Elliott      5        Blake Harper      1        Association             
+  Arnold Johnson    4        Brooke Adams      1       ──────────────────────── 
   Cadie Nelson      4        Byron Robinson    1                                
  ─────────────────────────   Jack Spencer      1                                
                             ─────────────────────────                           
@@ -431,6 +431,7 @@ Select option (x = Back):
  ────────────────────────────────────────────────────────────────────────────── 
   Bath and Wells Diocesan Association                               3           
   Guild of Devonshire Ringers                                       1           
+  New Association                                                   1           
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 
@@ -884,9 +885,9 @@ Quarter Peal statistics
   Sullivan                   Sullivan                   Guild of         1      
   Blake Elliott     6        Joyce Sullivan    2        Devonshire              
   Daryl Mason       5        Aston Mitchell    1        Ringers                 
-  Melissa Baker     5        Blake Elliott     1       ──────────────────────── 
-  Ryan Elliott      5        Blake Harper      1                                
-  Arnold Johnson    4        Brooke Adams      1                                
+  Melissa Baker     5        Blake Elliott     1        New              1      
+  Ryan Elliott      5        Blake Harper      1        Association             
+  Arnold Johnson    4        Brooke Adams      1       ──────────────────────── 
   Cadie Nelson      4        Byron Robinson    1                                
  ─────────────────────────   Jack Spencer      1                                
                             ─────────────────────────                           
@@ -1017,6 +1018,7 @@ Select option (x = Back):
  ────────────────────────────────────────────────────────────────────────────── 
   Bath and Wells Diocesan Association                               3           
   Guild of Devonshire Ringers                                       1           
+  New Association                                                   1           
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 

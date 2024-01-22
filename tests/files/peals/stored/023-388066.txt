@@ -50,7 +50,7 @@ Bellboard URL or peal ID:
 Try for a quick-add? [y/n] (y): 
 >>> y
 [User input: "True"]
-🏛 Association: Bath & Wells Diocesan Association
+🏛 Association: Bath and Wells Diocesan Association
 🔔 Bell type: Tower
 📅 Date: Sunday, 27 February 2011
 🔔 Tenor: 2120
@@ -365,9 +365,9 @@ Quarter Peal statistics
   Sullivan                   Heather           2        Guild of         1      
   Blake Elliott     6        Sullivan                   Devonshire              
   Daryl Mason       5        Joyce Sullivan    2        Ringers                 
-  Melissa Baker     5        Aston Mitchell    1       ──────────────────────── 
-  Ryan Elliott      5        Blake Elliott     1                                
-  Arnold Johnson    4        Blake Harper      1                                
+  Melissa Baker     5        Aston Mitchell    1        New              1      
+  Ryan Elliott      5        Blake Elliott     1        Association             
+  Arnold Johnson    4        Blake Harper      1       ──────────────────────── 
   Byron Robinson    4        Brooke Adams      1                                
  ─────────────────────────   Jack Spencer      1                                
                             ─────────────────────────                           
@@ -499,6 +499,7 @@ Select option (x = Back):
  ────────────────────────────────────────────────────────────────────────────── 
   Bath and Wells Diocesan Association                               4           
   Guild of Devonshire Ringers                                       1           
+  New Association                                                   1           
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 

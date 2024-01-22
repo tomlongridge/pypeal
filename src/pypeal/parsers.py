@@ -37,7 +37,7 @@ DURATION_REGEX = re.compile(r'^(?:(?P<hours>[0-9]{1,2})\s?(?:hours|hrs|hr|h))?\s
 TENOR_INFO_REGEX = re.compile(r'(?P<tenor_weight>[^in]+|size\s[0-9]+)(?:\sin\s(?P<tenor_note>.*))?$')
 
 FOOTNOTE_RINGER_SEPARATORS = [' ', ',', '&', 'and']
-FOOTNOTE_RINGER_LIST_PATTERN = r'(?P<bells>(?:(?:(?:[0-9]+(?:st|nd|rd|th)?)|' + \
+FOOTNOTE_RINGER_LIST_PATTERN = r'(?P<bells>(?:(?:(?:[1-9][0-9]?(?:st|nd|rd|th)?)|' + \
                                r'(?:treble|tenor|' + '|'.join(utils.get_num_words()) + r'))\s?' + \
                                r'(?:' + '|'.join(FOOTNOTE_RINGER_SEPARATORS) + r')?\s?)+)'
 FOOTNOTE_RINGER_REGEX_PREFIX = re.compile(r'^\(?' + FOOTNOTE_RINGER_LIST_PATTERN +

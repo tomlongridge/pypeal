@@ -50,7 +50,7 @@ Middlesex County Association and London Diocesan Guild (ID: 269)
 Is this correct? [y/n] (y): 
 >>> n
 [User input: "False"]
-1) Search alternatives, 2) Remove association
+1) Search alternatives, 2) Add new association, 3) Remove association
 Select option (1): 
 >>> 1
 [User input: "1"]
@@ -58,7 +58,7 @@ Enter search criteria:
 Name: 
 >>> devon
 [User input: "devon"]
-2 methods match "devon"
+2 associations match "devon"
 1) Devon Association, 2) Guild of Devonshire Ringers
 Select option (x = None): 
 >>> 2
@@ -68,7 +68,7 @@ Guild of Devonshire Ringers (ID: 255)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-🏛 Association: Middlesex County Association & London Diocesan Guild
+🏛 Association: Guild of Devonshire Ringers
 🔔 Bell type: Tower
 📅 Date: Sunday, 5 December 1976
 🔔 Tenor: 823 in B

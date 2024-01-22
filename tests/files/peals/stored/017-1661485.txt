@@ -266,9 +266,9 @@ Quarter Peal statistics
   Heather           4        Blake Harper      1        Guild of         1      
   Sullivan                   Brooke Adams      1        Devonshire              
   Byron Robinson    3        Byron Robinson    1        Ringers                 
-  Cadie Nelson      3        Chester Edwards   1       ──────────────────────── 
-  Clark Elliott     3        Heather           1                                
-  Daryl Mason       3        Sullivan                                           
+  Cadie Nelson      3        Chester Edwards   1        New              1      
+  Clark Elliott     3        Heather           1        Association             
+  Daryl Mason       3        Sullivan                  ──────────────────────── 
   Melissa Baker     3        Jack Spencer      1                                
  ─────────────────────────   Joyce Sullivan    1                                
                             ─────────────────────────                           
@@ -397,6 +397,7 @@ Select option (x = Back):
  ────────────────────────────────────────────────────────────────────────────── 
   Bath and Wells Diocesan Association                               3           
   Guild of Devonshire Ringers                                       1           
+  New Association                                                   1           
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 
