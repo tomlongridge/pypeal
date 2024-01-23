@@ -54,14 +54,14 @@ class Association():
         else:
             query += 'AND name LIKE %(name)s '
             params['name'] = f'%{name}%'
+        query += 'ORDER BY name ASC'
         results = Database.get_connection().query(query, params).fetchall()
         return Cache.get_cache().add_all(cls.__name__, {result[-1]: Association(*result) for result in results})
 
     @classmethod
     def clear_data(cls):
         Database.get_connection().query('SET FOREIGN_KEY_CHECKS=0;')
-        # Only clear the user-added associations
-        Database.get_connection().query('DELETE FROM associations WHERE is_user_added = 1')
+        Database.get_connection().query('TRUNCATE TABLE associations')
         Database.get_connection().commit()
         Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')
         Cache.get_cache().clear(cls.__name__)

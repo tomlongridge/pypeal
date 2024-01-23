@@ -1,11 +1,13 @@
 from pypeal.bellboard.interface import request_bytes
+from pypeal.cli.chooser import choose_option
 from pypeal.cli.prompts import confirm, panel, warning
 from pypeal.peal import Peal
+from rich.columns import Columns
+from rich.console import Console
+from rich.panel import Panel
 
 
 def prompt_commit_peal(peal: Peal) -> (Peal, int):
-
-    panel(str(peal), title='New performance')
 
     user_confirmed = False
     existing_peal = None
@@ -25,13 +27,24 @@ def prompt_commit_peal(peal: Peal) -> (Peal, int):
 
         for dup in possible_duplicates:
             if dup.bellboard_id != peal.bellboard_id:  # We've already identified matching IDs above
-                warning(f'Possible duplicate peal:\n\n{dup}')
+                warning('Possible duplicate peal')
+                console = Console()
+                console.print(Columns([Panel(str(dup)), Panel(str(peal))], width=80))
+                diffs = ''
+                for field, (left, right) in dup.diff(peal).items():
+                    diffs += f'{field}: {left} -> {right}\n'
+                panel(diffs.strip(), title='Differences')
                 if confirm(None, confirm_message='Is this the same peal?'):
-                    if confirm(None, confirm_message='Update BellBoard reference (peal has been edited)?', default=True):
-                        dup.update_bellboard_id(peal.bellboard_id)
-                        return dup, None
-                    else:
-                        return None, None
+                    match choose_option(['Pick left', 'Pick right', 'Cancel'], default=1):
+                        case 1:
+                            existing_peal = peal
+                            peal = dup
+                        case 2:
+                            pass
+                        case 3:
+                            return None, None
+
+    panel(str(peal), title='Confirm performance')
 
     if not user_confirmed and not confirm('Save this peal?'):
         return None, None

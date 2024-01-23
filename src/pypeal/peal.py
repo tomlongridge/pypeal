@@ -86,6 +86,11 @@ class Footnote:
         value += f'{self.text}'
         return value
 
+    def __eq__(self, other: Footnote):
+        return self.text == other.text and \
+               self.bell == other.bell and \
+               self.ringer == other.ringer
+
 
 @dataclass
 class Peal:
@@ -686,6 +691,76 @@ class Peal:
 
     def copy(self):
         return copy.deepcopy(self)
+
+    def diff(self, other: Peal) -> dict[str, tuple[str, str]]:
+        diffs = {}
+        if self.bellboard_id != other.bellboard_id:
+            diffs['bellboard_id'] = (str(self.bellboard_id), str(other.bellboard_id))
+        if self.type != other.type:
+            diffs['type'] = (str(self.type), str(other.type))
+        if self.bell_type != other.bell_type:
+            diffs['bell_type'] = (str(self.bell_type), str(other.bell_type))
+        if self.date != other.date:
+            diffs['date'] = (str(self.date), str(other.date))
+        if self.association != other.association:
+            diffs['association'] = (str(self.association), str(other.association))
+        if self.ring != other.ring:
+            diffs['ring'] = (str(self.ring), str(other.ring))
+        if self.__place != other.__place:
+            diffs['place'] = (str(self.__place), str(other.__place))
+        if self.sub_place != other.sub_place:
+            diffs['sub_place'] = (str(self.sub_place), str(other.sub_place))
+        if self.address != other.address:
+            diffs['address'] = (str(self.address), str(other.address))
+        if self.dedication != other.dedication:
+            diffs['dedication'] = (str(self.dedication), str(other.dedication))
+        if self.county != other.county:
+            diffs['county'] = (str(self.county), str(other.county))
+        if self.country != other.country:
+            diffs['country'] = (str(self.country), str(other.country))
+        if self.changes != other.changes:
+            diffs['changes'] = (str(self.changes), str(other.changes))
+        if self.stage != other.stage:
+            diffs['stage'] = (str(self.stage), str(other.stage))
+        if self.classification != other.classification:
+            diffs['classification'] = (str(self.classification), str(other.classification))
+        if self.is_variable_cover != other.is_variable_cover:
+            diffs['is_variable_cover'] = (str(self.is_variable_cover), str(other.is_variable_cover))
+        if self.num_methods != other.num_methods:
+            diffs['num_methods'] = (str(self.num_methods), str(other.num_methods))
+        if self.num_principles != other.num_principles:
+            diffs['num_principles'] = (str(self.num_principles), str(other.num_principles))
+        if self.num_variants != other.num_variants:
+            diffs['num_variants'] = (str(self.num_variants), str(other.num_variants))
+        if self.method != other.method:
+            diffs['method'] = (str(self.method), str(other.method))
+        if self.title != other.title:
+            diffs['title'] = (str(self.title), str(other.title))
+        if self.composer != other.composer:
+            diffs['composer'] = (str(self.composer), str(other.composer))
+        if self.composition_note != other.composition_note:
+            diffs['composition_note'] = (str(self.composition_note), str(other.composition_note))
+        if self.composition_url != other.composition_url:
+            diffs['composition_url'] = (str(self.composition_url), str(other.composition_url))
+        if self.detail != other.detail:
+            diffs['detail'] = (str(self.detail), str(other.detail))
+        if self.duration != other.duration:
+            diffs['duration'] = (str(self.duration), str(other.duration))
+        if self.event_url != other.event_url:
+            diffs['event_url'] = (str(self.event_url), str(other.event_url))
+        if self.muffles != other.muffles:
+            diffs['muffles'] = (str(self.muffles), str(other.muffles))
+        for i, (method, changes) in enumerate(self.methods):
+            if i >= len(other.methods):
+                diffs[f'methods[{i}]'] = (f'{method} {changes}', 'None')
+            elif (method, changes) != other.methods[i]:
+                diffs[f'methods[{i}]'] = (f'{method} {changes}', f'{other.methods[i][0]} {other.methods[i][1]}')
+        for i, footnote in enumerate(self.footnotes):
+            if i >= len(other.footnotes):
+                diffs[f'footnotes[{i}]'] = (str(footnote), 'None')
+            elif footnote != other.footnotes[i]:
+                diffs[f'footnotes[{i}]'] = (str(footnote), str(other.footnotes[i]))
+        return diffs
 
     @classmethod
     def get(cls, id: int = None, bellboard_id: int = None) -> Peal:

@@ -48,7 +48,7 @@ Bellboard URL or peal ID:
 Try for a quick-add? [y/n] (y): 
 >>> n
 [User input: "False"]
-Matched "Suffolk Guild" to association: Suffolk Guild (ID: 286)
+Matched "Suffolk Guild" to association: Suffolk Guild (ID: -286)
 Is this correct? [y/n] (y): 
 >>> n
 [User input: "False"]

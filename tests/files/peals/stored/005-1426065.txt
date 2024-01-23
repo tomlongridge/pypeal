@@ -58,7 +58,7 @@ Enter search criteria:
 Name: 
 >>> bath and wells
 [User input: "bath and wells"]
-Add association Bath and Wells Diocesan Association (ID: 236)
+Add association Bath and Wells Diocesan Association (ID: -236)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]

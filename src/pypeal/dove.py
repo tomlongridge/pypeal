@@ -70,7 +70,7 @@ def update_associations():
 
     _logger.debug('Disable foreign keys and truncate existing association data')
     Database.get_connection().query('SET FOREIGN_KEY_CHECKS=0;')
-    Database.get_connection().query('TRUNCATE TABLE associations;')
+    Database.get_connection().query('DELETE FROM associations WHERE is_user_added = 0;')
 
     _logger.info('Downloading region data from Dove...')
     file_url = get_config('dove', 'regions_url')
@@ -88,7 +88,7 @@ def update_associations():
             case 'Association':
                 association_obj = Association(name=line['Name'],
                                               is_user_added=False,
-                                              id=line['ID'])
+                                              id=-1 * int(line['ID']))
                 association_obj.commit()
                 _logger.debug(f'Added association "{association_obj}" to database')
 

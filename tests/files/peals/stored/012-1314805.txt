@@ -48,7 +48,7 @@ Try for a quick-add? [y/n] (y):
 >>> n
 [User input: "False"]
 Matched "Bath & Wells Diocesan Association" to association: Bath and Wells 
-Diocesan Association (ID: 236)
+Diocesan Association (ID: -236)
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]

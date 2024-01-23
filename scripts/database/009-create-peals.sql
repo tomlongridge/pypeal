@@ -7,7 +7,7 @@ CREATE TABLE @db_name.`peals` (
     `ring_id` INT UNSIGNED NULL,
     `place` VARCHAR(128) NULL,
     `sub_place` VARCHAR(128) NULL,
-    `association_id` INT UNSIGNED NULL,
+    `association_id` INT NULL,
     `address` VARCHAR(128) NULL,
     `dedication` VARCHAR(128) NULL,
     `county` VARCHAR(128) NULL,

@@ -46,7 +46,7 @@ Try for a quick-add? [y/n] (y):
 >>> n
 [User input: "False"]
 Matched "Middlesex County Association & London Diocesan Guild" to association: 
-Middlesex County Association and London Diocesan Guild (ID: 269)
+Middlesex County Association and London Diocesan Guild (ID: -269)
 Is this correct? [y/n] (y): 
 >>> n
 [User input: "False"]
@@ -64,7 +64,7 @@ Select option (x = None):
 >>> 2
 [User input: "Guild of Devonshire Ringers"]
 Matched "Middlesex County Association & London Diocesan Guild" to association: 
-Guild of Devonshire Ringers (ID: 255)
+Guild of Devonshire Ringers (ID: -255)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
