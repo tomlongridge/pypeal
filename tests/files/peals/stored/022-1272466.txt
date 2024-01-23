@@ -87,7 +87,7 @@ First bell number(s) in the tower (1):
   - Photo credit: Michael W Day
 📮 Submitted by: Joyce Sullivan on Sunday, 17 February 2019
 🔕 Muffles: None
-╭────────────────────────────── New performance ───────────────────────────────╮
+╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 17 February 2019                                                  │
@@ -646,32 +646,6 @@ First bell number(s) in the tower (1):
   - Photo credit: Michael W Day
 📮 Submitted by: Joyce Sullivan on Sunday, 17 February 2019
 🔕 Muffles: None
-╭────────────────────────────── New performance ───────────────────────────────╮
-│ Bath, Somerset, England                                                      │
-│ Blessed Virgin Mary, Bathwick                                                │
-│ On Sunday, 17 February 2019                                                  │
-│ A Quarter Peal of 1260 Grandsire Triples in 46 minutes (18-3-20 in Eb)       │
-│ Composition: Camila Chapman                                                  │
-│                                                                              │
-│ 1 [3]: Lenny Howard                                                          │
-│ 2 [4]: Chester Edwards                                                       │
-│ 3 [5]: Paul Armstrong                                                        │
-│ 4 [6]: Arnold Johnson                                                        │
-│ 5 [7]: Daryl Mason                                                           │
-│ 6 [8]: Melissa Baker                                                         │
-│ 7 [9]: Joyce Sullivan (c)                                                    │
-│ 8 [10]: Leo Bennett                                                          │
-│                                                                              │
-│ Rung for Morning Service. And in memory of the composer: Sergeant Albert     │
-│ Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at │
-│ St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.     │
-│ Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
-│ -staffordshire-regiment/.                                                    │
-│                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1272466 (Joyce Sullivan,       │
-│ Sunday, 17 February 2019)]                                                   │
-│ [Composition URL: http://localhost:8080/comp.php?id=2271034]                 │
-╰──────────────────────────────────────────────────────────────────────────────╯
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Warning: Peal with BellBoard ID 1272466 already exists:                      │
 │                                                                              │
@@ -704,6 +678,32 @@ First bell number(s) in the tower (1):
 Overwrite peal? [y/n] (n): 
 >>> y
 [User input: "True"]
+╭──────────────────────────── Confirm performance ─────────────────────────────╮
+│ Bath, Somerset, England                                                      │
+│ Blessed Virgin Mary, Bathwick                                                │
+│ On Sunday, 17 February 2019                                                  │
+│ A Quarter Peal of 1260 Grandsire Triples in 46 minutes (18-3-20 in Eb)       │
+│ Composition: Camila Chapman                                                  │
+│                                                                              │
+│ 1 [3]: Lenny Howard                                                          │
+│ 2 [4]: Chester Edwards                                                       │
+│ 3 [5]: Paul Armstrong                                                        │
+│ 4 [6]: Arnold Johnson                                                        │
+│ 5 [7]: Daryl Mason                                                           │
+│ 6 [8]: Melissa Baker                                                         │
+│ 7 [9]: Joyce Sullivan (c)                                                    │
+│ 8 [10]: Leo Bennett                                                          │
+│                                                                              │
+│ Rung for Morning Service. And in memory of the composer: Sergeant Albert     │
+│ Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at │
+│ St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.     │
+│ Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
+│ -staffordshire-regiment/.                                                    │
+│                                                                              │
+│ [BellBoard: http://localhost:8080/view.php?id=1272466 (Joyce Sullivan,       │
+│ Sunday, 17 February 2019)]                                                   │
+│ [Composition URL: http://localhost:8080/comp.php?id=2271034]                 │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Saving photo http://localhost:8080/uploads/57/002a57.jpg...
 Peal (ID 23) added
 pypeal Database
@@ -1086,7 +1086,7 @@ Bellboard URL or peal ID:
 │ [Composition URL: http://localhost:8080/comp.php?id=2271034]                 │
 │ [Database ID: 23]                                                            │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Continue? [y/n] (y): 
+Delete peal? [y/n] (y): 
 >>> y
 [User input: "True"]
 pypeal Database
@@ -1172,12 +1172,8 @@ Bellboard URL or peal ID:
 │ Sullivan on Sunday, 17 February 2019)                                        │
 │ Photo: http://localhost:8080/uploads/57/002a57.jpg                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Peal 1272466 already added to database
-Overwrite? [y/n] (n): 
->>> y
-[User input: "True"]
 Try for a quick-add? [y/n] (y): 
->>> 
+>>> y
 [User input: "True"]
 🏛 Association: None
 🔔 Bell type: Tower
@@ -1213,7 +1209,7 @@ First bell number(s) in the tower (1):
   - Photo credit: Michael W Day
 📮 Submitted by: Joyce Sullivan on Sunday, 17 February 2019
 🔕 Muffles: None
-╭────────────────────────────── New performance ───────────────────────────────╮
+╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 17 February 2019                                                  │

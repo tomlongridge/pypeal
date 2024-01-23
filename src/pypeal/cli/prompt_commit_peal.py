@@ -7,14 +7,14 @@ from rich.console import Console
 from rich.panel import Panel
 
 
-def prompt_commit_peal(peal: Peal) -> (Peal, int):
+def prompt_commit_peal(peal: Peal) -> Peal:
 
     user_confirmed = False
     existing_peal = None
     if peal.bellboard_id and (existing_peal := Peal.get(bellboard_id=peal.bellboard_id)):
         warning(f'Peal with BellBoard ID {peal.bellboard_id} already exists:\n\n{existing_peal}')
         if not confirm(None, confirm_message='Overwrite peal?', default=False):
-            return None, None
+            return None
         else:
             user_confirmed = True
 
@@ -42,16 +42,14 @@ def prompt_commit_peal(peal: Peal) -> (Peal, int):
                         case 2:
                             pass
                         case 3:
-                            return None, None
+                            return None
 
     panel(str(peal), title='Confirm performance')
 
     if not user_confirmed and not confirm('Save this peal?'):
-        return None, None
+        return None
 
-    removed_peal_id = None
     if existing_peal:
-        removed_peal_id = existing_peal.id
         existing_peal.delete()
     peal.commit()
 
@@ -62,4 +60,4 @@ def prompt_commit_peal(peal: Peal) -> (Peal, int):
 
     print(f'Peal (ID {peal.id}) added')
 
-    return peal, removed_peal_id
+    return peal

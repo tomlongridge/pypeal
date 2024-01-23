@@ -7,6 +7,7 @@ from rich.style import Style
 from rich.padding import Padding
 from rich.markup import escape
 from pypeal import utils
+from pypeal.bellboard.interface import get_id_from_url
 
 from pypeal.config import get_config
 
@@ -132,3 +133,17 @@ def heading(message: str):
         print()
         print(Padding(message, (1, 1), style=_heading_style))
         print()
+
+
+def prompt_peal_id(peal_id: str = None) -> int:
+
+    while True:
+        if peal_id is None:
+            peal_id = ask('Bellboard URL or peal ID')
+
+        if peal_id.isnumeric():
+            return int(peal_id)
+        elif peal_id := get_id_from_url(peal_id):
+            return peal_id
+        else:
+            error('Invalid Bellboard URL or peal ID')
