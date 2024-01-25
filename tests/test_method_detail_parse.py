@@ -1,7 +1,7 @@
 import pytest
 
 from pypeal.parsers import parse_single_method
-from pypeal.method import Classification, Stage
+from pypeal.entities.method import Classification, Stage
 
 methods = [
     (

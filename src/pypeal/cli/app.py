@@ -5,7 +5,7 @@ import typer
 from rich import print
 from rich.table import Table
 
-from pypeal.association import Association
+from pypeal.entities.association import Association
 
 from pypeal.cccbr import update_methods
 from pypeal.cli.prompt_delete_peal import prompt_delete_peal
@@ -17,12 +17,12 @@ from pypeal.cli.chooser import choose_option
 from pypeal.cli.prompt_search_peals import poll_for_new_peals, prompt_search_peals, search_by_url
 from pypeal.db import initialize as initialize_db
 from pypeal.dove import update_associations, update_bells, update_rings, update_towers
-from pypeal.method import Method
-from pypeal.peal import Peal
-from pypeal.ringer import Ringer
+from pypeal.entities.method import Method
+from pypeal.entities.peal import Peal
+from pypeal.entities.ringer import Ringer
 from pypeal.config import get_config, set_config_file
 from pypeal.stats.report import generate_summary as generate_peal_summary
-from pypeal.tower import Ring, Tower
+from pypeal.entities.tower import Ring, Tower
 
 logger = logging.getLogger('pypeal')
 logger.setLevel(logging.DEBUG)

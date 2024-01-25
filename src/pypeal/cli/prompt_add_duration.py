@@ -1,7 +1,7 @@
 from pypeal.cli.prompts import ask, error
 
 from pypeal.parsers import parse_duration
-from pypeal.peal import Peal
+from pypeal.entities.peal import Peal
 
 
 def prompt_add_duration(duration_str: str, peal: Peal, quick_mode: bool):

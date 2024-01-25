@@ -4,8 +4,8 @@ from pypeal.cli.chooser import choose_option
 from pypeal.cli.generator import PealGenerator
 from pypeal.cli.prompts import ask, ask_date, ask_int, confirm, error
 from pypeal.parsers import parse_bell_nums
-from pypeal.peal import BellType, PealType
-from pypeal.tower import Tower
+from pypeal.entities.peal import BellType, PealType
+from pypeal.entities.tower import Tower
 
 
 class ManualGenerator(PealGenerator):

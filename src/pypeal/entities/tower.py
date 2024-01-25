@@ -74,7 +74,7 @@ class Tower():
         return text
 
     def get_peals(self):
-        from pypeal.peal import Peal
+        from pypeal.entities.peal import Peal
         ring_ids = ','.join([str(ring.id) for ring in self.rings])
         results = Database.get_connection().query(
             'SELECT id FROM peals WHERE ring_id IN (%s) ',
@@ -279,7 +279,7 @@ class Ring():
         Database.get_connection().commit()
 
     def get_peals(self):
-        from pypeal.peal import Peal
+        from pypeal.entities.peal import Peal
         results = Database.get_connection().query(
             'SELECT id FROM peals WHERE ring_id = %s ',
             (self.id,)).fetchall()

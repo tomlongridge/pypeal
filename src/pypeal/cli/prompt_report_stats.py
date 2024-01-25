@@ -5,12 +5,12 @@ from rich.table import Table
 from pypeal import config, utils
 from pypeal.cli.chooser import choose_option
 from pypeal.cli.prompts import confirm, heading
-from pypeal.peal import Peal
-from pypeal.ringer import Ringer
+from pypeal.entities.peal import Peal
+from pypeal.entities.ringer import Ringer
 from pypeal.stats.report import generate_summary
 from rich import box
 
-from pypeal.tower import Ring, Tower
+from pypeal.entities.tower import Ring, Tower
 
 
 def prompt_report_stats():

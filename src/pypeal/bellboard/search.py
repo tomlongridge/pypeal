@@ -3,7 +3,7 @@ from typing import Iterator
 import xml.etree.ElementTree as ET
 
 from pypeal.bellboard.interface import BellboardError, search as do_search
-from pypeal.peal import BellType
+from pypeal.entities.peal import BellType
 
 
 XML_NAMESPACE = '{http://bb.ringingworld.co.uk/NS/performances#}'

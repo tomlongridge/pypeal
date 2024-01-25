@@ -2,8 +2,8 @@ import logging
 from pypeal.cli.prompts import error, warning
 from pypeal.cli.prompts import ask, confirm
 from pypeal.cli.chooser import choose_option
-from pypeal.peal import Peal
-from pypeal.ringer import Ringer
+from pypeal.entities.peal import Peal
+from pypeal.entities.ringer import Ringer
 from pypeal.utils import get_bell_label
 from pypeal.parsers import parse_bell_nums, parse_ringer_name
 

@@ -1,5 +1,5 @@
-from pypeal.method import Stage
-from pypeal.peal import Peal, PealType
+from pypeal.entities.method import Stage
+from pypeal.entities.peal import Peal, PealType
 
 
 def generate_summary(peals: list[Peal],

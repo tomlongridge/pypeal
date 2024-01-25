@@ -11,8 +11,8 @@ from pypeal.cli.prompt_add_location import prompt_add_location
 from pypeal.cli.prompt_add_ringer import prompt_add_ringer
 from pypeal.cli.prompt_peal_title import prompt_peal_title
 from pypeal.cli.prompts import UserCancelled, confirm, error
-from pypeal.peal import Peal, BellType, PealLengthType, PealType
-from pypeal.tower import Tower
+from pypeal.entities.peal import Peal, BellType, PealLengthType, PealType
+from pypeal.entities.tower import Tower
 
 
 class PealPromptListener(PealGeneratorListener):

@@ -3,7 +3,7 @@ from typer import Typer
 from typer.testing import CliRunner
 from click.testing import Result
 
-from pypeal.peal import Peal
+from pypeal.entities.peal import Peal
 
 
 _runner = CliRunner()

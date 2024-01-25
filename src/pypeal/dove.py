@@ -5,10 +5,10 @@ import pathlib
 
 import requests
 from pypeal import utils
-from pypeal.association import Association
+from pypeal.entities.association import Association
 from pypeal.config import get_config
 from pypeal.db import Database
-from pypeal.tower import Bell, Tower
+from pypeal.entities.tower import Bell, Tower
 
 
 _logger = logging.getLogger('pypeal')

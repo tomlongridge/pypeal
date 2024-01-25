@@ -92,7 +92,7 @@ class Ringer():
                or any(name.matches(last_name, given_names) for name in self.__names)
 
     def get_peals(self):
-        from pypeal.peal import Peal
+        from pypeal.entities.peal import Peal
         results = Database.get_connection().query(
             'SELECT peal_id FROM pealringers WHERE ringer_id = %s ',
             (self.id,)).fetchall()

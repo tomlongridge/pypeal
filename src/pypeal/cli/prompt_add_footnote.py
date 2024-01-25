@@ -3,7 +3,7 @@ from pypeal.cli.prompt_add_composition_details import prompt_add_composition_det
 from pypeal.cli.prompts import ask, confirm, error, warning
 from pypeal.cli.chooser import choose_option
 from pypeal.parsers import parse_footnote, parse_footnote_for_composer
-from pypeal.peal import MuffleType, Peal
+from pypeal.entities.peal import MuffleType, Peal
 
 
 HALF_MUFFLED_REGEX = re.compile(r'.*half\s?\-?\s?muffled.*', re.IGNORECASE)

@@ -1,8 +1,8 @@
 
 import re
 from pypeal import config, utils
-from pypeal.method import Classification, Method, Stage
-from pypeal.peal import PealType
+from pypeal.entities.method import Classification, Method, Stage
+from pypeal.entities.peal import PealType
 
 RINGER_NAME_REGEX = \
     re.compile(r'^(?:(?P<title>(?:' + '|'.join(utils.get_titles()) +

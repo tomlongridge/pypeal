@@ -10,7 +10,7 @@ import requests
 from pypeal import utils
 from pypeal.config import get_config
 from pypeal.db import Database
-from pypeal.method import Method
+from pypeal.entities.method import Method
 
 XML_NAMESPACE = '{http://www.cccbr.org.uk/methods/schemas/2007/05/methods}'
 

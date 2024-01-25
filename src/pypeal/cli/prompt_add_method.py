@@ -1,8 +1,8 @@
 from pypeal import utils
 from pypeal.cli.prompts import ask, ask_int, confirm
 from pypeal.cli.chooser import choose_option
-from pypeal.method import Classification, Method, Stage
-from pypeal.peal import Peal
+from pypeal.entities.method import Classification, Method, Stage
+from pypeal.entities.peal import Peal
 
 
 def prompt_add_method(method: Method, original_name: str, changes: int, peal: Peal, quick_mode: bool) -> bool:

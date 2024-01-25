@@ -12,7 +12,7 @@ from pypeal.bellboard.search import BellboardSearchNoResultFoundError, search as
 from pypeal.cli.prompt_import_peal import prompt_import_peal
 from pypeal.cli.prompts import ask_date, ask_int, ask, confirm, error
 from pypeal.cli.chooser import choose_option
-from pypeal.peal import Peal, BellType
+from pypeal.entities.peal import Peal, BellType
 
 logger = logging.getLogger('pypeal')
 

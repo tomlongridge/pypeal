@@ -1,8 +1,8 @@
 import pytest
-from pypeal.method import Stage
+from pypeal.entities.method import Stage
 
 from pypeal.parsers import parse_method_title
-from pypeal.peal import Peal, Method, PealType
+from pypeal.entities.peal import Peal, Method, PealType
 
 methods = [
     (

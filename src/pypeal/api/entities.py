@@ -1,10 +1,10 @@
 from pydantic import BaseModel, computed_field
 
-from pypeal.association import Association as AssociationDataClass
-from pypeal.peal import Peal as PealDataClass
-from pypeal.method import Method as MethodDataClass
-from pypeal.ringer import Ringer as RingerDataClass
-from pypeal.tower import Tower as TowerDataClass, Ring as RingDataClass, Bell as BellDataClass
+from pypeal.entities.association import Association as AssociationDataClass
+from pypeal.entities.peal import Peal as PealDataClass
+from pypeal.entities.method import Method as MethodDataClass
+from pypeal.entities.ringer import Ringer as RingerDataClass
+from pypeal.entities.tower import Tower as TowerDataClass, Ring as RingDataClass, Bell as BellDataClass
 
 
 class Association(BaseModel):

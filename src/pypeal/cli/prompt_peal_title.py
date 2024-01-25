@@ -2,9 +2,9 @@ from pypeal.cli.prompt_add_change_of_method import prompt_add_change_of_method
 from pypeal.cli.prompt_add_method import search_method
 from pypeal.cli.prompts import ask, ask_int, confirm, error
 from pypeal.cli.chooser import choose_option
-from pypeal.method import Classification, Method, Stage
+from pypeal.entities.method import Classification, Method, Stage
 from pypeal.parsers import parse_method_title
-from pypeal.peal import Peal, PealType
+from pypeal.entities.peal import Peal, PealType
 
 
 def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):

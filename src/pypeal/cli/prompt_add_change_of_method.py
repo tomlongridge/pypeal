@@ -1,9 +1,9 @@
 import re
 from pypeal.cli.prompt_add_method import prompt_add_method
 from pypeal.cli.prompts import ask_int, confirm, warning
-from pypeal.method import Classification, Method
+from pypeal.entities.method import Classification, Method
 from pypeal.parsers import parse_single_method
-from pypeal.peal import Peal
+from pypeal.entities.peal import Peal
 
 METHOD_LIST_SEPARATORS_REGEX = re.compile(r',|;|\sand\s|&|\n|<br/>')
 METHOD_PREFIX_IGNORE_REGEX = re.compile(r'^(and\s+|being\s+|\(?\d+[\)\.:]{1}\s?)', re.IGNORECASE)

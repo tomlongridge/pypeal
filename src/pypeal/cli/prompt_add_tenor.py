@@ -3,8 +3,8 @@ import re
 from pypeal import utils
 from pypeal.cli.prompts import ask, ask_int, warning, error
 from pypeal.parsers import parse_tenor_info
-from pypeal.peal import Peal
-from pypeal.tower import Bell
+from pypeal.entities.peal import Peal
+from pypeal.entities.tower import Bell
 from pypeal.utils import get_num_words, word_to_num
 
 

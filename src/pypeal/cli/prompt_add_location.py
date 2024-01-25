@@ -1,7 +1,7 @@
 import re
 from pypeal.cli.prompts import ask, confirm
 from pypeal.cli.chooser import choose_option
-from pypeal.peal import Peal
+from pypeal.entities.peal import Peal
 
 DEDICATION_REGEX = re.compile(r'^st?\s|cath|blessed|holy|all saints|chapel|christ|abbey|our lady|our blessed')
 

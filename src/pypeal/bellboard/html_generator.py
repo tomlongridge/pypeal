@@ -8,7 +8,7 @@ from pypeal import config
 from pypeal.bellboard.interface import BellboardError, get_peal
 from pypeal.bellboard.listener import PealGeneratorListener
 from pypeal.cli.generator import PealGenerator
-from pypeal.peal import BellType
+from pypeal.entities.peal import BellType
 
 DATE_LINE_INFO_REGEX = re.compile(r'[A-Za-z]+,\s(?P<date>[0-9]+\s[A-Za-z0-9]+\s[0-9]+)(?:\s' +
                                   r'in\s(?P<duration>[A-Za-z0-9\s]+))?\s?(?:\((?P<tenor>.*)\))?$')

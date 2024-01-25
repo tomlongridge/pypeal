@@ -1,7 +1,7 @@
-from pypeal.association import Association
+from pypeal.entities.association import Association
 from pypeal.cli.prompts import ask, confirm
 from pypeal.cli.chooser import choose_option
-from pypeal.peal import Peal
+from pypeal.entities.peal import Peal
 
 
 def prompt_add_association(association: str, peal: Peal, quick_mode: bool):

@@ -1,6 +1,6 @@
 from pypeal.cli.chooser import choose_option
 from pypeal.cli.prompts import ask_int, confirm, panel, prompt_peal_id
-from pypeal.peal import Peal
+from pypeal.entities.peal import Peal
 
 
 def prompt_delete_peal(peal_id_or_url: str = None):

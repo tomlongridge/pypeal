@@ -1,6 +1,6 @@
 import datetime
 
-from pypeal.peal import Peal, BellType
+from pypeal.entities.peal import Peal, BellType
 
 
 class PealGeneratorListener():

@@ -6,13 +6,13 @@ from enum import IntEnum
 from itertools import zip_longest
 import json
 from pypeal import config, utils
-from pypeal.association import Association
+from pypeal.entities.association import Association
 from pypeal.bellboard.interface import get_url_from_id
 from pypeal.cache import Cache
 from pypeal.db import Database
-from pypeal.method import Classification, Method, Stage
-from pypeal.ringer import Ringer
-from pypeal.tower import Bell, Ring
+from pypeal.entities.method import Classification, Method, Stage
+from pypeal.entities.ringer import Ringer
+from pypeal.entities.tower import Bell, Ring
 from pypeal.utils import format_date_full, get_bell_label
 
 FIELD_LIST: list[str] = ['bellboard_id', 'type', 'bell_type', 'date', 'association_id', 'ring_id', 'place', 'sub_place', 'address',

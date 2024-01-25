@@ -1,7 +1,7 @@
 from pypeal.cli.prompt_add_ringer import prompt_add_ringer_by_name_match, prompt_add_ringer_by_search, prompt_commit_ringer
 from pypeal.cli.prompts import ask, confirm
-from pypeal.peal import Peal
-from pypeal.ringer import Ringer
+from pypeal.entities.peal import Peal
+from pypeal.entities.ringer import Ringer
 
 
 def prompt_add_composition_details(name: str, url: str, note: str, peal: Peal, quick_mode: bool):

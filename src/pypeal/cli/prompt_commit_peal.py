@@ -1,7 +1,7 @@
 from pypeal.bellboard.interface import request_bytes
 from pypeal.cli.chooser import choose_option
 from pypeal.cli.prompts import confirm, panel, warning
-from pypeal.peal import Peal
+from pypeal.entities.peal import Peal
 from rich.columns import Columns
 from rich.console import Console
 from rich.panel import Panel

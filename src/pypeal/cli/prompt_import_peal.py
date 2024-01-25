@@ -7,7 +7,7 @@ from pypeal.cli.peal_prompter import PealPromptListener
 from pypeal.cli.peal_previewer import PealPreviewListener
 from pypeal.cli.prompt_commit_peal import prompt_commit_peal
 from pypeal.cli.prompts import UserCancelled, confirm, panel, error
-from pypeal.peal import Peal
+from pypeal.entities.peal import Peal
 
 logger = logging.getLogger('pypeal')
 
