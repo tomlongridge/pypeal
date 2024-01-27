@@ -1,64 +1,57 @@
 --reset-database
 ===
+Polling for new peals...
 pypeal Database
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│ 1) Find recent peals                                                         │
-│ 2) Add peals by search                                                       │
-│ 3) Add peals by search URL                                                   │
-│ 4) Add peal by ID/URL                                                        │
-│ 5) Add random peal from BellBoard                                            │
-│ 6) Add peal manually                                                         │
-│ 7) View peal                                                                 │
-│ 8) View statistics                                                           │
-│ 9) Delete peal                                                               │
-│ 10) Update static data                                                       │
+│ 1) BellBoard search                                                          │
+│ 2) View statistics                                                           │
+│ 3) Add peal by ID/URL                                                        │
+│ 4) Add peal manually                                                         │
+│ 5) View peal                                                                 │
+│ 6) Delete peal                                                               │
+│ 7) Update static data                                                        │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
->>> 2
-[User input: "2"]
-Enter search criteria.
+>>> 1
+[User input: "1"]
+New peal search
+1) Enter criteria, 2) Enter Bellboard URL
+Select option (1): 
+>>> 1
+[User input: "1"]
 % for wildcards, " for absolute match
 Ringer name: 
 >>> search string
 [User input: "search string"]
 Date from (yyyy/mm/dd): 
->>> 
-[User input: "None"]
+>>> 2000/01/01
+[User input: "2000/01/01"]
 Date to (yyyy/mm/dd): 
->>> 
-[User input: "None"]
+>>> 2001/12/31
+[User input: "2001/12/31"]
 Association: 
->>> 
-[User input: "None"]
+>>> my association
+[User input: "my association"]
 Dove Tower ID: 
->>> 
-[User input: "None"]
-Place: 
->>> 
-[User input: "None"]
-County/Region/Country: 
->>> 
-[User input: "None"]
-Dedication: 
->>> 
-[User input: "None"]
+>>> 12074
+[User input: "12074"]
 Title: 
->>> 
-[User input: "None"]
-Type: 1) Any, 2) Tower, 3) Handbells
+>>> some doubles
+[User input: "some doubles"]
+Type: 1) Tower, 2) Handbells
+Select option (x = Any): 
+>>> 1
+[User input: "Tower"]
+Order by: 1) Date rung, 2) Date submitted
 Select option (1): 
->>> 
-[User input: "None"]
-Order by: 1) Date submitted, 2) Date rung
-Select option (1): 
->>> 
-[User input: "True"]
+>>> 1
+[User input: "False"]
 Order of results: 1) Newest, 2) Oldest
 Select option (1): 
->>> 
-[User input: "True"]
+>>> 1
+[User input: "False"]
 ╭────────────────── http://localhost:8080/view.php?id=22152 ───────────────────╮
 │ S John the Evangelist, Withycombe Raleigh, Devon                             │
 │ 1260 Grandsire Triples                                                       │
@@ -322,25 +315,35 @@ Add next peal? [y/n] (y):
 >>> n
 [User input: "False"]
 1 peal(s) added (0 duplicates)
+Save search? [y/n] (y): 
+>>> y
+[User input: "True"]
+Description: 
+>>> First saved search
+[User input: "First saved search"]
+Include in poll? [y/n] (n): 
+>>> y
+[User input: "True"]
+1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
+Select option (x = Back): 
+>>> x
+[User input: "None"]
 pypeal Database
- Quarter Peal count: 1                                                          
+ Quarter Peal count: 1                                Last updated: [Timestamp] 
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│ 1) Find recent peals                                                         │
-│ 2) Add peals by search                                                       │
-│ 3) Add peals by search URL                                                   │
-│ 4) Add peal by ID/URL                                                        │
-│ 5) Add random peal from BellBoard                                            │
-│ 6) Add peal manually                                                         │
-│ 7) View peal                                                                 │
-│ 8) View statistics                                                           │
-│ 9) Delete peal                                                               │
-│ 10) Update static data                                                       │
+│ 1) BellBoard search                                                          │
+│ 2) View statistics                                                           │
+│ 3) Add peal by ID/URL                                                        │
+│ 4) Add peal manually                                                         │
+│ 5) View peal                                                                 │
+│ 6) Delete peal                                                               │
+│ 7) Update static data                                                        │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
->>> 8
-[User input: "8"]
+>>> 2
+[User input: "2"]
 Summary
  ────────────────────────────────────────────────────────────────────────────── 
                                                   Count                         
@@ -426,18 +429,15 @@ Select option (x = Back):
 >>> x
 [User input: "None"]
 pypeal Database
- Quarter Peal count: 1                                                          
+ Quarter Peal count: 1                                Last updated: [Timestamp] 
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│ 1) Find recent peals                                                         │
-│ 2) Add peals by search                                                       │
-│ 3) Add peals by search URL                                                   │
-│ 4) Add peal by ID/URL                                                        │
-│ 5) Add random peal from BellBoard                                            │
-│ 6) Add peal manually                                                         │
-│ 7) View peal                                                                 │
-│ 8) View statistics                                                           │
-│ 9) Delete peal                                                               │
-│ 10) Update static data                                                       │
+│ 1) BellBoard search                                                          │
+│ 2) View statistics                                                           │
+│ 3) Add peal by ID/URL                                                        │
+│ 4) Add peal manually                                                         │
+│ 5) View peal                                                                 │
+│ 6) Delete peal                                                               │
+│ 7) Update static data                                                        │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘

@@ -30,6 +30,10 @@ def prompt_report_stats():
     else:
         conducted_report = None
 
+    if len(report['types']) == 0:
+        print('No peals in database.')
+        return
+
     console = Console()
 
     summary_text = _generate_summary_heading(report, date_from, date_to, ring_id, tower_id, ringer_id)

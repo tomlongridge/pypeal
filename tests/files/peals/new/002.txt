@@ -3,16 +3,13 @@
 pypeal Database
  Quarter Peal count: 1                                                          
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│ 1) Find recent peals                                                         │
-│ 2) Add peals by search                                                       │
-│ 3) Add peals by search URL                                                   │
-│ 4) Add peal by ID/URL                                                        │
-│ 5) Add random peal from BellBoard                                            │
-│ 6) Add peal manually                                                         │
-│ 7) View peal                                                                 │
-│ 8) View statistics                                                           │
-│ 9) Delete peal                                                               │
-│ 10) Update static data                                                       │
+│ 1) BellBoard search                                                          │
+│ 2) View statistics                                                           │
+│ 3) Add peal by ID/URL                                                        │
+│ 4) Add peal manually                                                         │
+│ 5) View peal                                                                 │
+│ 6) Delete peal                                                               │
+│ 7) Update static data                                                        │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
@@ -218,16 +215,13 @@ Peal (ID 2) added
 pypeal Database
  Quarter Peal count: 2                                                          
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│ 1) Find recent peals                                                         │
-│ 2) Add peals by search                                                       │
-│ 3) Add peals by search URL                                                   │
-│ 4) Add peal by ID/URL                                                        │
-│ 5) Add random peal from BellBoard                                            │
-│ 6) Add peal manually                                                         │
-│ 7) View peal                                                                 │
-│ 8) View statistics                                                           │
-│ 9) Delete peal                                                               │
-│ 10) Update static data                                                       │
+│ 1) BellBoard search                                                          │
+│ 2) View statistics                                                           │
+│ 3) Add peal by ID/URL                                                        │
+│ 4) Add peal manually                                                         │
+│ 5) View peal                                                                 │
+│ 6) Delete peal                                                               │
+│ 7) Update static data                                                        │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘

@@ -1,0 +1,884 @@
+--reset-database
+===
+Polling for new peals...
+Polling for new peals...
+pypeal Database
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) BellBoard search                                                          │
+│ 2) View statistics                                                           │
+│ 3) Add peal by ID/URL                                                        │
+│ 4) Add peal manually                                                         │
+│ 5) View peal                                                                 │
+│ 6) Delete peal                                                               │
+│ 7) Update static data                                                        │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> 1
+[User input: "1"]
+New peal search
+1) Enter criteria, 2) Enter Bellboard URL
+Select option (1): 
+>>> 1
+[User input: "1"]
+% for wildcards, " for absolute match
+Ringer name: 
+>>> ringer name
+[User input: "ringer name"]
+Date from (yyyy/mm/dd): 
+>>> 2019/01/01
+[User input: "2019/01/01"]
+Date to (yyyy/mm/dd): 
+>>> 2019/01/02
+[User input: "2019/01/02"]
+Association: 
+>>> association name
+[User input: "association name"]
+Dove Tower ID: 
+>>> 1234
+[User input: "1234"]
+Title: 
+>>> method name
+[User input: "method name"]
+Type: 1) Tower, 2) Handbells
+Select option (x = Any): 
+>>> 1
+[User input: "Tower"]
+Order by: 1) Date rung, 2) Date submitted
+Select option (1): 
+>>> 1
+[User input: "False"]
+Order of results: 1) Newest, 2) Oldest
+Select option (1): 
+>>> 1
+[User input: "False"]
+╭────────────────── http://localhost:8080/view.php?id=22152 ───────────────────╮
+│ S John the Evangelist, Withycombe Raleigh, Devon                             │
+│ 1260 Grandsire Triples                                                       │
+│ Saturday, 30 June 2001 (17) in 49m                                           │
+│                                                                              │
+│ 1: Lydia Ferguson                                                            │
+│ 2: Harold Gray                                                               │
+│ 3: Chloe Henderson                                                           │
+│ 4: Alen Henderson                                                            │
+│ 5: Lucas Wright                                                              │
+│ 6: Lucas Farrell (c)                                                         │
+│ 7: Ryan Elliott                                                              │
+│ 8: Ted Harris                                                                │
+│                                                                              │
+│ First away from cover on 8: 1.                                               │
+│ First of Grandsire inside: 4.                                                │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=22152 (submitted by Nicholas    │
+│ Hunt on Sunday, 15 January 2012)                                             │
+│ External reference: Campanophile ID: 1593                                    │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Try for a quick-add? [y/n] (y): 
+>>> y
+[User input: "True"]
+🏛 Association: None
+🔔 Bell type: Tower
+📅 Date: Saturday, 30 June 2001
+🔔 Tenor: 1904
+⏱ Duration: 49 minutes
+🏰 Tower: Withycombe Raleigh, Devon, S John Ev
+🔢 Changes: 1260
+Matching peal titled "Grandsire Triples"...
+📕 Title: Grandsire Triples
+🎼 Composer: Unknown
+1: Couldn't find ringer matching "Lydia Ferguson" (or aliases)
+Add new ringer as "Lydia" "Ferguson"? [y/n] (y): 
+>>> 
+[User input: "True"]
+First bell number(s) in the tower (1): 
+>>> 
+[User input: "1"]
+👤 Ringer: 1: Lydia Ferguson
+2: Couldn't find ringer matching "Harold Gray" (or aliases)
+Add new ringer as "Harold" "Gray"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 2: Harold Gray
+3: Couldn't find ringer matching "Chloe Henderson" (or aliases)
+Add new ringer as "Chloe" "Henderson"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 3: Chloe Henderson
+4: Couldn't find ringer matching "Alen Henderson" (or aliases)
+Add new ringer as "Alen" "Henderson"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 4: Alen Henderson
+5: Couldn't find ringer matching "Lucas Wright" (or aliases)
+Add new ringer as "Lucas" "Wright"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 5: Lucas Wright
+6: Couldn't find ringer matching "Lucas Farrell" (or aliases)
+Add new ringer as "Lucas" "Farrell"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 6: Lucas Farrell (c)
+7: Couldn't find ringer matching "Ryan Elliott" (or aliases)
+Add new ringer as "Ryan" "Elliott"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 7: Ryan Elliott
+8: Couldn't find ringer matching "Ted Harris" (or aliases)
+Add new ringer as "Ted" "Harris"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 8: Ted Harris
+Referenced ringer(s):
+  - 1: Lydia Ferguson
+Referenced ringer(s):
+  - 4: Alen Henderson
+📝 Footnotes:
+  - [1: Lydia Ferguson] First away from cover on 8.
+  - [4: Alen Henderson] First of Grandsire inside.
+🔗 Event link: None
+📷 Photo link: None
+📮 Submitted by: Nicholas Hunt on Sunday, 15 January 2012
+🔗 External reference: Campanophile ID: 1593
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Warning: Tenor weight 17 cwt reported on Bellboard does not match the weight │
+│ of largest bell rung (7-0-16) on Dove                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Confirm tenor bell (12): 
+>>> 
+[User input: "12"]
+Shifting band by 4 bells
+🔕 Muffles: None
+╭──────────────────────────── Confirm performance ─────────────────────────────╮
+│ Withycombe Raleigh, Devon, England                                           │
+│ S John Ev                                                                    │
+│ On Saturday, 30 June 2001                                                    │
+│ A Quarter Peal of 1260 Grandsire Triples in 49 minutes (17-1-10 in D#)       │
+│                                                                              │
+│ 1 [5]: Lydia Ferguson                                                        │
+│ 2 [6]: Harold Gray                                                           │
+│ 3 [7]: Chloe Henderson                                                       │
+│ 4 [8]: Alen Henderson                                                        │
+│ 5 [9]: Lucas Wright                                                          │
+│ 6 [10]: Lucas Farrell (c)                                                    │
+│ 7 [11]: Ryan Elliott                                                         │
+│ 8 [12]: Ted Harris                                                           │
+│                                                                              │
+│ 1: First away from cover on 8.                                               │
+│ 4: First of Grandsire inside.                                                │
+│                                                                              │
+│ [BellBoard: http://localhost:8080/view.php?id=22152 (Nicholas Hunt, Sunday,  │
+│ 15 January 2012)]                                                            │
+│ [External reference: Campanophile ID: 1593]                                  │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Peal (ID 1) added
+Add next peal? [y/n] (y): 
+>>> n
+[User input: "False"]
+1 peal(s) added (0 duplicates)
+Save search? [y/n] (y): 
+>>> y
+[User input: "True"]
+Description: 
+>>> new search 1
+[User input: "new search 1"]
+Include in poll? [y/n] (n): 
+>>> n
+[User input: "False"]
+1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
+Select option (x = Back): 
+>>> 1
+[User input: "1"]
+1) new search 1
+Select option (x = New search): 
+>>> 1
+[User input: "new search 1"]
+╭────────────────── http://localhost:8080/view.php?id=388066 ──────────────────╮
+│ Bath & Wells Diocesan Association                                            │
+│ St Mary the Virgin, Bathwick, Somerset                                       │
+│ 1280 Spliced Surprise Major (8 methods)                                      │
+│ Standard 8 methods                                                           │
+│ 160 changes in each method<br/>Change of method every lead                   │
+│ Sunday, 27 February 2011 (18–3–20) in 47m                                    │
+│                                                                              │
+│ 1: Patrick Bennett                                                           │
+│ 2: Byron Miller                                                              │
+│ 3: Clark Elliott                                                             │
+│ 4: John Parker                                                               │
+│ 5: Jacob Cole                                                                │
+│ 6: Eric Ryan                                                                 │
+│ 7: Joyce Sullivan                                                            │
+│ 8: Byron Robinson (c)                                                        │
+│                                                                              │
+│ Rung for morning service                                                     │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=388066 (submitted by Nicholas   │
+│ Hunt on Sunday, 15 January 2012)                                             │
+│ External reference: Campanophile ID: 116670                                  │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Try for a quick-add? [y/n] (y): 
+>>> y
+[User input: "True"]
+🏛 Association: Bath and Wells Diocesan Association
+🔔 Bell type: Tower
+📅 Date: Sunday, 27 February 2011
+🔔 Tenor: 2120
+⏱ Duration: 47 minutes
+🏰 Tower: Bath, Bathwick, Somerset, Blessed Virgin Mary
+🔢 Changes: 1280
+Matching peal titled "Spliced Surprise Major (8 methods)"...
+Multi-method peal: "Spliced Surprise Major (8 methods)"...
+📕 Title: Spliced Surprise Major
+Adding changes of methods to multi-method peal...
+Matching method "Cambridge"... [0 methods excluded]
+Matched "Cambridge" to method "Cambridge Surprise Major"
+Number of changes: 
+>>> 
+[User input: "None"]
+Method 1: Cambridge Surprise Major (unknown changes)
+Matching method "Yorkshire"... [1 methods excluded]
+Matched "Yorkshire" to method "Yorkshire Surprise Major"
+Number of changes: 
+>>> 
+[User input: "None"]
+Method 2: Yorkshire Surprise Major (unknown changes)
+Matching method "Lincolnshire"... [2 methods excluded]
+Matched "Lincolnshire" to method "Lincolnshire Surprise Major"
+Number of changes: 
+>>> 
+[User input: "None"]
+Method 3: Lincolnshire Surprise Major (unknown changes)
+Matching method "Superlative"... [3 methods excluded]
+Matched "Superlative" to method "Superlative Surprise Major"
+Number of changes: 
+>>> 
+[User input: "None"]
+Method 4: Superlative Surprise Major (unknown changes)
+Matching method "Rutland"... [4 methods excluded]
+Matched "Rutland" to method "Rutland Surprise Major"
+Number of changes: 
+>>> 
+[User input: "None"]
+Method 5: Rutland Surprise Major (unknown changes)
+Matching method "Pudsey"... [5 methods excluded]
+Matched "Pudsey" to method "Pudsey Surprise Major"
+Number of changes: 
+>>> 
+[User input: "None"]
+Method 6: Pudsey Surprise Major (unknown changes)
+Matching method "Bristol"... [6 methods excluded]
+Matched "Bristol" to method "Bristol Surprise Major"
+Number of changes: 
+>>> 
+[User input: "None"]
+Method 7: Bristol Surprise Major (unknown changes)
+Matching method "London"... [7 methods excluded]
+Matched "London" to method "London Surprise Major"
+Number of changes: 
+>>> 
+[User input: "None"]
+Method 8: London Surprise Major (unknown changes)
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Warning: Number of methods (8) does not match number of methods from peal    │
+│ title (0).                                                                   │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Do you want to update the title? [y/n] (y): 
+>>> 
+[User input: "True"]
+Number of methods (8): 
+>>> 
+[User input: "8"]
+Number of principles (0): 
+>>> 
+[User input: "0"]
+Number of variants (0): 
+>>> 
+[User input: "0"]
+📝 Method details:
+  - Cambridge Surprise Major
+  - Yorkshire Surprise Major
+  - Lincolnshire Surprise Major
+  - Superlative Surprise Major
+  - Rutland Surprise Major
+  - Pudsey Surprise Major
+  - Bristol Surprise Major
+  - London Surprise Major
+🎼 Composer: Unknown
+1: Couldn't find ringer matching "Patrick Bennett" (or aliases)
+Add new ringer as "Patrick" "Bennett"? [y/n] (y): 
+>>> 
+[User input: "True"]
+First bell number(s) in the tower (1): 
+>>> 
+[User input: "1"]
+👤 Ringer: 1: Patrick Bennett
+2: Couldn't find ringer matching "Byron Miller" (or aliases)
+Add new ringer as "Byron" "Miller"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 2: Byron Miller
+3: Couldn't find ringer matching "Clark Elliott" (or aliases)
+Add new ringer as "Clark" "Elliott"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 3: Clark Elliott
+4: Couldn't find ringer matching "John Parker" (or aliases)
+Add new ringer as "John" "Parker"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 4: John Parker
+5: Couldn't find ringer matching "Jacob Cole" (or aliases)
+Add new ringer as "Jacob" "Cole"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 5: Jacob Cole
+6: Couldn't find ringer matching "Eric Ryan" (or aliases)
+Add new ringer as "Eric" "Ryan"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 6: Eric Ryan
+7: Couldn't find ringer matching "Joyce Sullivan" (or aliases)
+Add new ringer as "Joyce" "Sullivan"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 7: Joyce Sullivan
+8: Couldn't find ringer matching "Byron Robinson" (or aliases)
+Add new ringer as "Byron" "Robinson"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 8: Byron Robinson (c)
+📝 Footnotes:
+  - Rung for morning service.
+🔗 Event link: None
+📷 Photo link: None
+📮 Submitted by: Nicholas Hunt on Sunday, 15 January 2012
+🔗 External reference: Campanophile ID: 116670
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Warning: Tenor weight 18-3-20 reported on Bellboard does not match the       │
+│ weight of largest bell rung (11-1-2) on Dove                                 │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Suggested tenor, based on weight: 10 (18-3-20)
+Shifting band by 2 bells
+🔕 Muffles: None
+╭──────────────────────────── Confirm performance ─────────────────────────────╮
+│ Bath and Wells Diocesan Association                                          │
+│ Bath, Somerset, England                                                      │
+│ Blessed Virgin Mary, Bathwick                                                │
+│ On Sunday, 27 February 2011                                                  │
+│ A Quarter Peal of 1280 Spliced Surprise Major (8m) in 47 minutes (18-3-20 in │
+│ Eb)                                                                          │
+│ (Cambridge Surprise Major, Yorkshire Surprise Major, Lincolnshire Surprise   │
+│ Major, Superlative Surprise Major, Rutland Surprise Major, Pudsey Surprise   │
+│ Major, Bristol Surprise Major, London Surprise Major)                        │
+│                                                                              │
+│ 1 [3]: Patrick Bennett                                                       │
+│ 2 [4]: Byron Miller                                                          │
+│ 3 [5]: Clark Elliott                                                         │
+│ 4 [6]: John Parker                                                           │
+│ 5 [7]: Jacob Cole                                                            │
+│ 6 [8]: Eric Ryan                                                             │
+│ 7 [9]: Joyce Sullivan                                                        │
+│ 8 [10]: Byron Robinson (c)                                                   │
+│                                                                              │
+│ Rung for morning service.                                                    │
+│                                                                              │
+│ [BellBoard: http://localhost:8080/view.php?id=388066 (Nicholas Hunt, Sunday, │
+│ 15 January 2012)]                                                            │
+│ [Published title: Spliced Surprise Major (8 methods)]                        │
+│ [External reference: Campanophile ID: 116670]                                │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Peal (ID 2) added
+Add next peal? [y/n] (y): 
+>>> n
+[User input: "False"]
+1 peal(s) added (1 duplicates)
+1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
+Select option (x = Back): 
+>>> 5
+[User input: "5"]
+Polling for new peals...
+1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
+Select option (x = Back): 
+>>> 3
+[User input: "3"]
+1) new search 1
+Select option (x = Back): 
+>>> 1
+[User input: "new search 1"]
+% for wildcards, " for absolute match
+Ringer name (ringer name): 
+>>> 
+[User input: "ringer name"]
+Date from (yyyy/mm/dd) (2019/01/01): 
+>>> 
+[User input: "2019/01/01"]
+Date to (yyyy/mm/dd) (2019/01/02): 
+>>> 
+[User input: "2019/01/02"]
+Association (association name): 
+>>> 
+[User input: "association name"]
+Dove Tower ID (1234): 
+>>> 
+[User input: "1234"]
+Title (method name): 
+>>> 
+[User input: "method name"]
+Type: 1) Tower, 2) Handbells
+Select option (x = Any) (1): 
+>>> 
+[User input: "Tower"]
+Order by: 1) Date rung, 2) Date submitted
+Select option (1): 
+>>> 
+[User input: "False"]
+Order of results: 1) Newest, 2) Oldest
+Select option (1): 
+>>> 
+[User input: "False"]
+╭───────────────── http://localhost:8080/view.php?id=1066455 ──────────────────╮
+│ Pig-le-Tower, Marston Bigot, Somerset                                        │
+│ 1280 Cambridge Surprise Major                                                │
+│ Sunday, 21 September 2014                                                    │
+│                                                                              │
+│ 1: Vivian Murray                                                             │
+│ 2: Byron Robinson                                                            │
+│ 3: Daryl Mason                                                               │
+│ 4: Chester Edwards                                                           │
+│ 5: Joyce Sullivan                                                            │
+│ 6: Arnold Johnson                                                            │
+│ 7: Kate Crawford                                                             │
+│ 8: Heather Sullivan (c)                                                      │
+│                                                                              │
+│ Birthday compliment to Paul Clewett                                          │
+│ First on a mini-ring: 3 & 6                                                  │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=1066455 (submitted by Heather   │
+│ Sullivan on Sunday, 21 September 2014)                                       │
+│ External reference: Campanophile ID: 183937                                  │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Try for a quick-add? [y/n] (y): 
+>>> y
+[User input: "True"]
+🏛 Association: None
+🔔 Bell type: Tower
+📅 Date: Sunday, 21 September 2014
+🔔 Tenor: Unknown
+⏱ Duration: Unknown
+📍 Location Marston Bigot, Somerset
+📍 Detail Pig-le-Tower
+🔢 Changes: 1280
+Matching peal titled "Cambridge Surprise Major"...
+📕 Title: Cambridge Surprise Major
+🎼 Composer: Unknown
+1: Couldn't find ringer matching "Vivian Murray" (or aliases)
+Add new ringer as "Vivian" "Murray"? [y/n] (y): 
+>>> 
+[User input: "True"]
+First bell number(s) in the tower (1): 
+>>> 
+[User input: "1"]
+👤 Ringer: 1: Vivian Murray
+👤 Ringer: 2: Byron Robinson
+3: Couldn't find ringer matching "Daryl Mason" (or aliases)
+Add new ringer as "Daryl" "Mason"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 3: Daryl Mason
+4: Couldn't find ringer matching "Chester Edwards" (or aliases)
+Add new ringer as "Chester" "Edwards"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 4: Chester Edwards
+👤 Ringer: 5: Joyce Sullivan
+6: Couldn't find ringer matching "Arnold Johnson" (or aliases)
+Add new ringer as "Arnold" "Johnson"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 6: Arnold Johnson
+7: Couldn't find ringer matching "Kate Crawford" (or aliases)
+Add new ringer as "Kate" "Crawford"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 7: Kate Crawford
+8: Couldn't find ringer matching "Heather Sullivan" (or aliases)
+Add new ringer as "Heather" "Sullivan"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 8: Heather Sullivan (c)
+Referenced ringer(s):
+  - 3: Daryl Mason
+  - 6: Arnold Johnson
+📝 Footnotes:
+  - Birthday compliment to Paul Clewett.
+  - [3: Daryl Mason] First on a mini-ring.
+  - [6: Arnold Johnson] First on a mini-ring.
+🔗 Event link: None
+📷 Photo link: None
+📮 Submitted by: Heather Sullivan on Sunday, 21 September 2014
+🔗 External reference: Campanophile ID: 183937
+🔕 Muffles: None
+╭──────────────────────────── Confirm performance ─────────────────────────────╮
+│ Marston Bigot, Somerset                                                      │
+│ Pig-le-Tower                                                                 │
+│ On Sunday, 21 September 2014                                                 │
+│ A Quarter Peal of 1280 Cambridge Surprise Major                              │
+│                                                                              │
+│ 1: Vivian Murray                                                             │
+│ 2: Byron Robinson                                                            │
+│ 3: Daryl Mason                                                               │
+│ 4: Chester Edwards                                                           │
+│ 5: Joyce Sullivan                                                            │
+│ 6: Arnold Johnson                                                            │
+│ 7: Kate Crawford                                                             │
+│ 8: Heather Sullivan (c)                                                      │
+│                                                                              │
+│ Birthday compliment to Paul Clewett.                                         │
+│ 3,6: First on a mini-ring.                                                   │
+│                                                                              │
+│ [BellBoard: http://localhost:8080/view.php?id=1066455 (Heather Sullivan,     │
+│ Sunday, 21 September 2014)]                                                  │
+│ [External reference: Campanophile ID: 183937]                                │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Peal (ID 3) added
+Add next peal? [y/n] (y): 
+>>> n
+[User input: "False"]
+1 peal(s) added (2 duplicates)
+Save search? [y/n] (y): 
+>>> y
+[User input: "True"]
+Description (new search 1): 
+>>> amended search 1
+[User input: "amended search 1"]
+Include in poll? [y/n] (n): 
+>>> y
+[User input: "True"]
+1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
+Select option (x = Back): 
+>>> 5
+[User input: "5"]
+Polling for new peals...
+Polling for new peals matching search "amended search 1"...
+╭───────────────── http://localhost:8080/view.php?id=1147788 ──────────────────╮
+│ St Mary the Virgin, Bathwick, Somerset                                       │
+│ 1260 Grandsire Caters and Royal                                              │
+│ Sunday, 11 January 2015 (18–3–20) in 48m                                     │
+│                                                                              │
+│ 1: Byron Miller                                                              │
+│ 2: Paul Armstrong                                                            │
+│ 3: Clark Elliott                                                             │
+│ 4: Alisa Cole                                                                │
+│ 5: Chester Edwards                                                           │
+│ 6: Heather Sullivan                                                          │
+│ 7: Jacob Cole                                                                │
+│ 8: Joyce Sullivan                                                            │
+│ 9: Leonardo Bennett (c)                                                      │
+│ 10: Byron Robinson                                                           │
+│                                                                              │
+│ For Morning Service, and to welcome Rafe Jackson-Swift, son of Russell and   │
+│ Angela, born on 8th January.                                                 │
+│ 900th Quarter of Grandsire on the bells.                                     │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=1147788 (submitted by Byron     │
+│ Miller on Sunday, 11 January 2015)                                           │
+│ External reference: Campanophile ID: 188334                                  │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Try for a quick-add? [y/n] (y): 
+>>> y
+[User input: "True"]
+🏛 Association: None
+🔔 Bell type: Tower
+📅 Date: Sunday, 11 January 2015
+🔔 Tenor: 2120
+⏱ Duration: 48 minutes
+🏰 Tower: Bath, Bathwick, Somerset, Blessed Virgin Mary
+🔢 Changes: 1260
+Matching peal titled "Grandsire Caters and Royal"...
+Multi-method peal: "Grandsire Caters and Royal"...
+Adding changes of methods to multi-method peal...
+Matching method "Grandsire Caters"... [0 methods excluded]
+Matched "Grandsire Caters" to method "Grandsire Caters"
+Number of changes: 
+>>> 
+[User input: "None"]
+Method 1: Grandsire Caters (unknown changes)
+Matching method "Grandsire Royal"... [1 methods excluded]
+Matched "Grandsire Royal" to method "Grandsire Royal"
+Number of changes: 
+>>> 
+[User input: "None"]
+Method 2: Grandsire Royal (unknown changes)
+📕 Title: Spliced Caters and Royal (2m)
+📝 Method details:
+  - Grandsire Caters
+  - Grandsire Royal
+🎼 Composer: Unknown
+👤 Ringer: 1: Byron Miller
+2: Couldn't find ringer matching "Paul Armstrong" (or aliases)
+Add new ringer as "Paul" "Armstrong"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 2: Paul Armstrong
+👤 Ringer: 3: Clark Elliott
+4: Couldn't find ringer matching "Alisa Cole" (or aliases)
+Add new ringer as "Alisa" "Cole"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 4: Alisa Cole
+👤 Ringer: 5: Chester Edwards
+👤 Ringer: 6: Heather Sullivan
+👤 Ringer: 7: Jacob Cole
+👤 Ringer: 8: Joyce Sullivan
+9: Couldn't find ringer matching "Leonardo Bennett" (or aliases)
+Add new ringer as "Leonardo" "Bennett"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 9: Leonardo Bennett (c)
+👤 Ringer: 10: Byron Robinson
+📝 Footnotes:
+  - For Morning Service, and to welcome Rafe Jackson-Swift, son of Russell and Angela, born on 8th January. 900th Quarter of Grandsire on the bells.
+🔗 Event link: None
+📷 Photo link: None
+📮 Submitted by: Byron Miller on Sunday, 11 January 2015
+🔗 External reference: Campanophile ID: 188334
+🔕 Muffles: None
+╭──────────────────────────── Confirm performance ─────────────────────────────╮
+│ Bath, Somerset, England                                                      │
+│ Blessed Virgin Mary, Bathwick                                                │
+│ On Sunday, 11 January 2015                                                   │
+│ A Quarter Peal of 1260 Spliced Caters and Royal (2m) in 48 minutes (18-3-20  │
+│ in Eb)                                                                       │
+│ (Grandsire Caters, Grandsire Royal)                                          │
+│                                                                              │
+│ 1: Byron Miller                                                              │
+│ 2: Paul Armstrong                                                            │
+│ 3: Clark Elliott                                                             │
+│ 4: Alisa Cole                                                                │
+│ 5: Chester Edwards                                                           │
+│ 6: Heather Sullivan                                                          │
+│ 7: Jacob Cole                                                                │
+│ 8: Joyce Sullivan                                                            │
+│ 9: Leonardo Bennett (c)                                                      │
+│ 10: Byron Robinson                                                           │
+│                                                                              │
+│ For Morning Service, and to welcome Rafe Jackson-Swift, son of Russell and   │
+│ Angela, born on 8th January. 900th Quarter of Grandsire on the bells.        │
+│                                                                              │
+│ [BellBoard: http://localhost:8080/view.php?id=1147788 (Byron Miller, Sunday, │
+│ 11 January 2015)]                                                            │
+│ [Published title: Grandsire Caters and Royal]                                │
+│ [External reference: Campanophile ID: 188334]                                │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Peal (ID 4) added
+Add next peal? [y/n] (y): 
+>>> n
+[User input: "False"]
+1 peal(s) added (3 duplicates)
+1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
+Select option (x = Back): 
+>>> 4
+[User input: "4"]
+1) amended search 1
+Select option (x = Back): 
+>>> 1
+[User input: "amended search 1"]
+Delete search "amended search 1"?
+Is this correct? [y/n] (n): 
+>>> y
+[User input: "True"]
+New peal search
+1) Enter criteria, 2) Enter Bellboard URL
+Select option (1): 
+>>> 2
+[User input: "2"]
+Bellboard URL: 
+>>> https://bb.ringingworld.co.uk/search.php?ringer=ringer+name
+[User input: "https://bb.ringingworld.co.uk/search.php?ringer=ringer+name"]
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Error: Invalid Bellboard search URL:                                         │
+│ https://bb.ringingworld.co.uk/search.php?ringer=ringer+name                  │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Bellboard URL: 
+>>> http://localhost:8080/search.php?ringer=ringer+name
+[User input: "http://localhost:8080/search.php?ringer=ringer+name"]
+╭───────────────── http://localhost:8080/view.php?id=1272466 ──────────────────╮
+│ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
+│ 1260 Grandsire Triples                                                       │
+│ Composer: Camila Chapman                                                     │
+│ Sunday, 17 February 2019 (18–3–20 in E♭) in 46m                              │
+│                                                                              │
+│ 1: Lenny Howard                                                              │
+│ 2: Chester Edwards                                                           │
+│ 3: Paul Armstrong                                                            │
+│ 4: Arnold Johnson                                                            │
+│ 5: Daryl Mason                                                               │
+│ 6: Melissa Baker                                                             │
+│ 7: Joyce Sullivan (c)                                                        │
+│ 8: Leonardo Bennett                                                          │
+│                                                                              │
+│ Rung for Morning Service.                                                    │
+│ And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps    │
+│ and 6th North Staffordshire Regiment, a ringer at St Paul's,                 │
+│ Burton-on-Trent, who died on the 18th February 1919, aged 29.                │
+│ https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
+│ -staffordshire-regiment/                                                     │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=1272466 (submitted by Joyce     │
+│ Sullivan on Sunday, 17 February 2019)                                        │
+│ Photo: http://localhost:8080/uploads/57/002a57.jpg                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Try for a quick-add? [y/n] (y): 
+>>> y
+[User input: "True"]
+🏛 Association: None
+🔔 Bell type: Tower
+📅 Date: Sunday, 17 February 2019
+🔔 Tenor: 2120 in Eb
+⏱ Duration: 46 minutes
+🏰 Tower: Bath, Bathwick, Somerset, Blessed Virgin Mary
+🔢 Changes: 1260
+Matching peal titled "Grandsire Triples"...
+📕 Title: Grandsire Triples
+No composer found matching "Camila Chapman" exactly
+Add as composition note? [y/n] (y): 
+>>> 
+[User input: "True"]
+🎼 Composer: Unknown
+🎼 Composition: Camila Chapman
+1: Couldn't find ringer matching "Lenny Howard" (or aliases)
+Add new ringer as "Lenny" "Howard"? [y/n] (y): 
+>>> 
+[User input: "True"]
+First bell number(s) in the tower (1): 
+>>> 
+[User input: "1"]
+👤 Ringer: 1: Lenny Howard
+👤 Ringer: 2: Chester Edwards
+👤 Ringer: 3: Paul Armstrong
+👤 Ringer: 4: Arnold Johnson
+👤 Ringer: 5: Daryl Mason
+6: Couldn't find ringer matching "Melissa Baker" (or aliases)
+Add new ringer as "Melissa" "Baker"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 6: Melissa Baker
+👤 Ringer: 7: Joyce Sullivan (c)
+👤 Ringer: 8: Leonardo Bennett
+📝 Footnotes:
+  - Rung for Morning Service. And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
+🔗 Event link: None
+📷 Photo link: http://localhost:8080/uploads/57/002a57.jpg
+  - The CWGC grave marker of Sgt A P Wakley in Stapenhill Cemetery, Burton-on-Trent (Staffordshire)
+  - Photo credit: Michael W Day
+📮 Submitted by: Joyce Sullivan on Sunday, 17 February 2019
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Warning: Tenor weight 18-3-20 reported on Bellboard does not match the       │
+│ weight of largest bell rung (11-1-2) on Dove                                 │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Suggested tenor, based on weight: 10 (18-3-20)
+Shifting band by 2 bells
+🔕 Muffles: None
+╭──────────────────────────── Confirm performance ─────────────────────────────╮
+│ Bath, Somerset, England                                                      │
+│ Blessed Virgin Mary, Bathwick                                                │
+│ On Sunday, 17 February 2019                                                  │
+│ A Quarter Peal of 1260 Grandsire Triples in 46 minutes (18-3-20 in Eb)       │
+│ Composition: Camila Chapman                                                  │
+│                                                                              │
+│ 1 [3]: Lenny Howard                                                          │
+│ 2 [4]: Chester Edwards                                                       │
+│ 3 [5]: Paul Armstrong                                                        │
+│ 4 [6]: Arnold Johnson                                                        │
+│ 5 [7]: Daryl Mason                                                           │
+│ 6 [8]: Melissa Baker                                                         │
+│ 7 [9]: Joyce Sullivan (c)                                                    │
+│ 8 [10]: Leonardo Bennett                                                     │
+│                                                                              │
+│ Rung for Morning Service. And in memory of the composer: Sergeant Albert     │
+│ Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at │
+│ St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.     │
+│ Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
+│ -staffordshire-regiment/.                                                    │
+│                                                                              │
+│ [BellBoard: http://localhost:8080/view.php?id=1272466 (Joyce Sullivan,       │
+│ Sunday, 17 February 2019)]                                                   │
+│ [Composition URL: http://localhost:8080/comp.php?id=2271034]                 │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Saving photo http://localhost:8080/uploads/57/002a57.jpg...
+Peal (ID 5) added
+Add next peal? [y/n] (y): 
+>>> n
+[User input: "False"]
+1 peal(s) added (4 duplicates)
+Save search? [y/n] (y): 
+>>> y
+[User input: "True"]
+Description: 
+>>> second search
+[User input: "second search"]
+Include in poll? [y/n] (n): 
+>>> y
+[User input: "True"]
+1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
+Select option (x = Back): 
+>>> x
+[User input: "None"]
+pypeal Database
+ Quarter Peal count: 5                                Last updated: [Timestamp] 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) BellBoard search                                                          │
+│ 2) View statistics                                                           │
+│ 3) Add peal by ID/URL                                                        │
+│ 4) Add peal manually                                                         │
+│ 5) View peal                                                                 │
+│ 6) Delete peal                                                               │
+│ 7) Update static data                                                        │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> x
+[User input: "None"]
+===
+Bath, Somerset, England
+Blessed Virgin Mary, Bathwick
+On Sunday, 17 February 2019
+A Quarter Peal of 1260 Grandsire Triples in 46 minutes (18-3-20 in Eb)
+Composition: Camila Chapman
+
+1 [3]: Lenny Howard
+2 [4]: Chester Edwards
+3 [5]: Paul Armstrong
+4 [6]: Arnold Johnson
+5 [7]: Daryl Mason
+6 [8]: Melissa Baker
+7 [9]: Joyce Sullivan (c)
+8 [10]: Leonardo Bennett
+
+Rung for Morning Service. And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
+
+[BellBoard: http://localhost:8080/view.php?id=1272466 (Joyce Sullivan, Sunday, 17 February 2019)]
+[Composition URL: http://localhost:8080/comp.php?id=2271034]
+[Database ID: 5]

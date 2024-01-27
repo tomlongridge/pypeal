@@ -20,8 +20,8 @@ def search(ringer_name: str = None,
            date_to: datetime.date = None,
            tower_id: int = None,
            place: str = None,
-           county: str = None,
-           dedication: str = None,
+           region: str = None,
+           address: str = None,
            association: str = None,
            title: str = None,
            bell_type: BellType = None,
@@ -39,10 +39,10 @@ def search(ringer_name: str = None,
         criteria['dove_tower'] = tower_id
     if place:
         criteria['place'] = place
-    if county:
-        criteria['region'] = county
-    if dedication:
-        criteria['address'] = dedication
+    if region:
+        criteria['region'] = region
+    if address:
+        criteria['address'] = address
     if association:
         criteria['association'] = association
     if title:
@@ -59,21 +59,8 @@ def search(ringer_name: str = None,
     else:
         criteria['order'] = ''
     if not order_descending:
-        criteria['order'] = '+reverse'
+        criteria['order'] += '+reverse'
 
-    yield from _perform_search(criteria)
-
-
-def search_by_url(url: str) -> Iterator[int]:
-
-    if '?' not in url or '&' not in url:
-        raise ValueError(f'Invalid search URL: {url}')
-
-    criteria = {}
-    for param in url.split('?')[1].split('&'):
-        param_parts = param.split('=')
-        if len(param_parts) == 2 and param_parts[0] not in ['page', 'edit']:
-            criteria[param_parts[0]] = param_parts[1]
     yield from _perform_search(criteria)
 
 
@@ -88,9 +75,12 @@ def _perform_search(criteria: dict[str, any]) -> Iterator[int]:
 
         found_peals = False
         page += 1
-        _, xml_response = do_search(criteria, page)
+        search_url, xml_response = do_search(criteria, page)
         tree = ET.fromstring(xml_response)
 
         for performance in tree.findall(f'./{XML_NAMESPACE}performance'):
             found_peals = True
             yield int(performance.attrib['href'].split('=')[1])
+
+    if not found_peals and page == 1:
+        raise BellboardSearchNoResultFoundError(search_url)

@@ -16,6 +16,9 @@ def choose_option(options: list[any],
                   default: any = None,
                   none_option: str = None) -> any:
 
+    if not options or len(options) == 0:
+        return none_option
+
     page_num = 1
     options_by_page: list[list[any]] = []
     if len(options) > CHOOSE_INLINE_THRESHOLD:
@@ -24,11 +27,15 @@ def choose_option(options: list[any],
                 options_by_page.append([])
             options_by_page[i // CHOOSE_OPTIONS_PER_PAGE].append(options[i])
 
-    if default and type(default) is not int:
-        if values and default in values:
-            default = values.index(default) + 1
-        elif default in options:
-            default = options.index(default) + 1
+    if default is not None:
+        if type(default) is int:
+            if default < 1 or default > len(options):
+                raise ValueError(f'Invalid default option: {default}')
+        else:
+            if values and default in values:
+                default = values.index(default) + 1
+            elif default in options:
+                default = options.index(default) + 1
 
     while True:
 
@@ -47,7 +54,7 @@ def choose_option(options: list[any],
             _print_options_page(title, options_by_page[page_num - 1], action_list)
 
         try:
-            choice = Prompt.ask(f'{prompt}', default=str(default) if default else None, show_default=True)
+            choice = Prompt.ask(f'{prompt}', default=str(default) if default is not None else None, show_default=True)
         except KeyboardInterrupt:
             print_user_input(prompt, '[Abort]')
             print()  # Ensure subsequent prompt is on a new line

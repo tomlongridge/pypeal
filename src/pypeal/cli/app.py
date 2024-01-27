@@ -12,9 +12,9 @@ from pypeal.cli.prompt_delete_peal import prompt_delete_peal
 from pypeal.cli.prompt_import_peal import add_peal, prompt_import_peal
 from pypeal.cli.manual_generator import ManualGenerator
 from pypeal.cli.prompt_report_stats import prompt_report_stats
-from pypeal.cli.prompts import UserCancelled, ask_int, confirm, heading, panel, error, prompt_peal_id
+from pypeal.cli.prompts import UserCancelled, ask_int, confirm, format_timestamp, heading, panel, error, prompt_peal_id
 from pypeal.cli.chooser import choose_option
-from pypeal.cli.prompt_search_peals import poll_for_new_peals, prompt_search_peals, search_by_url
+from pypeal.cli.prompt_search_peals import poll, prompt_search
 from pypeal.db import initialize as initialize_db
 from pypeal.dove import update_associations, update_bells, update_rings, update_towers
 from pypeal.entities.method import Method
@@ -60,6 +60,8 @@ def main(
 
     initialize_or_exit(reset_database, clear_data)
 
+    run_poll()
+
     match action:
         case None:
             run_interactive(peal_id_or_url)
@@ -75,8 +77,13 @@ def main(
             error(f'Unknown action: {action}')
 
 
+def run_poll():
+    print('Polling for new peals...')
+    poll()
+
+
 def run_import_peal(peal_id_or_url: str):
-    prompt_import_peal(prompt_peal_id(peal_id_or_url))
+    prompt_import_peal(prompt_peal_id(peal_id_or_url, required=False))
 
 
 def run_view(peal_id_or_url: str):
@@ -105,14 +112,11 @@ def run_interactive(peal_id_or_url: str):
             try:
                 selected_option = choose_option(
                     [
-                        'Find recent peals',
-                        'Add peals by search',
-                        'Add peals by search URL',
+                        'BellBoard search',
+                        'View statistics',
                         'Add peal by ID/URL',
-                        'Add random peal from BellBoard',
                         'Add peal manually',
                         'View peal',
-                        'View statistics',
                         'Delete peal',
                         'Update static data'
                     ],
@@ -123,29 +127,23 @@ def run_interactive(peal_id_or_url: str):
 
             match selected_option:
                 case 1:
-                    poll_for_new_peals()
+                    prompt_search()
                 case 2:
-                    prompt_search_peals()
-                case 3:
-                    search_by_url()
-                case 4:
-                    run_import_peal(peal_id_or_url)
-                case 5:
-                    prompt_import_peal()
-                case 6:
-                    run_add_peal()
-                case 7:
-                    run_view(peal_id_or_url)
-                case 8:
                     prompt_report_stats()
-                case 9:
+                case 3:
+                    run_import_peal(peal_id_or_url)
+                case 4:
+                    run_add_peal()
+                case 5:
+                    run_view(peal_id_or_url)
+                case 6:
                     run_delete(peal_id_or_url)
-                case 10:
+                case 7:
                     update_methods()
                     update_associations()
                     update_towers()
                     update_bells()
-                case 11 | None:
+                case 10 | None:
                     raise typer.Exit()
         except UserCancelled:
             continue
@@ -161,7 +159,7 @@ def print_summary():
         table.add_column(ratio=1)
         table.add_column(ratio=1, justify='right')
         type_summary = ''
-        last_updated = f'Last updated: {summary["last_added"]}' if not get_config('diagnostics', 'print_user_input') else ''
+        last_updated = f'Last updated: {format_timestamp(summary["last_added"])}'
         for type, report in summary["types"].items():
             type_summary = f'{type} count: {report["count"]}\n'
             table.add_row(type_summary.strip(), last_updated)

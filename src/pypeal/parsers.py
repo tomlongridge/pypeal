@@ -1,8 +1,10 @@
 
+from datetime import datetime
 import re
 from pypeal import config, utils
 from pypeal.entities.method import Classification, Method, Stage
-from pypeal.entities.peal import PealType
+from pypeal.entities.peal import BellType, PealType
+from pypeal.entities.peal_search import PealSearch
 
 RINGER_NAME_REGEX = \
     re.compile(r'^(?:(?P<title>(?:' + '|'.join(utils.get_titles()) +
@@ -346,3 +348,44 @@ def parse_bell_nums(bell_nums_str: str, max_bell_num: int = None) -> list[int]:
     if len(bell_nums) == 0:
         raise ValueError(f'Unable to parse bell numbers: {bell_nums_str}')
     return bell_nums
+
+
+def parse_search_url(url: str) -> PealSearch:
+
+    if not url.startswith(config.get_config('bellboard', 'url')) or 'search.php' not in url:
+        raise ValueError(f'Invalid Bellboard search URL: {url}')
+
+    search = PealSearch()
+    for param in url.split('?')[1].split('&'):
+        key, value = param.split('=')
+        if key == 'ringer':
+            search.ringer_name = value
+        elif key == 'from':
+            search.date_from = datetime.strptime(value, '%d/%m/%Y').date()
+        elif key == 'to':
+            search.date_to = datetime.strptime(value, '%d/%m/%Y').date()
+        elif key == 'dove_tower':
+            search.tower_id = int(value)
+        elif key == 'place':
+            search.place = value
+        elif key == 'region':
+            search.region = value
+        elif key == 'address':
+            search.address = value
+        elif key == 'association':
+            search.association = value
+        elif key == 'title':
+            search.title = value
+        elif key == 'bells_type':
+            match value:
+                case 'tower':
+                    search.bell_type = BellType.TOWER
+                case 'hand':
+                    search.bell_type = BellType.HANDBELLS
+        elif key == 'order':
+            if 'newest' in value:
+                search.order_by_submission_date = True
+            if 'reverse' in value:
+                search.order_descending = False
+
+    return search

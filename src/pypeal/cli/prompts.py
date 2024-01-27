@@ -28,6 +28,13 @@ def print_user_input(prompt: str, message: str):
         print(f'\n[User input: "{message}"]')
 
 
+def format_timestamp(date: any):
+    if get_config('diagnostics', 'print_user_input'):
+        return '[Timestamp]'
+    else:
+        return date.strftime("%d-%b-%Y %H:%M:%S")
+
+
 def ask(prompt: str, default: any = None, required: bool = True) -> str:
     if default is not None and type(default) is str and get_config('diagnostics', 'print_user_input'):
         if datetime.now().strftime('%Y/%m/%d') in default:
@@ -135,11 +142,12 @@ def heading(message: str):
         print()
 
 
-def prompt_peal_id(peal_id: str = None) -> int:
+def prompt_peal_id(peal_id: str = None, required: bool = True) -> int:
 
     while True:
-        if peal_id is None:
-            peal_id = ask('Bellboard URL or peal ID')
+        peal_id = ask('Bellboard URL or peal ID', required=required)
+        if not required and peal_id is None:
+            return None
 
         if peal_id.isnumeric():
             return int(peal_id)
