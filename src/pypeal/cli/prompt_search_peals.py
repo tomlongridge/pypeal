@@ -6,8 +6,9 @@ from rich import print
 
 from pypeal.bellboard.interface import BellboardError
 from pypeal.bellboard.search import BellboardSearchNoResultFoundError, search as bellboard_search
+from pypeal.cli.prompt_add_tower import prompt_find_tower
 from pypeal.cli.prompt_import_peal import prompt_import_peal
-from pypeal.cli.prompts import UserCancelled, ask_date, ask_int, ask, confirm, error, format_timestamp
+from pypeal.cli.prompts import UserCancelled, ask_date, ask, confirm, error, format_timestamp
 from pypeal.cli.chooser import choose_option
 from pypeal.entities.peal import Peal, BellType
 from pypeal.entities.peal_search import PealSearch
@@ -20,12 +21,16 @@ def prompt_search():
     while True:
         searches = PealSearch.get_all()
         try:
-            match choose_option(['Run saved search',
-                                 'New search',
-                                 'Edit search',
-                                 'Delete search',
-                                 'Poll for new peals'],
-                                none_option='Back') if len(searches) > 0 else 2:
+            selected_option = choose_option(['Run saved search',
+                                             'New search',
+                                             'Edit search',
+                                             'Delete search',
+                                             'Poll for new peals'],
+                                            none_option='Back') if len(searches) > 0 else 2
+        except UserCancelled:
+            return
+        try:
+            match selected_option:
                 case 1:
                     _search(choose_option(searches, none_option='New search'))
                 case 2:
@@ -81,9 +86,8 @@ def _search(peal_search: PealSearch = None, prompt: bool = False):
                     peal_search.association = ask('Association',
                                                   default=peal_search.association,
                                                   required=False)
-                    peal_search.tower_id = ask_int('Dove Tower ID',
-                                                   default=peal_search.tower_id,
-                                                   required=False)
+                    if tower := prompt_find_tower():
+                        peal_search.tower_id = tower.id
                     peal_search.place = ask('Place',
                                             default=peal_search.place,
                                             required=False) if not peal_search.tower_id else None

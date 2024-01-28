@@ -34,9 +34,17 @@ Date to (yyyy/mm/dd):
 Association: 
 >>> my association
 [User input: "my association"]
-Dove Tower ID: 
+Tower: 1) Dove ID, 2) Search by name, 3) None
+Select option: 
+>>> 1
+[User input: "1"]
+Dove ID: 
 >>> 12074
 [User input: "12074"]
+Longney, Gloucestershire, S Lawrence. 8, 10-3-17 in F.
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 Title: 
 >>> some doubles
 [User input: "some doubles"]

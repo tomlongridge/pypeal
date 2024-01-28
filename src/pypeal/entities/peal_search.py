@@ -108,3 +108,11 @@ class PealSearch():
     def get_all(cls) -> list[PealSearch]:
         results = Database.get_connection().query(f'SELECT {",".join(FIELD_LIST)}, id FROM pealsearches').fetchall()
         return Cache.get_cache().add_all(cls.__name__, {result[-1]: PealSearch(*result) for result in results})
+
+    @classmethod
+    def clear_data(cls):
+        Database.get_connection().query('SET FOREIGN_KEY_CHECKS=0;')
+        Database.get_connection().query('TRUNCATE TABLE pealsearches')
+        Database.get_connection().commit()
+        Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')
+        Cache.get_cache().clear(cls.__name__)

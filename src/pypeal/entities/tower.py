@@ -83,7 +83,7 @@ class Tower():
 
     def __str__(self):
         text = self.name
-        text += '.'
+        text += '. '
         text += f'{self.bells}, ' if self.bells else ''
         text += f'{self.tenor_weight_in_cwt} ' if self.tenor_weight else ''
         text += f'in {self.tenor_note}' if self.tenor_note else ''
@@ -172,7 +172,7 @@ class Tower():
             query += 'AND country_code = %(country_code)s '
             params['country_code'] = country_code
         if num_bells is not None:
-            query += 'AND num_bells = %(num_bells)s '
+            query += 'AND bells = %(num_bells)s '
             params['num_bells'] = num_bells
         query += 'ORDER BY '
         query += '(SELECT COUNT(*) FROM peals LEFT JOIN rings ON rings.id = peals.ring_id ' + \

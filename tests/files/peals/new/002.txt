@@ -1,7 +1,8 @@
 
 ===
+Polling for new peals...
 pypeal Database
- Quarter Peal count: 1                                                          
+ Quarter Peal count: 1                                Last updated: [Timestamp] 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
 │ 2) View statistics                                                           │
@@ -14,8 +15,8 @@ pypeal Database
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
->>> 6
-[User input: "6"]
+>>> 4
+[User input: "4"]
 Try for a quick-add? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -213,7 +214,7 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 Peal (ID 2) added
 pypeal Database
- Quarter Peal count: 2                                                          
+ Quarter Peal count: 2                                Last updated: [Timestamp] 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
 │ 2) View statistics                                                           │

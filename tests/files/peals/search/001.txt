@@ -1,7 +1,6 @@
 --reset-database
 ===
 Polling for new peals...
-Polling for new peals...
 pypeal Database
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
@@ -35,9 +34,24 @@ Date to (yyyy/mm/dd):
 Association: 
 >>> association name
 [User input: "association name"]
-Dove Tower ID: 
+Tower: 1) Dove ID, 2) Search by name, 3) None
+Select option: 
+>>> 1
+[User input: "1"]
+Dove ID: 
 >>> 1234
 [User input: "1234"]
+Dove ID not found. Try again?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Dove ID: 
+>>> 12074
+[User input: "12074"]
+Longney, Gloucestershire, S Lawrence. 8, 10-3-17 in F.
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 Title: 
 >>> method name
 [User input: "method name"]
@@ -427,9 +441,29 @@ Date to (yyyy/mm/dd) (2019/01/02):
 Association (association name): 
 >>> 
 [User input: "association name"]
-Dove Tower ID (1234): 
+Tower: 1) Dove ID, 2) Search by name, 3) None
+Select option: 
+>>> 2
+[User input: "2"]
+Place: 
+>>> Blythburgh
+[User input: "Blythburgh"]
+Dedication: 
 >>> 
-[User input: "1234"]
+[User input: "None"]
+County: 
+>>> 
+[User input: "None"]
+Country: 
+>>> 
+[User input: "None"]
+Number of bells: 
+>>> 6
+[User input: "6"]
+Blythburgh, Suffolk, Holy Trinity. 6, 10-1-10 in G.
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
 Title (method name): 
 >>> 
 [User input: "method name"]

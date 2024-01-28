@@ -19,8 +19,9 @@ from pypeal.db import initialize as initialize_db
 from pypeal.dove import update_associations, update_bells, update_rings, update_towers
 from pypeal.entities.method import Method
 from pypeal.entities.peal import Peal
+from pypeal.entities.peal_search import PealSearch
 from pypeal.entities.ringer import Ringer
-from pypeal.config import get_config, set_config_file
+from pypeal.config import set_config_file
 from pypeal.stats.report import generate_summary as generate_peal_summary
 from pypeal.entities.tower import Ring, Tower
 
@@ -78,7 +79,6 @@ def main(
 
 
 def run_poll():
-    print('Polling for new peals...')
     poll()
 
 
@@ -172,6 +172,7 @@ def initialize_or_exit(reset_db: bool, clear_data: bool):
         error('Unable to connect to pypeal database')
         raise typer.Exit()
     if clear_data or reset_db:
+        PealSearch.clear_data()
         Peal.clear_data()
         Ringer.clear_data()
         Ring.clear_data()
