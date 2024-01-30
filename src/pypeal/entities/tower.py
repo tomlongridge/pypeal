@@ -214,6 +214,14 @@ class Ring():
         self.date_removed = date_removed
         self.id = id
 
+    def __str__(self) -> str:
+        value = self.description or 'Unnamed ring'
+        if self.date_removed:
+            value += f' (removed {utils.format_date_short(self.date_removed)})'
+        else:
+            value += ' (current ring)'
+        return value
+
     @property
     def bells(self) -> dict[int, Bell]:
         if self.__bells is None:

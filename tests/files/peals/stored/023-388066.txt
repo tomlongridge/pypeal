@@ -203,6 +203,15 @@ pypeal Database
 Select option (1): 
 >>> 2
 [User input: "2"]
+1) Run report, 2) New report, 3) Edit report, 4) Delete report
+Select option (x = Back): 
+>>> 1
+[User input: "1"]
+1) first saved report
+Select option (x = New report): 
+>>> 1
+[User input: "first saved report"]
+23 matching peals in "first saved report".
 Summary
  ────────────────────────────────────────────────────────────────────────────── 
                                                   Count                         
@@ -616,6 +625,10 @@ Select option (x = Back):
 >>> x
 [User input: "None"]
 Show report for: 1) General Ringing, 2) Quarter Peal, 3) Peal
+Select option (x = Back): 
+>>> x
+[User input: "None"]
+1) Run report, 2) New report, 3) Edit report, 4) Delete report
 Select option (x = Back): 
 >>> x
 [User input: "None"]

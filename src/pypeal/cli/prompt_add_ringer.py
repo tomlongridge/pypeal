@@ -121,22 +121,8 @@ def prompt_add_ringer_by_search(name: str, label: str, allow_none: bool, quick_m
                 else:
                     quick_mode = False
             case 2:
-                search_last_name = ask('Last name', default=last_name, required=True)
-                search_given_names = ask('Given name(s)', default=given_names, required=False)
-                potential_ringers = Ringer.get_by_name(search_last_name, search_given_names)
-                match len(potential_ringers):
-                    case 0:
-                        print('No existing ringers match "' +
-                              ((search_given_names if search_given_names else "") + " " + search_last_name).strip() +
-                              '"')
-                    case 1:
-                        if confirm(f'{label}"{name}" -> {potential_ringers[0]}', default=True):
-                            return potential_ringers[0]
-                    case _:
-                        print(f'{len(potential_ringers)} existing ringers match "' +
-                              ((search_given_names if search_given_names else "") + " " + search_last_name).strip() +
-                              '"')
-                        return choose_option(potential_ringers, none_option='None')
+                if existing_ringer := prompt_find_ringer(last_name, given_names):
+                    return existing_ringer
             case 3:
                 return None
 
@@ -183,6 +169,24 @@ def prompt_add_ringer_by_name_match(name: str, label: str, quick_mode: bool) -> 
                                          none_option='None')
 
     return None
+
+
+def prompt_find_ringer(default_last_name: str = None, default_given_names: str = None) -> Ringer:
+    ringer = None
+    while True:
+        ringers = Ringer.get_by_name(ask('Last name', default=default_last_name, required=False),
+                                     ask('Given name(s)', default=default_given_names, required=False))
+        match len(ringers):
+            case 0:
+                pass
+            case 1:
+                if confirm(f'Matched "{ringers[0]}"', default=True):
+                    ringer = ringers[0]
+            case _:
+                ringer = choose_option(ringers, title='Choose ringer', none_option='None')
+        if ringer is not None or not confirm('Ringer not found.', confirm_message='Try again?', default=True):
+            break
+    return ringer
 
 
 def prompt_add_new_ringer(default_last_name: str, default_given_names: str, default_title: str) -> Ringer:

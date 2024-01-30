@@ -2,10 +2,13 @@ from datetime import datetime
 from rich.console import Console
 from rich.table import Table
 
-from pypeal import config, utils
+from pypeal import utils
 from pypeal.cli.chooser import choose_option
-from pypeal.cli.prompts import confirm, heading
+from pypeal.cli.prompt_add_ringer import prompt_find_ringer
+from pypeal.cli.prompt_add_tower import prompt_find_tower
+from pypeal.cli.prompts import UserCancelled, ask, ask_date, confirm, heading
 from pypeal.entities.peal import Peal
+from pypeal.entities.report import Report
 from pypeal.entities.ringer import Ringer
 from pypeal.stats.report import generate_summary
 from rich import box
@@ -13,58 +16,108 @@ from rich import box
 from pypeal.entities.tower import Ring, Tower
 
 
-def prompt_report_stats():
-    date_from = config.get_config('report', 'date_from')
-    date_to = config.get_config('report', 'date_to')
-    ring_id = config.get_config('report', 'ring_id')
-    tower_id = config.get_config('report', 'tower_id')
-    ringer_id = config.get_config('report', 'ringer_id')
-    peals = Peal.search(date_from=date_from,
-                        date_to=date_to,
-                        ring_id=ring_id,
-                        tower_id=tower_id,
-                        ringer_id=ringer_id)
-    report = generate_summary(peals, ring_id, tower_id, ringer_id)
-    if ringer_id:
-        conducted_report = generate_summary(peals, ring_id, tower_id, ringer_id, conducted_only=True)
-    else:
-        conducted_report = None
+def prompt_report():
+    while True:
+        reports = Report.get_all()
+        try:
+            selected_option = choose_option(['Run report',
+                                             'New report',
+                                             'Edit report',
+                                             'Delete report'],
+                                            none_option='Back') if len(reports) > 0 else 2
+        except UserCancelled:
+            return
+        try:
+            match selected_option:
+                case 1:
+                    _report(choose_option(reports, none_option='New report'))
+                case 2:
+                    _report()
+                case 3:
+                    _report(choose_option(reports, none_option='Back'), prompt=True)
+                case 4:
+                    _delete_report(choose_option(reports, none_option='Back'))
+                    if len(reports) == 0:
+                        break
+                case _:
+                    break
+        except UserCancelled:
+            if len(reports) == 0:  # There are no other options, exit the menu
+                break
+            else:
+                continue
 
-    if len(report['types']) == 0:
-        print('No peals in database.')
-        return
 
-    console = Console()
+def _report(report: Report = None, prompt: bool = False):
 
-    summary_text = _generate_summary_heading(report, date_from, date_to, ring_id, tower_id, ringer_id)
-    heading(f'Summary ({summary_text.strip()})' if summary_text else 'Summary')
-
-    summary_data = {}
-    conducted_summary_data = {} if conducted_report else None
-    for type in report['types']:
-        summary_data[type] = report['types'][type]['count']
-        if conducted_report and type in conducted_report['types']:
-            conducted_summary_data[f'{type}s'] = conducted_report['types'][type]['count']
-    console.print(_generate_dict_table([summary_data, conducted_summary_data],
-                                       value_name=['Rung' if conducted_report else 'Count',
-                                                   'Conducted' if conducted_report else None]))
+    if report is None:
+        heading('New report')
+        report = Report()
 
     while True:
 
-        if len(report['types']) > 1:
-            length_type = choose_option(list(report['types'].keys()), title='Show report for', none_option='Back')
+        if report.id is None or prompt:
+            _create_report(report)
+
+        peals = Peal.search(date_from=report.date_from,
+                            date_to=report.date_to,
+                            ring_id=report.ring.id if report.ring else None,
+                            tower_id=report.tower.id if report.tower else None,
+                            ringer_id=report.ringer.id if report.ringer else None)
+
+        if len(peals) == 0:
+            if confirm('No peals match the report parameters.', confirm_message='Amend search?'):
+                prompt = True
+                continue
+            else:
+                return
+        else:
+            if report.id is None or prompt:
+                print(f'{len(peals)} matching peals found.')
+                if confirm(None, confirm_message='Save report?'):
+                    report.description = ask('Description', default=report.description, required=True)
+                    report.commit()
+            else:
+                print(f'{len(peals)} matching peals in "{report.description}".')
+            break
+
+    data = generate_summary(peals, report.ring, report.tower, report.ringer)
+    if report.ringer:
+        conducted_data = generate_summary(peals, report.ring, report.tower, report.ringer, conducted_only=True)
+    else:
+        conducted_data = None
+
+    console = Console()
+
+    summary_text = _generate_summary_heading(data, report.date_from, report.date_to, report.ring, report.tower, report.ringer)
+    heading(f'Summary ({summary_text.strip()})' if summary_text else 'Summary')
+
+    summary_data = {}
+    conducted_summary_data = {} if conducted_data else None
+    for type in data['types']:
+        summary_data[type] = data['types'][type]['count']
+        if conducted_data and type in conducted_data['types']:
+            conducted_summary_data[f'{type}s'] = conducted_data['types'][type]['count']
+    console.print(_generate_dict_table([summary_data, conducted_summary_data],
+                                       value_name=['Rung' if conducted_data else 'Count',
+                                                   'Conducted' if conducted_data else None]))
+
+    while True:
+
+        if len(data['types']) > 1:
+            length_type = choose_option(list(data['types'].keys()), title='Show report for', none_option='Back')
             if length_type is None:
                 return
         else:
-            length_type = list(report['types'].keys())[0]
+            length_type = list(data['types'].keys())[0]
 
         heading(f'{length_type} statistics')
-        length_type_report = report['types'][length_type]
-        if conducted_report and length_type in conducted_report['types']:
-            length_type_conducted_report = conducted_report['types'][length_type]
+        length_type_data = data['types'][length_type]
+        if conducted_data and length_type in conducted_data['types']:
+            length_type_conducted_data = conducted_data['types'][length_type]
         else:
-            length_type_conducted_report = None
-        console.print(_generate_peal_length_table(length_type_report, length_type_conducted_report))
+            length_type_conducted_data = None
+        console.print(_generate_peal_length_table(length_type_data, length_type_conducted_data))
 
         while True:
             match choose_option(['All methods',
@@ -73,41 +126,40 @@ def prompt_report_stats():
                                  'All associations'],
                                 none_option='Back'):
                 case 1:
-                    console.print(_generate_dict_table(length_type_report['all_methods'], key_name='Methods'))
+                    console.print(_generate_dict_table(length_type_data['all_methods'], key_name='Methods'))
                 case 2:
-                    console.print(_generate_dict_table(length_type_report['ringers'], key_name='Ringers'))
+                    console.print(_generate_dict_table(length_type_data['ringers'], key_name='Ringers'))
                 case 3:
-                    console.print(_generate_dict_table(length_type_report['conductors'], key_name='Conductors'))
+                    console.print(_generate_dict_table(length_type_data['conductors'], key_name='Conductors'))
                 case 4:
-                    console.print(_generate_dict_table(length_type_report['associations'], key_name='Associations'))
+                    console.print(_generate_dict_table(length_type_data['associations'], key_name='Associations'))
                 case None:
                     break
             confirm(None, confirm_message='Press enter to continue')
 
-        if len(report['types']) == 1:
+        if len(data['types']) == 1:
             break
 
 
-def _generate_summary_heading(report: dict,
+def _generate_summary_heading(data: dict,
                               date_from: datetime.date,
                               date_to: datetime.date,
-                              ring_id: int,
-                              tower_id: int,
-                              ringer_id: int) -> str:
+                              ring: Ring,
+                              tower: Tower,
+                              ringer: Ringer) -> str:
     summary_text = ''
-    if ringer_id:
-        summary_text += f' for {Ringer.get(ringer_id).name}'
-    if ring_id:
-        ring = Ring.get(ring_id)
+    if ringer:
+        summary_text += f' for {ringer}'
+    if ring:
         summary_text += f' at {ring.tower.name}'
         if ring.description:
             summary_text += f' ({ring.description})'
-    elif tower_id:
-        summary_text += f' at {Tower.get(tower_id).name}'
+    elif tower:
+        summary_text += f' at {tower.name}'
     if date_from:
-        summary_text += f' from {utils.format_date_short(max(date_from, report["first"]))}'
+        summary_text += f' from {utils.format_date_short(date_from)}'
     if date_to:
-        summary_text += f' to {utils.format_date_short(min(date_to, report["last"]))}'
+        summary_text += f' to {utils.format_date_short(date_to)}'
     return summary_text
 
 
@@ -179,3 +231,37 @@ def _generate_dict_table(data: dict | list[dict], key_name: str = '', value_name
             else:
                 table.add_row(str(key) if key else '', str(value) if value else '')
     return table
+
+
+def _create_report(report: Report):
+
+    if (report.ringer and confirm(f'Ringer: "{report.ringer}"', confirm_message='Replace?', default=False)) \
+            or (report.ringer is None and confirm(None, confirm_message='Is the report for a specific ringer?')):
+        report.ringer = prompt_find_ringer()
+
+    if ((report.tower or report.ring) and
+            confirm(f'Tower: {report.tower or report.ring.tower}', confirm_message='Replace?', default=False)) \
+        or ((report.tower is None and report.ring is None) and
+            confirm(None, confirm_message='Is the report for a specific tower?')):
+        if tower := prompt_find_tower():
+            if len(tower.rings) > 1 and confirm(None, confirm_message='Is the report for a specific ring?'):
+                report.ring = choose_option(tower.rings, title='Ring', none_option='None')
+                report.tower = None
+            else:
+                report.tower = tower
+                report.ring = None
+
+    if ((report.date_from or report.date_to) and
+            confirm(f'Dates: {utils.format_date_short(report.date_from) if report.date_from else ""} - ' +
+                    f'{utils.format_date_short(report.date_to) if report.date_to else ""}',
+                    confirm_message='Replace date range?',
+                    default=False)) \
+        or ((report.date_from is None and report.date_to is None) and
+            confirm(None, confirm_message='Is the report for a specific date range?')):
+        report.date_from = ask_date('From', default=report.date_from, required=False)
+        report.date_to = ask_date('To', default=report.date_to, min=report.date_from if report.date_from else None, required=False)
+
+
+def _delete_report(report: Report):
+    if confirm(f'Delete report "{report}"?', default=False):
+        report.delete()

@@ -11,7 +11,7 @@ from pypeal.cccbr import update_methods
 from pypeal.cli.prompt_delete_peal import prompt_delete_peal
 from pypeal.cli.prompt_import_peal import add_peal, prompt_import_peal
 from pypeal.cli.manual_generator import ManualGenerator
-from pypeal.cli.prompt_report_stats import prompt_report_stats
+from pypeal.cli.prompt_report_stats import prompt_report
 from pypeal.cli.prompts import UserCancelled, ask_int, confirm, format_timestamp, heading, panel, error, prompt_peal_id
 from pypeal.cli.chooser import choose_option
 from pypeal.cli.prompt_search_peals import poll, prompt_search
@@ -20,6 +20,7 @@ from pypeal.dove import update_associations, update_bells, update_rings, update_
 from pypeal.entities.method import Method
 from pypeal.entities.peal import Peal
 from pypeal.entities.peal_search import PealSearch
+from pypeal.entities.report import Report
 from pypeal.entities.ringer import Ringer
 from pypeal.config import set_config_file
 from pypeal.stats.report import generate_summary as generate_peal_summary
@@ -129,7 +130,7 @@ def run_interactive(peal_id_or_url: str):
                 case 1:
                     prompt_search()
                 case 2:
-                    prompt_report_stats()
+                    prompt_report()
                 case 3:
                     run_import_peal(peal_id_or_url)
                 case 4:
@@ -172,6 +173,7 @@ def initialize_or_exit(reset_db: bool, clear_data: bool):
         error('Unable to connect to pypeal database')
         raise typer.Exit()
     if clear_data or reset_db:
+        Report.clear_data()
         PealSearch.clear_data()
         Peal.clear_data()
         Ringer.clear_data()

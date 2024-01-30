@@ -1,11 +1,13 @@
 from pypeal.entities.method import Stage
 from pypeal.entities.peal import Peal, PealType
+from pypeal.entities.ringer import Ringer
+from pypeal.entities.tower import Ring, Tower
 
 
 def generate_summary(peals: list[Peal],
-                     ring_id: int = None,
-                     tower_id: int = None,
-                     ringer_id: int = None,
+                     ring: Ring = None,
+                     tower: Tower = None,
+                     ringer: Ringer = None,
                      conducted_only: bool = False) -> dict:
 
     report = {}
@@ -16,10 +18,10 @@ def generate_summary(peals: list[Peal],
     report['last_added'] = None
     for peal in peals:
 
-        if ringer_id and conducted_only:
+        if ringer and conducted_only:
             ringer_is_conductor = False
             for peal_ringer in peal.ringers:
-                if peal_ringer.ringer.id == ringer_id:
+                if peal_ringer.ringer.id == ringer.id:
                     ringer_is_conductor = peal_ringer.is_conductor
                     break
             if not ringer_is_conductor:
@@ -105,22 +107,22 @@ def generate_summary(peals: list[Peal],
             report['types'][peal.length_type]['muffles'][peal.muffles] += 1
 
         for peal_ringer in peal.ringers:
-            if ringer_id is None or peal_ringer.ringer.id != ringer_id:
+            if ringer is None or peal_ringer.ringer.id != ringer.id:
                 if peal_ringer.ringer not in report['types'][peal.length_type]['ringers']:
                     report['types'][peal.length_type]['ringers'][peal_ringer.ringer] = 0
                 report['types'][peal.length_type]['ringers'][peal_ringer.ringer] += 1
             if peal_ringer.is_conductor:
-                if ringer_id is None or peal_ringer.ringer.id != ringer_id:
+                if ringer is None or peal_ringer.ringer.id != ringer.id:
                     if peal_ringer.ringer.name not in report['types'][peal.length_type]['conductors']:
                         report['types'][peal.length_type]['conductors'][peal_ringer.ringer.name] = 0
                     report['types'][peal.length_type]['conductors'][peal_ringer.ringer.name] += 1
 
-        if ring_id is None and peal.ring:
+        if ring is None and peal.ring:
             if peal.ring not in report['types'][peal.length_type]['rings']:
                 report['types'][peal.length_type]['rings'][peal.ring] = 0
             report['types'][peal.length_type]['rings'][peal.ring] += 1
 
-        if tower_id is None and peal.ring:
+        if tower is None and peal.ring:
             if peal.ring.tower not in report['types'][peal.length_type]['towers']:
                 report['types'][peal.length_type]['towers'][peal.ring.tower] = 0
             report['types'][peal.length_type]['towers'][peal.ring.tower] += 1

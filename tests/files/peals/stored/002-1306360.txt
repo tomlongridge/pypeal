@@ -226,6 +226,15 @@ pypeal Database
 Select option (1): 
 >>> 2
 [User input: "2"]
+1) Run report, 2) New report, 3) Edit report, 4) Delete report
+Select option (x = Back): 
+>>> 1
+[User input: "1"]
+1) first saved report
+Select option (x = New report): 
+>>> 1
+[User input: "first saved report"]
+2 matching peals in "first saved report".
 Summary
  ────────────────────────────────────────────────────────────────────────────── 
                                                   Count                         
@@ -329,6 +338,10 @@ Press enter to continue [y/n] (y):
 >>> 
 [User input: "True"]
 1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+Select option (x = Back): 
+>>> x
+[User input: "None"]
+1) Run report, 2) New report, 3) Edit report, 4) Delete report
 Select option (x = Back): 
 >>> x
 [User input: "None"]
