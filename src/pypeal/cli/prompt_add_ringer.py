@@ -174,8 +174,12 @@ def prompt_add_ringer_by_name_match(name: str, label: str, quick_mode: bool) -> 
 def prompt_find_ringer(default_last_name: str = None, default_given_names: str = None) -> Ringer:
     ringer = None
     while True:
-        ringers = Ringer.get_by_name(ask('Last name', default=default_last_name, required=False),
-                                     ask('Given name(s)', default=default_given_names, required=False))
+        try:
+            ringers = Ringer.get_by_name(ask('Last name', default=default_last_name, required=False),
+                                         ask('Given name(s)', default=default_given_names, required=False))
+        except ValueError as e:
+            error(str(e))
+            continue
         match len(ringers):
             case 0:
                 pass

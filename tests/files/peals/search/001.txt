@@ -4,12 +4,13 @@ Polling for new peals...
 pypeal Database
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
-│ 2) View statistics                                                           │
-│ 3) Add peal by ID/URL                                                        │
-│ 4) Add peal manually                                                         │
-│ 5) View peal                                                                 │
-│ 6) Delete peal                                                               │
-│ 7) Update static data                                                        │
+│ 2) Add peal by ID/URL                                                        │
+│ 3) Add peal manually                                                         │
+│ 4) View statistics                                                           │
+│ 5) Generate reports                                                          │
+│ 6) View peal                                                                 │
+│ 7) Delete peal                                                               │
+│ 8) Update static data                                                        │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
@@ -601,6 +602,9 @@ Description (new search 1):
 Include in poll? [y/n] (n): 
 >>> y
 [User input: "True"]
+Poll frequency (days): 
+>>> 10
+[User input: "10"]
 1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
 Select option (x = Back): 
 >>> 5
@@ -875,6 +879,9 @@ Description:
 Include in poll? [y/n] (n): 
 >>> y
 [User input: "True"]
+Poll frequency (days): 
+>>> 2
+[User input: "2"]
 1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
 Select option (x = Back): 
 >>> x
@@ -883,12 +890,13 @@ pypeal Database
  Quarter Peal count: 5                                Last updated: [Timestamp] 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
-│ 2) View statistics                                                           │
-│ 3) Add peal by ID/URL                                                        │
-│ 4) Add peal manually                                                         │
-│ 5) View peal                                                                 │
-│ 6) Delete peal                                                               │
-│ 7) Update static data                                                        │
+│ 2) Add peal by ID/URL                                                        │
+│ 3) Add peal manually                                                         │
+│ 4) View statistics                                                           │
+│ 5) Generate reports                                                          │
+│ 6) View peal                                                                 │
+│ 7) Delete peal                                                               │
+│ 8) Update static data                                                        │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘

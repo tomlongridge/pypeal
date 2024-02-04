@@ -7,7 +7,8 @@ from pypeal.db import Database
 from pypeal.entities.peal import BellType
 
 FIELD_LIST: list[str] = ['description', 'ringer_name', 'date_from', 'date_to', 'association', 'tower_id', 'place', 'region', 'address',
-                         'title', 'bell_type', 'order_by_submission_date', 'order_descending', 'poll', 'created_date', 'last_run_date']
+                         'title', 'bell_type', 'order_by_submission_date', 'order_descending', 'poll_frequency', 'created_date',
+                         'last_run_date']
 
 
 @dataclass
@@ -26,7 +27,7 @@ class PealSearch():
     bell_type: BellType
     order_by_submission_date: bool
     order_descending: bool
-    poll: bool
+    poll_frequency: int
     created_date: datetime
     last_run_date: datetime
     id: int
@@ -45,7 +46,7 @@ class PealSearch():
                  bell_type: BellType = None,
                  order_by_submission_date: bool = False,
                  order_descending: bool = False,
-                 poll: bool = False,
+                 poll_frequency: int = None,
                  created_date: datetime = None,
                  last_run_date: datetime = None,
                  id: int = None):
@@ -62,7 +63,7 @@ class PealSearch():
         self.bell_type = BellType(bell_type) if bell_type else None
         self.order_by_submission_date = order_by_submission_date
         self.order_descending = order_descending
-        self.poll = poll
+        self.poll_frequency = poll_frequency
         self.created_date = created_date
         self.last_run_date = last_run_date
         self.id = id
@@ -85,7 +86,8 @@ class PealSearch():
                 f'UPDATE pealsearches SET {",".join([f"{field} = %s" for field in FIELD_LIST])} WHERE id = %s',
                 params=(self.description, self.ringer_name, self.date_from, self.date_to, self.association, self.tower_id, self.place,
                         self.region, self.address, self.title, self.bell_type.value if self.bell_type else None,
-                        self.order_by_submission_date, self.order_descending, self.poll, self.created_date, self.last_run_date, self.id))
+                        self.order_by_submission_date, self.order_descending, self.poll_frequency, self.created_date, self.last_run_date,
+                        self.id))
             Database.get_connection().commit()
         else:
             self.created_date = self.last_run_date = datetime.now()
@@ -94,7 +96,7 @@ class PealSearch():
                 f'VALUES ({("%s,"*len(FIELD_LIST)).strip(",")})',
                 (self.description, self.ringer_name, self.date_from, self.date_to, self.association, self.tower_id, self.place, self.region,
                  self.address, self.title, self.bell_type.value if self.bell_type else None, self.order_by_submission_date,
-                 self.order_descending, self.poll, self.created_date, self.last_run_date))
+                 self.order_descending, self.poll_frequency, self.created_date, self.last_run_date))
             Database.get_connection().commit()
             self.id = result.lastrowid
             Cache.get_cache().add(self.__class__.__name__, self.id, self)

@@ -3,16 +3,17 @@ from dataclasses import dataclass
 from datetime import datetime
 from pypeal.cache import Cache
 from pypeal.db import Database
+from pypeal.entities.peal import Peal
 from pypeal.entities.ringer import Ringer
 from pypeal.entities.tower import Ring, Tower
 
-FIELD_LIST: list[str] = ['description', 'ringer_id', 'tower_id', 'ring_id', 'date_from', 'date_to', 'created_date']
+FIELD_LIST: list[str] = ['name', 'ringer_id', 'tower_id', 'ring_id', 'date_from', 'date_to', 'created_date']
 
 
 @dataclass
 class Report():
 
-    description: str
+    name: str
     ringer: Ringer
     tower: Tower
     ring: Ring
@@ -22,7 +23,7 @@ class Report():
     id: int
 
     def __init__(self,
-                 description: str = None,
+                 name: str = None,
                  ringer_id: int = None,
                  tower_id: int = None,
                  ring_id: int = None,
@@ -30,7 +31,7 @@ class Report():
                  date_to: datetime.date = None,
                  created_date: datetime = None,
                  id: int = None):
-        self.description = description
+        self.name = name
         self.ringer = Ringer.get(ringer_id) if ringer_id else None
         self.tower = Tower.get(tower_id) if tower_id else None
         self.ring = Ring.get(ring_id) if ring_id else None
@@ -40,14 +41,14 @@ class Report():
         self.id = id
 
     def __str__(self) -> str:
-        return self.description or 'Unnamed report'
+        return self.name or 'Unnamed report'
 
     def commit(self):
 
         if self.id:
             Database.get_connection().query(
                 f'UPDATE reports SET {",".join([f"{field} = %s" for field in FIELD_LIST])} WHERE id = %s',
-                params=(self.description, self.ringer.id if self.ringer else None, self.tower.id if self.tower else None,
+                params=(self.name, self.ringer.id if self.ringer else None, self.tower.id if self.tower else None,
                         self.ring.id if self.ring else None, self.date_from, self.date_to, self.created_date, self.id))
             Database.get_connection().commit()
         else:
@@ -55,11 +56,18 @@ class Report():
             result = Database.get_connection().query(
                 f'INSERT INTO reports ({",".join(FIELD_LIST)}) ' +
                 f'VALUES ({("%s,"*len(FIELD_LIST)).strip(",")})',
-                (self.description, self.ringer.id if self.ringer else None, self.tower.id if self.tower else None,
+                (self.name, self.ringer.id if self.ringer else None, self.tower.id if self.tower else None,
                  self.ring.id if self.ring else None, self.date_from, self.date_to, self.created_date))
             Database.get_connection().commit()
             self.id = result.lastrowid
             Cache.get_cache().add(self.__class__.__name__, self.id, self)
+
+    def get_peals(self) -> list[Peal]:
+        return Peal.search(date_from=self.date_from,
+                           date_to=self.date_to,
+                           ring_id=self.ring.id if self.ring else None,
+                           tower_id=self.tower.id if self.tower else None,
+                           ringer_id=self.ringer.id if self.ringer else None)
 
     def delete(self):
         Database.get_connection().query('DELETE FROM reports WHERE id = %s', (self.id,))

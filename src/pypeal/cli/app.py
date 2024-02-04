@@ -23,6 +23,7 @@ from pypeal.entities.peal_search import PealSearch
 from pypeal.entities.report import Report
 from pypeal.entities.ringer import Ringer
 from pypeal.config import set_config_file
+from pypeal.stats.pdf import generate_reports
 from pypeal.stats.report import generate_summary as generate_peal_summary
 from pypeal.entities.tower import Ring, Tower
 
@@ -62,10 +63,9 @@ def main(
 
     initialize_or_exit(reset_database, clear_data)
 
-    run_poll()
-
     match action:
         case None:
+            run_poll()
             run_interactive(peal_id_or_url)
         case 'import':
             run_import_peal(peal_id_or_url)
@@ -75,6 +75,8 @@ def main(
             run_view(peal_id_or_url)
         case 'delete':
             run_delete(peal_id_or_url)
+        case 'report':
+            run_generate_reports()
         case _:
             error(f'Unknown action: {action}')
 
@@ -104,6 +106,12 @@ def run_add_peal():
     add_peal(ManualGenerator())
 
 
+def run_generate_reports():
+    print('Generating reports...')
+    for report_path in generate_reports():
+        print(f'- {report_path}')
+
+
 def run_interactive(peal_id_or_url: str):
 
     while True:
@@ -114,9 +122,10 @@ def run_interactive(peal_id_or_url: str):
                 selected_option = choose_option(
                     [
                         'BellBoard search',
-                        'View statistics',
                         'Add peal by ID/URL',
                         'Add peal manually',
+                        'View statistics',
+                        'Generate reports',
                         'View peal',
                         'Delete peal',
                         'Update static data'
@@ -130,21 +139,23 @@ def run_interactive(peal_id_or_url: str):
                 case 1:
                     prompt_search()
                 case 2:
-                    prompt_report()
-                case 3:
                     run_import_peal(peal_id_or_url)
-                case 4:
+                case 3:
                     run_add_peal()
+                case 4:
+                    prompt_report()
                 case 5:
-                    run_view(peal_id_or_url)
+                    run_generate_reports()
                 case 6:
-                    run_delete(peal_id_or_url)
+                    run_view(peal_id_or_url)
                 case 7:
+                    run_delete(peal_id_or_url)
+                case 8:
                     update_methods()
                     update_associations()
                     update_towers()
                     update_bells()
-                case 10 | None:
+                case _:
                     raise typer.Exit()
         except UserCancelled:
             continue

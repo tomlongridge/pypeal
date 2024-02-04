@@ -14,6 +14,7 @@ pytest-xprocess = "*"
 pytest-mock = "*"
 fastapi = "*"
 uvicorn = {extras = ["standard"], version = "*"}
+reportlab = "*"
 
 [dev-packages]
 

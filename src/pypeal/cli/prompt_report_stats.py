@@ -7,7 +7,6 @@ from pypeal.cli.chooser import choose_option
 from pypeal.cli.prompt_add_ringer import prompt_find_ringer
 from pypeal.cli.prompt_add_tower import prompt_find_tower
 from pypeal.cli.prompts import UserCancelled, ask, ask_date, confirm, heading
-from pypeal.entities.peal import Peal
 from pypeal.entities.report import Report
 from pypeal.entities.ringer import Ringer
 from pypeal.stats.report import generate_summary
@@ -59,11 +58,7 @@ def _report(report: Report = None, prompt: bool = False):
         if report.id is None or prompt:
             _create_report(report)
 
-        peals = Peal.search(date_from=report.date_from,
-                            date_to=report.date_to,
-                            ring_id=report.ring.id if report.ring else None,
-                            tower_id=report.tower.id if report.tower else None,
-                            ringer_id=report.ringer.id if report.ringer else None)
+        peals = report.get_peals()
 
         if len(peals) == 0:
             if confirm('No peals match the report parameters.', confirm_message='Amend search?'):
@@ -75,10 +70,10 @@ def _report(report: Report = None, prompt: bool = False):
             if report.id is None or prompt:
                 print(f'{len(peals)} matching peals found.')
                 if confirm(None, confirm_message='Save report?'):
-                    report.description = ask('Description', default=report.description, required=True)
+                    report.name = ask('Name', default=report.name, required=True)
                     report.commit()
             else:
-                print(f'{len(peals)} matching peals in "{report.description}".')
+                print(f'{len(peals)} matching peals in "{report.name}".')
             break
 
     data = generate_summary(peals, report.ring, report.tower, report.ringer)
@@ -89,7 +84,7 @@ def _report(report: Report = None, prompt: bool = False):
 
     console = Console()
 
-    summary_text = _generate_summary_heading(data, report.date_from, report.date_to, report.ring, report.tower, report.ringer)
+    summary_text = _generate_summary_heading(report.date_from, report.date_to, report.ring, report.tower, report.ringer)
     heading(f'Summary ({summary_text.strip()})' if summary_text else 'Summary')
 
     summary_data = {}
@@ -99,7 +94,7 @@ def _report(report: Report = None, prompt: bool = False):
         if conducted_data and type in conducted_data['types']:
             conducted_summary_data[f'{type}s'] = conducted_data['types'][type]['count']
     console.print(_generate_dict_table([summary_data, conducted_summary_data],
-                                       value_name=['Rung' if conducted_data else 'Count',
+                                       value_name=['Rung' if conducted_data else '',
                                                    'Conducted' if conducted_data else None]))
 
     while True:
@@ -141,8 +136,7 @@ def _report(report: Report = None, prompt: bool = False):
             break
 
 
-def _generate_summary_heading(data: dict,
-                              date_from: datetime.date,
+def _generate_summary_heading(date_from: datetime.date,
                               date_to: datetime.date,
                               ring: Ring,
                               tower: Tower,
@@ -168,16 +162,21 @@ def _generate_peal_length_table(data: dict, conducted_data: dict) -> Table:
     table.add_column(None, justify='left', ratio=1)
     table.add_column(None, justify='center', ratio=1)
     table.add_column(None, justify='right', ratio=1)
+    if conducted_data:
+        column_names = ['Rung', 'Conducted']
+    else:
+        column_names = ['']
     table.add_row(
         _generate_dict_table([data['stages'], conducted_data['stages'] if conducted_data else None],
                              key_name='Stage',
-                             value_name=['Rung', 'Conducted']),
+                             value_name=column_names),
         _generate_dict_table([data['all_methods'], conducted_data['all_methods'] if conducted_data else None],
-                             key_name='Methods', value_name=['Rung', 'Conducted'],
+                             key_name='Methods',
+                             value_name=column_names,
                              max_rows=10),
         _generate_dict_table([_generate_misc_data(data), _generate_misc_data(conducted_data) if conducted_data else None],
                              key_name='Misc',
-                             value_name=['Rung', 'Conducted']),
+                             value_name=column_names),
     )
     table.add_row(
         _generate_dict_table(data['ringers'], key_name='Top 10 Ringers', max_rows=10),
@@ -203,7 +202,7 @@ def _generate_misc_data(data: dict) -> dict:
     return misc_data
 
 
-def _generate_dict_table(data: dict | list[dict], key_name: str = '', value_name: str | list[str] = 'Count', max_rows: int = None) -> Table:
+def _generate_dict_table(data: dict | list[dict], key_name: str = '', value_name: str | list[str] = '', max_rows: int = None) -> Table:
 
     if type(data) is dict:
         combined_data = data
@@ -217,19 +216,22 @@ def _generate_dict_table(data: dict | list[dict], key_name: str = '', value_name
 
     table = Table(show_footer=False, box=box.HORIZONTALS, expand=True)
     table.add_column(key_name, justify='left')
+
     if type(value_name) is str:
         table.add_column(value_name or '', justify='left')
     else:
         for name in value_name:
             table.add_column(name or '', justify='left')
+            if len(table.columns) == len(data) + 1:
+                break
     if len(combined_data) == 0:
         table.add_row('None')
     else:
         for key, value in list(combined_data.items())[:max_rows or len(combined_data)]:
             if type(value) is list:
-                table.add_row(str(key) if key else '', *[str(v) if v else '' for v in value])
+                table.add_row(str(key) if key is not None else '', *[str(v) if v else '' for v in value])
             else:
-                table.add_row(str(key) if key else '', str(value) if value else '')
+                table.add_row(str(key) if key is not None else '', str(value) if value else '')
     return table
 
 

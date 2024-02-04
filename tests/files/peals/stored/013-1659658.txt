@@ -7,18 +7,19 @@ pypeal Database
  Peal count: 3                                                                  
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
-│ 2) View statistics                                                           │
-│ 3) Add peal by ID/URL                                                        │
-│ 4) Add peal manually                                                         │
-│ 5) View peal                                                                 │
-│ 6) Delete peal                                                               │
-│ 7) Update static data                                                        │
+│ 2) Add peal by ID/URL                                                        │
+│ 3) Add peal manually                                                         │
+│ 4) View statistics                                                           │
+│ 5) Generate reports                                                          │
+│ 6) View peal                                                                 │
+│ 7) Delete peal                                                               │
+│ 8) Update static data                                                        │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
->>> 3
-[User input: "3"]
+>>> 2
+[User input: "2"]
 Bellboard URL or peal ID: 
 >>> 1659658
 [User input: "1659658"]
@@ -287,33 +288,34 @@ pypeal Database
  Peal count: 3                                                                  
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
-│ 2) View statistics                                                           │
-│ 3) Add peal by ID/URL                                                        │
-│ 4) Add peal manually                                                         │
-│ 5) View peal                                                                 │
-│ 6) Delete peal                                                               │
-│ 7) Update static data                                                        │
+│ 2) Add peal by ID/URL                                                        │
+│ 3) Add peal manually                                                         │
+│ 4) View statistics                                                           │
+│ 5) Generate reports                                                          │
+│ 6) View peal                                                                 │
+│ 7) Delete peal                                                               │
+│ 8) Update static data                                                        │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
->>> 2
-[User input: "2"]
+>>> 4
+[User input: "4"]
 1) Run report, 2) New report, 3) Edit report, 4) Delete report
 Select option (x = Back): 
 >>> 1
 [User input: "1"]
-1) first saved report
+1) first report
 Select option (x = New report): 
 >>> 1
-[User input: "first saved report"]
-13 matching peals in "first saved report".
+[User input: "first report"]
+13 matching peals in "first report".
 Summary
  ────────────────────────────────────────────────────────────────────────────── 
-                                                  Count                         
+                                                                                
  ────────────────────────────────────────────────────────────────────────────── 
-  Quarter Peal                                    10                            
-  Peal                                            3                             
+  Quarter Peal                                           10                     
+  Peal                                                   3                      
  ────────────────────────────────────────────────────────────────────────────── 
 Show report for: 1) Quarter Peal, 2) Peal
 Select option (x = Back): 
@@ -321,53 +323,49 @@ Select option (x = Back):
 [User input: "Quarter Peal"]
 Quarter Peal statistics
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Stage     Rung   Condu…    Methods   Rung   Condu…    Misc    Rung    Condu…  
+  Stage                      Methods                    Misc                    
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Triples   3                Grands…   3                Sing…   7               
-  Doubles   2                Triples                    Meth…                   
-  Major     2                Little    1                Spli…   2               
-  Royal     2                Bob                        Meth…                   
-  Caters    1                Royal                      Mixed   1               
- ─────────────────────────   London    1                Meth…                   
-                             Surpri…                    Tower   10              
-                             Major                      First   05-D…           
-                             Plain     1                rung                    
-                             Bob                        Last    23-S…           
-                             Doubles                    rung                    
-                             Plain     1                Avg.    2               
-                             Bob                        peal    hour…           
-                             Royal                      speed   52              
-                            ─────────────────────────           minu…           
-                                                        Avg.    44              
-                                                        dura…   minu…           
+  Triples            3       Grandsire Triples     3    Single      7           
+  Doubles            2       Little Bob Royal      1    Method                  
+  Major              2       London Surprise       1    Spliced     2           
+  Royal              2       Major                      Methods                 
+  Caters             1       Plain Bob Doubles     1    Mixed       1           
+ ─────────────────────────   Plain Bob Royal       1    Methods                 
+                            ─────────────────────────   Tower       10          
+                                                        First       05-Dec-19…  
+                                                        rung                    
+                                                        Last rung   23-Sep-20…  
+                                                        Avg. peal   2 hours,    
+                                                        speed       52 minutes  
+                                                        Avg.        44 minutes  
+                                                        duration                
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Top 10 Ringers    Count    Top 10                     Top 10                  
- ─────────────────────────   Conductors        Count    Associations     Count  
-  Blake Elliott     5       ─────────────────────────  ──────────────────────── 
-  Chester Edwards   5        Aston Mitchell    1        Bath and Wells   3      
-  Leo Bennett       5        Blake Elliott     1        Diocesan                
-  Clark Elliott     3        Blake Harper      1        Association             
-  Joyce Sullivan    3        Byron Robinson    1        Guild of         1      
-  Aston Mitchell    2        Chester Edwards   1        Devonshire              
-  Byron Robinson    2        Jack Spencer      1        Ringers                 
-  Cadie Nelson      2        Leo Bennett       1       ──────────────────────── 
-  Daniel Miller     2        Lucas Farrell     1                                
-  Daryl Mason       2        Ted Harris        1                                
- ─────────────────────────   Vivian Murray     1                                
-                            ─────────────────────────                           
+  Top 10 Ringers             Top 10 Conductors          Top 10                  
+ ─────────────────────────  ─────────────────────────   Associations            
+  Blake Elliott         5    Aston Mitchell        1   ──────────────────────── 
+  Chester Edwards       5    Blake Elliott         1    Bath and Wells       3  
+  Leo Bennett           5    Blake Harper          1    Diocesan                
+  Clark Elliott         3    Byron Robinson        1    Association             
+  Joyce Sullivan        3    Chester Edwards       1    Guild of             1  
+  Aston Mitchell        2    Jack Spencer          1    Devonshire Ringers      
+  Byron Robinson        2    Leo Bennett           1   ──────────────────────── 
+  Cadie Nelson          2    Lucas Farrell         1                            
+  Daniel Miller         2    Ted Harris            1                            
+  Daryl Mason           2    Vivian Murray         1                            
+ ─────────────────────────  ─────────────────────────                           
 1) All methods, 2) All ringers, 3) All conductors, 4) All associations
 Select option (x = Back): 
 >>> 1
 [User input: "1"]
  ────────────────────────────────────────────────────────────────────────────── 
-  Methods                                                      Count            
+  Methods                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
-  Grandsire Triples                                            3                
-  Little Bob Royal                                             1                
-  London Surprise Major                                        1                
-  Plain Bob Doubles                                            1                
-  Plain Bob Royal                                              1                
+  Grandsire Triples                                                     3       
+  Little Bob Royal                                                      1       
+  London Surprise Major                                                 1       
+  Plain Bob Doubles                                                     1       
+  Plain Bob Royal                                                       1       
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 
@@ -377,64 +375,64 @@ Select option (x = Back):
 >>> 2
 [User input: "2"]
  ────────────────────────────────────────────────────────────────────────────── 
-  Ringers                                                    Count              
+  Ringers                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
-  Blake Elliott                                              5                  
-  Chester Edwards                                            5                  
-  Leo Bennett                                                5                  
-  Clark Elliott                                              3                  
-  Joyce Sullivan                                             3                  
-  Aston Mitchell                                             2                  
-  Byron Robinson                                             2                  
-  Cadie Nelson                                               2                  
-  Daniel Miller                                              2                  
-  Daryl Mason                                                2                  
-  Heather Sullivan                                           2                  
-  Jacob Cole                                                 2                  
-  Melissa Baker                                              2                  
-  Paul Armstrong                                             2                  
-  Ted Harris                                                 2                  
-  Alisa Cole                                                 1                  
-  Arnold Johnson                                             1                  
-  Aston Mitchell                                             1                  
-  Blake Elliott                                              1                  
-  Blake Harper                                               1                  
-  Byron Miller                                               1                  
-  Carina Warren                                              1                  
-  Carl Johnston                                              1                  
-  Charlie Warren                                             1                  
-  Chloe Henderson                                            1                  
-  Dainton Casey                                              1                  
-  David Rogers                                               1                  
-  Dominik Warren                                             1                  
-  Edward Chapman                                             1                  
-  Edward Dixon                                               1                  
-  Ellia Armstrong                                            1                  
-  Eric Ryan                                                  1                  
-  Fenton Bailey                                              1                  
-  Garry Scott                                                1                  
-  Harold Gray                                                1                  
-  Jack Spencer                                               1                  
-  Julia Fowler                                               1                  
-  Lenny Howard                                               1                  
-  Lucas Farrell                                              1                  
-  Lucas Wright                                               1                  
-  Lydia Ferguson                                             1                  
-  Melissa Evans                                              1                  
-  Michael Williams                                           1                  
-  Michelle Thompson                                          1                  
-  Mike Sullivan                                              1                  
-  Ned Andrews                                                1                  
-  Olivia West                                                1                  
-  Patrick Bennett                                            1                  
-  Rev Alen Henderson                                         1                  
-  Richard Higgins                                            1                  
-  Roland Clark                                               1                  
-  Ryan Elliott                                               1                  
-  Savana Davis                                               1                  
-  Sienna Murphy                                              1                  
-  Valeria Perkins                                            1                  
-  Vivian Murray                                              1                  
+  Blake Elliott                                                       5         
+  Chester Edwards                                                     5         
+  Leo Bennett                                                         5         
+  Clark Elliott                                                       3         
+  Joyce Sullivan                                                      3         
+  Aston Mitchell                                                      2         
+  Byron Robinson                                                      2         
+  Cadie Nelson                                                        2         
+  Daniel Miller                                                       2         
+  Daryl Mason                                                         2         
+  Heather Sullivan                                                    2         
+  Jacob Cole                                                          2         
+  Melissa Baker                                                       2         
+  Paul Armstrong                                                      2         
+  Ted Harris                                                          2         
+  Alisa Cole                                                          1         
+  Arnold Johnson                                                      1         
+  Aston Mitchell                                                      1         
+  Blake Elliott                                                       1         
+  Blake Harper                                                        1         
+  Byron Miller                                                        1         
+  Carina Warren                                                       1         
+  Carl Johnston                                                       1         
+  Charlie Warren                                                      1         
+  Chloe Henderson                                                     1         
+  Dainton Casey                                                       1         
+  David Rogers                                                        1         
+  Dominik Warren                                                      1         
+  Edward Chapman                                                      1         
+  Edward Dixon                                                        1         
+  Ellia Armstrong                                                     1         
+  Eric Ryan                                                           1         
+  Fenton Bailey                                                       1         
+  Garry Scott                                                         1         
+  Harold Gray                                                         1         
+  Jack Spencer                                                        1         
+  Julia Fowler                                                        1         
+  Lenny Howard                                                        1         
+  Lucas Farrell                                                       1         
+  Lucas Wright                                                        1         
+  Lydia Ferguson                                                      1         
+  Melissa Evans                                                       1         
+  Michael Williams                                                    1         
+  Michelle Thompson                                                   1         
+  Mike Sullivan                                                       1         
+  Ned Andrews                                                         1         
+  Olivia West                                                         1         
+  Patrick Bennett                                                     1         
+  Rev Alen Henderson                                                  1         
+  Richard Higgins                                                     1         
+  Roland Clark                                                        1         
+  Ryan Elliott                                                        1         
+  Savana Davis                                                        1         
+  Sienna Murphy                                                       1         
+  Valeria Perkins                                                     1         
+  Vivian Murray                                                       1         
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 
@@ -444,18 +442,18 @@ Select option (x = Back):
 >>> 3
 [User input: "3"]
  ────────────────────────────────────────────────────────────────────────────── 
-  Conductors                                              Count                 
+  Conductors                                                                    
  ────────────────────────────────────────────────────────────────────────────── 
-  Aston Mitchell                                          1                     
-  Blake Elliott                                           1                     
-  Blake Harper                                            1                     
-  Byron Robinson                                          1                     
-  Chester Edwards                                         1                     
-  Jack Spencer                                            1                     
-  Leo Bennett                                             1                     
-  Lucas Farrell                                           1                     
-  Ted Harris                                              1                     
-  Vivian Murray                                           1                     
+  Aston Mitchell                                                     1          
+  Blake Elliott                                                      1          
+  Blake Harper                                                       1          
+  Byron Robinson                                                     1          
+  Chester Edwards                                                    1          
+  Jack Spencer                                                       1          
+  Leo Bennett                                                        1          
+  Lucas Farrell                                                      1          
+  Ted Harris                                                         1          
+  Vivian Murray                                                      1          
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 
@@ -465,10 +463,10 @@ Select option (x = Back):
 >>> 4
 [User input: "4"]
  ────────────────────────────────────────────────────────────────────────────── 
-  Associations                                                      Count       
+  Associations                                                                  
  ────────────────────────────────────────────────────────────────────────────── 
-  Bath and Wells Diocesan Association                               3           
-  Guild of Devonshire Ringers                                       1           
+  Bath and Wells Diocesan Association                                      3    
+  Guild of Devonshire Ringers                                              1    
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 
@@ -483,49 +481,44 @@ Select option (x = Back):
 [User input: "Peal"]
 Peal statistics
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Stage     Rung   Condu…    Methods   Rung   Condu…    Misc    Rung    Condu…  
+  Stage                      Methods                    Misc                    
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Doubles   1                Bristol   1                Mixed   2               
-  Maximus   1                Surpri…                    Meth…                   
-  Minor     1                Maximus                    Sing…   1               
- ─────────────────────────  ─────────────────────────   Meth…                   
-                                                        Tower   2               
-                                                        Hand…   1               
-                                                        First   25-M…           
+  Doubles            1       Bristol Surprise      1    Mixed       2           
+  Maximus            1       Maximus                    Methods                 
+  Minor              1      ─────────────────────────   Single      1           
+ ─────────────────────────                              Method                  
+                                                        Tower       2           
+                                                        Handbells   1           
+                                                        First       25-Mar-19…  
                                                         rung                    
-                                                        Last    29-M…           
-                                                        rung                    
-                                                        Avg.    2               
-                                                        peal    hour…           
-                                                        speed   43              
-                                                                minu…           
-                                                        Avg.    2               
-                                                        dura…   hour…           
-                                                                45              
-                                                                minu…           
+                                                        Last rung   29-Mar-19…  
+                                                        Avg. peal   2 hours,    
+                                                        speed       43 minutes  
+                                                        Avg.        2 hours,    
+                                                        duration    45 minutes  
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Top 10 Ringers    Count    Top 10                     Top 10                  
- ─────────────────────────   Conductors        Count    Associations     Count  
-  Aston Mitchell    2       ─────────────────────────  ──────────────────────── 
-  John Parker       2        Aston Mitchell    1        Oxford           1      
-  Arianna Holmes    1        Lenny Howard      1        Diocesan Guild          
-  Blake Howard      1        Sienna Murphy     1        Suffolk Guild    1      
-  Carina Warren     1       ─────────────────────────  ──────────────────────── 
-  Dominik Warren    1                                                           
-  Jack Spencer      1                                                           
-  Lenny Howard      1                                                           
-  Lydia Reed        1                                                           
-  Ned Andrews       1                                                           
+  Top 10 Ringers             Top 10 Conductors          Top 10                  
+ ─────────────────────────  ─────────────────────────   Associations            
+  Aston Mitchell        2    Aston Mitchell        1   ──────────────────────── 
+  John Parker           2    Lenny Howard          1    Oxford Diocesan      1  
+  Arianna Holmes        1    Sienna Murphy         1    Guild                   
+  Blake Howard          1   ─────────────────────────   Suffolk Guild        1  
+  Carina Warren         1                              ──────────────────────── 
+  Dominik Warren        1                                                       
+  Jack Spencer          1                                                       
+  Lenny Howard          1                                                       
+  Lydia Reed            1                                                       
+  Ned Andrews           1                                                       
  ─────────────────────────                                                      
 1) All methods, 2) All ringers, 3) All conductors, 4) All associations
 Select option (x = Back): 
 >>> 1
 [User input: "1"]
  ────────────────────────────────────────────────────────────────────────────── 
-  Methods                                                       Count           
+  Methods                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
-  Bristol Surprise Maximus                                      1               
+  Bristol Surprise Maximus                                               1      
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 
@@ -535,24 +528,24 @@ Select option (x = Back):
 >>> 2
 [User input: "2"]
  ────────────────────────────────────────────────────────────────────────────── 
-  Ringers                                                    Count              
+  Ringers                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
-  Aston Mitchell                                             2                  
-  John Parker                                                2                  
-  Arianna Holmes                                             1                  
-  Blake Howard                                               1                  
-  Carina Warren                                              1                  
-  Dominik Warren                                             1                  
-  Jack Spencer                                               1                  
-  Lenny Howard                                               1                  
-  Lydia Reed                                                 1                  
-  Ned Andrews                                                1                  
-  Rev Alen Henderson                                         1                  
-  Rubie Owens                                                1                  
-  Sam Wells                                                  1                  
-  Sienna Murphy                                              1                  
-  Stuart Murray                                              1                  
-  Victoria Morrison                                          1                  
+  Aston Mitchell                                                      2         
+  John Parker                                                         2         
+  Arianna Holmes                                                      1         
+  Blake Howard                                                        1         
+  Carina Warren                                                       1         
+  Dominik Warren                                                      1         
+  Jack Spencer                                                        1         
+  Lenny Howard                                                        1         
+  Lydia Reed                                                          1         
+  Ned Andrews                                                         1         
+  Rev Alen Henderson                                                  1         
+  Rubie Owens                                                         1         
+  Sam Wells                                                           1         
+  Sienna Murphy                                                       1         
+  Stuart Murray                                                       1         
+  Victoria Morrison                                                   1         
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 
@@ -562,11 +555,11 @@ Select option (x = Back):
 >>> 3
 [User input: "3"]
  ────────────────────────────────────────────────────────────────────────────── 
-  Conductors                                             Count                  
+  Conductors                                                                    
  ────────────────────────────────────────────────────────────────────────────── 
-  Aston Mitchell                                         1                      
-  Lenny Howard                                           1                      
-  Sienna Murphy                                          1                      
+  Aston Mitchell                                                    1           
+  Lenny Howard                                                      1           
+  Sienna Murphy                                                     1           
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 
@@ -576,10 +569,10 @@ Select option (x = Back):
 >>> 4
 [User input: "4"]
  ────────────────────────────────────────────────────────────────────────────── 
-  Associations                                                 Count            
+  Associations                                                                  
  ────────────────────────────────────────────────────────────────────────────── 
-  Oxford Diocesan Guild                                        1                
-  Suffolk Guild                                                1                
+  Oxford Diocesan Guild                                                 1       
+  Suffolk Guild                                                         1       
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 
@@ -601,12 +594,13 @@ pypeal Database
  Peal count: 3                                                                  
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
-│ 2) View statistics                                                           │
-│ 3) Add peal by ID/URL                                                        │
-│ 4) Add peal manually                                                         │
-│ 5) View peal                                                                 │
-│ 6) Delete peal                                                               │
-│ 7) Update static data                                                        │
+│ 2) Add peal by ID/URL                                                        │
+│ 3) Add peal manually                                                         │
+│ 4) View statistics                                                           │
+│ 5) Generate reports                                                          │
+│ 6) View peal                                                                 │
+│ 7) Delete peal                                                               │
+│ 8) Update static data                                                        │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘

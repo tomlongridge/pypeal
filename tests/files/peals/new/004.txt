@@ -6,18 +6,19 @@ pypeal Database
  Peal count: 1                                                                  
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
-│ 2) View statistics                                                           │
-│ 3) Add peal by ID/URL                                                        │
-│ 4) Add peal manually                                                         │
-│ 5) View peal                                                                 │
-│ 6) Delete peal                                                               │
-│ 7) Update static data                                                        │
+│ 2) Add peal by ID/URL                                                        │
+│ 3) Add peal manually                                                         │
+│ 4) View statistics                                                           │
+│ 5) Generate reports                                                          │
+│ 6) View peal                                                                 │
+│ 7) Delete peal                                                               │
+│ 8) Update static data                                                        │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
->>> 4
-[User input: "4"]
+>>> 3
+[User input: "3"]
 Try for a quick-add? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -94,12 +95,13 @@ pypeal Database
  Peal count: 1                                                                  
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
-│ 2) View statistics                                                           │
-│ 3) Add peal by ID/URL                                                        │
-│ 4) Add peal manually                                                         │
-│ 5) View peal                                                                 │
-│ 6) Delete peal                                                               │
-│ 7) Update static data                                                        │
+│ 2) Add peal by ID/URL                                                        │
+│ 3) Add peal manually                                                         │
+│ 4) View statistics                                                           │
+│ 5) Generate reports                                                          │
+│ 6) View peal                                                                 │
+│ 7) Delete peal                                                               │
+│ 8) Update static data                                                        │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘

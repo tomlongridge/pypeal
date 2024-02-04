@@ -8,7 +8,7 @@ from pypeal.bellboard.interface import BellboardError
 from pypeal.bellboard.search import BellboardSearchNoResultFoundError, search as bellboard_search
 from pypeal.cli.prompt_add_tower import prompt_find_tower
 from pypeal.cli.prompt_import_peal import prompt_import_peal
-from pypeal.cli.prompts import UserCancelled, ask_date, ask, confirm, error, format_timestamp, heading
+from pypeal.cli.prompts import UserCancelled, ask_date, ask, ask_int, confirm, error, format_timestamp, heading
 from pypeal.cli.chooser import choose_option
 from pypeal.entities.peal import Peal, BellType
 from pypeal.entities.peal_search import PealSearch
@@ -42,7 +42,7 @@ def prompt_search():
                     if len(searches) == 0:
                         break
                 case 5:
-                    poll(omit_last_num_days=0)
+                    poll(run_all=True)
                 case _:
                     break
         except UserCancelled:
@@ -52,11 +52,11 @@ def prompt_search():
                 continue
 
 
-def poll(omit_last_num_days: int = 1):
+def poll(run_all: bool = False):
     print('Polling for new peals...')
     for search in PealSearch.get_all():
-        if search.poll:
-            if search.last_run_date < datetime.now() - timedelta(days=omit_last_num_days):
+        if search.poll_frequency:
+            if run_all or search.last_run_date < datetime.now() - timedelta(days=search.poll_frequency):
                 print(f'Polling for new peals matching search "{search.description}"...')
                 _search(search)
             else:
@@ -136,7 +136,8 @@ def _search(peal_search: PealSearch = None, prompt: bool = False):
 
     if (peal_search.id is None or prompt) and confirm(None, confirm_message='Save search?'):
         peal_search.description = ask('Description', default=peal_search.description, required=True)
-        peal_search.poll = confirm(None, confirm_message='Include in poll?', default=peal_search.poll)
+        if confirm(None, confirm_message='Include in poll?', default=peal_search.poll_frequency is not None):
+            peal_search.poll_frequency = ask_int('Poll frequency (days)', default=peal_search.poll_frequency, required=True)
         peal_search.commit()
 
 
