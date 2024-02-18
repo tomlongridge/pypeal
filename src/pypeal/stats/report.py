@@ -1,7 +1,7 @@
 from pypeal.entities.method import Stage
-from pypeal.entities.peal import Peal, PealType
+from pypeal.entities.peal import Peal, PealRinger, PealType
 from pypeal.entities.ringer import Ringer
-from pypeal.entities.tower import Ring, Tower
+from pypeal.entities.tower import Bell, Ring, Tower
 
 
 def generate_summary(peals: list[Peal],
@@ -107,25 +107,42 @@ def generate_summary(peals: list[Peal],
             report['types'][peal.length_type]['muffles'][peal.muffles] += 1
 
         for peal_ringer in peal.ringers:
-            if ringer is None or peal_ringer.ringer.id != ringer.id:
-                if peal_ringer.ringer not in report['types'][peal.length_type]['ringers']:
-                    report['types'][peal.length_type]['ringers'][peal_ringer.ringer] = 0
-                report['types'][peal.length_type]['ringers'][peal_ringer.ringer] += 1
+            if peal_ringer.ringer not in report['types'][peal.length_type]['ringers']:
+                report['types'][peal.length_type]['ringers'][peal_ringer.ringer] = 0
+            report['types'][peal.length_type]['ringers'][peal_ringer.ringer] += 1
             if peal_ringer.is_conductor:
-                if ringer is None or peal_ringer.ringer.id != ringer.id:
-                    if peal_ringer.ringer.name not in report['types'][peal.length_type]['conductors']:
-                        report['types'][peal.length_type]['conductors'][peal_ringer.ringer.name] = 0
-                    report['types'][peal.length_type]['conductors'][peal_ringer.ringer.name] += 1
+                if peal_ringer.ringer.name not in report['types'][peal.length_type]['conductors']:
+                    report['types'][peal.length_type]['conductors'][peal_ringer.ringer.name] = 0
+                report['types'][peal.length_type]['conductors'][peal_ringer.ringer.name] += 1
 
-        if ring is None and peal.ring:
+        if peal.ring:
+
             if peal.ring not in report['types'][peal.length_type]['rings']:
                 report['types'][peal.length_type]['rings'][peal.ring] = 0
             report['types'][peal.length_type]['rings'][peal.ring] += 1
 
-        if tower is None and peal.ring:
             if peal.ring.tower not in report['types'][peal.length_type]['towers']:
-                report['types'][peal.length_type]['towers'][peal.ring.tower] = 0
-            report['types'][peal.length_type]['towers'][peal.ring.tower] += 1
+                report['types'][peal.length_type]['towers'][peal.ring.tower] = dict()
+                report['types'][peal.length_type]['towers'][peal.ring.tower]['count'] = 0
+                report['types'][peal.length_type]['towers'][peal.ring.tower]['first'] = peal.date
+                report['types'][peal.length_type]['towers'][peal.ring.tower]['last'] = peal.date
+                report['types'][peal.length_type]['towers'][peal.ring.tower]['bells'] = dict()
+            report['types'][peal.length_type]['towers'][peal.ring.tower]['count'] += 1
+            if peal.date < report['types'][peal.length_type]['towers'][peal.ring.tower]['first']:
+                report['types'][peal.length_type]['towers'][peal.ring.tower]['first'] = peal.date
+            if peal.date > report['types'][peal.length_type]['towers'][peal.ring.tower]['last']:
+                report['types'][peal.length_type]['towers'][peal.ring.tower]['last'] = peal.date
+            peal_ringer: PealRinger
+            for peal_ringer in peal.ringers:
+                if peal_ringer.bell_ids is None:
+                    continue
+                for bell_id in peal_ringer.bell_ids:
+                    bell = Bell.get(bell_id)
+                    if bell not in report['types'][peal.length_type]['towers'][peal.ring.tower]['bells']:
+                        report['types'][peal.length_type]['towers'][peal.ring.tower]['bells'][bell] = dict()
+                    if peal_ringer.ringer not in report['types'][peal.length_type]['towers'][peal.ring.tower]['bells'][bell]:
+                        report['types'][peal.length_type]['towers'][peal.ring.tower]['bells'][bell][peal_ringer.ringer] = 0
+                    report['types'][peal.length_type]['towers'][peal.ring.tower]['bells'][bell][peal_ringer.ringer] += 1
 
     report['types'] = dict(sorted(report['types'].items()))
     for length_type_report in report['types'].values():
@@ -133,8 +150,20 @@ def generate_summary(peals: list[Peal],
             if length_type_report['changes']:
                 length_type_report['avg_peal_speed'] = (length_type_report['duration'] / length_type_report['changes']) * 5040
             length_type_report['avg_duration'] = length_type_report['duration'] / length_type_report['count']
-        for report_name, nested_reports in length_type_report.items():
-            if type(nested_reports) is dict:
-                length_type_report[report_name] = dict(sorted(nested_reports.items(), key=lambda x: (-x[1], str(x[0]))))
+        _sort_table(length_type_report)
 
     return report
+
+
+def _sort_table(table: dict) -> None:
+    # Sort tables that contain just int values and recurse down into nested tables
+    for report_name, nested_reports in table.items():
+        if type(nested_reports) is dict:
+            all_numeric = True
+            for value in nested_reports.values():
+                if type(value) is not int:
+                    all_numeric = False
+                    if type(value) is dict:
+                        _sort_table(nested_reports)
+            if all_numeric:
+                table[report_name] = dict(sorted(nested_reports.items(), key=lambda x: (-x[1], str(x[0]))))

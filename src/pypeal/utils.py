@@ -158,9 +158,13 @@ def get_titles() -> list[str]:
     return NAME_TITLES
 
 
-def get_time_str(mins: int) -> str:
+def get_time_str(mins: int | float) -> str:
     if mins is None:
         return 'Unknown'
+    seconds = ''
+    if type(mins) is float:
+        seconds = f', {round((mins - int(mins)) * 60)} secs'
+        mins = int(mins)
     hours = mins // 60
     mins = mins % 60
     value = ''
@@ -168,7 +172,8 @@ def get_time_str(mins: int) -> str:
         value += '1 hour, '
     elif hours > 1:
         value += f'{round(hours)} hours, '
-    value += f'{round(mins)} minutes'
+    value += f'{round(mins)} mins'
+    value += seconds
     return value
 
 
