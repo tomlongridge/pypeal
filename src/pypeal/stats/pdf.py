@@ -11,7 +11,7 @@ from pypeal.entities.peal import PealLengthType
 
 from pypeal.entities.report import Report
 from pypeal.entities.ringer import Ringer
-from pypeal.entities.tower import Bell, Tower
+from pypeal.entities.tower import Ring
 from pypeal.stats.report import generate_summary
 
 PAGE_HEIGHT = 210*mm
@@ -113,9 +113,17 @@ def _generate_peal_length_report(canvas: Canvas, report: Report, data: dict, rep
     if len(tables) > 0:
         _draw_table_page(canvas, title, sub_headings, tables)
 
-    if data['types'][report_length_type]['towers']:
-        for tower, data in data['types'][report_length_type]['towers'].items():
-            for table in _draw_bell_table(tower, data):
+    if data['types'][report_length_type]['rings']:
+
+        if report.ring and report.ring in data['types'][report_length_type]['rings']:
+            for table in _draw_bell_table(report.ring, data['types'][report_length_type]['rings'][report.ring]):
+                _draw_table_page(canvas,
+                                 f'{report.name}: {report_length_type}s: Bells Rung',
+                                 None,
+                                 [table])
+
+        if report.tower and report.tower in data['types'][report_length_type]['towers']:
+            for table in _draw_bell_table(report.tower.get_active_ring(), data['types'][report_length_type]['towers'][report.tower]):
                 _draw_table_page(canvas,
                                  f'{report.name}: {report_length_type}s: Bells Rung',
                                  None,
@@ -151,13 +159,18 @@ def _draw_table_page(canvas: Canvas, title: str, sub_headings: list[str], tables
 def _draw_table(headings: list[str],
                 data: dict,
                 num_rows: int = None,
+                item_to_str: callable = None,
                 value_to_str: callable = None) -> Table:
 
     table_data = [headings]
     for item, value in data.items():
-        if type(value) is int:
-            value = f'{value:,}'
-        table_data.append([Paragraph(value_to_str(item) if value_to_str else str(item)), value])
+        if value_to_str is not None:
+            value_str = value_to_str(value)
+        elif type(value) is int:
+            value_str = f'{value:,}'
+        else:
+            value_str = str(value)
+        table_data.append([Paragraph(item_to_str(item) if item_to_str else str(item)), value_str])
         if num_rows and len(table_data) >= num_rows:
             break
     table = Table(table_data, colWidths=['*', 20*mm])
@@ -172,22 +185,21 @@ def _draw_table(headings: list[str],
     return table
 
 
-def _draw_bell_table(tower: Tower, data: dict) -> list[Table]:
+def _draw_bell_table(ring: Ring, data: dict) -> list[Table]:
 
     bell_columns = []
-    for bell_role in tower.rings[0].bells.keys():
+    for bell_role in ring.bells.keys():
         bell_columns.append(bell_role)
 
     headings = [['Ringer', *bell_columns, 'Total']]
 
     ringer_bells: dict[Ringer, list[int]] = dict()
-    bell: Bell
     bell_data: dict[Ringer, int]
-    for bell, bell_data in data['bells'].items():
+    for bell_role, bell_data in data['bells'].items():
         for ringer, count in bell_data.items():
             if ringer not in ringer_bells:
                 ringer_bells[ringer] = [0] * len(bell_columns)
-            ringer_bells[ringer][bell_columns.index(bell.role)] = count
+            ringer_bells[ringer][bell_columns.index(bell_role)] = count
 
     for counts in ringer_bells.values():
         counts.append(sum(counts))
