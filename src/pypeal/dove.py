@@ -2,6 +2,7 @@ import csv
 import logging
 import os
 import pathlib
+import re
 
 import requests
 from pypeal import utils
@@ -10,6 +11,8 @@ from pypeal.config import get_config
 from pypeal.db import Database
 from pypeal.entities.tower import Bell, Tower
 
+CAST_YEAR_REGEX = \
+    re.compile(r'c?-?\d{4}?\s?\(?(?P<year>\d{4})\)?')
 
 _logger = logging.getLogger('pypeal')
 
@@ -120,15 +123,11 @@ def update_bells():
         elif not line['Bell Role'].isnumeric():
             continue  # omit any bells not in a ring (e.g sanctus)
 
-        cast_year = line['Cast Date']
-        if len(cast_year) == 0:
-            cast_year = None
-        elif cast_year.startswith('c'):
-            cast_year = int(cast_year[1:])
-        elif cast_year.isnumeric():
-            cast_year = int(cast_year)
-        else:
-            _logger.debug(f'Unexpected cast year "{cast_year}" for bell {line["Bell ID"]}')
+        cast_year = None
+        if match := re.match(CAST_YEAR_REGEX, line['Cast Date']):
+            cast_year = int(match.group('year'))
+        elif len(line['Cast Date']) > 0:
+            _logger.warn(f'Unexpected cast year "{cast_year}" for bell {line["Bell ID"]}')
             continue
 
         weight = line['Weight (lbs)']
@@ -139,7 +138,7 @@ def update_bells():
         elif '.' in weight:
             weight = round(float(weight))
         else:
-            _logger.debug(f'Unexpected weight "{weight}" for bell {line["Bell ID"]}')
+            _logger.warn(f'Unexpected weight "{weight}" for bell {line["Bell ID"]}')
             continue
 
         bell_obj: Bell = Bell(tower_id=int(line['Tower ID']),

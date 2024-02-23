@@ -587,7 +587,7 @@ class Peal:
                     Database.get_connection().query(
                         'INSERT INTO pealringers (peal_id, ringer_id, bell_id, bell_num, is_conductor, note) ' +
                         'VALUES (%s, %s, %s, %s, %s, %s)',
-                        (self.id, peal_ringer.ringer.id, bell_id, bell_num, peal_ringer.is_conductor, peal_ringer.note))
+                        (self.id, peal_ringer.ringer.id, bell_id, bell_num, peal_ringer.is_conductor or 0, peal_ringer.note))
         footnote_num = 1
         for footnote in self.footnotes:
             Database.get_connection().query(

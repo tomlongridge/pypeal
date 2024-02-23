@@ -182,7 +182,7 @@ def _create_search(peal_search: PealSearch):
                                                          title='Order by',
                                                          default=2 if peal_search.order_by_submission_date else 1)
     peal_search.order_descending = choose_option(['Newest', 'Oldest'],
-                                                 values=[False, True],
+                                                 values=[True, False],
                                                  title='Order of results',
                                                  default=2 if peal_search.order_descending else 1)
 

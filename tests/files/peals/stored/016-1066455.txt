@@ -1,10 +1,8 @@
 
 ===
 Polling for new peals...
-Skipping search "First saved search" (last run [Timestamp])
 pypeal Database
- Quarter Peal count: 12                               Last updated: [Timestamp] 
- Peal count: 3                                                                  
+ Peal count: 1                                        Last updated: [Timestamp] 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
 │ 2) Add peal by ID/URL                                                        │
@@ -96,113 +94,204 @@ Composition note:
 >>> 
 [User input: "None"]
 🎼 Composer: Unknown
-1: "Vivian Murray" -> Vivian Murray
-Is this correct? [y/n] (y): 
+1: Couldn't find ringer matching "Vivian Murray" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): ╭──────────────────────────────────────────────────────────────────────────────╮
+│ Error: Input an option number or one of the following:                       │
+│                                                                              │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> y
+[User input: "1"]
+Add new ringer as "Vivian" "Murray"? [y/n] (y): 
+>>> 
 [User input: "True"]
 Ringer note: 
 >>> 
-[User input: "None"]
+[User input: "y"]
 Bell number(s) in the tower (1): 
+>>> y
+[User input: "1"]
+👤 Ringer: 1: Vivian Murray (y)
+2: Couldn't find ringer matching "Byron Robinson" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> 
 [User input: "1"]
-👤 Ringer: 1: Vivian Murray
-2: "Byron Robinson" -> Byron Robinson
-Is this correct? [y/n] (y): 
->>> y
+Add new ringer as "Byron" "Robinson"? [y/n] (y): 
+>>> 
 [User input: "True"]
 Ringer note: 
->>> 
+>>> y
 [User input: "None"]
 Bell number(s) in the tower (2): 
 >>> 
 [User input: "2"]
 👤 Ringer: 2: Byron Robinson
-3: "Daryl Mason" -> Daryl Mason
-Is this correct? [y/n] (y): 
+3: Couldn't find ringer matching "Daryl Mason" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): ╭──────────────────────────────────────────────────────────────────────────────╮
+│ Error: Input an option number or one of the following:                       │
+│                                                                              │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 
+[User input: "1"]
+Add new ringer as "Daryl" "Mason"? [y/n] (y): 
 >>> y
 [User input: "True"]
 Ringer note: 
 >>> 
-[User input: "None"]
+[User input: "y"]
 Bell number(s) in the tower (3): 
 >>> 
 [User input: "3"]
-👤 Ringer: 3: Daryl Mason
-4: "Chester Edwards" -> Chester Edwards
-Is this correct? [y/n] (y): 
+👤 Ringer: 3: Daryl Mason (y)
+4: Couldn't find ringer matching "Chester Edwards" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
 >>> y
+[User input: "1"]
+Add new ringer as "Chester" "Edwards"? [y/n] (y): 
+>>> 
 [User input: "True"]
 Ringer note: 
 >>> 
 [User input: "None"]
 Bell number(s) in the tower (4): 
->>> 
+>>> y
 [User input: "4"]
 👤 Ringer: 4: Chester Edwards
-5: "Joyce Sullivan" -> Joyce Sullivan
-Is this correct? [y/n] (y): 
->>> y
+5: Couldn't find ringer matching "Joyce Sullivan" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 
+[User input: "1"]
+Add new ringer as "Joyce" "Sullivan"? [y/n] (y): 
+>>> 
 [User input: "True"]
 Ringer note: 
->>> 
+>>> 1
 [User input: "None"]
 Bell number(s) in the tower (5): 
 >>> 
 [User input: "5"]
 👤 Ringer: 5: Joyce Sullivan
-6: "Arnold Johnson" -> Arnold Johnson
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
-Ringer note: 
->>> 
-[User input: "None"]
-Bell number(s) in the tower (6): 
->>> 
-[User input: "6"]
-👤 Ringer: 6: Arnold Johnson
-7: Couldn't find ringer matching "Kate Crawford" (or aliases)
+6: Couldn't find ringer matching "Arnold Johnson" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): ╭──────────────────────────────────────────────────────────────────────────────╮
+│ Error: Input an option number or one of the following:                       │
+│                                                                              │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
 1) Add new ringer, 2) Search ringers
 Select option (1): 
+>>> 
+[User input: "1"]
+Add new ringer as "Arnold" "Johnson"? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> y
+[User input: "y"]
+Bell number(s) in the tower (6): 
+>>> 
+[User input: "y"]
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Error: Unable to parse bell numbers: y                                       │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Bell number(s) in the tower (6): 
+>>> 
+[User input: "n"]
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Error: Unable to parse bell numbers: n                                       │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Bell number(s) in the tower (6): 
+>>> y
+[User input: "6"]
+👤 Ringer: 6: Arnold Johnson (y)
+7: Couldn't find ringer matching "Kate Crawford" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): ╭──────────────────────────────────────────────────────────────────────────────╮
+│ Error: Input an option number or one of the following:                       │
+│                                                                              │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+1) Add new ringer, 2) Search ringers
+Select option (1): ╭──────────────────────────────────────────────────────────────────────────────╮
+│ Error: The number must be between 1 and 2                                    │
+╰──────────────────────────────────────────────────────────────────────────────╯
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> y
+[User input: "1"]
+Add new ringer as "Kate" "Crawford"? [y/n] (y): Please enter Y or N
+Add new ringer as "Kate" "Crawford"? [y/n] (y): Please enter Y or N
+Add new ringer as "Kate" "Crawford"? [y/n] (y): Please enter Y or N
+Add new ringer as "Kate" "Crawford"? [y/n] (y): 
+>>> n
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "2"]
+Bell number(s) in the tower (7): 
+>>> y
+[User input: "7"]
+👤 Ringer: 7: Kate Crawford (2)
+8: Couldn't find ringer matching "Heather Sullivan" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): ╭──────────────────────────────────────────────────────────────────────────────╮
+│ Error: The number must be between 1 and 2                                    │
+╰──────────────────────────────────────────────────────────────────────────────╯
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 4
+[User input: "1"]
+Add new ringer as "Heather" "Sullivan"? [y/n] (y): Please enter Y or N
+Add new ringer as "Heather" "Sullivan"? [y/n] (y): 
+>>> 1
+[User input: "True"]
+Ringer note: 
+>>> 1
+[User input: "x"]
+Bell number(s) in the tower (8): 
+>>> 1
+[User input: "2"]
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Error: Bell 2 already assigned to Byron Robinson                             │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Bell number(s) in the tower (8): 
 >>> 1
 [User input: "1"]
-Add new ringer as "Kate" "Crawford"? [y/n] (y): 
->>> 
-[User input: "True"]
-Ringer note: 
->>> 
-[User input: "None"]
-Bell number(s) in the tower (7): 
->>> 
-[User input: "7"]
-👤 Ringer: 7: Kate Crawford
-8: "Heather Sullivan" -> Heather Sullivan
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
-Ringer note: 
->>> 
-[User input: "None"]
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Error: Bell 1 already assigned to Vivian Murray                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Bell number(s) in the tower (8): 
 >>> 
 [User input: "8"]
-👤 Ringer: 8: Heather Sullivan (c)
+👤 Ringer: 8: Heather Sullivan (x) (c)
 Footnote 1 text:
   > Birthday compliment to Paul Clewett.
+Is this correct? [y/n] (y): Please enter Y or N
 Is this correct? [y/n] (y): 
->>> y
+>>> 2
 [User input: "True"]
 Footnote 2 text:
   > First on a mini-ring.
 Referenced ringer(s):
   - 3: Daryl Mason
   - 6: Arnold Johnson
+Is this correct? [y/n] (y): Please enter Y or N
 Is this correct? [y/n] (y): 
->>> y
+>>> 
 [User input: "True"]
+Add new footnote? [y/n] (n): Please enter Y or N
 Add new footnote? [y/n] (n): 
->>> n
+>>> 3
 [User input: "False"]
 📝 Footnotes:
   - Birthday compliment to Paul Clewett.
@@ -223,14 +312,14 @@ Select option (1):
 │ On Sunday, 21 September 2014                                                 │
 │ A Quarter Peal of 1280 Cambridge Surprise Major                              │
 │                                                                              │
-│ 1: Vivian Murray                                                             │
+│ 1: Vivian Murray (y)                                                         │
 │ 2: Byron Robinson                                                            │
-│ 3: Daryl Mason                                                               │
+│ 3: Daryl Mason (y)                                                           │
 │ 4: Chester Edwards                                                           │
 │ 5: Joyce Sullivan                                                            │
-│ 6: Arnold Johnson                                                            │
-│ 7: Kate Crawford                                                             │
-│ 8: Heather Sullivan (c)                                                      │
+│ 6: Arnold Johnson (y)                                                        │
+│ 7: Kate Crawford (2)                                                         │
+│ 8: Heather Sullivan (x) (c)                                                  │
 │                                                                              │
 │ Birthday compliment to Paul Clewett.                                         │
 │ 3,6: First on a mini-ring.                                                   │
@@ -240,360 +329,27 @@ Select option (1):
 │ [External reference: Campanophile ID: 183937]                                │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
+Is this correct? [y/n] (y): Please enter Y or N
+Is this correct? [y/n] (y): Please enter Y or N
+Is this correct? [y/n] (y): Please enter Y or N
 Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
-Peal (ID 16) added
-pypeal Database
- Quarter Peal count: 13                               Last updated: [Timestamp] 
- Peal count: 3                                                                  
-┌──────────────────────────────────────────────────────────────────────────────┐
-│ 1) BellBoard search                                                          │
-│ 2) Add peal by ID/URL                                                        │
-│ 3) Add peal manually                                                         │
-│ 4) View statistics                                                           │
-│ 5) Generate reports                                                          │
-│ 6) View peal                                                                 │
-│ 7) Delete peal                                                               │
-│ 8) Update static data                                                        │
-├──────────────────────────────────────────────────────────────────────────────┤
-│ x) Exit                                                                      │
-└──────────────────────────────────────────────────────────────────────────────┘
-Select option (1): 
+Aborted.
+
 >>> 4
-[User input: "4"]
-1) Run report, 2) New report, 3) Edit report, 4) Delete report
-Select option (x = Back): 
->>> 1
-[User input: "1"]
-1) first report
-Select option (x = New report): 
->>> 1
-[User input: "first report"]
-16 matching peals in "first report".
-Summary
- ────────────────────────────────────────────────────────────────────────────── 
-                                                                                
- ────────────────────────────────────────────────────────────────────────────── 
-  Quarter Peal                                           13                     
-  Peal                                                   3                      
- ────────────────────────────────────────────────────────────────────────────── 
-Show report for: 1) Quarter Peal, 2) Peal
-Select option (x = Back): 
->>> 1
-[User input: "Quarter Peal"]
-Quarter Peal statistics
- ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Stage                      Methods                    Misc                    
- ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Triples            4       Grandsire Triples     3    Single      9           
-  Doubles            3       Cambridge Surprise    1    Method                  
-  Major              3       Major                      Mixed       2           
-  Royal              2       Little Bob Royal      1    Methods                 
-  Caters             1       London Surprise       1    Spliced     2           
- ─────────────────────────   Major                      Methods                 
-                             Plain Bob Doubles     1    Tower       13          
-                             Plain Bob Royal       1    First       05-Dec-19…  
-                             Plain Bob Triples     1    rung                    
-                            ─────────────────────────   Last rung   01-Oct-20…  
-                                                        Avg. peal   2 hours,    
-                                                        speed       39 minutes  
-                                                        Avg.        40 minutes  
-                                                        duration                
-                                                       ──────────────────────── 
- ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Top 10 Ringers             Top 10 Conductors          Top 10                  
- ─────────────────────────  ─────────────────────────   Associations            
-  Chester Edwards       7    Leo Bennett           2   ──────────────────────── 
-  Leo Bennett           7    Aston Mitchell        1    Bath and Wells       3  
-  Blake Elliott         5    Blake Elliott         1    Diocesan                
-  Joyce Sullivan        5    Blake Harper          1    Association             
-  Heather Sullivan      4    Byron Robinson        1    Guild of             1  
-  Byron Robinson        3    Chester Edwards       1    Devonshire Ringers      
-  Cadie Nelson          3    Heather Sullivan      1    New Association      1  
-  Clark Elliott         3    Jack Spencer          1   ──────────────────────── 
-  Daryl Mason           3    Joyce Sullivan        1                            
-  Melissa Baker         3    Lucas Farrell         1                            
- ─────────────────────────  ─────────────────────────                           
-1) All methods, 2) All ringers, 3) All conductors, 4) All associations
-Select option (x = Back): 
->>> 1
-[User input: "1"]
- ────────────────────────────────────────────────────────────────────────────── 
-  Methods                                                                       
- ────────────────────────────────────────────────────────────────────────────── 
-  Grandsire Triples                                                      3      
-  Cambridge Surprise Major                                               1      
-  Little Bob Royal                                                       1      
-  London Surprise Major                                                  1      
-  Plain Bob Doubles                                                      1      
-  Plain Bob Royal                                                        1      
-  Plain Bob Triples                                                      1      
- ────────────────────────────────────────────────────────────────────────────── 
-Press enter to continue [y/n] (y): 
 >>> 
-[User input: "True"]
-1) All methods, 2) All ringers, 3) All conductors, 4) All associations
-Select option (x = Back): 
+>>> x
 >>> 2
-[User input: "2"]
- ────────────────────────────────────────────────────────────────────────────── 
-  Ringers                                                                       
- ────────────────────────────────────────────────────────────────────────────── 
-  Chester Edwards                                                     7         
-  Leo Bennett                                                         7         
-  Blake Elliott                                                       5         
-  Joyce Sullivan                                                      5         
-  Heather Sullivan                                                    4         
-  Byron Robinson                                                      3         
-  Cadie Nelson                                                        3         
-  Clark Elliott                                                       3         
-  Daryl Mason                                                         3         
-  Melissa Baker                                                       3         
-  Ryan Elliott                                                        3         
-  Arnold Johnson                                                      2         
-  Aston Mitchell                                                      2         
-  Blake Elliott                                                       2         
-  Daniel Miller                                                       2         
-  Harold Gray                                                         2         
-  Jacob Cole                                                          2         
-  Paul Armstrong                                                      2         
-  Savana Davis                                                        2         
-  Ted Harris                                                          2         
-  Vivian Murray                                                       2         
-  Alisa Cole                                                          1         
-  Aston Mitchell                                                      1         
-  Blake Harper                                                        1         
-  Byron Miller                                                        1         
-  Carina Warren                                                       1         
-  Carl Johnston                                                       1         
-  Charlie Warren                                                      1         
-  Chloe Henderson                                                     1         
-  Dainton Casey                                                       1         
-  David Rogers                                                        1         
-  Dominik Warren                                                      1         
-  Edward Chapman                                                      1         
-  Edward Dixon                                                        1         
-  Ellia Armstrong                                                     1         
-  Eric Ryan                                                           1         
-  Fenton Bailey                                                       1         
-  Garry Scott                                                         1         
-  George Roberts                                                      1         
-  Grace Perry                                                         1         
-  Jack Spencer                                                        1         
-  Julia Fowler                                                        1         
-  Kate Crawford                                                       1         
-  Lenny Howard                                                        1         
-  Lucas Farrell                                                       1         
-  Lucas Wright                                                        1         
-  Lydia Ferguson                                                      1         
-  Melissa Evans                                                       1         
-  Michael Williams                                                    1         
-  Michelle Thompson                                                   1         
-  Mike Sullivan                                                       1         
-  Ned Andrews                                                         1         
-  Olivia West                                                         1         
-  Patrick Bennett                                                     1         
-  Rev Alen Henderson                                                  1         
-  Richard Higgins                                                     1         
-  Roland Clark                                                        1         
-  Sienna Murphy                                                       1         
-  Valeria Perkins                                                     1         
- ────────────────────────────────────────────────────────────────────────────── 
-Press enter to continue [y/n] (y): 
+>>> 1
 >>> 
-[User input: "True"]
-1) All methods, 2) All ringers, 3) All conductors, 4) All associations
-Select option (x = Back): 
+>>> 2
+>>> 
 >>> 3
-[User input: "3"]
- ────────────────────────────────────────────────────────────────────────────── 
-  Conductors                                                                    
- ────────────────────────────────────────────────────────────────────────────── 
-  Leo Bennett                                                        2          
-  Aston Mitchell                                                     1          
-  Blake Elliott                                                      1          
-  Blake Harper                                                       1          
-  Byron Robinson                                                     1          
-  Chester Edwards                                                    1          
-  Heather Sullivan                                                   1          
-  Jack Spencer                                                       1          
-  Joyce Sullivan                                                     1          
-  Lucas Farrell                                                      1          
-  Ted Harris                                                         1          
-  Vivian Murray                                                      1          
- ────────────────────────────────────────────────────────────────────────────── 
-Press enter to continue [y/n] (y): 
 >>> 
-[User input: "True"]
-1) All methods, 2) All ringers, 3) All conductors, 4) All associations
-Select option (x = Back): 
 >>> 4
-[User input: "4"]
- ────────────────────────────────────────────────────────────────────────────── 
-  Associations                                                                  
- ────────────────────────────────────────────────────────────────────────────── 
-  Bath and Wells Diocesan Association                                      3    
-  Guild of Devonshire Ringers                                              1    
-  New Association                                                          1    
- ────────────────────────────────────────────────────────────────────────────── 
-Press enter to continue [y/n] (y): 
 >>> 
-[User input: "True"]
-1) All methods, 2) All ringers, 3) All conductors, 4) All associations
-Select option (x = Back): 
 >>> x
-[User input: "None"]
-Show report for: 1) Quarter Peal, 2) Peal
-Select option (x = Back): 
->>> 2
-[User input: "Peal"]
-Peal statistics
- ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Stage                      Methods                    Misc                    
- ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Doubles            1       Bristol Surprise      1    Mixed       2           
-  Maximus            1       Maximus                    Methods                 
-  Minor              1      ─────────────────────────   Single      1           
- ─────────────────────────                              Method                  
-                                                        Tower       2           
-                                                        Handbells   1           
-                                                        First       25-Mar-19…  
-                                                        rung                    
-                                                        Last rung   29-Mar-19…  
-                                                        Avg. peal   2 hours,    
-                                                        speed       43 minutes  
-                                                        Avg.        2 hours,    
-                                                        duration    45 minutes  
-                                                       ──────────────────────── 
- ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Top 10 Ringers             Top 10 Conductors          Top 10                  
- ─────────────────────────  ─────────────────────────   Associations            
-  Aston Mitchell        2    Aston Mitchell        1   ──────────────────────── 
-  John Parker           2    Lenny Howard          1    Oxford Diocesan      1  
-  Arianna Holmes        1    Sienna Murphy         1    Guild                   
-  Blake Howard          1   ─────────────────────────   Suffolk Guild        1  
-  Carina Warren         1                              ──────────────────────── 
-  Dominik Warren        1                                                       
-  Jack Spencer          1                                                       
-  Lenny Howard          1                                                       
-  Lydia Reed            1                                                       
-  Ned Andrews           1                                                       
- ─────────────────────────                                                      
-1) All methods, 2) All ringers, 3) All conductors, 4) All associations
-Select option (x = Back): 
->>> 1
-[User input: "1"]
- ────────────────────────────────────────────────────────────────────────────── 
-  Methods                                                                       
- ────────────────────────────────────────────────────────────────────────────── 
-  Bristol Surprise Maximus                                               1      
- ────────────────────────────────────────────────────────────────────────────── 
-Press enter to continue [y/n] (y): 
->>> 
-[User input: "True"]
-1) All methods, 2) All ringers, 3) All conductors, 4) All associations
-Select option (x = Back): 
->>> 2
-[User input: "2"]
- ────────────────────────────────────────────────────────────────────────────── 
-  Ringers                                                                       
- ────────────────────────────────────────────────────────────────────────────── 
-  Aston Mitchell                                                      2         
-  John Parker                                                         2         
-  Arianna Holmes                                                      1         
-  Blake Howard                                                        1         
-  Carina Warren                                                       1         
-  Dominik Warren                                                      1         
-  Jack Spencer                                                        1         
-  Lenny Howard                                                        1         
-  Lydia Reed                                                          1         
-  Ned Andrews                                                         1         
-  Rev Alen Henderson                                                  1         
-  Rubie Owens                                                         1         
-  Sam Wells                                                           1         
-  Sienna Murphy                                                       1         
-  Stuart Murray                                                       1         
-  Victoria Morrison                                                   1         
- ────────────────────────────────────────────────────────────────────────────── 
-Press enter to continue [y/n] (y): 
->>> 
-[User input: "True"]
-1) All methods, 2) All ringers, 3) All conductors, 4) All associations
-Select option (x = Back): 
->>> 3
-[User input: "3"]
- ────────────────────────────────────────────────────────────────────────────── 
-  Conductors                                                                    
- ────────────────────────────────────────────────────────────────────────────── 
-  Aston Mitchell                                                    1           
-  Lenny Howard                                                      1           
-  Sienna Murphy                                                     1           
- ────────────────────────────────────────────────────────────────────────────── 
-Press enter to continue [y/n] (y): 
->>> 
-[User input: "True"]
-1) All methods, 2) All ringers, 3) All conductors, 4) All associations
-Select option (x = Back): 
->>> 4
-[User input: "4"]
- ────────────────────────────────────────────────────────────────────────────── 
-  Associations                                                                  
- ────────────────────────────────────────────────────────────────────────────── 
-  Oxford Diocesan Guild                                                 1       
-  Suffolk Guild                                                         1       
- ────────────────────────────────────────────────────────────────────────────── 
-Press enter to continue [y/n] (y): 
->>> 
-[User input: "True"]
-1) All methods, 2) All ringers, 3) All conductors, 4) All associations
-Select option (x = Back): 
 >>> x
-[User input: "None"]
-Show report for: 1) Quarter Peal, 2) Peal
-Select option (x = Back): 
 >>> x
-[User input: "None"]
-1) Run report, 2) New report, 3) Edit report, 4) Delete report
-Select option (x = Back): 
 >>> x
-[User input: "None"]
-pypeal Database
- Quarter Peal count: 13                               Last updated: [Timestamp] 
- Peal count: 3                                                                  
-┌──────────────────────────────────────────────────────────────────────────────┐
-│ 1) BellBoard search                                                          │
-│ 2) Add peal by ID/URL                                                        │
-│ 3) Add peal manually                                                         │
-│ 4) View statistics                                                           │
-│ 5) Generate reports                                                          │
-│ 6) View peal                                                                 │
-│ 7) Delete peal                                                               │
-│ 8) Update static data                                                        │
-├──────────────────────────────────────────────────────────────────────────────┤
-│ x) Exit                                                                      │
-└──────────────────────────────────────────────────────────────────────────────┘
-Select option (1): 
->>> x
-[User input: "None"]
 ===
-Marston Bigot, Somerset, England
-Pig-le-Tower
-On Sunday, 21 September 2014
-A Quarter Peal of 1280 Cambridge Surprise Major 
-
-1: Vivian Murray
-2: Byron Robinson
-3: Daryl Mason
-4: Chester Edwards
-5: Joyce Sullivan
-6: Arnold Johnson
-7: Kate Crawford
-8: Heather Sullivan (c)
-
-Birthday compliment to Paul Clewett.
-3,6: First on a mini-ring.
-
-[BellBoard: http://localhost:8080/view.php?id=1066455 (Heather Sullivan, Sunday, 21 September 2014)]
-[External reference: Campanophile ID: 183937]
-[Database ID: 16]
+None
