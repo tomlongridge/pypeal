@@ -14,7 +14,7 @@ DATE_LINE_INFO_REGEX = re.compile(r'[A-Za-z]+,\s(?P<date>[0-9]+\s[A-Za-z0-9]+\s[
                                   r'in\s(?P<duration>[A-Za-z0-9\s]+))?\s?(?:\((?P<tenor>.*)\))?$')
 DURATION_REGEX = re.compile(r'^(?:(?P<hours>\d{1,2})[h])$|^(?:(?P<mins>\d+)[m]?)$|' +
                             r'^(?:(?:(?P<hours_2>\d{1,2})[h])\s(?:(?P<mins_2>(?:[0]?|[1-5]{1})[0-9])[m]?))$')
-PHOTO_URL_REGEX = re.compile(r'/\.(?P<url>/uploads/\w+/\w+)\-\w+\.jpg')
+PHOTO_URL_REGEX = re.compile(r'/\.(?P<url>/uploads/\w+/\w+)\-\w+\.(?P<ext>jpg|jpeg|png)')
 METADATA_SUBMITTED_REGEX = \
     re.compile(r'.*?[\s]*First submitted (?P<date>[\w\d\s,]+) at [0-9\:]+(?: by (?P<submitter>[\w\d\s]+))\.$',
                re.MULTILINE)
@@ -160,7 +160,8 @@ class HTMLPealGenerator(PealGenerator):
             caption = caption_element.text.strip()
             if not (url_parts := re.match(PHOTO_URL_REGEX, photo_url)):
                 raise BellboardError('Unexpected photo URL format: ', photo_url)
-            listener.photo(config.get_config('bellboard', 'url') + url_parts.groupdict()['url'] + '.jpg',
+            url_info = url_parts.groupdict()
+            listener.photo(config.get_config('bellboard', 'url') + url_info['url'] + '.' + url_info['ext'],
                            caption,
                            credit)
         else:

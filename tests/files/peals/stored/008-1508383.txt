@@ -56,7 +56,7 @@ Is this correct? [y/n] (y):
 Duration (183): 
 >>> 
 [User input: "183"]
-⏱ Duration: 3 hours, 3 minutes
+⏱ Duration: 3 hours, 3 mins
 Address (80 Lambourne Drive, Cox Green): 
 >>> 
 [User input: "80 Lambourne Drive, Cox Green"]
@@ -203,7 +203,7 @@ Select option (1):
 │ Maidenhead, Kent, England                                                    │
 │ 80 Lambourne Drive, Cox Green (in hand)                                      │
 │ On Wednesday, 29 March 1972                                                  │
-│ A Peal of 5232 Bristol Surprise Maximus in 3 hours, 3 minutes                │
+│ A Peal of 5232 Bristol Surprise Maximus in 3 hours, 3 mins                   │
 │ Composed by: Lenny Howard                                                    │
 │ Composition: Traditional                                                     │
 │                                                                              │
@@ -276,9 +276,10 @@ Quarter Peal statistics
                                                         rung                    
                                                         Last rung   17-Oct-20…  
                                                         Avg. peal   2 hours,    
-                                                        speed       41 minutes  
-                                                        Avg.        40 minutes  
-                                                        duration                
+                                                        speed       40 mins,    
+                                                                    43 secs     
+                                                        Avg.        40 mins,    
+                                                        duration    30 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -409,9 +410,11 @@ Peal statistics
                                                         rung                    
                                                         Last rung   29-Mar-19…  
                                                         Avg. peal   2 hours,    
-                                                        speed       49 minutes  
+                                                        speed       49 mins,    
+                                                                    17 secs     
                                                         Avg.        2 hours,    
-                                                        duration    52 minutes  
+                                                        duration    52 mins,    
+                                                                    30 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -522,7 +525,7 @@ Oxford Diocesan Guild
 Maidenhead, Kent, England
 80 Lambourne Drive, Cox Green (in hand)
 On Wednesday, 29 March 1972
-A Peal of 5232 Bristol Surprise Maximus in 3 hours, 3 minutes 
+A Peal of 5232 Bristol Surprise Maximus in 3 hours, 3 mins 
 Composed by: Lenny Howard
 Composition: Traditional
 

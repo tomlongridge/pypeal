@@ -61,7 +61,7 @@ Is this correct? [y/n] (y):
 Duration (49): 
 >>> 
 [User input: "49"]
-⏱ Duration: 49 minutes
+⏱ Duration: 49 mins
 🏰 Tower: Bath, Bathwick, Somerset, Blessed Virgin Mary
 🔢 Changes: 1260
 Matching peal titled "Plain Bob Royal"...
@@ -217,7 +217,7 @@ Select option (1):
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 19 May 2002                                                       │
-│ A Quarter Peal of 1260 Plain Bob Royal in 49 minutes (18-3-20 in Eb)         │
+│ A Quarter Peal of 1260 Plain Bob Royal in 49 mins (18-3-20 in Eb)            │
 │                                                                              │
 │ 1: Daniel Miller                                                             │
 │ 2: Blake Elliott                                                             │
@@ -293,9 +293,10 @@ Quarter Peal statistics
                                                         rung                    
                                                         Last rung   17-Oct-20…  
                                                         Avg. peal   3 hours,    
-                                                        speed       14 minutes  
-                                                        Avg.        49 minutes  
-                                                        duration                
+                                                        speed       14 mins,    
+                                                                    24 secs     
+                                                        Avg.        48 mins,    
+                                                        duration    36 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -415,9 +416,11 @@ Peal statistics
                                                         rung                    
                                                         Last rung   25-Mar-19…  
                                                         Avg. peal   2 hours,    
-                                                        speed       42 minutes  
+                                                        speed       41 mins,    
+                                                                    60 secs     
                                                         Avg.        2 hours,    
-                                                        duration    42 minutes  
+                                                        duration    42 mins, 0  
+                                                                    secs        
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -516,7 +519,7 @@ Select option (1):
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Sunday, 19 May 2002
-A Quarter Peal of 1260 Plain Bob Royal in 49 minutes (18-3-20 in Eb)
+A Quarter Peal of 1260 Plain Bob Royal in 49 mins (18-3-20 in Eb)
 
 1: Daniel Miller
 2: Blake Elliott

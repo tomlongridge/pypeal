@@ -300,9 +300,10 @@ Quarter Peal statistics
                              Plain Bob Doubles     1    rung                    
                              Plain Bob Royal       1    Last rung   06-Oct-20…  
                              Plain Bob Triples     1    Avg. peal   2 hours,    
-                            ─────────────────────────   speed       40 minutes  
-                                                        Avg.        40 minutes  
-                                                        duration                
+                            ─────────────────────────   speed       40 mins,    
+                                                                    29 secs     
+                                                        Avg.        40 mins,    
+                                                        duration    30 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -472,9 +473,11 @@ Peal statistics
                                                         rung                    
                                                         Last rung   29-Mar-19…  
                                                         Avg. peal   2 hours,    
-                                                        speed       43 minutes  
+                                                        speed       42 mins,    
+                                                                    36 secs     
                                                         Avg.        2 hours,    
-                                                        duration    45 minutes  
+                                                        duration    44 mins,    
+                                                                    40 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  

@@ -58,7 +58,7 @@ Is this correct? [y/n] (y):
 Duration (162): 
 >>> 2h 42
 [User input: "2h 42"]
-⏱ Duration: 2 hours, 42 minutes
+⏱ Duration: 2 hours, 42 mins
 🏰 Tower: Blythburgh, Suffolk, Holy Trinity
 🔢 Changes: 5040
 Matching peal titled "8 Methods Minor"...
@@ -340,8 +340,7 @@ Select option (1):
 │ Blythburgh, Suffolk, England                                                 │
 │ Holy Trinity                                                                 │
 │ On Monday, 25 March 1963                                                     │
-│ A Peal of 5040 Mixed Surprise Minor (8m) in 2 hours, 42 minutes (10-1-10 in  │
-│ G)                                                                           │
+│ A Peal of 5040 Mixed Surprise Minor (8m) in 2 hours, 42 mins (10-1-10 in G)  │
 │ (Norwich Surprise Minor, Ipswich Surprise Minor, Cambridge Surprise Minor,   │
 │ Single Oxford Bob Minor, Plain Bob Minor, St Clement's College Bob Minor,    │
 │ Double Oxford Bob Minor, Oxford Treble Bob Minor)                            │
@@ -419,9 +418,10 @@ Quarter Peal statistics
                                                         rung                    
                                                         Last rung   17-Oct-20…  
                                                         Avg. peal   3 hours,    
-                                                        speed       18 minutes  
-                                                        Avg.        50 minutes  
-                                                        duration                
+                                                        speed       18 mins, 0  
+                                                                    secs        
+                                                        Avg.        49 mins,    
+                                                        duration    30 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -517,9 +517,11 @@ Peal statistics
                                                         rung                    
                                                         Last rung   25-Mar-19…  
                                                         Avg. peal   2 hours,    
-                                                        speed       42 minutes  
+                                                        speed       41 mins,    
+                                                                    60 secs     
                                                         Avg.        2 hours,    
-                                                        duration    42 minutes  
+                                                        duration    42 mins, 0  
+                                                                    secs        
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -619,7 +621,7 @@ Suffolk Guild
 Blythburgh, Suffolk, England
 Holy Trinity
 On Monday, 25 March 1963
-A Peal of 5040 Mixed Surprise Minor (8m) in 2 hours, 42 minutes (10-1-10 in G)
+A Peal of 5040 Mixed Surprise Minor (8m) in 2 hours, 42 mins (10-1-10 in G)
 (Single Oxford Bob Minor, Double Oxford Bob Minor, Plain Bob Minor, St Clement's College Bob Minor, Norwich Surprise Minor, Ipswich Surprise Minor, Cambridge Surprise Minor, Oxford Treble Bob Minor)
 Composed by: Rev John Smith
 Composition: Seven extents in eight methods

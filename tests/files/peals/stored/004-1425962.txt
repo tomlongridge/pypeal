@@ -56,7 +56,7 @@ Is this correct? [y/n] (y):
 Duration (45): 
 >>> 
 [User input: "45"]
-⏱ Duration: 45 minutes
+⏱ Duration: 45 mins
 🏰 Tower: Bexhill on Sea, East Sussex, S Peter
 🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
@@ -222,7 +222,7 @@ Select option (1):
 │ Bexhill on Sea, East Sussex, England                                         │
 │ S Peter                                                                      │
 │ On Sunday, 13 September 2009                                                 │
-│ A Quarter Peal of 1260 Grandsire Triples in 45 minutes (17-2-15 in E)        │
+│ A Quarter Peal of 1260 Grandsire Triples in 45 mins (17-2-15 in E)           │
 │                                                                              │
 │ 1 [3]: Aston Mitchell                                                        │
 │ 2 [4]: Dominik Warren                                                        │
@@ -294,9 +294,10 @@ Quarter Peal statistics
                                                         rung                    
                                                         Last rung   17-Oct-20…  
                                                         Avg. peal   3 hours,    
-                                                        speed       12 minutes  
-                                                        Avg.        48 minutes  
-                                                        duration                
+                                                        speed       12 mins, 0  
+                                                                    secs        
+                                                        Avg.        48 mins, 0  
+                                                        duration    secs        
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -401,9 +402,11 @@ Peal statistics
                                                         rung                    
                                                         Last rung   25-Mar-19…  
                                                         Avg. peal   2 hours,    
-                                                        speed       42 minutes  
+                                                        speed       41 mins,    
+                                                                    60 secs     
                                                         Avg.        2 hours,    
-                                                        duration    42 minutes  
+                                                        duration    42 mins, 0  
+                                                                    secs        
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -502,7 +505,7 @@ Select option (1):
 Bexhill on Sea, East Sussex, England
 S Peter
 On Sunday, 13 September 2009
-A Quarter Peal of 1260 Grandsire Triples in 45 minutes (17-2-15 in E)
+A Quarter Peal of 1260 Grandsire Triples in 45 mins (17-2-15 in E)
 
 1 [3]: Aston Mitchell
 2 [4]: Dominik Warren

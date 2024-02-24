@@ -54,7 +54,7 @@ Try for a quick-add? [y/n] (y):
 🔔 Bell type: Tower
 📅 Date: Sunday, 27 February 2011
 🔔 Tenor: 2120
-⏱ Duration: 47 minutes
+⏱ Duration: 47 mins
 🏰 Tower: Bath, Bathwick, Somerset, Blessed Virgin Mary
 🔢 Changes: 1280
 Matching peal titled "Spliced Surprise Major (8 methods)"...
@@ -158,7 +158,7 @@ First bell number(s) in the tower (1):
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 27 February 2011                                                  │
-│ A Quarter Peal of 1280 Spliced Surprise Major (8m) in 47 minutes (18-3-20 in │
+│ A Quarter Peal of 1280 Spliced Surprise Major (8m) in 47 mins (18-3-20 in    │
 │ Eb)                                                                          │
 │ (160 Cambridge Surprise Major, 160 Yorkshire Surprise Major, 160             │
 │ Lincolnshire Surprise Major, 160 Superlative Surprise Major, 160 Rutland     │
@@ -341,9 +341,10 @@ Quarter Peal statistics
                              Plain Bob Doubles     1    rung                    
                              Plain Bob Royal       1    Last rung   12-Nov-20…  
                              Plain Bob Triples     1    Avg. peal   2 hours,    
-                            ─────────────────────────   speed       45 minutes  
-                                                        Avg.        42 minutes  
-                                                        duration                
+                            ─────────────────────────   speed       44 mins,    
+                                                                    52 secs     
+                                                        Avg.        41 mins,    
+                                                        duration    35 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -514,9 +515,11 @@ Peal statistics
                                                         rung                    
                                                         Last rung   29-Mar-19…  
                                                         Avg. peal   2 hours,    
-                                                        speed       43 minutes  
+                                                        speed       42 mins,    
+                                                                    36 secs     
                                                         Avg.        2 hours,    
-                                                        duration    45 minutes  
+                                                        duration    44 mins,    
+                                                                    40 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -634,7 +637,7 @@ Bath and Wells Diocesan Association
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Sunday, 27 February 2011
-A Quarter Peal of 1280 Spliced Surprise Major (8m) in 47 minutes (18-3-20 in Eb)
+A Quarter Peal of 1280 Spliced Surprise Major (8m) in 47 mins (18-3-20 in Eb)
 (160 Superlative Surprise Major, 160 Cambridge Surprise Major, 160 Yorkshire Surprise Major, 160 Rutland Surprise Major, 160 Lincolnshire Surprise Major, 160 Bristol Surprise Major, 160 Pudsey Surprise Major, 160 London Surprise Major)
 
 1 [3]: Patrick Bennett

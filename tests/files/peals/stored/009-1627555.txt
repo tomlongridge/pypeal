@@ -57,7 +57,7 @@ Is this correct? [y/n] (y):
 Duration (46): 
 >>> 
 [User input: "46"]
-⏱ Duration: 46 minutes
+⏱ Duration: 46 mins
 🏰 Tower: Longney, Gloucestershire, S Lawrence
 🔢 Changes: 1280
 Matching peal titled "London Surprise Major"...
@@ -189,7 +189,7 @@ Select option (1):
 │ Longney, Gloucestershire, England                                            │
 │ S Lawrence                                                                   │
 │ On Saturday, 13 May 2023                                                     │
-│ A Quarter Peal of 1280 London Surprise Major in 46 minutes (10-3-17 in F)    │
+│ A Quarter Peal of 1280 London Surprise Major in 46 mins (10-3-17 in F)       │
 │                                                                              │
 │ 1: Aston Mitchell (c)                                                        │
 │ 2: Carina Warren                                                             │
@@ -262,9 +262,10 @@ Quarter Peal statistics
                                                         rung                    
                                                         Last rung   13-May-20…  
                                                         Avg. peal   2 hours,    
-                                                        speed       44 minutes  
-                                                        Avg.        41 minutes  
-                                                        duration                
+                                                        speed       43 mins,    
+                                                                    40 secs     
+                                                        Avg.        41 mins,    
+                                                        duration    17 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -404,9 +405,11 @@ Peal statistics
                                                         rung                    
                                                         Last rung   29-Mar-19…  
                                                         Avg. peal   2 hours,    
-                                                        speed       49 minutes  
+                                                        speed       49 mins,    
+                                                                    17 secs     
                                                         Avg.        2 hours,    
-                                                        duration    52 minutes  
+                                                        duration    52 mins,    
+                                                                    30 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -516,7 +519,7 @@ Select option (1):
 Longney, Gloucestershire, England
 S Lawrence
 On Saturday, 13 May 2023
-A Quarter Peal of 1280 London Surprise Major in 46 minutes (10-3-17 in F)
+A Quarter Peal of 1280 London Surprise Major in 46 mins (10-3-17 in F)
 
 1: Aston Mitchell (c)
 2: Carina Warren

@@ -61,7 +61,7 @@ Is this correct? [y/n] (y):
 Duration (48): 
 >>> 
 [User input: "48"]
-⏱ Duration: 48 minutes
+⏱ Duration: 48 mins
 🏰 Tower: Bath, Bathwick, Somerset, Blessed Virgin Mary
 🔢 Changes: 1260
 Matching peal titled "Grandsire Caters and Royal"...
@@ -267,8 +267,8 @@ Select option (1):
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 11 January 2015                                                   │
-│ A Quarter Peal of 1260 Spliced Caters and Royal (2m) in 48 minutes (18-3-20  │
-│ in Eb)                                                                       │
+│ A Quarter Peal of 1260 Spliced Caters and Royal (2m) in 48 mins (18-3-20 in  │
+│ Eb)                                                                          │
 │ (Grandsire Caters, Grandsire Royal)                                          │
 │                                                                              │
 │ 1: Byron Miller                                                              │
@@ -349,9 +349,10 @@ Quarter Peal statistics
                                                         rung                    
                                                         Last rung   13-May-20…  
                                                         Avg. peal   2 hours,    
-                                                        speed       47 minutes  
-                                                        Avg.        42 minutes  
-                                                        duration                
+                                                        speed       47 mins,    
+                                                                    10 secs     
+                                                        Avg.        42 mins, 8  
+                                                        duration    secs        
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -497,9 +498,11 @@ Peal statistics
                                                         rung                    
                                                         Last rung   29-Mar-19…  
                                                         Avg. peal   2 hours,    
-                                                        speed       49 minutes  
+                                                        speed       49 mins,    
+                                                                    17 secs     
                                                         Avg.        2 hours,    
-                                                        duration    52 minutes  
+                                                        duration    52 mins,    
+                                                                    30 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -609,7 +612,7 @@ Select option (1):
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Sunday, 11 January 2015
-A Quarter Peal of 1260 Spliced Caters and Royal (2m) in 48 minutes (18-3-20 in Eb)
+A Quarter Peal of 1260 Spliced Caters and Royal (2m) in 48 mins (18-3-20 in Eb)
 (Grandsire Caters, Grandsire Royal)
 
 1: Byron Miller

@@ -48,7 +48,7 @@ Try for a quick-add? [y/n] (y):
 🔔 Bell type: Tower
 📅 Date: Sunday, 12 November 2023
 🔔 Tenor: 2120 in Eb
-⏱ Duration: 49 minutes
+⏱ Duration: 49 mins
 🏰 Tower: Bath, Bathwick, Somerset, Blessed Virgin Mary
 🔢 Changes: 1260
 Matching peal titled "Grandsire Doubles"...
@@ -80,8 +80,8 @@ Shifting band by 4 bells
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 12 November 2023                                                  │
-│ A Quarter Peal of 1260 Grandsire Doubles (half-muffled) in 49 minutes        │
-│ (18-3-20 in Eb)                                                              │
+│ A Quarter Peal of 1260 Grandsire Doubles (half-muffled) in 49 mins (18-3-20  │
+│ in Eb)                                                                       │
 │                                                                              │
 │ 1 [5]: Ryan Elliott                                                          │
 │ 2 [6]: Leo Bennett                                                           │
@@ -113,7 +113,7 @@ Is this correct? [y/n] (y):
 Duration (49): 
 >>> 
 [User input: "49"]
-⏱ Duration: 49 minutes
+⏱ Duration: 49 mins
 🏰 Tower: Bath, Bathwick, Somerset, Blessed Virgin Mary
 🔢 Changes: 1260
 Matching peal titled "Grandsire Doubles"...
@@ -228,8 +228,8 @@ Shifting band by 4 bells
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 12 November 2023                                                  │
-│ A Quarter Peal of 1260 Grandsire Doubles (half-muffled) in 49 minutes        │
-│ (18-3-20 in Eb)                                                              │
+│ A Quarter Peal of 1260 Grandsire Doubles (half-muffled) in 49 mins (18-3-20  │
+│ in Eb)                                                                       │
 │                                                                              │
 │ 1 [5]: Ryan Elliott                                                          │
 │ 2 [6]: Leo Bennett                                                           │
@@ -403,9 +403,10 @@ Quarter Peal statistics
                              Plain Bob Doubles     1    rung                    
                              Plain Bob Royal       1    Last rung   12-Nov-20…  
                              Plain Bob Triples     1    Avg. peal   2 hours,    
-                            ─────────────────────────   speed       43 minutes  
-                                                        Avg.        41 minutes  
-                                                        duration                
+                            ─────────────────────────   speed       42 mins,    
+                                                                    33 secs     
+                                                        Avg.        41 mins, 0  
+                                                        duration    secs        
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -575,9 +576,11 @@ Peal statistics
                                                         rung                    
                                                         Last rung   29-Mar-19…  
                                                         Avg. peal   2 hours,    
-                                                        speed       43 minutes  
+                                                        speed       42 mins,    
+                                                                    36 secs     
                                                         Avg.        2 hours,    
-                                                        duration    45 minutes  
+                                                        duration    44 mins,    
+                                                                    40 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -694,7 +697,7 @@ Select option (1):
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Sunday, 12 November 2023
-A Quarter Peal of 1260 Grandsire Doubles (half-muffled) in 49 minutes (18-3-20 in Eb)
+A Quarter Peal of 1260 Grandsire Doubles (half-muffled) in 49 mins (18-3-20 in Eb)
 
 1 [5]: Ryan Elliott
 2 [6]: Leo Bennett

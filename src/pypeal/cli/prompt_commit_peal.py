@@ -13,10 +13,10 @@ def prompt_commit_peal(peal: Peal) -> Peal:
     existing_peal = None
     if peal.bellboard_id and (existing_peal := Peal.get(bellboard_id=peal.bellboard_id)):
         warning(f'Peal with BellBoard ID {peal.bellboard_id} already exists:\n\n{existing_peal}')
-        if not confirm(None, confirm_message='Overwrite peal?', default=False):
-            return None
-        else:
+        if confirm(None, confirm_message='Overwrite peal?', default=False):
             user_confirmed = True
+        else:
+            return None
 
     if possible_duplicates := Peal.search(date_from=peal.date,
                                           date_to=peal.date,
@@ -37,27 +37,37 @@ def prompt_commit_peal(peal: Peal) -> Peal:
                 if confirm(None, confirm_message='Is this the same peal?'):
                     match choose_option(['Pick left', 'Pick right', 'Cancel'], default=1):
                         case 1:
-                            existing_peal = peal
-                            peal = dup
+                            # Forget about the new peal but update the BellBoard ID to the new one
+                            # (Bellboard creates new IDs when a peal as been edited)
+                            dup.update_bellboard_id(peal.bellboard_id)
+                            peal = None
                         case 2:
-                            pass
+                            # Delete the existing peal and commit the new one
+                            existing_peal = dup
+                            user_confirmed = True
                         case 3:
                             return None
 
-    panel(str(peal), title='Confirm performance')
+    if peal:
 
-    if not user_confirmed and not confirm('Save this peal?'):
-        return None
+        panel(str(peal), title='Confirm performance')
+        if not user_confirmed and not confirm('Save this peal?'):
+            return None
+
+        # Clear the old BellBoard ID to avoid key clash
+        if existing_peal:
+            existing_peal.update_bellboard_id(None)
+
+        peal.commit()
+        for photo in peal.photos:
+            print(f'Saving photo {photo[1]}...')
+            _, photo_bytes = request_bytes(photo[1])
+            peal.set_photo_bytes(photo[0], photo_bytes)
+
+        print(f'Peal (ID {peal.id}) added')
 
     if existing_peal:
+        print(f'Removing previous performance (ID {existing_peal.id})...')
         existing_peal.delete()
-    peal.commit()
-
-    for photo in peal.photos:
-        print(f'Saving photo {photo[1]}...')
-        _, photo_bytes = request_bytes(photo[1])
-        peal.set_photo_bytes(photo[0], photo_bytes)
-
-    print(f'Peal (ID {peal.id}) added')
 
     return peal

@@ -451,9 +451,10 @@ Quarter Peal statistics
                              Plain Bob Doubles     1    rung                    
                              Plain Bob Royal       1    Last rung   12-Nov-20…  
                              Plain Bob Triples     1    Avg. peal   2 hours,    
-                            ─────────────────────────   speed       45 minutes  
-                                                        Avg.        42 minutes  
-                                                        duration                
+                            ─────────────────────────   speed       44 mins,    
+                                                                    52 secs     
+                                                        Avg.        41 mins,    
+                                                        duration    35 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  

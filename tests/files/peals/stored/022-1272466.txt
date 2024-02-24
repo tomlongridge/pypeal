@@ -57,7 +57,7 @@ Try for a quick-add? [y/n] (y):
 🔔 Bell type: Tower
 📅 Date: Sunday, 17 February 2019
 🔔 Tenor: 2120 in Eb
-⏱ Duration: 46 minutes
+⏱ Duration: 46 mins
 🏰 Tower: Bath, Bathwick, Somerset, Blessed Virgin Mary
 🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
@@ -91,7 +91,7 @@ First bell number(s) in the tower (1):
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 17 February 2019                                                  │
-│ A Quarter Peal of 1260 Grandsire Triples in 46 minutes (18-3-20 in Eb)       │
+│ A Quarter Peal of 1260 Grandsire Triples in 46 mins (18-3-20 in Eb)          │
 │ Composition: Camila Chapman                                                  │
 │                                                                              │
 │ 1 [3]: Lenny Howard                                                          │
@@ -274,9 +274,10 @@ Quarter Peal statistics
                              Plain Bob Doubles     1    rung                    
                              Plain Bob Royal       1    Last rung   12-Nov-20…  
                              Plain Bob Triples     1    Avg. peal   2 hours,    
-                            ─────────────────────────   speed       44 minutes  
-                                                        Avg.        41 minutes  
-                                                        duration                
+                            ─────────────────────────   speed       43 mins,    
+                                                                    44 secs     
+                                                        Avg.        41 mins,    
+                                                        duration    17 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -446,9 +447,11 @@ Peal statistics
                                                         rung                    
                                                         Last rung   29-Mar-19…  
                                                         Avg. peal   2 hours,    
-                                                        speed       43 minutes  
+                                                        speed       42 mins,    
+                                                                    36 secs     
                                                         Avg.        2 hours,    
-                                                        duration    45 minutes  
+                                                        duration    44 mins,    
+                                                                    40 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -601,7 +604,7 @@ Try for a quick-add? [y/n] (y):
 🔔 Bell type: Tower
 📅 Date: Sunday, 17 February 2019
 🔔 Tenor: 2120 in Eb
-⏱ Duration: 46 minutes
+⏱ Duration: 46 mins
 🏰 Tower: Bath, Bathwick, Somerset, Blessed Virgin Mary
 🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
@@ -637,7 +640,7 @@ First bell number(s) in the tower (1):
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 17 February 2019                                                  │
-│ A Quarter Peal of 1260 Grandsire Triples in 46 minutes (18-3-20 in Eb)       │
+│ A Quarter Peal of 1260 Grandsire Triples in 46 mins (18-3-20 in Eb)          │
 │ Composition: Camila Chapman                                                  │
 │                                                                              │
 │ 1 [3]: Lenny Howard                                                          │
@@ -667,7 +670,7 @@ Overwrite peal? [y/n] (n):
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 17 February 2019                                                  │
-│ A Quarter Peal of 1260 Grandsire Triples in 46 minutes (18-3-20 in Eb)       │
+│ A Quarter Peal of 1260 Grandsire Triples in 46 mins (18-3-20 in Eb)          │
 │ Composition: Camila Chapman                                                  │
 │                                                                              │
 │ 1 [3]: Lenny Howard                                                          │
@@ -691,6 +694,7 @@ Overwrite peal? [y/n] (n):
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Saving photo http://localhost:8080/uploads/57/002a57.jpg...
 Peal (ID 23) added
+Removing previous performance (ID 22)...
 pypeal Database
  General Ringing count: 1                             Last updated: [Timestamp] 
  Quarter Peal count: 18                                                         
@@ -846,9 +850,10 @@ Quarter Peal statistics
                              Plain Bob Doubles     1    rung                    
                              Plain Bob Royal       1    Last rung   12-Nov-20…  
                              Plain Bob Triples     1    Avg. peal   2 hours,    
-                            ─────────────────────────   speed       44 minutes  
-                                                        Avg.        41 minutes  
-                                                        duration                
+                            ─────────────────────────   speed       43 mins,    
+                                                                    44 secs     
+                                                        Avg.        41 mins,    
+                                                        duration    17 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -1038,7 +1043,7 @@ Bellboard URL or peal ID:
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 17 February 2019                                                  │
-│ A Quarter Peal of 1260 Grandsire Triples in 46 minutes (18-3-20 in Eb)       │
+│ A Quarter Peal of 1260 Grandsire Triples in 46 mins (18-3-20 in Eb)          │
 │ Composition: Camila Chapman                                                  │
 │                                                                              │
 │ 1 [3]: Lenny Howard                                                          │
@@ -1163,7 +1168,7 @@ Try for a quick-add? [y/n] (y):
 🔔 Bell type: Tower
 📅 Date: Sunday, 17 February 2019
 🔔 Tenor: 2120 in Eb
-⏱ Duration: 46 minutes
+⏱ Duration: 46 mins
 🏰 Tower: Bath, Bathwick, Somerset, Blessed Virgin Mary
 🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
@@ -1197,7 +1202,7 @@ First bell number(s) in the tower (1):
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 17 February 2019                                                  │
-│ A Quarter Peal of 1260 Grandsire Triples in 46 minutes (18-3-20 in Eb)       │
+│ A Quarter Peal of 1260 Grandsire Triples in 46 mins (18-3-20 in Eb)          │
 │ Composition: Camila Chapman                                                  │
 │                                                                              │
 │ 1 [3]: Lenny Howard                                                          │
@@ -1248,7 +1253,7 @@ Select option (1):
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Sunday, 17 February 2019
-A Quarter Peal of 1260 Grandsire Triples in 46 minutes (18-3-20 in Eb)
+A Quarter Peal of 1260 Grandsire Triples in 46 mins (18-3-20 in Eb)
 Composition: Camila Chapman
 
 1 [3]: Lenny Howard

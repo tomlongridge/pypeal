@@ -60,7 +60,7 @@ Is this correct? [y/n] (y):
 Duration (50): 
 >>> 
 [User input: "50"]
-⏱ Duration: 50 minutes
+⏱ Duration: 50 mins
 🏰 Tower: Shrivenham, Oxfordshire, S Andrew
 🔢 Changes: 1296
 Matching peal titled "Little Bob Royal"...
@@ -256,7 +256,7 @@ Select option (1):
 │ Shrivenham, Oxfordshire, England                                             │
 │ S Andrew                                                                     │
 │ On Saturday, 23 September 2023                                               │
-│ A Quarter Peal of 1296 Little Bob Royal in 50 minutes (13-0-2 in F)          │
+│ A Quarter Peal of 1296 Little Bob Royal in 50 mins (13-0-2 in F)             │
 │ Composed by: ComposerGivenName ComposerSurname                               │
 │ Composition: Steven Anderson                                                 │
 │                                                                              │
@@ -336,9 +336,10 @@ Quarter Peal statistics
                                                         rung                    
                                                         Last rung   23-Sep-20…  
                                                         Avg. peal   2 hours,    
-                                                        speed       52 minutes  
-                                                        Avg.        44 minutes  
-                                                        duration                
+                                                        speed       52 mins, 9  
+                                                                    secs        
+                                                        Avg.        43 mins,    
+                                                        duration    30 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -493,9 +494,11 @@ Peal statistics
                                                         rung                    
                                                         Last rung   29-Mar-19…  
                                                         Avg. peal   2 hours,    
-                                                        speed       43 minutes  
+                                                        speed       42 mins,    
+                                                                    36 secs     
                                                         Avg.        2 hours,    
-                                                        duration    45 minutes  
+                                                        duration    44 mins,    
+                                                                    40 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -611,7 +614,7 @@ Select option (1):
 Shrivenham, Oxfordshire, England
 S Andrew
 On Saturday, 23 September 2023
-A Quarter Peal of 1296 Little Bob Royal in 50 minutes (13-0-2 in F)
+A Quarter Peal of 1296 Little Bob Royal in 50 mins (13-0-2 in F)
 Composed by: ComposerGivenName ComposerSurname
 Composition: Steven Anderson
 

@@ -49,7 +49,7 @@ Try for a quick-add? [y/n] (y):
 🔔 Bell type: Tower
 📅 Date: Sunday, 7 May 2023
 🔔 Tenor: 880
-⏱ Duration: 40 minutes
+⏱ Duration: 40 mins
 🏰 Tower: Bath, Bathwick, Somerset, Blessed Virgin Mary
 🔢 Changes: 1260
 Matching peal titled "Grandsire Doubles"...
@@ -80,7 +80,7 @@ Shifting band by -4 bells
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 7 May 2023                                                        │
-│ A Quarter Peal of 1260 Grandsire Doubles in 40 minutes (7-3-12 in Bb)        │
+│ A Quarter Peal of 1260 Grandsire Doubles in 40 mins (7-3-12 in Bb)           │
 │                                                                              │
 │ 1: Ryan Elliott                                                              │
 │ 2: Arnold Johnson                                                            │
@@ -114,7 +114,7 @@ Is this correct? [y/n] (y):
 Duration (40): 
 >>> 
 [User input: "40"]
-⏱ Duration: 40 minutes
+⏱ Duration: 40 mins
 🏰 Tower: Bath, Bathwick, Somerset, Blessed Virgin Mary
 🔢 Changes: 1260
 Matching peal titled "Grandsire Doubles"...
@@ -219,7 +219,7 @@ Select option (1):
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 7 May 2023                                                        │
-│ A Quarter Peal of 1260 Grandsire Doubles in 40 minutes (7-3-12 in Bb)        │
+│ A Quarter Peal of 1260 Grandsire Doubles in 40 mins (7-3-12 in Bb)           │
 │                                                                              │
 │ 1: Ryan Elliott                                                              │
 │ 2: Arnold Johnson                                                            │
@@ -293,9 +293,10 @@ Quarter Peal statistics
                              Major                      rung                    
                              Plain Bob Doubles     1    Last rung   06-Oct-20…  
                              Plain Bob Royal       1    Avg. peal   2 hours,    
-                             Plain Bob Triples     1    speed       38 minutes  
-                            ─────────────────────────   Avg.        40 minutes  
-                                                        duration                
+                             Plain Bob Triples     1    speed       38 mins, 8  
+                            ─────────────────────────               secs        
+                                                        Avg.        39 mins,    
+                                                        duration    56 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -464,9 +465,11 @@ Peal statistics
                                                         rung                    
                                                         Last rung   29-Mar-19…  
                                                         Avg. peal   2 hours,    
-                                                        speed       43 minutes  
+                                                        speed       42 mins,    
+                                                                    36 secs     
                                                         Avg.        2 hours,    
-                                                        duration    45 minutes  
+                                                        duration    44 mins,    
+                                                                    40 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -582,7 +585,7 @@ Select option (1):
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Sunday, 7 May 2023
-A Quarter Peal of 1260 Grandsire Doubles in 40 minutes (7-3-12 in Bb)
+A Quarter Peal of 1260 Grandsire Doubles in 40 mins (7-3-12 in Bb)
 
 1: Ryan Elliott
 2: Arnold Johnson

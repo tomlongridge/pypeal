@@ -48,7 +48,7 @@ Try for a quick-add? [y/n] (y):
 🔔 Bell type: Tower
 📅 Date: Saturday, 30 June 2001
 🔔 Tenor: 1904
-⏱ Duration: 49 minutes
+⏱ Duration: 49 mins
 🏰 Tower: Withycombe Raleigh, Devon, S John Ev
 🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
@@ -121,7 +121,7 @@ Shifting band by 4 bells
 │ Withycombe Raleigh, Devon, England                                           │
 │ S John Ev                                                                    │
 │ On Saturday, 30 June 2001                                                    │
-│ A Quarter Peal of 1260 Grandsire Triples in 49 minutes (17-1-10 in D#)       │
+│ A Quarter Peal of 1260 Grandsire Triples in 49 mins (17-1-10 in D#)          │
 │                                                                              │
 │ 1 [5]: Lydia Ferguson                                                        │
 │ 2 [6]: Harold Gray                                                           │
@@ -195,9 +195,10 @@ Quarter Peal statistics
                                                         rung                    
                                                         Last rung   30-Jun-20…  
                                                         Avg. peal   3 hours,    
-                                                        speed       16 minutes  
-                                                        Avg.        49 minutes  
-                                                        duration                
+                                                        speed       16 mins, 0  
+                                                                    secs        
+                                                        Avg.        49 mins, 0  
+                                                        duration    secs        
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10 Associations     
@@ -293,9 +294,10 @@ Quarter Peal statistics
                                                         rung                    
                                                         Last rung   30-Jun-20…  
                                                         Avg. peal   3 hours,    
-                                                        speed       16 minutes  
-                                                        Avg.        49 minutes  
-                                                        duration                
+                                                        speed       16 mins, 0  
+                                                                    secs        
+                                                        Avg.        49 mins, 0  
+                                                        duration    secs        
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10 Associations     
@@ -373,9 +375,10 @@ Quarter Peal statistics
                                                         rung                    
                                                         Last rung   30-Jun-20…  
                                                         Avg. peal   3 hours,    
-                                                        speed       16 minutes  
-                                                        Avg.        49 minutes  
-                                                        duration                
+                                                        speed       16 mins, 0  
+                                                                    secs        
+                                                        Avg.        49 mins, 0  
+                                                        duration    secs        
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10 Associations     
@@ -429,7 +432,7 @@ Select option (1):
 Withycombe Raleigh, Devon, England
 S John Ev
 On Saturday, 30 June 2001
-A Quarter Peal of 1260 Grandsire Triples in 49 minutes (17-1-10 in D#)
+A Quarter Peal of 1260 Grandsire Triples in 49 mins (17-1-10 in D#)
 
 1 [5]: Lydia Ferguson
 2 [6]: Harold Gray

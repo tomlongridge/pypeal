@@ -54,7 +54,7 @@ Is this correct? [y/n] (y):
 Duration (36): 
 >>> 
 [User input: "36"]
-⏱ Duration: 36 minutes
+⏱ Duration: 36 mins
 🏰 Tower: Bath, Lansdown, Somerset, S Stephen
 🔢 Changes: 1296
 Matching peal titled "Honeywell Delight Minor"...
@@ -177,7 +177,7 @@ Select option (1):
 │ Bath, Somerset, England                                                      │
 │ S Stephen, Lansdown                                                          │
 │ On Friday, 6 October 2023                                                    │
-│ A Quarter Peal of 1296 Honeywell Delight Minor in 36 minutes (2-3-9 in F)    │
+│ A Quarter Peal of 1296 Honeywell Delight Minor in 36 mins (2-3-9 in F)       │
 │ Composed by: Byron Miller                                                    │
 │                                                                              │
 │ 1: Leo Bennett                                                               │
@@ -250,9 +250,10 @@ Quarter Peal statistics
                              Plain Bob Doubles     1    rung                    
                              Plain Bob Royal       1    Last rung   06-Oct-20…  
                              Plain Bob Triples     1    Avg. peal   2 hours,    
-                            ─────────────────────────   speed       38 minutes  
-                                                        Avg.        40 minutes  
-                                                        duration                
+                            ─────────────────────────   speed       37 mins,    
+                                                                    60 secs     
+                                                        Avg.        39 mins,    
+                                                        duration    56 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -420,9 +421,11 @@ Peal statistics
                                                         rung                    
                                                         Last rung   29-Mar-19…  
                                                         Avg. peal   2 hours,    
-                                                        speed       43 minutes  
+                                                        speed       42 mins,    
+                                                                    36 secs     
                                                         Avg.        2 hours,    
-                                                        duration    45 minutes  
+                                                        duration    44 mins,    
+                                                                    40 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -538,7 +541,7 @@ Select option (1):
 Bath, Somerset, England
 S Stephen, Lansdown
 On Friday, 6 October 2023
-A Quarter Peal of 1296 Honeywell Delight Minor in 36 minutes (2-3-9 in F)
+A Quarter Peal of 1296 Honeywell Delight Minor in 36 mins (2-3-9 in F)
 Composed by: Byron Miller
 
 1: Leo Bennett

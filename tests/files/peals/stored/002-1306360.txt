@@ -53,7 +53,7 @@ Is this correct? [y/n] (y):
 Duration (44): 
 >>> 50 mins
 [User input: "50 mins"]
-⏱ Duration: 50 minutes
+⏱ Duration: 50 mins
 🏰 Tower: Portbury, Somerset, Blessed Virgin Mary
 🔢 Changes: 1260
 Matching peal titled "Doubles (1p/5m/3v)"...
@@ -193,7 +193,7 @@ Select option (1):
 │ Portbury, Somerset, England                                                  │
 │ Blessed Virgin Mary                                                          │
 │ On Thursday, 17 October 2019                                                 │
-│ A Quarter Peal of 1260 Mixed Doubles (5m/3v/1p) in 50 minutes (21 cwt in Eb) │
+│ A Quarter Peal of 1260 Mixed Doubles (5m/3v/1p) in 50 mins (21 cwt in Eb)    │
 │                                                                              │
 │ 1: Dainton Casey (Note 1)                                                    │
 │ 2: Daryl Mason (Note 2)                                                      │
@@ -256,9 +256,10 @@ Quarter Peal statistics
                                                         rung                    
                                                         Last rung   17-Oct-20…  
                                                         Avg. peal   3 hours,    
-                                                        speed       18 minutes  
-                                                        Avg.        50 minutes  
-                                                        duration                
+                                                        speed       18 mins, 0  
+                                                                    secs        
+                                                        Avg.        49 mins,    
+                                                        duration    30 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -365,7 +366,7 @@ Bath and Wells Diocesan Association
 Portbury, Somerset, England
 Blessed Virgin Mary
 On Thursday, 17 October 2019
-A Quarter Peal of 1260 Mixed Doubles (5m/3v/1p) in 50 minutes (21 cwt in Eb)
+A Quarter Peal of 1260 Mixed Doubles (5m/3v/1p) in 50 mins (21 cwt in Eb)
 
 1: Dainton Casey (Note 1)
 2: Daryl Mason (Note 2)

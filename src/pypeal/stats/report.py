@@ -50,8 +50,12 @@ def generate_summary(peals: list[Peal],
             report['types'][peal.length_type]['muffles'] = dict()
             report['types'][peal.length_type]['ringers'] = dict()
             report['types'][peal.length_type]['conductors'] = dict()
-            report['types'][peal.length_type]['rings'] = dict()
-            report['types'][peal.length_type]['towers'] = dict()
+            if not ring:
+                report['types'][peal.length_type]['rings'] = dict()
+            if not tower:
+                report['types'][peal.length_type]['towers'] = dict()
+            if ring or tower:
+                report['types'][peal.length_type]['bells'] = dict()
         else:
             if peal.date < report['types'][peal.length_type]['first']:
                 report['types'][peal.length_type]['first'] = peal.date
@@ -107,6 +111,8 @@ def generate_summary(peals: list[Peal],
             report['types'][peal.length_type]['muffles'][peal.muffles] += 1
 
         for peal_ringer in peal.ringers:
+            if ringer and ringer == peal_ringer.ringer:
+                continue
             if peal_ringer.ringer not in report['types'][peal.length_type]['ringers']:
                 report['types'][peal.length_type]['ringers'][peal_ringer.ringer] = 0
             report['types'][peal.length_type]['ringers'][peal_ringer.ringer] += 1
@@ -117,69 +123,51 @@ def generate_summary(peals: list[Peal],
 
         if peal.ring:
 
-            if peal.ring not in report['types'][peal.length_type]['rings']:
-                report['types'][peal.length_type]['rings'][peal.ring] = dict()
-                report['types'][peal.length_type]['rings'][peal.ring]['count'] = 0
-                report['types'][peal.length_type]['rings'][peal.ring]['first'] = peal.date
-                report['types'][peal.length_type]['rings'][peal.ring]['last'] = peal.date
-                report['types'][peal.length_type]['rings'][peal.ring]['bells'] = dict()
-            report['types'][peal.length_type]['rings'][peal.ring]['count'] += 1
-            if peal.date < report['types'][peal.length_type]['rings'][peal.ring]['first']:
-                report['types'][peal.length_type]['rings'][peal.ring]['first'] = peal.date
-            if peal.date > report['types'][peal.length_type]['rings'][peal.ring]['last']:
-                report['types'][peal.length_type]['rings'][peal.ring]['last'] = peal.date
+            if not ring:
+                if peal.ring not in report['types'][peal.length_type]['rings']:
+                    report['types'][peal.length_type]['rings'][peal.ring] = dict()
+                    report['types'][peal.length_type]['rings'][peal.ring]['count'] = 0
+                    report['types'][peal.length_type]['rings'][peal.ring]['first'] = peal.date
+                    report['types'][peal.length_type]['rings'][peal.ring]['last'] = peal.date
+                    report['types'][peal.length_type]['rings'][peal.ring]['bells'] = dict()
+                report['types'][peal.length_type]['rings'][peal.ring]['count'] += 1
+                if peal.date < report['types'][peal.length_type]['rings'][peal.ring]['first']:
+                    report['types'][peal.length_type]['rings'][peal.ring]['first'] = peal.date
+                if peal.date > report['types'][peal.length_type]['rings'][peal.ring]['last']:
+                    report['types'][peal.length_type]['rings'][peal.ring]['last'] = peal.date
 
-            # Also add counts of ringers on each bell
-            peal_ringer: PealRinger
-            for peal_ringer in peal.ringers:
-                if peal_ringer.bell_ids is None:
-                    continue
-                for bell_id in peal_ringer.bell_ids:
-                    # Record a count against the role of the bell in the specified ring
-                    bell_role = None
-                    for role, ring_bell in peal.ring.bells.items():
-                        if ring_bell.id == Bell.get(bell_id).id:
-                            bell_role = role
-                    if bell_role is None:
-                        raise ValueError(f'Could not find bell role for {bell_id} in {peal.ring.bells}')
+            if not tower:
+                if peal.ring.tower not in report['types'][peal.length_type]['towers']:
+                    report['types'][peal.length_type]['towers'][peal.ring.tower] = dict()
+                    report['types'][peal.length_type]['towers'][peal.ring.tower]['count'] = 0
+                    report['types'][peal.length_type]['towers'][peal.ring.tower]['first'] = peal.date
+                    report['types'][peal.length_type]['towers'][peal.ring.tower]['last'] = peal.date
+                report['types'][peal.length_type]['towers'][peal.ring.tower]['count'] += 1
+                if peal.date < report['types'][peal.length_type]['towers'][peal.ring.tower]['first']:
+                    report['types'][peal.length_type]['towers'][peal.ring.tower]['first'] = peal.date
+                if peal.date > report['types'][peal.length_type]['towers'][peal.ring.tower]['last']:
+                    report['types'][peal.length_type]['towers'][peal.ring.tower]['last'] = peal.date
 
-                    if bell_role not in report['types'][peal.length_type]['rings'][peal.ring]['bells']:
-                        report['types'][peal.length_type]['rings'][peal.ring]['bells'][bell_role] = dict()
-                    if peal_ringer.ringer not in report['types'][peal.length_type]['rings'][peal.ring]['bells'][bell_role]:
-                        report['types'][peal.length_type]['rings'][peal.ring]['bells'][bell_role][peal_ringer.ringer] = 0
-                    report['types'][peal.length_type]['rings'][peal.ring]['bells'][bell_role][peal_ringer.ringer] += 1
+            if ring or tower:
+                # Add counts of ringers on each bell
+                peal_ringer: PealRinger
+                for peal_ringer in peal.ringers:
+                    if peal_ringer.bell_ids is None:
+                        continue
+                    for bell_id in peal_ringer.bell_ids:
+                        # Get the role of the bell in the ring or current active ring
+                        bell_role = None
+                        for role, ring_bell in (ring or tower.get_active_ring()).bells.items():
+                            if ring_bell.id == Bell.get(bell_id).id:
+                                bell_role = role
+                        if bell_role is None:
+                            raise ValueError(f'Could not find bell role for {bell_id} in {ring or tower}')
 
-            if peal.ring.tower not in report['types'][peal.length_type]['towers']:
-                report['types'][peal.length_type]['towers'][peal.ring.tower] = dict()
-                report['types'][peal.length_type]['towers'][peal.ring.tower]['count'] = 0
-                report['types'][peal.length_type]['towers'][peal.ring.tower]['first'] = peal.date
-                report['types'][peal.length_type]['towers'][peal.ring.tower]['last'] = peal.date
-                report['types'][peal.length_type]['towers'][peal.ring.tower]['bells'] = dict()
-            report['types'][peal.length_type]['towers'][peal.ring.tower]['count'] += 1
-            if peal.date < report['types'][peal.length_type]['towers'][peal.ring.tower]['first']:
-                report['types'][peal.length_type]['towers'][peal.ring.tower]['first'] = peal.date
-            if peal.date > report['types'][peal.length_type]['towers'][peal.ring.tower]['last']:
-                report['types'][peal.length_type]['towers'][peal.ring.tower]['last'] = peal.date
-
-            # Also add counts of ringers on each bell
-            peal_ringer: PealRinger
-            for peal_ringer in peal.ringers:
-                if peal_ringer.bell_ids is None:
-                    continue
-                for bell_id in peal_ringer.bell_ids:
-                    # Get the role of the bell in the current active ring for the tower-level report
-                    bell_role = None
-                    for role, ring_bell in peal.ring.tower.get_active_ring().bells.items():
-                        if ring_bell.id == Bell.get(bell_id).id:
-                            bell_role = role
-                    if bell_role is None:
-                        raise ValueError(f'Could not find bell role for {bell_id} in {peal.ring.bells}')
-
-                    if bell_role not in report['types'][peal.length_type]['towers'][peal.ring.tower]['bells']:
-                        report['types'][peal.length_type]['towers'][peal.ring.tower]['bells'][bell_role] = dict()
-                    if peal_ringer.ringer not in report['types'][peal.length_type]['towers'][peal.ring.tower]['bells'][bell_role]:
-                        report['types'][peal.length_type]['towers'][peal.ring.tower]['bells'][bell_role][peal_ringer.ringer] = 0
-                    report['types'][peal.length_type]['towers'][peal.ring.tower]['bells'][bell_role][peal_ringer.ringer] += 1
+                        if bell_role not in report['types'][peal.length_type]['bells']:
+                            report['types'][peal.length_type]['bells'][bell_role] = dict()
+                        if peal_ringer.ringer not in report['types'][peal.length_type]['bells'][bell_role]:
+                            report['types'][peal.length_type]['bells'][bell_role][peal_ringer.ringer] = 0
+                        report['types'][peal.length_type]['bells'][bell_role][peal_ringer.ringer] += 1
 
     report['types'] = dict(sorted(report['types'].items()))
     for length_type_report in report['types'].values():

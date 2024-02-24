@@ -52,7 +52,7 @@ Try for a quick-add? [y/n] (y):
 🔔 Bell type: Tower
 📅 Date: Sunday, 14 November 2021
 🔔 Tenor: 2120 in Eb
-⏱ Duration: 49 minutes
+⏱ Duration: 49 mins
 🏰 Tower: Bath, Bathwick, Somerset, Blessed Virgin Mary
 🔢 Changes: 1259
 Matching peal titled "Grandsire Caters"...
@@ -78,8 +78,8 @@ Matching peal titled "Grandsire Caters"...
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 14 November 2021                                                  │
-│ A Quarter Peal of 1259 Grandsire Caters (half-muffled) in 49 minutes         │
-│ (18-3-20 in Eb)                                                              │
+│ A Quarter Peal of 1259 Grandsire Caters (half-muffled) in 49 mins (18-3-20   │
+│ in Eb)                                                                       │
 │                                                                              │
 │ 1: Lenny Howard                                                              │
 │ 2: Jacob Cole                                                                │
@@ -158,9 +158,10 @@ Quarter Peal statistics
                              Plain Bob Doubles     1    rung                    
                              Plain Bob Royal       1    Last rung   06-Oct-20…  
                              Plain Bob Triples     1    Avg. peal   2 hours,    
-                            ─────────────────────────   speed       40 minutes  
-                                                        Avg.        40 minutes  
-                                                        duration                
+                            ─────────────────────────   speed       40 mins,    
+                                                                    29 secs     
+                                                        Avg.        40 mins,    
+                                                        duration    30 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -330,9 +331,11 @@ Peal statistics
                                                         rung                    
                                                         Last rung   29-Mar-19…  
                                                         Avg. peal   2 hours,    
-                                                        speed       43 minutes  
+                                                        speed       42 mins,    
+                                                                    36 secs     
                                                         Avg.        2 hours,    
-                                                        duration    45 minutes  
+                                                        duration    44 mins,    
+                                                                    40 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -448,7 +451,7 @@ Select option (1):
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Sunday, 14 November 2021
-A Quarter Peal of 1259 Grandsire Caters (half-muffled) in 49 minutes (18-3-20 in Eb)
+A Quarter Peal of 1259 Grandsire Caters (half-muffled) in 49 mins (18-3-20 in Eb)
 
 1: Lenny Howard
 2: Jacob Cole

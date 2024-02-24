@@ -41,7 +41,7 @@ def generate_reports() -> list[str]:
 
 def _generate_report(report: Report, path: str):
 
-    data = generate_summary(report.get_peals())
+    data = generate_summary(report.get_peals(), report.ring, report.tower, report.ringer)
     if data['count'] == 0:
         return
 
@@ -113,21 +113,12 @@ def _generate_peal_length_report(canvas: Canvas, report: Report, data: dict, rep
     if len(tables) > 0:
         _draw_table_page(canvas, title, sub_headings, tables)
 
-    if data['types'][report_length_type]['rings']:
-
-        if report.ring and report.ring in data['types'][report_length_type]['rings']:
-            for table in _draw_bell_table(report.ring, data['types'][report_length_type]['rings'][report.ring]):
-                _draw_table_page(canvas,
-                                 f'{report.name}: {report_length_type}s: Bells Rung',
-                                 None,
-                                 [table])
-
-        if report.tower and report.tower in data['types'][report_length_type]['towers']:
-            for table in _draw_bell_table(report.tower.get_active_ring(), data['types'][report_length_type]['towers'][report.tower]):
-                _draw_table_page(canvas,
-                                 f'{report.name}: {report_length_type}s: Bells Rung',
-                                 None,
-                                 [table])
+    if data['types'][report_length_type]['bells']:
+        for table in _draw_bell_table(report.ring or report.tower.get_active_ring(), data['types'][report_length_type]['bells']):
+            _draw_table_page(canvas,
+                             f'{report.name}: {report_length_type}s: Bells Rung',
+                             None,
+                             [table])
 
 
 def _draw_table_page(canvas: Canvas, title: str, sub_headings: list[str], tables: list[Table]):
@@ -195,7 +186,7 @@ def _draw_bell_table(ring: Ring, data: dict) -> list[Table]:
 
     ringer_bells: dict[Ringer, list[int]] = dict()
     bell_data: dict[Ringer, int]
-    for bell_role, bell_data in data['bells'].items():
+    for bell_role, bell_data in data.items():
         for ringer, count in bell_data.items():
             if ringer not in ringer_bells:
                 ringer_bells[ringer] = [0] * len(bell_columns)

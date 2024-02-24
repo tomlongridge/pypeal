@@ -63,7 +63,7 @@ Select option (1):
 Duration (149): 
 >>> 
 [User input: "149"]
-⏱ Duration: 2 hours, 29 minutes
+⏱ Duration: 2 hours, 29 mins
 🏰 Tower: Saxmundham, Suffolk, S John Bapt
 🔢 Changes: 5040
 Matching peal titled "8 Methods/variations Doubles"...
@@ -281,7 +281,7 @@ Select option (1):
 │ Saxmundham, Suffolk, England                                                 │
 │ S John Bapt                                                                  │
 │ On Monday, 27 March 1967                                                     │
-│ A Peal of 5040 Mixed Doubles (4m/4v) in 2 hours, 29 minutes (8-3-7 in A)     │
+│ A Peal of 5040 Mixed Doubles (4m/4v) in 2 hours, 29 mins (8-3-7 in A)        │
 │ (630 Stedman Doubles, 630 Grandsire Doubles, 630 Reverse Canterbury Pleasure │
 │ Place Doubles, 630 Winchendon Place Doubles, 630 St Nicholas Bob Doubles,    │
 │ 630 St Simon's Bob Doubles, 630 St Martin's Bob Doubles, 630 Plain Bob       │
@@ -360,9 +360,10 @@ Quarter Peal statistics
                                                         rung                    
                                                         Last rung   13-May-20…  
                                                         Avg. peal   2 hours,    
-                                                        speed       47 minutes  
-                                                        Avg.        42 minutes  
-                                                        duration                
+                                                        speed       47 mins,    
+                                                                    10 secs     
+                                                        Avg.        42 mins, 8  
+                                                        duration    secs        
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -508,9 +509,11 @@ Peal statistics
                                                         rung                    
                                                         Last rung   29-Mar-19…  
                                                         Avg. peal   2 hours,    
-                                                        speed       43 minutes  
+                                                        speed       42 mins,    
+                                                                    36 secs     
                                                         Avg.        2 hours,    
-                                                        duration    45 minutes  
+                                                        duration    44 mins,    
+                                                                    40 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -626,7 +629,7 @@ Select option (1):
 Saxmundham, Suffolk, England
 S John Bapt
 On Monday, 27 March 1967
-A Peal of 5040 Mixed Doubles (4m/4v) in 2 hours, 29 minutes (8-3-7 in A)
+A Peal of 5040 Mixed Doubles (4m/4v) in 2 hours, 29 mins (8-3-7 in A)
 (630 Reverse Canterbury Pleasure Place Doubles, 630 Winchendon Place Doubles, 630 St Nicholas Bob Doubles, 630 Plain Bob Doubles, 630 St Martin's Bob Doubles, 630 St Simon's Bob Doubles, 630 Grandsire Doubles, 630 Stedman Doubles)
 
 1: Lydia Reed
