@@ -337,7 +337,7 @@ Poll frequency (days):
 >>> 1
 [User input: "1"]
 1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
-Select option (x = Back): 
+Select option (x = Back) (1): 
 >>> x
 [User input: "None"]
 pypeal Database
@@ -456,7 +456,7 @@ Select option (x = Back):
 >>> x
 [User input: "None"]
 1) Run report, 2) New report, 3) Edit report, 4) Delete report
-Select option (x = Back): 
+Select option (x = Back) (1): 
 >>> x
 [User input: "None"]
 pypeal Database

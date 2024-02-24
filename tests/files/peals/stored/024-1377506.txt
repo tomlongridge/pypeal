@@ -3,9 +3,9 @@
 Polling for new peals...
 Skipping search "First saved search" (last run [Timestamp])
 pypeal Database
- General Ringing count: 1                             Last updated: [Timestamp] 
- Quarter Peal count: 19                                                         
+ Quarter Peal count: 19                               Last updated: [Timestamp] 
  Peal count: 3                                                                  
+ General Ringing count: 1                                                       
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
 │ 2) Add peal by ID/URL                                                        │
@@ -211,10 +211,10 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 Peal (ID 26) added
 pypeal Database
- General Ringing count: 1                             Last updated: [Timestamp] 
- Touch count: 1                                                                 
- Quarter Peal count: 19                                                         
+ Quarter Peal count: 19                               Last updated: [Timestamp] 
  Peal count: 3                                                                  
+ General Ringing count: 1                                                       
+ Touch count: 1                                                                 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
 │ 2) Add peal by ID/URL                                                        │
@@ -231,7 +231,7 @@ Select option (1):
 >>> 4
 [User input: "4"]
 1) Run report, 2) New report, 3) Edit report, 4) Delete report
-Select option (x = Back): 
+Select option (x = Back) (1): 
 >>> 1
 [User input: "1"]
 1) first report
@@ -612,14 +612,14 @@ Select option (x = Back):
 >>> x
 [User input: "None"]
 1) Run report, 2) New report, 3) Edit report, 4) Delete report
-Select option (x = Back): 
+Select option (x = Back) (1): 
 >>> x
 [User input: "None"]
 pypeal Database
- General Ringing count: 1                             Last updated: [Timestamp] 
- Touch count: 1                                                                 
- Quarter Peal count: 19                                                         
+ Quarter Peal count: 19                               Last updated: [Timestamp] 
  Peal count: 3                                                                  
+ General Ringing count: 1                                                       
+ Touch count: 1                                                                 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
 │ 2) Add peal by ID/URL                                                        │

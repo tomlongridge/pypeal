@@ -3,9 +3,9 @@
 Polling for new peals...
 Skipping search "First saved search" (last run [Timestamp])
 pypeal Database
- General Ringing count: 1                             Last updated: [Timestamp] 
- Quarter Peal count: 17                                                         
+ Quarter Peal count: 17                               Last updated: [Timestamp] 
  Peal count: 3                                                                  
+ General Ringing count: 1                                                       
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
 │ 2) Add peal by ID/URL                                                        │
@@ -120,9 +120,9 @@ Is this correct? [y/n] (y):
 Saving photo http://localhost:8080/uploads/57/002a57.jpg...
 Peal (ID 22) added
 pypeal Database
- General Ringing count: 1                             Last updated: [Timestamp] 
- Quarter Peal count: 18                                                         
+ Quarter Peal count: 18                               Last updated: [Timestamp] 
  Peal count: 3                                                                  
+ General Ringing count: 1                                                       
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
 │ 2) Add peal by ID/URL                                                        │
@@ -139,7 +139,7 @@ Select option (1):
 >>> 4
 [User input: "4"]
 1) Run report, 2) New report, 3) Edit report, 4) Delete report
-Select option (x = Back): 
+Select option (x = Back) (1): 
 >>> 1
 [User input: "1"]
 1) first report
@@ -542,13 +542,13 @@ Select option (x = Back):
 >>> x
 [User input: "None"]
 1) Run report, 2) New report, 3) Edit report, 4) Delete report
-Select option (x = Back): 
+Select option (x = Back) (1): 
 >>> x
 [User input: "None"]
 pypeal Database
- General Ringing count: 1                             Last updated: [Timestamp] 
- Quarter Peal count: 18                                                         
+ Quarter Peal count: 18                               Last updated: [Timestamp] 
  Peal count: 3                                                                  
+ General Ringing count: 1                                                       
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
 │ 2) Add peal by ID/URL                                                        │
@@ -696,9 +696,9 @@ Saving photo http://localhost:8080/uploads/57/002a57.jpg...
 Peal (ID 23) added
 Removing previous performance (ID 22)...
 pypeal Database
- General Ringing count: 1                             Last updated: [Timestamp] 
- Quarter Peal count: 18                                                         
+ Quarter Peal count: 18                               Last updated: [Timestamp] 
  Peal count: 3                                                                  
+ General Ringing count: 1                                                       
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
 │ 2) Add peal by ID/URL                                                        │
@@ -715,7 +715,7 @@ Select option (1):
 >>> 4
 [User input: "4"]
 1) Run report, 2) New report, 3) Edit report, 4) Delete report
-Select option (x = Back): 
+Select option (x = Back) (1): 
 >>> 1
 [User input: "1"]
 1) first report
@@ -1010,13 +1010,13 @@ Select option (x = Back):
 >>> x
 [User input: "None"]
 1) Run report, 2) New report, 3) Edit report, 4) Delete report
-Select option (x = Back): 
+Select option (x = Back) (1): 
 >>> x
 [User input: "None"]
 pypeal Database
- General Ringing count: 1                             Last updated: [Timestamp] 
- Quarter Peal count: 18                                                         
+ Quarter Peal count: 18                               Last updated: [Timestamp] 
  Peal count: 3                                                                  
+ General Ringing count: 1                                                       
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
 │ 2) Add peal by ID/URL                                                        │
@@ -1070,9 +1070,9 @@ Delete peal? [y/n] (y):
 >>> y
 [User input: "True"]
 pypeal Database
- General Ringing count: 1                             Last updated: [Timestamp] 
- Quarter Peal count: 17                                                         
+ Quarter Peal count: 17                               Last updated: [Timestamp] 
  Peal count: 3                                                                  
+ General Ringing count: 1                                                       
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
 │ 2) Add peal by ID/URL                                                        │
@@ -1089,7 +1089,7 @@ Select option (1):
 >>> 4
 [User input: "4"]
 1) Run report, 2) New report, 3) Edit report, 4) Delete report
-Select option (x = Back): 
+Select option (x = Back) (1): 
 >>> 1
 [User input: "1"]
 1) first report
@@ -1110,13 +1110,13 @@ Select option (x = Back):
 >>> x
 [User input: "None"]
 1) Run report, 2) New report, 3) Edit report, 4) Delete report
-Select option (x = Back): 
+Select option (x = Back) (1): 
 >>> x
 [User input: "None"]
 pypeal Database
- General Ringing count: 1                             Last updated: [Timestamp] 
- Quarter Peal count: 17                                                         
+ Quarter Peal count: 17                               Last updated: [Timestamp] 
  Peal count: 3                                                                  
+ General Ringing count: 1                                                       
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
 │ 2) Add peal by ID/URL                                                        │
@@ -1231,9 +1231,9 @@ Is this correct? [y/n] (y):
 Saving photo http://localhost:8080/uploads/57/002a57.jpg...
 Peal (ID 24) added
 pypeal Database
- General Ringing count: 1                             Last updated: [Timestamp] 
- Quarter Peal count: 18                                                         
+ Quarter Peal count: 18                               Last updated: [Timestamp] 
  Peal count: 3                                                                  
+ General Ringing count: 1                                                       
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
 │ 2) Add peal by ID/URL                                                        │

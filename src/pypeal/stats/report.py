@@ -4,6 +4,21 @@ from pypeal.entities.ringer import Ringer
 from pypeal.entities.tower import Bell, Ring, Tower
 
 
+def generate_global_summary(peals: list[Peal]) -> dict:
+    report = {}
+    report['count'] = len(peals)
+    report['types'] = dict()
+    report['last_added'] = None
+    for peal in peals:
+        if report['last_added'] is None or report['last_added'] < peal.created_date:
+            report['last_added'] = peal.created_date
+        if peal.length_type not in report['types']:
+            report['types'][peal.length_type] = 0
+        report['types'][peal.length_type] += 1
+    _sort_table(report['types'])
+    return report
+
+
 def generate_summary(peals: list[Peal],
                      ring: Ring = None,
                      tower: Tower = None,

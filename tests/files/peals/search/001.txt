@@ -206,7 +206,7 @@ Include in poll? [y/n] (n):
 >>> n
 [User input: "False"]
 1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
-Select option (x = Back): 
+Select option (x = Back) (1): 
 >>> 1
 [User input: "1"]
 1) new search 1
@@ -417,12 +417,12 @@ Add next peal? [y/n] (y):
 [User input: "False"]
 1 peal(s) added (1 duplicates)
 1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
-Select option (x = Back): 
+Select option (x = Back) (1): 
 >>> 5
 [User input: "5"]
 Polling for new peals...
 1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
-Select option (x = Back): 
+Select option (x = Back) (1): 
 >>> 3
 [User input: "3"]
 1) new search 1
@@ -606,7 +606,7 @@ Poll frequency (days):
 >>> 10
 [User input: "10"]
 1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
-Select option (x = Back): 
+Select option (x = Back) (1): 
 >>> 5
 [User input: "5"]
 Polling for new peals...
@@ -731,7 +731,7 @@ Add next peal? [y/n] (y):
 [User input: "False"]
 1 peal(s) added (3 duplicates)
 1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
-Select option (x = Back): 
+Select option (x = Back) (1): 
 >>> 4
 [User input: "4"]
 1) amended search 1
@@ -883,7 +883,7 @@ Poll frequency (days):
 >>> 2
 [User input: "2"]
 1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
-Select option (x = Back): 
+Select option (x = Back) (1): 
 >>> x
 [User input: "None"]
 pypeal Database

@@ -229,7 +229,7 @@ Select option (1):
 >>> 4
 [User input: "4"]
 1) Run report, 2) New report, 3) Edit report, 4) Delete report
-Select option (x = Back): 
+Select option (x = Back) (1): 
 >>> 1
 [User input: "1"]
 1) first report
@@ -341,7 +341,7 @@ Select option (x = Back):
 >>> x
 [User input: "None"]
 1) Run report, 2) New report, 3) Edit report, 4) Delete report
-Select option (x = Back): 
+Select option (x = Back) (1): 
 >>> x
 [User input: "None"]
 pypeal Database

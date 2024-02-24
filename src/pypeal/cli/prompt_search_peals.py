@@ -26,7 +26,8 @@ def prompt_search():
                                              'Edit search',
                                              'Delete search',
                                              'Poll for new peals'],
-                                            none_option='Back') if len(searches) > 0 else 2
+                                            none_option='Back',
+                                            default=1) if len(searches) > 0 else 2
         except UserCancelled:
             return
         try:

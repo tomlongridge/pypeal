@@ -2,9 +2,9 @@
 ===
 Polling for new peals...
 pypeal Database
- General Ringing count: 1                             Last updated: [Timestamp] 
- Quarter Peal count: 2                                                          
+ Quarter Peal count: 2                                Last updated: [Timestamp] 
  Peal count: 1                                                                  
+ General Ringing count: 1                                                       
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
 │ 2) Add peal by ID/URL                                                        │
@@ -224,9 +224,9 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 Peal (ID 5) added
 pypeal Database
- General Ringing count: 1                             Last updated: [Timestamp] 
- Quarter Peal count: 3                                                          
+ Quarter Peal count: 3                                Last updated: [Timestamp] 
  Peal count: 1                                                                  
+ General Ringing count: 1                                                       
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
 │ 2) Add peal by ID/URL                                                        │

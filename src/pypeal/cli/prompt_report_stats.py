@@ -23,7 +23,8 @@ def prompt_report():
                                              'New report',
                                              'Edit report',
                                              'Delete report'],
-                                            none_option='Back') if len(reports) > 0 else 2
+                                            none_option='Back',
+                                            default=1) if len(reports) > 0 else 2
         except UserCancelled:
             return
         try:

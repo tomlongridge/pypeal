@@ -24,7 +24,7 @@ from pypeal.entities.report import Report
 from pypeal.entities.ringer import Ringer
 from pypeal.config import set_config_file
 from pypeal.stats.pdf import generate_reports
-from pypeal.stats.report import generate_summary as generate_peal_summary
+from pypeal.stats.report import generate_global_summary
 from pypeal.entities.tower import Ring, Tower
 
 logger = logging.getLogger('pypeal')
@@ -165,15 +165,15 @@ def run_interactive(peal_id_or_url: str):
 
 def print_summary():
     heading('pypeal Database')
-    summary = generate_peal_summary(Peal.get_all())
+    summary = generate_global_summary(Peal.get_all())
     if summary['count'] > 0:
         table = Table(show_header=False, show_footer=False, expand=True, box=None)
         table.add_column(ratio=1)
         table.add_column(ratio=1, justify='right')
         type_summary = ''
         last_updated = f'Last updated: {format_timestamp(summary["last_added"])}'
-        for type, report in summary["types"].items():
-            type_summary = f'{type} count: {report["count"]}\n'
+        for type, count in summary["types"].items():
+            type_summary = f'{type} count: {count}\n'
             table.add_row(type_summary.strip(), last_updated)
             last_updated = ''
         print(table)

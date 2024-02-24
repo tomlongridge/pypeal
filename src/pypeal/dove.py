@@ -123,11 +123,12 @@ def update_bells():
         elif not line['Bell Role'].isnumeric():
             continue  # omit any bells not in a ring (e.g sanctus)
 
-        cast_year = None
-        if match := re.match(CAST_YEAR_REGEX, line['Cast Date']):
+        if line['Cast Date'] in ('', 'None', 'n/d'):
+            cast_year = None
+        elif match := re.match(CAST_YEAR_REGEX, line['Cast Date']):
             cast_year = int(match.group('year'))
-        elif len(line['Cast Date']) > 0:
-            _logger.warn(f'Unexpected cast year "{cast_year}" for bell {line["Bell ID"]}')
+        else:
+            _logger.warn(f'Unexpected cast year \"{line["Cast Date"]}\" for bell {line["Bell ID"]}')
             continue
 
         weight = line['Weight (lbs)']
