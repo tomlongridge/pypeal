@@ -171,6 +171,10 @@ Is the report for a specific tower? [y/n] (y):
 Is the report for a specific date range? [y/n] (y): 
 >>> n
 [User input: "False"]
+Enabled
+Enable report? [y/n]: 
+>>> y
+[User input: "True"]
 1 matching peals found.
 Save report? [y/n] (y): 
 >>> y
@@ -200,11 +204,11 @@ Quarter Peal statistics
                                                         Avg.        49 mins, 0  
                                                         duration    secs        
                                                        ──────────────────────── 
- ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Top 10 Ringers             Top 10 Conductors          Top 10 Associations     
- ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Alen Henderson        1    Lucas Farrell         1    None                    
-  Chloe Henderson       1   ─────────────────────────  ──────────────────────── 
+ ─────────────────────────  ─────────────────────────                           
+  Top 10 Ringers             Top 10 Conductors                                  
+ ─────────────────────────  ─────────────────────────                           
+  Alen Henderson        1    Lucas Farrell         1                            
+  Chloe Henderson       1   ─────────────────────────                           
   Harold Gray           1                                                       
   Lucas Farrell         1                                                       
   Lucas Wright          1                                                       
@@ -212,7 +216,7 @@ Quarter Peal statistics
   Ryan Elliott          1                                                       
   Ted Harris            1                                                       
  ─────────────────────────                                                      
-1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+1) All methods, 2) All ringers, 3) All conductors
 Select option (x = Back): 
 >>> x
 [User input: "None"]
@@ -269,6 +273,10 @@ From (yyyy/mm/dd):
 To (yyyy/mm/dd): 
 >>> 2020-01-01
 [User input: "2020-01-01"]
+Enabled
+Enable report? [y/n]: 
+>>> y
+[User input: "True"]
 1 matching peals found.
 Save report? [y/n] (y): 
 >>> y
@@ -299,18 +307,18 @@ Quarter Peal statistics
                                                         Avg.        49 mins, 0  
                                                         duration    secs        
                                                        ──────────────────────── 
- ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Top 10 Ringers             Top 10 Conductors          Top 10 Associations     
- ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Alen Henderson        1    Lucas Farrell         1    None                    
-  Chloe Henderson       1   ─────────────────────────  ──────────────────────── 
+ ─────────────────────────  ─────────────────────────                           
+  Top 10 Ringers             Top 10 Conductors                                  
+ ─────────────────────────  ─────────────────────────                           
+  Alen Henderson        1    Lucas Farrell         1                            
+  Chloe Henderson       1   ─────────────────────────                           
   Harold Gray           1                                                       
   Lucas Farrell         1                                                       
   Lucas Wright          1                                                       
   Lydia Ferguson        1                                                       
   Ryan Elliott          1                                                       
  ─────────────────────────                                                      
-1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+1) All methods, 2) All ringers, 3) All conductors
 Select option (x = Back): 
 >>> x
 [User input: "None"]
@@ -350,6 +358,10 @@ From (yyyy/mm/dd) (2000/01/01):
 To (yyyy/mm/dd) (2020/01/01): 
 >>> 2020-12-31
 [User input: "2020-12-31"]
+Enabled
+Enable report? [y/n] (y): 
+>>> y
+[User input: "True"]
 1 matching peals found.
 Save report? [y/n] (y): 
 >>> y
@@ -380,18 +392,18 @@ Quarter Peal statistics
                                                         Avg.        49 mins, 0  
                                                         duration    secs        
                                                        ──────────────────────── 
- ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Top 10 Ringers             Top 10 Conductors          Top 10 Associations     
- ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Alen Henderson        1    Lucas Farrell         1    None                    
-  Chloe Henderson       1   ─────────────────────────  ──────────────────────── 
+ ─────────────────────────  ─────────────────────────                           
+  Top 10 Ringers             Top 10 Conductors                                  
+ ─────────────────────────  ─────────────────────────                           
+  Alen Henderson        1    Lucas Farrell         1                            
+  Chloe Henderson       1   ─────────────────────────                           
   Harold Gray           1                                                       
   Lucas Farrell         1                                                       
   Lucas Wright          1                                                       
   Ryan Elliott          1                                                       
   Ted Harris            1                                                       
  ─────────────────────────                                                      
-1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+1) All methods, 2) All ringers, 3) All conductors
 Select option (x = Back): 
 >>> x
 [User input: "None"]

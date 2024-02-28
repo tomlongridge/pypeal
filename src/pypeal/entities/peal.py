@@ -376,7 +376,9 @@ class Peal:
     def length_type(self) -> PealLengthType:
         if self.changes is None:
             return PealLengthType.NONE
-        elif config.get_config('general', 'allow_short_quarter_peals_under_triples') or (self.stage and self.stage.value < 7):
+        if config.get_config('general', 'short_peal_threshold') is None \
+                or self.stage is None \
+                or self.stage.value >= config.get_config('general', 'short_peal_threshold'):
             if self.changes < 1250:
                 return PealLengthType.TOUCH
             elif self.changes < 5000:

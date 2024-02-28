@@ -160,11 +160,11 @@ Select option (x = Back):
 >>> 1
 [User input: "General Ringing"]
 General Ringing statistics
- ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Stage                      Methods                    Misc                    
- ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  None                       None                       General     1           
- ─────────────────────────  ─────────────────────────   Ringing                 
+                            ─────────────────────────  ──────────────────────── 
+                             Methods                    Misc                    
+                            ─────────────────────────  ──────────────────────── 
+                             General Ringing       1    General     1           
+                            ─────────────────────────   Ringing                 
                                                         Tower       1           
                                                         First       06-May-20…  
                                                         rung                    
@@ -174,11 +174,11 @@ General Ringing statistics
                                                         Avg.                    
                                                         duration                
                                                        ──────────────────────── 
- ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Top 10 Ringers             Top 10 Conductors          Top 10 Associations     
- ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Arnold Johnson        1    None                       None                    
-  Belinda Thompson      1   ─────────────────────────  ──────────────────────── 
+ ─────────────────────────                                                      
+  Top 10 Ringers                                                                
+ ─────────────────────────                                                      
+  Arnold Johnson        1                                                       
+  Belinda Thompson      1                                                       
   Caroline Sullivan     1                                                       
   Chester Edwards       1                                                       
   Fenton Hawkins        1                                                       
@@ -188,19 +188,19 @@ General Ringing statistics
   Kate Miller           1                                                       
   Kirsten Richards      1                                                       
  ─────────────────────────                                                      
-1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+1) All methods, 2) All ringers
 Select option (x = Back): 
 >>> 1
 [User input: "1"]
  ────────────────────────────────────────────────────────────────────────────── 
   Methods                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
-  None                                                                          
+  General Ringing                                                    1          
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 
 [User input: "True"]
-1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+1) All methods, 2) All ringers
 Select option (x = Back): 
 >>> 2
 [User input: "2"]
@@ -225,31 +225,7 @@ Select option (x = Back):
 Press enter to continue [y/n] (y): 
 >>> 
 [User input: "True"]
-1) All methods, 2) All ringers, 3) All conductors, 4) All associations
-Select option (x = Back): 
->>> 3
-[User input: "3"]
- ────────────────────────────────────────────────────────────────────────────── 
-  Conductors                                                                    
- ────────────────────────────────────────────────────────────────────────────── 
-  None                                                                          
- ────────────────────────────────────────────────────────────────────────────── 
-Press enter to continue [y/n] (y): 
->>> 
-[User input: "True"]
-1) All methods, 2) All ringers, 3) All conductors, 4) All associations
-Select option (x = Back): 
->>> 4
-[User input: "4"]
- ────────────────────────────────────────────────────────────────────────────── 
-  Associations                                                                  
- ────────────────────────────────────────────────────────────────────────────── 
-  None                                                                          
- ────────────────────────────────────────────────────────────────────────────── 
-Press enter to continue [y/n] (y): 
->>> 
-[User input: "True"]
-1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+1) All methods, 2) All ringers
 Select option (x = Back): 
 >>> x
 [User input: "None"]
@@ -271,11 +247,11 @@ Quarter Peal statistics
                              Little Bob Royal      1    Half        2           
                              London Surprise       1    muffled                 
                              Major                      First       05-Dec-19…  
-                             Plain Bob Doubles     1    rung                    
-                             Plain Bob Royal       1    Last rung   12-Nov-20…  
-                             Plain Bob Triples     1    Avg. peal   2 hours,    
-                            ─────────────────────────   speed       43 mins,    
-                                                                    44 secs     
+                             Mixed Doubles (3m)    1    rung                    
+                             Mixed Doubles         1    Last rung   12-Nov-20…  
+                             (5m/3v/1p)                 Avg. peal   2 hours,    
+                             Plain Bob Doubles     1    speed       43 mins,    
+                            ─────────────────────────               44 secs     
                                                         Avg.        41 mins,    
                                                         duration    17 secs     
                                                        ──────────────────────── 
@@ -300,16 +276,20 @@ Select option (x = Back):
  ────────────────────────────────────────────────────────────────────────────── 
   Methods                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
-  Grandsire Triples                                                      4      
-  Grandsire Doubles                                                      2      
-  Cambridge Surprise Major                                               1      
-  Grandsire Caters                                                       1      
-  Honeywell Delight Minor                                                1      
-  Little Bob Royal                                                       1      
-  London Surprise Major                                                  1      
-  Plain Bob Doubles                                                      1      
-  Plain Bob Royal                                                        1      
-  Plain Bob Triples                                                      1      
+  Grandsire Triples                                                       4     
+  Grandsire Doubles                                                       2     
+  Cambridge Surprise Major                                                1     
+  Grandsire Caters                                                        1     
+  Honeywell Delight Minor                                                 1     
+  Little Bob Royal                                                        1     
+  London Surprise Major                                                   1     
+  Mixed Doubles (3m)                                                      1     
+  Mixed Doubles (5m/3v/1p)                                                1     
+  Plain Bob Doubles                                                       1     
+  Plain Bob Royal                                                         1     
+  Plain Bob Triples                                                       1     
+  Spliced Caters and Royal (2m)                                           1     
+  Spliced Surprise Major (2m)                                             1     
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 
@@ -439,11 +419,11 @@ Peal statistics
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Doubles            1       Bristol Surprise      1    Mixed       2           
   Maximus            1       Maximus                    Methods                 
-  Minor              1      ─────────────────────────   Single      1           
- ─────────────────────────                              Method                  
-                                                        Tower       2           
-                                                        Handbells   1           
-                                                        First       25-Mar-19…  
+  Minor              1       Mixed Doubles         1    Single      1           
+ ─────────────────────────   (4m/4v)                    Method                  
+                             Mixed Surprise        1    Tower       2           
+                             Minor (8m)                 Handbells   1           
+                            ─────────────────────────   First       25-Mar-19…  
                                                         rung                    
                                                         Last rung   29-Mar-19…  
                                                         Avg. peal   2 hours,    
@@ -475,6 +455,8 @@ Select option (x = Back):
   Methods                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
   Bristol Surprise Maximus                                               1      
+  Mixed Doubles (4m/4v)                                                  1      
+  Mixed Surprise Minor (8m)                                              1      
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 
@@ -736,11 +718,11 @@ Select option (x = Back):
 >>> 1
 [User input: "General Ringing"]
 General Ringing statistics
- ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Stage                      Methods                    Misc                    
- ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  None                       None                       General     1           
- ─────────────────────────  ─────────────────────────   Ringing                 
+                            ─────────────────────────  ──────────────────────── 
+                             Methods                    Misc                    
+                            ─────────────────────────  ──────────────────────── 
+                             General Ringing       1    General     1           
+                            ─────────────────────────   Ringing                 
                                                         Tower       1           
                                                         First       06-May-20…  
                                                         rung                    
@@ -750,11 +732,11 @@ General Ringing statistics
                                                         Avg.                    
                                                         duration                
                                                        ──────────────────────── 
- ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Top 10 Ringers             Top 10 Conductors          Top 10 Associations     
- ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Arnold Johnson        1    None                       None                    
-  Belinda Thompson      1   ─────────────────────────  ──────────────────────── 
+ ─────────────────────────                                                      
+  Top 10 Ringers                                                                
+ ─────────────────────────                                                      
+  Arnold Johnson        1                                                       
+  Belinda Thompson      1                                                       
   Caroline Sullivan     1                                                       
   Chester Edwards       1                                                       
   Fenton Hawkins        1                                                       
@@ -764,19 +746,19 @@ General Ringing statistics
   Kate Miller           1                                                       
   Kirsten Richards      1                                                       
  ─────────────────────────                                                      
-1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+1) All methods, 2) All ringers
 Select option (x = Back): 
 >>> 1
 [User input: "1"]
  ────────────────────────────────────────────────────────────────────────────── 
   Methods                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
-  None                                                                          
+  General Ringing                                                    1          
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 
 [User input: "True"]
-1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+1) All methods, 2) All ringers
 Select option (x = Back): 
 >>> 2
 [User input: "2"]
@@ -801,31 +783,7 @@ Select option (x = Back):
 Press enter to continue [y/n] (y): 
 >>> 
 [User input: "True"]
-1) All methods, 2) All ringers, 3) All conductors, 4) All associations
-Select option (x = Back): 
->>> 3
-[User input: "3"]
- ────────────────────────────────────────────────────────────────────────────── 
-  Conductors                                                                    
- ────────────────────────────────────────────────────────────────────────────── 
-  None                                                                          
- ────────────────────────────────────────────────────────────────────────────── 
-Press enter to continue [y/n] (y): 
->>> 
-[User input: "True"]
-1) All methods, 2) All ringers, 3) All conductors, 4) All associations
-Select option (x = Back): 
->>> 4
-[User input: "4"]
- ────────────────────────────────────────────────────────────────────────────── 
-  Associations                                                                  
- ────────────────────────────────────────────────────────────────────────────── 
-  None                                                                          
- ────────────────────────────────────────────────────────────────────────────── 
-Press enter to continue [y/n] (y): 
->>> 
-[User input: "True"]
-1) All methods, 2) All ringers, 3) All conductors, 4) All associations
+1) All methods, 2) All ringers
 Select option (x = Back): 
 >>> x
 [User input: "None"]
@@ -847,11 +805,11 @@ Quarter Peal statistics
                              Little Bob Royal      1    Half        2           
                              London Surprise       1    muffled                 
                              Major                      First       05-Dec-19…  
-                             Plain Bob Doubles     1    rung                    
-                             Plain Bob Royal       1    Last rung   12-Nov-20…  
-                             Plain Bob Triples     1    Avg. peal   2 hours,    
-                            ─────────────────────────   speed       43 mins,    
-                                                                    44 secs     
+                             Mixed Doubles (3m)    1    rung                    
+                             Mixed Doubles         1    Last rung   12-Nov-20…  
+                             (5m/3v/1p)                 Avg. peal   2 hours,    
+                             Plain Bob Doubles     1    speed       43 mins,    
+                            ─────────────────────────               44 secs     
                                                         Avg.        41 mins,    
                                                         duration    17 secs     
                                                        ──────────────────────── 
@@ -876,16 +834,20 @@ Select option (x = Back):
  ────────────────────────────────────────────────────────────────────────────── 
   Methods                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
-  Grandsire Triples                                                      4      
-  Grandsire Doubles                                                      2      
-  Cambridge Surprise Major                                               1      
-  Grandsire Caters                                                       1      
-  Honeywell Delight Minor                                                1      
-  Little Bob Royal                                                       1      
-  London Surprise Major                                                  1      
-  Plain Bob Doubles                                                      1      
-  Plain Bob Royal                                                        1      
-  Plain Bob Triples                                                      1      
+  Grandsire Triples                                                       4     
+  Grandsire Doubles                                                       2     
+  Cambridge Surprise Major                                                1     
+  Grandsire Caters                                                        1     
+  Honeywell Delight Minor                                                 1     
+  Little Bob Royal                                                        1     
+  London Surprise Major                                                   1     
+  Mixed Doubles (3m)                                                      1     
+  Mixed Doubles (5m/3v/1p)                                                1     
+  Plain Bob Doubles                                                       1     
+  Plain Bob Royal                                                         1     
+  Plain Bob Triples                                                       1     
+  Spliced Caters and Royal (2m)                                           1     
+  Spliced Surprise Major (2m)                                             1     
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 

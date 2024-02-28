@@ -327,15 +327,15 @@ Quarter Peal statistics
   Triples            3       Grandsire Triples     3    Single      6           
   Doubles            2       London Surprise       1    Method                  
   Major              2       Major                      Spliced     2           
-  Caters             1       Plain Bob Doubles     1    Methods                 
-  Royal              1       Plain Bob Royal       1    Mixed       1           
- ─────────────────────────  ─────────────────────────   Methods                 
-                                                        Tower       9           
-                                                        First       05-Dec-19…  
-                                                        rung                    
-                                                        Last rung   13-May-20…  
-                                                        Avg. peal   2 hours,    
-                                                        speed       49 mins,    
+  Caters             1       Mixed Doubles         1    Methods                 
+  Royal              1       (5m/3v/1p)                 Mixed       1           
+ ─────────────────────────   Plain Bob Doubles     1    Methods                 
+                             Plain Bob Royal       1    Tower       9           
+                             Spliced Caters and    1    First       05-Dec-19…  
+                             Royal (2m)                 rung                    
+                             Spliced Surprise      1    Last rung   13-May-20…  
+                             Major (2m)                 Avg. peal   2 hours,    
+                            ─────────────────────────   speed       49 mins,    
                                                                     37 secs     
                                                         Avg.        42 mins,    
                                                         duration    47 secs     
@@ -361,10 +361,13 @@ Select option (x = Back):
  ────────────────────────────────────────────────────────────────────────────── 
   Methods                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
-  Grandsire Triples                                                     3       
-  London Surprise Major                                                 1       
-  Plain Bob Doubles                                                     1       
-  Plain Bob Royal                                                       1       
+  Grandsire Triples                                                       3     
+  London Surprise Major                                                   1     
+  Mixed Doubles (5m/3v/1p)                                                1     
+  Plain Bob Doubles                                                       1     
+  Plain Bob Royal                                                         1     
+  Spliced Caters and Royal (2m)                                           1     
+  Spliced Surprise Major (2m)                                             1     
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 
@@ -478,11 +481,11 @@ Peal statistics
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Doubles            1       Bristol Surprise      1    Mixed       2           
   Maximus            1       Maximus                    Methods                 
-  Minor              1      ─────────────────────────   Single      1           
- ─────────────────────────                              Method                  
-                                                        Tower       2           
-                                                        Handbells   1           
-                                                        First       25-Mar-19…  
+  Minor              1       Mixed Doubles         1    Single      1           
+ ─────────────────────────   (4m/4v)                    Method                  
+                             Mixed Surprise        1    Tower       2           
+                             Minor (8m)                 Handbells   1           
+                            ─────────────────────────   First       25-Mar-19…  
                                                         rung                    
                                                         Last rung   29-Mar-19…  
                                                         Avg. peal   2 hours,    
@@ -514,6 +517,8 @@ Select option (x = Back):
   Methods                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
   Bristol Surprise Maximus                                               1      
+  Mixed Doubles (4m/4v)                                                  1      
+  Mixed Surprise Minor (8m)                                              1      
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 

@@ -6,6 +6,7 @@ CREATE TABLE @db_name.`reports` (
     `ring_id` INT UNSIGNED NULL,
     `date_from` DATE NULL,
     `date_to` DATE NULL,
+    `enabled` TINYINT(1) NOT NULL DEFAULT 1,
     `created_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`),
     UNIQUE INDEX `report_name_unique` (`name` ASC) VISIBLE,

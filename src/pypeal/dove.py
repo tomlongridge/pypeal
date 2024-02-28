@@ -120,7 +120,12 @@ def update_bells():
 
         if line['Bell ID'].startswith('#'):
             continue  # comment line
-        elif not line['Bell Role'].isnumeric():
+
+        if line['Bell Role'].isnumeric():
+            role = int(line['Bell Role'])
+        elif 'c' in line['Bell Role'] and line['Bell Role'][0:line['Bell Role'].index('c')].isnumeric():
+            role = int(line['Bell Role'][0:line['Bell Role'].index('c')])
+        else:
             continue  # omit any bells not in a ring (e.g sanctus)
 
         if line['Cast Date'] in ('', 'None', 'n/d'):
@@ -143,7 +148,7 @@ def update_bells():
             continue
 
         bell_obj: Bell = Bell(tower_id=int(line['Tower ID']),
-                              role=int(line['Bell Role']),
+                              role=role,
                               weight=weight,
                               note=utils.convert_musical_key(line['Note']),
                               cast_year=cast_year,

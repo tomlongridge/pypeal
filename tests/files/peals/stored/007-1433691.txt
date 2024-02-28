@@ -291,11 +291,11 @@ Quarter Peal statistics
   Stage                      Methods                    Misc                    
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Triples            3       Grandsire Triples     3    Single      5           
-  Doubles            2       Plain Bob Doubles     1    Method                  
-  Royal              1       Plain Bob Royal       1    Mixed       1           
- ─────────────────────────  ─────────────────────────   Methods                 
-                                                        Tower       6           
-                                                        First       05-Dec-19…  
+  Doubles            2       Mixed Doubles         1    Method                  
+  Royal              1       (5m/3v/1p)                 Mixed       1           
+ ─────────────────────────   Plain Bob Doubles     1    Methods                 
+                             Plain Bob Royal       1    Tower       6           
+                            ─────────────────────────   First       05-Dec-19…  
                                                         rung                    
                                                         Last rung   17-Oct-20…  
                                                         Avg. peal   2 hours,    
@@ -325,9 +325,10 @@ Select option (x = Back):
  ────────────────────────────────────────────────────────────────────────────── 
   Methods                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
-  Grandsire Triples                                                   3         
-  Plain Bob Doubles                                                   1         
-  Plain Bob Royal                                                     1         
+  Grandsire Triples                                                      3      
+  Mixed Doubles (5m/3v/1p)                                               1      
+  Plain Bob Doubles                                                      1      
+  Plain Bob Royal                                                        1      
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 
@@ -423,9 +424,9 @@ Peal statistics
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Stage                      Methods                    Misc                    
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Minor             1        None                       Mixed       1           
- ─────────────────────────  ─────────────────────────   Methods                 
-                                                        Tower       1           
+  Minor             1        Mixed Surprise        1    Mixed       1           
+ ─────────────────────────   Minor (8m)                 Methods                 
+                            ─────────────────────────   Tower       1           
                                                         First       25-Mar-19…  
                                                         rung                    
                                                         Last rung   25-Mar-19…  
@@ -453,7 +454,7 @@ Select option (x = Back):
  ────────────────────────────────────────────────────────────────────────────── 
   Methods                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
-  None                                                                          
+  Mixed Surprise Minor (8m)                                              1      
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 

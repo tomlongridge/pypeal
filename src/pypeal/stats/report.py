@@ -1,5 +1,4 @@
-from pypeal.entities.method import Stage
-from pypeal.entities.peal import Peal, PealRinger, PealType
+from pypeal.entities.peal import Peal, PealRinger
 from pypeal.entities.ringer import Ringer
 from pypeal.entities.tower import Bell, Ring, Tower
 
@@ -49,121 +48,47 @@ def generate_summary(peals: list[Peal],
         if report['last'] is None or report['last'] < peal.date:
             report['last'] = peal.date
 
-        if peal.length_type not in report['types']:
-            report['types'][peal.length_type] = dict()
-            report['types'][peal.length_type]['count'] = 0
-            report['types'][peal.length_type]['first'] = peal.date
-            report['types'][peal.length_type]['last'] = peal.date
-            report['types'][peal.length_type]['changes'] = 0
-            report['types'][peal.length_type]['duration'] = 0
-            report['types'][peal.length_type]['bell_types'] = dict()
-            report['types'][peal.length_type]['types'] = dict()
-            report['types'][peal.length_type]['associations'] = dict()
-            report['types'][peal.length_type]['stages'] = dict()
-            report['types'][peal.length_type]['methods'] = dict()
-            report['types'][peal.length_type]['all_methods'] = dict()
-            report['types'][peal.length_type]['muffles'] = dict()
-            report['types'][peal.length_type]['ringers'] = dict()
-            report['types'][peal.length_type]['conductors'] = dict()
-            if not ring:
-                report['types'][peal.length_type]['rings'] = dict()
-            if not tower:
-                report['types'][peal.length_type]['towers'] = dict()
-            if ring or tower:
-                report['types'][peal.length_type]['bells'] = dict()
-        else:
-            if peal.date < report['types'][peal.length_type]['first']:
-                report['types'][peal.length_type]['first'] = peal.date
-            if peal.date > report['types'][peal.length_type]['last']:
-                report['types'][peal.length_type]['last'] = peal.date
+        peal_length_data = _add_peal(report, 'types', peal.length_type, peal)
 
-        report['types'][peal.length_type]['count'] += 1
-        if peal.changes:
-            report['types'][peal.length_type]['changes'] += peal.changes
-        if peal.duration:
-            report['types'][peal.length_type]['duration'] += peal.duration
-
-        if peal.type not in report['types'][peal.length_type]['types']:
-            report['types'][peal.length_type]['types'][peal.type] = 0
-        report['types'][peal.length_type]['types'][peal.type] += 1
-
-        if peal.bell_type not in report['types'][peal.length_type]['bell_types']:
-            report['types'][peal.length_type]['bell_types'][peal.bell_type] = 0
-        report['types'][peal.length_type]['bell_types'][peal.bell_type] += 1
+        _add_peal(peal_length_data, 'types', peal.type, peal)
+        _add_peal(peal_length_data, 'bell_types', peal.bell_type, peal)
+        _add_peal(peal_length_data, 'years', peal.date.year, peal)
+        _add_peal(peal_length_data, 'days_of_year', peal.date.strftime("%m-%d"), peal)
 
         if peal.association:
-            if peal.association not in report['types'][peal.length_type]['associations']:
-                report['types'][peal.length_type]['associations'][peal.association] = 0
-            report['types'][peal.length_type]['associations'][peal.association] += 1
+            _add_peal(peal_length_data, 'associations', peal.association, peal)
 
         if peal.stage:
-            if peal.stage not in report['types'][peal.length_type]['stages']:
-                report['types'][peal.length_type]['stages'][peal.stage] = 0
-            report['types'][peal.length_type]['stages'][peal.stage] += 1
+            _add_peal(peal_length_data, 'stages', peal.stage, peal)
 
         if peal.method:
-            if peal.method not in report['types'][peal.length_type]['methods']:
-                report['types'][peal.length_type]['methods'][peal.method] = 0
-            report['types'][peal.length_type]['methods'][peal.method] += 1
-            if peal.num_methods_in_title == 0:
-                if peal.method.full_name not in report['types'][peal.length_type]['all_methods']:
-                    report['types'][peal.length_type]['all_methods'][peal.method.full_name] = 0
-                report['types'][peal.length_type]['all_methods'][peal.method.full_name] += 1
-            else:
-                mixed_description = 'Spliced ' if peal.type == PealType.SPLICED_METHODS else 'Mixed '
-                if peal.classification:
-                    mixed_description += f'{peal.classification} '
-                if peal.is_variable_cover:
-                    mixed_description += f'{Stage(peal.stage.value - 1)} and '
-                mixed_description += str(peal.stage)
-                if mixed_description not in report['types'][peal.length_type]['all_methods']:
-                    report['types'][peal.length_type]['all_methods'][mixed_description] = 0
-                report['types'][peal.length_type]['all_methods'][mixed_description] += 1
+            _add_peal(peal_length_data, 'methods', peal.method, peal)
+
+        _add_peal(peal_length_data, 'titles', peal.title, peal)
 
         if peal.muffles:
-            if peal.muffles not in report['types'][peal.length_type]['muffles']:
-                report['types'][peal.length_type]['muffles'][peal.muffles] = 0
-            report['types'][peal.length_type]['muffles'][peal.muffles] += 1
+            _add_peal(peal_length_data, 'muffles', peal.muffles, peal)
 
         for peal_ringer in peal.ringers:
             if ringer and ringer == peal_ringer.ringer:
                 continue
-            if peal_ringer.ringer not in report['types'][peal.length_type]['ringers']:
-                report['types'][peal.length_type]['ringers'][peal_ringer.ringer] = 0
-            report['types'][peal.length_type]['ringers'][peal_ringer.ringer] += 1
+            _add_peal(peal_length_data, 'ringers', peal_ringer.ringer, peal)
             if peal_ringer.is_conductor:
-                if peal_ringer.ringer.name not in report['types'][peal.length_type]['conductors']:
-                    report['types'][peal.length_type]['conductors'][peal_ringer.ringer.name] = 0
-                report['types'][peal.length_type]['conductors'][peal_ringer.ringer.name] += 1
+                _add_peal(peal_length_data, 'conductors', peal_ringer.ringer, peal)
 
         if peal.ring:
 
             if not ring:
-                if peal.ring not in report['types'][peal.length_type]['rings']:
-                    report['types'][peal.length_type]['rings'][peal.ring] = dict()
-                    report['types'][peal.length_type]['rings'][peal.ring]['count'] = 0
-                    report['types'][peal.length_type]['rings'][peal.ring]['first'] = peal.date
-                    report['types'][peal.length_type]['rings'][peal.ring]['last'] = peal.date
-                    report['types'][peal.length_type]['rings'][peal.ring]['bells'] = dict()
-                report['types'][peal.length_type]['rings'][peal.ring]['count'] += 1
-                if peal.date < report['types'][peal.length_type]['rings'][peal.ring]['first']:
-                    report['types'][peal.length_type]['rings'][peal.ring]['first'] = peal.date
-                if peal.date > report['types'][peal.length_type]['rings'][peal.ring]['last']:
-                    report['types'][peal.length_type]['rings'][peal.ring]['last'] = peal.date
+                _add_peal(peal_length_data, 'rings', peal.ring, peal)
+                if peal.ring not in peal_length_data['rings']:
+                    peal_length_data['rings'][peal.ring] = dict()
 
             if not tower:
-                if peal.ring.tower not in report['types'][peal.length_type]['towers']:
-                    report['types'][peal.length_type]['towers'][peal.ring.tower] = dict()
-                    report['types'][peal.length_type]['towers'][peal.ring.tower]['count'] = 0
-                    report['types'][peal.length_type]['towers'][peal.ring.tower]['first'] = peal.date
-                    report['types'][peal.length_type]['towers'][peal.ring.tower]['last'] = peal.date
-                report['types'][peal.length_type]['towers'][peal.ring.tower]['count'] += 1
-                if peal.date < report['types'][peal.length_type]['towers'][peal.ring.tower]['first']:
-                    report['types'][peal.length_type]['towers'][peal.ring.tower]['first'] = peal.date
-                if peal.date > report['types'][peal.length_type]['towers'][peal.ring.tower]['last']:
-                    report['types'][peal.length_type]['towers'][peal.ring.tower]['last'] = peal.date
+                _add_peal(peal_length_data, 'towers', peal.ring.tower, peal)
 
             if ring or tower:
+                if 'bells' not in peal_length_data:
+                    peal_length_data['bells'] = dict()
                 # Add counts of ringers on each bell
                 peal_ringer: PealRinger
                 for peal_ringer in peal.ringers:
@@ -178,11 +103,7 @@ def generate_summary(peals: list[Peal],
                         if bell_role is None:
                             raise ValueError(f'Could not find bell role for {bell_id} in {ring or tower}')
 
-                        if bell_role not in report['types'][peal.length_type]['bells']:
-                            report['types'][peal.length_type]['bells'][bell_role] = dict()
-                        if peal_ringer.ringer not in report['types'][peal.length_type]['bells'][bell_role]:
-                            report['types'][peal.length_type]['bells'][bell_role][peal_ringer.ringer] = 0
-                        report['types'][peal.length_type]['bells'][bell_role][peal_ringer.ringer] += 1
+                        _add_peal(peal_length_data['bells'], bell_role, peal_ringer.ringer, peal)
 
     report['types'] = dict(sorted(report['types'].items()))
     for length_type_report in report['types'].values():
@@ -190,29 +111,55 @@ def generate_summary(peals: list[Peal],
             if length_type_report['changes']:
                 length_type_report['avg_peal_speed'] = (length_type_report['duration'] / length_type_report['changes']) * 5040
             length_type_report['avg_duration'] = length_type_report['duration'] / length_type_report['count']
-        _sort_table(length_type_report)
+        _sort_table(length_type_report, 'count')
 
     return report
 
 
-def _sort_table(table: dict) -> None:
-    # Sort tables that contain just int values and recurse down into nested tables
+def _add_peal(data: dict, section: str, key: any, peal: Peal) -> dict:
+
+    if section not in data:
+        data[section] = dict()
+
+    if key not in data[section]:
+        data[section][key] = dict()
+        data[section][key]['count'] = 0
+        data[section][key]['first'] = peal.date
+        data[section][key]['last'] = peal.date
+        data[section][key]['changes'] = 0
+        data[section][key]['duration'] = 0
+
+    data[section][key]['count'] += 1
+    if peal.date < data[section][key]['first']:
+        data[section][key]['first'] = peal.date
+    if peal.date > data[section][key]['last']:
+        data[section][key]['last'] = peal.date
+    if peal.changes:
+        data[section][key]['changes'] += peal.changes
+    if peal.duration:
+        data[section][key]['duration'] += peal.duration
+    return data[section][key]
+
+
+def _sort_table(table: dict, sort_key: str = None) -> None:
+    def _sort_func(x: tuple) -> tuple:
+        if type(x[1]) is int:
+            return -x[1], str(x[0])
+        elif type(x[1]) is dict and sort_key is not None and sort_key in x[1]:
+            return -x[1][sort_key], str(x[0])
+        else:
+            return (str(x[0]))
+
+    # Sort tables that contain just dict with a named key or int values and recurse down into nested tables
     for report_name, nested_reports in table.items():
         if type(nested_reports) is dict:
-            all_numeric = True
+            countable_table = True
             for value in nested_reports.values():
-                if type(value) is not int:
-                    all_numeric = False
-                    if type(value) is dict:
-                        _sort_table(nested_reports)
-            if all_numeric:
+                if type(value) is dict:
+                    if sort_key not in value:
+                        countable_table = False
+                    _sort_table(nested_reports)
+                elif type(value) is not int:
+                    countable_table = False
+            if countable_table:
                 table[report_name] = dict(sorted(nested_reports.items(), key=_sort_func))
-
-
-def _sort_func(x: tuple) -> tuple:
-    if type(x[1]) is int:
-        return -x[1], str(x[0])
-    elif type(x[1]) is dict and 'count' in x[1]:
-        return -x[1]['count'], str(x[0])
-    else:
-        return (str(x[0]))

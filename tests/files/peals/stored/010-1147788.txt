@@ -341,13 +341,13 @@ Quarter Peal statistics
   Triples            3       Grandsire Triples     3    Single      6           
   Doubles            2       London Surprise       1    Method                  
   Caters             1       Major                      Mixed       1           
-  Major              1       Plain Bob Doubles     1    Methods                 
-  Royal              1       Plain Bob Royal       1    Spliced     1           
- ─────────────────────────  ─────────────────────────   Methods                 
-                                                        Tower       8           
-                                                        First       05-Dec-19…  
-                                                        rung                    
-                                                        Last rung   13-May-20…  
+  Major              1       Mixed Doubles         1    Methods                 
+  Royal              1       (5m/3v/1p)                 Spliced     1           
+ ─────────────────────────   Plain Bob Doubles     1    Methods                 
+                             Plain Bob Royal       1    Tower       8           
+                             Spliced Caters and    1    First       05-Dec-19…  
+                             Royal (2m)                 rung                    
+                            ─────────────────────────   Last rung   13-May-20…  
                                                         Avg. peal   2 hours,    
                                                         speed       47 mins,    
                                                                     10 secs     
@@ -375,10 +375,12 @@ Select option (x = Back):
  ────────────────────────────────────────────────────────────────────────────── 
   Methods                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
-  Grandsire Triples                                                     3       
-  London Surprise Major                                                 1       
-  Plain Bob Doubles                                                     1       
-  Plain Bob Royal                                                       1       
+  Grandsire Triples                                                       3     
+  London Surprise Major                                                   1     
+  Mixed Doubles (5m/3v/1p)                                                1     
+  Plain Bob Doubles                                                       1     
+  Plain Bob Royal                                                         1     
+  Spliced Caters and Royal (2m)                                           1     
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 
@@ -490,9 +492,9 @@ Peal statistics
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Maximus            1       Bristol Surprise      1    Mixed       1           
   Minor              1       Maximus                    Methods                 
- ─────────────────────────  ─────────────────────────   Single      1           
-                                                        Method                  
-                                                        Handbells   1           
+ ─────────────────────────   Mixed Surprise        1    Single      1           
+                             Minor (8m)                 Method                  
+                            ─────────────────────────   Handbells   1           
                                                         Tower       1           
                                                         First       25-Mar-19…  
                                                         rung                    
@@ -526,6 +528,7 @@ Select option (x = Back):
   Methods                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
   Bristol Surprise Maximus                                               1      
+  Mixed Surprise Minor (8m)                                              1      
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 

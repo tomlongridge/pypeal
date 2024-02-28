@@ -1,3 +1,4 @@
+import datetime
 import os
 from reportlab.lib.units import mm
 
@@ -17,6 +18,8 @@ from pypeal.stats.report import generate_summary
 PAGE_HEIGHT = 210*mm
 PAGE_WIDTH = 297*mm
 
+MAX_ROWS_PER_PAGE = 27
+
 styles = getSampleStyleSheet()
 styles.byName['Title'].fontSize = 24
 styles.byName['Title'].leading = 32
@@ -33,8 +36,9 @@ def generate_reports() -> list[str]:
     reports = []
     for report in Report.get_all():
         report_path = os.path.join(reports_dir, f'{report.name.replace(" ", "-")}.pdf')
-        _generate_report(report, report_path)
-        reports.append(report_path)
+        if report.enabled:
+            _generate_report(report, report_path)
+            reports.append(report_path)
 
     return reports
 
@@ -69,42 +73,53 @@ def _generate_peal_length_report(canvas: Canvas, report: Report, data: dict, rep
         stats['Number of towers'] = len(data['types'][report_length_type]['towers'])
     stats['Number of ringers'] = len(data['types'][report_length_type]['ringers'])
     stats['Number of conductors'] = len(data['types'][report_length_type]['conductors'])
+    busiest_year_pair = next(iter(data['types'][report_length_type]['years'].items()))
+    stats['Busiest year'] = f'{busiest_year_pair[0]} ({busiest_year_pair[1]["count"]})'
     stats['Average duration'] = utils.get_time_str(data['types'][report_length_type]['avg_duration'])
     stats[f'First {str(report_length_type).lower()}'] = utils.format_date_full(data['types'][report_length_type]['first'])
     stats[f'Last {str(report_length_type).lower()}'] = utils.format_date_full(data['types'][report_length_type]['last'])
-    tables.append(_draw_table(['Stat', None], stats))
+    tables.extend(_draw_table(['Stat', ''], stats, number_rows=False))
 
     sub_headings.append('Stages')
-    tables.append(_draw_table(['Stage', 'Count'],
+    tables.extend(_draw_table(['Stage', 'Count'],
                               data['types'][report_length_type]['stages']))
 
     sub_headings.append('Top 20 methods')
-    tables.append(_draw_table(['Method', 'Count'],
+    tables.extend(_draw_table(['Method', 'Count'],
                               data['types'][report_length_type]['methods'],
                               20))
 
     if not (report.tower or report.ring):
         sub_headings.append('Top 20 towers')
-        tables.append(_draw_table(['Tower', 'Count'],
+        tables.extend(_draw_table(['Tower', 'Count'],
                                   data['types'][report_length_type]['towers'],
                                   20,
                                   lambda t: t.name))
 
     sub_headings.append('Top 20 ringers')
-    tables.append(_draw_table(['Ringer', 'Count'],
+    tables.extend(_draw_table(['Ringer', 'Count'],
                               data['types'][report_length_type]['ringers'],
                               20))
 
     sub_headings.append('Top 20 conductors')
-    tables.append(_draw_table(['Ringer', 'Count'],
+    tables.extend(_draw_table(['Ringer', 'Count'],
                               data['types'][report_length_type]['conductors'],
                               20))
 
     if report_length_type >= PealLengthType.PEAL:
         sub_headings.append('Top 20 associations')
-        tables.append(_draw_table(['Ringer', 'Count'],
+        tables.extend(_draw_table(['Ringer', 'Count'],
                                   data['types'][report_length_type]['associations'],
                                   20))
+
+    by_year_data = dict(sorted(data['types'][report_length_type]['years'].items()))
+    by_year_tables = _draw_table(['Year', 'Count'], by_year_data, number_rows=False)
+    sub_headings.append('By year')
+    sub_headings.extend([''] * (len(by_year_tables) - 1))
+    tables.extend(by_year_tables)
+
+    sub_headings.append('By day of year')
+    tables.extend(_draw_table(['Day'], _get_missing_days_of_year(data['types'][report_length_type]['days_of_year']), number_rows=False))
 
     while len(tables) > 3:
         _draw_table_page(canvas, title, sub_headings[0:3], tables[0:3])
@@ -148,32 +163,54 @@ def _draw_table_page(canvas: Canvas, title: str, sub_headings: list[str], tables
 
 
 def _draw_table(headings: list[str],
-                data: dict,
-                num_rows: int = None,
+                data: dict | list,
+                max_rows: int = None,
+                number_rows: bool = True,
                 item_to_str: callable = None,
-                value_to_str: callable = None) -> Table:
+                value_to_str: callable = None) -> list[Table]:
 
-    table_data = [headings]
-    for item, value in data.items():
-        if value_to_str is not None:
-            value_str = value_to_str(value)
-        elif type(value) is int:
-            value_str = f'{value:,}'
-        else:
-            value_str = str(value)
-        table_data.append([Paragraph(item_to_str(item) if item_to_str else str(item)), value_str])
-        if num_rows and len(table_data) >= num_rows:
-            break
-    table = Table(table_data, colWidths=['*', 20*mm])
-    table.setStyle(TableStyle([
-        ('BACKGROUND', (0, 0), (-1, 0), colors.aquamarine),
-        ('FONT', (0, 0), (-1, 0), 'Helvetica-Bold'),
-        ('FONT', (0, 0), (-1, -1), 'Helvetica'),
-        ('ALIGN', (0, 0), (0, -1), 'LEFT'),
-        ('ALIGN', (1, 0), (1, -1), 'RIGHT'),
-        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
-    ]))
-    return table
+    tables = []
+    if number_rows:
+        data_rows = [['#', *headings]]
+        column_widths = [10*mm, '*', 20*mm]
+    else:
+        data_rows = [headings]
+        column_widths = ['*', 20*mm]
+    max_rows_in_current_page = MAX_ROWS_PER_PAGE - 4  # remove 4 rows in first page to make space for subheadings
+    for row_num, item in enumerate(data.keys() if type(data) is dict else data, 1):
+        data_row = []
+        if number_rows:
+            data_row.append(Paragraph(str(row_num)))
+        data_row.append(Paragraph(item_to_str(item) if item_to_str else str(item)))
+        if type(data) is dict:
+            value = data[item]
+            if value_to_str is not None:
+                value_str = value_to_str(value)
+            elif type(value) is int:
+                value_str = f'{value:,}'
+            elif type(value) is dict and 'count' in value:
+                value_str = f'{value["count"]:,}'
+            else:
+                value_str = str(value)
+            data_row.append(value_str)
+        data_rows.append(data_row)
+        if (max_rows and row_num >= max_rows) or len(data_rows) > max_rows_in_current_page or row_num == len(data):
+            table = Table(data_rows, colWidths=column_widths)
+            table.setStyle(TableStyle([
+                ('BACKGROUND', (0, 0), (-1, 0), colors.aquamarine),
+                ('FONT', (0, 0), (-1, 0), 'Helvetica-Bold'),
+                ('FONT', (0, 0), (-1, -1), 'Helvetica'),
+                ('ALIGN', (0, 0), (0, -1), 'LEFT'),
+                ('ALIGN', (-1, 0), (-1, -1), 'RIGHT'),
+                ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+                ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.whitesmoke, colors.white])
+            ]))
+            tables.append(table)
+            data_rows = [headings]
+            max_rows_in_current_page = MAX_ROWS_PER_PAGE
+            if max_rows and row_num >= max_rows:
+                break
+    return tables
 
 
 def _draw_bell_table(ring: Ring, data: dict) -> list[Table]:
@@ -187,10 +224,10 @@ def _draw_bell_table(ring: Ring, data: dict) -> list[Table]:
     ringer_bells: dict[Ringer, list[int]] = dict()
     bell_data: dict[Ringer, int]
     for bell_role, bell_data in data.items():
-        for ringer, count in bell_data.items():
+        for ringer, ringer_data in bell_data.items():
             if ringer not in ringer_bells:
                 ringer_bells[ringer] = [0] * len(bell_columns)
-            ringer_bells[ringer][bell_columns.index(bell_role)] = count
+            ringer_bells[ringer][bell_columns.index(bell_role)] = ringer_data['count']
 
     for counts in ringer_bells.values():
         counts.append(sum(counts))
@@ -200,7 +237,7 @@ def _draw_bell_table(ring: Ring, data: dict) -> list[Table]:
     ringer_bells = dict(sorted(ringer_bells.items(), key=lambda x: (-x[1][-1], str(x[0]))))
     for ringer, counts in ringer_bells.items():
         table_data.append([Paragraph(str(ringer)), *[f'{value:,}' for value in counts]])
-        if len(table_data) > 26:
+        if len(table_data) > MAX_ROWS_PER_PAGE - 3:
             table = Table(headings + table_data, colWidths=['*', *([20*mm] * len(bell_columns))])
             table.setStyle(TableStyle([
                 ('BACKGROUND', (0, 0), (-1, 0), colors.aquamarine),
@@ -214,3 +251,12 @@ def _draw_bell_table(ring: Ring, data: dict) -> list[Table]:
             table_data = []
 
     return tables
+
+
+def _get_missing_days_of_year(data: dict) -> list[str]:
+    missing_days = []
+    for day in range(1, 366):
+        key = (datetime.date(2000, 1, 1) + datetime.timedelta(days=day)).strftime("%m-%d")
+        if key not in data:
+            missing_days.append(key)
+    return missing_days

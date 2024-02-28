@@ -95,8 +95,8 @@ def _report(report: Report = None, prompt: bool = False):
         if conducted_data and type in conducted_data['types']:
             conducted_summary_data[f'{type}s'] = conducted_data['types'][type]['count']
     console.print(_generate_dict_table([summary_data, conducted_summary_data],
-                                       value_name=['Rung' if conducted_data else '',
-                                                   'Conducted' if conducted_data else None]))
+                                       value_column_headings=['Rung' if conducted_data else '',
+                                                              'Conducted' if conducted_data else None]))
 
     while True:
 
@@ -116,19 +116,24 @@ def _report(report: Report = None, prompt: bool = False):
         console.print(_generate_peal_length_table(length_type_data, length_type_conducted_data))
 
         while True:
-            match choose_option(['All methods',
-                                 'All ringers',
-                                 'All conductors',
-                                 'All associations'],
-                                none_option='Back'):
+            all_data_options = []
+            if 'titles' in length_type_data:
+                all_data_options.append('All methods')
+            if 'ringers' in length_type_data:
+                all_data_options.append('All ringers')
+            if 'conductors' in length_type_data:
+                all_data_options.append('All conductors')
+            if 'associations' in length_type_data:
+                all_data_options.append('All associations')
+            match choose_option(all_data_options, none_option='Back'):
                 case 1:
-                    console.print(_generate_dict_table(length_type_data['all_methods'], key_name='Methods'))
+                    console.print(_generate_dict_table(length_type_data['titles'], key_column_heading='Methods'))
                 case 2:
-                    console.print(_generate_dict_table(length_type_data['ringers'], key_name='Ringers'))
+                    console.print(_generate_dict_table(length_type_data['ringers'], key_column_heading='Ringers'))
                 case 3:
-                    console.print(_generate_dict_table(length_type_data['conductors'], key_name='Conductors'))
+                    console.print(_generate_dict_table(length_type_data['conductors'], key_column_heading='Conductors'))
                 case 4:
-                    console.print(_generate_dict_table(length_type_data['associations'], key_name='Associations'))
+                    console.print(_generate_dict_table(length_type_data['associations'], key_column_heading='Associations'))
                 case None:
                     break
             confirm(None, confirm_message='Press enter to continue')
@@ -168,21 +173,29 @@ def _generate_peal_length_table(data: dict, conducted_data: dict) -> Table:
     else:
         column_names = ['']
     table.add_row(
-        _generate_dict_table([data['stages'], conducted_data['stages'] if conducted_data else None],
-                             key_name='Stage',
-                             value_name=column_names),
-        _generate_dict_table([data['all_methods'], conducted_data['all_methods'] if conducted_data else None],
-                             key_name='Methods',
-                             value_name=column_names,
+        _generate_dict_table([data['stages'],
+                              conducted_data['stages'] if conducted_data and 'stages' in conducted_data else None],
+                             key_column_heading='Stage',
+                             value_column_headings=column_names) if 'stages' in data else None,
+        _generate_dict_table([data['titles'],
+                              conducted_data['titles'] if conducted_data else None],
+                             key_column_heading='Methods',
+                             value_column_headings=column_names,
                              max_rows=10),
         _generate_dict_table([_generate_misc_data(data), _generate_misc_data(conducted_data) if conducted_data else None],
-                             key_name='Misc',
-                             value_name=column_names),
+                             key_column_heading='Misc',
+                             value_column_headings=column_names),
     )
     table.add_row(
-        _generate_dict_table(data['ringers'], key_name='Top 10 Ringers', max_rows=10),
-        _generate_dict_table(data['conductors'], key_name='Top 10 Conductors', max_rows=10),
-        _generate_dict_table(data['associations'], key_name='Top 10 Associations', max_rows=10),
+        _generate_dict_table(data['ringers'],
+                             key_column_heading='Top 10 Ringers',
+                             max_rows=10),
+        _generate_dict_table(data['conductors'],
+                             key_column_heading='Top 10 Conductors',
+                             max_rows=10) if 'conductors' in data else None,
+        _generate_dict_table(data['associations'],
+                             key_column_heading='Top 10 Associations',
+                             max_rows=10) if 'associations' in data else None,
     )
     return table
 
@@ -203,12 +216,17 @@ def _generate_misc_data(data: dict) -> dict:
     return misc_data
 
 
-def _generate_dict_table(data: dict | list[dict], key_name: str = '', value_name: str | list[str] = '', max_rows: int = None) -> Table:
+def _generate_dict_table(data: dict | list[dict],
+                         key_column_heading: str = '',
+                         value_column_headings: str | list[str] = '',
+                         max_rows: int = None) -> Table:
 
+    # Transform data into a dict keyed the same but with an array of values combined from the supplied data dict(s)
+    combined_data = {}
     if type(data) is dict:
-        combined_data = data
+        for key, value in data.items():
+            combined_data[key] = [value]
     else:
-        combined_data = {}
         for key in data[0]:
             combined_data[key] = []
             for dataset in data:
@@ -216,23 +234,24 @@ def _generate_dict_table(data: dict | list[dict], key_name: str = '', value_name
                     combined_data[key].append(dataset.get(key))
 
     table = Table(show_footer=False, box=box.HORIZONTALS, expand=True)
-    table.add_column(key_name, justify='left')
+    table.add_column(key_column_heading, justify='left')
 
-    if type(value_name) is str:
-        table.add_column(value_name or '', justify='left')
+    if type(value_column_headings) is str:
+        table.add_column(value_column_headings or '', justify='left')
     else:
-        for name in value_name:
+        for name in value_column_headings:
             table.add_column(name or '', justify='left')
             if len(table.columns) == len(data) + 1:
                 break
     if len(combined_data) == 0:
         table.add_row('None')
     else:
-        for key, value in list(combined_data.items())[:max_rows or len(combined_data)]:
-            if type(value) is list:
-                table.add_row(str(key) if key is not None else '', *[str(v) if v else '' for v in value])
-            else:
-                table.add_row(str(key) if key is not None else '', str(value) if value else '')
+        for key, value_list in list(combined_data.items())[:max_rows or len(combined_data)]:
+            for value in value_list:
+                if type(value) is dict:
+                    table.add_row(str(key) if key is not None else '', str(value['count']) if value and 'count' in value else '')
+                else:
+                    table.add_row(str(key) if key is not None else '', str(value) if value else '')
     return table
 
 
@@ -263,6 +282,8 @@ def _create_report(report: Report):
             confirm(None, confirm_message='Is the report for a specific date range?')):
         report.date_from = ask_date('From', default=report.date_from, required=False)
         report.date_to = ask_date('To', default=report.date_to, min=report.date_from if report.date_from else None, required=False)
+
+    report.enabled = confirm('Enabled', confirm_message='Enable report?', default=report.enabled)
 
 
 def _delete_report(report: Report):

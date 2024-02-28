@@ -248,9 +248,9 @@ Quarter Peal statistics
   Stage                      Methods                    Misc                    
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Doubles            1       Grandsire Triples     1    Mixed       1           
-  Triples            1      ─────────────────────────   Methods                 
- ─────────────────────────                              Single      1           
-                                                        Method                  
+  Triples            1       Mixed Doubles         1    Methods                 
+ ─────────────────────────   (5m/3v/1p)                 Single      1           
+                            ─────────────────────────   Method                  
                                                         Tower       2           
                                                         First       30-Jun-20…  
                                                         rung                    
@@ -282,7 +282,8 @@ Select option (x = Back):
  ────────────────────────────────────────────────────────────────────────────── 
   Methods                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
-  Grandsire Triples                                                   1         
+  Grandsire Triples                                                      1      
+  Mixed Doubles (5m/3v/1p)                                               1      
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 
