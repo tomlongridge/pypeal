@@ -199,8 +199,8 @@ Quarter Peal statistics
                                                         rung                    
                                                         Last rung   30-Jun-20…  
                                                         Avg. peal   3 hours,    
-                                                        speed       16 mins, 0  
-                                                                    secs        
+                                                        speed       14 mins,    
+                                                                    27 secs     
                                                         Avg.        49 mins, 0  
                                                         duration    secs        
                                                        ──────────────────────── 
@@ -302,8 +302,8 @@ Quarter Peal statistics
                                                         rung                    
                                                         Last rung   30-Jun-20…  
                                                         Avg. peal   3 hours,    
-                                                        speed       16 mins, 0  
-                                                                    secs        
+                                                        speed       14 mins,    
+                                                                    27 secs     
                                                         Avg.        49 mins, 0  
                                                         duration    secs        
                                                        ──────────────────────── 
@@ -387,8 +387,8 @@ Quarter Peal statistics
                                                         rung                    
                                                         Last rung   30-Jun-20…  
                                                         Avg. peal   3 hours,    
-                                                        speed       16 mins, 0  
-                                                                    secs        
+                                                        speed       14 mins,    
+                                                                    27 secs     
                                                         Avg.        49 mins, 0  
                                                         duration    secs        
                                                        ──────────────────────── 

@@ -276,10 +276,10 @@ Quarter Peal statistics
                                                         rung                    
                                                         Last rung   17-Oct-20…  
                                                         Avg. peal   2 hours,    
-                                                        speed       40 mins,    
-                                                                    43 secs     
-                                                        Avg.        40 mins,    
-                                                        duration    30 secs     
+                                                        speed       39 mins,    
+                                                                    27 secs     
+                                                        Avg.        48 mins,    
+                                                        duration    36 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -411,8 +411,8 @@ Peal statistics
                                                         rung                    
                                                         Last rung   29-Mar-19…  
                                                         Avg. peal   2 hours,    
-                                                        speed       49 mins,    
-                                                                    17 secs     
+                                                        speed       47 mins,    
+                                                                    56 secs     
                                                         Avg.        2 hours,    
                                                         duration    52 mins,    
                                                                     30 secs     

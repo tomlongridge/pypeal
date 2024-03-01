@@ -260,10 +260,10 @@ Quarter Peal statistics
                              Plain Bob Triples     1    rung                    
                              Spliced Caters and    1    Last rung   01-Oct-20…  
                              Royal (2m)                 Avg. peal   2 hours,    
-                             Spliced Surprise      1    speed       53 mins,    
-                             Major (2m)                             34 secs     
-                            ─────────────────────────   Avg.        43 mins,    
-                                                        duration    49 secs     
+                             Spliced Surprise      1    speed       52 mins,    
+                             Major (2m)                             12 secs     
+                            ─────────────────────────   Avg.        48 mins,    
+                                                        duration    12 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -422,8 +422,8 @@ Peal statistics
                                                         rung                    
                                                         Last rung   29-Mar-19…  
                                                         Avg. peal   2 hours,    
-                                                        speed       42 mins,    
-                                                                    36 secs     
+                                                        speed       41 mins,    
+                                                                    19 secs     
                                                         Avg.        2 hours,    
                                                         duration    44 mins,    
                                                                     40 secs     

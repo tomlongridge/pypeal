@@ -250,10 +250,10 @@ Quarter Peal statistics
                              Mixed Doubles (3m)    1    rung                    
                              Mixed Doubles         1    Last rung   12-Nov-20…  
                              (5m/3v/1p)                 Avg. peal   2 hours,    
-                             Plain Bob Doubles     1    speed       43 mins,    
-                            ─────────────────────────               44 secs     
-                                                        Avg.        41 mins,    
-                                                        duration    17 secs     
+                             Plain Bob Doubles     1    speed       42 mins,    
+                            ─────────────────────────               26 secs     
+                                                        Avg.        46 mins,    
+                                                        duration    26 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -427,8 +427,8 @@ Peal statistics
                                                         rung                    
                                                         Last rung   29-Mar-19…  
                                                         Avg. peal   2 hours,    
-                                                        speed       42 mins,    
-                                                                    36 secs     
+                                                        speed       41 mins,    
+                                                                    19 secs     
                                                         Avg.        2 hours,    
                                                         duration    44 mins,    
                                                                     40 secs     
@@ -808,10 +808,10 @@ Quarter Peal statistics
                              Mixed Doubles (3m)    1    rung                    
                              Mixed Doubles         1    Last rung   12-Nov-20…  
                              (5m/3v/1p)                 Avg. peal   2 hours,    
-                             Plain Bob Doubles     1    speed       43 mins,    
-                            ─────────────────────────               44 secs     
-                                                        Avg.        41 mins,    
-                                                        duration    17 secs     
+                             Plain Bob Doubles     1    speed       42 mins,    
+                            ─────────────────────────               26 secs     
+                                                        Avg.        46 mins,    
+                                                        duration    26 secs     
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  

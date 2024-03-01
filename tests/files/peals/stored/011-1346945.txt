@@ -360,9 +360,9 @@ Quarter Peal statistics
                              Royal (2m)                 rung                    
                             ─────────────────────────   Last rung   13-May-20…  
                                                         Avg. peal   2 hours,    
-                                                        speed       47 mins,    
-                                                                    10 secs     
-                                                        Avg.        42 mins, 8  
+                                                        speed       45 mins,    
+                                                                    51 secs     
+                                                        Avg.        48 mins, 9  
                                                         duration    secs        
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
@@ -511,8 +511,8 @@ Peal statistics
                                                         rung                    
                                                         Last rung   29-Mar-19…  
                                                         Avg. peal   2 hours,    
-                                                        speed       42 mins,    
-                                                                    36 secs     
+                                                        speed       41 mins,    
+                                                                    19 secs     
                                                         Avg.        2 hours,    
                                                         duration    44 mins,    
                                                                     40 secs     

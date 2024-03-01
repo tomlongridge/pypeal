@@ -41,13 +41,6 @@ def generate_summary(peals: list[Peal],
             if not ringer_is_conductor:
                 continue
 
-        if report['last_added'] is None or report['last_added'] < peal.created_date:
-            report['last_added'] = peal.created_date
-        if report['first'] is None or report['first'] > peal.date:
-            report['first'] = peal.date
-        if report['last'] is None or report['last'] < peal.date:
-            report['last'] = peal.date
-
         peal_length_data = _add_peal(report, 'types', peal.length_type, peal)
 
         _add_peal(peal_length_data, 'types', peal.type, peal)
@@ -107,10 +100,6 @@ def generate_summary(peals: list[Peal],
 
     report['types'] = dict(sorted(report['types'].items()))
     for length_type_report in report['types'].values():
-        if length_type_report['duration']:
-            if length_type_report['changes']:
-                length_type_report['avg_peal_speed'] = (length_type_report['duration'] / length_type_report['changes']) * 5040
-            length_type_report['avg_duration'] = length_type_report['duration'] / length_type_report['count']
         _sort_table(length_type_report, 'count')
 
     return report
@@ -122,23 +111,36 @@ def _add_peal(data: dict, section: str, key: any, peal: Peal) -> dict:
         data[section] = dict()
 
     if key not in data[section]:
-        data[section][key] = dict()
-        data[section][key]['count'] = 0
-        data[section][key]['first'] = peal.date
-        data[section][key]['last'] = peal.date
-        data[section][key]['changes'] = 0
-        data[section][key]['duration'] = 0
+        selected_dict = data[section][key] = dict()
+        selected_dict['count'] = 0
+        selected_dict['first'] = peal.date
+        selected_dict['last'] = peal.date
+        selected_dict['changes'] = 0
+        selected_dict['duration'] = 0
+        selected_dict['_duration_recorded_count'] = 0
+    else:
+        selected_dict = data[section][key]
 
-    data[section][key]['count'] += 1
-    if peal.date < data[section][key]['first']:
-        data[section][key]['first'] = peal.date
-    if peal.date > data[section][key]['last']:
-        data[section][key]['last'] = peal.date
+    selected_dict['count'] += 1
+    if peal.date < selected_dict['first']:
+        selected_dict['first'] = peal.date
+    if peal.date > selected_dict['last']:
+        selected_dict['last'] = peal.date
     if peal.changes:
-        data[section][key]['changes'] += peal.changes
+        selected_dict['changes'] += peal.changes
     if peal.duration:
-        data[section][key]['duration'] += peal.duration
-    return data[section][key]
+        selected_dict['duration'] += peal.duration
+        selected_dict['_duration_recorded_count'] += 1
+        selected_dict['duration_avg'] = selected_dict['duration'] / selected_dict['_duration_recorded_count']
+    if (peal.changes or peal.duration) and selected_dict['changes'] > 0 and selected_dict['duration'] > 0:
+        selected_dict['peal_speed_avg'] = (selected_dict['duration'] / selected_dict['changes']) * 5000
+
+    if selected_dict['count'] % 25 == 0:
+        selected_dict['last_milestone_count'] = selected_dict['count']
+        if 'last_milestone_date' not in selected_dict or peal.date > selected_dict['last_milestone_date']:
+            selected_dict['last_milestone_date'] = peal.date
+
+    return selected_dict
 
 
 def _sort_table(table: dict, sort_key: str = None) -> None:

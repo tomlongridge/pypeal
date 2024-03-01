@@ -335,10 +335,10 @@ Quarter Peal statistics
                              Royal (2m)                 rung                    
                              Spliced Surprise      1    Last rung   13-May-20…  
                              Major (2m)                 Avg. peal   2 hours,    
-                            ─────────────────────────   speed       49 mins,    
-                                                                    37 secs     
-                                                        Avg.        42 mins,    
-                                                        duration    47 secs     
+                            ─────────────────────────   speed       48 mins,    
+                                                                    16 secs     
+                                                        Avg.        48 mins, 8  
+                                                        duration    secs        
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -489,8 +489,8 @@ Peal statistics
                                                         rung                    
                                                         Last rung   29-Mar-19…  
                                                         Avg. peal   2 hours,    
-                                                        speed       42 mins,    
-                                                                    36 secs     
+                                                        speed       41 mins,    
+                                                                    19 secs     
                                                         Avg.        2 hours,    
                                                         duration    44 mins,    
                                                                     40 secs     

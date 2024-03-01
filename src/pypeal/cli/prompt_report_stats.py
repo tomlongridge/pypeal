@@ -211,8 +211,8 @@ def _generate_misc_data(data: dict) -> dict:
             misc_data[str(type)] = data['muffles'][type]
     misc_data['First rung'] = utils.format_date_short(data['first'])
     misc_data['Last rung'] = utils.format_date_short(data['last'])
-    misc_data['Avg. peal speed'] = utils.get_time_str(data['avg_peal_speed']) if 'avg_peal_speed' in data else None
-    misc_data['Avg. duration'] = utils.get_time_str(data['avg_duration']) if 'avg_duration' in data else None
+    misc_data['Avg. peal speed'] = utils.get_time_str(data['peal_speed_avg']) if 'peal_speed_avg' in data else None
+    misc_data['Avg. duration'] = utils.get_time_str(data['duration_avg']) if 'duration_avg' in data else None
     return misc_data
 
 

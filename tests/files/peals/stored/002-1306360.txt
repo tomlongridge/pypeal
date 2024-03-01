@@ -256,8 +256,8 @@ Quarter Peal statistics
                                                         rung                    
                                                         Last rung   17-Oct-20…  
                                                         Avg. peal   3 hours,    
-                                                        speed       18 mins, 0  
-                                                                    secs        
+                                                        speed       16 mins,    
+                                                                    26 secs     
                                                         Avg.        49 mins,    
                                                         duration    30 secs     
                                                        ──────────────────────── 
