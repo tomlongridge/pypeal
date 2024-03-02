@@ -177,7 +177,8 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
                     num_variants = ask_int('Number of variants', default=num_variants or 0)
                     if num_methods + num_principles + num_variants > 0:
                         break
-                stage = Stage(ask_int('Stage', default=stage.value if stage else None, min=2, max=22))
+                stage_val = ask_int('Stage', default=stage.value if stage else None, min=2, max=22)
+                stage = Stage(stage_val) if stage_val else None
                 classification = choose_option([classification for classification in Classification],
                                                default=classification,
                                                title='Classification',

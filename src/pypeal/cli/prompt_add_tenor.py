@@ -18,24 +18,31 @@ def _prompt_shift_band(peal: Peal, suggested_tenor: Bell, quick_mode: bool):
     if quick_mode and not suggested_tenor:
         quick_mode = False  # Force a prompt for this in quick mode
 
-    new_tenor = ask_int('Confirm tenor bell',
-                        default=suggested_tenor.role if suggested_tenor else peal.ring.tenor.role,
-                        min=1,
-                        max=peal.ring.tenor.role,
-                        required=True) if not quick_mode else suggested_tenor.role
+    while True:
+        new_tenor = ask_int('Confirm tenor bell',
+                            default=suggested_tenor.role if suggested_tenor else peal.ring.tenor.role,
+                            min=1,
+                            max=peal.ring.tenor.role,
+                            required=True) if not quick_mode else suggested_tenor.role
 
-    if new_tenor != peal.tenor.role:
+        if new_tenor != peal.tenor.role:
 
-        peal_ringers = peal.ringers
-        band_shift = new_tenor - peal.tenor.role
-        print(f'Shifting band by {band_shift} bell{"s" if abs(band_shift) > 1 else ""}')
-        ring_start = new_tenor - peal.num_bells
-        peal.clear_ringers()
-        for ringer in peal_ringers:
-            new_bells = []
-            for bell in ringer.bell_nums:
-                new_bells.append(peal.ring.get_bell(ring_start + bell).id)
-            peal.add_ringer(ringer.ringer, new_bells, ringer.bell_nums, ringer.is_conductor)
+            peal_ringers = peal.ringers
+            band_shift = new_tenor - peal.tenor.role
+            ring_start = new_tenor - peal.num_bells
+            if peal_ringers[0].bell_nums[0] + ring_start < 1:
+                error(f'Cannot shift band to {new_tenor} as it would result in a bell number less than 1')
+                quick_mode = False
+                continue
+
+            print(f'Shifting band by {band_shift} bell{"s" if abs(band_shift) > 1 else ""}')
+            peal.clear_ringers()
+            for ringer in peal_ringers:
+                new_bells = []
+                for bell in ringer.bell_nums:
+                    new_bells.append(peal.ring.get_bell(ring_start + bell).id)
+                peal.add_ringer(ringer.ringer, new_bells, ringer.bell_nums, ringer.is_conductor)
+        break
 
 
 def prompt_add_tenor(tenor_info: str, peal: Peal, quick_mode: bool):

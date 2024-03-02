@@ -19,8 +19,8 @@ def cli_runner(app: Typer, input_file: str):
     stdin: list[str] = []
     expected_stdout = ''
     for line in test_data[1].split('\n'):
-        if line.startswith('>>>'):
-            stdin.append(line[3:].strip())
+        if line.startswith('>>> '):
+            stdin.append(line[4:])
         else:
             expected_stdout += line + '\n'
     expected_stdout = expected_stdout.strip()

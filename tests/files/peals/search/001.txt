@@ -509,8 +509,8 @@ Try for a quick-add? [y/n] (y):
 📅 Date: Sunday, 21 September 2014
 🔔 Tenor: Unknown
 ⏱ Duration: Unknown
-📍 Location Marston Bigot, Somerset
-📍 Detail Pig-le-Tower
+📍 Location: Marston Bigot, Somerset
+📍 Detail: Pig-le-Tower
 🔢 Changes: 1280
 Matching peal titled "Cambridge Surprise Major"...
 📕 Title: Cambridge Surprise Major
@@ -820,6 +820,36 @@ Add new ringer as "Melissa" "Baker"? [y/n] (y):
 👤 Ringer: 6: Melissa Baker
 👤 Ringer: 7: Joyce Sullivan (c)
 👤 Ringer: 8: Leonardo Bennett
+Referenced ringer(s):
+  - 29: None
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Warning: Bell referenced in footnote (29) is greater than number of bells    │
+│ (8)                                                                          │
+│   > And in memory of the composer: Sergeant Albert Percy Wakley, Labour      │
+│ Corps and 6th North Staffordshire Regiment, a ringer at St Paul's,           │
+│ Burton-on-Trent, who died on the 18th February 1919, aged.                   │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Is this correct? [y/n] (y): 
+>>> n
+[User input: "False"]
+Footnote text (And in memory of the composer: Sergeant Albert Percy Wakley, 
+Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, 
+Burton-on-Trent, who died on the 18th February 1919, aged.): 
+>>> And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.
+[User input: "And in memory of the composer: Sergeant Albert Percy Wakley, 
+Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, 
+Burton-on-Trent, who died on the 18th February 1919, aged 29."]
+Bells (comma-separated) (29): 
+>>>  
+[User input: "None"]
+Footnote 2 text:
+  > And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Add this to previous footnote? [y/n] (y): 
+>>> y
+[User input: "True"]
 📝 Footnotes:
   - Rung for Morning Service. And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
 🔗 Event link: None

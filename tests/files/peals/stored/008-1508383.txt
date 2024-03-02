@@ -76,8 +76,8 @@ Maidenhead, Kent, England
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-📍 Location Maidenhead, Kent, England
-📍 Detail 80 Lambourne Drive, Cox Green
+📍 Location: Maidenhead, Kent, England
+📍 Detail: 80 Lambourne Drive, Cox Green
 🔢 Changes: 5232
 Matching peal titled "Bristol Surprise Maximus"...
 Matched "Bristol Surprise Maximus" to method "Bristol Surprise Maximus" (ID: 

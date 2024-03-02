@@ -53,9 +53,9 @@ class PealPromptListener(PealGeneratorListener):
             self._run_cancellable_prompt(
                 lambda peal: prompt_add_location(address_dedication, place, county, country, peal, self.quick_mode))
             if self.peal.location:
-                print('📍 Location', self.peal.location)
+                print(f'📍 Location: {self.peal.location}')
             if self.peal.location_detail:
-                print('📍 Detail', self.peal.location_detail)
+                print(f'📍 Detail: {self.peal.location_detail}')
 
     def changes(self, value: int):
         self.peal.changes = value

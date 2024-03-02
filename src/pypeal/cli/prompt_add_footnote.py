@@ -93,7 +93,7 @@ def _prompt_add_single_footnote(bells: list[int],
 def _prompt_footnote_details(default_bells: list[int],
                              default_text: str,
                              max_bells: int,
-                             quick_mode: bool) -> (str, list[int]):
+                             quick_mode: bool) -> tuple[str, list[int]]:
     while True:
         footnote = ask('Footnote text', default=default_text) if not quick_mode else default_text
         if len(footnote.strip()) > 0:

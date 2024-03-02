@@ -57,8 +57,8 @@ Bath, Somerset, England
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-📍 Location Bath, Somerset, England
-📍 Detail 1 High Street
+📍 Location: Bath, Somerset, England
+📍 Detail: 1 High Street
 Number of changes: 
 >>> 5040
 [User input: "5040"]
@@ -188,7 +188,7 @@ Footnote:
 >>> Second footnote
 [User input: "Second footnote"]
 Footnote 2 text:
-  > Seconductor footnote.
+  > Second footnote.
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -214,7 +214,7 @@ Select option (1):
 │ 5,6: Iris Iguana                                                             │
 │                                                                              │
 │ First footnote.                                                              │
-│ Seconductor footnote.                                                        │
+│ Second footnote.                                                             │
 │                                                                              │
 │ [Published title: Cambridge Minor]                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
@@ -252,7 +252,7 @@ A Peal of 5040 Cambridge Surprise Minor
 5,6: Iris Iguana
 
 First footnote.
-Seconductor footnote.
+Second footnote.
 
 [Published title: Cambridge Minor]
 [Database ID: 3]

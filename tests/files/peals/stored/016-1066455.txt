@@ -78,8 +78,8 @@ Marston Bigot, Somerset, England
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-📍 Location Marston Bigot, Somerset, England
-📍 Detail Pig-le-Tower
+📍 Location: Marston Bigot, Somerset, England
+📍 Detail: Pig-le-Tower
 🔢 Changes: 1280
 Matching peal titled "Cambridge Surprise Major"...
 Matched "Cambridge Surprise Major" to method "Cambridge Surprise Major" (ID: 
