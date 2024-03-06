@@ -4,14 +4,13 @@ from pypeal.cache import Cache
 
 from pypeal.db import Database
 
-FIELD_LIST: list[str] = ['name', 'is_user_added', 'id']
+FIELD_LIST: list[str] = ['name', 'id']
 
 
 @dataclass
 class Association():
 
     name: str = None
-    is_user_added: bool = True
     id: int = None
 
     def __str__(self):
@@ -24,9 +23,9 @@ class Association():
         result = Database.get_connection().query(
             f'INSERT INTO associations ({",".join(FIELD_LIST)}) ' +
             f'VALUES ({("%s,"*len(FIELD_LIST)).strip(",")})',
-            (self.name, self.is_user_added, self.id))
+            (self.name, self.id))
         Database.get_connection().commit()
-        if self.is_user_added:
+        if self.id is None:
             self.id = result.lastrowid
         Cache.get_cache().add(self.__class__.__name__, self.id, self)
 

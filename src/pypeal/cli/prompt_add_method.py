@@ -41,12 +41,22 @@ def prompt_add_method(method: Method, original_name: str, changes: int, peal: Pe
 
                 print('Enter search criteria:')
                 name = ask('Name', default=method.name if method else None, required=False)
-                if state_val := ask_int('Stage', default=method.stage.value if method and method.stage else None, min=2, max=22):
+
+                if method and method.stage:
+                    default_method = method.stage.value
+                elif peal.stage:
+                    default_method = peal.stage.value
+                if state_val := ask_int('Stage', default=default_method, min=2, max=22):
                     stage = Stage(state_val)
                 else:
                     stage = None
+
+                if method and method.classification:
+                    default_classification = method.classification
+                elif peal.classification:
+                    default_classification = peal.classification
                 classification = choose_option([classification for classification in Classification],
-                                               default=method.classification if method else None,
+                                               default=default_classification,
                                                title='Classification',
                                                none_option='None')
                 is_differential = confirm(None, 'Is this a differential method?',

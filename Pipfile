@@ -15,6 +15,7 @@ pytest-mock = "*"
 fastapi = "*"
 uvicorn = {extras = ["standard"], version = "*"}
 reportlab = "*"
+haversine = "*"
 
 [dev-packages]
 

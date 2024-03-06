@@ -1,5 +1,6 @@
 import re
-from pypeal.cli.prompts import ask, confirm
+from pypeal.cli.prompt_add_tower import prompt_find_tower
+from pypeal.cli.prompts import ask, confirm, error
 from pypeal.cli.chooser import choose_option
 from pypeal.entities.peal import Peal
 
@@ -8,11 +9,26 @@ DEDICATION_REGEX = re.compile(r'^st?\s|cath|blessed|holy|all saints|chapel|chris
 
 def prompt_add_location(address_dedication: str, place: str, county: str, country: str, peal: Peal, quick_mode: bool):
 
+    if not quick_mode:
+        full_location = ''
+        full_location += f', {address_dedication} ' if address_dedication else ''
+        full_location += f', {place}' if place else ''
+        full_location += f', {county}' if county else ''
+        full_location += f', {country}' if country else ''
+        full_location = full_location.strip(', ')
+
+        if confirm(f'Location: {full_location}', confirm_message='Attempt to find a tower?', default=False):
+            selected_tower = prompt_find_tower()
+            if selected_tower:
+                peal.ring = selected_tower.get_active_ring(peal.date)
+                return
+
     while True:
+
         probably_dedication = address_dedication and re.match(DEDICATION_REGEX, address_dedication.lower()) is not None
 
-        sub_place = None
         address_dedication_less_sub_place = None
+        sub_place = None
         if address_dedication is not None:
             place_parts = address_dedication.split(', ')
             if len(place_parts) > 1:
@@ -25,17 +41,25 @@ def prompt_add_location(address_dedication: str, place: str, county: str, countr
             dedication = address_dedication
         else:
             while True:
-                address = ask('Address', address_dedication, required=False) if not quick_mode else address_dedication
+                if not address_dedication or not quick_mode:
+                    address = ask('Address', address_dedication, required=False)
+                else:
+                    address = address_dedication
                 if address and \
-                        not re.match(DEDICATION_REGEX, address.lower()) or \
-                        confirm(f'"{address}" looks like a dedication', confirm_message='Are you sure?'):
+                        (not re.match(DEDICATION_REGEX, address.lower()) or
+                            confirm(f'"{address}" looks like a dedication', confirm_message='Are you sure?')):
                     sub_place = None
                     break
-                dedication = ask('Dedication', address_dedication, required=False) if not quick_mode else address_dedication
+                if not address_dedication or not quick_mode:
+                    dedication = ask('Dedication', address_dedication, required=False)
+                else:
+                    dedication = address_dedication
                 if dedication and \
-                        re.match(DEDICATION_REGEX, dedication.lower()) or \
-                        confirm(f'"{dedication}" does not look like a dedication', prompt='Are you sure?'):
+                        (re.match(DEDICATION_REGEX, dedication.lower()) or
+                            confirm(f'"{dedication}" does not look like a dedication', confirm_message='Are you sure?')):
                     break
+                error('Please enter a dedication or address')
+                quick_mode = False  # Go into prompt mode as the input doesn't look like a dedication or address
 
         peal.dedication = dedication
         peal.address = address
@@ -62,4 +86,4 @@ def prompt_add_location(address_dedication: str, place: str, county: str, countr
         peal.country = ask('Country', country) if not quick_mode else country
 
         if quick_mode or confirm(peal.location):
-            return peal
+            return

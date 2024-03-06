@@ -30,7 +30,7 @@ METHOD_TITLE_TWO_METHODS_REGEX = \
 
 # Match either a number and one of m, v or p as part of the title or, if in brackets, then allow just m, v or p with no number
 # (e.g. (11m/v/p)) as this would be liable to match too much in normal text
-METHOD_TITLE_NUM_METHODS_REGEX = re.compile(r'(([0-9]+[mvp]\/?)+)|\(([0-9]*[mvp]\/?)+\)')
+METHOD_TITLE_NUM_METHODS_REGEX = re.compile(r'\(([0-9]*\s?[mvp]\/?)+\)|(([0-9]+\s?[mvp]\/?)+)|\(([0-9]*\smethods\/?)+\)')
 METHOD_TITLE_NUM_METHODS_GROUP_REGEX = re.compile(r'([0-9]+[mvp])\/?')
 
 CHANGES_PREFIX_REGEX = re.compile(r'^(?P<changes>[0-9]+)\s+(?:changes\s|each\s)?(?:of\s)?(?P<method>.*)$', re.IGNORECASE)
@@ -109,7 +109,8 @@ def parse_method_title(title: str) -> tuple[list[Method], PealType, int, int, in
 
         # Parse m/v/p detail in brackets
         if re.search(METHOD_TITLE_NUM_METHODS_REGEX, methods[0].name):
-            multi_method_match = re.findall(METHOD_TITLE_NUM_METHODS_GROUP_REGEX, methods[0].name.strip('()'))
+            multi_method_text = methods[0].name.strip('()')
+            multi_method_match = re.findall(METHOD_TITLE_NUM_METHODS_GROUP_REGEX, multi_method_text)
             if len(multi_method_match) > 0:
                 num_methods = num_variants = num_principles = 0
                 for multi_method in multi_method_match:
@@ -120,6 +121,10 @@ def parse_method_title(title: str) -> tuple[list[Method], PealType, int, int, in
                             num_variants = int(multi_method.removesuffix('v'))
                         case 'p':
                             num_principles = int(multi_method.removesuffix('p'))
+            elif multi_method_text.lower().endswith('methods'):
+                multi_method_text = multi_method_text.lower().strip('methods').strip()
+                if multi_method_text.isnumeric():
+                    num_methods = int(multi_method_text)
             methods[0].name = re.sub(METHOD_TITLE_NUM_METHODS_REGEX, '', methods[0].name).strip()
             stage, classification, methods[0].name, _ = parse_single_method(methods[0].name, expect_changes=False)
             methods[0].stage = methods[0].stage or stage
@@ -265,6 +270,10 @@ def parse_footnote(footnote: str, num_bells: int, conductor_bells: list[int]) ->
     text = footnote.strip(' .')
     if re.match(r'.*cond(?:^\w|$).*', text):
         text = text.replace('cond', 'conductor')
+    elif text.lower().endswith('as c'):
+        text = text[:-4] + 'as conductor'
+    elif text.lower().endswith('as (c)'):
+        text = text[:-6] + 'as conductor'
     if len(text) == 0:
         text = None
     elif footnote_match := re.match(FOOTNOTE_JOINT_CONDUCTORS_REGEX, text):
@@ -281,15 +290,15 @@ def parse_footnote(footnote: str, num_bells: int, conductor_bells: list[int]) ->
         excluded_ringers = all_band_match.groupdict()['exceptions']
         text += '.' if text[-1] != '.' else ''
         if excluded_ringers is not None:
-            if 'conductor' in excluded_ringers:
+            if 'conductor' in excluded_ringers.lower():
                 not_bells += conductor_bells
                 excluded_ringers = excluded_ringers.replace('the conductor', '')
                 excluded_ringers = excluded_ringers.replace('conductor', '')
-            elif 'treble' in excluded_ringers:
+            elif 'treble' in excluded_ringers.lower():
                 not_bells += [1]
                 excluded_ringers = excluded_ringers.replace('the treble', '')
                 excluded_ringers = excluded_ringers.replace('treble', '')
-            elif 'tenor' in excluded_ringers:
+            elif 'tenor' in excluded_ringers.lower():
                 not_bells += [num_bells]
                 excluded_ringers = excluded_ringers.replace('the tenor', '')
                 excluded_ringers = excluded_ringers.replace('tenor', '')
@@ -301,7 +310,7 @@ def parse_footnote(footnote: str, num_bells: int, conductor_bells: list[int]) ->
         if (footnote_match := re.match(FOOTNOTE_RINGER_REGEX_SUFFIX, text)) or \
                 (footnote_match := re.match(FOOTNOTE_RINGER_REGEX_PREFIX, text)):
             footnote_info = footnote_match.groupdict()
-            text = footnote_info['footnote'].strip()
+            text = footnote_info['footnote'].strip().strip(':,')
             bells = _referenced_bells_to_list(footnote_info['bells'], num_bells)
         text += '.'
         if re.match(FOOTNOTE_CONDUCTOR_REGEX, text):

@@ -4,7 +4,7 @@ CREATE TABLE @db_name.`peals` (
     `type` TINYINT UNSIGNED NOT NULL,
     `bell_type` TINYINT UNSIGNED NOT NULL,
     `date` DATE NOT NULL,
-    `ring_id` INT UNSIGNED NULL,
+    `ring_id` INT NULL,
     `place` VARCHAR(128) NULL,
     `sub_place` VARCHAR(128) NULL,
     `association_id` INT NULL,

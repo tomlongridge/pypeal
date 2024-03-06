@@ -57,6 +57,10 @@ Duration (183):
 >>> 
 [User input: "183"]
 ⏱ Duration: 3 hours, 3 mins
+Location: 80 Lambourne Drive, Cox Green , Maidenhead
+Attempt to find a tower? [y/n] (n): 
+>>> n
+[User input: "False"]
 Address (80 Lambourne Drive, Cox Green): 
 >>> 
 [User input: "80 Lambourne Drive, Cox Green"]

@@ -25,7 +25,7 @@ def update_towers():
 
     _logger.debug('Disable foreign keys and truncate existing tower data')
     Database.get_connection().query('SET FOREIGN_KEY_CHECKS=0;')
-    Database.get_connection().query('TRUNCATE TABLE towers;')
+    Database.get_connection().query('DELETE FROM towers WHERE id < 0;')
 
     _logger.info('Downloading tower data from Dove...')
     file_url = get_config('dove', 'towers_url')
@@ -58,10 +58,13 @@ def update_towers():
                           bells=int(line['Bells']),
                           tenor_weight=int(line['Wt']) if len(line['Wt']) > 0 else None,
                           tenor_note=utils.convert_musical_key(line['Note']),
-                          id=int(line['TowerID']))
+                          id=-1 * int(line['TowerID']))
         tower_obj.commit()
         tower_ids.append(line['TowerID'])
         _logger.debug(f'Added tower {tower_obj} to database')
+
+    for path in sorted(pathlib.Path(os.path.join(os.path.dirname(__file__), '..', '..', 'scripts', 'towers')).glob('*.sql')):
+        Database.get_connection().run_script(path)
 
     _logger.debug('Reinstate foreign key checks')
     Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')
@@ -73,7 +76,7 @@ def update_associations():
 
     _logger.debug('Disable foreign keys and truncate existing association data')
     Database.get_connection().query('SET FOREIGN_KEY_CHECKS=0;')
-    Database.get_connection().query('DELETE FROM associations WHERE is_user_added = 0;')
+    Database.get_connection().query('DELETE FROM associations WHERE id < 0;')
 
     _logger.info('Downloading region data from Dove...')
     file_url = get_config('dove', 'regions_url')
@@ -90,7 +93,6 @@ def update_associations():
         match line['Category']:
             case 'Association':
                 association_obj = Association(name=line['Name'],
-                                              is_user_added=False,
                                               id=-1 * int(line['ID']))
                 association_obj.commit()
                 _logger.debug(f'Added association "{association_obj}" to database')
@@ -98,12 +100,14 @@ def update_associations():
     _logger.debug('Reinstate foreign key checks')
     Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')
 
+    Database.get_connection().commit()
+
 
 def update_bells():
 
     _logger.debug('Disable foreign keys and truncate existing bell data')
     Database.get_connection().query('SET FOREIGN_KEY_CHECKS=0;')
-    Database.get_connection().query('TRUNCATE TABLE bells;')
+    Database.get_connection().query('DELETE FROM bells WHERE id < 0;')
 
     _logger.info('Downloading bell data from Dove...')
     file_url = get_config('dove', 'bells_url')
@@ -147,13 +151,17 @@ def update_bells():
             _logger.warn(f'Unexpected weight "{weight}" for bell {line["Bell ID"]}')
             continue
 
-        bell_obj: Bell = Bell(tower_id=int(line['Tower ID']),
+        if not (tower := Tower.get(dove_id=int(line['Tower ID']))):
+            _logger.debug(f'No matching tower ({line["Tower ID"]}) for bell {line["Bell ID"]}')
+            continue
+
+        bell_obj: Bell = Bell(tower_id=tower.id,
                               role=role,
                               weight=weight,
                               note=utils.convert_musical_key(line['Note']),
                               cast_year=cast_year,
                               founder=line['Founder'] if len(line['Founder']) > 0 else None,
-                              id=int(line['Bell ID']))
+                              id=-1 * int(line['Bell ID']))
 
         if bell_obj.tower is None:
             _logger.debug(f'Skipping bell {bell_obj.id} - no matching tower ({line["Tower ID"]})')
@@ -161,19 +169,25 @@ def update_bells():
             bell_obj.commit()
             _logger.debug(f'Added bell {bell_obj.id} to database')
 
+    for path in sorted(pathlib.Path(os.path.join(os.path.dirname(__file__), '..', '..', 'scripts', 'bells')).glob('*.sql')):
+        Database.get_connection().run_script(path)
+
     _logger.debug('Reinstate foreign key checks')
     Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')
+
+    Database.get_connection().commit()
 
 
 def update_rings():
 
-    _logger.debug('Disable foreign keys and truncate existing bell data')
+    _logger.debug('Disable foreign keys and truncate existing ring data')
     Database.get_connection().query('SET FOREIGN_KEY_CHECKS=0;')
-    Database.get_connection().query('TRUNCATE TABLE ringbells;')
-    Database.get_connection().query('TRUNCATE TABLE rings;')
+    Database.get_connection().query('DELETE FROM rings WHERE id < 0;')
 
     for path in sorted(pathlib.Path(os.path.join(os.path.dirname(__file__), '..', '..', 'scripts', 'rings')).glob('*.sql')):
         Database.get_connection().run_script(path)
 
     _logger.debug('Reinstate foreign key checks')
     Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')
+
+    Database.get_connection().commit()

@@ -160,7 +160,7 @@ def _create_search(peal_search: PealSearch):
                                   default=peal_search.association,
                                   required=False)
     if tower := prompt_find_tower():
-        peal_search.tower_id = tower.id
+        peal_search.tower_id = tower.id * -1
     peal_search.place = ask('Place',
                             default=peal_search.place,
                             required=False) if not peal_search.tower_id else None

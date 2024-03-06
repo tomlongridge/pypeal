@@ -1,5 +1,5 @@
 CREATE TABLE @db_name.`towers` (
-    `id` INT UNSIGNED NOT NULL,
+    `id` INT NOT NULL AUTO_INCREMENT,
     `towerbase_id` INT UNSIGNED NULL,
     `place` VARCHAR(128) NOT NULL,
     `sub_place` VARCHAR(128) NULL,

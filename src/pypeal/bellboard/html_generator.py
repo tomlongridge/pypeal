@@ -124,7 +124,7 @@ class HTMLPealGenerator(PealGenerator):
             ringer_names.append(ringer.text)
             ringer_bells.append(bells.text.strip() if bells else None)
             conductors.append(
-                ringer.next_sibling and
+                ringer.next_sibling is not None and
                 ringer.next_sibling.lower().strip() == '(c)')
 
         # Loop over the ringers and their bell (or bells) and add them to the peal

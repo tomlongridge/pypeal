@@ -8,7 +8,7 @@ def prompt_find_tower() -> Tower:
     while True:
         match choose_option(['Dove ID', 'Search by name', 'None'], title='Tower'):
             case 1:
-                tower = _get_tower_by_id()
+                tower = _get_tower_by_dove_id()
             case 2:
                 tower = _get_tower_by_search()
             case 3:
@@ -18,7 +18,7 @@ def prompt_find_tower() -> Tower:
     return tower
 
 
-def _get_tower_by_id() -> Tower:
+def _get_tower_by_dove_id() -> Tower:
     tower = None
     while True:
         tower = Tower.get(dove_id=ask_int('Dove ID', required=True))

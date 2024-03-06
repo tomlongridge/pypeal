@@ -97,8 +97,10 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
             prompt_methods, _, _, _, _ = parse_method_title(name)
             if prompt_methods[0].stage is not None:
                 stage = prompt_methods[0].stage
+            elif stage_val := ask_int('Stage', default=parsed_method.stage.value if parsed_method.stage else None, min=2, max=22):
+                stage = Stage(stage_val)
             else:
-                stage = Stage(ask_int('Stage', default=parsed_method.stage.value if parsed_method.stage else None, min=2, max=22))
+                stage = None
             if prompt_methods[0].classification is not None:
                 classification = prompt_methods[0].classification
             else:

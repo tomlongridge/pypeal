@@ -94,31 +94,38 @@ class Tower():
         return self.id
 
     def commit(self):
-        Database.get_connection().query(
+        result = Database.get_connection().query(
             f'INSERT INTO towers ({",".join(FIELD_LIST)}, id) ' +
             'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
             (self.towerbase_id, self.place, self.sub_place, self.dedication, self.county, self.country, self.country_code, self.latitude,
              self.longitude, self.bells, self.tenor_weight, self.tenor_note, self.id))
         Database.get_connection().commit()
+        if self.id is None:
+            self.id = result.lastrowid
         Cache.get_cache().add(self.__class__.__name__, f'D{self.id}', self)
         Cache.get_cache().add(self.__class__.__name__, f'T{self.towerbase_id}', self)
 
     @classmethod
-    def get(cls, dove_id: int = None, towerbase_id: int = None) -> Tower:
-        if dove_id:
+    def get(cls, id: int = None, dove_id: int = None, towerbase_id: int = None) -> Tower:
+        if id:
+            key = f'DB{id}'
+        elif dove_id:
             key = f'D{dove_id}'
         elif towerbase_id:
             key = f'T{towerbase_id}'
         else:
-            raise ValueError('Either dove_id or towerbase_id must be specified')
+            raise ValueError('Either id, dove_id or towerbase_id must be specified')
         if (tower := Cache.get_cache().get(cls.__name__, key)) is not None:
             return tower
         else:
             query = f'SELECT {",".join(FIELD_LIST)}, id FROM towers WHERE 1=1 '
             params = {}
+            if id is not None:
+                query += 'AND id = %(id)s '
+                params['id'] = id
             if dove_id is not None:
                 query += 'AND id = %(id)s '
-                params['id'] = dove_id
+                params['id'] = -1 * dove_id
             if towerbase_id is not None:
                 query += 'AND towerbase_id = %(towerbase_id)s '
                 params['towerbase_id'] = towerbase_id
@@ -128,9 +135,19 @@ class Tower():
                 return None
 
             tower = Tower(*result)
-            Cache.get_cache().add(cls.__name__, f'D{tower.id}', tower)
-            Cache.get_cache().add(cls.__name__, f'T{tower.towerbase_id}', tower)
+            Cache.get_cache().add(cls.__name__, f'DB{tower.id}', tower)
+            if tower.id < 0:
+                Cache.get_cache().add(cls.__name__, f'D{-tower.id}', tower)
+            if tower.towerbase_id is not None:
+                Cache.get_cache().add(cls.__name__, f'T{tower.towerbase_id}', tower)
             return tower
+
+    @classmethod
+    def get_all(cls) -> list[Tower]:
+        results = Database.get_connection().query(
+            f'SELECT {",".join(FIELD_LIST)}, id ' +
+            'FROM towers').fetchall()
+        return Cache.get_cache().add_all(cls.__name__, {result[-1]: Tower(*result) for result in results})
 
     @classmethod
     def search(cls,
@@ -209,7 +226,7 @@ class Ring():
                  description: str = None,
                  date_removed: datetime.date = None,
                  id: int = None):
-        self.tower = Tower.get(dove_id=tower_id) if tower_id else None
+        self.tower = Tower.get(tower_id) if tower_id else None
         self.description = description
         self.date_removed = date_removed
         self.id = id
@@ -258,7 +275,9 @@ class Ring():
 
     @property
     def tenor(self) -> Bell:
-        return self.bells[list(self.bells.keys())[-1]]
+        if len(self.bells):
+            return self.bells[list(self.bells.keys())[-1]]
+        return None
 
     def get_bell(self, bell_num: int) -> Bell:
         return self.bells[bell_num]
@@ -273,10 +292,11 @@ class Ring():
 
     def commit(self):
         result = Database.get_connection().query(
-            f'INSERT INTO rings ({",".join(RING_FIELD_LIST)}) ' +
-            'VALUES (%s, %s, %s)',
-            (self.tower.id, self.description, self.date_removed))
-        self.id = result.lastrowid
+            f'INSERT INTO rings ({",".join(RING_FIELD_LIST)}, id) ' +
+            'VALUES (%s, %s, %s, %s)',
+            (self.tower.id, self.description, self.date_removed, self.id))
+        if self.id is None:
+            self.id = result.lastrowid
         Database.get_connection().query(
             'DELETE FROM ringbells WHERE ring_id = %s', (self.id,))
         for role, bell in self.bells.items():
@@ -334,7 +354,7 @@ class Bell():
                  cast_year: int = None,
                  founder: str = None,
                  id: int = None):
-        self.tower = Tower.get(dove_id=tower_id) if tower_id else None
+        self.tower = Tower.get(tower_id) if tower_id else None
         self.role = role
         self.weight = weight
         self.note = note

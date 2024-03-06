@@ -5,7 +5,7 @@ from pypeal.entities.method import Classification, Method
 from pypeal.parsers import parse_single_method
 from pypeal.entities.peal import Peal
 
-METHOD_LIST_SEPARATORS_REGEX = re.compile(r',|;|\sand\s|&|\n|<br/>')
+METHOD_LIST_SEPARATORS_REGEX = re.compile(r',|;|\sand\s|&|\n|<br/>|\(\d+\)')
 METHOD_PREFIX_IGNORE_REGEX = re.compile(r'^(and\s+|being\s+|\(?\d+[\)\.:]{1}\s?)', re.IGNORECASE)
 
 

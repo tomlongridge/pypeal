@@ -1,6 +1,6 @@
 CREATE TABLE @db_name.`ringbells` (
-    `bell_id` int UNSIGNED NOT NULL,
-    `ring_id` INT UNSIGNED NOT NULL,
+    `bell_id` int NOT NULL,
+    `ring_id` INT NOT NULL,
     `bell_role` tinyint UNSIGNED NOT NULL,
     `bell_weight` INT NULL,
     `bell_note` VARCHAR(10) NULL,

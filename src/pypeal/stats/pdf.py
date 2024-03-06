@@ -141,7 +141,7 @@ def _generate_peal_length_report(canvas: Canvas, report: Report, data: dict, rep
                                  column_widths=[30*mm, '*'],
                                  item_to_str=lambda d: utils.format_date_short(d)))
 
-    if data['types'][report_length_type]['bells']:
+    if 'bells' in data['types'][report_length_type]:
         for table in _draw_bell_table(report.ring or report.tower.get_active_ring(),
                                       data['types'][report_length_type]['bells'],
                                       max_rows=75):

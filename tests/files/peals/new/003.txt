@@ -38,6 +38,10 @@ Date (yyyy/mm/dd) ([Today]):
 >>> 2000/12/31
 [User input: "2000/12/31"]
 📅 Date: Sunday, 31 December 2000
+Location: 
+Attempt to find a tower? [y/n] (n): 
+>>> n
+[User input: "False"]
 Address: 
 >>> 1 High Street
 [User input: "1 High Street"]

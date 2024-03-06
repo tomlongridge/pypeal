@@ -59,6 +59,10 @@ Duration:
 >>> 
 [User input: "None"]
 ⏱ Duration: Unknown
+Location: Pig-le-Tower , Marston Bigot, Somerset
+Attempt to find a tower? [y/n] (n): 
+>>> n
+[User input: "False"]
 Address (Pig-le-Tower): 
 >>> 
 [User input: "Pig-le-Tower"]

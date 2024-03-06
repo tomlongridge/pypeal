@@ -28,11 +28,11 @@ def prompt_add_association(association: str, peal: Peal, quick_mode: bool):
                 match choose_option(['Search alternatives', 'Add new association', 'Remove association'], default=1):
                     case 1:
                         print('Enter search criteria:')
-                        association = ask('Name', default=association, required=False)
+                        association = ask('Name', default=original_association_name, required=False)
                         exact_match = False
                         continue
                     case 2:
-                        peal.association = Association(ask('Name', default=association, required=True))
+                        peal.association = Association(ask('Name', default=original_association_name, required=True))
                         peal.association.commit()
                         return
                     case 3:
@@ -43,6 +43,7 @@ def prompt_add_association(association: str, peal: Peal, quick_mode: bool):
                 print(f'{len(association_results)} associations match "{association}"')
                 quick_mode = False
                 if not (matched_association := choose_option(association_results, none_option='None')):
+                    association = None
                     continue
 
         if (quick_mode or

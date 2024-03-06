@@ -1,6 +1,6 @@
 CREATE TABLE @db_name.`rings` (
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `tower_id` INT UNSIGNED NOT NULL,
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `tower_id` INT NOT NULL,
     `description` VARCHAR(128) NULL,
     `date_removed` DATE NULL,
     PRIMARY KEY (`id`),

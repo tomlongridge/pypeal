@@ -59,7 +59,7 @@ Try for a quick-add? [y/n] (y):
 🔢 Changes: 1280
 Matching peal titled "Spliced Surprise Major (8 methods)"...
 Multi-method peal: "Spliced Surprise Major (8 methods)"...
-📕 Title: Spliced Surprise Major
+📕 Title: Spliced Surprise Major (8m)
 Adding changes of methods to multi-method peal...
 Matching method "Cambridge"... [0 methods excluded]
 Matched "Cambridge" to method "Cambridge Surprise Major"
@@ -109,22 +109,6 @@ Number of changes:
 >>> 160
 [User input: "160"]
 Method 8: London Surprise Major (160 changes)
-╭──────────────────────────────────────────────────────────────────────────────╮
-│ Warning: Number of methods (8) does not match number of methods from peal    │
-│ title (0).                                                                   │
-╰──────────────────────────────────────────────────────────────────────────────╯
-Do you want to update the title? [y/n] (y): 
->>> y
-[User input: "True"]
-Number of methods (8): 
->>> 
-[User input: "8"]
-Number of principles (0): 
->>> 
-[User input: "0"]
-Number of variants (0): 
->>> 
-[User input: "0"]
 📝 Method details:
   - Cambridge Surprise Major (160)
   - Yorkshire Surprise Major (160)

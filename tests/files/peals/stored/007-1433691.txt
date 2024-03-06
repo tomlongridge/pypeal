@@ -55,7 +55,7 @@ Select option (1):
 >>> 1
 [User input: "1"]
 Enter search criteria:
-Name: 
+Name (Middlesex County Association & London Diocesan Guild): 
 >>> devon
 [User input: "devon"]
 2 associations match "devon"

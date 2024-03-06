@@ -64,7 +64,7 @@ class MuffleType(IntEnum):
 
 
 class PealRinger:
-    def __init__(self, ringer: Ringer, bells: list[int], nums: list[int], is_conductor: bool, note: str):
+    def __init__(self, ringer: Ringer, bells: list[int], nums: list[int], is_conductor: bool = False, note: str = None):
         self.ringer: Ringer = ringer
         self.bell_ids: list[int] = bells
         self.bell_nums: list[int] = nums
@@ -808,6 +808,7 @@ class Peal:
                dedication: str = None,
                association: str = None,
                bell_type: BellType = None,
+               length_type: PealLengthType = None,
                order_descending: bool = True) -> list[Peal]:
 
         query = f'SELECT {",".join(["peals."+field for field in FIELD_LIST])}, peals.id ' + \
@@ -865,6 +866,29 @@ class Peal:
         if association is not None:
             query += 'AND a.name = %(association)s '
             params['association'] = association
+        if length_type is not None:
+            if config.get_config('general', 'short_peal_threshold') is not None:
+                query += 'AND ((peals.stage >= %(short_peal_threshold)s '
+                params['short_peal_threshold'] = config.get_config('general', 'short_peal_threshold')
+            if length_type == PealLengthType.TOUCH:
+                query += 'AND peals.changes < 1250 '
+            elif length_type == PealLengthType.QUARTER_PEAL:
+                query += 'AND peals.changes >= 1250 AND peals.changes < 5000 '
+            elif length_type == PealLengthType.PEAL:
+                query += 'AND peals.changes >= 5000 AND peals.changes < 10_000 '
+            elif length_type == PealLengthType.LONG_LENGTH:
+                query += 'AND peals.changes >= 10_000 '
+            if config.get_config('general', 'short_peal_threshold') is not None:
+                query += ') OR (peals.stage < %(short_peal_threshold)s '
+                if length_type == PealLengthType.TOUCH:
+                    query += 'AND peals.changes < 1260 '
+                elif length_type == PealLengthType.QUARTER_PEAL:
+                    query += 'AND peals.changes >= 1260 AND peals.changes < 5040 '
+                elif length_type == PealLengthType.PEAL:
+                    query += 'AND peals.changes >= 5040 AND peals.changes < 10_000 '
+                elif length_type == PealLengthType.LONG_LENGTH:
+                    query += 'AND peals.changes >= 10_000 '
+                query += '))'
         if bell_type is not None:
             query += 'AND peals.bell_type = %(bell_type)s '
             params['bell_type'] = bell_type.value

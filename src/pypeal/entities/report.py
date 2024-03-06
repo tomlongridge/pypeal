@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from pypeal.cache import Cache
 from pypeal.db import Database
-from pypeal.entities.peal import Peal
+from pypeal.entities.peal import Peal, PealLengthType
 from pypeal.entities.ringer import Ringer
 from pypeal.entities.tower import Ring, Tower
 
@@ -65,17 +65,26 @@ class Report():
             self.id = result.lastrowid
             Cache.get_cache().add(self.__class__.__name__, self.id, self)
 
-    def get_peals(self) -> list[Peal]:
+    def get_peals(self, length_type: PealLengthType = None) -> list[Peal]:
         return Peal.search(date_from=self.date_from,
                            date_to=self.date_to,
                            ring_id=self.ring.id if self.ring else None,
                            tower_id=self.tower.id if self.tower else None,
-                           ringer_id=self.ringer.id if self.ringer else None)
+                           ringer_id=self.ringer.id if self.ringer else None,
+                           length_type=length_type)
 
     def delete(self):
         Database.get_connection().query('DELETE FROM reports WHERE id = %s', (self.id,))
         Database.get_connection().commit()
         Cache.get_cache().clear(self.__class__.__name__, self.id)
+
+    @classmethod
+    def get(cls, name: str) -> Report:
+        result = Database.get_connection().query(
+            f'SELECT {",".join(FIELD_LIST)}, id ' +
+            'FROM reports ' +
+            'WHERE name = %s', (name,)).fetchone()
+        return Cache.get_cache().add(cls.__name__, result[-1], Report(*result)) if result else None
 
     @classmethod
     def get_all(cls) -> list[Report]:

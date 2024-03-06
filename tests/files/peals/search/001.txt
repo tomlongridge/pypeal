@@ -213,6 +213,219 @@ Select option (x = Back) (1):
 Select option (x = New search): 
 >>> 1
 [User input: "new search 1"]
+╭────────────────── http://localhost:8080/view.php?id=41426 ───────────────────╮
+│ None, Cleator Moor, Cumbria                                                  │
+│ 1260 Grandsire Triples                                                       │
+│ Tuesday, 28 June 2005                                                        │
+│                                                                              │
+│ 1: Lilianna Cunningham                                                       │
+│ 2: Chester Edwards                                                           │
+│ 3: Anna Kelly                                                                │
+│ 4: John Parker                                                               │
+│ 5: Clark Elliott                                                             │
+│ 6: Vivian Murray                                                             │
+│ 7: Joyce Sullivan (c)                                                        │
+│ 8: Myra Andrews                                                              │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=41426 (submitted by Nicholas    │
+│ Hunt on Sunday, 15 January 2012)                                             │
+│ External reference: Campanophile ID: 29386                                   │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Try for a quick-add? [y/n] (y): 
+>>> n
+[User input: "False"]
+No linked association
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+🏛 Association: None
+🔔 Bell type: Tower
+📅 Date: Tuesday, 28 June 2005
+🔔 Tenor: Unknown
+Duration: 
+>>> 
+[User input: "None"]
+⏱ Duration: Unknown
+Location: Cleator Moor, Cumbria
+Attempt to find a tower? [y/n] (n): 
+>>> y
+[User input: "True"]
+Tower: 1) Dove ID, 2) Search by name, 3) None
+Select option: 
+>>> 2
+[User input: "2"]
+Place: 
+>>> cleator
+[User input: "cleator"]
+Dedication: 
+>>> 
+[User input: "None"]
+County: 
+>>> 
+[User input: "None"]
+Country: 
+>>> 
+[User input: "None"]
+Number of bells: 
+>>> 
+[User input: "None"]
+Cleator Moor, Cumbria, St John the Evangelist. 8, 21-2-22 in E.
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+📍 Location: Cleator Moor, Cumbria, England
+📍 Detail: St John the Evangelist
+🔢 Changes: 1260
+Matching peal titled "Grandsire Triples"...
+Matched "Grandsire Triples" to method "Grandsire Triples" (ID: m12415)
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+📕 Title: Grandsire Triples
+No composer attributed
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Composition note: 
+>>> 
+[User input: "None"]
+🎼 Composer: Unknown
+1: Couldn't find ringer matching "Lilianna Cunningham" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 
+[User input: "1"]
+Add new ringer as "Lilianna" "Cunningham"? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: 1: Lilianna Cunningham
+2: Couldn't find ringer matching "Chester Edwards" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 
+[User input: "1"]
+Add new ringer as "Chester" "Edwards"? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: 2: Chester Edwards
+3: Couldn't find ringer matching "Anna Kelly" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 
+[User input: "1"]
+Add new ringer as "Anna" "Kelly"? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: 3: Anna Kelly
+4: Couldn't find ringer matching "John Parker" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 
+[User input: "1"]
+Add new ringer as "John" "Parker"? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: 4: John Parker
+5: Couldn't find ringer matching "Clark Elliott" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 
+[User input: "1"]
+Add new ringer as "Clark" "Elliott"? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: 5: Clark Elliott
+6: Couldn't find ringer matching "Vivian Murray" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 
+[User input: "1"]
+Add new ringer as "Vivian" "Murray"? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: 6: Vivian Murray
+7: Couldn't find ringer matching "Joyce Sullivan" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 
+[User input: "1"]
+Add new ringer as "Joyce" "Sullivan"? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: 7: Joyce Sullivan (c)
+8: Couldn't find ringer matching "Myra Andrews" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 
+[User input: "1"]
+Add new ringer as "Myra" "Andrews"? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: 8: Myra Andrews
+Add new footnote? [y/n] (n): 
+>>> 
+[User input: "False"]
+📝 Footnotes: None
+🔗 Event link: None
+📷 Photo link: None
+📮 Submitted by: Nicholas Hunt on Sunday, 15 January 2012
+🔗 External reference: Campanophile ID: 29386
+Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
+Select option (1): 
+>>> 
+[User input: "None"]
+🔕 Muffles: None
+╭──────────────────────────── Confirm performance ─────────────────────────────╮
+│ Cleator Moor, Cumbria, England                                               │
+│ St John the Evangelist                                                       │
+│ On Tuesday, 28 June 2005                                                     │
+│ A Quarter Peal of 1260 Grandsire Triples (21-2-22 in E)                      │
+│                                                                              │
+│ 1: Lilianna Cunningham                                                       │
+│ 2: Chester Edwards                                                           │
+│ 3: Anna Kelly                                                                │
+│ 4: John Parker                                                               │
+│ 5: Clark Elliott                                                             │
+│ 6: Vivian Murray                                                             │
+│ 7: Joyce Sullivan (c)                                                        │
+│ 8: Myra Andrews                                                              │
+│                                                                              │
+│ [BellBoard: http://localhost:8080/view.php?id=41426 (Nicholas Hunt, Sunday,  │
+│ 15 January 2012)]                                                            │
+│ [External reference: Campanophile ID: 29386]                                 │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Peal (ID 2) added
+Add next peal? [y/n] (y): 
+>>> y
+[User input: "True"]
 ╭────────────────── http://localhost:8080/view.php?id=388066 ──────────────────╮
 │ Bath & Wells Diocesan Association                                            │
 │ St Mary the Virgin, Bathwick, Somerset                                       │
@@ -248,7 +461,7 @@ Try for a quick-add? [y/n] (y):
 🔢 Changes: 1280
 Matching peal titled "Spliced Surprise Major (8 methods)"...
 Multi-method peal: "Spliced Surprise Major (8 methods)"...
-📕 Title: Spliced Surprise Major
+📕 Title: Spliced Surprise Major (8m)
 Adding changes of methods to multi-method peal...
 Matching method "Cambridge"... [0 methods excluded]
 Matched "Cambridge" to method "Cambridge Surprise Major"
@@ -298,22 +511,6 @@ Number of changes:
 >>> 
 [User input: "None"]
 Method 8: London Surprise Major (unknown changes)
-╭──────────────────────────────────────────────────────────────────────────────╮
-│ Warning: Number of methods (8) does not match number of methods from peal    │
-│ title (0).                                                                   │
-╰──────────────────────────────────────────────────────────────────────────────╯
-Do you want to update the title? [y/n] (y): 
->>> 
-[User input: "True"]
-Number of methods (8): 
->>> 
-[User input: "8"]
-Number of principles (0): 
->>> 
-[User input: "0"]
-Number of variants (0): 
->>> 
-[User input: "0"]
 📝 Method details:
   - Cambridge Surprise Major
   - Yorkshire Surprise Major
@@ -337,15 +534,7 @@ Add new ringer as "Byron" "Miller"? [y/n] (y):
 >>> 
 [User input: "True"]
 👤 Ringer: 2: Byron Miller
-3: Couldn't find ringer matching "Clark Elliott" (or aliases)
-Add new ringer as "Clark" "Elliott"? [y/n] (y): 
->>> 
-[User input: "True"]
 👤 Ringer: 3: Clark Elliott
-4: Couldn't find ringer matching "John Parker" (or aliases)
-Add new ringer as "John" "Parker"? [y/n] (y): 
->>> 
-[User input: "True"]
 👤 Ringer: 4: John Parker
 5: Couldn't find ringer matching "Jacob Cole" (or aliases)
 Add new ringer as "Jacob" "Cole"? [y/n] (y): 
@@ -357,10 +546,6 @@ Add new ringer as "Eric" "Ryan"? [y/n] (y):
 >>> 
 [User input: "True"]
 👤 Ringer: 6: Eric Ryan
-7: Couldn't find ringer matching "Joyce Sullivan" (or aliases)
-Add new ringer as "Joyce" "Sullivan"? [y/n] (y): 
->>> 
-[User input: "True"]
 👤 Ringer: 7: Joyce Sullivan
 8: Couldn't find ringer matching "Byron Robinson" (or aliases)
 Add new ringer as "Byron" "Robinson"? [y/n] (y): 
@@ -411,11 +596,11 @@ Save this peal?
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
-Peal (ID 2) added
+Peal (ID 3) added
 Add next peal? [y/n] (y): 
 >>> n
 [User input: "False"]
-1 peal(s) added (1 duplicates)
+2 peal(s) added (2 duplicates)
 1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
 Select option (x = Back) (1): 
 >>> 5
@@ -515,10 +700,6 @@ Try for a quick-add? [y/n] (y):
 Matching peal titled "Cambridge Surprise Major"...
 📕 Title: Cambridge Surprise Major
 🎼 Composer: Unknown
-1: Couldn't find ringer matching "Vivian Murray" (or aliases)
-Add new ringer as "Vivian" "Murray"? [y/n] (y): 
->>> 
-[User input: "True"]
 First bell number(s) in the tower (1): 
 >>> 
 [User input: "1"]
@@ -529,10 +710,6 @@ Add new ringer as "Daryl" "Mason"? [y/n] (y):
 >>> 
 [User input: "True"]
 👤 Ringer: 3: Daryl Mason
-4: Couldn't find ringer matching "Chester Edwards" (or aliases)
-Add new ringer as "Chester" "Edwards"? [y/n] (y): 
->>> 
-[User input: "True"]
 👤 Ringer: 4: Chester Edwards
 👤 Ringer: 5: Joyce Sullivan
 6: Couldn't find ringer matching "Arnold Johnson" (or aliases)
@@ -588,11 +765,11 @@ Save this peal?
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Peal (ID 3) added
+Peal (ID 4) added
 Add next peal? [y/n] (y): 
 >>> n
 [User input: "False"]
-1 peal(s) added (2 duplicates)
+1 peal(s) added (4 duplicates)
 Save search? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -725,11 +902,11 @@ Save this peal?
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
-Peal (ID 4) added
+Peal (ID 5) added
 Add next peal? [y/n] (y): 
 >>> n
 [User input: "False"]
-1 peal(s) added (3 duplicates)
+1 peal(s) added (5 duplicates)
 1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
 Select option (x = Back) (1): 
 >>> 4
@@ -895,11 +1072,11 @@ Is this correct? [y/n] (y):
 >>> 
 [User input: "True"]
 Saving photo http://localhost:8080/uploads/57/002a57.jpg...
-Peal (ID 5) added
+Peal (ID 6) added
 Add next peal? [y/n] (y): 
 >>> n
 [User input: "False"]
-1 peal(s) added (4 duplicates)
+1 peal(s) added (6 duplicates)
 Save search? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -917,7 +1094,7 @@ Select option (x = Back) (1):
 >>> x
 [User input: "None"]
 pypeal Database
- Quarter Peal count: 5                                Last updated: [Timestamp] 
+ Quarter Peal count: 6                                Last updated: [Timestamp] 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
 │ 2) Add peal by ID/URL                                                        │
@@ -953,4 +1130,4 @@ Rung for Morning Service. And in memory of the composer: Sergeant Albert Percy W
 
 [BellBoard: http://localhost:8080/view.php?id=1272466 (Joyce Sullivan, Sunday, 17 February 2019)]
 [Composition URL: http://localhost:8080/comp.php?id=2271034]
-[Database ID: 5]
+[Database ID: 6]

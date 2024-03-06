@@ -76,7 +76,7 @@ def get_ringer_peals(ringer_id: int) -> list[PealBasicEntity]:
 
 @app.get("/towers/{tower_id}")
 def get_tower(tower_id: int) -> TowerEntity:
-    tower = Tower.get(dove_id=tower_id)
+    tower = Tower.get(tower_id)
     if tower is None:
         raise HTTPException(status_code=404, detail="Tower not found")
     return TowerEntity.from_object(tower)
@@ -92,7 +92,7 @@ def get_tower_peals(tower_id: int) -> list[PealBasicEntity]:
 
 @app.get("/towers/{tower_id}/rings")
 def get_tower_rings(tower_id: int) -> list[RingEntity]:
-    tower = Tower.get(dove_id=tower_id)
+    tower = Tower.get(tower_id)
     if tower is None:
         raise HTTPException(status_code=404, detail="Tower not found")
     return [RingEntity.from_object(ring) for ring in tower.rings]
@@ -100,7 +100,7 @@ def get_tower_rings(tower_id: int) -> list[RingEntity]:
 
 @app.get("/towers/{tower_id}/rings/{ring_id}")
 def get_tower_ring(tower_id: int, ring_id: int) -> RingEntity:
-    tower = Tower.get(dove_id=tower_id)
+    tower = Tower.get(tower_id)
     if tower is None:
         raise HTTPException(status_code=404, detail="Tower not found")
     ring = Ring.get(ring_id)
@@ -111,7 +111,7 @@ def get_tower_ring(tower_id: int, ring_id: int) -> RingEntity:
 
 @app.get("/towers/{tower_id}/rings/{ring_id}/peals")
 def get_tower_ring_peals(tower_id: int, ring_id: int) -> list[PealBasicEntity]:
-    tower = Tower.get(dove_id=tower_id)
+    tower = Tower.get(tower_id)
     if tower is None:
         raise HTTPException(status_code=404, detail="Tower not found")
     ring = Ring.get(ring_id)

@@ -255,7 +255,7 @@ def _validate_bell(bell_nums_in_peal: list[int], bell_nums_in_ring: list[int], p
             return False
     for bell in bell_nums_in_ring:
         if peal.ring is not None and peal.ring.num_bells < bell:
-            error(f'Bell number ({bell}) exceeds number of bells in the tower')
+            error(f'Bell number ({bell}) exceeds number of bells in the tower ({peal.ring.num_bells})')
             return False
         for ringer in peal.ringers:
             if bell in ringer.bell_nums:

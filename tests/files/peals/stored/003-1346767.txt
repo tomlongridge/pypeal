@@ -106,45 +106,14 @@ Select option (1):
 Add composition note? (seven extents in eight methods): 
 >>> Seven extents in eight methods
 [User input: "Seven extents in eight methods"]
-Matching method "Viz: (1) Norwich Surprise"... [0 methods excluded]
-No methods match "Viz: (1) Norwich Surprise" (or similar)
+Matching method "Viz:"... [0 methods excluded]
+No methods match "Viz:" (or similar)
 1) Search alternatives, 2) Remove method
 Select option (1): 
->>> 1
-[User input: "1"]
-Enter search criteria:
-Name (Viz: (1) Norwich): 
->>> Norwich
-[User input: "Norwich"]
-Stage (6): 
->>> 6
-[User input: "6"]
-Classification:
-┌──────────────────────────────────────────────────────────────────────────────┐
-│ 1) Alliance                                                                  │
-│ 2) Bob                                                                       │
-│ 3) Delight                                                                   │
-│ 4) Hybrid                                                                    │
-│ 5) Place                                                                     │
-│ 6) Surprise                                                                  │
-│ 7) Treble Bob                                                                │
-│ 8) Treble Place                                                              │
-├──────────────────────────────────────────────────────────────────────────────┤
-│ x) None                                                                      │
-└──────────────────────────────────────────────────────────────────────────────┘
-Select option (6): 
->>> 6
-[User input: "Surprise"]
-Is this a differential method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a little method? [y/n]: 
->>> 
-[User input: "None"]
-Is this a treble dodging method? [y/n]: 
->>> 
-[User input: "None"]
-Matched "Viz: (1) Norwich Surprise" to method "Norwich Surprise Minor"
+>>> 2
+[User input: "2"]
+Matching method "Norwich Surprise"... [0 methods excluded]
+Matched "Norwich Surprise" to method "Norwich Surprise Minor"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]

@@ -1,0 +1,255 @@
+
+===
+Polling for new peals...
+Skipping search "First saved search" (last run [Timestamp])
+pypeal Database
+ Quarter Peal count: 19                               Last updated: [Timestamp] 
+ Peal count: 3                                                                  
+ General Ringing count: 1                                                       
+ Touch count: 1                                                                 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) BellBoard search                                                          │
+│ 2) Add peal by ID/URL                                                        │
+│ 3) Add peal manually                                                         │
+│ 4) View statistics                                                           │
+│ 5) Generate reports                                                          │
+│ 6) View peal                                                                 │
+│ 7) Delete peal                                                               │
+│ 8) Update static data                                                        │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> 2
+[User input: "2"]
+Bellboard URL or peal ID: 
+>>> 41426
+[User input: "41426"]
+╭────────────────── http://localhost:8080/view.php?id=41426 ───────────────────╮
+│ None, Cleator Moor, Cumbria                                                  │
+│ 1260 Grandsire Triples                                                       │
+│ Tuesday, 28 June 2005                                                        │
+│                                                                              │
+│ 1: Lilianna Cunningham                                                       │
+│ 2: Chester Edwards                                                           │
+│ 3: Anna Kelly                                                                │
+│ 4: John Parker                                                               │
+│ 5: Clark Elliott                                                             │
+│ 6: Vivian Murray                                                             │
+│ 7: Joyce Sullivan (c)                                                        │
+│ 8: Myra Andrews                                                              │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=41426 (submitted by Nicholas    │
+│ Hunt on Sunday, 15 January 2012)                                             │
+│ External reference: Campanophile ID: 29386                                   │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Try for a quick-add? [y/n] (y): 
+>>> n
+[User input: "False"]
+No linked association
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+🏛 Association: None
+🔔 Bell type: Tower
+📅 Date: Tuesday, 28 June 2005
+🔔 Tenor: Unknown
+Duration: 
+>>> 
+[User input: "None"]
+⏱ Duration: Unknown
+Location: Cleator Moor, Cumbria
+Attempt to find a tower? [y/n] (n): 
+>>> y
+[User input: "True"]
+Tower: 1) Dove ID, 2) Search by name, 3) None
+Select option: 
+>>> 2
+[User input: "2"]
+Place: 
+>>> cleator
+[User input: "cleator"]
+Dedication: 
+>>> 
+[User input: "None"]
+County: 
+>>> 
+[User input: "None"]
+Country: 
+>>> 
+[User input: "None"]
+Number of bells: 
+>>> 
+[User input: "None"]
+Cleator Moor, Cumbria, St John the Evangelist. 8, 21-2-22 in E.
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+📍 Location: Cleator Moor, Cumbria, England
+📍 Detail: St John the Evangelist
+🔢 Changes: 1260
+Matching peal titled "Grandsire Triples"...
+Matched "Grandsire Triples" to method "Grandsire Triples" (ID: m12415)
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+📕 Title: Grandsire Triples
+No composer attributed
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Composition note: 
+>>> 
+[User input: "None"]
+🎼 Composer: Unknown
+1: Couldn't find ringer matching "Lilianna Cunningham" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 1
+[User input: "1"]
+Add new ringer as "Lilianna" "Cunningham"? [y/n] (y): 
+>>> y
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: 1: Lilianna Cunningham
+2: "Chester Edwards" -> Chester Edwards
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: 2: Chester Edwards
+3: Couldn't find ringer matching "Anna Kelly" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 
+[User input: "1"]
+Add new ringer as "Anna" "Kelly"? [y/n] (y): 
+>>> y
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: 3: Anna Kelly
+4: "John Parker" -> John Parker
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: 4: John Parker
+5: "Clark Elliott" -> Clark Elliott
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: 5: Clark Elliott
+6: "Vivian Murray" -> Vivian Murray
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: 6: Vivian Murray
+7: "Joyce Sullivan" -> Joyce Sullivan
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: 7: Joyce Sullivan (c)
+8: Couldn't find ringer matching "Myra Andrews" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 
+[User input: "1"]
+Add new ringer as "Myra" "Andrews"? [y/n] (y): 
+>>> y
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: 8: Myra Andrews
+Add new footnote? [y/n] (n): 
+>>> 
+[User input: "False"]
+📝 Footnotes: None
+🔗 Event link: None
+📷 Photo link: None
+📮 Submitted by: Nicholas Hunt on Sunday, 15 January 2012
+🔗 External reference: Campanophile ID: 29386
+Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
+Select option (1): 
+>>> 
+[User input: "None"]
+🔕 Muffles: None
+╭──────────────────────────── Confirm performance ─────────────────────────────╮
+│ Cleator Moor, Cumbria, England                                               │
+│ St John the Evangelist                                                       │
+│ On Tuesday, 28 June 2005                                                     │
+│ A Quarter Peal of 1260 Grandsire Triples (21-2-22 in E)                      │
+│                                                                              │
+│ 1: Lilianna Cunningham                                                       │
+│ 2: Chester Edwards                                                           │
+│ 3: Anna Kelly                                                                │
+│ 4: John Parker                                                               │
+│ 5: Clark Elliott                                                             │
+│ 6: Vivian Murray                                                             │
+│ 7: Joyce Sullivan (c)                                                        │
+│ 8: Myra Andrews                                                              │
+│                                                                              │
+│ [BellBoard: http://localhost:8080/view.php?id=41426 (Nicholas Hunt, Sunday,  │
+│ 15 January 2012)]                                                            │
+│ [External reference: Campanophile ID: 29386]                                 │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Peal (ID 27) added
+pypeal Database
+ Quarter Peal count: 20                               Last updated: [Timestamp] 
+ Peal count: 3                                                                  
+ General Ringing count: 1                                                       
+ Touch count: 1                                                                 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) BellBoard search                                                          │
+│ 2) Add peal by ID/URL                                                        │
+│ 3) Add peal manually                                                         │
+│ 4) View statistics                                                           │
+│ 5) Generate reports                                                          │
+│ 6) View peal                                                                 │
+│ 7) Delete peal                                                               │
+│ 8) Update static data                                                        │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> x
+[User input: "None"]
+===
+Cleator Moor, Cumbria, England
+St John the Evangelist
+On Tuesday, 28 June 2005
+A Quarter Peal of 1260 Grandsire Triples (21-2-22 in E)
+
+1: Lilianna Cunningham
+2: Chester Edwards
+3: Anna Kelly
+4: John Parker
+5: Clark Elliott
+6: Vivian Murray
+7: Joyce Sullivan (c)
+8: Myra Andrews
+
+[BellBoard: http://localhost:8080/view.php?id=41426 (Nicholas Hunt, Sunday, 15 January 2012)]
+[External reference: Campanophile ID: 29386]
+[Database ID: 27]
