@@ -119,8 +119,8 @@ Matched "Grandsire" to method "Grandsire Doubles"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Number of changes: 
->>> 630
+Number of changes (630): 
+>>> 
 [User input: "630"]
 Method 2: Grandsire Doubles (630 changes)
 Matching method "Reverse Canterbury Pleasure Place Bob"... [2 methods excluded]
@@ -129,8 +129,8 @@ Pleasure Place Doubles"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Number of changes: 
->>> 630
+Number of changes (630): 
+>>> 
 [User input: "630"]
 Method 3: Reverse Canterbury Pleasure Place Doubles (630 changes)
 Matching method "Winchendon Place Bob"... [3 methods excluded]
@@ -138,8 +138,8 @@ Matched "Winchendon Place Bob" to method "Winchendon Place Doubles"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Number of changes: 
->>> 630
+Number of changes (630): 
+>>> 
 [User input: "630"]
 Method 4: Winchendon Place Doubles (630 changes)
 Matching method "St Nicholas Bob"... [4 methods excluded]
@@ -147,7 +147,7 @@ Matched "St Nicholas Bob" to method "St Nicholas Bob Doubles"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Number of changes: 
+Number of changes (630): 
 >>> 630
 [User input: "630"]
 Method 5: St Nicholas Bob Doubles (630 changes)
@@ -156,7 +156,7 @@ Matched "St Simon's Bob" to method "St Simon's Bob Doubles"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Number of changes: 
+Number of changes (630): 
 >>> 630
 [User input: "630"]
 Method 6: St Simon's Bob Doubles (630 changes)
@@ -165,7 +165,7 @@ Matched "St Martin's Bob" to method "St Martin's Bob Doubles"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Number of changes: 
+Number of changes (630): 
 >>> 630
 [User input: "630"]
 Method 7: St Martin's Bob Doubles (630 changes)
@@ -174,13 +174,17 @@ Matched "Plain Bob" to method "Plain Bob Doubles"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Number of changes: 
->>> 630
-[User input: "630"]
-Method 8: Plain Bob Doubles (630 changes)
+Number of changes (630): 
+>>> 632
+[User input: "632"]
+Method 8: Plain Bob Doubles (632 changes)
 Add more changes of method? [y/n] (n): 
 >>> n
 [User input: "False"]
+Peal has 5040 changes, but 5042 have been added in method details
+Update peal changes to 5042? [y/n] (y): 
+>>> y
+[User input: "True"]
 📝 Method details:
   - Stedman Doubles (630)
   - Grandsire Doubles (630)
@@ -189,7 +193,7 @@ Add more changes of method? [y/n] (n):
   - St Nicholas Bob Doubles (630)
   - St Simon's Bob Doubles (630)
   - St Martin's Bob Doubles (630)
-  - Plain Bob Doubles (630)
+  - Plain Bob Doubles (632)
 No composer attributed
 Is this correct? [y/n] (y): 
 >>> y
@@ -281,10 +285,10 @@ Select option (1):
 │ Saxmundham, Suffolk, England                                                 │
 │ S John Bapt                                                                  │
 │ On Monday, 27 March 1967                                                     │
-│ A Peal of 5040 Mixed Doubles (4m/4v) in 2 hours, 29 mins (8-3-7 in A)        │
+│ A Peal of 5042 Mixed Doubles (4m/4v) in 2 hours, 29 mins (8-3-7 in A)        │
 │ (630 Stedman Doubles, 630 Grandsire Doubles, 630 Reverse Canterbury Pleasure │
 │ Place Doubles, 630 Winchendon Place Doubles, 630 St Nicholas Bob Doubles,    │
-│ 630 St Simon's Bob Doubles, 630 St Martin's Bob Doubles, 630 Plain Bob       │
+│ 630 St Simon's Bob Doubles, 630 St Martin's Bob Doubles, 632 Plain Bob       │
 │ Doubles)                                                                     │
 │                                                                              │
 │ 1: Lydia Reed                                                                │
@@ -512,7 +516,7 @@ Peal statistics
                                                         Last rung   29-Mar-19…  
                                                         Avg. peal   2 hours,    
                                                         speed       41 mins,    
-                                                                    19 secs     
+                                                                    17 secs     
                                                         Avg.        2 hours,    
                                                         duration    44 mins,    
                                                                     40 secs     
@@ -633,8 +637,8 @@ Select option (1):
 Saxmundham, Suffolk, England
 S John Bapt
 On Monday, 27 March 1967
-A Peal of 5040 Mixed Doubles (4m/4v) in 2 hours, 29 mins (8-3-7 in A)
-(630 Reverse Canterbury Pleasure Place Doubles, 630 Winchendon Place Doubles, 630 St Nicholas Bob Doubles, 630 Plain Bob Doubles, 630 St Martin's Bob Doubles, 630 St Simon's Bob Doubles, 630 Grandsire Doubles, 630 Stedman Doubles)
+A Peal of 5042 Mixed Doubles (4m/4v) in 2 hours, 29 mins (8-3-7 in A)
+(630 Reverse Canterbury Pleasure Place Doubles, 630 Winchendon Place Doubles, 630 St Nicholas Bob Doubles, 632 Plain Bob Doubles, 630 St Martin's Bob Doubles, 630 St Simon's Bob Doubles, 630 Grandsire Doubles, 630 Stedman Doubles)
 
 1: Lydia Reed
 2: Victoria Morrison

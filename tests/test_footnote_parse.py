@@ -42,7 +42,9 @@ footnotes = [
     (('Jointly conducted by all the band.', 6, []), ([1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6], 'Jointly conducted by all the band.')),
     (('Jointly conducted by the band.', 6, []), ([1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6], 'Jointly conducted by all the band.')),
     (('Jointly conducted by 1 & 3.', 6, []), ([1, 3], [1, 3], 'Jointly conducted.')),
-    (('900th Quarter of Grandsire on the bells.', 6, []), (None, [], '900th Quarter of Grandsire on the bells.'))
+    (('900th Quarter of Grandsire on the bells.', 6, []), (None, [], '900th Quarter of Grandsire on the bells.')),
+    (('4: First quarter on 8', 8, [8]), ([4], [8], 'First quarter on 8.')),
+    (('First quarter in 2099 - 4', 8, [8]), ([4], [8], 'First quarter in 2099.')),
 ]
 
 

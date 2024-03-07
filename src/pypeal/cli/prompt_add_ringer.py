@@ -18,6 +18,9 @@ def prompt_add_ringer(name: str,
                       peal: Peal,
                       quick_mode: bool):
 
+    # Remove extraneous punctuation surrounding the name
+    name = name.strip(' .*:')
+
     if peal.stage is not None:
         if len(peal.ringers) > 0 and bell_nums_in_peal and peal.ringers[-1].bell_nums is not None:
             expected_bell_num_in_peal = peal.ringers[-1].bell_nums[-1] + 1

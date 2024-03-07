@@ -66,7 +66,7 @@ def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
         # Prompt for peal type as we haven't matched a single method yet
         # (use parsed spliced/mixed for quick mode but allow to change it for prompt mode)
         if not quick_mode or peal_type in [None, PealType.SINGLE_METHOD]:
-            default_peal_type = PealType.SINGLE_METHOD
+            default_peal_type = peal_type or PealType.SINGLE_METHOD
             if (parsed_methods[0].name is None) or \
                     ((num_methods or 0) + (num_variants or 0) + (num_principles or 0) > 1):
                 if parsed_methods[0].stage.value <= Stage.DOUBLES.value:

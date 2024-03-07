@@ -69,45 +69,24 @@ Number of changes:
 Method 1: Cambridge Surprise Major (160 changes)
 Matching method "Yorkshire"... [1 methods excluded]
 Matched "Yorkshire" to method "Yorkshire Surprise Major"
-Number of changes: 
->>> 160
-[User input: "160"]
 Method 2: Yorkshire Surprise Major (160 changes)
 Matching method "Lincolnshire"... [2 methods excluded]
 Matched "Lincolnshire" to method "Lincolnshire Surprise Major"
-Number of changes: 
->>> 160
-[User input: "160"]
 Method 3: Lincolnshire Surprise Major (160 changes)
 Matching method "Superlative"... [3 methods excluded]
 Matched "Superlative" to method "Superlative Surprise Major"
-Number of changes: 
->>> 160
-[User input: "160"]
 Method 4: Superlative Surprise Major (160 changes)
 Matching method "Rutland"... [4 methods excluded]
 Matched "Rutland" to method "Rutland Surprise Major"
-Number of changes: 
->>> 160
-[User input: "160"]
 Method 5: Rutland Surprise Major (160 changes)
 Matching method "Pudsey"... [5 methods excluded]
 Matched "Pudsey" to method "Pudsey Surprise Major"
-Number of changes: 
->>> 160
-[User input: "160"]
 Method 6: Pudsey Surprise Major (160 changes)
 Matching method "Bristol"... [6 methods excluded]
 Matched "Bristol" to method "Bristol Surprise Major"
-Number of changes: 
->>> 160
-[User input: "160"]
 Method 7: Bristol Surprise Major (160 changes)
 Matching method "London"... [7 methods excluded]
 Matched "London" to method "London Surprise Major"
-Number of changes: 
->>> 160
-[User input: "160"]
 Method 8: London Surprise Major (160 changes)
 📝 Method details:
   - Cambridge Surprise Major (160)
@@ -481,7 +460,7 @@ Peal statistics
                                                         Last rung   29-Mar-19…  
                                                         Avg. peal   2 hours,    
                                                         speed       41 mins,    
-                                                                    19 secs     
+                                                                    17 secs     
                                                         Avg.        2 hours,    
                                                         duration    44 mins,    
                                                                     40 secs     

@@ -49,7 +49,8 @@ def prompt_add_change_of_method(method_details: list[tuple[Method, str, int]], p
     if method_details:  # method_details is None if no methods were listed but it is a multi-method peal in title
 
         for method_obj, original_name, changes in method_details:
-            quick_mode = prompt_add_method(method_obj, original_name, changes, peal, quick_mode)
+            default_changes = peal.methods[-1][1] if len(peal.methods) > 0 else None
+            quick_mode = prompt_add_method(method_obj, original_name, changes or default_changes, peal, quick_mode)
 
     # Prompt for additional methods
     while True:
@@ -63,7 +64,8 @@ def prompt_add_change_of_method(method_details: list[tuple[Method, str, int]], p
                     f'({peal.num_methods_in_title}).')
             if not confirm(None, confirm_message='Do you want to add more?', default=False):
                 break
-        quick_mode = prompt_add_method(None, None, None, peal, quick_mode)
+        default_changes = peal.methods[-1][1] if len(peal.methods) > 0 else None
+        quick_mode = prompt_add_method(None, None, default_changes, peal, quick_mode)
 
     # Potentially update number of methods in the peal title if they now do not match
     while len(peal.methods) != original_num_methods and len(peal.methods) != peal.num_methods_in_title:
@@ -75,6 +77,19 @@ def prompt_add_change_of_method(method_details: list[tuple[Method, str, int]], p
             peal.num_variants = ask_int('Number of variants', default=peal.num_variants or 0)
         else:
             break
+
+    # Validate the changes added for each method against the number for the peal
+    total_changes = 0
+    for method in peal.methods:
+        if method[1] is not None:
+            total_changes += method[1]
+
+    if total_changes > 0 and \
+            (peal.changes or 0) != total_changes and \
+            confirm(f'Peal has {peal.changes or 0} changes, but {total_changes} have been added in method details',
+                    confirm_message=f'Update peal changes to {total_changes}?',
+                    default=True):
+        peal.changes = total_changes
 
 
 def add_standard_eight_surprise(peal: Peal) -> list[tuple[Method, str, int]]:

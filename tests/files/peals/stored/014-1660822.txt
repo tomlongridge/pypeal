@@ -423,7 +423,7 @@ Peal statistics
                                                         Last rung   29-Mar-19…  
                                                         Avg. peal   2 hours,    
                                                         speed       41 mins,    
-                                                                    19 secs     
+                                                                    17 secs     
                                                         Avg.        2 hours,    
                                                         duration    44 mins,    
                                                                     40 secs     
