@@ -203,13 +203,18 @@ Bell number(s) in the tower (10):
 Footnote 1 text:
   > For Evensong.
 Is this correct? [y/n] (y): 
+>>> n
+[User input: "False"]
+Footnote text (For Evensong.): 
+>>>   
+[User input: "None"]
+Delete footnote? [y/n] (n): 
 >>> y
 [User input: "True"]
 Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
-📝 Footnotes:
-  - For Evensong.
+📝 Footnotes: None
 🔗 Event link: None
 📷 Photo link: None
 📮 Submitted by: Savana Davis on Monday, 22 March 2021
@@ -232,8 +237,6 @@ Select option (1):
 │ 6 [8]: Fenton Bailey                                                         │
 │ 7 [9]: Blake Harper (c)                                                      │
 │ 8 [10]: Lenny Howard                                                         │
-│                                                                              │
-│ For Evensong.                                                                │
 │                                                                              │
 │ [BellBoard: http://localhost:8080/view.php?id=1425962 (Savana Davis, Monday, │
 │ 22 March 2021)]                                                              │
@@ -516,8 +519,6 @@ A Quarter Peal of 1260 Grandsire Triples in 45 mins (17-2-15 in E)
 6 [8]: Fenton Bailey
 7 [9]: Blake Harper (c)
 8 [10]: Lenny Howard
-
-For Evensong.
 
 [BellBoard: http://localhost:8080/view.php?id=1425962 (Savana Davis, Monday, 22 March 2021)]
 [Database ID: 4]

@@ -12,3 +12,14 @@ VALUES (-1000001, @tower_id, 1),
 
 INSERT INTO @db_name.`bells` (`id`, `tower_id`, `role`, `weight`, `note`)
 VALUES (-1000008, @tower_id, 8, 2430, 'E');
+
+-- St Juliot, St Juliot, Cornwall, England, GB
+-- SET @tower_id = -15966;
+
+-- INSERT INTO @db_name.`bells` (`id`, `tower_id`, `role`, `weight`, `note`)
+-- VALUES (-37531, @tower_id, 1, 332, 'F'),
+--        (-37532, @tower_id, 2, 463, 'E♭'),
+--        (-37533, @tower_id, 3, 466, 'D♭'),
+--        (-37534, @tower_id, 4, 502, 'C'),
+--        (-37535, @tower_id, 5, 541, 'B♭'),
+--        (-5773,  @tower_id, 6, 908, 'A♭');

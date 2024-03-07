@@ -69,7 +69,10 @@ def _prompt_add_single_footnote(bells: list[int],
                         quick_mode = False
             if quick_mode or confirm(None):
                 break
-        text, bells = _prompt_footnote_details(bells, text, peal.num_bells, quick_mode)
+        if not (footnote_details := _prompt_footnote_details(bells, text, peal.num_bells, quick_mode)):
+            return
+        else:
+            text, bells = footnote_details
 
     if bells:
         for bell, ringer in zip(bells, ringers):
@@ -95,10 +98,11 @@ def _prompt_footnote_details(default_bells: list[int],
                              max_bells: int,
                              quick_mode: bool) -> tuple[str, list[int]]:
     while True:
-        footnote = ask('Footnote text', default=default_text) if not quick_mode else default_text
-        if len(footnote.strip()) > 0:
+        footnote = ask('Footnote text', default=default_text, required=False) if not quick_mode else default_text
+        if footnote is not None and len(footnote.strip()) > 0:
             break
-        error('Footnote text cannot be blank')
+        if confirm(None, confirm_message='Delete footnote?', default=False):
+            return None
     if not footnote.endswith('.'):
         footnote += '.'
     bells = None

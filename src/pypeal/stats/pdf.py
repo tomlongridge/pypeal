@@ -1,4 +1,5 @@
 from datetime import datetime
+from itertools import zip_longest
 import os
 from reportlab.lib.units import mm
 
@@ -79,42 +80,43 @@ def _generate_peal_length_report(canvas: Canvas, report: Report, data: dict, rep
     stats[f'First {str(report_length_type).lower()}'] = utils.format_date_full(data['types'][report_length_type]['first'])
     stats[f'Last {str(report_length_type).lower()}'] = utils.format_date_full(data['types'][report_length_type]['last'])
     tables.extend(_draw_table('Key Stats',
-                              ['', ''],
                               stats,
+                              column_headings=[None, None],
                               column_widths=['50%', '50%'],
                               number_rows=False))
 
     tables.extend(_draw_table('Stages',
-                              ['Stage', 'Count'],
-                              data['types'][report_length_type]['stages']))
+                              data['types'][report_length_type]['stages'],
+                              column_headings=['Stage', 'Count']))
 
     tables.extend(_draw_table('Top 20 methods',
-                              ['Method', 'Count'],
                               data['types'][report_length_type]['methods'],
-                              20))
+                              column_headings=['Method', 'Count'],
+                              max_rows=20))
 
     if not (report.tower or report.ring):
         tables.extend(_draw_table('Top 20 towers',
-                                  ['Tower', 'Count'],
                                   data['types'][report_length_type]['towers'],
-                                  20,
-                                  lambda t: t.name))
+                                  column_headings=['Tower', 'Count'],
+                                  max_rows=20,
+                                  item_to_str=lambda t: t.name))
 
     tables.extend(_draw_table('Top 75 ringers',
-                              ['Ringer', 'Count'],
                               data['types'][report_length_type]['ringers'],
-                              75))
+                              column_headings=['Ringer', 'Count', 'Duration'],
+                              column_value_keys=['count', 'duration'],
+                              max_rows=75))
 
     tables.extend(_draw_table('Top 75 conductors',
-                              ['Ringer', 'Count'],
                               data['types'][report_length_type]['conductors'],
-                              75))
+                              column_headings=['Ringer', 'Count'],
+                              max_rows=75))
 
     if report_length_type >= PealLengthType.PEAL:
         tables.extend(_draw_table('Top 20 associations',
-                                  ['Ringer', 'Count'],
                                   data['types'][report_length_type]['associations'],
-                                  20))
+                                  ['Ringer', 'Count'],
+                                  max_rows=20))
 
     while len(tables) > 3:
         _draw_table_page(canvas, title, tables[0:3])
@@ -123,7 +125,10 @@ def _generate_peal_length_report(canvas: Canvas, report: Report, data: dict, rep
         _draw_table_page(canvas, title, tables)
 
     by_year_data = dict(sorted(data['types'][report_length_type]['years'].items()))
-    by_year_tables = _draw_table(None, ['Year', 'Count'], by_year_data, number_rows=False)
+    by_year_tables = _draw_table(None,
+                                 by_year_data,
+                                 column_headings=['Year', 'Count'],
+                                 number_rows=False)
 
     while len(by_year_tables) > 4:
         _draw_table_page(canvas, title + ': By Year', by_year_tables[0:4])
@@ -134,8 +139,8 @@ def _generate_peal_length_report(canvas: Canvas, report: Report, data: dict, rep
     _draw_table_page(canvas,
                      title + ': Recent Milestones',
                      _draw_table(None,
-                                 ['Milestone', 'Count'],
                                  _get_milestones(report, data, report_length_type),
+                                 column_headings=['Milestone', 'Count'],
                                  max_rows=50,
                                  number_rows=False,
                                  column_widths=[30*mm, '*'],
@@ -174,13 +179,14 @@ def _draw_table_page(canvas: Canvas, title: str, tables: list[Table]):
 
 
 def _draw_table(title: str,
-                column_headings: list[str],
-                data: dict | list,
+                data: dict,
+                column_headings: list[str] = [None, 'Count'],
+                column_value_keys: list[str] = ['count'],
                 max_rows: int = None,
                 number_rows: bool = True,
                 column_widths: list[any] = None,
                 item_to_str: callable = None,
-                value_to_str: callable = None) -> list[Table]:
+                values_to_str: list[callable] = None) -> list[Table]:
 
     tables = []
 
@@ -203,16 +209,19 @@ def _draw_table(title: str,
         if number_rows:
             data_row.append(Paragraph(str(row_num)))
         data_row.append(Paragraph(item_to_str(item) if item_to_str else str(item)))
-        if type(data) is dict:
-            value = data[item]
-            if value_to_str is not None:
-                value_str = value_to_str(value)
-            elif type(value) is int:
-                value_str = f'{value:,}'
-            elif type(value) is dict and 'count' in value:
-                value_str = f'{value["count"]:,}'
-            else:
-                value_str = str(value)
+        value = data[item]
+        value_strs = []
+        if type(value) is int:
+            value_strs.append(f'{value:,}')
+        elif type(value) is dict:
+            for column_key, value_to_str in zip_longest(column_value_keys, values_to_str):
+                if value_to_str:
+                    value_strs.append(value_to_str(value[column_key]))
+                else:
+                    value_strs.append(f'{value[column_key]:,}')
+        else:
+            value_strs.append(str(value))
+        for value_str in value_strs:
             data_row.append(Paragraph(value_str, style=ParagraphStyle(name='rhcol', alignment=TA_RIGHT)))
         data_rows.append(data_row)
         if (max_rows and row_num >= max_rows) or len(data_rows) > max_rows_in_current_page or row_num == len(data):
