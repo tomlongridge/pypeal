@@ -272,8 +272,8 @@ def parse_footnote(footnote: str, num_bells: int, conductor_bells: list[int]) ->
         text = text.replace('cond', 'conductor')
     elif text.lower().endswith('as c'):
         text = text[:-4] + 'as conductor'
-    elif text.lower().endswith('as (c)'):
-        text = text[:-6] + 'as conductor'
+    elif text.lower().endswith('(c)'):
+        text = text[:-3] + 'conductor'
     if len(text) == 0:
         return None, conductor_bells, None
     elif footnote_match := re.match(FOOTNOTE_JOINT_CONDUCTORS_REGEX, text):

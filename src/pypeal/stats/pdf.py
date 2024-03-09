@@ -65,22 +65,8 @@ def _generate_peal_length_report(canvas: Canvas, report: Report, data: dict, rep
     title = f'{report.name}: {report_length_type}s'
     tables = []
 
-    stats = {}
-    stats[f'Total {str(report_length_type).lower()}s'] = data['types'][report_length_type]['count']
-    stats['Total number of changes'] = f'{data["types"][report_length_type]["changes"]:,}'
-    stats['Number of methods'] = len(data['types'][report_length_type]['methods'])
-    if not (report.tower or report.ring):
-        stats['Number of towers'] = len(data['types'][report_length_type]['towers'])
-    stats['Number of ringers'] = len(data['types'][report_length_type]['ringers'])
-    stats['Number of conductors'] = len(data['types'][report_length_type]['conductors'])
-    busiest_year_pair = next(iter(data['types'][report_length_type]['years'].items()))
-    stats['Busiest year'] = f'{busiest_year_pair[0]} ({busiest_year_pair[1]["count"]})'
-    if 'duration_avg' in data['types'][report_length_type]:
-        stats['Average duration'] = utils.get_time_str(data['types'][report_length_type]['duration_avg'])
-    stats[f'First {str(report_length_type).lower()}'] = utils.format_date_full(data['types'][report_length_type]['first'])
-    stats[f'Last {str(report_length_type).lower()}'] = utils.format_date_full(data['types'][report_length_type]['last'])
     tables.extend(_draw_table('Key Stats',
-                              stats,
+                              _get_key_stats(report, data, report_length_type),
                               column_headings=[None, None],
                               column_widths=['50%', '50%'],
                               number_rows=False))
@@ -94,6 +80,8 @@ def _generate_peal_length_report(canvas: Canvas, report: Report, data: dict, rep
                               column_headings=['Method', 'Count'],
                               max_rows=20))
 
+    _draw_table_page(canvas, title, tables)
+
     if not (report.tower or report.ring):
         tables.extend(_draw_table('Top 20 towers',
                                   data['types'][report_length_type]['towers'],
@@ -101,40 +89,41 @@ def _generate_peal_length_report(canvas: Canvas, report: Report, data: dict, rep
                                   max_rows=20,
                                   item_to_str=lambda t: t.name))
 
-    tables.extend(_draw_table('Top 75 ringers',
-                              data['types'][report_length_type]['ringers'],
-                              column_headings=['Ringer', 'Count', 'Duration'],
-                              column_value_keys=['count', 'duration'],
-                              max_rows=75))
+    _draw_table_pages(canvas,
+                      title,
+                      _draw_table('Top 100 ringers',
+                                  data['types'][report_length_type]['ringers'],
+                                  column_headings=['Ringer', 'Duration', 'Changes', 'Count'],
+                                  column_value_keys=['duration', 'changes', 'count'],
+                                  column_widths=['*', 50*mm, 20*mm, 15*mm],
+                                  values_to_str=[utils.get_time_str, None, None],
+                                  max_rows=100),
+                      num_columns_per_page=2)
 
-    tables.extend(_draw_table('Top 75 conductors',
-                              data['types'][report_length_type]['conductors'],
-                              column_headings=['Ringer', 'Count'],
-                              max_rows=75))
+    _draw_table_pages(canvas,
+                      title,
+                      _draw_table('Top 100 conductors',
+                                  data['types'][report_length_type]['conductors'],
+                                  column_headings=['Ringer', 'Count'],
+                                  max_rows=100),
+                      num_columns_per_page=4)
 
     if report_length_type >= PealLengthType.PEAL:
-        tables.extend(_draw_table('Top 20 associations',
-                                  data['types'][report_length_type]['associations'],
-                                  ['Ringer', 'Count'],
-                                  max_rows=20))
+        _draw_table_pages(canvas,
+                          title,
+                          _draw_table('Top 20 associations',
+                                      data['types'][report_length_type]['associations'],
+                                      ['Ringer', 'Count'],
+                                      max_rows=20),
+                          num_columns_per_page=2)
 
-    while len(tables) > 3:
-        _draw_table_page(canvas, title, tables[0:3])
-        tables = tables[3:]
-    if len(tables) > 0:
-        _draw_table_page(canvas, title, tables)
-
-    by_year_data = dict(sorted(data['types'][report_length_type]['years'].items()))
-    by_year_tables = _draw_table(None,
-                                 by_year_data,
-                                 column_headings=['Year', 'Count'],
-                                 number_rows=False)
-
-    while len(by_year_tables) > 4:
-        _draw_table_page(canvas, title + ': By Year', by_year_tables[0:4])
-        by_year_tables = by_year_tables[4:]
-    if len(by_year_tables) > 0:
-        _draw_table_page(canvas, title + ': By Year', by_year_tables)
+    _draw_table_pages(canvas,
+                      title + ': By Year',
+                      _draw_table(None,
+                                  dict(sorted(data['types'][report_length_type]['years'].items())),
+                                  column_headings=['Year', 'Count'],
+                                  number_rows=False),
+                      num_columns_per_page=3)
 
     _draw_table_page(canvas,
                      title + ': Recent Milestones',
@@ -153,6 +142,20 @@ def _generate_peal_length_report(canvas: Canvas, report: Report, data: dict, rep
             _draw_table_page(canvas,
                              f'{report.name}: {report_length_type}s: Bells Rung',
                              [table])
+
+
+def _draw_table_pages(canvas: Canvas, title: str, tables: list[Table], num_columns_per_page: int = 3):
+
+    while len(tables) > num_columns_per_page:
+        _draw_table_page(canvas,
+                         title,
+                         tables[0:num_columns_per_page])
+        tables = tables[num_columns_per_page:]
+    if len(tables) > 0:
+        # Add remaining tables with none padding to the page
+        _draw_table_page(canvas,
+                         title,
+                         [*tables, *[None] * (num_columns_per_page - len(tables))])
 
 
 def _draw_table_page(canvas: Canvas, title: str, tables: list[Table]):
@@ -186,7 +189,7 @@ def _draw_table(title: str,
                 number_rows: bool = True,
                 column_widths: list[any] = None,
                 item_to_str: callable = None,
-                values_to_str: list[callable] = None) -> list[Table]:
+                values_to_str: list[callable] = []) -> list[Table]:
 
     tables = []
 
@@ -199,7 +202,7 @@ def _draw_table(title: str,
 
     if number_rows:
         column_headings = ['#', *column_headings]
-        column_widths = [10*mm, *column_widths]
+        column_widths = [12*mm, *column_widths]
 
     data_rows = []
     data_rows.append(column_headings)
@@ -247,7 +250,7 @@ def _draw_table(title: str,
                 ('FONT', (0, 0), (-1, -1), 'Helvetica'),
                 ('FONT', (0, 0), (-1, header_row_offset), 'Helvetica-Bold'),
                 ('ALIGN', (0, header_row_offset), (0, -1), 'LEFT'),
-                ('ALIGN', (-1, header_row_offset), (-1, -1), 'RIGHT'),
+                ('ALIGN', (2 if number_rows else 1, header_row_offset), (-1, -1), 'RIGHT'),
                 ('VALIGN', (0, header_row_offset), (-1, -1), 'TOP'),
                 ('ROWBACKGROUNDS', (0, header_row_offset + 1), (-1, -1), [colors.whitesmoke, colors.white])
             ]))
@@ -301,6 +304,24 @@ def _draw_bell_table(ring: Ring, data: dict, max_rows: int) -> list[Table]:
                 break
 
     return tables
+
+
+def _get_key_stats(report: Report, data: dict, report_length_type: PealLengthType) -> dict:
+    stats = {}
+    stats[f'Total {str(report_length_type).lower()}s'] = data['types'][report_length_type]['count']
+    stats['Total number of changes'] = f'{data["types"][report_length_type]["changes"]:,}'
+    stats['Number of methods'] = len(data['types'][report_length_type]['methods'])
+    if not (report.tower or report.ring):
+        stats['Number of towers'] = len(data['types'][report_length_type]['towers'])
+    stats['Number of ringers'] = len(data['types'][report_length_type]['ringers'])
+    stats['Number of conductors'] = len(data['types'][report_length_type]['conductors'])
+    busiest_year_pair = next(iter(data['types'][report_length_type]['years'].items()))
+    stats['Busiest year'] = f'{busiest_year_pair[0]} ({busiest_year_pair[1]["count"]})'
+    if 'duration_avg' in data['types'][report_length_type]:
+        stats['Average duration'] = utils.get_time_str(data['types'][report_length_type]['duration_avg'])
+    stats[f'First {str(report_length_type).lower()}'] = utils.format_date_full(data['types'][report_length_type]['first'])
+    stats[f'Last {str(report_length_type).lower()}'] = utils.format_date_full(data['types'][report_length_type]['last'])
+    return stats
 
 
 def _get_milestones(report: Report, data: dict, report_length_type: PealLengthType) -> dict[datetime.date, str]:

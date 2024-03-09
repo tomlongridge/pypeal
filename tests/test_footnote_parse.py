@@ -36,6 +36,7 @@ footnotes = [
     (('First quarter as (c)', 6, [3]), ([3], [3], 'First quarter as conductor.')),
     (('First quarter for all the band', 5, [1]), ([1, 2, 3, 4, 5], [1], 'First quarter for all the band.')),
     (('First quarter for all the band except 2.', 3, [1]), ([1, 3], [1], 'First quarter for all the band except 2.')),
+    (('First quarter for all the band except (C).', 3, [1]), ([2, 3], [1], 'First quarter for all the band except conductor.')),
     (('First quarter for all the band apart from 1 and 2', 3, [1]), ([3], [1], 'First quarter for all the band apart from 1 and 2.')),
     (('First quarter for all the band except for 4 and the cond.', 5, [1]),
      ([2, 3, 5], [1], 'First quarter for all the band except for 4 and the conductor.')),

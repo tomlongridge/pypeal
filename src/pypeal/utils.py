@@ -161,20 +161,25 @@ def get_titles() -> list[str]:
 def get_time_str(mins: int | float) -> str:
     if mins is None:
         return 'Unknown'
+    elif mins == 0:
+        return '0 mins'
     seconds = ''
     if type(mins) is float:
-        seconds = f', {round((mins - int(mins)) * 60)} secs'
+        seconds = f'{round((mins - int(mins)) * 60)} secs'
         mins = int(mins)
+    days = mins // 1440
     hours = mins // 60
     mins = mins % 60
     value = ''
-    if hours == 1:
-        value += '1 hour, '
-    elif hours > 1:
-        value += f'{round(hours)} hours, '
-    value += f'{round(mins)} mins'
+    if days > 0:
+        value += f'{round(days)} day{"s" if days > 1 else ""}, '
+        hours -= days * 24
+    if hours > 0:
+        value += f'{round(hours)} hour{"s" if hours > 1 else ""}, '
+    if mins > 0:
+        value += f'{round(mins)} min{"s" if mins > 1 else ""}, '
     value += seconds
-    return value
+    return value.strip(', ')
 
 
 def parse_date(text: str) -> datetime.date:
