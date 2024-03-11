@@ -70,7 +70,7 @@ Duration (50):
 >>> 
 [User input: "50"]
 ⏱ Duration: 50 mins
-🏰 Tower: Bath, Bathwick, Somerset, Blessed Virgin Mary
+🏰 Tower: Bath (Bathwick), Somerset
 🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
 Matched "Grandsire Triples" to method "Grandsire Triples" (ID: m12415)
@@ -332,11 +332,10 @@ Quarter Peal statistics
                                                         First       30-Jun-20…  
                                                         rung                    
                                                         Last rung   17-Oct-20…  
-                                                        Avg. peal   3 hours,    
-                                                        speed       12 mins,    
-                                                                    28 secs     
-                                                        Avg.        48 mins,    
-                                                        duration    30 secs     
+                                                        Avg. peal   3h 12m 28s  
+                                                        speed                   
+                                                        Avg.        48m 30s     
+                                                        duration                
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -450,12 +449,10 @@ Peal statistics
                                                         First       25-Mar-19…  
                                                         rung                    
                                                         Last rung   25-Mar-19…  
-                                                        Avg. peal   2 hours,    
-                                                        speed       40 mins,    
-                                                                    43 secs     
-                                                        Avg.        2 hours,    
-                                                        duration    42 mins, 0  
-                                                                    secs        
+                                                        Avg. peal   2h 40m 43s  
+                                                        speed                   
+                                                        Avg.        2h 42m 0s   
+                                                        duration                
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  

@@ -26,7 +26,7 @@ Bellboard URL or peal ID:
 >>> 41426
 [User input: "41426"]
 ╭────────────────── http://localhost:8080/view.php?id=41426 ───────────────────╮
-│ None, Cleator Moor, Cumbria                                                  │
+│ Cleator Moor, Cumbria                                                        │
 │ 1260 Grandsire Triples                                                       │
 │ Tuesday, 28 June 2005                                                        │
 │                                                                              │
@@ -81,7 +81,7 @@ Country:
 Number of bells: 
 >>> 
 [User input: "None"]
-Cleator Moor, Cumbria, St John the Evangelist. 8, 21-2-22 in E.
+Cleator Moor, Cumbria. 8, 21-2-22 in E.
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]

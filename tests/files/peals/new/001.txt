@@ -50,7 +50,7 @@ Date (yyyy/mm/dd) ([Today]):
 Dove ID or tower description: 
 >>> 13019
 [User input: "13019"]
-🏰 Tower: Bath, Bathwick, Somerset, Blessed Virgin Mary
+🏰 Tower: Bath (Bathwick, Blessed Virgin Mary), Somerset
 Number of changes: 
 >>> 1260
 [User input: "1260"]

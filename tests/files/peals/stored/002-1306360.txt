@@ -54,7 +54,7 @@ Duration (44):
 >>> 50 mins
 [User input: "50 mins"]
 ⏱ Duration: 50 mins
-🏰 Tower: Portbury, Somerset, Blessed Virgin Mary
+🏰 Tower: Portbury, Somerset
 🔢 Changes: 1260
 Matching peal titled "Doubles (1p/5m/3v)"...
 What kind of peal is being rung?: 1) Single Method, 2) Mixed Methods, 3) Spliced Methods, 4) General Ringing
@@ -255,11 +255,10 @@ Quarter Peal statistics
                                                         First       30-Jun-20…  
                                                         rung                    
                                                         Last rung   17-Oct-20…  
-                                                        Avg. peal   3 hours,    
-                                                        speed       16 mins,    
-                                                                    26 secs     
-                                                        Avg.        49 mins,    
-                                                        duration    30 secs     
+                                                        Avg. peal   3h 16m 26s  
+                                                        speed                   
+                                                        Avg.        49m 30s     
+                                                        duration                
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  

@@ -58,7 +58,7 @@ Try for a quick-add? [y/n] (y):
 📅 Date: Sunday, 17 February 2019
 🔔 Tenor: 2120 in Eb
 ⏱ Duration: 46 mins
-🏰 Tower: Bath, Bathwick, Somerset, Blessed Virgin Mary
+🏰 Tower: Bath (Bathwick), Somerset
 🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
 📕 Title: Grandsire Triples
@@ -269,21 +269,20 @@ Quarter Peal statistics
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Doubles            5       Grandsire Triples     4    Single      14          
   Triples            5       Grandsire Doubles     2    Method                  
-  Major              3       Cambridge Surprise    1    Mixed       2           
-  Caters             2       Major                      Methods                 
-  Royal              2       Grandsire Caters      1    Spliced     2           
-  Minor              1       Honeywell Delight     1    Methods                 
- ─────────────────────────   Minor                      Tower       18          
-                             Little Bob Royal      1    Half        2           
+  Major              3       Plain Bob Doubles     1    Spliced     2           
+  Royal              2       Honeywell Delight     1    Methods                 
+  Caters             2       Minor                      Mixed       2           
+  Minor              1       Little Bob Royal      1    Methods                 
+ ─────────────────────────   Cambridge Surprise    1    Tower       18          
+                             Major                      Half        2           
                              London Surprise       1    muffled                 
                              Major                      First       05-Dec-19…  
-                             Mixed Doubles (3m)    1    rung                    
-                             Mixed Doubles         1    Last rung   12-Nov-20…  
-                             (5m/3v/1p)                 Avg. peal   2 hours,    
-                             Plain Bob Doubles     1    speed       42 mins,    
-                            ─────────────────────────               26 secs     
-                                                        Avg.        46 mins,    
-                                                        duration    26 secs     
+                             Spliced Surprise      1    rung                    
+                             Major (2m)                 Last rung   12-Nov-20…  
+                             Mixed Doubles (3m)    1    Avg. peal   2h 42m 26s  
+                             Mixed Doubles         1    speed                   
+                             (5m/3v/1p)                 Avg.        46m 26s     
+                            ─────────────────────────   duration                
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -292,12 +291,12 @@ Quarter Peal statistics
   Chester Edwards      9     Chester Edwards       2    Bath and Wells       3  
   Joyce Sullivan       8     Heather Sullivan      2    Diocesan                
   Heather Sullivan     7     Joyce Sullivan        2    Association             
-  Blake Elliott        6     Aston Mitchell        1    Guild of             1  
-  Daryl Mason          5     Blake Elliott         1    Devonshire Ringers      
-  Melissa Baker        5     Blake Harper          1    New Association      1  
-  Ryan Elliott         5     Brooke Adams          1   ──────────────────────── 
-  Arnold Johnson       4     Byron Robinson        1                            
-  Cadie Nelson         4     Jack Spencer          1                            
+  Blake Elliott        6     Jack Spencer          1    Guild of             1  
+  Daryl Mason          5     Brooke Adams          1    Devonshire Ringers      
+  Melissa Baker        5     Aston Mitchell        1    New Association      1  
+  Ryan Elliott         5     Byron Robinson        1   ──────────────────────── 
+  Arnold Johnson       4     Blake Elliott         1                            
+  Paul Armstrong       4     Blake Harper          1                            
  ─────────────────────────  ─────────────────────────                           
 1) All methods, 2) All ringers, 3) All conductors, 4) All associations
 Select option (x = Back): 
@@ -308,18 +307,18 @@ Select option (x = Back):
  ────────────────────────────────────────────────────────────────────────────── 
   Grandsire Triples                                                       4     
   Grandsire Doubles                                                       2     
-  Cambridge Surprise Major                                                1     
-  Grandsire Caters                                                        1     
+  Plain Bob Doubles                                                       1     
   Honeywell Delight Minor                                                 1     
   Little Bob Royal                                                        1     
+  Cambridge Surprise Major                                                1     
   London Surprise Major                                                   1     
+  Spliced Surprise Major (2m)                                             1     
   Mixed Doubles (3m)                                                      1     
   Mixed Doubles (5m/3v/1p)                                                1     
-  Plain Bob Doubles                                                       1     
   Plain Bob Royal                                                         1     
   Plain Bob Triples                                                       1     
   Spliced Caters and Royal (2m)                                           1     
-  Spliced Surprise Major (2m)                                             1     
+  Grandsire Caters                                                        1     
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 
@@ -340,58 +339,58 @@ Select option (x = Back):
   Melissa Baker                                                     5           
   Ryan Elliott                                                      5           
   Arnold Johnson                                                    4           
+  Paul Armstrong                                                    4           
   Cadie Nelson                                                      4           
   Lenny Howard                                                      4           
-  Paul Armstrong                                                    4           
   Byron Robinson                                                    3           
+  Jacob Cole                                                        3           
   Clark Elliott                                                     3           
   Harold Gray                                                       3           
-  Jacob Cole                                                        3           
   Savana Davis                                                      3           
-  Aston Mitchell                                                    2           
   Blake Elliott                                                     2           
   Dainton Casey                                                     2           
+  Aston Mitchell                                                    2           
+  Vivian Murray                                                     2           
   Daniel Miller                                                     2           
   Grace Perry                                                       2           
   Ted Harris                                                        2           
-  Vivian Murray                                                     2           
+  Edward Chapman                                                    1           
+  Eric Ryan                                                         1           
+  Jack Spencer                                                      1           
+  Mike Sullivan                                                     1           
+  Olivia West                                                       1           
+  Brooke Adams                                                      1           
+  Charlie Warren                                                    1           
+  Deanna Bennett                                                    1           
+  Garry Scott                                                       1           
+  Michelle Edwards                                                  1           
+  Sienna Murphy                                                     1           
+  Carina Warren                                                     1           
+  Carl Johnston                                                     1           
+  Edward Dixon                                                      1           
+  Ellia Armstrong                                                   1           
+  Kate Crawford                                                     1           
+  Michael Williams                                                  1           
+  Ned Andrews                                                       1           
+  Richard Higgins                                                   1           
   Alisa Cole                                                        1           
   Aston Mitchell                                                    1           
   Blake Harper                                                      1           
-  Brooke Adams                                                      1           
   Byron Miller                                                      1           
-  Carina Warren                                                     1           
-  Carl Johnston                                                     1           
-  Charlie Warren                                                    1           
   Chloe Henderson                                                   1           
   David Rogers                                                      1           
-  Deanna Bennett                                                    1           
   Dominik Warren                                                    1           
-  Edward Chapman                                                    1           
-  Edward Dixon                                                      1           
-  Ellia Armstrong                                                   1           
-  Eric Ryan                                                         1           
   Fenton Bailey                                                     1           
-  Garry Scott                                                       1           
   George Roberts                                                    1           
-  Jack Spencer                                                      1           
   Julia Fowler                                                      1           
-  Kate Crawford                                                     1           
   Lucas Farrell                                                     1           
   Lucas Wright                                                      1           
   Lydia Ferguson                                                    1           
   Melissa Evans                                                     1           
-  Michael Williams                                                  1           
-  Michelle Edwards                                                  1           
   Michelle Thompson                                                 1           
-  Mike Sullivan                                                     1           
-  Ned Andrews                                                       1           
-  Olivia West                                                       1           
   Patrick Bennett                                                   1           
   Rev Alen Henderson                                                1           
-  Richard Higgins                                                   1           
   Roland Clark                                                      1           
-  Sienna Murphy                                                     1           
   Valeria Perkins                                                   1           
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
@@ -408,12 +407,12 @@ Select option (x = Back):
   Chester Edwards                                                    2          
   Heather Sullivan                                                   2          
   Joyce Sullivan                                                     2          
+  Jack Spencer                                                       1          
+  Brooke Adams                                                       1          
   Aston Mitchell                                                     1          
+  Byron Robinson                                                     1          
   Blake Elliott                                                      1          
   Blake Harper                                                       1          
-  Brooke Adams                                                       1          
-  Byron Robinson                                                     1          
-  Jack Spencer                                                       1          
   Lucas Farrell                                                      1          
   Ted Harris                                                         1          
   Vivian Murray                                                      1          
@@ -447,8 +446,8 @@ Peal statistics
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Stage                      Methods                    Misc                    
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Doubles            1       Bristol Surprise      1    Mixed       2           
-  Maximus            1       Maximus                    Methods                 
+  Maximus            1       Bristol Surprise      1    Mixed       2           
+  Doubles            1       Maximus                    Methods                 
   Minor              1       Mixed Doubles         1    Single      1           
  ─────────────────────────   (4m/4v)                    Method                  
                              Mixed Surprise        1    Tower       2           
@@ -456,24 +455,22 @@ Peal statistics
                             ─────────────────────────   First       25-Mar-19…  
                                                         rung                    
                                                         Last rung   29-Mar-19…  
-                                                        Avg. peal   2 hours,    
-                                                        speed       41 mins,    
-                                                                    17 secs     
-                                                        Avg.        2 hours,    
-                                                        duration    44 mins,    
-                                                                    40 secs     
+                                                        Avg. peal   2h 41m 17s  
+                                                        speed                   
+                                                        Avg.        2h 44m 40s  
+                                                        duration                
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
  ─────────────────────────  ─────────────────────────   Associations            
-  Aston Mitchell        2    Aston Mitchell        1   ──────────────────────── 
-  John Parker           2    Lenny Howard          1    Oxford Diocesan      1  
+  John Parker           2    Lenny Howard          1   ──────────────────────── 
+  Aston Mitchell        2    Aston Mitchell        1    Oxford Diocesan      1  
   Arianna Holmes        1    Sienna Murphy         1    Guild                   
-  Blake Howard          1   ─────────────────────────   Suffolk Guild        1  
-  Carina Warren         1                              ──────────────────────── 
-  Dominik Warren        1                                                       
-  Jack Spencer          1                                                       
-  Lenny Howard          1                                                       
+  Jack Spencer          1   ─────────────────────────   Suffolk Guild        1  
+  Lenny Howard          1                              ──────────────────────── 
+  Rubie Owens           1                                                       
+  Sam Wells             1                                                       
+  Carina Warren         1                                                       
   Lydia Reed            1                                                       
   Ned Andrews           1                                                       
  ─────────────────────────                                                      
@@ -498,22 +495,22 @@ Select option (x = Back):
  ────────────────────────────────────────────────────────────────────────────── 
   Ringers                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
-  Aston Mitchell                                                      2         
   John Parker                                                         2         
+  Aston Mitchell                                                      2         
   Arianna Holmes                                                      1         
-  Blake Howard                                                        1         
-  Carina Warren                                                       1         
-  Dominik Warren                                                      1         
   Jack Spencer                                                        1         
   Lenny Howard                                                        1         
-  Lydia Reed                                                          1         
-  Ned Andrews                                                         1         
-  Rev Alen Henderson                                                  1         
   Rubie Owens                                                         1         
   Sam Wells                                                           1         
-  Sienna Murphy                                                       1         
+  Carina Warren                                                       1         
+  Lydia Reed                                                          1         
+  Ned Andrews                                                         1         
   Stuart Murray                                                       1         
   Victoria Morrison                                                   1         
+  Blake Howard                                                        1         
+  Dominik Warren                                                      1         
+  Rev Alen Henderson                                                  1         
+  Sienna Murphy                                                       1         
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 
@@ -525,8 +522,8 @@ Select option (x = Back):
  ────────────────────────────────────────────────────────────────────────────── 
   Conductors                                                                    
  ────────────────────────────────────────────────────────────────────────────── 
-  Aston Mitchell                                                    1           
   Lenny Howard                                                      1           
+  Aston Mitchell                                                    1           
   Sienna Murphy                                                     1           
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
@@ -617,7 +614,7 @@ Try for a quick-add? [y/n] (y):
 📅 Date: Sunday, 17 February 2019
 🔔 Tenor: 2120 in Eb
 ⏱ Duration: 46 mins
-🏰 Tower: Bath, Bathwick, Somerset, Blessed Virgin Mary
+🏰 Tower: Bath (Bathwick), Somerset
 🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
 📕 Title: Grandsire Triples
@@ -857,21 +854,20 @@ Quarter Peal statistics
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Doubles            5       Grandsire Triples     4    Single      14          
   Triples            5       Grandsire Doubles     2    Method                  
-  Major              3       Cambridge Surprise    1    Mixed       2           
-  Caters             2       Major                      Methods                 
-  Royal              2       Grandsire Caters      1    Spliced     2           
-  Minor              1       Honeywell Delight     1    Methods                 
- ─────────────────────────   Minor                      Tower       18          
-                             Little Bob Royal      1    Half        2           
+  Major              3       Plain Bob Doubles     1    Spliced     2           
+  Royal              2       Honeywell Delight     1    Methods                 
+  Caters             2       Minor                      Mixed       2           
+  Minor              1       Little Bob Royal      1    Methods                 
+ ─────────────────────────   Cambridge Surprise    1    Tower       18          
+                             Major                      Half        2           
                              London Surprise       1    muffled                 
                              Major                      First       05-Dec-19…  
-                             Mixed Doubles (3m)    1    rung                    
-                             Mixed Doubles         1    Last rung   12-Nov-20…  
-                             (5m/3v/1p)                 Avg. peal   2 hours,    
-                             Plain Bob Doubles     1    speed       42 mins,    
-                            ─────────────────────────               26 secs     
-                                                        Avg.        46 mins,    
-                                                        duration    26 secs     
+                             Spliced Surprise      1    rung                    
+                             Major (2m)                 Last rung   12-Nov-20…  
+                             Mixed Doubles (3m)    1    Avg. peal   2h 42m 26s  
+                             Mixed Doubles         1    speed                   
+                             (5m/3v/1p)                 Avg.        46m 26s     
+                            ─────────────────────────   duration                
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
@@ -880,12 +876,12 @@ Quarter Peal statistics
   Chester Edwards      9     Chester Edwards       2    Bath and Wells       3  
   Joyce Sullivan       8     Heather Sullivan      2    Diocesan                
   Heather Sullivan     7     Joyce Sullivan        2    Association             
-  Blake Elliott        6     Aston Mitchell        1    Guild of             1  
-  Daryl Mason          5     Blake Elliott         1    Devonshire Ringers      
-  Melissa Baker        5     Blake Harper          1    New Association      1  
-  Ryan Elliott         5     Brooke Adams          1   ──────────────────────── 
-  Arnold Johnson       4     Byron Robinson        1                            
-  Cadie Nelson         4     Jack Spencer          1                            
+  Blake Elliott        6     Jack Spencer          1    Guild of             1  
+  Daryl Mason          5     Brooke Adams          1    Devonshire Ringers      
+  Melissa Baker        5     Aston Mitchell        1    New Association      1  
+  Ryan Elliott         5     Byron Robinson        1   ──────────────────────── 
+  Arnold Johnson       4     Blake Elliott         1                            
+  Paul Armstrong       4     Blake Harper          1                            
  ─────────────────────────  ─────────────────────────                           
 1) All methods, 2) All ringers, 3) All conductors, 4) All associations
 Select option (x = Back): 
@@ -896,18 +892,18 @@ Select option (x = Back):
  ────────────────────────────────────────────────────────────────────────────── 
   Grandsire Triples                                                       4     
   Grandsire Doubles                                                       2     
-  Cambridge Surprise Major                                                1     
-  Grandsire Caters                                                        1     
+  Plain Bob Doubles                                                       1     
   Honeywell Delight Minor                                                 1     
   Little Bob Royal                                                        1     
+  Cambridge Surprise Major                                                1     
   London Surprise Major                                                   1     
+  Spliced Surprise Major (2m)                                             1     
   Mixed Doubles (3m)                                                      1     
   Mixed Doubles (5m/3v/1p)                                                1     
-  Plain Bob Doubles                                                       1     
   Plain Bob Royal                                                         1     
   Plain Bob Triples                                                       1     
   Spliced Caters and Royal (2m)                                           1     
-  Spliced Surprise Major (2m)                                             1     
+  Grandsire Caters                                                        1     
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
 >>> 
@@ -928,58 +924,58 @@ Select option (x = Back):
   Melissa Baker                                                     5           
   Ryan Elliott                                                      5           
   Arnold Johnson                                                    4           
+  Paul Armstrong                                                    4           
   Cadie Nelson                                                      4           
   Lenny Howard                                                      4           
-  Paul Armstrong                                                    4           
   Byron Robinson                                                    3           
+  Jacob Cole                                                        3           
   Clark Elliott                                                     3           
   Harold Gray                                                       3           
-  Jacob Cole                                                        3           
   Savana Davis                                                      3           
-  Aston Mitchell                                                    2           
   Blake Elliott                                                     2           
   Dainton Casey                                                     2           
+  Aston Mitchell                                                    2           
+  Vivian Murray                                                     2           
   Daniel Miller                                                     2           
   Grace Perry                                                       2           
   Ted Harris                                                        2           
-  Vivian Murray                                                     2           
+  Edward Chapman                                                    1           
+  Eric Ryan                                                         1           
+  Jack Spencer                                                      1           
+  Mike Sullivan                                                     1           
+  Olivia West                                                       1           
+  Brooke Adams                                                      1           
+  Charlie Warren                                                    1           
+  Deanna Bennett                                                    1           
+  Garry Scott                                                       1           
+  Michelle Edwards                                                  1           
+  Sienna Murphy                                                     1           
+  Carina Warren                                                     1           
+  Carl Johnston                                                     1           
+  Edward Dixon                                                      1           
+  Ellia Armstrong                                                   1           
+  Kate Crawford                                                     1           
+  Michael Williams                                                  1           
+  Ned Andrews                                                       1           
+  Richard Higgins                                                   1           
   Alisa Cole                                                        1           
   Aston Mitchell                                                    1           
   Blake Harper                                                      1           
-  Brooke Adams                                                      1           
   Byron Miller                                                      1           
-  Carina Warren                                                     1           
-  Carl Johnston                                                     1           
-  Charlie Warren                                                    1           
   Chloe Henderson                                                   1           
   David Rogers                                                      1           
-  Deanna Bennett                                                    1           
   Dominik Warren                                                    1           
-  Edward Chapman                                                    1           
-  Edward Dixon                                                      1           
-  Ellia Armstrong                                                   1           
-  Eric Ryan                                                         1           
   Fenton Bailey                                                     1           
-  Garry Scott                                                       1           
   George Roberts                                                    1           
-  Jack Spencer                                                      1           
   Julia Fowler                                                      1           
-  Kate Crawford                                                     1           
   Lucas Farrell                                                     1           
   Lucas Wright                                                      1           
   Lydia Ferguson                                                    1           
   Melissa Evans                                                     1           
-  Michael Williams                                                  1           
-  Michelle Edwards                                                  1           
   Michelle Thompson                                                 1           
-  Mike Sullivan                                                     1           
-  Ned Andrews                                                       1           
-  Olivia West                                                       1           
   Patrick Bennett                                                   1           
   Rev Alen Henderson                                                1           
-  Richard Higgins                                                   1           
   Roland Clark                                                      1           
-  Sienna Murphy                                                     1           
   Valeria Perkins                                                   1           
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
@@ -996,12 +992,12 @@ Select option (x = Back):
   Chester Edwards                                                    2          
   Heather Sullivan                                                   2          
   Joyce Sullivan                                                     2          
+  Jack Spencer                                                       1          
+  Brooke Adams                                                       1          
   Aston Mitchell                                                     1          
+  Byron Robinson                                                     1          
   Blake Elliott                                                      1          
   Blake Harper                                                       1          
-  Brooke Adams                                                       1          
-  Byron Robinson                                                     1          
-  Jack Spencer                                                       1          
   Lucas Farrell                                                      1          
   Ted Harris                                                         1          
   Vivian Murray                                                      1          
@@ -1191,7 +1187,7 @@ Try for a quick-add? [y/n] (y):
 📅 Date: Sunday, 17 February 2019
 🔔 Tenor: 2120 in Eb
 ⏱ Duration: 46 mins
-🏰 Tower: Bath, Bathwick, Somerset, Blessed Virgin Mary
+🏰 Tower: Bath (Bathwick), Somerset
 🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
 📕 Title: Grandsire Triples

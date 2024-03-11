@@ -37,7 +37,7 @@ Date (yyyy/mm/dd) ([Today]):
 Dove ID or tower description: 
 >>> Withycombe Raleigh
 [User input: "Withycombe Raleigh"]
-🏰 Tower: Withycombe Raleigh, Devon, S John Ev
+🏰 Tower: Withycombe Raleigh (S John Ev), Devon
 Number of changes: 
 >>> 1260
 [User input: "1260"]

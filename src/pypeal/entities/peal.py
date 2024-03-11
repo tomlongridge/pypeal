@@ -653,7 +653,7 @@ class Peal:
         text += ' (half-muffled)' if self.muffles == MuffleType.HALF else ''
         text += ' (muffled)' if self.muffles == MuffleType.FULLY else ''
         text += ' '
-        text += f'in {utils.get_time_str(self.duration)} ' if self.duration else ''
+        text += f'in {utils.get_time_str(self.duration, full=True)} ' if self.duration else ''
         text += f'({self.tenor_description})' if self.tenor_description else ''
         text += '\n'
         if len(self.methods) > 0:

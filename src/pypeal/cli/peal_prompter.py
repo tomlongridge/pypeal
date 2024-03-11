@@ -121,7 +121,7 @@ class PealPromptListener(PealGeneratorListener):
         value = _clean_str_input(value)
         self._run_cancellable_prompt(
             lambda peal: prompt_add_duration(value, peal, self.quick_mode))
-        print(f'⏱ Duration: {utils.get_time_str(self.peal.duration)}')
+        print(f'⏱ Duration: {utils.get_time_str(self.peal.duration, full=True)}')
 
     def ringer(self, name: str, bell_nums_in_peal: list[int], bell_nums_in_ring: list[int], is_conductor: bool):
         name = _clean_str_input(name)

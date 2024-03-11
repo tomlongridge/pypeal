@@ -11,7 +11,7 @@ from pypeal import config
 _logger = logging.getLogger('pypeal')
 
 FIELD_LIST: list[str] = ['towerbase_id', 'place', 'sub_place', 'dedication', 'county', 'country', 'country_code', 'latitude', 'longitude',
-                         'bells', 'tenor_weight', 'tenor_note']
+                         'bells', 'tenor_weight', 'tenor_note', 'is_unique_place']
 RING_FIELD_LIST: list[str] = ['tower_id', 'description', 'date_removed']
 BELL_FIELD_LIST: list[str] = ['tower_id', 'role', 'weight', 'note', 'cast_year', 'founder']
 
@@ -31,6 +31,7 @@ class Tower():
     bells: int = None
     tenor_weight: int = None
     tenor_note: str = None
+    is_unique_place: bool = None
     id: int = None
 
     @property
@@ -65,12 +66,17 @@ class Tower():
     @property
     def name(self):
         text = self.place or ''
-        text += f', {self.sub_place}' if self.sub_place else ''
+        if self.sub_place or not self.is_unique_place:
+            text += ' ('
+            detail_text = f'{self.sub_place}, ' if self.sub_place else ''
+            detail_text += f'{self.dedication}' if not self.is_unique_place and self.dedication else ''
+            detail_text = detail_text.strip(', ')
+            text += detail_text if len(detail_text) else 'Unknown'
+            text += ')'
         text += f', {self.county}' if self.county else ''
         default_country_name = config.get_config('general', 'default_country_name')
         if self.country and (not default_country_name or self.country.lower() != default_country_name.lower()):
             text += f', {self.country}'
-        text += f', {self.dedication}' if self.dedication else ''
         return text
 
     def get_peals(self):
@@ -96,9 +102,9 @@ class Tower():
     def commit(self):
         result = Database.get_connection().query(
             f'INSERT INTO towers ({",".join(FIELD_LIST)}, id) ' +
-            'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
+            'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
             (self.towerbase_id, self.place, self.sub_place, self.dedication, self.county, self.country, self.country_code, self.latitude,
-             self.longitude, self.bells, self.tenor_weight, self.tenor_note, self.id))
+             self.longitude, self.bells, self.tenor_weight, self.tenor_note, 0, self.id))
         Database.get_connection().commit()
         if self.id is None:
             self.id = result.lastrowid

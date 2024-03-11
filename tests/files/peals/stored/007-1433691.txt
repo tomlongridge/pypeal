@@ -76,7 +76,7 @@ Duration:
 >>> 
 [User input: "None"]
 ⏱ Duration: Unknown
-🏰 Tower: Twickenham, Greater London, All Hallows
+🏰 Tower: Twickenham, Greater London
 🔢 Changes: 1320
 Matching peal titled "Plain Bob Doubles"...
 Matched "Plain Bob Doubles" to method "Plain Bob Doubles" (ID: m10550)
@@ -291,32 +291,31 @@ Quarter Peal statistics
   Stage                      Methods                    Misc                    
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Triples            3       Grandsire Triples     3    Single      5           
-  Doubles            2       Mixed Doubles         1    Method                  
-  Royal              1       (5m/3v/1p)                 Mixed       1           
- ─────────────────────────   Plain Bob Doubles     1    Methods                 
+  Doubles            2       Plain Bob Doubles     1    Method                  
+  Royal              1       Mixed Doubles         1    Mixed       1           
+ ─────────────────────────   (5m/3v/1p)                 Methods                 
                              Plain Bob Royal       1    Tower       6           
                             ─────────────────────────   First       05-Dec-19…  
                                                         rung                    
                                                         Last rung   17-Oct-20…  
-                                                        Avg. peal   2 hours,    
-                                                        speed       39 mins,    
-                                                                    27 secs     
-                                                        Avg.        48 mins,    
-                                                        duration    36 secs     
+                                                        Avg. peal   2h 39m 27s  
+                                                        speed                   
+                                                        Avg.        48m 36s     
+                                                        duration                
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
  ─────────────────────────  ─────────────────────────   Associations            
-  Blake Elliott         3    Blake Elliott         1   ──────────────────────── 
-  Cadie Nelson          2    Blake Harper          1    Bath and Wells       2  
-  Chester Edwards       2    Jack Spencer          1    Diocesan                
+  Blake Elliott         3    Jack Spencer          1   ──────────────────────── 
+  Cadie Nelson          2    Blake Elliott         1    Bath and Wells       2  
+  Chester Edwards       2    Blake Harper          1    Diocesan                
   Clark Elliott         2    Lucas Farrell         1    Association             
   Daniel Miller         2    Ted Harris            1    Guild of             1  
   Leo Bennett           2    Vivian Murray         1    Devonshire Ringers      
   Ted Harris            2   ─────────────────────────  ──────────────────────── 
-  Aston Mitchell        1                                                       
-  Aston Mitchell        1                                                       
-  Blake Harper          1                                                       
+  Edward Chapman        1                                                       
+  Eric Ryan             1                                                       
+  Jack Spencer          1                                                       
  ─────────────────────────                                                      
 1) All methods, 2) All ringers, 3) All conductors, 4) All associations
 Select option (x = Back): 
@@ -326,8 +325,8 @@ Select option (x = Back):
   Methods                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
   Grandsire Triples                                                      3      
-  Mixed Doubles (5m/3v/1p)                                               1      
   Plain Bob Doubles                                                      1      
+  Mixed Doubles (5m/3v/1p)                                               1      
   Plain Bob Royal                                                        1      
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
@@ -347,6 +346,11 @@ Select option (x = Back):
   Daniel Miller                                                       2         
   Leo Bennett                                                         2         
   Ted Harris                                                          2         
+  Edward Chapman                                                      1         
+  Eric Ryan                                                           1         
+  Jack Spencer                                                        1         
+  Mike Sullivan                                                       1         
+  Olivia West                                                         1         
   Aston Mitchell                                                      1         
   Aston Mitchell                                                      1         
   Blake Harper                                                        1         
@@ -355,12 +359,9 @@ Select option (x = Back):
   Daryl Mason                                                         1         
   David Rogers                                                        1         
   Dominik Warren                                                      1         
-  Edward Chapman                                                      1         
-  Eric Ryan                                                           1         
   Fenton Bailey                                                       1         
   Harold Gray                                                         1         
   Heather Sullivan                                                    1         
-  Jack Spencer                                                        1         
   Joyce Sullivan                                                      1         
   Julia Fowler                                                        1         
   Lenny Howard                                                        1         
@@ -369,8 +370,6 @@ Select option (x = Back):
   Lydia Ferguson                                                      1         
   Melissa Evans                                                       1         
   Michelle Thompson                                                   1         
-  Mike Sullivan                                                       1         
-  Olivia West                                                         1         
   Patrick Bennett                                                     1         
   Rev Alen Henderson                                                  1         
   Roland Clark                                                        1         
@@ -389,9 +388,9 @@ Select option (x = Back):
  ────────────────────────────────────────────────────────────────────────────── 
   Conductors                                                                    
  ────────────────────────────────────────────────────────────────────────────── 
+  Jack Spencer                                                      1           
   Blake Elliott                                                     1           
   Blake Harper                                                      1           
-  Jack Spencer                                                      1           
   Lucas Farrell                                                     1           
   Ted Harris                                                        1           
   Vivian Murray                                                     1           
@@ -430,12 +429,10 @@ Peal statistics
                                                         First       25-Mar-19…  
                                                         rung                    
                                                         Last rung   25-Mar-19…  
-                                                        Avg. peal   2 hours,    
-                                                        speed       40 mins,    
-                                                                    43 secs     
-                                                        Avg.        2 hours,    
-                                                        duration    42 mins, 0  
-                                                                    secs        
+                                                        Avg. peal   2h 40m 43s  
+                                                        speed                   
+                                                        Avg.        2h 42m 0s   
+                                                        duration                
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  

@@ -93,7 +93,7 @@ def _report(report: Report = None, prompt: bool = False):
     for type in data['types']:
         summary_data[type] = data['types'][type]['count']
         if conducted_data and type in conducted_data['types']:
-            conducted_summary_data[f'{type}s'] = conducted_data['types'][type]['count']
+            conducted_summary_data[type] = conducted_data['types'][type]['count']
     console.print(_generate_dict_table([summary_data, conducted_summary_data],
                                        value_column_headings=['Rung' if conducted_data else '',
                                                               'Conducted' if conducted_data else None]))
@@ -247,11 +247,13 @@ def _generate_dict_table(data: dict | list[dict],
         table.add_row('None')
     else:
         for key, value_list in list(combined_data.items())[:max_rows or len(combined_data)]:
+            row_data = []
             for value in value_list:
                 if type(value) is dict:
-                    table.add_row(str(key) if key is not None else '', str(value['count']) if value and 'count' in value else '')
+                    row_data.append(str(value['count']) if value and 'count' in value else '')
                 else:
-                    table.add_row(str(key) if key is not None else '', str(value) if value else '')
+                    row_data.append(str(value) if value else '')
+            table.add_row(str(key) if key is not None else '', *row_data)
     return table
 
 

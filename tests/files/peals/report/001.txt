@@ -49,7 +49,7 @@ Try for a quick-add? [y/n] (y):
 📅 Date: Saturday, 30 June 2001
 🔔 Tenor: 1904
 ⏱ Duration: 49 mins
-🏰 Tower: Withycombe Raleigh, Devon, S John Ev
+🏰 Tower: Withycombe Raleigh, Devon
 🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
 📕 Title: Grandsire Triples
@@ -198,11 +198,10 @@ Quarter Peal statistics
                                                         First       30-Jun-20…  
                                                         rung                    
                                                         Last rung   30-Jun-20…  
-                                                        Avg. peal   3 hours,    
-                                                        speed       14 mins,    
-                                                                    27 secs     
-                                                        Avg.        49 mins, 0  
-                                                        duration    secs        
+                                                        Avg. peal   3h 14m 27s  
+                                                        speed                   
+                                                        Avg.        49m 0s      
+                                                        duration                
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────                           
   Top 10 Ringers             Top 10 Conductors                                  
@@ -260,7 +259,7 @@ Country:
 Number of bells: 
 >>> 
 [User input: "None"]
-Withycombe Raleigh, Devon, S John Ev. 12, 17-1-10 in D#.
+Withycombe Raleigh, Devon. 12, 17-1-10 in D#.
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
@@ -284,8 +283,8 @@ Save report? [y/n] (y):
 Name: 
 >>> all
 [User input: "all"]
-Summary (for Ted Harris at Withycombe Raleigh, Devon, S John Ev from 01-Jan-2000
-to 01-Jan-2020)
+Summary (for Ted Harris at Withycombe Raleigh, Devon from 01-Jan-2000 to 
+01-Jan-2020)
  ────────────────────────────────────────────────────────────────────────────── 
                                       Rung            Conducted                 
  ────────────────────────────────────────────────────────────────────────────── 
@@ -301,11 +300,10 @@ Quarter Peal statistics
                                                         First       30-Jun-20…  
                                                         rung                    
                                                         Last rung   30-Jun-20…  
-                                                        Avg. peal   3 hours,    
-                                                        speed       14 mins,    
-                                                                    27 secs     
-                                                        Avg.        49 mins, 0  
-                                                        duration    secs        
+                                                        Avg. peal   3h 14m 27s  
+                                                        speed                   
+                                                        Avg.        49m 0s      
+                                                        duration                
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────                           
   Top 10 Ringers             Top 10 Conductors                                  
@@ -344,7 +342,7 @@ Matched "Lydia Ferguson"
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Tower: Withycombe Raleigh, Devon, S John Ev. 12, 17-1-10 in D#.
+Tower: Withycombe Raleigh, Devon. 12, 17-1-10 in D#.
 Replace? [y/n] (n): 
 >>> n
 [User input: "False"]
@@ -369,8 +367,8 @@ Save report? [y/n] (y):
 Name (all): 
 >>> all2
 [User input: "all2"]
-Summary (for Lydia Ferguson at Withycombe Raleigh, Devon, S John Ev from 
-01-Jan-2000 to 31-Dec-2020)
+Summary (for Lydia Ferguson at Withycombe Raleigh, Devon from 01-Jan-2000 to 
+31-Dec-2020)
  ────────────────────────────────────────────────────────────────────────────── 
                                       Rung            Conducted                 
  ────────────────────────────────────────────────────────────────────────────── 
@@ -386,11 +384,10 @@ Quarter Peal statistics
                                                         First       30-Jun-20…  
                                                         rung                    
                                                         Last rung   30-Jun-20…  
-                                                        Avg. peal   3 hours,    
-                                                        speed       14 mins,    
-                                                                    27 secs     
-                                                        Avg.        49 mins, 0  
-                                                        duration    secs        
+                                                        Avg. peal   3h 14m 27s  
+                                                        speed                   
+                                                        Avg.        49m 0s      
+                                                        duration                
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────                           
   Top 10 Ringers             Top 10 Conductors                                  

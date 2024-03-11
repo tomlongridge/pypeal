@@ -42,7 +42,7 @@ Select option:
 Dove ID: 
 >>> 12074
 [User input: "12074"]
-Longney, Gloucestershire, S Lawrence. 8, 10-3-17 in F.
+Longney, Gloucestershire. 8, 10-3-17 in F.
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -97,7 +97,7 @@ Duration (49):
 >>> 
 [User input: "49"]
 ⏱ Duration: 49 mins
-🏰 Tower: Withycombe Raleigh, Devon, S John Ev
+🏰 Tower: Withycombe Raleigh, Devon
 🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
 Matched "Grandsire Triples" to method "Grandsire Triples" (ID: m12415)
@@ -394,11 +394,10 @@ Quarter Peal statistics
                                                         First       30-Jun-20…  
                                                         rung                    
                                                         Last rung   30-Jun-20…  
-                                                        Avg. peal   3 hours,    
-                                                        speed       14 mins,    
-                                                                    27 secs     
-                                                        Avg.        49 mins, 0  
-                                                        duration    secs        
+                                                        Avg. peal   3h 14m 27s  
+                                                        speed                   
+                                                        Avg.        49m 0s      
+                                                        duration                
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────                           
   Top 10 Ringers             Top 10 Conductors                                  

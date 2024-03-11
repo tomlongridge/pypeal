@@ -100,7 +100,7 @@ def generate_summary(peals: list[Peal],
 
     report['types'] = dict(sorted(report['types'].items()))
     for length_type_report in report['types'].values():
-        _sort_table(length_type_report, 'count')
+        _sort_table(length_type_report, ['count', 'changes'])
 
     return report
 
@@ -116,7 +116,7 @@ def _add_peal(data: dict, section: str, key: any, peal: Peal) -> dict:
         selected_dict['first'] = peal.date
         selected_dict['last'] = peal.date
         selected_dict['changes'] = 0
-        selected_dict['duration'] = 0
+        selected_dict['duration'] = None
         selected_dict['_duration_recorded_count'] = 0
     else:
         selected_dict = data[section][key]
@@ -129,10 +129,12 @@ def _add_peal(data: dict, section: str, key: any, peal: Peal) -> dict:
     if peal.changes:
         selected_dict['changes'] += peal.changes
     if peal.duration:
+        if selected_dict['duration'] is None:
+            selected_dict['duration'] = 0
         selected_dict['duration'] += peal.duration
         selected_dict['_duration_recorded_count'] += 1
         selected_dict['duration_avg'] = selected_dict['duration'] / selected_dict['_duration_recorded_count']
-    if (peal.changes or peal.duration) and selected_dict['changes'] > 0 and selected_dict['duration'] > 0:
+    if (peal.changes or peal.duration) and selected_dict['changes'] > 0 and selected_dict['duration'] is not None:
         selected_dict['peal_speed_avg'] = (selected_dict['duration'] / selected_dict['changes']) * 5000
 
     if selected_dict['count'] % 25 == 0:
@@ -143,12 +145,17 @@ def _add_peal(data: dict, section: str, key: any, peal: Peal) -> dict:
     return selected_dict
 
 
-def _sort_table(table: dict, sort_key: str = None) -> None:
+def _sort_table(table: dict, sort_keys: list[str] = []) -> None:
     def _sort_func(x: tuple) -> tuple:
         if type(x[1]) is int:
             return -x[1], str(x[0])
-        elif type(x[1]) is dict and sort_key is not None and sort_key in x[1]:
-            return -x[1][sort_key], str(x[0])
+        elif type(x[1]) is dict:
+            sort_elements = []
+            for sort_key in sort_keys:
+                if sort_key in x[1]:
+                    sort_elements.append(-x[1][sort_key])
+            sort_elements.append(str(x[0]))
+            return tuple(sort_elements)
         else:
             return (str(x[0]))
 
@@ -158,9 +165,9 @@ def _sort_table(table: dict, sort_key: str = None) -> None:
             countable_table = True
             for value in nested_reports.values():
                 if type(value) is dict:
-                    if sort_key not in value:
+                    if not set(value.keys()).issuperset(set(sort_keys)):
                         countable_table = False
-                    _sort_table(nested_reports)
+                    _sort_table(nested_reports, sort_keys)
                 elif type(value) is not int:
                     countable_table = False
             if countable_table:

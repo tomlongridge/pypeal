@@ -63,8 +63,8 @@ def _generate_report(report: Report, path: str):
 def _generate_peal_length_report(canvas: Canvas, report: Report, data: dict, report_length_type: PealLengthType):
 
     title = f'{report.name}: {report_length_type}s'
-    tables = []
 
+    tables = []
     tables.extend(_draw_table('Key Stats',
                               _get_key_stats(report, data, report_length_type),
                               column_headings=[None, None],
@@ -83,15 +83,21 @@ def _generate_peal_length_report(canvas: Canvas, report: Report, data: dict, rep
     _draw_table_page(canvas, title, tables)
 
     if not (report.tower or report.ring):
-        tables.extend(_draw_table('Top 20 towers',
-                                  data['types'][report_length_type]['towers'],
-                                  column_headings=['Tower', 'Count'],
-                                  max_rows=20,
-                                  item_to_str=lambda t: t.name))
+        _draw_table_pages(canvas,
+                          title + ': Top 100 Towers',
+                          _draw_table(None,
+                                      data['types'][report_length_type]['towers'],
+                                      column_headings=['Ringer', 'Duration', 'Changes', 'Count'],
+                                      column_value_keys=['duration', 'changes', 'count'],
+                                      column_widths=['*', 30*mm, 20*mm, 15*mm],
+                                      key_to_str=lambda k: k.name,
+                                      values_to_str=[utils.get_time_str, None, None],
+                                      max_rows=100),
+                          num_columns_per_page=2)
 
     _draw_table_pages(canvas,
-                      title,
-                      _draw_table('Top 100 ringers',
+                      title + ': Top 100 Ringers',
+                      _draw_table(None,
                                   data['types'][report_length_type]['ringers'],
                                   column_headings=['Ringer', 'Duration', 'Changes', 'Count'],
                                   column_value_keys=['duration', 'changes', 'count'],
@@ -100,15 +106,40 @@ def _generate_peal_length_report(canvas: Canvas, report: Report, data: dict, rep
                                   max_rows=100),
                       num_columns_per_page=2)
 
-    _draw_table_pages(canvas,
-                      title,
-                      _draw_table('Top 100 conductors',
-                                  data['types'][report_length_type]['conductors'],
-                                  column_headings=['Ringer', 'Count'],
-                                  max_rows=100),
-                      num_columns_per_page=4)
+    tables = []
+    tables.extend(
+        _draw_table('Top 20 Conductors',
+                    data['types'][report_length_type]['conductors'],
+                    column_headings=['Ringer', 'Count'],
+                    max_rows=20))
 
     if report_length_type >= PealLengthType.PEAL:
+        tables.extend(
+            _draw_table('Top 20 Associations',
+                        data['types'][report_length_type]['associations'],
+                        ['Ringer', 'Count'],
+                        max_rows=20))
+
+    tables.extend(
+        _draw_table('By Year',
+                    dict(sorted(data['types'][report_length_type]['years'].items())),
+                    column_headings=['Year', 'Count'],
+                    number_rows=False))
+
+    milestone_data = _get_milestones(report, data, report_length_type)
+    if len(milestone_data) > 0:
+        tables.extend(
+            _draw_table('Recent Milestones',
+                        milestone_data,
+                        column_headings=['Milestone', 'Count'],
+                        max_rows=50,
+                        number_rows=False,
+                        column_widths=[30*mm, '*'],
+                        key_to_str=lambda d: utils.format_date_short(d)))
+
+    _draw_table_pages(canvas, title, tables, num_columns_per_page=3)
+
+    if 'bells' in data['types'][report_length_type]:
         _draw_table_pages(canvas,
                           title,
                           _draw_table('Top 20 associations',
@@ -116,26 +147,6 @@ def _generate_peal_length_report(canvas: Canvas, report: Report, data: dict, rep
                                       ['Ringer', 'Count'],
                                       max_rows=20),
                           num_columns_per_page=2)
-
-    _draw_table_pages(canvas,
-                      title + ': By Year',
-                      _draw_table(None,
-                                  dict(sorted(data['types'][report_length_type]['years'].items())),
-                                  column_headings=['Year', 'Count'],
-                                  number_rows=False),
-                      num_columns_per_page=3)
-
-    _draw_table_page(canvas,
-                     title + ': Recent Milestones',
-                     _draw_table(None,
-                                 _get_milestones(report, data, report_length_type),
-                                 column_headings=['Milestone', 'Count'],
-                                 max_rows=50,
-                                 number_rows=False,
-                                 column_widths=[30*mm, '*'],
-                                 item_to_str=lambda d: utils.format_date_short(d)))
-
-    if 'bells' in data['types'][report_length_type]:
         for table in _draw_bell_table(report.ring or report.tower.get_active_ring(),
                                       data['types'][report_length_type]['bells'],
                                       max_rows=75):
@@ -188,7 +199,7 @@ def _draw_table(title: str,
                 max_rows: int = None,
                 number_rows: bool = True,
                 column_widths: list[any] = None,
-                item_to_str: callable = None,
+                key_to_str: callable = None,
                 values_to_str: list[callable] = []) -> list[Table]:
 
     tables = []
@@ -202,7 +213,7 @@ def _draw_table(title: str,
 
     if number_rows:
         column_headings = ['#', *column_headings]
-        column_widths = [12*mm, *column_widths]
+        column_widths = [9*mm, *column_widths]
 
     data_rows = []
     data_rows.append(column_headings)
@@ -210,8 +221,8 @@ def _draw_table(title: str,
     for row_num, item in enumerate(data.keys() if type(data) is dict else data, 1):
         data_row = []
         if number_rows:
-            data_row.append(Paragraph(str(row_num)))
-        data_row.append(Paragraph(item_to_str(item) if item_to_str else str(item)))
+            data_row.append(Paragraph(str(row_num), style=ParagraphStyle(name='small', fontSize=8)))
+        data_row.append(Paragraph(key_to_str(item) if key_to_str else str(item)))
         value = data[item]
         value_strs = []
         if type(value) is int:

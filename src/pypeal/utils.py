@@ -158,26 +158,35 @@ def get_titles() -> list[str]:
     return NAME_TITLES
 
 
-def get_time_str(mins: int | float) -> str:
+def get_time_str(mins: int | float, full: bool = False) -> str:
     if mins is None:
         return 'Unknown'
     elif mins == 0:
-        return '0 mins'
+        return f'0{" mins" if full else "m"}'
     seconds = ''
     if type(mins) is float:
-        seconds = f'{round((mins - int(mins)) * 60)} secs'
+        seconds = f'{round((mins - int(mins)) * 60)}{" secs" if full else "s"}'
         mins = int(mins)
     days = mins // 1440
     hours = mins // 60
     mins = mins % 60
     value = ''
     if days > 0:
-        value += f'{round(days)} day{"s" if days > 1 else ""}, '
+        if full:
+            value += f'{round(days)} day{"s" if days > 1 else ""}, '
+        else:
+            value += f'{round(days)}d '
         hours -= days * 24
     if hours > 0:
-        value += f'{round(hours)} hour{"s" if hours > 1 else ""}, '
+        if full:
+            value += f'{round(hours)} hour{"s" if hours > 1 else ""}, '
+        else:
+            value += f'{round(hours)}h '
     if mins > 0:
-        value += f'{round(mins)} min{"s" if mins > 1 else ""}, '
+        if full:
+            value += f'{round(mins)} min{"s" if mins > 1 else ""}, '
+        else:
+            value += f'{round(mins)}m '
     value += seconds
     return value.strip(', ')
 

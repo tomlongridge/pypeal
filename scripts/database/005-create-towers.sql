@@ -12,5 +12,6 @@ CREATE TABLE @db_name.`towers` (
     `bells` INT NOT NULL,
     `tenor_weight` INT UNSIGNED NOT NULL,
     `tenor_note` VARCHAR(10) NULL,
+    `is_unique_place` TINYINT(1) NOT NULL DEFAULT 0,
     PRIMARY KEY (`id`)
 );

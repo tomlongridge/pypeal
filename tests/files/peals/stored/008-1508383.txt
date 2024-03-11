@@ -272,32 +272,31 @@ Quarter Peal statistics
   Stage                      Methods                    Misc                    
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Triples            3       Grandsire Triples     3    Single      5           
-  Doubles            2       Mixed Doubles         1    Method                  
-  Royal              1       (5m/3v/1p)                 Mixed       1           
- ─────────────────────────   Plain Bob Doubles     1    Methods                 
+  Doubles            2       Plain Bob Doubles     1    Method                  
+  Royal              1       Mixed Doubles         1    Mixed       1           
+ ─────────────────────────   (5m/3v/1p)                 Methods                 
                              Plain Bob Royal       1    Tower       6           
                             ─────────────────────────   First       05-Dec-19…  
                                                         rung                    
                                                         Last rung   17-Oct-20…  
-                                                        Avg. peal   2 hours,    
-                                                        speed       39 mins,    
-                                                                    27 secs     
-                                                        Avg.        48 mins,    
-                                                        duration    36 secs     
+                                                        Avg. peal   2h 39m 27s  
+                                                        speed                   
+                                                        Avg.        48m 36s     
+                                                        duration                
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
  ─────────────────────────  ─────────────────────────   Associations            
-  Blake Elliott         3    Blake Elliott         1   ──────────────────────── 
-  Cadie Nelson          2    Blake Harper          1    Bath and Wells       2  
-  Chester Edwards       2    Jack Spencer          1    Diocesan                
+  Blake Elliott         3    Jack Spencer          1   ──────────────────────── 
+  Cadie Nelson          2    Blake Elliott         1    Bath and Wells       2  
+  Chester Edwards       2    Blake Harper          1    Diocesan                
   Clark Elliott         2    Lucas Farrell         1    Association             
   Daniel Miller         2    Ted Harris            1    Guild of             1  
   Leo Bennett           2    Vivian Murray         1    Devonshire Ringers      
   Ted Harris            2   ─────────────────────────  ──────────────────────── 
-  Aston Mitchell        1                                                       
-  Aston Mitchell        1                                                       
-  Blake Harper          1                                                       
+  Edward Chapman        1                                                       
+  Eric Ryan             1                                                       
+  Jack Spencer          1                                                       
  ─────────────────────────                                                      
 1) All methods, 2) All ringers, 3) All conductors, 4) All associations
 Select option (x = Back): 
@@ -307,8 +306,8 @@ Select option (x = Back):
   Methods                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
   Grandsire Triples                                                      3      
-  Mixed Doubles (5m/3v/1p)                                               1      
   Plain Bob Doubles                                                      1      
+  Mixed Doubles (5m/3v/1p)                                               1      
   Plain Bob Royal                                                        1      
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
@@ -328,6 +327,11 @@ Select option (x = Back):
   Daniel Miller                                                       2         
   Leo Bennett                                                         2         
   Ted Harris                                                          2         
+  Edward Chapman                                                      1         
+  Eric Ryan                                                           1         
+  Jack Spencer                                                        1         
+  Mike Sullivan                                                       1         
+  Olivia West                                                         1         
   Aston Mitchell                                                      1         
   Aston Mitchell                                                      1         
   Blake Harper                                                        1         
@@ -336,12 +340,9 @@ Select option (x = Back):
   Daryl Mason                                                         1         
   David Rogers                                                        1         
   Dominik Warren                                                      1         
-  Edward Chapman                                                      1         
-  Eric Ryan                                                           1         
   Fenton Bailey                                                       1         
   Harold Gray                                                         1         
   Heather Sullivan                                                    1         
-  Jack Spencer                                                        1         
   Joyce Sullivan                                                      1         
   Julia Fowler                                                        1         
   Lenny Howard                                                        1         
@@ -350,8 +351,6 @@ Select option (x = Back):
   Lydia Ferguson                                                      1         
   Melissa Evans                                                       1         
   Michelle Thompson                                                   1         
-  Mike Sullivan                                                       1         
-  Olivia West                                                         1         
   Patrick Bennett                                                     1         
   Rev Alen Henderson                                                  1         
   Roland Clark                                                        1         
@@ -370,9 +369,9 @@ Select option (x = Back):
  ────────────────────────────────────────────────────────────────────────────── 
   Conductors                                                                    
  ────────────────────────────────────────────────────────────────────────────── 
+  Jack Spencer                                                      1           
   Blake Elliott                                                     1           
   Blake Harper                                                      1           
-  Jack Spencer                                                      1           
   Lucas Farrell                                                     1           
   Ted Harris                                                        1           
   Vivian Murray                                                     1           
@@ -405,35 +404,33 @@ Peal statistics
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Stage                      Methods                    Misc                    
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
-  Maximus            1       Bristol Surprise      1    Mixed       1           
-  Minor              1       Maximus                    Methods                 
- ─────────────────────────   Mixed Surprise        1    Single      1           
-                             Minor (8m)                 Method                  
+  Maximus            1       Bristol Surprise      1    Single      1           
+  Minor              1       Maximus                    Method                  
+ ─────────────────────────   Mixed Surprise        1    Mixed       1           
+                             Minor (8m)                 Methods                 
                             ─────────────────────────   Handbells   1           
                                                         Tower       1           
                                                         First       25-Mar-19…  
                                                         rung                    
                                                         Last rung   29-Mar-19…  
-                                                        Avg. peal   2 hours,    
-                                                        speed       47 mins,    
-                                                                    56 secs     
-                                                        Avg.        2 hours,    
-                                                        duration    52 mins,    
-                                                                    30 secs     
+                                                        Avg. peal   2h 47m 56s  
+                                                        speed                   
+                                                        Avg.        2h 52m 30s  
+                                                        duration                
                                                        ──────────────────────── 
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Top 10 Ringers             Top 10 Conductors          Top 10                  
  ─────────────────────────  ─────────────────────────   Associations            
   John Parker           2    Lenny Howard          1   ──────────────────────── 
   Arianna Holmes        1    Sienna Murphy         1    Oxford Diocesan      1  
-  Aston Mitchell        1   ─────────────────────────   Guild                   
-  Blake Howard          1                               Suffolk Guild        1  
-  Dominik Warren        1                              ──────────────────────── 
-  Jack Spencer          1                                                       
-  Lenny Howard          1                                                       
-  Rev Alen Henderson    1                                                       
-  Rubie Owens           1                                                       
+  Jack Spencer          1   ─────────────────────────   Guild                   
+  Lenny Howard          1                               Suffolk Guild        1  
+  Rubie Owens           1                              ──────────────────────── 
   Sam Wells             1                                                       
+  Aston Mitchell        1                                                       
+  Blake Howard          1                                                       
+  Dominik Warren        1                                                       
+  Rev Alen Henderson    1                                                       
  ─────────────────────────                                                      
 1) All methods, 2) All ringers, 3) All conductors, 4) All associations
 Select option (x = Back): 
@@ -457,14 +454,14 @@ Select option (x = Back):
  ────────────────────────────────────────────────────────────────────────────── 
   John Parker                                                         2         
   Arianna Holmes                                                      1         
+  Jack Spencer                                                        1         
+  Lenny Howard                                                        1         
+  Rubie Owens                                                         1         
+  Sam Wells                                                           1         
   Aston Mitchell                                                      1         
   Blake Howard                                                        1         
   Dominik Warren                                                      1         
-  Jack Spencer                                                        1         
-  Lenny Howard                                                        1         
   Rev Alen Henderson                                                  1         
-  Rubie Owens                                                         1         
-  Sam Wells                                                           1         
   Sienna Murphy                                                       1         
  ────────────────────────────────────────────────────────────────────────────── 
 Press enter to continue [y/n] (y): 
