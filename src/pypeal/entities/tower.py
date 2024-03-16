@@ -59,9 +59,7 @@ class Tower():
             return Ring.get(results[0])
         else:
             _logger.debug(f'No active ring found for tower {self.id} at {at_date}, creating one')
-            ring = Ring(tower_id=self.id, description=None, date_removed=None)
-            ring.commit()
-            return ring
+            return Ring(tower_id=self.id, description=None, date_removed=None)
 
     @property
     def name(self):
@@ -216,7 +214,6 @@ class Tower():
         Cache.get_cache().clear(cls.__name__)
 
 
-@dataclass
 class Ring():
 
     tower: Tower = None
@@ -224,8 +221,8 @@ class Ring():
     date_removed: datetime.date = None
     id: int = None
 
-    __bells: dict[int, Bell] = None
-    __bells_by_id: dict[int, Bell] = None
+    __bells: dict[int, Bell]
+    __bells_by_id: dict[int, Bell]
 
     def __init__(self,
                  tower_id: int = None,
@@ -236,6 +233,9 @@ class Ring():
         self.description = description
         self.date_removed = date_removed
         self.id = id
+
+        self.__bells = None
+        self.__bells_by_id = None
 
     def __str__(self) -> str:
         value = self.description or 'Unnamed ring'
@@ -250,6 +250,7 @@ class Ring():
         if self.__bells is None:
             self.__bells = {}
             self.__bells_by_id = {}
+            results = None
             if self.id is not None:
                 results = Database.get_connection().query(
                     'SELECT rb.bell_id, rb.bell_role, IFNULL(rb.bell_weight, b.weight) AS weight, IFNULL(rb.bell_note, b.note) AS note ' +
@@ -258,21 +259,21 @@ class Ring():
                     'WHERE ring_id = %s ' +
                     'ORDER BY bell_role ASC',
                     (self.id,)).fetchall()
-                if not results:
-                    _logger.debug(f'No bells found for ring {self.id}, adding bells from tower {self.tower.id}')
-                    results = Database.get_connection().query(
-                        'SELECT id, role, weight, note FROM bells ' +
-                        'WHERE tower_id = %s ' +
-                        'ORDER BY role ASC',
-                        (self.tower.id,)).fetchall()
-                for result in results:
-                    bell = Bell.get(result[0])
-                    # Overwrite tower's bell role, weight and note with ring's bell role
-                    bell.role = result[1]
-                    bell.weight = result[2]
-                    bell.note = result[3]
-                    self.__bells_by_id[int(result[0])] = bell
-                    self.__bells[int(result[1])] = bell
+            if not results:
+                _logger.debug(f'No bells found for ring, adding bells from tower {self.tower.id}')
+                results = Database.get_connection().query(
+                    'SELECT id, role, weight, note FROM bells ' +
+                    'WHERE tower_id = %s ' +
+                    'ORDER BY role ASC',
+                    (self.tower.id,)).fetchall()
+            for result in results:
+                bell = Bell.get(result[0])
+                # Overwrite tower's bell role, weight and note with ring's bell role
+                bell.role = result[1]
+                bell.weight = result[2]
+                bell.note = result[3]
+                self.__bells_by_id[int(result[0])] = bell
+                self.__bells[int(result[1])] = bell
         return self.__bells
 
     @property

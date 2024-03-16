@@ -14,7 +14,8 @@ from pypeal.entities.peal import PealLengthType
 
 from pypeal.entities.report import Report
 from pypeal.entities.ringer import Ringer
-from pypeal.entities.tower import Ring
+from pypeal.entities.tower import Bell, Ring, Tower
+from pypeal.stats.distance import get_all_grabs, get_closest_grabs
 from pypeal.stats.report import generate_summary
 
 PAGE_HEIGHT = 210*mm
@@ -89,21 +90,21 @@ def _generate_peal_length_report(canvas: Canvas, report: Report, data: dict, rep
                                       data['types'][report_length_type]['towers'],
                                       column_headings=['Ringer', 'Duration', 'Changes', 'Count'],
                                       column_value_keys=['duration', 'changes', 'count'],
-                                      column_widths=['*', 30*mm, 20*mm, 15*mm],
-                                      key_to_str=lambda k: k.name,
+                                      column_widths=['*', 25*mm, 20*mm, 15*mm],
+                                      key_to_str=lambda k: k.name[:40],
                                       values_to_str=[utils.get_time_str, None, None],
                                       max_rows=100),
                           num_columns_per_page=2)
 
     _draw_table_pages(canvas,
-                      title + ': Top 100 Ringers',
+                      title + ': Top 250 Ringers',
                       _draw_table(None,
                                   data['types'][report_length_type]['ringers'],
                                   column_headings=['Ringer', 'Duration', 'Changes', 'Count'],
                                   column_value_keys=['duration', 'changes', 'count'],
-                                  column_widths=['*', 50*mm, 20*mm, 15*mm],
+                                  column_widths=['*', 30*mm, 20*mm, 15*mm],
                                   values_to_str=[utils.get_time_str, None, None],
-                                  max_rows=100),
+                                  max_rows=250),
                       num_columns_per_page=2)
 
     tables = []
@@ -112,6 +113,13 @@ def _generate_peal_length_report(canvas: Canvas, report: Report, data: dict, rep
                     data['types'][report_length_type]['conductors'],
                     column_headings=['Ringer', 'Count'],
                     max_rows=20))
+
+    if 'bells' in data['types'][report_length_type]:
+        tables.extend(
+            _draw_table('Circled Counts',
+                        _get_circles(report.ring or report.tower.get_active_ring(), data['types'][report_length_type]['bells']),
+                        column_headings=['Ringer', 'Count'],
+                        max_rows=50))
 
     if report_length_type >= PealLengthType.PEAL:
         tables.extend(
@@ -126,30 +134,49 @@ def _generate_peal_length_report(canvas: Canvas, report: Report, data: dict, rep
                     column_headings=['Year', 'Count'],
                     number_rows=False))
 
+    if not (report.tower or report.ring):
+
+        circled_towers, almost_circled_towers, ungrabbed_towers, _ = _get_grab_stats(report, report_length_type)
+        tables.extend(
+            _draw_table('Circled Towers',
+                        circled_towers,
+                        key_to_str=lambda k: k.name,
+                        column_headings=['Tower', 'Count'],
+                        max_rows=20))
+        tables.extend(
+            _draw_table('Nearly-circled Towers',
+                        almost_circled_towers,
+                        key_to_str=lambda k: k.name,
+                        values_to_str=[lambda v: f'{v:.0%}'],
+                        column_headings=['Tower', 'Complete'],
+                        max_rows=20))
+        tables.extend(
+            _draw_table('Towers To Grab',
+                        ungrabbed_towers,
+                        key_to_str=lambda k: k.name,
+                        column_headings=['Tower'],
+                        max_rows=20))
+
+    _draw_table_pages(canvas, title, tables, num_columns_per_page=3)
+
     milestone_data = _get_milestones(report, data, report_length_type)
     if len(milestone_data) > 0:
-        tables.extend(
+        _draw_table_pages(
+            canvas,
+            title + ': Recent Milestones',
             _draw_table('Recent Milestones',
                         milestone_data,
                         column_headings=['Milestone', 'Count'],
                         max_rows=50,
                         number_rows=False,
                         column_widths=[30*mm, '*'],
-                        key_to_str=lambda d: utils.format_date_short(d)))
-
-    _draw_table_pages(canvas, title, tables, num_columns_per_page=3)
+                        key_to_str=lambda d: utils.format_date_short(d)),
+            num_columns_per_page=2)
 
     if 'bells' in data['types'][report_length_type]:
-        _draw_table_pages(canvas,
-                          title,
-                          _draw_table('Top 20 associations',
-                                      data['types'][report_length_type]['associations'],
-                                      ['Ringer', 'Count'],
-                                      max_rows=20),
-                          num_columns_per_page=2)
         for table in _draw_bell_table(report.ring or report.tower.get_active_ring(),
                                       data['types'][report_length_type]['bells'],
-                                      max_rows=75):
+                                      max_rows=250):
             _draw_table_page(canvas,
                              f'{report.name}: {report_length_type}s: Bells Rung',
                              [table])
@@ -193,7 +220,7 @@ def _draw_table_page(canvas: Canvas, title: str, tables: list[Table]):
 
 
 def _draw_table(title: str,
-                data: dict,
+                data: dict | list,
                 column_headings: list[str] = [None, 'Count'],
                 column_value_keys: list[str] = ['count'],
                 max_rows: int = None,
@@ -217,26 +244,28 @@ def _draw_table(title: str,
 
     data_rows = []
     data_rows.append(column_headings)
-
     for row_num, item in enumerate(data.keys() if type(data) is dict else data, 1):
         data_row = []
         if number_rows:
             data_row.append(Paragraph(str(row_num), style=ParagraphStyle(name='small', fontSize=8)))
         data_row.append(Paragraph(key_to_str(item) if key_to_str else str(item)))
-        value = data[item]
-        value_strs = []
-        if type(value) is int:
-            value_strs.append(f'{value:,}')
-        elif type(value) is dict:
-            for column_key, value_to_str in zip_longest(column_value_keys, values_to_str):
-                if value_to_str:
-                    value_strs.append(value_to_str(value[column_key]))
-                else:
-                    value_strs.append(f'{value[column_key]:,}')
-        else:
-            value_strs.append(str(value))
-        for value_str in value_strs:
-            data_row.append(Paragraph(value_str, style=ParagraphStyle(name='rhcol', alignment=TA_RIGHT)))
+        if type(data) is dict:
+            value = data[item]
+            value_strs = []
+            if type(value) is dict:
+                for column_key, value_to_str in zip_longest(column_value_keys, values_to_str):
+                    if value_to_str:
+                        value_strs.append(value_to_str(value[column_key]))
+                    else:
+                        value_strs.append(f'{value[column_key]:,}')
+            elif len(values_to_str) > 0:
+                value_strs.append(values_to_str[0](value))
+            elif type(value) is int:
+                value_strs.append(f'{value:,}')
+            else:
+                value_strs.append(str(value))
+            for value_str in value_strs:
+                data_row.append(Paragraph(value_str, style=ParagraphStyle(name='rhcol', alignment=TA_RIGHT)))
         data_rows.append(data_row)
         if (max_rows and row_num >= max_rows) or len(data_rows) > max_rows_in_current_page or row_num == len(data):
 
@@ -275,13 +304,11 @@ def _draw_table(title: str,
     return tables
 
 
-def _draw_bell_table(ring: Ring, data: dict, max_rows: int) -> list[Table]:
+def _get_ringer_bells(ring: Ring, data: dict) -> tuple[dict[Ringer, list[int]], list[int]]:
 
     bell_columns = []
     for bell_role in ring.bells.keys():
         bell_columns.append(bell_role)
-
-    headings = [['#', 'Ringer', *bell_columns, 'Total']]
 
     ringer_bells: dict[Ringer, list[int]] = dict()
     bell_data: dict[Ringer, int]
@@ -291,14 +318,24 @@ def _draw_bell_table(ring: Ring, data: dict, max_rows: int) -> list[Table]:
                 ringer_bells[ringer] = [0] * len(bell_columns)
             ringer_bells[ringer][bell_columns.index(bell_role)] = ringer_data['count']
 
-    for counts in ringer_bells.values():
+    return ringer_bells, bell_columns
+
+
+def _draw_bell_table(ring: Ring, data: dict, max_rows: int) -> list[Table]:
+
+    ringer_bells, bell_columns = _get_ringer_bells(ring, data)
+    for counts in ringer_bells.values():  # Add total column
         counts.append(sum(counts))
+
+    headings = [['#', 'Ringer', *bell_columns, 'Total']]
 
     tables = []
     table_data = []
     ringer_bells = dict(sorted(ringer_bells.items(), key=lambda x: (-x[1][-1], str(x[0]))))
     for row_num, ringer in enumerate(ringer_bells.keys(), 1):
-        table_data.append([Paragraph(str(row_num)), Paragraph(str(ringer)), *[f'{value:,}' for value in ringer_bells[ringer]]])
+        table_data.append([Paragraph(str(row_num), style=ParagraphStyle(name='small', fontSize=8)),
+                           Paragraph(str(ringer)),
+                           *[f'{value:,}' for value in ringer_bells[ringer]]])
         if (max_rows and row_num >= max_rows) or len(table_data) > MAX_ROWS_PER_PAGE or row_num == len(ringer_bells):
             table = Table(headings + table_data, colWidths=[10*mm, '*', *([20*mm] * len(bell_columns))])
             table.setStyle(TableStyle([
@@ -317,6 +354,19 @@ def _draw_bell_table(ring: Ring, data: dict, max_rows: int) -> list[Table]:
     return tables
 
 
+def _get_circles(ring: Ring, data: dict) -> dict[Ringer, int]:
+
+    circles: dict[Ringer, int] = {}
+
+    ringer_bells, _ = _get_ringer_bells(ring, data)
+    for ringer, counts in ringer_bells.items():
+        num_circles = min(counts)
+        if num_circles > 0:
+            circles[ringer] = num_circles
+
+    return dict(sorted(circles.items(), key=lambda x: -x[1]))
+
+
 def _get_key_stats(report: Report, data: dict, report_length_type: PealLengthType) -> dict:
     stats = {}
     stats[f'Total {str(report_length_type).lower()}s'] = data['types'][report_length_type]['count']
@@ -333,6 +383,33 @@ def _get_key_stats(report: Report, data: dict, report_length_type: PealLengthTyp
     stats[f'First {str(report_length_type).lower()}'] = utils.format_date_full(data['types'][report_length_type]['first'])
     stats[f'Last {str(report_length_type).lower()}'] = utils.format_date_full(data['types'][report_length_type]['last'])
     return stats
+
+
+def _get_grab_stats(report: Report, report_length_type: PealLengthType) -> tuple:
+    if report.ringer and report.ringer.home_tower:
+        grabbed_towers = get_closest_grabs(report, report_length_type, report.ringer.home_tower)
+    else:
+        grabbed_towers = get_all_grabs(report, report_length_type)
+    circled_towers = {}
+    almost_circled_towers = {}
+    ungrabbed_bells = {}
+    ungrabbed_towers = []
+    for tower, bells in grabbed_towers.items():
+        ungrabbed_bell_list = [Bell.get(b).role for b, c in bells.items() if c == 0]
+        if circles := min(bells.values()):
+            circled_towers[tower] = circles
+        else:
+            num_grabbed_bells = len(bells) - len(ungrabbed_bell_list)
+            if num_grabbed_bells == 0:
+                ungrabbed_towers.append(tower)
+            else:
+                ungrabbed_bells[tower] = ungrabbed_bell_list
+                if num_grabbed_bells > 0:
+                    almost_circled_towers[tower] = num_grabbed_bells / len(bells)
+
+    almost_circled_towers = dict(sorted(almost_circled_towers.items(), key=lambda item: -item[1])[:20])
+
+    return circled_towers, almost_circled_towers, ungrabbed_towers, ungrabbed_bells
 
 
 def _get_milestones(report: Report, data: dict, report_length_type: PealLengthType) -> dict[datetime.date, str]:

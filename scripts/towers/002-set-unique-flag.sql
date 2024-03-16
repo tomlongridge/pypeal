@@ -7,7 +7,7 @@ WHERE NOT EXISTS (
 		FROM towers as ut
 		WHERE ut.id <> t.id
 		AND ut.place = t.place
-		AND ut.sub_place = t.sub_place
+		AND ((ut.sub_place IS NULL and t.sub_place IS NULL) OR ut.sub_place = t.sub_place)
         AND ut.county = t.county
         AND ut.country = t.country
 	) tbl_temp

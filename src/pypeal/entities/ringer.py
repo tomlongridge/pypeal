@@ -4,8 +4,9 @@ from datetime import datetime
 from pypeal.cache import Cache
 
 from pypeal.db import Database
+from pypeal.entities.tower import Tower
 
-FIELD_LIST: list[str] = ['last_name', 'given_names', 'title', 'is_composer', 'link_id', 'date_to']
+FIELD_LIST: list[str] = ['last_name', 'given_names', 'title', 'is_composer', 'link_id', 'date_to', 'home_tower_id']
 
 
 class Ringer():
@@ -64,6 +65,10 @@ class Ringer():
                 if ringer_name.date_to is None or ringer_name.date_to >= date:
                     return ringer_name.name
             raise ValueError(f'No name found for ringer {self.id} on date {date}')
+
+    @property
+    def home_tower(self) -> Tower:
+        return self.__names[-1].home_tower if self.__names else None
 
     def commit(self):
         self.__names[-1].commit()
@@ -190,6 +195,7 @@ class Ringer():
         is_composer: bool = False
         link_id: int = None
         date_to: datetime.date = None
+        home_tower: Tower = None
         id: int = None
 
         @property
@@ -208,13 +214,15 @@ class Ringer():
             if self.id:
                 result = Database.get_connection().query(
                     'UPDATE ringers ' +
-                    'SET last_name = %s, given_names = %s, title = %s, is_composer = %s, link_id = %s, date_to = %s ' +
+                    'SET last_name = %s, given_names = %s, title = %s, is_composer = %s, link_id = %s, date_to = %s, home_tower_id = %s ' +
                     'WHERE id = %s',
-                    (self.last_name, self.given_names, self.title, self.is_composer, self.link_id, self.date_to, self.id))
+                    (self.last_name, self.given_names, self.title, self.is_composer, self.link_id, self.date_to,
+                     self.home_tower.id if self.home_tower else None, self.id))
                 Database.get_connection().commit()
             else:
                 result = Database.get_connection().query(
-                    f'INSERT INTO ringers ({",".join(FIELD_LIST)}) VALUES (%s, %s, %s, %s, %s, %s)',
-                    (self.last_name, self.given_names, self.title, self.is_composer, self.link_id, self.date_to))
+                    f'INSERT INTO ringers ({",".join(FIELD_LIST)}) VALUES (%s, %s, %s, %s, %s, %s, %s)',
+                    (self.last_name, self.given_names, self.title, self.is_composer, self.link_id, self.date_to,
+                     self.home_tower.id if self.home_tower else None))
                 Database.get_connection().commit()
                 self.id = result.lastrowid

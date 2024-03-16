@@ -559,6 +559,9 @@ class Peal:
         if not self.ringers:
             raise ValueError('Peal must have at least one ringer before it is saved')
 
+        if self.ring and self.ring.id is None:
+            self.ring.commit()
+
         self.created_date = datetime.now()
 
         result = Database.get_connection().query(
@@ -875,9 +878,9 @@ class Peal:
             elif length_type == PealLengthType.QUARTER_PEAL:
                 query += 'AND peals.changes >= 1250 AND peals.changes < 5000 '
             elif length_type == PealLengthType.PEAL:
-                query += 'AND peals.changes >= 5000 AND peals.changes < 10_000 '
+                query += 'AND peals.changes >= 5000 AND peals.changes < 10000 '
             elif length_type == PealLengthType.LONG_LENGTH:
-                query += 'AND peals.changes >= 10_000 '
+                query += 'AND peals.changes >= 10000 '
             if config.get_config('general', 'short_peal_threshold') is not None:
                 query += ') OR (peals.stage < %(short_peal_threshold)s '
                 if length_type == PealLengthType.TOUCH:
@@ -885,9 +888,9 @@ class Peal:
                 elif length_type == PealLengthType.QUARTER_PEAL:
                     query += 'AND peals.changes >= 1260 AND peals.changes < 5040 '
                 elif length_type == PealLengthType.PEAL:
-                    query += 'AND peals.changes >= 5040 AND peals.changes < 10_000 '
+                    query += 'AND peals.changes >= 5040 AND peals.changes < 10000 '
                 elif length_type == PealLengthType.LONG_LENGTH:
-                    query += 'AND peals.changes >= 10_000 '
+                    query += 'AND peals.changes >= 10000 '
                 query += '))'
         if bell_type is not None:
             query += 'AND peals.bell_type = %(bell_type)s '
