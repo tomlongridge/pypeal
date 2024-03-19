@@ -58,8 +58,10 @@ def ask_int(prompt: str, default: int = None, min: int = None, max: int = None, 
         while True:
             response = IntPrompt.ask(prompt, default=default, show_default=(default is not None))
             if response is None:
-                if not required or default is None:
+                if not required:
                     break
+                else:
+                    continue
             else:
                 if min is not None and response < min:
                     error(f'Number must be {min} or more')

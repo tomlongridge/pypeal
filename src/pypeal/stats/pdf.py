@@ -14,7 +14,7 @@ from pypeal.entities.peal import PealLengthType
 
 from pypeal.entities.report import Report
 from pypeal.entities.ringer import Ringer
-from pypeal.entities.tower import Bell, Ring, Tower
+from pypeal.entities.tower import Bell, Ring
 from pypeal.stats.distance import get_all_grabs, get_closest_grabs
 from pypeal.stats.report import generate_summary
 

@@ -29,16 +29,11 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 🏛 Association: None
-Bell type: 1) Tower, 2) Handbells
-Select option (1): 
->>> 2
-[User input: "Handbells"]
-🔔 Bell type: Handbells
 Date (yyyy/mm/dd) ([Today]): 
 >>> 2000/12/31
 [User input: "2000/12/31"]
 📅 Date: Sunday, 31 December 2000
-Location: 
+Location: Unknown
 Attempt to find a tower? [y/n] (n): 
 >>> n
 [User input: "False"]
@@ -61,6 +56,10 @@ Bath, Somerset, England
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
+Bell type: 1) Tower, 2) Handbells
+Select option (1): 
+>>> 2
+[User input: "Handbells"]
 📍 Location: Bath, Somerset, England
 📍 Detail: 1 High Street
 Number of changes: 

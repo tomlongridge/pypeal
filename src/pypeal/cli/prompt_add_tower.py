@@ -3,18 +3,19 @@ from pypeal.cli.prompts import ask, ask_int, confirm
 from pypeal.entities.tower import Tower
 
 
-def prompt_find_tower() -> Tower:
+def prompt_find_tower(search_string: str = None) -> Tower:
     tower = None
     while True:
-        match choose_option(['Dove ID', 'Search by name', 'None'], title='Tower'):
+        match choose_option(['Dove ID', 'Search by name', 'None'], title='Tower') if not search_string else 2:
             case 1:
                 tower = _get_tower_by_dove_id()
             case 2:
-                tower = _get_tower_by_search()
+                tower = _get_tower_by_search(search_string)
             case 3:
                 break
         if tower is not None:
             break
+        search_string = None
     return tower
 
 
@@ -30,11 +31,11 @@ def _get_tower_by_dove_id() -> Tower:
     return tower
 
 
-def _get_tower_by_search() -> Tower:
+def _get_tower_by_search(search_string: str = None) -> Tower:
     tower = None
     while True:
         towers = Tower.search(
-            place=ask('Place', required=False),
+            place=ask('Place', required=False, default=search_string),
             dedication=ask('Dedication', required=False),
             county=ask('County', required=False),
             country=ask('Country', required=False),
@@ -50,4 +51,5 @@ def _get_tower_by_search() -> Tower:
                 tower = choose_option(towers, title='Choose tower', none_option='None')
         if tower is not None or not confirm('Tower not found. Try again?', default=True):
             break
+        search_string = None
     return tower

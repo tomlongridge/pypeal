@@ -25,19 +25,39 @@ Association:
 >>> 
 [User input: "None"]
 🏛 Association: None
-Bell type: 1) Tower, 2) Handbells
-Select option (1): 
->>> 1
-[User input: "Tower"]
-🔔 Bell type: Tower
 Date (yyyy/mm/dd) ([Today]): 
 >>> 2000/01/01
 [User input: "2000/01/01"]
 📅 Date: Saturday, 1 January 2000
-Dove ID or tower description: 
+Location: Unknown
+Attempt to find a tower? [y/n] (n): 
+>>> y
+[User input: "True"]
+Tower: 1) Dove ID, 2) Search by name, 3) None
+Select option: 
+>>> 2
+[User input: "2"]
+Place: 
 >>> Withycombe Raleigh
 [User input: "Withycombe Raleigh"]
-🏰 Tower: Withycombe Raleigh (S John Ev), Devon
+Dedication: 
+>>> 
+[User input: "None"]
+County: 
+>>> 
+[User input: "None"]
+Country: 
+>>> 
+[User input: "None"]
+Number of bells: 
+>>> 
+[User input: "None"]
+Withycombe Raleigh, Devon. 12, 17-1-10 in D#.
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+📍 Location: Withycombe Raleigh, Devon, England
+📍 Detail: S John Ev
 Number of changes: 
 >>> 1260
 [User input: "1260"]

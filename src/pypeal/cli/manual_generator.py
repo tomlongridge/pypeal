@@ -1,11 +1,9 @@
 import datetime
 from pypeal.bellboard.listener import PealGeneratorListener
-from pypeal.cli.chooser import choose_option
 from pypeal.cli.generator import PealGenerator
 from pypeal.cli.prompts import ask, ask_date, ask_int, confirm, error
 from pypeal.parsers import parse_bell_nums
-from pypeal.entities.peal import BellType, PealType
-from pypeal.entities.tower import Tower
+from pypeal.entities.peal import PealType
 
 
 class ManualGenerator(PealGenerator):
@@ -15,13 +13,8 @@ class ManualGenerator(PealGenerator):
         listener.new_peal(None)
 
         listener.association(ask('Association', required=False))
-        bell_type = choose_option([e for e in BellType], title='Bell type', default=BellType.TOWER)
-        listener.bell_type(bell_type)
         listener.date(ask_date('Date', default=datetime.date.today(), required=True))
-        if bell_type == BellType.TOWER:
-            listener.tower(dove_id=self._tower_search().id)
-        else:
-            listener.location(None, None, None, None)
+        listener.location(None, None, None, None)
         listener.changes(ask_int('Number of changes', required=False))
         listener.title(ask('Title', required=True))
 
@@ -89,29 +82,3 @@ class ManualGenerator(PealGenerator):
                 break
 
         listener.end_peal()
-
-    def _tower_search(self) -> Tower:
-        tower_str = ask('Dove ID or tower description', required=True)
-        tower = None
-        if tower_str.isnumeric():
-            tower = Tower.get(dove_id=int(tower_str))
-        else:
-            matched_by_name = Tower.search(place=tower_str)
-            if len(matched_by_name) == 1:
-                tower = matched_by_name[0]
-        while tower is None:
-            print('No single tower matched, please refine search')
-            matched_by_search = Tower.search(place=ask('Place/sub-place', required=False, default=tower_str),
-                                             dedication=ask('Dedication', required=False),
-                                             county=ask('County', required=False),
-                                             country=ask('Country', required=False),
-                                             num_bells=ask_int('Number of bells', required=False),
-                                             exact_match=False)
-            match len(matched_by_search):
-                case 0:
-                    print('No towers found')
-                case 1:
-                    tower = matched_by_search[0]
-                case 2:
-                    tower = choose_option(matched_by_search, title='Choose tower', none_option='None')
-        return tower

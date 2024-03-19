@@ -2,14 +2,14 @@ import re
 from pypeal.cli.prompt_add_tower import prompt_find_tower
 from pypeal.cli.prompts import ask, confirm, error
 from pypeal.cli.chooser import choose_option
-from pypeal.entities.peal import Peal
+from pypeal.entities.peal import BellType, Peal
 
 DEDICATION_REGEX = re.compile(r'^st?\s|cath|blessed|holy|all saints|chapel|christ|abbey|our lady|our blessed')
 
 
 def prompt_add_location(address_dedication: str, place: str, county: str, country: str, peal: Peal, quick_mode: bool):
 
-    if not quick_mode:
+    if not quick_mode or not (address_dedication or place or county or country):
         full_location = ''
         full_location += f', {address_dedication} ' if address_dedication else ''
         full_location += f', {place}' if place else ''
@@ -17,10 +17,11 @@ def prompt_add_location(address_dedication: str, place: str, county: str, countr
         full_location += f', {country}' if country else ''
         full_location = full_location.strip(', ')
 
-        if confirm(f'Location: {full_location}', confirm_message='Attempt to find a tower?', default=False):
+        if confirm(f'Location: {full_location or "Unknown"}', confirm_message='Attempt to find a tower?', default=False):
             selected_tower = prompt_find_tower()
             if selected_tower:
                 peal.ring = selected_tower.get_active_ring(peal.date)
+                peal.bell_type = BellType.TOWER
                 return
 
     while True:
@@ -85,5 +86,12 @@ def prompt_add_location(address_dedication: str, place: str, county: str, countr
         peal.county = ask('County/state', county) if not quick_mode else county
         peal.country = ask('Country', country) if not quick_mode else country
 
-        if quick_mode or confirm(peal.location):
-            return
+        if not quick_mode and not confirm(peal.location):
+            continue
+
+        if peal.bell_type is None:
+            peal.bell_type = choose_option([BellType.TOWER, BellType.HANDBELLS],
+                                           default=1,
+                                           title='Bell type')
+
+        return
