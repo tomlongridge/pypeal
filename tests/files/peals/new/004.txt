@@ -26,7 +26,7 @@ Association:
 >>> 
 [User input: "None"]
 🏛 Association: None
-Date (yyyy/mm/dd) ([Today]): 
+Date (yyyy/mm/dd) (2021/01/01): 
 >>> 2010/01/01
 [User input: "2010/01/01"]
 📅 Date: Friday, 1 January 2010
@@ -97,6 +97,20 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 Peal (ID 4) added
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Bath, Somerset, England                                                      │
+│ Blessed Virgin Mary, Bathwick                                                │
+│ On Friday, 1 January 2010                                                    │
+│ Rounds & Called Changes                                                      │
+│                                                                              │
+│ Adam Apple                                                                   │
+│ Ben Bob                                                                      │
+│                                                                              │
+│ [Database ID: 4]                                                             │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Submit peal? [y/n] (y): 
+>>> n
+[User input: "False"]
 pypeal Database
  Quarter Peal count: 2                                Last updated: [Timestamp] 
  Peal count: 1                                                                  

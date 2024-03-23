@@ -25,7 +25,7 @@ Association:
 >>> 
 [User input: "None"]
 🏛 Association: None
-Date (yyyy/mm/dd) ([Today]): 
+Date (yyyy/mm/dd) (2021/01/01): 
 >>> 2000/01/01
 [User input: "2000/01/01"]
 📅 Date: Saturday, 1 January 2000
@@ -234,6 +234,28 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 Peal (ID 2) added
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Withycombe Raleigh, Devon, England                                           │
+│ S John Ev                                                                    │
+│ On Saturday, 1 January 2000                                                  │
+│ A Quarter Peal of 1260 Plain Bob Doubles (17-1-10 in D#)                     │
+│ Composed by: Zachary Zeus                                                    │
+│                                                                              │
+│ 1 [7]: Gordon Gopher                                                         │
+│ 2 [8]: Harold Hedgehog                                                       │
+│ 3 [9]: Iris Iguana (c)                                                       │
+│ 4 [10]: Jack Johnson                                                         │
+│ 5 [11]: Katie Kimble                                                         │
+│ 6 [12]: Lisa Lampard                                                         │
+│                                                                              │
+│ 6: First quarter.                                                            │
+│                                                                              │
+│ [Composition URL: http://complib.org/composition/1]                          │
+│ [Database ID: 2]                                                             │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Submit peal? [y/n] (y): 
+>>> n
+[User input: "False"]
 pypeal Database
  Quarter Peal count: 2                                Last updated: [Timestamp] 
 ┌──────────────────────────────────────────────────────────────────────────────┐

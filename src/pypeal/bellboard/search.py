@@ -3,7 +3,7 @@ from typing import Iterator
 import xml.etree.ElementTree as ET
 
 from pypeal.bellboard.interface import BellboardError, search as do_search
-from pypeal.entities.peal import BellType
+from pypeal.entities.peal import BellType, Peal
 
 
 XML_NAMESPACE = '{http://bb.ringingworld.co.uk/NS/performances#}'
@@ -26,7 +26,7 @@ def search(ringer_name: str = None,
            title: str = None,
            bell_type: BellType = None,
            order_by_submission_date: bool = True,
-           order_descending: bool = True) -> Iterator[int]:
+           order_descending: bool = True) -> Iterator[tuple[int, str]]:
 
     criteria = {}
     if ringer_name:
@@ -64,7 +64,19 @@ def search(ringer_name: str = None,
     yield from _perform_search(criteria)
 
 
-def _perform_search(criteria: dict[str, any]) -> Iterator[int]:
+def find_matching_peal(peal: Peal) -> Iterator[tuple[int, str]]:
+    yield from search(
+        date_from=peal.date or None,
+        date_to=peal.date or None,
+        tower_id=peal.ring.tower.id if peal.ring else None,
+        place=peal.place or None,
+        region=peal.county or None,
+        dedication=peal.dedication or None,
+        association=peal.association or None,
+        bell_type=peal.bell_type or None)
+
+
+def _perform_search(criteria: dict[str, any]) -> Iterator[tuple[int, str]]:
 
     if len(criteria) == 0 or (len(criteria) == 1 and 'date_to' in criteria):
         raise BellboardError('No search criteria provided - requires "Date to" and at least one other field')
@@ -80,7 +92,7 @@ def _perform_search(criteria: dict[str, any]) -> Iterator[int]:
 
         for performance in tree.findall(f'./{XML_NAMESPACE}performance'):
             found_peals = True
-            yield int(performance.attrib['href'].split('=')[1])
+            yield int(performance.attrib['href'].split('=')[1]), search_url
 
     if not found_peals and page == 1:
         raise BellboardSearchNoResultFoundError(search_url)

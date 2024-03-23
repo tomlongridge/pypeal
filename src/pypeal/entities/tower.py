@@ -47,7 +47,9 @@ class Tower():
             (self.id,)).fetchall()
         return [Ring.get(result[0]) for result in results]
 
-    def get_active_ring(self, at_date: datetime.date = datetime.now()) -> Ring:
+    def get_active_ring(self, at_date: datetime.date = None) -> Ring:
+        if at_date is None:
+            at_date = utils.get_now().date()
         results = Database.get_connection().query(
             'SELECT id FROM rings ' +
             'WHERE tower_id = %s ' +

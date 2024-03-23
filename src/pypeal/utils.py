@@ -1,6 +1,8 @@
 from datetime import datetime
 import re
 
+from pypeal.config import get_config
+
 NUM_TO_WORD = {
     2: 'two',
     3: 'three',
@@ -243,3 +245,9 @@ def suffix_number(value: int) -> str:
         return f'{value}rd'
     else:
         return f'{value}th'
+
+
+def get_now() -> datetime:
+    if get_config('diagnostics', 'print_user_input'):
+        return datetime(2021, 1, 1)
+    return datetime.now()

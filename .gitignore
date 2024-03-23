@@ -5,3 +5,6 @@ __pycache__/
 
 /debug.log
 /reports
+/tests/reports
+
+.config*.ini

@@ -1,6 +1,7 @@
 from __future__ import annotations
 from dataclasses import dataclass
 from datetime import datetime
+from pypeal import utils
 from pypeal.cache import Cache
 from pypeal.db import Database
 from pypeal.entities.peal import Peal, PealLengthType
@@ -55,7 +56,7 @@ class Report():
                         self.ring.id if self.ring else None, self.date_from, self.date_to, self.enabled, self.created_date, self.id))
             Database.get_connection().commit()
         else:
-            self.created_date = self.last_run_date = datetime.now()
+            self.created_date = self.last_run_date = utils.get_now()
             result = Database.get_connection().query(
                 f'INSERT INTO reports ({",".join(FIELD_LIST)}) ' +
                 f'VALUES ({("%s,"*len(FIELD_LIST)).strip(",")})',

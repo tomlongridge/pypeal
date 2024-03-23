@@ -5,6 +5,7 @@ import typer
 from rich import print
 from rich.table import Table
 
+from pypeal.cli.prompt_submit import prompt_submit_peal
 from pypeal.entities.association import Association
 
 from pypeal.cccbr import update_methods
@@ -12,7 +13,7 @@ from pypeal.cli.prompt_delete_peal import prompt_delete_peal
 from pypeal.cli.prompt_import_peal import add_peal, prompt_import_peal
 from pypeal.cli.manual_generator import ManualGenerator
 from pypeal.cli.prompt_report_stats import prompt_report
-from pypeal.cli.prompts import UserCancelled, ask_int, confirm, format_timestamp, heading, panel, error, prompt_peal_id
+from pypeal.cli.prompts import UserCancelled, ask_int, confirm, format_timestamp, heading, panel, error, press_any_key, prompt_peal_id
 from pypeal.cli.chooser import choose_option
 from pypeal.cli.prompt_search_peals import poll, prompt_search
 from pypeal.db import initialize as initialize_db
@@ -75,6 +76,8 @@ def main(
             run_view(peal_id_or_url)
         case 'delete':
             run_delete(peal_id_or_url)
+        case 'submit':
+            run_submit_peal(peal_id_or_url)
         case 'report':
             run_generate_reports()
         case _:
@@ -90,20 +93,38 @@ def run_import_peal(peal_id_or_url: str):
 
 
 def run_view(peal_id_or_url: str):
+    peal: Peal = None
     match choose_option(['Bellboard ID/URL', 'Peal ID'], default=1) if not peal_id_or_url else 1:
         case 1:
-            panel(str(Peal.get(bellboard_id=prompt_peal_id(peal_id_or_url))))
+            peal = Peal.get(bellboard_id=prompt_peal_id(peal_id_or_url))
         case 2:
-            panel(str(Peal.get(id=ask_int('Peal ID', min=1, required=True))))
-    confirm(None, 'Continue?')
+            peal = Peal.get(id=ask_int('Peal ID', min=1, required=True))
+
+    if peal is None:
+        error('Peal not found')
+        return
+    else:
+        panel(str(peal))
+
+    if peal.bellboard_id is None:
+        if confirm('This peal is not associated with a performance on BellBoard', confirm_message='Submit peal?', default=True):
+            prompt_submit_peal(peal)
+    else:
+        press_any_key()
 
 
 def run_delete(peal_id_or_url: str):
     prompt_delete_peal(peal_id_or_url)
 
 
+def run_submit_peal(peal_id_or_url: str):
+    if peal_id_or_url.isnumeric():
+        prompt_submit_peal(int(peal_id_or_url))
+
+
 def run_add_peal():
-    add_peal(ManualGenerator())
+    new_peal = add_peal(ManualGenerator())
+    prompt_submit_peal(new_peal)
 
 
 def run_generate_reports():

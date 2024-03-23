@@ -562,7 +562,7 @@ class Peal:
         if self.ring and self.ring.id is None:
             self.ring.commit()
 
-        self.created_date = datetime.now()
+        self.created_date = utils.get_now()
 
         result = Database.get_connection().query(
             f'INSERT INTO peals ({",".join(FIELD_LIST)}) ' +
@@ -609,10 +609,22 @@ class Peal:
             Database.get_connection().commit()
             self.__photos[i] = (result.lastrowid, url, caption, credit)
 
-    def update_bellboard_id(self, bellboard_id: int):
-        self.bellboard_id = bellboard_id
-        Database.get_connection().query('UPDATE peals SET bellboard_id = %s WHERE id = %s', (self.bellboard_id, self.id))
+    def update_bellboard_id(self, bellboard_id: int, submitter: str = None, submitted_date: datetime = None):
+        query = 'UPDATE peals SET bellboard_id = %(bellboard_id)s'
+        params = {'bellboard_id': bellboard_id}
+        if submitter:
+            query += ', bellboard_submitter = %(submitter)s'
+            params['submitter'] = submitter
+        if submitted_date:
+            query += ', bellboard_submitted_date = %(submitted_date)s'
+            params['submitted_date'] = submitted_date
+        query += ' WHERE id = %(id)s'
+        params['id'] = self.id
+        Database.get_connection().query(query, params)
         Database.get_connection().commit()
+        self.bellboard_id = bellboard_id
+        self.bellboard_submitter = submitter
+        self.bellboard_submitted_date = submitted_date
 
     def delete(self):
         if self.id is None:

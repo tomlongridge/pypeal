@@ -39,6 +39,31 @@ class BellboardMockServer(BaseHTTPRequestHandler):
             self.send_response(404)
             self.end_headers()
 
+    def do_POST(self):
+        if self.path.startswith('/submit.php'):
+            with open(os.path.join(os.path.dirname(__file__), '..', 'files', 'peals', 'submitted', '001.txt'), 'r') as f:
+                expected_content = f.read()
+                actual_content = self.rfile.read(int(self.headers['Content-Length'])).decode('utf-8')
+                if expected_content == actual_content:
+                    self.respond_with_file(
+                        os.path.join(os.path.dirname(__file__), '..', 'files', 'peals', 'submitted', 'response.html')
+                    )
+                    self.send_response(200)
+                else:
+                    self.respond_with_content('Unexpected peal submit content:' +
+                                              f'\n\nActual:\n\n{actual_content}\n\n' +
+                                              f'Expected:\n\n{expected_content}',
+                                              content_type='text/plain')
+                    self.send_response(400)
+            self.end_headers()
+        elif self.path.startswith('/login.php'):
+            self.send_response(200)
+            self.end_headers()
+            self.wfile.write(b'Login successful')
+        else:
+            self.send_response(404)
+            self.end_headers()
+
     def respond_with_content(self, content: str, content_type: str = 'text/html', encoding: str = 'utf-8'):
         self.send_response(200)
         self.send_header('Content-type', f'{content_type}; charset=utf-8')

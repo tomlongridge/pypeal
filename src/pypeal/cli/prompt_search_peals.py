@@ -4,6 +4,7 @@ import webbrowser
 
 from rich import print
 
+from pypeal import utils
 from pypeal.bellboard.interface import BellboardError
 from pypeal.bellboard.search import BellboardSearchNoResultFoundError, search as bellboard_search
 from pypeal.cli.prompt_add_tower import prompt_find_tower
@@ -57,7 +58,7 @@ def poll(run_all: bool = False):
     print('Polling for new peals...')
     for search in PealSearch.get_all():
         if search.poll_frequency:
-            if run_all or search.last_run_date < datetime.now() - timedelta(days=search.poll_frequency):
+            if run_all or search.last_run_date < utils.get_now() - timedelta(days=search.poll_frequency):
                 print(f'Polling for new peals matching search "{search.description}"...')
                 _search(search)
             else:
@@ -89,18 +90,18 @@ def _search(peal_search: PealSearch = None, prompt: bool = False):
         try:
             count_duplicate = 0
             count_added = 0
-            for peal_id in bellboard_search(ringer_name=peal_search.ringer_name,
-                                            date_from=peal_search.date_from,
-                                            date_to=peal_search.date_to,
-                                            tower_id=peal_search.tower_id,
-                                            place=peal_search.place,
-                                            region=peal_search.region,
-                                            address=peal_search.address,
-                                            association=peal_search.association,
-                                            title=peal_search.title,
-                                            bell_type=peal_search.bell_type,
-                                            order_by_submission_date=peal_search.order_by_submission_date,
-                                            order_descending=peal_search.order_descending):
+            for peal_id, _ in bellboard_search(ringer_name=peal_search.ringer_name,
+                                               date_from=peal_search.date_from,
+                                               date_to=peal_search.date_to,
+                                               tower_id=peal_search.tower_id,
+                                               place=peal_search.place,
+                                               region=peal_search.region,
+                                               address=peal_search.address,
+                                               association=peal_search.association,
+                                               title=peal_search.title,
+                                               bell_type=peal_search.bell_type,
+                                               order_by_submission_date=peal_search.order_by_submission_date,
+                                               order_descending=peal_search.order_descending):
 
                 peal_search.record_run()
 
@@ -149,12 +150,12 @@ def _create_search(peal_search: PealSearch):
                                   required=False)
     peal_search.date_from = ask_date('Date from',
                                      default=peal_search.date_from,
-                                     max=datetime.date(datetime.now()),
+                                     max=datetime.date(utils.get_now()),
                                      required=False)
     peal_search.date_to = ask_date('Date to',
                                    default=peal_search.date_to,
                                    min=peal_search.date_from,
-                                   max=datetime.date(datetime.now()),
+                                   max=datetime.date(utils.get_now()),
                                    required=False)
     peal_search.association = ask('Association',
                                   default=peal_search.association,

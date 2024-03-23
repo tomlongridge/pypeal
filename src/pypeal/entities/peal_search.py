@@ -1,6 +1,7 @@
 from __future__ import annotations
 from dataclasses import dataclass
 from datetime import datetime
+from pypeal import utils
 from pypeal.cache import Cache
 from pypeal.db import Database
 
@@ -73,7 +74,7 @@ class PealSearch():
 
     def record_run(self):
         if self.id:
-            self.last_run_date = datetime.now()
+            self.last_run_date = utils.get_now()
             Database.get_connection().query('UPDATE pealsearches SET last_run_date = %s WHERE id = %s',
                                             params=(self.last_run_date, self.id))
             Database.get_connection().commit()
@@ -90,7 +91,7 @@ class PealSearch():
                         self.id))
             Database.get_connection().commit()
         else:
-            self.created_date = self.last_run_date = datetime.now()
+            self.created_date = self.last_run_date = utils.get_now()
             result = Database.get_connection().query(
                 f'INSERT INTO pealsearches ({",".join(FIELD_LIST)}) ' +
                 f'VALUES ({("%s,"*len(FIELD_LIST)).strip(",")})',

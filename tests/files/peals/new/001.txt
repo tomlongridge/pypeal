@@ -38,7 +38,7 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 🏛 Association: Bath and Wells Diocesan Association
-Date (yyyy/mm/dd) ([Today]): 
+Date (yyyy/mm/dd) (2021/01/01): 
 >>> 2020/01/01
 [User input: "2020/01/01"]
 📅 Date: Wednesday, 1 January 2020
@@ -218,6 +218,28 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 Peal (ID 1) added
+╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+│ Bath and Wells Diocesan Association                                          │
+│ Bath, Somerset, England                                                      │
+│ Blessed Virgin Mary, Bathwick                                                │
+│ On Wednesday, 1 January 2020                                                 │
+│ A Quarter Peal of 1260 Grandsire Doubles (7-3-12 in Bb)                      │
+│                                                                              │
+│ 1: Adam Apple                                                                │
+│ 2: Ben Bob                                                                   │
+│ 3: Charlie Cook                                                              │
+│ 4: Darcy Davis                                                               │
+│ 5: Enid Evans (c)                                                            │
+│ 6: Freddie Firth                                                             │
+│                                                                              │
+│ [Database ID: 1]                                                             │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Submit peal? [y/n] (y): 
+>>> y
+[User input: "True"]
+Submitting peal to BellBoard...
+Success: http://localhost:8080/view.php?id=1
+Updated peal with BellBoard ID
 pypeal Database
  Quarter Peal count: 1                                Last updated: [Timestamp] 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -249,4 +271,5 @@ A Quarter Peal of 1260 Grandsire Doubles (7-3-12 in Bb)
 5: Enid Evans (c)
 6: Freddie Firth
 
+[BellBoard: http://localhost:8080/view.php?id=1 (username, Friday, 1 January 2021)]
 [Database ID: 1]

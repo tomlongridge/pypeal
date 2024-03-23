@@ -435,6 +435,25 @@ pypeal Database
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
+>>> 5
+[User input: "5"]
+Generating reports...
+- /Users/tom.longridge/projects/HomeProjects/pypeal/tests/reports/all2.pdf
+pypeal Database
+ Quarter Peal count: 1                                Last updated: [Timestamp] 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) BellBoard search                                                          │
+│ 2) Add peal by ID/URL                                                        │
+│ 3) Add peal manually                                                         │
+│ 4) View statistics                                                           │
+│ 5) Generate reports                                                          │
+│ 6) View peal                                                                 │
+│ 7) Delete peal                                                               │
+│ 8) Update static data                                                        │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
 >>> x
 [User input: "None"]
 ===

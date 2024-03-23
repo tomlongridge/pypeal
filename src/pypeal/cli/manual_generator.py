@@ -1,4 +1,4 @@
-import datetime
+from pypeal import utils
 from pypeal.bellboard.listener import PealGeneratorListener
 from pypeal.cli.generator import PealGenerator
 from pypeal.cli.prompts import ask, ask_date, ask_int, confirm, error
@@ -13,7 +13,7 @@ class ManualGenerator(PealGenerator):
         listener.new_peal(None)
 
         listener.association(ask('Association', required=False))
-        listener.date(ask_date('Date', default=datetime.date.today(), required=True))
+        listener.date(ask_date('Date', default=utils.get_now(), required=True))
         listener.location(None, None, None, None)
         listener.changes(ask_int('Number of changes', required=False))
         listener.title(ask('Title', required=True))

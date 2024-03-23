@@ -39,7 +39,7 @@ def prompt_commit_peal(peal: Peal) -> Peal:
                         case 1:
                             # Forget about the new peal but update the BellBoard ID to the new one
                             # (Bellboard creates new IDs when a peal as been edited)
-                            dup.update_bellboard_id(peal.bellboard_id)
+                            dup.update_bellboard_id(peal.bellboard_id, peal.bellboard_submitter, peal.bellboard_submitted_date)
                             peal = None
                         case 2:
                             # Delete the existing peal and commit the new one

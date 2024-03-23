@@ -2,18 +2,28 @@ import configparser
 import json
 import os
 
-from pypeal import utils
-
 _config = None
 
 
 def set_config_file(path: str):
     if os.path.exists(path):
+
         global _config
         _config = configparser.ConfigParser(delimiters='=',
                                             comment_prefixes='#',
                                             inline_comment_prefixes='#')
-        _config.read(path)
+
+        config_paths = [path]
+
+        # Add config file of same name with dot prefix for secrets, if it exists
+        dir_name = os.path.dirname(path)
+        file_name = os.path.basename(path)
+        secrets_path = os.path.join(dir_name, '.' + file_name)
+        if os.path.exists(secrets_path):
+            config_paths.append(secrets_path)
+
+        _config.read(config_paths, encoding='utf-8')
+
     else:
         raise FileNotFoundError(f'Configuration file not found at: {path}')
 
@@ -44,6 +54,6 @@ def get_config(section: str, key: str = None) -> dict | list | int | float | boo
             elif value.lower() == 'true' or value.lower() == 'false':
                 return bool(value)
             else:
-                return utils.parse_date(value) or value
+                return value
 
     return None

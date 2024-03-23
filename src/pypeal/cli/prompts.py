@@ -23,8 +23,6 @@ class UserCancelled(Exception):
 def print_user_input(prompt: str, message: str):
     logger.debug(f'User input >> {prompt}: {message}')
     if get_config('diagnostics', 'print_user_input'):
-        if message == datetime.now().strftime('%Y/%m/%d'):  # Avoid printing today's date so it doesn't change in test
-            message = '[Today]'
         print(f'\n[User input: "{message}"]')
 
 
@@ -36,9 +34,6 @@ def format_timestamp(date: any):
 
 
 def ask(prompt: str, default: any = None, required: bool = True) -> str:
-    if default is not None and type(default) is str and get_config('diagnostics', 'print_user_input'):
-        if datetime.now().strftime('%Y/%m/%d') in default:
-            default = default.replace(datetime.now().strftime('%Y/%m/%d'), '[Today]')
     try:
         while True:
             response = Prompt.ask(prompt, default=str(default) if default else None, show_default=default is not None)
@@ -92,7 +87,7 @@ def ask_date(prompt: str,
                 break
             if response is not None:
                 if response.isnumeric() or (response.startswith('-') and response[1:].isnumeric()):
-                    response = (default or datetime.date(datetime.now())) + timedelta(days=int(response))
+                    response = (default or datetime.date(utils.get_now())) + timedelta(days=int(response))
                 elif not (response := utils.parse_date(response)):
                     error('Invalid date - please enter in format yyyy/mm/dd')
                     continue
@@ -117,6 +112,15 @@ def confirm(prompt: str, confirm_message: str = 'Is this correct?', default: boo
         response = Confirm.ask(confirm_message, default=default, show_default=True)
         print_user_input(confirm_message, response)
         return response
+    except KeyboardInterrupt:
+        print_user_input(prompt, '[Abort]')
+        print()  # Ensure subsequent prompt is on a new line
+        raise UserCancelled()
+
+
+def press_any_key(prompt: str = 'Press any key to continue...'):
+    try:
+        input(prompt)
     except KeyboardInterrupt:
         print_user_input(prompt, '[Abort]')
         print()  # Ensure subsequent prompt is on a new line
