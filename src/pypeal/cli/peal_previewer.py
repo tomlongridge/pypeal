@@ -1,6 +1,6 @@
-from datetime import datetime
+import datetime
 from pypeal import utils
-from pypeal.bellboard.interface import get_url_from_id
+from pypeal.bellboard.utils import get_url_from_id
 from pypeal.bellboard.listener import PealGeneratorListener
 from pypeal.utils import format_date_full, get_bell_label
 
@@ -75,9 +75,10 @@ class PealPreviewListener(PealGeneratorListener):
         if url:
             self.__lines['photo'] = url
 
-    def bellboard_metadata(self, submitter: str, date: date):
-        self.__lines['bb_metadata'] = f'submitted by {submitter or "Unknown"}'
-        self.__lines['bb_metadata'] += f' on {format_date_full(date)}' if date else ''
+    def bellboard_metadata(self, submitter: str, date: datetime.date):
+        self.__lines['bb_metadata'] = {}
+        self.__lines['bb_metadata']['submitter'] = submitter or 'unknown'
+        self.__lines['bb_metadata']['date'] = date
 
     def external_reference(self, value: str):
         self.__lines['external_reference'] = value
@@ -99,8 +100,12 @@ class PealPreviewListener(PealGeneratorListener):
             text += (self.__lines['footnotes'])
             text += '\n'
         text += (f'Linked event: {self.__lines["event"]}\n') if 'event' in self.__lines else ''
-        text += (f'Bellboard: {get_url_from_id(self.__lines["id"])} ({self.__lines["bb_metadata"]})\n') \
-            if 'bb_metadata' in self.__lines else ''
+        text += f'Bellboard: {get_url_from_id(self.__lines["id"])}'
+        if 'bb_metadata' in self.__lines:
+            text += f' (submitted by {self.__lines["bb_metadata"]["submitter"]}'
+            text += f' on {utils.format_date_full(self.__lines["bb_metadata"]["date"])}' if self.__lines["bb_metadata"]["date"] else ''
+            text += ')'
+        text += '\n'
         text += (f'Photo: {self.__lines["photo"]}\n') if 'photo' in self.__lines else ''
         text += (f'External reference: {self.__lines["external_reference"]}\n') if 'external_reference' in self.__lines else ''
         return text.strip()
@@ -108,3 +113,8 @@ class PealPreviewListener(PealGeneratorListener):
     @property
     def data(self) -> dict:
         return self.__lines
+
+    @property
+    def metadata(self) -> tuple[str, datetime.date]:
+        if 'bb_metadata' in self.__lines:
+            return self.__lines['bb_metadata']['submitter'], self.__lines['bb_metadata']['date']

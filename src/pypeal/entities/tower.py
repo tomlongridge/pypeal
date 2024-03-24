@@ -79,6 +79,13 @@ class Tower():
             text += f', {self.country}'
         return text
 
+    @property
+    def dove_id(self) -> int:
+        if self.id < 0:  # Negative IDs come from Dove
+            return -1 * self.id
+        else:
+            return None
+
     def get_peals(self):
         from pypeal.entities.peal import Peal
         ring_ids = ','.join([str(ring.id) for ring in self.rings])

@@ -1,6 +1,7 @@
 import logging
 
-from pypeal.bellboard.interface import BellboardError, get_url_from_id
+from pypeal.bellboard.interface import BellboardError
+from pypeal.bellboard.utils import get_url_from_id
 from pypeal.bellboard.html_generator import HTMLPealGenerator
 from pypeal.cli.generator import PealGenerator
 from pypeal.cli.peal_prompter import PealPromptListener

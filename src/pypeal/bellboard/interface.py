@@ -8,11 +8,10 @@ from requests.sessions import Session
 from requests.exceptions import ConnectionError
 import urllib.parse
 from pypeal import utils
+from pypeal.bellboard.consts import BELLBOARD_PEAL_SEARCH_URL
+from pypeal.bellboard.utils import get_id_from_url, get_url_from_id
 from pypeal.config import get_config
-
-BELLBOARD_PEAL_ID_URL = '/view.php?id=%s'
-BELLBOARD_PEAL_RANDOM_URL = '/view.php?random'
-BELLBOARD_PEAL_SEARCH_URL = '/search.php?'
+from pypeal.entities.peal import BellType, Peal, PealType
 
 
 __logger = logging.getLogger('pypeal')
@@ -62,7 +61,7 @@ def login() -> Session:
 def submit_peal(date_rung: datetime.date,
                 place: str,
                 title: str,
-                ringers: list[tuple[str, list[int]]],
+                ringers: list[dict],
                 is_general_ringing: bool = False,
                 is_in_hand: bool = False,
                 association: str = None,
@@ -105,18 +104,50 @@ def submit_peal(date_rung: datetime.date,
         'submit': 'Submit'
     }
 
-    for ringer, bells in ringers:
-        if len(bells) == 1:
-            payload[f'ringers[{bells[0]}]'] = ringer
-        elif len(bells) == 2:
-            payload[f'ringers[{bells[0]}-{bells[1]}]'] = ringer
+    bell_count = 1
+    for ringer in ringers:
+        if 'bell_2' in ringer and ringer['bell_2'] is not None:
+            payload[f'ringers[{ringer["bell_1"]}-{ringer["bell_2"]}]'] = ringer['text']
+            bell_count += 2
+        elif 'bell_1' in ringer and ringer['bell_1'] is not None:
+            payload[f'ringers[{ringer["bell_1"]}]'] = ringer['text']
+            bell_count += 1
         else:
-            raise BellboardError(f'Unable to submit peal for ringer with {len(bells)} bells: {ringer}')
+            payload[f'ringers[{bell_count}]'] = ringer['text']
+            bell_count += 1
 
     url = get_config('bellboard', 'url') + '/submit.php'
     __logger.info(f'Submitting peal to Bellboard at {url}')
 
     return _request(url, payload=payload, session=__session).text
+
+
+def get_bb_fields_from_peal(peal: Peal) -> dict:
+    ringer_data = []
+    for ringer in peal.ringers:
+        ringer_data.append({
+            'bell_1': ringer.bell_nums[0] if ringer.bell_nums and len(ringer.bell_nums) > 0 else None,
+            'bell_2': ringer.bell_nums[1] if ringer.bell_nums and len(ringer.bell_nums) > 1 else None,
+            'text': ringer.ringer.name + (' (c)' if ringer.is_conductor else '')
+        })
+    return {
+        'date_rung': peal.date,
+        'place': peal.place,
+        'title': peal.title,
+        'ringers': ringer_data,
+        'is_general_ringing': peal.type == PealType.GENERAL_RINGING,
+        'is_in_hand': peal.bell_type == BellType.HANDBELLS,
+        'association': peal.association,
+        'region_or_county': peal.county,
+        'address_or_dedication': (peal.address if peal.address else peal.dedication) +
+                                 (f', {peal.sub_place}' if peal.sub_place else ''),
+        'changes': peal.changes,
+        'duration': utils.get_time_str(peal.duration) if peal.duration else None,
+        'tenor_size': utils.get_weight_str(peal.tenor_weight) if peal.tenor_weight else None,
+        'details': peal.composition_note,
+        'composer': peal.composer,
+        'footnotes': [str(footnote) for footnote in peal.footnotes]
+    }
 
 
 def get_peal(id: int) -> tuple[int, str]:
@@ -168,14 +199,3 @@ def request(url: str, payload: dict = None, headers: dict[str, str] = None) -> t
 def request_bytes(url: str, headers: dict[str, str] = None) -> tuple[str, bytes]:
     response = _request(url, headers=headers)
     return (response.url, response.content)
-
-
-def get_url_from_id(id: int) -> str:
-    return get_config('bellboard', 'url') + (BELLBOARD_PEAL_ID_URL % id if id else BELLBOARD_PEAL_RANDOM_URL)
-
-
-def get_id_from_url(url: str) -> int:
-    if url and url.startswith('http') and url.find('id=') != -1:
-        return int(url.split('id=')[1].split('&')[0])
-    else:
-        return None

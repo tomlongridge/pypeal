@@ -218,6 +218,9 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 Peal (ID 1) added
+Submit peal to BellBoard? [y/n] (y): 
+>>> y
+[User input: "True"]
 ╭─────────────────────────────────── pypeal ───────────────────────────────────╮
 │ Bath and Wells Diocesan Association                                          │
 │ Bath, Somerset, England                                                      │
@@ -234,6 +237,17 @@ Peal (ID 1) added
 │                                                                              │
 │ [Database ID: 1]                                                             │
 ╰──────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Warning: Possible duplicate peals found on BellBoard:                        │
+│ http://localhost:8080/search.php?from=01/01/2020&to=01/01/2020&dove_tower=13 │
+│ 019&bells_type=tower&order=newest&page=1                                     │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Check these peals for duplicates? [y/n] (y): 
+>>> n
+[User input: "False"]
+Edit fields before submitting? [y/n] (n): 
+>>> n
+[User input: "False"]
 Submit peal? [y/n] (y): 
 >>> y
 [User input: "True"]

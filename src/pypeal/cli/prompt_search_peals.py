@@ -93,7 +93,7 @@ def _search(peal_search: PealSearch = None, prompt: bool = False):
             for peal_id, _ in bellboard_search(ringer_name=peal_search.ringer_name,
                                                date_from=peal_search.date_from,
                                                date_to=peal_search.date_to,
-                                               tower_id=peal_search.tower_id,
+                                               dove_tower_id=peal_search.tower_id,
                                                place=peal_search.place,
                                                region=peal_search.region,
                                                address=peal_search.address,

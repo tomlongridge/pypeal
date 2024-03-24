@@ -226,23 +226,7 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 Peal (ID 3) added
-╭─────────────────────────────────── pypeal ───────────────────────────────────╮
-│ Bath, Somerset, England                                                      │
-│ 1 High Street (in hand)                                                      │
-│ On Sunday, 31 December 2000                                                  │
-│ A Peal of 5040 Cambridge Surprise Minor                                      │
-│                                                                              │
-│ 1,2: Gordon Gopher                                                           │
-│ 3,4: Harold Hedgehog (Secretary) (c)                                         │
-│ 5,6: Iris Iguana                                                             │
-│                                                                              │
-│ First footnote.                                                              │
-│ Second footnote.                                                             │
-│                                                                              │
-│ [Published title: Cambridge Minor]                                           │
-│ [Database ID: 3]                                                             │
-╰──────────────────────────────────────────────────────────────────────────────╯
-Submit peal? [y/n] (y): 
+Submit peal to BellBoard? [y/n] (y): 
 >>> n
 [User input: "False"]
 pypeal Database

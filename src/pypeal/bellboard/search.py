@@ -18,7 +18,7 @@ class BellboardSearchNoResultFoundError(BellboardError):
 def search(ringer_name: str = None,
            date_from: datetime.date = None,
            date_to: datetime.date = None,
-           tower_id: int = None,
+           dove_tower_id: int = None,
            place: str = None,
            region: str = None,
            address: str = None,
@@ -28,6 +28,9 @@ def search(ringer_name: str = None,
            order_by_submission_date: bool = True,
            order_descending: bool = True) -> Iterator[tuple[int, str]]:
 
+    if dove_tower_id is not None and dove_tower_id < 0:
+        raise ValueError('Tower ID must be a positive integer - did you pass the database ID?')
+
     criteria = {}
     if ringer_name:
         criteria['ringer'] = ringer_name
@@ -35,8 +38,8 @@ def search(ringer_name: str = None,
         criteria['from'] = date_from
     if date_to:
         criteria['to'] = date_to
-    if tower_id:
-        criteria['dove_tower'] = tower_id
+    if dove_tower_id:
+        criteria['dove_tower'] = dove_tower_id
     if place:
         criteria['place'] = place
     if region:
@@ -65,15 +68,22 @@ def search(ringer_name: str = None,
 
 
 def find_matching_peal(peal: Peal) -> Iterator[tuple[int, str]]:
-    yield from search(
-        date_from=peal.date or None,
-        date_to=peal.date or None,
-        tower_id=peal.ring.tower.id if peal.ring else None,
-        place=peal.place or None,
-        region=peal.county or None,
-        dedication=peal.dedication or None,
-        association=peal.association or None,
-        bell_type=peal.bell_type or None)
+    try:
+        if peal.ring and peal.ring.tower.dove_id:  # Only search if there's a Dove ID
+            yield from search(
+                date_from=peal.date or None,
+                date_to=peal.date or None,
+                dove_tower_id=peal.ring.tower.dove_id,
+                bell_type=peal.bell_type or None)
+        else:
+            yield from search(
+                date_from=peal.date or None,
+                date_to=peal.date or None,
+                place=peal.place or None,
+                bell_type=peal.bell_type or None)
+
+    except BellboardSearchNoResultFoundError:
+        return None
 
 
 def _perform_search(criteria: dict[str, any]) -> Iterator[tuple[int, str]]:

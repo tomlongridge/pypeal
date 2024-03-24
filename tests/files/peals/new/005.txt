@@ -231,25 +231,7 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 Peal (ID 5) added
-╭─────────────────────────────────── pypeal ───────────────────────────────────╮
-│ Bath, Somerset, England                                                      │
-│ Blessed Virgin Mary, Bathwick                                                │
-│ On Thursday, 1 January 1981                                                  │
-│ A Quarter Peal of 1260 Spliced Surprise Minor (3m) (14-1-4 in F)             │
-│ (Cambridge Surprise Minor, Ipswich Surprise Minor, Norwich Surprise Minor)   │
-│ Composition: 40 com                                                          │
-│                                                                              │
-│ 1: Adam Apple                                                                │
-│ 2: Ben Bob                                                                   │
-│ 3: Charlie Cook                                                              │
-│ 4: Darcy Davis                                                               │
-│ 5: Enid Evans                                                                │
-│ 6: Freddie Firth (c)                                                         │
-│ 7: Gordon Gopher                                                             │
-│                                                                              │
-│ [Database ID: 5]                                                             │
-╰──────────────────────────────────────────────────────────────────────────────╯
-Submit peal? [y/n] (y): 
+Submit peal to BellBoard? [y/n] (y): 
 >>> n
 [User input: "False"]
 pypeal Database

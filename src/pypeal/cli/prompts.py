@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+import datetime
 import logging
 from rich.prompt import IntPrompt, Prompt, Confirm
 from rich.panel import Panel
@@ -87,7 +87,7 @@ def ask_date(prompt: str,
                 break
             if response is not None:
                 if response.isnumeric() or (response.startswith('-') and response[1:].isnumeric()):
-                    response = (default or datetime.date(utils.get_now())) + timedelta(days=int(response))
+                    response = (default or datetime.date(utils.get_now())) + datetime.timedelta(days=int(response))
                 elif not (response := utils.parse_date(response)):
                     error('Invalid date - please enter in format yyyy/mm/dd')
                     continue
@@ -161,3 +161,31 @@ def prompt_peal_id(peal_id: str = None, required: bool = True) -> int:
             return peal_id
         else:
             error('Invalid Bellboard URL or peal ID')
+
+
+# Iterates through dict and uses key names to prompt for values, with pre-existing values as defaults
+def prompt_any(data: dict | list | str | int | bool, prompt: str) -> dict | list | str | int | bool:
+
+    if data is None:
+        return
+    elif type(data) is bool:
+        return confirm(None, prompt, default=data)
+    elif type(data) is datetime.date:
+        return ask_date(prompt, default=data)
+    elif type(data) is str:
+        return ask(prompt, default=data)
+    elif type(data) is int:
+        return ask_int(prompt, default=data)
+    elif type(data) is list:
+        return [prompt_any(value, f'{prompt} {i}') for i, value in enumerate(data, start=1)]
+    elif type(data) is dict:
+        if prompt is not None:
+            print(prompt)
+        nested_data = {}
+        for field, value in data.items():
+            if type(field) is not str:
+                raise ValueError(f'Key names must be strings: "{field}" is {type(field)}')
+            nested_data[field] = prompt_any(value, field.replace("_", " ").title())
+        return nested_data
+    else:
+        raise ValueError(f'Unknown type for field "{data}": {type(data)}')

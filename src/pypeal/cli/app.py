@@ -124,7 +124,8 @@ def run_submit_peal(peal_id_or_url: str):
 
 def run_add_peal():
     new_peal = add_peal(ManualGenerator())
-    prompt_submit_peal(new_peal)
+    if confirm(None, confirm_message='Submit peal to BellBoard?', default=True):
+        prompt_submit_peal(new_peal)
 
 
 def run_generate_reports():

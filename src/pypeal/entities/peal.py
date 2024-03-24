@@ -7,7 +7,7 @@ from itertools import zip_longest
 import json
 from pypeal import config, utils
 from pypeal.entities.association import Association
-from pypeal.bellboard.interface import get_url_from_id
+from pypeal.bellboard.utils import get_url_from_id
 from pypeal.cache import Cache
 from pypeal.db import Database
 from pypeal.entities.method import Classification, Method, Stage
