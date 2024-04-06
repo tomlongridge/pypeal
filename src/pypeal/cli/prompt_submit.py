@@ -2,7 +2,7 @@ from pypeal import utils
 from pypeal.bellboard.interface import BellboardError
 from pypeal.bellboard.utils import get_url_from_id
 from pypeal.bellboard.submit import get_bb_fields_from_peal, submit
-from pypeal.cli.prompt_deduplicate_peal import prompt_check_bellboard_duplicate
+from pypeal.cli.prompt_deduplicate_peal import prompt_bellboard_duplicate
 from pypeal.cli.prompts import ask_int, confirm, panel, error, prompt_any
 from pypeal.entities.peal import Peal
 
@@ -25,7 +25,7 @@ def prompt_submit_peal(peal: int | Peal = None):
                        default=False):
             return
 
-    if bb_data := prompt_check_bellboard_duplicate(peal):
+    if bb_data := prompt_bellboard_duplicate(peal):
         if confirm(None, confirm_message=f'Link existing peal to this BellBoard ID {bb_data[0]}?'):
             peal.update_bellboard_id(*bb_data)
         return

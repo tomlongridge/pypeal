@@ -87,7 +87,7 @@ def ask_date(prompt: str,
                 break
             if response is not None:
                 if response.isnumeric() or (response.startswith('-') and response[1:].isnumeric()):
-                    response = (default or datetime.date(utils.get_now())) + datetime.timedelta(days=int(response))
+                    response = (default or utils.get_now().date()) + datetime.timedelta(days=int(response))
                 elif not (response := utils.parse_date(response)):
                     error('Invalid date - please enter in format yyyy/mm/dd')
                     continue

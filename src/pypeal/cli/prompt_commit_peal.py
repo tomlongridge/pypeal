@@ -1,52 +1,27 @@
 from pypeal.bellboard.interface import request_bytes
 from pypeal.cli.chooser import choose_option
-from pypeal.cli.prompts import confirm, panel, warning
+from pypeal.cli.prompt_deduplicate_peal import prompt_database_duplicate
+from pypeal.cli.prompts import confirm, panel
 from pypeal.entities.peal import Peal
-from rich.columns import Columns
-from rich.console import Console
-from rich.panel import Panel
 
 
 def prompt_commit_peal(peal: Peal) -> Peal:
 
     user_confirmed = False
     existing_peal = None
-    if peal.bellboard_id and (existing_peal := Peal.get(bellboard_id=peal.bellboard_id)):
-        warning(f'Peal with BellBoard ID {peal.bellboard_id} already exists:\n\n{existing_peal}')
-        if confirm(None, confirm_message='Overwrite peal?', default=False):
-            user_confirmed = True
-        else:
-            return None
-
-    if possible_duplicates := Peal.search(date_from=peal.date,
-                                          date_to=peal.date,
-                                          tower_id=peal.ring.tower.id if peal.ring else None,
-                                          place=peal.place if not peal.ring else None,
-                                          county=peal.county if not peal.ring else None,
-                                          dedication=peal.dedication if not peal.ring else None):
-
-        for dup in possible_duplicates:
-            if dup.bellboard_id != peal.bellboard_id:  # We've already identified matching IDs above
-                warning('Possible duplicate peal')
-                console = Console()
-                console.print(Columns([Panel(str(dup)), Panel(str(peal))], width=80))
-                diffs = ''
-                for field, (left, right) in dup.diff(peal).items():
-                    diffs += f'{field}: {left} -> {right}\n'
-                panel(diffs.strip(), title='Differences')
-                if confirm(None, confirm_message='Is this the same peal?'):
-                    match choose_option(['Pick left', 'Pick right', 'Cancel'], default=1):
-                        case 1:
-                            # Forget about the new peal but update the BellBoard ID to the new one
-                            # (Bellboard creates new IDs when a peal as been edited)
-                            dup.update_bellboard_id(peal.bellboard_id, peal.bellboard_submitter, peal.bellboard_submitted_date)
-                            peal = None
-                        case 2:
-                            # Delete the existing peal and commit the new one
-                            existing_peal = dup
-                            user_confirmed = True
-                        case 3:
-                            return None
+    if duplicate_peal := prompt_database_duplicate(peal):
+        match choose_option(['Keep existing', 'Use new', 'Cancel'], default=1):
+            case 1:
+                # Forget about the new peal but update the BellBoard ID to the new one
+                # (Bellboard creates new IDs when a peal as been edited)
+                duplicate_peal.update_bellboard_id(peal.bellboard_id, peal.bellboard_submitter, peal.bellboard_submitted_date)
+                peal = None
+            case 2:
+                # Delete the existing peal and commit the new one
+                existing_peal = duplicate_peal
+                user_confirmed = True
+            case 3:
+                return None
 
     if peal:
 
