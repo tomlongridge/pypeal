@@ -127,8 +127,8 @@ def press_any_key(prompt: str = 'Press any key to continue...'):
         raise UserCancelled()
 
 
-def panel(content: str, title: str = 'pypeal'):
-    print(Panel(escape(content), title=title))
+def panel(content: str, title: str = 'pypeal', width: int = None):
+    print(Panel(escape(content), title=title, width=width))
 
 
 def warning(message: str, title: str = None):

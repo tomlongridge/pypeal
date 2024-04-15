@@ -9,7 +9,6 @@ from pypeal.entities.peal import Peal, PealType
 
 def prompt_peal_title(title: str, peal: Peal, quick_mode: bool):
 
-    peal.published_title = title
     print(f'Matching peal titled "{title}"...')
 
     excluded_methods: list[str] = []  # Stores method IDs that have been rejected in a prompt

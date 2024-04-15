@@ -690,14 +690,15 @@ class Peal:
             text += '\n'
             text += self._get_footnote_summary()
         if self.bellboard_id:
-            text += f'\n[BellBoard: {get_url_from_id(self.bellboard_id)}'
+            text += f'\n[BellBoard: {get_url_from_id(self.bellboard_id)}' if self.bellboard_id else ''
             text += ' (' if self.bellboard_submitter or self.bellboard_submitted_date else ''
             text += f'{self.bellboard_submitter}, ' if self.bellboard_submitter else ''
             text += f'{format_date_full(self.bellboard_submitted_date)})' if self.bellboard_submitted_date else ''
             text += ']'
         text += f'\n[Composition URL: {self.composition_url}]' if self.composition_url else ''
         text += f'\n[Event URL: {self.event_url}]' if self.event_url else ''
-        text += f'\n[Published title: {self.published_title}]' if self.published_title != self.title else ''
+        text += f'\n[Published title: {self.published_title}]' if self.published_title is not None and \
+            self.published_title != self.title else ''
         text += f'\n[External reference: {self.external_reference}]' if self.external_reference else ''
         text += f'\n[Database ID: {self.id}]' if self.id else ''
         return text.strip()

@@ -15,7 +15,7 @@ def prompt_add_change_of_method_from_string(method_details: str, peal: Peal, qui
     if method_details:
         if peal.classification == Classification.SURPRISE and \
                 (re.match(r'.*standard (?:eight|8).*', method_details, re.IGNORECASE) or
-                 re.match(r'.*standard (?:eight|8).*', peal.published_title, re.IGNORECASE)):
+                 (peal.published_title is not None and re.match(r'.*standard (?:eight|8).*', peal.published_title, re.IGNORECASE))):
             methods = add_standard_eight_surprise(peal)
         else:
             last_changes = None

@@ -27,6 +27,8 @@ class PealPreviewListener(PealGeneratorListener):
         self.__lines['title'] = f'{value} ' if value else ''
 
     def title(self, value: str):
+        if 'title' not in self.__lines:
+            self.__lines['title'] = ''
         self.__lines['title'] += utils.strip_internal_space(value)
 
     def method_details(self, value: str):
@@ -100,7 +102,7 @@ class PealPreviewListener(PealGeneratorListener):
             text += (self.__lines['footnotes'])
             text += '\n'
         text += (f'Linked event: {self.__lines["event"]}\n') if 'event' in self.__lines else ''
-        text += f'Bellboard: {get_url_from_id(self.__lines["id"])}'
+        text += f'Bellboard: {get_url_from_id(self.__lines["id"])}' if self.__lines['id'] else ''
         if 'bb_metadata' in self.__lines:
             text += f' (submitted by {self.__lines["bb_metadata"]["submitter"]}'
             text += f' on {utils.format_date_full(self.__lines["bb_metadata"]["date"])}' if self.__lines["bb_metadata"]["date"] else ''

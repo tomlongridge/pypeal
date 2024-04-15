@@ -218,8 +218,6 @@ Select option (1):
 │                                                                              │
 │ First footnote.                                                              │
 │ Second footnote.                                                             │
-│                                                                              │
-│ [Published title: Cambridge Minor]                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -260,5 +258,4 @@ A Peal of 5040 Cambridge Surprise Minor
 First footnote.
 Second footnote.
 
-[Published title: Cambridge Minor]
 [Database ID: 3]

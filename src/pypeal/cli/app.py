@@ -1,10 +1,12 @@
 import logging
+import os
 from typing import Annotated
 import typer
 
 from rich import print
 from rich.table import Table
 
+from pypeal.bellboard.csv import import_peal_csv
 from pypeal.cli.prompt_submit import prompt_submit_peal
 from pypeal.entities.association import Association
 
@@ -88,8 +90,11 @@ def run_poll():
     poll()
 
 
-def run_import_peal(peal_id_or_url: str):
-    prompt_import_peal(prompt_peal_id(peal_id_or_url, required=False))
+def run_import_peal(peal_id_or_url_or_file: int | str):
+    if type(peal_id_or_url_or_file) is str and os.path.exists(peal_id_or_url_or_file):
+        import_peal_csv(peal_id_or_url_or_file)
+    else:
+        prompt_import_peal(prompt_peal_id(peal_id_or_url_or_file, required=False))
 
 
 def run_view(peal_id_or_url: str):

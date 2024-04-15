@@ -42,7 +42,7 @@ Select option:
 Dove ID: 
 >>> 1234
 [User input: "1234"]
-Dove ID not found. Try again?
+Dove ID not found. Search again?
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
