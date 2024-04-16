@@ -20,7 +20,7 @@ pypeal Database
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
 >>> 2
-[User input: "2"]
+[User input: "Add peal by ID/URL [2]"]
 Bellboard URL or peal ID: 
 >>> 1668297
 [User input: "1668297"]
@@ -167,7 +167,7 @@ Bell number(s) in the tower (3):
 1) Blake Elliott (32), 2) Blake Elliott (68)
 Select option (x = None): 
 >>> 1
-[User input: "Blake Elliott"]
+[User input: "Blake Elliott (32) [1]"]
 Ringer note: 
 >>> 
 [User input: "None"]
@@ -266,15 +266,15 @@ pypeal Database
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
 >>> 4
-[User input: "4"]
+[User input: "View statistics [4]"]
 1) Run report, 2) New report, 3) Edit report, 4) Delete report
 Select option (x = Back) (1): 
 >>> 1
-[User input: "1"]
+[User input: "Run report [1]"]
 1) first report
 Select option (x = New report): 
 >>> 1
-[User input: "first report"]
+[User input: "first report [1]"]
 21 matching peals in "first report".
 Summary
  ────────────────────────────────────────────────────────────────────────────── 
@@ -287,7 +287,7 @@ Summary
 Show report for: 1) General Ringing, 2) Quarter Peal, 3) Peal
 Select option (x = Back): 
 >>> 1
-[User input: "General Ringing"]
+[User input: "General Ringing [1]"]
 General Ringing statistics
                             ─────────────────────────  ──────────────────────── 
                              Methods                    Misc                    
@@ -320,7 +320,7 @@ General Ringing statistics
 1) All methods, 2) All ringers
 Select option (x = Back): 
 >>> 1
-[User input: "1"]
+[User input: "All methods [1]"]
  ────────────────────────────────────────────────────────────────────────────── 
   Methods                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
@@ -332,7 +332,7 @@ Press enter to continue [y/n] (y):
 1) All methods, 2) All ringers
 Select option (x = Back): 
 >>> 2
-[User input: "2"]
+[User input: "All ringers [2]"]
  ────────────────────────────────────────────────────────────────────────────── 
   Ringers                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
@@ -361,7 +361,7 @@ Select option (x = Back):
 Show report for: 1) General Ringing, 2) Quarter Peal, 3) Peal
 Select option (x = Back): 
 >>> 2
-[User input: "Quarter Peal"]
+[User input: "Quarter Peal [2]"]
 Quarter Peal statistics
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Stage                      Methods                    Misc                    
@@ -400,7 +400,7 @@ Quarter Peal statistics
 1) All methods, 2) All ringers, 3) All conductors, 4) All associations
 Select option (x = Back): 
 >>> 1
-[User input: "1"]
+[User input: "All methods [1]"]
  ────────────────────────────────────────────────────────────────────────────── 
   Methods                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
@@ -425,7 +425,7 @@ Press enter to continue [y/n] (y):
 1) All methods, 2) All ringers, 3) All conductors, 4) All associations
 Select option (x = Back): 
 >>> 2
-[User input: "2"]
+[User input: "All ringers [2]"]
  ────────────────────────────────────────────────────────────────────────────── 
   Ringers                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
@@ -498,7 +498,7 @@ Press enter to continue [y/n] (y):
 1) All methods, 2) All ringers, 3) All conductors, 4) All associations
 Select option (x = Back): 
 >>> 3
-[User input: "3"]
+[User input: "All conductors [3]"]
  ────────────────────────────────────────────────────────────────────────────── 
   Conductors                                                                    
  ────────────────────────────────────────────────────────────────────────────── 
@@ -522,7 +522,7 @@ Press enter to continue [y/n] (y):
 1) All methods, 2) All ringers, 3) All conductors, 4) All associations
 Select option (x = Back): 
 >>> 4
-[User input: "4"]
+[User input: "All associations [4]"]
  ────────────────────────────────────────────────────────────────────────────── 
   Associations                                                                  
  ────────────────────────────────────────────────────────────────────────────── 
@@ -540,7 +540,7 @@ Select option (x = Back):
 Show report for: 1) General Ringing, 2) Quarter Peal, 3) Peal
 Select option (x = Back): 
 >>> 3
-[User input: "Peal"]
+[User input: "Peal [3]"]
 Peal statistics
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Stage                      Methods                    Misc                    
@@ -576,7 +576,7 @@ Peal statistics
 1) All methods, 2) All ringers, 3) All conductors, 4) All associations
 Select option (x = Back): 
 >>> 1
-[User input: "1"]
+[User input: "All methods [1]"]
  ────────────────────────────────────────────────────────────────────────────── 
   Methods                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
@@ -590,7 +590,7 @@ Press enter to continue [y/n] (y):
 1) All methods, 2) All ringers, 3) All conductors, 4) All associations
 Select option (x = Back): 
 >>> 2
-[User input: "2"]
+[User input: "All ringers [2]"]
  ────────────────────────────────────────────────────────────────────────────── 
   Ringers                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
@@ -617,7 +617,7 @@ Press enter to continue [y/n] (y):
 1) All methods, 2) All ringers, 3) All conductors, 4) All associations
 Select option (x = Back): 
 >>> 3
-[User input: "3"]
+[User input: "All conductors [3]"]
  ────────────────────────────────────────────────────────────────────────────── 
   Conductors                                                                    
  ────────────────────────────────────────────────────────────────────────────── 
@@ -631,7 +631,7 @@ Press enter to continue [y/n] (y):
 1) All methods, 2) All ringers, 3) All conductors, 4) All associations
 Select option (x = Back): 
 >>> 4
-[User input: "4"]
+[User input: "All associations [4]"]
  ────────────────────────────────────────────────────────────────────────────── 
   Associations                                                                  
  ────────────────────────────────────────────────────────────────────────────── 

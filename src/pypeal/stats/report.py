@@ -1,4 +1,4 @@
-from pypeal.entities.peal import Peal, PealRinger
+from pypeal.entities.peal import Peal, PealLengthType, PealRinger
 from pypeal.entities.ringer import Ringer
 from pypeal.entities.tower import Bell, Ring, Tower
 
@@ -6,6 +6,7 @@ from pypeal.entities.tower import Bell, Ring, Tower
 def generate_global_summary(peals: list[Peal]) -> dict:
     report = {}
     report['count'] = len(peals)
+    report['unsubmitted_count'] = 0
     report['types'] = dict()
     report['last_added'] = None
     for peal in peals:
@@ -14,6 +15,9 @@ def generate_global_summary(peals: list[Peal]) -> dict:
         if peal.length_type not in report['types']:
             report['types'][peal.length_type] = 0
         report['types'][peal.length_type] += 1
+        if peal.type >= PealLengthType.QUARTER_PEAL:
+            if peal.bellboard_id is None:
+                report['unsubmitted_count'] += 1
     _sort_table(report['types'])
     return report
 

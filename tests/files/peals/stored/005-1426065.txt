@@ -19,7 +19,7 @@ pypeal Database
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
 >>> 2
-[User input: "2"]
+[User input: "Add peal by ID/URL [2]"]
 Bellboard URL or peal ID: 
 >>> 1426065
 [User input: "1426065"]
@@ -53,7 +53,7 @@ Is this correct? [y/n] (y):
 1) Search alternatives, 2) Add new association, 3) Remove association
 Select option (1): 
 >>> 1
-[User input: "1"]
+[User input: "Search alternatives [1]"]
 Enter search criteria:
 Name: 
 >>> bath and wells
@@ -90,7 +90,7 @@ Composition note:
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 1
-[User input: "1"]
+[User input: "Add new ringer [1]"]
 Add new ringer as "Julia" "Fowler"? [y/n] (y): 
 >>> 
 [User input: "True"]
@@ -105,7 +105,7 @@ Bell number(s) in the tower (1):
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 1
-[User input: "1"]
+[User input: "Add new ringer [1]"]
 Add new ringer as "Daniel" "Miller"? [y/n] (y): 
 >>> 
 [User input: "True"]
@@ -120,7 +120,7 @@ Bell number(s) in the tower (4):
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 1
-[User input: "1"]
+[User input: "Add new ringer [1]"]
 Add new ringer as "Clark" "Elliott"? [y/n] (y): 
 >>> 
 [User input: "True"]
@@ -135,7 +135,7 @@ Bell number(s) in the tower (5):
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 1
-[User input: "1"]
+[User input: "Add new ringer [1]"]
 Add new ringer as "Chester" "Edwards"? [y/n] (y): 
 >>> 
 [User input: "True"]
@@ -150,7 +150,7 @@ Bell number(s) in the tower (6):
 1) Aston Mitchell (16), 2) Aston Mitchell (20)
 Select option (x = None): 
 >>> 1
-[User input: "Aston Mitchell"]
+[User input: "Aston Mitchell (16) [1]"]
 Ringer note: 
 >>> 
 [User input: "None"]
@@ -162,7 +162,7 @@ Bell number(s) in the tower (7):
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 1
-[User input: "1"]
+[User input: "Add new ringer [1]"]
 Add new ringer as "Cadie" "Nelson"? [y/n] (y): 
 >>> 
 [User input: "True"]
@@ -177,7 +177,7 @@ Bell number(s) in the tower (8):
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 1
-[User input: "1"]
+[User input: "Add new ringer [1]"]
 Add new ringer as "Blake" "Elliott"? [y/n] (y): 
 >>> 
 [User input: "True"]
@@ -192,7 +192,7 @@ Bell number(s) in the tower (9):
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 1
-[User input: "1"]
+[User input: "Add new ringer [1]"]
 Add new ringer as "Leonardo" "Bennett"? [y/n] (y): 
 >>> n
 [User input: "False"]
@@ -214,7 +214,7 @@ Add an alias for "Leo Bennett"? [y/n] (y):
 Which name should be displayed?: 1) Leonardo Bennett, 2) Leo Bennett
 Select option (2): 
 >>> 2
-[User input: "2"]
+[User input: "Leo Bennett [2]"]
 Ringer note: 
 >>> 
 [User input: "None"]
@@ -252,7 +252,7 @@ Add new footnote? [y/n] (n):
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 
-[User input: "None"]
+[User input: "None [1]"]
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Bath and Wells Diocesan Association                                          │
@@ -299,15 +299,15 @@ pypeal Database
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
 >>> 4
-[User input: "4"]
+[User input: "View statistics [4]"]
 1) Run report, 2) New report, 3) Edit report, 4) Delete report
 Select option (x = Back) (1): 
 >>> 1
-[User input: "1"]
+[User input: "Run report [1]"]
 1) first report
 Select option (x = New report): 
 >>> 1
-[User input: "first report"]
+[User input: "first report [1]"]
 5 matching peals in "first report".
 Summary
  ────────────────────────────────────────────────────────────────────────────── 
@@ -319,7 +319,7 @@ Summary
 Show report for: 1) Quarter Peal, 2) Peal
 Select option (x = Back): 
 >>> 1
-[User input: "Quarter Peal"]
+[User input: "Quarter Peal [1]"]
 Quarter Peal statistics
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Stage                      Methods                    Misc                    
@@ -354,7 +354,7 @@ Quarter Peal statistics
 1) All methods, 2) All ringers, 3) All conductors, 4) All associations
 Select option (x = Back): 
 >>> 1
-[User input: "1"]
+[User input: "All methods [1]"]
  ────────────────────────────────────────────────────────────────────────────── 
   Methods                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
@@ -367,7 +367,7 @@ Press enter to continue [y/n] (y):
 1) All methods, 2) All ringers, 3) All conductors, 4) All associations
 Select option (x = Back): 
 >>> 2
-[User input: "2"]
+[User input: "All ringers [2]"]
  ────────────────────────────────────────────────────────────────────────────── 
   Ringers                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
@@ -407,7 +407,7 @@ Press enter to continue [y/n] (y):
 1) All methods, 2) All ringers, 3) All conductors, 4) All associations
 Select option (x = Back): 
 >>> 3
-[User input: "3"]
+[User input: "All conductors [3]"]
  ────────────────────────────────────────────────────────────────────────────── 
   Conductors                                                                    
  ────────────────────────────────────────────────────────────────────────────── 
@@ -422,7 +422,7 @@ Press enter to continue [y/n] (y):
 1) All methods, 2) All ringers, 3) All conductors, 4) All associations
 Select option (x = Back): 
 >>> 4
-[User input: "4"]
+[User input: "All associations [4]"]
  ────────────────────────────────────────────────────────────────────────────── 
   Associations                                                                  
  ────────────────────────────────────────────────────────────────────────────── 
@@ -438,7 +438,7 @@ Select option (x = Back):
 Show report for: 1) Quarter Peal, 2) Peal
 Select option (x = Back): 
 >>> 2
-[User input: "Peal"]
+[User input: "Peal [2]"]
 Peal statistics
  ─────────────────────────  ─────────────────────────  ──────────────────────── 
   Stage                      Methods                    Misc                    
@@ -467,7 +467,7 @@ Peal statistics
 1) All methods, 2) All ringers, 3) All conductors, 4) All associations
 Select option (x = Back): 
 >>> 1
-[User input: "1"]
+[User input: "All methods [1]"]
  ────────────────────────────────────────────────────────────────────────────── 
   Methods                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
@@ -479,7 +479,7 @@ Press enter to continue [y/n] (y):
 1) All methods, 2) All ringers, 3) All conductors, 4) All associations
 Select option (x = Back): 
 >>> 2
-[User input: "2"]
+[User input: "All ringers [2]"]
  ────────────────────────────────────────────────────────────────────────────── 
   Ringers                                                                       
  ────────────────────────────────────────────────────────────────────────────── 
@@ -496,7 +496,7 @@ Press enter to continue [y/n] (y):
 1) All methods, 2) All ringers, 3) All conductors, 4) All associations
 Select option (x = Back): 
 >>> 3
-[User input: "3"]
+[User input: "All conductors [3]"]
  ────────────────────────────────────────────────────────────────────────────── 
   Conductors                                                                    
  ────────────────────────────────────────────────────────────────────────────── 
@@ -508,7 +508,7 @@ Press enter to continue [y/n] (y):
 1) All methods, 2) All ringers, 3) All conductors, 4) All associations
 Select option (x = Back): 
 >>> 4
-[User input: "4"]
+[User input: "All associations [4]"]
  ────────────────────────────────────────────────────────────────────────────── 
   Associations                                                                  
  ────────────────────────────────────────────────────────────────────────────── 

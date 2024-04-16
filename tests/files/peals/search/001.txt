@@ -16,12 +16,12 @@ pypeal Database
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
 >>> 1
-[User input: "1"]
+[User input: "BellBoard search [1]"]
 New peal search
 1) Enter criteria, 2) Enter Bellboard URL
 Select option (1): 
 >>> 1
-[User input: "1"]
+[User input: "Enter criteria [1]"]
 % for wildcards, " for absolute match
 Ringer name: 
 >>> ringer name
@@ -38,7 +38,7 @@ Association:
 Tower: 1) Dove ID, 2) Search by name, 3) None
 Select option: 
 >>> 1
-[User input: "1"]
+[User input: "Dove ID [1]"]
 Dove ID: 
 >>> 1234
 [User input: "1234"]
@@ -59,15 +59,15 @@ Title:
 Type: 1) Tower, 2) Handbells
 Select option (x = Any): 
 >>> 1
-[User input: "Tower"]
+[User input: "Tower [1]"]
 Order by: 1) Date rung, 2) Date submitted
 Select option (1): 
 >>> 1
-[User input: "False"]
+[User input: "Date rung [1]"]
 Order of results: 1) Newest, 2) Oldest
 Select option (1): 
 >>> 1
-[User input: "True"]
+[User input: "Newest [1]"]
 ╭────────────────── http://localhost:8080/view.php?id=22152 ───────────────────╮
 │ S John the Evangelist, Withycombe Raleigh, Devon                             │
 │ 1260 Grandsire Triples                                                       │
@@ -208,11 +208,11 @@ Include in poll? [y/n] (n):
 1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
 Select option (x = Back) (1): 
 >>> 1
-[User input: "1"]
+[User input: "Run saved search [1]"]
 1) new search 1
 Select option (x = New search): 
 >>> 1
-[User input: "new search 1"]
+[User input: "new search 1 [1]"]
 ╭────────────────── http://localhost:8080/view.php?id=41426 ───────────────────╮
 │ Cleator Moor, Cumbria                                                        │
 │ 1260 Grandsire Triples                                                       │
@@ -253,7 +253,7 @@ Attempt to find a tower? [y/n] (n):
 Tower: 1) Dove ID, 2) Search by name, 3) None
 Select option: 
 >>> 2
-[User input: "2"]
+[User input: "Search by name [2]"]
 Place: 
 >>> cleator
 [User input: "cleator"]
@@ -294,7 +294,7 @@ Composition note:
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 
-[User input: "1"]
+[User input: "Add new ringer [1]"]
 Add new ringer as "Lilianna" "Cunningham"? [y/n] (y): 
 >>> 
 [User input: "True"]
@@ -306,7 +306,7 @@ Ringer note:
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 
-[User input: "1"]
+[User input: "Add new ringer [1]"]
 Add new ringer as "Chester" "Edwards"? [y/n] (y): 
 >>> 
 [User input: "True"]
@@ -318,7 +318,7 @@ Ringer note:
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 
-[User input: "1"]
+[User input: "Add new ringer [1]"]
 Add new ringer as "Anna" "Kelly"? [y/n] (y): 
 >>> 
 [User input: "True"]
@@ -330,7 +330,7 @@ Ringer note:
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 
-[User input: "1"]
+[User input: "Add new ringer [1]"]
 Add new ringer as "John" "Parker"? [y/n] (y): 
 >>> 
 [User input: "True"]
@@ -342,7 +342,7 @@ Ringer note:
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 
-[User input: "1"]
+[User input: "Add new ringer [1]"]
 Add new ringer as "Clark" "Elliott"? [y/n] (y): 
 >>> 
 [User input: "True"]
@@ -354,7 +354,7 @@ Ringer note:
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 
-[User input: "1"]
+[User input: "Add new ringer [1]"]
 Add new ringer as "Vivian" "Murray"? [y/n] (y): 
 >>> 
 [User input: "True"]
@@ -366,7 +366,7 @@ Ringer note:
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 
-[User input: "1"]
+[User input: "Add new ringer [1]"]
 Add new ringer as "Joyce" "Sullivan"? [y/n] (y): 
 >>> 
 [User input: "True"]
@@ -378,7 +378,7 @@ Ringer note:
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 
-[User input: "1"]
+[User input: "Add new ringer [1]"]
 Add new ringer as "Myra" "Andrews"? [y/n] (y): 
 >>> 
 [User input: "True"]
@@ -397,7 +397,7 @@ Add new footnote? [y/n] (n):
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 
-[User input: "None"]
+[User input: "None [1]"]
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Cleator Moor, Cumbria, England                                               │
@@ -604,16 +604,16 @@ Add next peal? [y/n] (y):
 1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
 Select option (x = Back) (1): 
 >>> 5
-[User input: "5"]
+[User input: "Poll for new peals [5]"]
 Polling for new peals...
 1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
 Select option (x = Back) (1): 
 >>> 3
-[User input: "3"]
+[User input: "Edit search [3]"]
 1) new search 1
 Select option (x = Back): 
 >>> 1
-[User input: "new search 1"]
+[User input: "new search 1 [1]"]
 % for wildcards, " for absolute match
 Ringer name (ringer name): 
 >>> 
@@ -630,7 +630,7 @@ Association (association name):
 Tower: 1) Dove ID, 2) Search by name, 3) None
 Select option: 
 >>> 2
-[User input: "2"]
+[User input: "Search by name [2]"]
 Place: 
 >>> Blythburgh
 [User input: "Blythburgh"]
@@ -656,15 +656,15 @@ Title (method name):
 Type: 1) Tower, 2) Handbells
 Select option (x = Any) (1): 
 >>> 
-[User input: "Tower"]
+[User input: "Tower [1]"]
 Order by: 1) Date rung, 2) Date submitted
 Select option (1): 
 >>> 
-[User input: "False"]
+[User input: "Date rung [1]"]
 Order of results: 1) Newest, 2) Oldest
 Select option (2): 
 >>> 
-[User input: "False"]
+[User input: "Oldest [2]"]
 ╭───────────────── http://localhost:8080/view.php?id=1066455 ──────────────────╮
 │ Pig-le-Tower, Marston Bigot, Somerset                                        │
 │ 1280 Cambridge Surprise Major                                                │
@@ -785,7 +785,7 @@ Poll frequency (days):
 1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
 Select option (x = Back) (1): 
 >>> 5
-[User input: "5"]
+[User input: "Poll for new peals [5]"]
 Polling for new peals...
 Polling for new peals matching search "amended search 1"...
 ╭───────────────── http://localhost:8080/view.php?id=1147788 ──────────────────╮
@@ -910,11 +910,11 @@ Add next peal? [y/n] (y):
 1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
 Select option (x = Back) (1): 
 >>> 4
-[User input: "4"]
+[User input: "Delete search [4]"]
 1) amended search 1
 Select option (x = Back): 
 >>> 1
-[User input: "amended search 1"]
+[User input: "amended search 1 [1]"]
 Delete search "amended search 1"?
 Is this correct? [y/n] (n): 
 >>> y
@@ -923,7 +923,7 @@ New peal search
 1) Enter criteria, 2) Enter Bellboard URL
 Select option (1): 
 >>> 2
-[User input: "2"]
+[User input: "Enter Bellboard URL [2]"]
 Bellboard URL: 
 >>> https://bb.ringingworld.co.uk/search.php?ringer=ringer+name
 [User input: "https://bb.ringingworld.co.uk/search.php?ringer=ringer+name"]

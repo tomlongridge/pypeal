@@ -9,12 +9,23 @@ CHOOSE_OPTIONS_PER_COLUMN = 15
 CHOOSE_NONE_OPTION_CHAR = 'x'
 
 
+def choose_option_in_dict(options: dict[str, any],
+                          title: str = None,
+                          prompt: str = None,
+                          default: str = None,
+                          none_option: str = None) -> any:
+    return choose_option(list(options.keys()), list(options.values()), title, prompt, default, none_option)
+
+
 def choose_option(options: list[any],
                   values: list[any] = None,
                   title: str = None,
-                  prompt: str = 'Select option',
+                  prompt: str = None,
                   default: any = None,
                   none_option: str = None) -> any:
+
+    if prompt is None:
+        prompt = 'Select option'
 
     if not options or len(options) == 0:
         return none_option
@@ -75,13 +86,14 @@ def choose_option(options: list[any],
         else:
             choice = int(choice)
             if choice > 0 and choice <= len(options):
+                choice_index = ((page_num - 1) * CHOOSE_OPTIONS_PER_PAGE) + choice - 1
                 if values:
-                    response = values[((page_num - 1) * CHOOSE_OPTIONS_PER_PAGE) + choice - 1]
+                    response = values[choice_index]
                 elif type(options[0]) is not str:
-                    response = options[((page_num - 1) * CHOOSE_OPTIONS_PER_PAGE) + choice - 1]
+                    response = options[choice_index]
                 else:
                     response = choice
-                print_user_input(prompt, response)
+                print_user_input(prompt, f'{options[choice_index]} [{choice}]')
                 return response
             else:
                 error(f'The number must be between 1 and {len(options)}')

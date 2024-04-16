@@ -17,7 +17,7 @@ pypeal Database
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
 >>> 3
-[User input: "3"]
+[User input: "Add peal manually [3]"]
 Try for a quick-add? [y/n] (y): 
 >>> n
 [User input: "False"]
@@ -59,7 +59,7 @@ Is this correct? [y/n] (y):
 Bell type: 1) Tower, 2) Handbells
 Select option (1): 
 >>> 2
-[User input: "Handbells"]
+[User input: "Handbells [2]"]
 📍 Location: Bath, Somerset, England
 📍 Detail: 1 High Street
 Number of changes: 
@@ -204,7 +204,7 @@ Footnote:
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 
-[User input: "None"]
+[User input: "None [1]"]
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Bath, Somerset, England                                                      │

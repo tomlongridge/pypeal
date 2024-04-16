@@ -8,6 +8,7 @@ from pypeal.entities.peal import Peal
 from pypeal.bellboard.search import find_matching_peal
 from rich.columns import Columns
 from rich.console import Console
+from rich.panel import Panel
 
 
 def prompt_database_duplicate(peal: Peal) -> Peal:
@@ -30,7 +31,7 @@ def prompt_database_duplicate(peal: Peal) -> Peal:
 
         console = Console()
         for existing_peal in existing_peals:
-            console.print(Columns([panel(str(peal)), panel(str(existing_peal))], expand=True, equal=True))
+            console.print(Columns([Panel(str(peal)), Panel(str(existing_peal))], expand=True, equal=True))
             if confirm(None, confirm_message='See differences?'):
                 diffs = ''
                 for field, (left, right) in existing_peal.diff(peal).items():

@@ -7,6 +7,12 @@ from pypeal.cli.prompts import ask_int, confirm, panel, error, prompt_any
 from pypeal.entities.peal import Peal
 
 
+def prompt_submit_unpublished_peals():
+    for peal in Peal.get_all():
+        if peal.bellboard_id is None:
+            prompt_submit_peal(peal)
+
+
 def prompt_submit_peal(peal: int | Peal = None):
 
     if peal is None:

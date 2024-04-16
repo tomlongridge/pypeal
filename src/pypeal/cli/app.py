@@ -7,7 +7,7 @@ from rich import print
 from rich.table import Table
 
 from pypeal.bellboard.csv import import_peal_csv
-from pypeal.cli.prompt_submit import prompt_submit_peal
+from pypeal.cli.prompt_submit import prompt_submit_peal, prompt_submit_unpublished_peals
 from pypeal.entities.association import Association
 
 from pypeal.cccbr import update_methods
@@ -16,7 +16,7 @@ from pypeal.cli.prompt_import_peal import add_peal, prompt_import_peal
 from pypeal.cli.manual_generator import ManualGenerator
 from pypeal.cli.prompt_report_stats import prompt_report
 from pypeal.cli.prompts import UserCancelled, ask_int, confirm, format_timestamp, heading, panel, error, press_any_key, prompt_peal_id
-from pypeal.cli.chooser import choose_option
+from pypeal.cli.chooser import choose_option, choose_option_in_dict
 from pypeal.cli.prompt_search_peals import poll, prompt_search
 from pypeal.db import initialize as initialize_db
 from pypeal.dove import update_associations, update_bells, update_rings, update_towers
@@ -139,71 +139,65 @@ def run_generate_reports():
         print(f'- {report_path}')
 
 
+def run_update_static_data():
+    update_methods()
+    update_associations()
+    update_towers()
+    update_bells()
+
+
 def run_interactive(peal_id_or_url: str):
 
     while True:
         try:
-            print_summary()
+            summary_data = get_summary()
+
+            menu_options = {
+                'BellBoard search': lambda: prompt_search(),
+                'Add peal by ID/URL': lambda: run_import_peal(peal_id_or_url),
+                'Add peal manually': lambda: run_add_peal(),
+                'View statistics': lambda: prompt_report(),
+                'Generate reports': lambda: run_generate_reports(),
+                'View peal': lambda: run_view(peal_id_or_url),
+                'Delete peal': lambda: run_delete(peal_id_or_url),
+                'Update static data': lambda: run_update_static_data()
+            }
+
+            if summary_data['unsubmitted_count'] > 0:
+                menu_options['Submit unsubmitted peals'] = lambda: prompt_submit_unpublished_peals()
 
             try:
-                selected_option = choose_option(
-                    [
-                        'BellBoard search',
-                        'Add peal by ID/URL',
-                        'Add peal manually',
-                        'View statistics',
-                        'Generate reports',
-                        'View peal',
-                        'Delete peal',
-                        'Update static data'
-                    ],
-                    none_option='Exit',
-                    default=1)
+                selected_option = choose_option_in_dict(menu_options, none_option='Exit', default='BellBoard search')
             except UserCancelled:
                 raise typer.Exit()
 
-            match selected_option:
-                case 1:
-                    prompt_search()
-                case 2:
-                    run_import_peal(peal_id_or_url)
-                case 3:
-                    run_add_peal()
-                case 4:
-                    prompt_report()
-                case 5:
-                    run_generate_reports()
-                case 6:
-                    run_view(peal_id_or_url)
-                case 7:
-                    run_delete(peal_id_or_url)
-                case 8:
-                    update_methods()
-                    update_associations()
-                    update_towers()
-                    update_bells()
-                case _:
-                    raise typer.Exit()
+            if selected_option is not None:
+                selected_option()
+            else:
+                raise typer.Exit()
         except UserCancelled:
             continue
 
         peal_id_or_url = None
 
 
-def print_summary():
+def get_summary() -> dict:
     heading('pypeal Database')
     summary = generate_global_summary(Peal.get_all())
     if summary['count'] > 0:
         table = Table(show_header=False, show_footer=False, expand=True, box=None)
         table.add_column(ratio=1)
         table.add_column(ratio=1, justify='right')
+        last_updated = ''
+        if summary['unsubmitted_count'] > 0:
+            last_updated += f'Unsubmitted: {summary["unsubmitted_count"]}\n'
+        last_updated = f'Last updated: {format_timestamp(summary["last_added"])}\n'
         type_summary = ''
-        last_updated = f'Last updated: {format_timestamp(summary["last_added"])}'
         for type, count in summary["types"].items():
-            type_summary = f'{type} count: {count}\n'
-            table.add_row(type_summary.strip(), last_updated)
-            last_updated = ''
+            type_summary += f'{type} count: {count}\n'
+        table.add_row(type_summary.strip(), last_updated.strip())
         print(table)
+    return summary
 
 
 def initialize_or_exit(reset_db: bool, clear_data: bool):

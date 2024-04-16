@@ -19,7 +19,7 @@ pypeal Database
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
 >>> 3
-[User input: "3"]
+[User input: "Add peal manually [3]"]
 Try for a quick-add? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -38,7 +38,7 @@ Attempt to find a tower? [y/n] (n):
 Tower: 1) Dove ID, 2) Search by name, 3) None
 Select option: 
 >>> 1
-[User input: "1"]
+[User input: "Dove ID [1]"]
 Dove ID: 
 >>> 13019
 [User input: "13019"]
@@ -247,6 +247,7 @@ pypeal Database
 │ 6) View peal                                                                 │
 │ 7) Delete peal                                                               │
 │ 8) Update static data                                                        │
+│ 9) Submit unsubmitted peals                                                  │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘

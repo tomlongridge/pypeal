@@ -21,7 +21,7 @@ pypeal Database
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
 >>> 2
-[User input: "2"]
+[User input: "Add peal by ID/URL [2]"]
 Bellboard URL or peal ID: 
 >>> 41426
 [User input: "41426"]
@@ -65,7 +65,7 @@ Attempt to find a tower? [y/n] (n):
 Tower: 1) Dove ID, 2) Search by name, 3) None
 Select option: 
 >>> 2
-[User input: "2"]
+[User input: "Search by name [2]"]
 Place: 
 >>> cleator
 [User input: "cleator"]
@@ -106,7 +106,7 @@ Composition note:
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 1
-[User input: "1"]
+[User input: "Add new ringer [1]"]
 Add new ringer as "Lilianna" "Cunningham"? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -126,7 +126,7 @@ Ringer note:
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 
-[User input: "1"]
+[User input: "Add new ringer [1]"]
 Add new ringer as "Anna" "Kelly"? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -170,7 +170,7 @@ Ringer note:
 1) Add new ringer, 2) Search ringers
 Select option (1): 
 >>> 
-[User input: "1"]
+[User input: "Add new ringer [1]"]
 Add new ringer as "Myra" "Andrews"? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -189,7 +189,7 @@ Add new footnote? [y/n] (n):
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 
-[User input: "None"]
+[User input: "None [1]"]
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Cleator Moor, Cumbria, England                                               │

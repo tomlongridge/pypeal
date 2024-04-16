@@ -201,7 +201,7 @@ def _generate_basic_peal(data: dict, date_format: str) -> Peal:
         if data['TowerID'].isnumeric():
             tower = prompt_find_tower(int(data['TowerID']))
         else:
-            raise CSVImportError(f'Invalid TowerID: {data["TowerID"]}')    
+            raise CSVImportError(f'Invalid TowerID: {data["TowerID"]}')
     if not tower and confirm(None, 'Attempt to find a tower?', default=True):
         tower = prompt_find_tower(data.get('Place', None))
     if tower:
