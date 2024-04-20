@@ -1,8 +1,6 @@
 from datetime import date
-from pypeal.bellboard.html_generator import HTMLPealGenerator
-from pypeal.bellboard.interface import BellboardError
+from pypeal.bellboard.preview import get_preview
 from pypeal.bellboard.utils import get_url_from_id
-from pypeal.cli.peal_previewer import PealPreviewListener
 from pypeal.cli.prompts import confirm, panel, warning
 from pypeal.entities.peal import Peal
 from pypeal.bellboard.search import find_matching_peal
@@ -43,26 +41,21 @@ def prompt_database_duplicate(peal: Peal) -> Peal:
     return None
 
 
-def prompt_bellboard_duplicate(peal: Peal) -> tuple[int, str, date]:
+def prompt_bellboard_duplicate(peal: Peal, bb_peal_ids: list[int] = None) -> tuple[int, str, date]:
 
-    generator = HTMLPealGenerator()
-    preview_listener = PealPreviewListener()
-    first_peal = True
     console = Console()
-    for bb_peal_id, search_url in find_matching_peal(peal):
+    first_peal = True
+    for bb_peal_id, search_url in find_matching_peal(peal) if bb_peal_ids is None else bb_peal_ids:
         if first_peal:
             warning(f'Possible duplicate peals found on BellBoard: {search_url}')
             if not confirm(None, confirm_message='Check these peals for duplicates?'):
                 return None
 
-        try:
-            peal_id = generator.download(bb_peal_id)
-            generator.parse(preview_listener)
-            console.print(Columns([panel(str(peal)), panel(preview_listener.text)], expand=True, equal=True))
-            if confirm(get_url_from_id(peal_id), confirm_message='Is this the same peal?'):
-                return bb_peal_id, *preview_listener.metadata
-        except BellboardError as e:
-            warning(f'[Unable to get peal preview: {e}]', title=get_url_from_id(peal_id))
+        preview_str, submitter, date_submitted = get_preview(bb_peal_id)
+        console.print(Columns([panel(str(peal)), panel(preview_str)], expand=True, equal=True))
+
+        if confirm(get_url_from_id(bb_peal_id), confirm_message='Is this the same peal?'):
+            return bb_peal_id, submitter, date_submitted
 
         first_peal = False
 

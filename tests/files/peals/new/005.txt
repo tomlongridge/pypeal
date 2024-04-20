@@ -235,8 +235,8 @@ Submit peal to BellBoard? [y/n] (y):
 >>> n
 [User input: "False"]
 pypeal Database
- Quarter Peal count: 3                                Last updated: [Timestamp] 
- Peal count: 1                                                                  
+ Quarter Peal count: 3                                           Unsubmitted: 1 
+ Peal count: 1                                        Last updated: [Timestamp] 
  General Ringing count: 1                                                       
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │

@@ -170,16 +170,28 @@ def _read_peal_line(listener: PealGeneratorListener, data: dict, place: Ring | N
     while True:
 
         ringer_num += 1
-        ringer_data = data.get(f'Ringer {ringer_num}', None)
-        if ringer_data is None or ringer_data == '':
+        ringer_data_str = data.get(f'Ringer {ringer_num}', None)
+
+        if ringer_data_str is None or ringer_data_str == '':
             break
 
         is_conductor = False
-        if ringer_data.lower().endswith('(c)'):
+        if ringer_data_str.lower().endswith('(c)'):
             is_conductor = True
-            ringer_data = ringer_data[:-4].strip()
+            ringer_name = ringer_data[:-4].strip()
+        else:
+            ringer_name = ringer_data
 
-        listener.ringer(ringer_data, [ringer_num], None, is_conductor)
+        if ringer_data is not None:
+            if ringer_data[0] == ringer_name:
+                ringer_data[1].append(ringer_num)
+            else:
+                listener.ringer(*ringer_data)
+                ringer_data = (ringer_name, [ringer_num], None, is_conductor)
+        else:
+            ringer_data = (ringer_name, [ringer_num], None, is_conductor)
+
+    listener.ringer(*ringer_data)
 
     if 'Footnote' in data:
         listener.footnote(data['Footnote'])

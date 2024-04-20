@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta, date
 import logging
 import time
+import xml.etree.ElementTree as ET
 
 import requests
 from requests import RequestException, Response
@@ -72,11 +73,7 @@ def submit_peal(date_rung: datetime.date,
                 tenor_size: str = None,
                 details: str = None,
                 composer: str = None,
-                footnotes: list[str] = None) -> str:
-
-    global __session
-    if __session is None:
-        __session = login()
+                footnotes: list[str] = None) -> Response:
 
     if changes is None and \
        'rounds' not in title.lower() and \
@@ -119,7 +116,68 @@ def submit_peal(date_rung: datetime.date,
     url = get_config('bellboard', 'url') + '/submit.php'
     __logger.info(f'Submitting peal to Bellboard at {url}')
 
-    return _request(url, payload=payload, session=__session).text
+    return _request(url, payload=payload).text
+
+
+def submit_peal_xml(peal: Peal, force: bool = False) -> Response:
+
+    performance = ET.Element('performance')
+
+    if peal.association:
+        ET.SubElement(performance, 'association').text = peal.association
+    place = ET.SubElement(performance, 'place')
+    if peal.ring:
+        place.attrib['dove-tower-id'] = str(peal.ring.tower.dove_id)
+    ET.SubElement(place, 'place-name', type='place').text = peal.place
+    dedication_str = ''
+    if peal.dedication:
+        dedication_str += peal.dedication
+    elif peal.address:
+        dedication_str += peal.address
+    if peal.sub_place:
+        dedication_str += f', {peal.sub_place}'
+    ET.SubElement(place, 'place-name', type='dedication').text = dedication_str.strip(', ')
+    ET.SubElement(place, 'place-name', type='county').text = peal.ring.tower.county
+
+    ET.SubElement(place, 'ring', type='hand' if peal.bell_type == BellType.HANDBELLS else 'tower', tenor=peal.tenor_description)
+    ET.SubElement(performance, 'date').text = peal.date.strftime('%Y-%m-%d')
+    if peal.duration:
+        ET.SubElement(performance, 'duration').text = utils.get_time_str(peal.duration)
+    title = ET.SubElement(performance, 'title')
+    if peal.changes:
+        ET.SubElement(title, 'changes').text = str(peal.changes)
+    ET.SubElement(title, 'method').text = peal.title
+    details_str = ''
+    if peal.methods:
+        details_str += peal.get_method_summary()
+    if peal.composition_note:
+        details_str += peal.composition_note
+    if len(details_str):
+        ET.SubElement(title, 'details').text = details_str
+    if peal.composer:
+        ET.SubElement(title, 'composer', role='composed').text = peal.composer.name
+    ringers = ET.SubElement(performance, 'ringers')
+    for peal_ringer in peal.ringers:
+        ringer = ET.SubElement(ringers, 'ringer')
+        ringer.text = peal_ringer.ringer.name
+        if peal_ringer.bell_nums:
+            if len(peal_ringer.bell_nums) == 1:
+                ringer.attrib['bell'] = str(peal_ringer.bell_nums[0])
+            else:
+                ringer.attrib['bells'] = f'{peal_ringer.bell_nums[0]}-{peal_ringer.bell_nums[-1]}'
+        if peal_ringer.is_conductor:
+            ringer.attrib['conductor'] = 'true'
+    for footnote in peal.get_footnote_summary().split('\n'):
+        ET.SubElement(performance, 'footnote').text = footnote
+
+    payload = ET.tostring(performance, encoding='utf-8', method='xml').decode()
+
+    url = get_config('bellboard', 'url') + '/import.php?old'  # 'old' is used to avoid peals showing in Latest page
+    if force:
+        url += '&force'
+    __logger.info(f'Submitting peal to Bellboard at {url}')
+
+    return _request(url, payload=payload, headers={'Content-Type': 'application/xml'}).text
 
 
 def get_bb_fields_from_peal(peal: Peal) -> dict:
@@ -132,12 +190,12 @@ def get_bb_fields_from_peal(peal: Peal) -> dict:
         })
     return {
         'date_rung': peal.date,
-        'place': peal.place,
         'title': peal.title,
         'ringers': ringer_data,
         'is_general_ringing': peal.type == PealType.GENERAL_RINGING,
         'is_in_hand': peal.bell_type == BellType.HANDBELLS,
         'association': peal.association,
+        'place': peal.place,
         'region_or_county': peal.county,
         'address_or_dedication': (peal.address if peal.address else peal.dedication) +
                                  (f', {peal.sub_place}' if peal.sub_place else ''),
@@ -168,20 +226,26 @@ def _request(url: str, payload: dict = None, headers: dict[str, str] = None, ses
         time.sleep(rate_limit_secs)
     __last_call = utils.get_now()
 
+    if session is None:
+        global __session
+        if __session is None:
+            __session = login()
+        session = __session
+
+    if get_config('bellboard', 'basicauth_username'):
+        basic_auth = get_config('bellboard', 'basicauth_username'), \
+                     get_config('bellboard', 'basicauth_password')
+    else:
+        basic_auth = None
+
     try:
         response: Response
         if payload is None:
             __logger.debug(f'GET request to {url}')
-            if session:
-                response = session.get(url, headers=headers if headers else None)
-            else:
-                response = requests.get(url, headers=headers if headers else None)
+            response = session.get(url, headers=headers if headers else None, auth=basic_auth)
         else:
             __logger.debug(f'POST request to {url} with payload: {payload}')
-            if session:
-                response = session.post(url, data=payload, headers=headers if headers else None)
-            else:
-                response = requests.post(url, data=payload, headers=headers if headers else None)
+            response = session.post(url, data=payload, headers=headers if headers else None, auth=basic_auth)
         if response.status_code == 404:
             raise BellboardError(f'No such page in Bellboard at {url}')
         return response

@@ -638,7 +638,39 @@ class Peal:
         Cache.get_cache().clear(Peal.__name__, f'D{self.id}')
         Cache.get_cache().clear(Peal.__name__, f'B{self.bellboard_id}')
 
-    def _get_footnote_summary(self) -> str:
+    def get_method_summary(self) -> str:
+        summary = ''
+        if len(self.methods) == 0:
+            return summary
+        common_stage: Stage = self.methods[0][0].stage
+        common_classification: Classification = self.methods[0][0].classification
+        for method, _ in self.methods:
+            if common_stage is not None and common_stage != method.stage:
+                common_stage = None
+            if common_classification is not None and common_classification != method.classification:
+                common_classification = None
+
+        sorted_methods = sorted(self.methods, key=lambda x: (-x[1] if x[1] else 0, x[0].full_name))
+
+        previous_changes = None
+        method: Method
+        for method, changes in sorted_methods:
+            if changes is not None and changes != previous_changes:
+                summary += f'{changes} '
+            method_name = method.full_name
+            if common_stage:
+                method_name = method_name.replace(f' {method.stage}', '')
+            if common_classification:
+                method_name = method_name.replace(f' {method.classification}', '')
+            summary += f'{method_name}, '
+            previous_changes = changes
+
+        summary = summary.rstrip(', ')
+        if ',' in summary:
+            summary = summary.rsplit(',', 1)[0] + ' and' + summary.rsplit(',', 1)[1]
+        return summary
+
+    def get_footnote_summary(self) -> str:
         footnote_map: dict[str, list[int]] = {}
         for footnote in self.footnotes:
             if footnote.text not in footnote_map:
@@ -648,9 +680,10 @@ class Peal:
                 footnote_map[footnote.text].sort()
         summary = ''
         for text, bells in sorted(footnote_map.items(), key=lambda item: item[1][0] if len(item[1]) > 0 else 0):
-            summary += f'{utils.get_bell_label(bells)}: ' if bells else ''
+            if bells and len(bells) < self.num_bells:
+                summary += f'{utils.get_bell_label(bells)}: '
             summary += f'{text}\n'
-        return summary
+        return summary.strip()
 
     def __str__(self):
         text = ''
@@ -688,7 +721,8 @@ class Peal:
             text += f'{self.get_ringer_line(ringer)}\n'
         if len(self.footnotes):
             text += '\n'
-            text += self._get_footnote_summary()
+            text += self.get_footnote_summary()
+            text += '\n'
         if self.bellboard_id:
             text += f'\n[BellBoard: {get_url_from_id(self.bellboard_id)}' if self.bellboard_id else ''
             text += ' (' if self.bellboard_submitter or self.bellboard_submitted_date else ''

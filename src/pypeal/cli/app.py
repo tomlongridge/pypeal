@@ -82,6 +82,8 @@ def main(
             run_submit_peal(peal_id_or_url)
         case 'report':
             run_generate_reports()
+        case 'bulk_upload':
+            run_bulk_upload()
         case _:
             error(f'Unknown action: {action}')
 
@@ -139,6 +141,11 @@ def run_generate_reports():
         print(f'- {report_path}')
 
 
+def run_bulk_upload():
+    print('Submitting unpublished peals to BellBoard Bulk API...')
+    prompt_submit_unpublished_peals(in_bulk=True)
+
+
 def run_update_static_data():
     update_methods()
     update_associations()
@@ -191,7 +198,7 @@ def get_summary() -> dict:
         last_updated = ''
         if summary['unsubmitted_count'] > 0:
             last_updated += f'Unsubmitted: {summary["unsubmitted_count"]}\n'
-        last_updated = f'Last updated: {format_timestamp(summary["last_added"])}\n'
+        last_updated += f'Last updated: {format_timestamp(summary["last_added"])}\n'
         type_summary = ''
         for type, count in summary["types"].items():
             type_summary += f'{type} count: {count}\n'

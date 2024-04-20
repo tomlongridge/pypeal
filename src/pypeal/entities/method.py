@@ -99,17 +99,21 @@ class Method():
         self.stage = Stage(stage) if stage else None
         self.id = id
 
+    def get_calculated_name(self, show_classification: bool = True, show_stage: bool = True) -> str:
+        value = ''
+        value += f'{self.name.capitalize()} ' if self.name else ''
+        value += 'Differential ' if self.is_differential else ''
+        value += 'Little ' if self.is_little else ''
+        if show_classification and self.classification not in [None, Classification.HYBRID, Classification.BOB]:
+            value += f'{self.classification} '
+        value += f'{self.stage} ' if show_stage and self.stage else ''
+        return value.strip()
+
     def __str__(self) -> str:
         if self.full_name:
             return self.full_name
         else:
-            value = ''
-            value += f'{self.name} ' if self.name else ''
-            value += 'Differential ' if self.is_differential else ''
-            value += 'Little ' if self.is_little else ''
-            value += f'{self.classification} ' if self.classification else ''
-            value += f'{self.stage} ' if self.stage else ''
-            return value.strip()
+            return self.get_calculated_name()
 
     def __hash__(self) -> int:
         return hash(self.id)
