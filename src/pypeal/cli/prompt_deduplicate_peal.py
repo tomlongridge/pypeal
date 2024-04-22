@@ -9,7 +9,7 @@ from rich.console import Console
 from rich.panel import Panel
 
 
-def prompt_database_duplicate(peal: Peal) -> Peal:
+def prompt_database_duplicate(peal: Peal, preview: str = None) -> Peal:
 
     if peal.bellboard_id and (existing_peal := Peal.get(bellboard_id=peal.bellboard_id)):
         panel(str(existing_peal))
@@ -29,8 +29,10 @@ def prompt_database_duplicate(peal: Peal) -> Peal:
 
         console = Console()
         for existing_peal in existing_peals:
-            console.print(Columns([Panel(str(peal)), Panel(str(existing_peal))], expand=True, equal=True))
-            if confirm(None, confirm_message='See differences?'):
+            console.print(Columns([Panel(str(peal) if not preview else preview),
+                                   Panel(str(existing_peal))],
+                                  expand=True, equal=True))
+            if not preview and confirm(None, confirm_message='See differences?'):
                 diffs = ''
                 for field, (left, right) in existing_peal.diff(peal).items():
                     diffs += f'{field}: {left} -> {right}\n'

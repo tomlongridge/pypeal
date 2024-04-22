@@ -93,8 +93,11 @@ def run_poll():
 
 
 def run_import_peal(peal_id_or_url_or_file: int | str):
-    if type(peal_id_or_url_or_file) is str and os.path.exists(peal_id_or_url_or_file):
-        import_peal_csv(peal_id_or_url_or_file)
+    if type(peal_id_or_url_or_file) is str:
+        if os.path.exists(peal_id_or_url_or_file):
+            import_peal_csv(peal_id_or_url_or_file)
+        else:
+            error(f'Unable to import peals from {peal_id_or_url_or_file}')
     else:
         prompt_import_peal(prompt_peal_id(peal_id_or_url_or_file, required=False))
 

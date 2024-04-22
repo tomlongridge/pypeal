@@ -39,7 +39,6 @@ def add_peal(generator: PealGenerator) -> Peal:
     prompt_listener = PealPromptListener()
     prompt_listener.quick_mode = confirm(None, confirm_message='Try for a quick-add?', default=True)
 
-    peal: Peal = None
     while True:
 
         try:
@@ -49,9 +48,7 @@ def add_peal(generator: PealGenerator) -> Peal:
                 prompt_listener.quick_mode = False
                 continue
 
-        peal = prompt_listener.peal
-
-        saved_peal = prompt_commit_peal(peal)
+        saved_peal = prompt_commit_peal(prompt_listener.peal)
         if saved_peal:
             break
         elif prompt_listener.quick_mode and \

@@ -49,6 +49,7 @@ class Stage(IntEnum):
             if (exact_match and name == stage_name) or \
                (not exact_match and name.lower().endswith(stage_name)):
                 return stage
+        return None
 
 
 class Classification(Enum):
