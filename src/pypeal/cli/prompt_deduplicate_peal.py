@@ -7,6 +7,7 @@ from pypeal.bellboard.search import find_matching_peal
 from rich.columns import Columns
 from rich.console import Console
 from rich.panel import Panel
+from rich.markup import escape
 
 
 def prompt_database_duplicate(peal: Peal, preview: str = None) -> Peal:
@@ -43,7 +44,7 @@ def prompt_database_duplicate(peal: Peal, preview: str = None) -> Peal:
     return None
 
 
-def prompt_bellboard_duplicate(peal: Peal, bb_peal_ids: list[int] = None) -> tuple[int, str, date]:
+def prompt_bellboard_duplicate(peal: Peal, preview: str = None, bb_peal_ids: list[int] = None) -> tuple[int, str, date]:
 
     console = Console()
     first_peal = True
@@ -54,7 +55,10 @@ def prompt_bellboard_duplicate(peal: Peal, bb_peal_ids: list[int] = None) -> tup
                 return None
 
         preview_str, submitter, date_submitted = get_preview(bb_peal_id)
-        console.print(Columns([panel(str(peal)), panel(preview_str)], expand=True, equal=True))
+        console.print(Columns([Panel(escape(str(peal) if preview is None else preview)),
+                               Panel(escape(preview_str))],
+                              expand=True,
+                              equal=True))
 
         if confirm(get_url_from_id(bb_peal_id), confirm_message='Is this the same peal?'):
             return bb_peal_id, submitter, date_submitted

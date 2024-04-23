@@ -3,6 +3,8 @@ import os
 import random
 import urllib.parse
 
+EMPTY_SEARCH_CONTENT = '<performances xmlns="http://bb.ringingworld.co.uk/NS/performances#"></performances>'
+
 
 class BellboardMockServer(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -25,13 +27,16 @@ class BellboardMockServer(BaseHTTPRequestHandler):
                 page = int(params['page'][0])
             else:
                 page = 1
-            response_file = os.path.join(os.path.dirname(__file__), '..', 'files', 'peals', 'searches', f'{page}.xml')
+            response_file = os.path.join(os.path.dirname(__file__), '..', 'files', 'peals', 'searches', 'test.xml')
             if os.path.exists(response_file):
+                if page > 1:
+                    response_file = None
+            else:
+                response_file = os.path.join(os.path.dirname(__file__), '..', 'files', 'peals', 'searches', f'{page}.xml')
+            if response_file and os.path.exists(response_file):
                 self.respond_with_file(response_file, 'application/xml')
                 return
-            self.respond_with_content(
-                '<performances xmlns="http://bb.ringingworld.co.uk/NS/performances#"></performances>',
-                content_type='application/xml')
+            self.respond_with_content(EMPTY_SEARCH_CONTENT, content_type='application/xml')
         elif self.path.startswith('/uploads'):
             with open(os.path.join(os.path.dirname(__file__), '..', 'files', 'peals') + self.path, 'rb') as f:
                 self.respond_with_content(f.read(), content_type='image/jpeg', encoding=None)

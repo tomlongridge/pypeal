@@ -75,45 +75,44 @@ def import_peal_csv(data_file_path: str):
                 row_id = f'{config_import_name} ID {peal_data["Reference"]}'
 
             print(f'Importing peal {row_id}...')
-
+            saved_peal = None
             try:
                 _read_peal_line(preview_listener, peal_data, None, config_date_format)
                 panel(preview_listener.text, title='Preview', width=100)
                 basic_peal = _generate_basic_peal(peal_data, config_date_format)
 
                 if prompt_database_duplicate(basic_peal, preview_listener.text) is not None \
-                        and prompt_bellboard_duplicate(basic_peal) is not None \
-                        and not confirm(None, confirm_message='Continue adding new peal?'):
-                    return
+                        or prompt_bellboard_duplicate(basic_peal, preview=preview_listener.text) is not None:
+                    print(f'Peal {row_id} already exists in database')
+                else:
 
-                prompt_listener = PealPromptListener()
-                prompt_listener.quick_mode = confirm(None, confirm_message='Try for a quick-add?', default=True)
+                    prompt_listener = PealPromptListener()
+                    prompt_listener.quick_mode = confirm(None, confirm_message='Try for a quick-add?', default=True)
 
-                while True:
+                    while True:
 
-                    try:
-                        _read_peal_line(prompt_listener, peal_data, basic_peal.ring, config_date_format)
-                    except UserCancelled:
-                        if confirm(None, confirm_message='Retry entire peal?', default=True):
+                        try:
+                            _read_peal_line(prompt_listener, peal_data, basic_peal.ring, config_date_format)
+                        except UserCancelled:
+                            if confirm(None, confirm_message='Retry entire peal?', default=True):
+                                prompt_listener.quick_mode = False
+                                continue
+
+                        prompt_listener.peal.external_reference = row_id
+                        saved_peal = prompt_commit_peal(prompt_listener.peal)
+                        if not saved_peal and \
+                                prompt_listener.quick_mode and \
+                                confirm(None, confirm_message='Try again in prompt mode?', default=True):
                             prompt_listener.quick_mode = False
                             continue
-
-                    prompt_listener.peal.external_reference = row_id
-                    saved_peal = prompt_commit_peal(prompt_listener.peal)
-                    if not saved_peal and \
-                            prompt_listener.quick_mode and \
-                            confirm(None, confirm_message='Try again in prompt mode?', default=True):
-                        prompt_listener.quick_mode = False
-                        continue
-                    else:
-                        break
+                        else:
+                            break
 
             except CSVImportError as e:
-                error(f'Error importing peal at L{file_line_index}: {e}')
-                saved_peal = None
+                error(f'Error importing peal {file_line_index}: {e}')
 
             if not saved_peal:
-                print(f'Aborting peal #{file_line_index}')
+                print(f'Aborting peal {file_line_index}')
 
             # Comment-out the current line and break out to re-read the file
             with open(data_file_path, 'w', encoding='utf-8-sig') as fw:

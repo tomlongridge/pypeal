@@ -4,6 +4,7 @@ from typer.testing import CliRunner
 from click.testing import Result
 
 from pypeal.entities.peal import Peal
+from tests.fixtures import mock_server
 
 
 _runner = CliRunner()
@@ -14,23 +15,30 @@ def cli_runner(app: Typer, input_file: str):
     with open(input_file, 'r') as f:
         test_data = [data.strip() for data in f.read().split('===')]
 
-    assert len(test_data) >= 3, f'Test file for peal {input_file} doesn\'t contain at least 3 sections'
+    assert len(test_data) == 4, f'Test file for peal {input_file} doesn\'t contain the expected 4 sections'
+
+    args, search_responses, console_text, expected_peal = test_data[:4]
 
     stdin: list[str] = []
     expected_stdout = ''
-    for line in test_data[1].split('\n'):
+    for line in console_text.split('\n'):
         if line.startswith('>>> '):
             stdin.append(line[4:])
         else:
             expected_stdout += line + '\n'
     expected_stdout = expected_stdout.strip()
 
+    if search_responses:
+        mock_server.set_search_results([int(peal_id) for peal_id in search_responses.split('|') if peal_id != ''])
+    else:
+        mock_server.set_search_results(None)
+
     result: Result = None
     stored_peal: Peal = None
     test_output = ''
     try:
         result = _runner.invoke(app,
-                                test_data[0].split('|') if test_data[0] != '' else None,
+                                args.split('|') if args != '' else None,
                                 input='\n'.join(stdin) + '\n')
 
         last_peal_id = None
@@ -51,14 +59,16 @@ def cli_runner(app: Typer, input_file: str):
         assert last_peal_id is not None, "Unable to find saved peal ID"
         stored_peal = Peal.get(id=last_peal_id)
         assert stored_peal is not None, "Unable to retrieve saved peal"
-        assert str(stored_peal) == test_data[2], "Saved peal does not match expected peal"
+        assert str(stored_peal) == expected_peal, "Saved peal does not match expected peal"
 
         assert result.output.strip() == expected_stdout, "App output does not match expected output"
 
     except Exception as e:
         with open(input_file, 'w') as f:
-            f.write(test_data[0] +
+            f.write(args +
                     '\n===\n' +
+                    search_responses + ('\n' if search_responses else '') +
+                    '===\n' +
                     test_output.strip() +
                     '\n===\n' +
                     str(stored_peal))

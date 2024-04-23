@@ -1,5 +1,7 @@
 import|--peal|files/peals/csv/current.csv|--reset-database
 ===
+|
+===
 Importing peals from files/peals/csv/current.csv...
 Importing peal Current L2...
 ╭────────────────────────────────── Preview ───────────────────────────────────╮
