@@ -6,7 +6,7 @@ Importing peals from files/peals/csv/current.csv...
 Importing peal My Peal Records L4...
 ╭────────────────────────────────── Preview ───────────────────────────────────╮
 │ Withycombe Raleigh, [no county]                                              │
-│ Grandsire Triples                                                            │
+│ 1260 Grandsire Triples                                                       │
 │ Monday, 1 January 2001                                                       │
 │                                                                              │
 │ 1: Adam Apple                                                                │
@@ -24,6 +24,7 @@ Try for a quick-add? [y/n] (y):
 🔔 Bell type: Tower
 🏰 Tower: Withycombe Raleigh, Devon
 📅 Date: Monday, 1 January 2001
+🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
 📕 Title: Grandsire Triples
 1: Couldn't find ringer matching "Adam Apple" (or aliases)
@@ -72,7 +73,7 @@ Add new ringer as "Harold" "Hedgehog"? [y/n] (y):
 │ Withycombe Raleigh, Devon, England                                           │
 │ S John Ev                                                                    │
 │ On Monday, 1 January 2001                                                    │
-│ Grandsire Triples (7-0-16 in A#)                                             │
+│ A Quarter Peal of 1260 Grandsire Triples (7-0-16 in A#)                      │
 │                                                                              │
 │ 1: Adam Apple                                                                │
 │ 2: Ben Bob                                                                   │
@@ -97,7 +98,7 @@ Importing peal My Peal Records L5...
 ╰──────────────────────────────────────────────────────────────────────────────╯
 ╭────────────────────────────────── Preview ───────────────────────────────────╮
 │ Bathwick, [no county]                                                        │
-│ Cambridge Minor                                                              │
+│ 1260 Cambridge Minor                                                         │
 │ Tuesday, 31 July 2001                                                        │
 │                                                                              │
 │ 1 [5]: Adam Apple                                                            │
@@ -113,6 +114,7 @@ Try for a quick-add? [y/n] (y):
 🔔 Bell type: Tower
 🏰 Tower: Bath (Bathwick), Somerset
 📅 Date: Tuesday, 31 July 2001
+🔢 Changes: 1260
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Warning: Stage not found for peal Cambridge, using number of ringers (6) but │
 │ it might have tenor cover.                                                   │
@@ -131,7 +133,7 @@ Matching peal titled "Cambridge Minor"...
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Tuesday, 31 July 2001                                                     │
-│ Cambridge Surprise Minor (18-3-20 in Eb)                                     │
+│ A Quarter Peal of 1260 Cambridge Surprise Minor (18-3-20 in Eb)              │
 │                                                                              │
 │ 1 [5]: Adam Apple                                                            │
 │ 2 [6]: Ben Bob                                                               │
@@ -151,7 +153,7 @@ Peal (ID 2) added
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Tuesday, 31 July 2001
-Cambridge Surprise Minor (18-3-20 in Eb)
+A Quarter Peal of 1260 Cambridge Surprise Minor (18-3-20 in Eb)
 
 1 [5]: Adam Apple
 2 [6]: Ben Bob
