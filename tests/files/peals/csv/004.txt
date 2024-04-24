@@ -5,6 +5,7 @@ import|--peal|files/peals/csv/current.csv|--reset-database
 Importing peals from files/peals/csv/current.csv...
 Importing peal Current L2...
 ╭────────────────────────────────── Preview ───────────────────────────────────╮
+│ Bath & Wells                                                                 │
 │ S John Ev, Withycombe Raleigh, Devon, England                                │
 │ 1260 Grandsire Triples                                                       │
 │ Monday, 1 January 2001                                                       │
@@ -24,6 +25,15 @@ Try for a quick-add? [y/n] (y):
 🔔 Bell type: Tower
 🏰 Tower: Withycombe Raleigh, Devon
 📅 Date: Monday, 1 January 2001
+No associations match "Bath & Wells"
+1) Search alternatives, 2) Add new association, 3) Remove association
+Select option (1): 
+>>> 2
+[User input: "Add new association [2]"]
+Name (Bath & Wells): 
+>>> 
+[User input: "Bath & Wells"]
+🏛 Association: Bath & Wells
 🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
 📕 Title: Grandsire Triples
@@ -70,6 +80,7 @@ Add new ringer as "Harold" "Hedgehog"? [y/n] (y):
 📝 Footnotes: None
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
+│ Bath & Wells                                                                 │
 │ Withycombe Raleigh, Devon, England                                           │
 │ S John Ev                                                                    │
 │ On Monday, 1 January 2001                                                    │
@@ -109,10 +120,11 @@ Attempt to find a tower? [y/n] (y):
 Try for a quick-add? [y/n] (y): 
 >>> y
 [User input: "True"]
-🔔 Bell type: Tower
+🔔 Bell type: Handbells
 📍 Location: Rewe, Devon, England
 📍 Detail: Culmdale
 📅 Date: Friday, 2 March 2001
+🏛 Association: None
 🔢 Changes: 1260
 Matching peal titled "Grandsire Doubles"...
 📕 Title: Grandsire Doubles
@@ -125,7 +137,7 @@ Referenced ringer(s):
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Rewe, Devon, England                                                         │
-│ Culmdale                                                                     │
+│ Culmdale (in hand)                                                           │
 │ On Friday, 2 March 2001                                                      │
 │ A Quarter Peal of 1260 Grandsire Doubles                                     │
 │                                                                              │
@@ -144,7 +156,7 @@ Is this correct? [y/n] (y):
 Peal (ID 2) added
 ===
 Rewe, Devon, England
-Culmdale
+Culmdale (in hand)
 On Friday, 2 March 2001
 A Quarter Peal of 1260 Grandsire Doubles 
 

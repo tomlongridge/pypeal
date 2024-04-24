@@ -1,13 +1,26 @@
+import os
 import re
 from typer import Typer
 from typer.testing import CliRunner
 from click.testing import Result
 
 from pypeal.entities.peal import Peal
-from tests.fixtures import mock_server
 
 
 _runner = CliRunner()
+
+
+def set_search_results(bb_peal_ids: list[int]):
+    response_file = os.path.join(os.path.dirname(__file__), '..', 'files', 'peals', 'searches', 'test.xml')
+    if bb_peal_ids is None:
+        if os.path.exists(response_file):
+            os.remove(response_file)
+    else:
+        with open(response_file, 'w') as f:
+            f.write('<performances xmlns="http://bb.ringingworld.co.uk/NS/performances#">\n')
+            for peal_id in bb_peal_ids:
+                f.write(f'  <performance href="view.php?id={peal_id}"/>\n')
+            f.write('</performances>')
 
 
 def cli_runner(app: Typer, input_file: str):
@@ -29,9 +42,9 @@ def cli_runner(app: Typer, input_file: str):
     expected_stdout = expected_stdout.strip()
 
     if search_responses:
-        mock_server.set_search_results([int(peal_id) for peal_id in search_responses.split('|') if peal_id != ''])
+        set_search_results([int(peal_id) for peal_id in search_responses.split('|') if peal_id != ''])
     else:
-        mock_server.set_search_results(None)
+        set_search_results(None)
 
     result: Result = None
     stored_peal: Peal = None

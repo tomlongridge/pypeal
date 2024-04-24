@@ -5,7 +5,7 @@ import shutil
 from xprocess import ProcessStarter, XProcess
 
 from pypeal.cli.app import app
-from tests.scripts.runner import cli_runner
+from tests.scripts.runner import cli_runner, set_search_results
 
 
 @pytest.fixture
@@ -19,6 +19,7 @@ def mock_bellboard_server(xprocess: XProcess):
     xprocess.ensure("mock_bellboard_server", Starter)
     yield
     xprocess.getinfo("mock_bellboard_server").terminate()
+    set_search_results(None)
 
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
