@@ -1,0 +1,158 @@
+import|--peal|files/peals/csv/current.csv|--reset-database
+===
+|
+===
+Importing peals from files/peals/csv/current.csv...
+Importing peal Current L2...
+╭────────────────────────────────── Preview ───────────────────────────────────╮
+│ S John Ev, Withycombe Raleigh, Devon, England                                │
+│ 1260 Grandsire Triples                                                       │
+│ Monday, 1 January 2001                                                       │
+│                                                                              │
+│ 1: Adam Apple                                                                │
+│ 2: Ben Bob                                                                   │
+│ 3: Charlie Cook                                                              │
+│ 4: Darcy Davis                                                               │
+│ 5: Enid Evans                                                                │
+│ 6: Freddie Firth (c)                                                         │
+│ 7: Gordon T Gopher                                                           │
+│ 8: Harold Hedgehog                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Try for a quick-add? [y/n] (y): 
+>>> y
+[User input: "True"]
+🔔 Bell type: Tower
+🏰 Tower: Withycombe Raleigh, Devon
+📅 Date: Monday, 1 January 2001
+🔢 Changes: 1260
+Matching peal titled "Grandsire Triples"...
+📕 Title: Grandsire Triples
+1: Couldn't find ringer matching "Adam Apple" (or aliases)
+Add new ringer as "Adam" "Apple"? [y/n] (y): 
+>>> y
+[User input: "True"]
+👤 Ringer: 1: Adam Apple
+2: Couldn't find ringer matching "Ben Bob" (or aliases)
+Add new ringer as "Ben" "Bob"? [y/n] (y): 
+>>> y
+[User input: "True"]
+👤 Ringer: 2: Ben Bob
+3: Couldn't find ringer matching "Charlie Cook" (or aliases)
+Add new ringer as "Charlie" "Cook"? [y/n] (y): 
+>>> y
+[User input: "True"]
+👤 Ringer: 3: Charlie Cook
+4: Couldn't find ringer matching "Darcy Davis" (or aliases)
+Add new ringer as "Darcy" "Davis"? [y/n] (y): 
+>>> y
+[User input: "True"]
+👤 Ringer: 4: Darcy Davis
+5: Couldn't find ringer matching "Enid Evans" (or aliases)
+Add new ringer as "Enid" "Evans"? [y/n] (y): 
+>>> y
+[User input: "True"]
+👤 Ringer: 5: Enid Evans
+6: Couldn't find ringer matching "Freddie Firth" (or aliases)
+Add new ringer as "Freddie" "Firth"? [y/n] (y): 
+>>> y
+[User input: "True"]
+👤 Ringer: 6: Freddie Firth (c)
+7: Couldn't find ringer matching "Gordon T Gopher" (or aliases)
+Add new ringer as "Gordon T" "Gopher"? [y/n] (y): 
+>>> y
+[User input: "True"]
+👤 Ringer: 7: Gordon T Gopher
+8: Couldn't find ringer matching "Harold Hedgehog" (or aliases)
+Add new ringer as "Harold" "Hedgehog"? [y/n] (y): 
+>>> y
+[User input: "True"]
+👤 Ringer: 8: Harold Hedgehog
+📝 Footnotes: None
+🔕 Muffles: None
+╭──────────────────────────── Confirm performance ─────────────────────────────╮
+│ Withycombe Raleigh, Devon, England                                           │
+│ S John Ev                                                                    │
+│ On Monday, 1 January 2001                                                    │
+│ A Quarter Peal of 1260 Grandsire Triples (7-0-16 in A#)                      │
+│                                                                              │
+│ 1: Adam Apple                                                                │
+│ 2: Ben Bob                                                                   │
+│ 3: Charlie Cook                                                              │
+│ 4: Darcy Davis                                                               │
+│ 5: Enid Evans                                                                │
+│ 6: Freddie Firth (c)                                                         │
+│ 7: Gordon T Gopher                                                           │
+│ 8: Harold Hedgehog                                                           │
+│                                                                              │
+│ [External reference: Current L2]                                             │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Peal (ID 1) added
+Importing peal Current L3...
+╭────────────────────────────────── Preview ───────────────────────────────────╮
+│ Culmdale, Rewe, Devon, England                                               │
+│ 1260 Grandsire Doubles                                                       │
+│ Friday, 2 March 2001                                                         │
+│                                                                              │
+│ 1,2: Adam Apple                                                              │
+│ 3,4: Ben Bob                                                                 │
+│ 5,6: Charlie Cook (c)                                                        │
+│                                                                              │
+│ 3,4: 1st quarter                                                             │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Attempt to find a tower? [y/n] (y): 
+>>> n
+[User input: "False"]
+Try for a quick-add? [y/n] (y): 
+>>> y
+[User input: "True"]
+🔔 Bell type: Tower
+📍 Location: Rewe, Devon, England
+📍 Detail: Culmdale
+📅 Date: Friday, 2 March 2001
+🔢 Changes: 1260
+Matching peal titled "Grandsire Doubles"...
+📕 Title: Grandsire Doubles
+👤 Ringer: 1,2: Adam Apple
+👤 Ringer: 3,4: Ben Bob
+👤 Ringer: 5,6: Charlie Cook (c)
+Referenced ringer(s):
+  - 3: Ben Bob
+  - 4: Ben Bob
+🔕 Muffles: None
+╭──────────────────────────── Confirm performance ─────────────────────────────╮
+│ Rewe, Devon, England                                                         │
+│ Culmdale                                                                     │
+│ On Friday, 2 March 2001                                                      │
+│ A Quarter Peal of 1260 Grandsire Doubles                                     │
+│                                                                              │
+│ 1,2: Adam Apple                                                              │
+│ 3,4: Ben Bob                                                                 │
+│ 5,6: Charlie Cook (c)                                                        │
+│                                                                              │
+│ 3,4: 1st quarter.                                                            │
+│                                                                              │
+│ [External reference: Current L3]                                             │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Peal (ID 2) added
+===
+Rewe, Devon, England
+Culmdale
+On Friday, 2 March 2001
+A Quarter Peal of 1260 Grandsire Doubles 
+
+1,2: Adam Apple
+3,4: Ben Bob
+5,6: Charlie Cook (c)
+
+3,4: 1st quarter.
+
+[External reference: Current L3]
+[Database ID: 2]

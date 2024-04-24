@@ -121,7 +121,7 @@ def submit_peal(date_rung: datetime.date,
 
 def submit_peal_xml(peal: Peal, force: bool = False) -> Response:
 
-    performance = ET.Element('performance')
+    performance = ET.Element('performance', xmlns='http://bb.ringingworld.co.uk/NS/performances#')
 
     if peal.association:
         ET.SubElement(performance, 'association').text = peal.association
@@ -172,12 +172,12 @@ def submit_peal_xml(peal: Peal, force: bool = False) -> Response:
 
     payload = ET.tostring(performance, encoding='utf-8', method='xml').decode()
 
-    url = get_config('bellboard', 'url') + '/import.php?old'  # 'old' is used to avoid peals showing in Latest page
+    url = get_config('bellboard', 'url') + '/import.php'  # 'old' is used to avoid peals showing in Latest page
     if force:
         url += '&force'
     __logger.info(f'Submitting peal to Bellboard at {url}')
 
-    return _request(url, payload=payload, headers={'Content-Type': 'application/xml'}).text
+    return _request(url, payload=payload, headers={'Content-Type': 'application/xml'})
 
 
 def get_bb_fields_from_peal(peal: Peal) -> dict:
