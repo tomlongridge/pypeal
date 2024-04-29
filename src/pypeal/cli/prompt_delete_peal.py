@@ -12,6 +12,6 @@ def prompt_delete_peal(peal_id_or_url: str = None):
         case 2:
             peal_id = ask_int('Peal ID', min=1, required=True)
             peal = Peal.get(id=peal_id)
-    panel(str(peal))
+    panel(peal)
     if confirm(None, 'Delete peal?'):
         peal.delete()

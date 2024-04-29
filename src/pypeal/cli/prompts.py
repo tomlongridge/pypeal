@@ -9,7 +9,9 @@ from rich.markup import escape
 from pypeal import utils
 from pypeal.bellboard.interface import get_id_from_url
 
+from pypeal.bellboard.utils import get_url_from_id
 from pypeal.config import get_config
+from pypeal.entities.peal import Peal
 
 logger = logging.getLogger('pypeal')
 
@@ -127,8 +129,20 @@ def press_any_key(prompt: str = 'Press any key to continue...'):
         raise UserCancelled()
 
 
-def panel(content: str, title: str = 'pypeal', width: int = None):
-    print(Panel(escape(content), title=title, width=width))
+def make_peal_panel(peal: str | Peal, title: str = None):
+    if type(peal) is str:
+        return Panel(escape(peal), title=title, width=80)
+    else:
+        if peal.bellboard_id and not title:
+            title = get_url_from_id(peal.bellboard_id)
+        return Panel(escape(str(peal)), title=title, width=80)
+
+
+def panel(content: str | Peal, title: str = None, width: int = None):
+    if type(content) is Peal:
+        print(make_peal_panel(content, title))
+    else:
+        print(Panel(escape(content), title=title, width=width))
 
 
 def warning(message: str, title: str = None):

@@ -1,6 +1,7 @@
 import csv
 from datetime import datetime
 import os
+import re
 from pypeal.bellboard.listener import PealGeneratorListener
 from pypeal.cli.prompt_commit_peal import prompt_commit_peal
 from pypeal.cli.peal_previewer import PealPreviewListener
@@ -11,7 +12,7 @@ from pypeal.cli.prompts import UserCancelled, confirm, error, panel, warning
 from pypeal.entities.method import Stage
 from pypeal.entities.peal import BellType, Peal
 
-from pypeal.entities.tower import Ring, Tower
+from pypeal.entities.tower import Tower
 
 
 class CSVImportError(Exception):
@@ -92,7 +93,7 @@ def import_peal_csv(data_file_path: str):
                     while True:
 
                         try:
-                            _read_peal_line(prompt_listener, peal_data, basic_peal.ring, config_date_format)
+                            _read_peal_line(prompt_listener, peal_data, basic_peal, config_date_format)
                         except UserCancelled:
                             if confirm(None, confirm_message='Retry entire peal?', default=True):
                                 prompt_listener.quick_mode = False
@@ -110,6 +111,10 @@ def import_peal_csv(data_file_path: str):
 
             except CSVImportError as e:
                 error(f'Error importing peal {file_line_index}: {e}')
+
+            except UserCancelled:
+                print(f'Aborting CSV import at line {file_line_index}')
+                return
 
             if not saved_peal:
                 print(f'Aborting peal {file_line_index}')
@@ -146,15 +151,24 @@ def _read_date(data: dict, date_format: str) -> datetime.date:
         raise CSVImportError(f'Unable to parse date: {data["Date"]} in format {date_format}')
 
 
-def _read_peal_line(listener: PealGeneratorListener, data: dict, place: Ring | None, date_format: str):
+def _read_peal_line(listener: PealGeneratorListener, data: dict, basic_peal: Peal | None, date_format: str):
 
     listener.new_peal(None)
     listener.bell_type(_read_bell_type(data))
 
-    if place is not None:
-        listener.tower(dove_id=place.tower.dove_id)
+    if basic_peal is not None:
+        if basic_peal.ring is not None:
+            listener.tower(dove_id=basic_peal.ring.tower.dove_id)
+        elif basic_peal.place is not None:
+            listener.location(basic_peal.dedication, basic_peal.place, basic_peal.county, basic_peal.country)
     elif 'Place' in data:
-        listener.location(data.get('Dedication', None), data['Place'], data.get('County', None), data.get('Country', None))
+        if data['Place'].isnumeric() and (tower := Tower.get(dove_id=int(data['Place']))):
+            listener.location(tower.dedication,
+                              tower.place + (f' ({tower.sub_place})' if tower.sub_place else ''),
+                              tower.county,
+                              tower.country)
+        else:
+            listener.location(data.get('Dedication', None), data['Place'], data.get('County', None), data.get('Country', None))
     else:
         raise CSVImportError('No place found')
 
@@ -248,21 +262,27 @@ def _generate_basic_peal(data: dict, date_format: str) -> Peal:
 
     tower = None
     if 'Place' in data and data['Place'] is not None:
-        tower_matches = Tower.search(place=data['Place'], exact_match=False)
-        if len(tower_matches) == 1:
-            tower = tower_matches[0]
-    if 'TowerID' in data and data['TowerID'] is not None:
-        if data['TowerID'].isnumeric():
-            tower = prompt_find_tower(int(data['TowerID']))
+        if data['Place'].isnumeric():
+            tower = Tower.get(dove_id=int(data['Place']))
+            if not tower:
+                raise CSVImportError(f'Tower with Dove ID {data["Place"]} not found')
         else:
-            raise CSVImportError(f'Invalid TowerID: {data["TowerID"]}')
-    if not tower and confirm(None, 'Attempt to find a tower?', default=True):
+            tower_matches = Tower.search(place=data['Place'], exact_match=False)
+            if len(tower_matches) == 1:
+                tower = tower_matches[0]
+    if not tower and peal.bell_type == BellType.TOWER:
         tower = prompt_find_tower(data.get('Place', None))
     if tower:
         peal.ring = tower.get_active_ring(peal.date)
     else:
-        peal.place = data.get('Place', None)
-        peal.dedication = data.get('Dedication', None)
+        place = None
+        dedication = None
+        if 'Place' in data and (place_match := re.match(r'(?P<place>.*?)\((?P<dedication>.*?)\)$', data['Place'])):
+            place_data = place_match.groupdict()
+            place = place_data['place']
+            dedication = place_data['dedication']
+        peal.place = place or data.get('Place', None)
+        peal.dedication = dedication or data.get('Dedication', None)
         peal.county = data.get('County', None)
         peal.country = data.get('Country', None)
     return peal

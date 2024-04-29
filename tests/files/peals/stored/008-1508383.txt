@@ -26,7 +26,7 @@ Bellboard URL or peal ID:
 [User input: "1508383"]
 ╭───────────────── http://localhost:8080/view.php?id=1508383 ──────────────────╮
 │ Oxford Diocesan Guild                                                        │
-│ 80 Lambourne Drive, Cox Green, Maidenhead, [no county]                       │
+│ 80 Lambourne Drive, Cox Green, Maidenhead                                    │
 │ 5232 Bristol Surprise Maximus                                                │
 │ Composer: Lenny Howard                                                       │
 │ Wednesday, 29 March 1972 in 3h 3                                             │
@@ -58,7 +58,7 @@ Duration (183):
 >>> 
 [User input: "183"]
 ⏱ Duration: 3 hours, 3 mins
-Location: 80 Lambourne Drive, Cox Green , Maidenhead
+Location: Maidenhead (80 Lambourne Drive, Cox Green)
 Attempt to find a tower? [y/n] (n): 
 >>> n
 [User input: "False"]

@@ -5,7 +5,7 @@ import|--peal|files/peals/csv/current.csv|--reset-database
 Importing peals from files/peals/csv/current.csv...
 Importing peal My Peal Records L4...
 ╭────────────────────────────────── Preview ───────────────────────────────────╮
-│ Withycombe Raleigh, [no county]                                              │
+│ Withycombe Raleigh                                                           │
 │ 1260 Grandsire Triples                                                       │
 │ Monday, 1 January 2001                                                       │
 │                                                                              │
@@ -97,7 +97,7 @@ Importing peal My Peal Records L5...
 │ it might have tenor cover.                                                   │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 ╭────────────────────────────────── Preview ───────────────────────────────────╮
-│ Bathwick, [no county]                                                        │
+│ Bathwick                                                                     │
 │ 1260 Cambridge Minor                                                         │
 │ Tuesday, 31 July 2001                                                        │
 │                                                                              │

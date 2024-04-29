@@ -26,7 +26,7 @@ def prompt_submit_peal(peal: int | Peal = None):
     elif peal.id is None:
         raise ValueError('Peal must be saved to database before submitting to BellBoard')
 
-    panel(str(peal))
+    panel(peal)
 
     if peal.bellboard_id is not None:
         if not confirm(f'Peal already submitted to BellBoard by {peal.bellboard_submitter} on ' +

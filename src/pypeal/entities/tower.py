@@ -165,6 +165,7 @@ class Tower():
     @classmethod
     def search(cls,
                place: str = None,
+               sub_place: str = None,
                dedication: str = None,
                county: str = None,
                country: str = None,
@@ -178,17 +179,22 @@ class Tower():
                 raise ValueError('Exact match specified in method search, but place contains wildcard')
         else:
             place = f'{place}%' if place and '%' not in place else place
+            sub_place = f'{sub_place}%' if sub_place and '%' not in sub_place else sub_place
 
         query = f'SELECT {",".join(FIELD_LIST)}, id FROM towers WHERE 1=1 '
         params = {}
-        if place:
+        if sub_place is not None:
             if exact_match:
-                query += 'AND (place = %(place)s OR sub_place = %(place)s) '
+                query += 'AND sub_place = %(sub_place)s '
             else:
-                query += 'AND (place LIKE %(place)s OR sub_place LIKE %(place)s) '
+                query += 'AND sub_place LIKE %(sub_place)s '
+            params['sub_place'] = f'{sub_place}'
+        if place is not None:
+            if exact_match:
+                query += 'AND (place = %(place)s' + (' OR sub_place = %(place)s' if not sub_place else '') + ') '
+            else:
+                query += 'AND (place LIKE %(place)s' + (' OR sub_place LIKE %(place)s' if not sub_place else '') + ') '
             params['place'] = f'{place}'
-        elif exact_match:
-            query += 'AND place IS NULL '
         if dedication is not None:
             query += 'AND dedication = %(dedication)s '
             params['dedication'] = dedication

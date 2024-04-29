@@ -11,13 +11,16 @@ def prompt_add_location(address_dedication: str, place: str, county: str, countr
 
     if not quick_mode or not (address_dedication or place or county or country):
         full_location = ''
-        full_location += f', {address_dedication} ' if address_dedication else ''
-        full_location += f', {place}' if place else ''
+        full_location += f'{place}' if place else ''
+        full_location += f' ({address_dedication})' if address_dedication else ''
         full_location += f', {county}' if county else ''
         full_location += f', {country}' if country else ''
         full_location = full_location.strip(', ')
 
-        if confirm(f'Location: {full_location or "Unknown"}', confirm_message='Attempt to find a tower?', default=False):
+        if (quick_mode and peal.bell_type == BellType.TOWER) or \
+                (not quick_mode and confirm(f'Location: {full_location or "Unknown"}',
+                                            confirm_message='Attempt to find a tower?',
+                                            default=peal.bell_type == BellType.TOWER)):
             selected_tower = prompt_find_tower()
             if selected_tower:
                 peal.ring = selected_tower.get_active_ring(peal.date)
@@ -84,7 +87,7 @@ def prompt_add_location(address_dedication: str, place: str, county: str, countr
                 country = county_parts.pop()
                 county = ', '.join(county_parts)
         peal.county = ask('County/state', county) if not quick_mode else county
-        peal.country = ask('Country', country) if not quick_mode else country
+        peal.country = ask('Country', country, required=False) if not quick_mode else country
 
         if not quick_mode and not confirm(peal.location):
             continue

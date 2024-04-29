@@ -222,7 +222,7 @@ Peal (ID 1) added
 Submit peal to BellBoard? [y/n] (y): 
 >>> y
 [User input: "True"]
-╭─────────────────────────────────── pypeal ───────────────────────────────────╮
+╭──────────────────────────────────────────────────────────────────────────────╮
 │ Bath and Wells Diocesan Association                                          │
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │

@@ -114,9 +114,6 @@ Importing peal Current L3...
 │                                                                              │
 │ 3,4: 1st quarter                                                             │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Attempt to find a tower? [y/n] (y): 
->>> n
-[User input: "False"]
 Try for a quick-add? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -154,10 +151,59 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 Peal (ID 2) added
+Importing peal Current L4...
+╭────────────────────────────────── Preview ───────────────────────────────────╮
+│ Rewe (Culmdale), Devon, England                                              │
+│ 1260 Grandsire Doubles                                                       │
+│ Saturday, 3 March 2001                                                       │
+│                                                                              │
+│ 1,2: Adam Apple                                                              │
+│ 3,4: Ben Bob                                                                 │
+│ 5,6: Charlie Cook (c)                                                        │
+│                                                                              │
+│ 3,4: 1st quarter                                                             │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Try for a quick-add? [y/n] (y): 
+>>> y
+[User input: "True"]
+🔔 Bell type: Handbells
+📍 Location: Rewe, Devon, England
+📍 Detail: Culmdale
+📅 Date: Saturday, 3 March 2001
+🏛 Association: None
+🔢 Changes: 1260
+Matching peal titled "Grandsire Doubles"...
+📕 Title: Grandsire Doubles
+👤 Ringer: 1,2: Adam Apple
+👤 Ringer: 3,4: Ben Bob
+👤 Ringer: 5,6: Charlie Cook (c)
+Referenced ringer(s):
+  - 3: Ben Bob
+  - 4: Ben Bob
+🔕 Muffles: None
+╭──────────────────────────── Confirm performance ─────────────────────────────╮
+│ Rewe, Devon, England                                                         │
+│ Culmdale (in hand)                                                           │
+│ On Saturday, 3 March 2001                                                    │
+│ A Quarter Peal of 1260 Grandsire Doubles                                     │
+│                                                                              │
+│ 1,2: Adam Apple                                                              │
+│ 3,4: Ben Bob                                                                 │
+│ 5,6: Charlie Cook (c)                                                        │
+│                                                                              │
+│ 3,4: 1st quarter.                                                            │
+│                                                                              │
+│ [External reference: Current L4]                                             │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Peal (ID 3) added
 ===
 Rewe, Devon, England
 Culmdale (in hand)
-On Friday, 2 March 2001
+On Saturday, 3 March 2001
 A Quarter Peal of 1260 Grandsire Doubles 
 
 1,2: Adam Apple
@@ -166,5 +212,5 @@ A Quarter Peal of 1260 Grandsire Doubles
 
 3,4: 1st quarter.
 
-[External reference: Current L3]
-[Database ID: 2]
+[External reference: Current L4]
+[Database ID: 3]

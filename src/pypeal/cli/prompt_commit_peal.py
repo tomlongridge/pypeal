@@ -25,7 +25,7 @@ def prompt_commit_peal(peal: Peal) -> Peal:
 
     if peal:
 
-        panel(str(peal), title='Confirm performance')
+        panel(peal, title='Confirm performance')
         if not user_confirmed and not confirm('Save this peal?'):
             return None
 

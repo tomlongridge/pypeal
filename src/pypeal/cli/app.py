@@ -114,7 +114,7 @@ def run_view(peal_id_or_url: str):
         error('Peal not found')
         return
     else:
-        panel(str(peal))
+        panel(peal)
 
     if peal.bellboard_id is None:
         if confirm('This peal is not associated with a performance on BellBoard', confirm_message='Submit peal?', default=True):

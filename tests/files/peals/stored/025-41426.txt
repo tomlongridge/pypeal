@@ -60,7 +60,7 @@ Duration:
 [User input: "None"]
 ⏱ Duration: Unknown
 Location: Cleator Moor, Cumbria
-Attempt to find a tower? [y/n] (n): 
+Attempt to find a tower? [y/n] (y): 
 >>> y
 [User input: "True"]
 Tower: 1) Dove ID, 2) Search by name, 3) None

@@ -20,8 +20,10 @@ class PealPreviewListener(PealGeneratorListener):
 
     def location(self, address_dedication: str, place: str, county: str, country: str):
         self.__lines['location'] = f'{address_dedication}, ' if address_dedication else ''
-        self.__lines['location'] += f'{place or "[no place]"}, {county or "[no county]"}'
-        self.__lines['location'] += f', {country}' if country else ''
+        self.__lines['location'] += f'{place}, '
+        self.__lines['location'] += f'{county}, ' if county else ''
+        self.__lines['location'] += country or ''
+        self.__lines['location'] = self.__lines['location'].strip(', ')
 
     def changes(self, value: int):
         self.__lines['title'] = f'{value} ' if value else ''

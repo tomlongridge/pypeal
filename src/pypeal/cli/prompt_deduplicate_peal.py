@@ -1,7 +1,7 @@
 from datetime import date
 from pypeal.bellboard.preview import get_preview
 from pypeal.bellboard.utils import get_url_from_id
-from pypeal.cli.prompts import confirm, panel, warning
+from pypeal.cli.prompts import confirm, make_peal_panel, panel, warning
 from pypeal.entities.peal import Peal
 from pypeal.bellboard.search import find_matching_peal
 from rich.columns import Columns
@@ -13,7 +13,7 @@ from rich.markup import escape
 def prompt_database_duplicate(peal: Peal, preview: str = None) -> Peal:
 
     if peal.bellboard_id and (existing_peal := Peal.get(bellboard_id=peal.bellboard_id)):
-        panel(str(existing_peal))
+        panel(str(existing_peal), width=80)
         warning(f'Peal with BellBoard ID {peal.bellboard_id} already exists in database')
         return existing_peal
 
@@ -24,15 +24,17 @@ def prompt_database_duplicate(peal: Peal, preview: str = None) -> Peal:
                                      place=peal.place if not peal.ring else None,
                                      bell_type=peal.bell_type or None,
                                      length_type=peal.length_type or None):
-        warning(f'{len(existing_peals)} possible duplicate peals found in database')
-        if not confirm(None, confirm_message='Check these peals for duplicates?'):
-            return None
+        if len(existing_peals) == 1:
+            warning('Found a possible duplicate peal in the database')
+        else:
+            warning(f'{len(existing_peals)} possible duplicate peals found in the database')
+            if not confirm(None, confirm_message='Check these peals for duplicates?'):
+                return None
 
         console = Console()
         for existing_peal in existing_peals:
-            console.print(Columns([Panel(str(peal) if not preview else preview),
-                                   Panel(str(existing_peal))],
-                                  expand=True, equal=True))
+            console.print(Columns([make_peal_panel(preview or peal),
+                                   make_peal_panel(existing_peal)]))
             if not preview and confirm(None, confirm_message='See differences?'):
                 diffs = ''
                 for field, (left, right) in existing_peal.diff(peal).items():

@@ -5,7 +5,7 @@ import|--peal|files/peals/csv/current.csv|--reset-database
 Importing peals from files/peals/csv/current.csv...
 Importing peal Current L2...
 ╭────────────────────────────────── Preview ───────────────────────────────────╮
-│ Withycombe Raleigh, [no county]                                              │
+│ Withycombe Raleigh                                                           │
 │ 1260 Grandsire Triples                                                       │
 │ Monday, 1 January 2001                                                       │
 │                                                                              │
@@ -98,7 +98,7 @@ Is this correct? [y/n] (y):
 Peal (ID 1) added
 Importing peal Current L3...
 ╭────────────────────────────────── Preview ───────────────────────────────────╮
-│ Bathwick, [no county]                                                        │
+│ Blessed Virgin Mary, Bath (Bathwick), Somerset, England                      │
 │ 1260 Grandsire Doubles                                                       │
 │ Tuesday, 31 July 2001                                                        │
 │                                                                              │
