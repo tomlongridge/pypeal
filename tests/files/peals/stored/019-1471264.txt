@@ -74,6 +74,11 @@ Matching peal titled "Grandsire Caters"...
 🔗 Event link: http://localhost:8080/event.php?id=14097
 📷 Photo link: None
 📮 Submitted by: Dominik Warren on Sunday, 14 November 2021
+Bell type: 1) Tower, 2) Handbells
+Select option (1): 
+>>> 
+[User input: "Tower [1]"]
+🔔 Bell type: Tower
 🔕 Muffles: Half
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Bath, Somerset, England                                                      │

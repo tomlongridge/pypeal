@@ -74,7 +74,7 @@ Importing peal Current L3...
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Warning: Possible duplicate peals found on BellBoard:                        │
 │ http://localhost:8080/search.php?from=17/10/2019&to=17/10/2019&dove_tower=11 │
-│ 057&bells_type=tower&order=newest&page=1                                     │
+│ 057&order=newest&page=1                                                      │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Check these peals for duplicates? [y/n] (y): 
 >>> y
@@ -169,7 +169,7 @@ Is this the same peal? [y/n] (y):
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Warning: Possible duplicate peals found on BellBoard:                        │
 │ http://localhost:8080/search.php?from=01/01/2001&to=01/01/2001&dove_tower=16 │
-│ 183&bells_type=tower&order=newest&page=1                                     │
+│ 183&order=newest&page=1                                                      │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Check these peals for duplicates? [y/n] (y): 
 >>> y
@@ -211,9 +211,8 @@ Is this the same peal? [y/n] (y):
 Try for a quick-add? [y/n] (y): 
 >>> y
 [User input: "True"]
-🔔 Bell type: Tower
-🏰 Tower: Withycombe Raleigh, Devon
 📅 Date: Monday, 1 January 2001
+🏰 Tower: Withycombe Raleigh, Devon
 🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
 📕 Title: Grandsire Triples
@@ -226,6 +225,7 @@ Matching peal titled "Grandsire Triples"...
 👤 Ringer: 7: Gordon T Gopher
 👤 Ringer: 8: Harold Hedgehog
 📝 Footnotes: None
+🔔 Bell type: Tower
 🔕 Muffles: None
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Warning: Found a possible duplicate peal in the database                     │

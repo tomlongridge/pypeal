@@ -117,6 +117,11 @@ Confirm tenor bell (12):
 >>> 
 [User input: "12"]
 Shifting band by 4 bells
+Bell type: 1) Tower, 2) Handbells
+Select option (1): 
+>>> 
+[User input: "Tower [1]"]
+🔔 Bell type: Tower
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Withycombe Raleigh, Devon, England                                           │

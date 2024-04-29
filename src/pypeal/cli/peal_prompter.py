@@ -1,6 +1,7 @@
 from datetime import datetime
 from pypeal import utils
 from pypeal.bellboard.listener import PealGeneratorListener
+from pypeal.cli.prompt_add_bell_type import prompt_add_bell_type
 from pypeal.cli.prompt_add_duration import prompt_add_duration
 from pypeal.cli.prompt_add_footnote import prompt_add_footnote, prompt_add_muffle_type
 from pypeal.cli.prompt_add_tenor import prompt_add_tenor, prompt_validate_tenor
@@ -25,8 +26,9 @@ class PealPromptListener(PealGeneratorListener):
         self.peal = Peal(bellboard_id=id)
 
     def bell_type(self, value: BellType):
-        self.peal.bell_type = value
-        print(f'🔔 Bell type: {value.name.capitalize()}')
+        if value:
+            self.peal.bell_type = value
+            print(f'🔔 Bell type: {value.name.capitalize()}')
 
     def association(self, value: str):
         value = _clean_str_input(value)
@@ -178,7 +180,11 @@ class PealPromptListener(PealGeneratorListener):
         print(f'🔗 External reference: {self.peal.external_reference or "None"}')
 
     def end_peal(self):
+
         self._run_cancellable_prompt(lambda peal: prompt_validate_tenor(peal, self.quick_mode))
+
+        self._run_cancellable_prompt(lambda peal: prompt_add_bell_type(peal, self.quick_mode))
+        print(f'🔔 Bell type: {self.peal.bell_type.name.capitalize()}')
 
         if not self.quick_mode:
             self._run_cancellable_prompt(lambda peal: prompt_add_muffle_type(peal))

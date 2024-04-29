@@ -6,8 +6,6 @@ from pypeal.entities.peal import Peal
 from pypeal.bellboard.search import find_matching_peal
 from rich.columns import Columns
 from rich.console import Console
-from rich.panel import Panel
-from rich.markup import escape
 
 
 def prompt_database_duplicate(peal: Peal, preview: str = None) -> Peal:
@@ -57,10 +55,8 @@ def prompt_bellboard_duplicate(peal: Peal, preview: str = None, bb_peal_ids: lis
                 return None
 
         preview_str, submitter, date_submitted = get_preview(bb_peal_id)
-        console.print(Columns([Panel(escape(str(peal) if preview is None else preview)),
-                               Panel(escape(preview_str))],
-                              expand=True,
-                              equal=True))
+        console.print(Columns([make_peal_panel(preview or peal),
+                               make_peal_panel(preview_str)]))
 
         if confirm(get_url_from_id(bb_peal_id), confirm_message='Is this the same peal?'):
             return bb_peal_id, submitter, date_submitted

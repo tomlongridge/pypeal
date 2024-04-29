@@ -199,6 +199,11 @@ Add another ringer? [y/n] (n):
 Footnote: 
 >>> 
 [User input: "None"]
+Bell type: 1) Tower, 2) Handbells
+Select option (1): 
+>>> 
+[User input: "Tower [1]"]
+🔔 Bell type: Tower
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Bath and Wells Diocesan Association                                          │

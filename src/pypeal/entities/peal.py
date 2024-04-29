@@ -335,6 +335,17 @@ class Peal:
         return None
 
     @property
+    def location_full(self) -> str:
+        text = ''
+        text += f'{self.place}' if self.place else ''
+        text += f', {self.sub_place}' if self.sub_place else ''
+        text += f' ({self.address})' if self.address else ''
+        text += f' ({self.dedication})' if self.dedication else ''
+        text += f', {self.county}' if self.county else ''
+        text += f', {self.country}' if self.country else ''
+        return text if len(text) > 0 else None
+
+    @property
     def location(self) -> str:
         text = ''
         text += f'{self.place}' if self.place else ''

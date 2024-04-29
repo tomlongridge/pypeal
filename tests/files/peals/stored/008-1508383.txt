@@ -77,7 +77,7 @@ County/state:
 Country: 
 >>> England
 [User input: "England"]
-Maidenhead, Kent, England
+Maidenhead (80 Lambourne Drive, Cox Green), Kent, England
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -198,6 +198,11 @@ Add new footnote? [y/n] (n):
 🔗 Event link: None
 📷 Photo link: None
 📮 Submitted by: Albert Mason on Thursday, 31 March 2022
+Bell type: 1) Tower, 2) Handbells
+Select option (2): 
+>>> 
+[User input: "Handbells [2]"]
+🔔 Bell type: Handbells
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 

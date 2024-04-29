@@ -331,6 +331,11 @@ Confirm tenor bell (6):
 >>> 
 [User input: "6"]
 Shifting band by -4 bells
+Bell type: 1) Tower, 2) Handbells
+Select option (1): 
+>>> 
+[User input: "Tower [1]"]
+🔔 Bell type: Tower
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 

@@ -23,8 +23,8 @@ Try for a quick-add? [y/n] (y):
 >>> y
 [User input: "True"]
 🔔 Bell type: Tower
-🏰 Tower: Withycombe Raleigh, Devon
 📅 Date: Monday, 1 January 2001
+🏰 Tower: Withycombe Raleigh, Devon
 No associations match "Bath & Wells"
 1) Search alternatives, 2) Add new association, 3) Remove association
 Select option (1): 
@@ -78,6 +78,11 @@ Add new ringer as "Harold" "Hedgehog"? [y/n] (y):
 [User input: "True"]
 👤 Ringer: 8: Harold Hedgehog
 📝 Footnotes: None
+Bell type: 1) Tower, 2) Handbells
+Select option (1): 
+>>> 
+[User input: "Tower [1]"]
+🔔 Bell type: Tower
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Bath & Wells                                                                 │
@@ -118,9 +123,9 @@ Try for a quick-add? [y/n] (y):
 >>> y
 [User input: "True"]
 🔔 Bell type: Handbells
+📅 Date: Friday, 2 March 2001
 📍 Location: Rewe, Devon, England
 📍 Detail: Culmdale
-📅 Date: Friday, 2 March 2001
 🏛 Association: None
 🔢 Changes: 1260
 Matching peal titled "Grandsire Doubles"...
@@ -131,6 +136,11 @@ Matching peal titled "Grandsire Doubles"...
 Referenced ringer(s):
   - 3: Ben Bob
   - 4: Ben Bob
+Bell type: 1) Tower, 2) Handbells
+Select option (2): 
+>>> 
+[User input: "Handbells [2]"]
+🔔 Bell type: Handbells
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Rewe, Devon, England                                                         │
@@ -167,9 +177,9 @@ Try for a quick-add? [y/n] (y):
 >>> y
 [User input: "True"]
 🔔 Bell type: Handbells
+📅 Date: Saturday, 3 March 2001
 📍 Location: Rewe, Devon, England
 📍 Detail: Culmdale
-📅 Date: Saturday, 3 March 2001
 🏛 Association: None
 🔢 Changes: 1260
 Matching peal titled "Grandsire Doubles"...
@@ -180,6 +190,11 @@ Matching peal titled "Grandsire Doubles"...
 Referenced ringer(s):
   - 3: Ben Bob
   - 4: Ben Bob
+Bell type: 1) Tower, 2) Handbells
+Select option (2): 
+>>> 
+[User input: "Handbells [2]"]
+🔔 Bell type: Handbells
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Rewe, Devon, England                                                         │

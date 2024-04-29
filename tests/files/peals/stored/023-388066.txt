@@ -116,6 +116,11 @@ First bell number(s) in the tower (1):
 📷 Photo link: None
 📮 Submitted by: Nicholas Hunt on Sunday, 15 January 2012
 🔗 External reference: Campanophile ID: 116670
+Bell type: 1) Tower, 2) Handbells
+Select option (1): 
+>>> 
+[User input: "Tower [1]"]
+🔔 Bell type: Tower
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Bath and Wells Diocesan Association                                          │

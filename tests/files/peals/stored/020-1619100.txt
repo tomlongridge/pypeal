@@ -112,6 +112,11 @@ Add new ringer as "Martin" "Morgan"? [y/n] (y):
 🔗 Event link: http://localhost:8080/event.php?id=16774
 📷 Photo link: None
 📮 Submitted by: Chester Edwards on Saturday, 6 May 2023
+Bell type: 1) Tower, 2) Handbells
+Select option (1): 
+>>> 
+[User input: "Tower [1]"]
+🔔 Bell type: Tower
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Bath, Somerset, England                                                      │

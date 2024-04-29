@@ -76,6 +76,11 @@ First bell number(s) in the tower (1):
 │   > Rung half muffled on the back six for Remembrance Day.                   │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Shifting band by 4 bells
+Bell type: 1) Tower, 2) Handbells
+Select option (1): 
+>>> 
+[User input: "Tower [1]"]
+🔔 Bell type: Tower
 🔕 Muffles: Half
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Bath, Somerset, England                                                      │
@@ -224,6 +229,11 @@ Confirm tenor bell (10):
 >>> 10
 [User input: "10"]
 Shifting band by 4 bells
+Bell type: 1) Tower, 2) Handbells
+Select option (1): 
+>>> 
+[User input: "Tower [1]"]
+🔔 Bell type: Tower
 🔕 Muffles: Half
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Bath, Somerset, England                                                      │

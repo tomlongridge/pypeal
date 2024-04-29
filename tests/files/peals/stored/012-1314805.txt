@@ -250,6 +250,11 @@ Add new footnote? [y/n] (n):
 🔗 Event link: None
 📷 Photo link: None
 📮 Submitted by: Byron Robinson on Sunday, 15 December 2019
+Bell type: 1) Tower, 2) Handbells
+Select option (1): 
+>>> 
+[User input: "Tower [1]"]
+🔔 Bell type: Tower
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 

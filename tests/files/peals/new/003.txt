@@ -53,14 +53,10 @@ County/state:
 Country: 
 >>> England
 [User input: "England"]
-Bath, Somerset, England
+Bath (1 High Street), Somerset, England
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Bell type: 1) Tower, 2) Handbells
-Select option (1): 
->>> 2
-[User input: "Handbells [2]"]
 📍 Location: Bath, Somerset, England
 📍 Detail: 1 High Street
 Number of changes: 
@@ -202,6 +198,11 @@ Add this to previous footnote? [y/n] (y):
 Footnote: 
 >>> 
 [User input: "None"]
+Bell type: 1) Tower, 2) Handbells
+Select option (2): 
+>>> 
+[User input: "Handbells [2]"]
+🔔 Bell type: Handbells
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 

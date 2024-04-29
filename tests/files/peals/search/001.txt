@@ -165,6 +165,11 @@ Confirm tenor bell (12):
 >>> 
 [User input: "12"]
 Shifting band by 4 bells
+Bell type: 1) Tower, 2) Handbells
+Select option (1): 
+>>> 
+[User input: "Tower [1]"]
+🔔 Bell type: Tower
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Withycombe Raleigh, Devon, England                                           │
@@ -248,7 +253,7 @@ Duration:
 [User input: "None"]
 ⏱ Duration: Unknown
 Location: Cleator Moor, Cumbria
-Attempt to find a tower? [y/n] (n): 
+Attempt to find a tower? [y/n] (y): 
 >>> y
 [User input: "True"]
 Tower: 1) Dove ID, 2) Search by name, 3) None
@@ -395,6 +400,11 @@ Add new footnote? [y/n] (n):
 📷 Photo link: None
 📮 Submitted by: Nicholas Hunt on Sunday, 15 January 2012
 🔗 External reference: Campanophile ID: 29386
+Bell type: 1) Tower, 2) Handbells
+Select option (1): 
+>>> 
+[User input: "Tower [1]"]
+🔔 Bell type: Tower
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 
@@ -565,6 +575,11 @@ Add new ringer as "Byron" "Robinson"? [y/n] (y):
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Suggested tenor, based on weight: 10 (18-3-20)
 Shifting band by 2 bells
+Bell type: 1) Tower, 2) Handbells
+Select option (1): 
+>>> 
+[User input: "Tower [1]"]
+🔔 Bell type: Tower
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Bath and Wells Diocesan Association                                          │
@@ -739,10 +754,15 @@ Referenced ringer(s):
 📷 Photo link: None
 📮 Submitted by: Heather Sullivan on Sunday, 21 September 2014
 🔗 External reference: Campanophile ID: 183937
+Bell type: 1) Tower, 2) Handbells
+Select option (2): 
+>>> 
+[User input: "Handbells [2]"]
+🔔 Bell type: Handbells
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Marston Bigot, Somerset                                                      │
-│ Pig-le-Tower                                                                 │
+│ Pig-le-Tower (in hand)                                                       │
 │ On Sunday, 21 September 2014                                                 │
 │ A Quarter Peal of 1280 Cambridge Surprise Major                              │
 │                                                                              │
@@ -871,6 +891,11 @@ Add new ringer as "Leonardo" "Bennett"? [y/n] (y):
 📷 Photo link: None
 📮 Submitted by: Byron Miller on Sunday, 11 January 2015
 🔗 External reference: Campanophile ID: 188334
+Bell type: 1) Tower, 2) Handbells
+Select option (1): 
+>>> 
+[User input: "Tower [1]"]
+🔔 Bell type: Tower
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Bath, Somerset, England                                                      │
@@ -1041,6 +1066,11 @@ Add this to previous footnote? [y/n] (y):
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Suggested tenor, based on weight: 10 (18-3-20)
 Shifting band by 2 bells
+Bell type: 1) Tower, 2) Handbells
+Select option (1): 
+>>> 
+[User input: "Tower [1]"]
+🔔 Bell type: Tower
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Bath, Somerset, England                                                      │

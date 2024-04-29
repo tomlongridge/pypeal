@@ -79,7 +79,7 @@ County/state (Somerset):
 Country: 
 >>> England
 [User input: "England"]
-Marston Bigot, Somerset, England
+Marston Bigot (Pig-le-Tower), Somerset, England
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -217,6 +217,11 @@ Add new footnote? [y/n] (n):
 📷 Photo link: None
 📮 Submitted by: Heather Sullivan on Sunday, 21 September 2014
 🔗 External reference: Campanophile ID: 183937
+Bell type: 1) Tower, 2) Handbells
+Select option (2): 
+>>> 1
+[User input: "Tower [1]"]
+🔔 Bell type: Tower
 Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
 Select option (1): 
 >>> 

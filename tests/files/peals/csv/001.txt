@@ -23,9 +23,8 @@ Importing peal Current L2...
 Try for a quick-add? [y/n] (y): 
 >>> y
 [User input: "True"]
-🔔 Bell type: Tower
-🏰 Tower: Withycombe Raleigh, Devon
 📅 Date: Monday, 1 January 2001
+🏰 Tower: Withycombe Raleigh, Devon
 🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
 📕 Title: Grandsire Triples
@@ -71,6 +70,7 @@ Add new ringer as "Harold" "Hedgehog"? [y/n] (y):
 👤 Ringer: 8: Harold Hedgehog
 Referenced ringer(s):
   - 1: Adam Apple
+🔔 Bell type: Tower
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Withycombe Raleigh, Devon, England                                           │
@@ -114,9 +114,8 @@ Importing peal Current L3...
 Try for a quick-add? [y/n] (y): 
 >>> y
 [User input: "True"]
-🔔 Bell type: Tower
-🏰 Tower: Bath (Bathwick), Somerset
 📅 Date: Tuesday, 31 July 2001
+🏰 Tower: Bath (Bathwick), Somerset
 🔢 Changes: 1260
 Matching peal titled "Grandsire Doubles"...
 📕 Title: Grandsire Doubles
@@ -129,6 +128,7 @@ Matching peal titled "Grandsire Doubles"...
 Referenced ringer(s):
   - 1: Adam Apple
   - 2: Ben Bob
+🔔 Bell type: Tower
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Bath, Somerset, England                                                      │

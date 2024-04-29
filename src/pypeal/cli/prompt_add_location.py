@@ -17,10 +17,10 @@ def prompt_add_location(address_dedication: str, place: str, county: str, countr
         full_location += f', {country}' if country else ''
         full_location = full_location.strip(', ')
 
-        if (quick_mode and peal.bell_type == BellType.TOWER) or \
-                (not quick_mode and confirm(f'Location: {full_location or "Unknown"}',
-                                            confirm_message='Attempt to find a tower?',
-                                            default=peal.bell_type == BellType.TOWER)):
+        if not (quick_mode and peal.bell_type and peal.bell_type != BellType.TOWER) and \
+                confirm(f'Location: {full_location or "Unknown"}',
+                        confirm_message='Attempt to find a tower?',
+                        default=peal.bell_type == BellType.TOWER):
             selected_tower = prompt_find_tower()
             if selected_tower:
                 peal.ring = selected_tower.get_active_ring(peal.date)
@@ -38,11 +38,14 @@ def prompt_add_location(address_dedication: str, place: str, county: str, countr
             if len(place_parts) > 1:
                 sub_place = place_parts.pop()
                 address_dedication_less_sub_place = ', '.join(place_parts)
+            else:
+                address_dedication_less_sub_place = address_dedication
 
         dedication = address = None
         if probably_dedication and \
                 (quick_mode or confirm(f'"{address_dedication_less_sub_place}" looks like the tower dedication')):
             dedication = address_dedication
+            address = None
         else:
             while True:
                 if not address_dedication or not quick_mode:
@@ -52,6 +55,7 @@ def prompt_add_location(address_dedication: str, place: str, county: str, countr
                 if address and \
                         (not re.match(DEDICATION_REGEX, address.lower()) or
                             confirm(f'"{address}" looks like a dedication', confirm_message='Are you sure?')):
+                    dedication = None
                     sub_place = None
                     break
                 if not address_dedication or not quick_mode:
@@ -61,6 +65,8 @@ def prompt_add_location(address_dedication: str, place: str, county: str, countr
                 if dedication and \
                         (re.match(DEDICATION_REGEX, dedication.lower()) or
                             confirm(f'"{dedication}" does not look like a dedication', confirm_message='Are you sure?')):
+                    address = None
+                    sub_place = None
                     break
                 error('Please enter a dedication or address')
                 quick_mode = False  # Go into prompt mode as the input doesn't look like a dedication or address
@@ -89,12 +95,7 @@ def prompt_add_location(address_dedication: str, place: str, county: str, countr
         peal.county = ask('County/state', county) if not quick_mode else county
         peal.country = ask('Country', country, required=False) if not quick_mode else country
 
-        if not quick_mode and not confirm(peal.location):
+        if not quick_mode and not confirm(peal.location_full):
             continue
-
-        if peal.bell_type is None:
-            peal.bell_type = choose_option([BellType.TOWER, BellType.HANDBELLS],
-                                           default=1,
-                                           title='Bell type')
 
         return
