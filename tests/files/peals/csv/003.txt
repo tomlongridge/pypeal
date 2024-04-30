@@ -111,8 +111,107 @@ http://localhost:8080/view.php?id=1306360
 Is this the same peal? [y/n] (y): 
 >>> y
 [User input: "True"]
-Peal Current L3 already exists in database
-Aborting peal 3
+Peal Current L3 exists on BellBoard (1306360) but has not been imported to the 
+database
+Import? [y/n] (y): 
+>>> y
+[User input: "True"]
+╭───────────────── http://localhost:8080/view.php?id=1306360 ──────────────────╮
+│ Bath & Wells Diocesan Association                                            │
+│ Blessed Virgin Mary, Portbury, Somerset                                      │
+│ 1260 Doubles (1p/5m/3v)                                                      │
+│ Thursday, 17 October 2019 (21 in E♭) in 44m                                  │
+│                                                                              │
+│ 1: Dainton Casey                                                             │
+│ 2: Daryl Mason                                                               │
+│ 3: Roland Clark                                                              │
+│ 4: Michelle Thompson                                                         │
+│ 5: Ted Harris (c)                                                            │
+│ 6: David Rogers                                                              │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=1306360 (submitted by Arnold    │
+│ Morrison on Thursday, 17 October 2019)                                       │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Try for a quick-add? [y/n] (y): 
+>>> 
+[User input: "True"]
+🏛 Association: Bath and Wells Diocesan Association
+🔔 Bell type: Tower
+📅 Date: Thursday, 17 October 2019
+🔔 Tenor: 2352 in Eb
+⏱ Duration: 44 mins
+🏰 Tower: Portbury, Somerset
+🔢 Changes: 1260
+Matching peal titled "Doubles (1p/5m/3v)"...
+Multi-method peal: "Doubles (1p/5m/3v)"...
+📕 Title: Mixed Doubles (5m/3v/1p)
+Adding changes of methods to multi-method peal...
+📝 Method details:
+  - None
+🎼 Composer: Unknown
+1: Couldn't find ringer matching "Dainton Casey" (or aliases)
+Add new ringer as "Dainton" "Casey"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 1: Dainton Casey
+2: Couldn't find ringer matching "Daryl Mason" (or aliases)
+Add new ringer as "Daryl" "Mason"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 2: Daryl Mason
+3: Couldn't find ringer matching "Roland Clark" (or aliases)
+Add new ringer as "Roland" "Clark"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 3: Roland Clark
+4: Couldn't find ringer matching "Michelle Thompson" (or aliases)
+Add new ringer as "Michelle" "Thompson"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 4: Michelle Thompson
+5: Couldn't find ringer matching "Ted Harris" (or aliases)
+Add new ringer as "Ted" "Harris"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 5: Ted Harris (c)
+6: Couldn't find ringer matching "David Rogers" (or aliases)
+Add new ringer as "David" "Rogers"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 6: David Rogers
+📝 Footnotes: None
+🔗 Event link: None
+📷 Photo link: None
+📮 Submitted by: Arnold Morrison on Thursday, 17 October 2019
+Bell type: 1) Tower, 2) Handbells
+Select option (1): 
+>>> 
+[User input: "Tower [1]"]
+🔔 Bell type: Tower
+🔕 Muffles: None
+╭──────────────────────────── Confirm performance ─────────────────────────────╮
+│ Bath and Wells Diocesan Association                                          │
+│ Portbury, Somerset, England                                                  │
+│ Blessed Virgin Mary                                                          │
+│ On Thursday, 17 October 2019                                                 │
+│ A Quarter Peal of 1260 Mixed Doubles (5m/3v/1p) in 44 mins (21 cwt in Eb)    │
+│                                                                              │
+│ 1: Dainton Casey                                                             │
+│ 2: Daryl Mason                                                               │
+│ 3: Roland Clark                                                              │
+│ 4: Michelle Thompson                                                         │
+│ 5: Ted Harris (c)                                                            │
+│ 6: David Rogers                                                              │
+│                                                                              │
+│ [BellBoard: http://localhost:8080/view.php?id=1306360 (Arnold Morrison,      │
+│ Thursday, 17 October 2019)]                                                  │
+│ [Published title: Doubles (1p/5m/3v)]                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Peal (ID 3) added
 Importing peal Current L4...
 ╭────────────────────────────────── Preview ───────────────────────────────────╮
 │ Withycombe Raleigh                                                           │
@@ -292,7 +391,7 @@ Save this peal?
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Peal (ID 3) added
+Peal (ID 4) added
 ===
 Withycombe Raleigh, Devon, England
 S John Ev
@@ -309,4 +408,4 @@ A Quarter Peal of 1260 Grandsire Triples (7-0-16 in A#)
 8: Harold Hedgehog
 
 [External reference: Current L4]
-[Database ID: 3]
+[Database ID: 4]

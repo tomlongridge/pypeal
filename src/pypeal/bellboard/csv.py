@@ -8,6 +8,7 @@ from pypeal.cli.peal_previewer import PealPreviewListener
 from pypeal.cli.peal_prompter import PealPromptListener
 from pypeal.cli.prompt_add_tower import prompt_find_tower
 from pypeal.cli.prompt_deduplicate_peal import prompt_bellboard_duplicate, prompt_database_duplicate
+from pypeal.cli.prompt_import_peal import prompt_import_peal
 from pypeal.cli.prompts import UserCancelled, confirm, error, panel, warning
 from pypeal.entities.method import Stage
 from pypeal.entities.peal import BellType, Peal
@@ -82,9 +83,16 @@ def import_peal_csv(data_file_path: str):
                 panel(preview_listener.text, title='Preview', width=100)
                 basic_peal = _generate_basic_peal(peal_data, config_date_format)
 
-                if prompt_database_duplicate(basic_peal, preview_listener.text) is not None \
-                        or prompt_bellboard_duplicate(basic_peal, preview=preview_listener.text) is not None:
+                if prompt_database_duplicate(basic_peal, preview_listener.text) is not None:
                     print(f'Peal {row_id} already exists in database')
+                elif bb_data := prompt_bellboard_duplicate(basic_peal, preview=preview_listener.text):
+                    if existing_peal := Peal.get(bellboard_id=bb_data[0]):
+                        panel(existing_peal)
+                        print(f'Peal {row_id} exists on BellBoard ({bb_data[0]}) and already exists in database ({existing_peal.id})')
+                    elif confirm(f'Peal {row_id} exists on BellBoard ({bb_data[0]}) but has not been imported to the database',
+                                 confirm_message='Import?',
+                                 default=True):
+                        saved_peal = prompt_import_peal(bb_data[0])
                 else:
 
                     prompt_listener = PealPromptListener()
@@ -261,31 +269,31 @@ def _generate_basic_peal(data: dict, date_format: str) -> Peal:
     peal.bell_type = _read_bell_type(data)
     peal.date = _read_date(data, date_format)
 
+    place = data['Place'].strip()
     tower = None
-    if data['Place'].isnumeric():
-        tower = Tower.get(dove_id=int(data['Place']))
+    if place.isnumeric():
+        tower = Tower.get(dove_id=int(place))
         if not tower:
             raise CSVImportError(f'Tower with Dove ID {data["Place"]} not found')
     else:
-        tower_matches = Tower.search(place=data['Place'], exact_match=False)
+        tower_matches = Tower.search(place=place, exact_match=False)
         if len(tower_matches) == 1:
             tower = tower_matches[0]
-    if not tower and peal.bell_type == BellType.TOWER and confirm(None, 'Attempt to find a tower?', default=True):
+    if not tower and peal.bell_type != BellType.HANDBELLS and confirm(None, 'Attempt to find a tower?', default=True):
         tower = prompt_find_tower(data.get('Place', None))
     if tower:
         peal.ring = tower.get_active_ring(peal.date)
     else:
-        place = None
         dedication = None
-        if place_match := re.match(r'(?P<place>.*?)\((?P<dedication>.*?)\)$', data['Place']):
+        if place_match := re.match(r'(?P<place>.*?)\((?P<dedication>.*?)\)$', place):
             place_data = place_match.groupdict()
-            place = place_data['place']
+            place = place_data['place'].strip()
             dedication = place_data['dedication']
-        elif ',' in data['Place']:
-            place_parts = data['Place'].split(', ')
+        elif ',' in place:
+            place_parts = place.split(', ')
             place = place_parts[0]
             dedication = ', '.join(place_parts[1:])
-        peal.place = place or data.get('Place', None)
+        peal.place = place
         peal.dedication = dedication or data.get('Dedication', None)
         peal.county = data.get('County', None)
         peal.country = data.get('Country', None)

@@ -897,7 +897,7 @@ class Peal:
                      'LEFT JOIN ringers r ON pr.ringer_id = r.id ' + \
                      'WHERE CONCAT(r.given_names, " ", r.last_name) LIKE %(ringer_name)s ' + \
                      ')'
-            params['ringer_name'] = f'%{ringer_name}%'
+            params['ringer_name'] = f'%{ringer_name.strip()}%'
         if ring_id is not None:
             query += 'AND ri.id = %(ring_id)s '
             params['ring_id'] = ring_id
@@ -911,22 +911,22 @@ class Peal:
                      '(t.place LIKE %(place)s) OR ' + \
                      '(t.sub_place LIKE %(place)s)' + \
                      ')'
-            params['place'] = place
+            params['place'] = place.strip()
         if county is not None:
             query += 'AND (' + \
                      '(peals.county LIKE %(county)s) OR ' + \
                      '(t.county LIKE %(county)s) ' + \
                      ')'
-            params['county'] = county
+            params['county'] = county.strip()
         if dedication is not None:
             query += 'AND (' + \
                      '(peals.dedication LIKE %(dedication)s) OR ' + \
                      '(t.dedication LIKE %(dedication)s) ' + \
                      ')'
-            params['dedication'] = dedication
+            params['dedication'] = dedication.strip()
         if association is not None:
             query += 'AND a.name = %(association)s '
-            params['association'] = association
+            params['association'] = association.strip()
         if length_type is not None:
             if config.get_config('general', 'short_peal_threshold') is not None:
                 query += 'AND ((peals.stage >= %(short_peal_threshold)s '

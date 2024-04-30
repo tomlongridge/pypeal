@@ -20,8 +20,7 @@ def prompt_database_duplicate(peal: Peal, preview: str = None) -> Peal:
                                      date_to=peal.date or None,
                                      tower_id=peal.ring.tower.id if peal.ring else None,
                                      place=peal.place if not peal.ring else None,
-                                     bell_type=peal.bell_type or None,
-                                     length_type=peal.length_type or None):
+                                     bell_type=peal.bell_type or None):
         if len(existing_peals) == 1:
             warning('Found a possible duplicate peal in the database')
         else:
