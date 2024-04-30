@@ -16,6 +16,7 @@ from pypeal.entities.tower import Ring, Tower
 
 
 def prompt_report():
+    heading('View statistics')
     while True:
         reports = Report.get_all()
         try:

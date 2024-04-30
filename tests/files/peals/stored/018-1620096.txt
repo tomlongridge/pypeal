@@ -24,6 +24,7 @@ Select option (1):
 Bellboard URL or peal ID: 
 >>> 1620096
 [User input: "1620096"]
+Import peal from BellBoard
 ╭───────────────── http://localhost:8080/view.php?id=1620096 ──────────────────╮
 │ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
 │ 1260 Grandsire Doubles                                                       │
@@ -251,6 +252,9 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 Peal (ID 18) added
+Bellboard URL or peal ID (enter to exit): 
+>>> 
+[User input: "None"]
 pypeal Database
  Quarter Peal count: 15                               Last updated: [Timestamp] 
  Peal count: 3                                                                  
@@ -269,6 +273,7 @@ pypeal Database
 Select option (1): 
 >>> 4
 [User input: "View statistics [4]"]
+View statistics
 1) Run report, 2) New report, 3) Edit report, 4) Delete report
 Select option (x = Back) (1): 
 >>> 1

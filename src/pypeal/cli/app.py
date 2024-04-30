@@ -1,22 +1,23 @@
 import logging
-import os
 from typing import Annotated
 import typer
 
 from rich import print
 from rich.table import Table
 
-from pypeal.bellboard.csv import import_peal_csv
+from pypeal.cli.prompt_csv_import import prompt_csv_import
+from pypeal.cli.prompt_manual_peal import prompt_manual_peal
+from pypeal.cli.prompt_peal_input import prompt_peal_input
 from pypeal.cli.prompt_submit import prompt_submit_peal, prompt_submit_unpublished_peals
+from pypeal.cli.prompt_view_peal import prompt_view_peal
 from pypeal.entities.association import Association
 
 from pypeal.cccbr import update_methods
 from pypeal.cli.prompt_delete_peal import prompt_delete_peal
-from pypeal.cli.prompt_import_peal import add_peal, prompt_import_peal
-from pypeal.cli.manual_generator import ManualGenerator
+from pypeal.cli.prompt_import_peal import prompt_import_peal
 from pypeal.cli.prompt_report_stats import prompt_report
-from pypeal.cli.prompts import UserCancelled, ask_int, confirm, format_timestamp, heading, panel, error, press_any_key, prompt_peal_id
-from pypeal.cli.chooser import choose_option, choose_option_in_dict
+from pypeal.cli.prompts import UserCancelled, format_timestamp, heading, error, press_any_key
+from pypeal.cli.chooser import choose_option_in_dict
 from pypeal.cli.prompt_search_peals import poll, prompt_search
 from pypeal.db import initialize as initialize_db
 from pypeal.dove import update_associations, update_bells, update_rings, update_towers
@@ -93,34 +94,17 @@ def run_poll():
 
 
 def run_import_peal(peal_id_or_url_or_file: int | str):
-    if type(peal_id_or_url_or_file) is str:
-        if os.path.exists(peal_id_or_url_or_file):
-            import_peal_csv(peal_id_or_url_or_file)
+    for input in prompt_peal_input(peal_id_or_url_or_file, allow_file=True):
+        if type(input) is int:
+            prompt_import_peal(input)
+        elif type(input) is str:
+            prompt_csv_import(input)
         else:
             error(f'Unable to import peals from {peal_id_or_url_or_file}')
-    else:
-        prompt_import_peal(prompt_peal_id(peal_id_or_url_or_file, required=False))
 
 
 def run_view(peal_id_or_url: str):
-    peal: Peal = None
-    match choose_option(['Bellboard ID/URL', 'Peal ID'], default=1) if not peal_id_or_url else 1:
-        case 1:
-            peal = Peal.get(bellboard_id=prompt_peal_id(peal_id_or_url))
-        case 2:
-            peal = Peal.get(id=ask_int('Peal ID', min=1, required=True))
-
-    if peal is None:
-        error('Peal not found')
-        return
-    else:
-        panel(peal)
-
-    if peal.bellboard_id is None:
-        if confirm('This peal is not associated with a performance on BellBoard', confirm_message='Submit peal?', default=True):
-            prompt_submit_peal(peal)
-    else:
-        press_any_key()
+    prompt_view_peal(peal_id_or_url)
 
 
 def run_delete(peal_id_or_url: str):
@@ -130,26 +114,27 @@ def run_delete(peal_id_or_url: str):
 def run_submit_peal(peal_id_or_url: str):
     if peal_id_or_url.isnumeric():
         prompt_submit_peal(int(peal_id_or_url))
+    else:
+        error(f'Invalid database ID for peal: {peal_id_or_url}')
 
 
 def run_add_peal():
-    new_peal = add_peal(ManualGenerator())
-    if confirm(None, confirm_message='Submit peal to BellBoard?', default=True):
-        prompt_submit_peal(new_peal)
+    prompt_manual_peal()
 
 
 def run_generate_reports():
-    print('Generating reports...')
+    heading('Generate PDF reports')
     for report_path in generate_reports():
         print(f'- {report_path}')
+    press_any_key()
 
 
 def run_bulk_upload():
-    print('Submitting unpublished peals to BellBoard Bulk API...')
     prompt_submit_unpublished_peals(in_bulk=True)
 
 
 def run_update_static_data():
+    heading('Update static data')
     update_methods()
     update_associations()
     update_towers()
@@ -192,7 +177,7 @@ def run_interactive(peal_id_or_url: str):
 
 
 def get_summary() -> dict:
-    heading('pypeal Database')
+    heading('pypeal Database', full=True)
     summary = generate_global_summary(Peal.get_all())
     if summary['count'] > 0:
         table = Table(show_header=False, show_footer=False, expand=True, box=None)

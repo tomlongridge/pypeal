@@ -4,7 +4,7 @@ from pypeal.bellboard.preview import get_preview
 from pypeal.bellboard.utils import get_url_from_id
 from pypeal.bellboard.submit import BellboardDuplicateError, get_bb_fields_from_peal, submit, submit_bulk
 from pypeal.cli.prompt_deduplicate_peal import prompt_bellboard_duplicate
-from pypeal.cli.prompts import ask_int, confirm, panel, error, prompt_any
+from pypeal.cli.prompts import ask_int, confirm, heading, panel, error, prompt_any
 from pypeal.entities.peal import Peal
 
 
@@ -18,6 +18,8 @@ def prompt_submit_unpublished_peals(in_bulk: bool = False):
 
 
 def prompt_submit_peal(peal: int | Peal = None):
+
+    heading('Submit peal to BellBoard')
 
     if peal is None:
         peal = Peal.get(id=ask_int('Peal ID', min=1, required=True))
@@ -58,6 +60,8 @@ def prompt_submit_peal(peal: int | Peal = None):
 
 
 def prompt_bulk_upload(peals: list[Peal]):
+
+    heading('Submit bulk peals to BellBoard')
 
     for peal in peals:
 

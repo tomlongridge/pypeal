@@ -20,7 +20,7 @@ class CSVImportError(Exception):
     pass
 
 
-def import_peal_csv(data_file_path: str):
+def prompt_csv_import(data_file_path: str):
 
     if not os.path.exists(data_file_path):
         error(f'Unable to import peals from {data_file_path}')

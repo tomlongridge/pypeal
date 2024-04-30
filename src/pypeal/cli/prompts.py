@@ -5,9 +5,9 @@ from rich.panel import Panel
 from rich import print
 from rich.style import Style
 from rich.padding import Padding
+from rich.text import Text
 from rich.markup import escape
 from pypeal import utils
-from pypeal.bellboard.interface import get_id_from_url
 
 from pypeal.bellboard.utils import get_url_from_id
 from pypeal.config import get_config
@@ -123,6 +123,7 @@ def confirm(prompt: str, confirm_message: str = 'Is this correct?', default: boo
 def press_any_key(prompt: str = 'Press any key to continue...'):
     try:
         input(prompt)
+        print_user_input(prompt, '[Continue]')
     except KeyboardInterrupt:
         print_user_input(prompt, '[Abort]')
         print()  # Ensure subsequent prompt is on a new line
@@ -153,28 +154,14 @@ def error(message: str, title: str = None):
     print(Panel(f'[bold red]Error:[/] {message}', title=title))
 
 
-def heading(message: str):
+def heading(message: str, full: bool = False):
     if get_config('diagnostics', 'print_user_input'):
         print(message)
     else:
-        print()
-        print(Padding(message, (1, 1), style=_heading_style))
-        print()
-
-
-def prompt_peal_id(peal_id: str = None, required: bool = True) -> int:
-
-    while True:
-        peal_id = ask('Bellboard URL or peal ID', required=required)
-        if not required and peal_id is None:
-            return None
-
-        if peal_id.isnumeric():
-            return int(peal_id)
-        elif peal_id := get_id_from_url(peal_id):
-            return peal_id
+        if full:
+            print(Padding(Text(f'\n{message}\n', style=_heading_style, justify='center'), (1, 1)))
         else:
-            error('Invalid Bellboard URL or peal ID')
+            print(Padding(Text(f' > {message}', style=_heading_style, justify='left'), (1, 0, 0, 0)))
 
 
 # Iterates through dict and uses key names to prompt for values, with pre-existing values as defaults

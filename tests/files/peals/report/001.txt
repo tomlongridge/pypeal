@@ -21,6 +21,7 @@ Select option (1):
 Bellboard URL or peal ID: 
 >>> 22152
 [User input: "22152"]
+Import peal from BellBoard
 ╭────────────────── http://localhost:8080/view.php?id=22152 ───────────────────╮
 │ S John the Evangelist, Withycombe Raleigh, Devon                             │
 │ 1260 Grandsire Triples                                                       │
@@ -150,6 +151,9 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 Peal (ID 1) added
+Bellboard URL or peal ID (enter to exit): 
+>>> 
+[User input: "None"]
 pypeal Database
  Quarter Peal count: 1                                Last updated: [Timestamp] 
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -167,6 +171,7 @@ pypeal Database
 Select option (1): 
 >>> 4
 [User input: "View statistics [4]"]
+View statistics
 New report
 Is the report for a specific ringer? [y/n] (y): 
 >>> n
@@ -443,8 +448,11 @@ pypeal Database
 Select option (1): 
 >>> 5
 [User input: "Generate reports [5]"]
-Generating reports...
+Generate PDF reports
 - /Users/tom.longridge/projects/HomeProjects/pypeal/tests/reports/all2.pdf
+Press any key to continue...
+>>> 
+[User input: "[Continue]"]
 pypeal Database
  Quarter Peal count: 1                                Last updated: [Timestamp] 
 ┌──────────────────────────────────────────────────────────────────────────────┐

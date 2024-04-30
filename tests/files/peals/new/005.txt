@@ -21,6 +21,7 @@ pypeal Database
 Select option (1): 
 >>> 3
 [User input: "Add peal manually [3]"]
+Add peal manually
 Try for a quick-add? [y/n] (y): 
 >>> y
 [User input: "True"]

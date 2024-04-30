@@ -26,6 +26,7 @@ Select option (1):
 Bellboard URL or peal ID: 
 >>> 41426
 [User input: "41426"]
+Import peal from BellBoard
 ╭────────────────── http://localhost:8080/view.php?id=41426 ───────────────────╮
 │ Cleator Moor, Cumbria                                                        │
 │ 1260 Grandsire Triples                                                       │
@@ -221,6 +222,9 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 Peal (ID 27) added
+Bellboard URL or peal ID (enter to exit): 
+>>> 
+[User input: "None"]
 pypeal Database
  Quarter Peal count: 20                               Last updated: [Timestamp] 
  Peal count: 3                                                                  

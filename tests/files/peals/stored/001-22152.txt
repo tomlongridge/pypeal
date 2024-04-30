@@ -18,6 +18,7 @@ pypeal Database
 Select option (1): 
 >>> 1
 [User input: "BellBoard search [1]"]
+Search BellBoard
 New peal search
 1) Enter criteria, 2) Enter Bellboard URL
 Select option (1): 
@@ -62,6 +63,7 @@ Order of results: 1) Newest, 2) Oldest
 Select option (1): 
 >>> 1
 [User input: "Newest [1]"]
+Import peal from BellBoard
 ╭────────────────── http://localhost:8080/view.php?id=22152 ───────────────────╮
 │ S John the Evangelist, Withycombe Raleigh, Devon                             │
 │ 1260 Grandsire Triples                                                       │
@@ -363,6 +365,7 @@ pypeal Database
 Select option (1): 
 >>> 4
 [User input: "View statistics [4]"]
+View statistics
 New report
 Is the report for a specific ringer? [y/n] (y): 
 >>> n

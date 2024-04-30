@@ -18,6 +18,7 @@ pypeal Database
 Select option (1): 
 >>> 3
 [User input: "Add peal manually [3]"]
+Add peal manually
 Try for a quick-add? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -227,6 +228,7 @@ Peal (ID 1) added
 Submit peal to BellBoard? [y/n] (y): 
 >>> y
 [User input: "True"]
+Submit peal to BellBoard
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Bath and Wells Diocesan Association                                          │
 │ Bath, Somerset, England                                                      │

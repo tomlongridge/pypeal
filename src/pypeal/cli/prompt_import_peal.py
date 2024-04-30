@@ -7,13 +7,15 @@ from pypeal.cli.generator import PealGenerator
 from pypeal.cli.peal_prompter import PealPromptListener
 from pypeal.cli.peal_previewer import PealPreviewListener
 from pypeal.cli.prompt_commit_peal import prompt_commit_peal
-from pypeal.cli.prompts import UserCancelled, confirm, panel, error
+from pypeal.cli.prompts import UserCancelled, confirm, heading, panel, error
 from pypeal.entities.peal import Peal
 
 logger = logging.getLogger('pypeal')
 
 
 def prompt_import_peal(peal_id: int = None) -> Peal:
+
+    heading('Import peal from BellBoard')
 
     generator = HTMLPealGenerator()
     preview_listener = PealPreviewListener()
@@ -27,14 +29,14 @@ def prompt_import_peal(peal_id: int = None) -> Peal:
                 not confirm(f'Peal {peal_id} already added to database', confirm_message='Overwrite?', default=False):
             return
 
-        return add_peal(generator)
+        return prompt_add_peal(generator)
 
     except BellboardError as e:
         logger.exception('Error getting peal from Bellboard: %s', e)
         error(e)
 
 
-def add_peal(generator: PealGenerator) -> Peal:
+def prompt_add_peal(generator: PealGenerator) -> Peal:
 
     prompt_listener = PealPromptListener()
     prompt_listener.quick_mode = confirm(None, confirm_message='Try for a quick-add?', default=True)

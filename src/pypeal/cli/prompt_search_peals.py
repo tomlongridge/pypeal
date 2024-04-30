@@ -19,6 +19,7 @@ logger = logging.getLogger('pypeal')
 
 
 def prompt_search():
+    heading('Search BellBoard')
     while True:
         searches = PealSearch.get_all()
         try:

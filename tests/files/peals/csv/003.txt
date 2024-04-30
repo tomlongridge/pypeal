@@ -116,6 +116,7 @@ database
 Import? [y/n] (y): 
 >>> y
 [User input: "True"]
+Import peal from BellBoard
 ╭───────────────── http://localhost:8080/view.php?id=1306360 ──────────────────╮
 │ Bath & Wells Diocesan Association                                            │
 │ Blessed Virgin Mary, Portbury, Somerset                                      │
