@@ -37,7 +37,7 @@ def prompt_peal_by_id(peal_id_or_url: str, ask_for_database_id: bool = False) ->
     is_bellboard_id = False
     if peal_id_or_url is None:
         if ask_for_database_id:
-            is_bellboard_id = choose_option(['Bellboard ID/URL', 'Peal ID'], default=1)
+            is_bellboard_id = choose_option(['Bellboard ID/URL', 'Peal ID'], default=1) == 1
         else:
             is_bellboard_id = True
     for input in prompt_peal_input(peal_id_or_url):
