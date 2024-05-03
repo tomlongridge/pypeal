@@ -12,6 +12,7 @@ pypeal Database
 │ 6) View peal                                                                 │
 │ 7) Delete peal                                                               │
 │ 8) Update static data                                                        │
+│ 9) Clear app cache                                                           │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
@@ -167,10 +168,6 @@ Confirm tenor bell (12):
 >>> 
 [User input: "12"]
 Shifting band by 4 bells
-Bell type: 1) Tower, 2) Handbells
-Select option (1): 
->>> 
-[User input: "Tower [1]"]
 🔔 Bell type: Tower
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
@@ -461,7 +458,7 @@ Import peal from BellBoard
 │ Rung for morning service                                                     │
 │                                                                              │
 │ Bellboard: http://localhost:8080/view.php?id=388066 (submitted by Nicholas   │
-│ Hunt on Sunday, 15 January 2012)                                             │
+│ Hunt on Sunday, 15 January 2012; updated Sunday, 15 February 2015)           │
 │ External reference: Campanophile ID: 116670                                  │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
@@ -572,6 +569,7 @@ Add new ringer as "Byron" "Robinson"? [y/n] (y):
 🔗 Event link: None
 📷 Photo link: None
 📮 Submitted by: Nicholas Hunt on Sunday, 15 January 2012
+✏️ Updated: Sunday, 15 February 2015
 🔗 External reference: Campanophile ID: 116670
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Warning: Tenor weight 18-3-20 reported on Bellboard does not match the       │
@@ -579,10 +577,6 @@ Add new ringer as "Byron" "Robinson"? [y/n] (y):
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Suggested tenor, based on weight: 10 (18-3-20)
 Shifting band by 2 bells
-Bell type: 1) Tower, 2) Handbells
-Select option (1): 
->>> 
-[User input: "Tower [1]"]
 🔔 Bell type: Tower
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
@@ -704,7 +698,7 @@ Import peal from BellBoard
 │ First on a mini-ring: 3 & 6                                                  │
 │                                                                              │
 │ Bellboard: http://localhost:8080/view.php?id=1066455 (submitted by Heather   │
-│ Sullivan on Sunday, 21 September 2014)                                       │
+│ Sullivan on Sunday, 21 September 2014; updated Friday, 6 January 2017)       │
 │ External reference: Campanophile ID: 183937                                  │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
@@ -758,16 +752,13 @@ Referenced ringer(s):
 🔗 Event link: None
 📷 Photo link: None
 📮 Submitted by: Heather Sullivan on Sunday, 21 September 2014
+✏️ Updated: Friday, 6 January 2017
 🔗 External reference: Campanophile ID: 183937
-Bell type: 1) Tower, 2) Handbells
-Select option (2): 
->>> 
-[User input: "Handbells [2]"]
-🔔 Bell type: Handbells
+🔔 Bell type: Tower
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Marston Bigot, Somerset                                                      │
-│ Pig-le-Tower (in hand)                                                       │
+│ Pig-le-Tower                                                                 │
 │ On Sunday, 21 September 2014                                                 │
 │ A Quarter Peal of 1280 Cambridge Surprise Major                              │
 │                                                                              │
@@ -836,7 +827,7 @@ Import peal from BellBoard
 │ 900th Quarter of Grandsire on the bells.                                     │
 │                                                                              │
 │ Bellboard: http://localhost:8080/view.php?id=1147788 (submitted by Byron     │
-│ Miller on Sunday, 11 January 2015)                                           │
+│ Miller on Sunday, 11 January 2015; updated Monday, 9 January 2017)           │
 │ External reference: Campanophile ID: 188334                                  │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
@@ -896,11 +887,8 @@ Add new ringer as "Leonardo" "Bennett"? [y/n] (y):
 🔗 Event link: None
 📷 Photo link: None
 📮 Submitted by: Byron Miller on Sunday, 11 January 2015
+✏️ Updated: Monday, 9 January 2017
 🔗 External reference: Campanophile ID: 188334
-Bell type: 1) Tower, 2) Handbells
-Select option (1): 
->>> 
-[User input: "Tower [1]"]
 🔔 Bell type: Tower
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
@@ -990,7 +978,7 @@ Import peal from BellBoard
 │ -staffordshire-regiment/                                                     │
 │                                                                              │
 │ Bellboard: http://localhost:8080/view.php?id=1272466 (submitted by Joyce     │
-│ Sullivan on Sunday, 17 February 2019)                                        │
+│ Sullivan on Sunday, 17 February 2019; updated Tuesday, 19 February 2019)     │
 │ Photo: http://localhost:8080/uploads/57/002a57.jpg                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for a quick-add? [y/n] (y): 
@@ -1067,16 +1055,13 @@ Add this to previous footnote? [y/n] (y):
   - The CWGC grave marker of Sgt A P Wakley in Stapenhill Cemetery, Burton-on-Trent (Staffordshire)
   - Photo credit: Michael W Day
 📮 Submitted by: Joyce Sullivan on Sunday, 17 February 2019
+✏️ Updated: Tuesday, 19 February 2019
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Warning: Tenor weight 18-3-20 reported on Bellboard does not match the       │
 │ weight of largest bell rung (11-1-2) on Dove                                 │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Suggested tenor, based on weight: 10 (18-3-20)
 Shifting band by 2 bells
-Bell type: 1) Tower, 2) Handbells
-Select option (1): 
->>> 
-[User input: "Tower [1]"]
 🔔 Bell type: Tower
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
@@ -1142,6 +1127,7 @@ pypeal Database
 │ 6) View peal                                                                 │
 │ 7) Delete peal                                                               │
 │ 8) Update static data                                                        │
+│ 9) Clear app cache                                                           │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘

@@ -18,6 +18,7 @@ PHOTO_URL_REGEX = re.compile(r'/\.(?P<url>/uploads/\w+/\w+)\-\w+\.(?P<ext>jpg|jp
 METADATA_SUBMITTED_REGEX = \
     re.compile(r'.*?[\s]*First submitted (?P<date>[\w\d\s,]+) at [0-9\:]+(?: by (?P<submitter>[\w\d\s]+))\.$',
                re.MULTILINE)
+METADATA_UPDATED_REGEX = re.compile(r'.*?[\s]*Last updated (?P<date>[\w\d\s,]+) at [0-9\:]+\.$', re.MULTILINE)
 METADATA_IMPORTED_REGEX = \
     re.compile(r'.*?[\s]*Imported from (?P<source>[\w\d\s]+) entry (?P<id>[\d]+)(?:\s+\(submitted by (?P<submitter>[\w\d\s]+)\))?.$',
                re.MULTILINE)
@@ -167,12 +168,15 @@ class HTMLPealGenerator(PealGenerator):
         else:
             listener.photo(None, None, None)
 
-        submitter_info = submitter = submitted_date = external_source = external_ref = None
+        submitter_info = submitter = submitted_date = updated_date = external_source = external_ref = None
         for element in soup.select('p.metadata'):
             if match := re.match(METADATA_SUBMITTED_REGEX, element.text.strip()):
                 submitter_info = match.groupdict()
                 submitter = submitter_info['submitter'] if 'submitter' in submitter_info else None
                 submitted_date = datetime.date(datetime.strptime(submitter_info['date'], '%A, %d %B %Y'))
+            if match := re.match(METADATA_UPDATED_REGEX, element.text.strip()):
+                updated_info = match.groupdict()
+                updated_date = datetime.date(datetime.strptime(updated_info['date'], '%A, %d %B %Y'))
             elif match := re.match(METADATA_IMPORTED_REGEX, element.text.strip()):
                 submitter_info = match.groupdict()
                 if submitter is None and 'submitter' in submitter_info:
@@ -180,7 +184,7 @@ class HTMLPealGenerator(PealGenerator):
                 external_source = submitter_info['source']
                 external_ref = submitter_info['id']
 
-        listener.bellboard_metadata(submitter, submitted_date)
+        listener.bellboard_metadata(submitter, submitted_date, updated_date)
         if external_source:
             listener.external_reference(f'{external_source.strip()} ID: {external_ref}')
 

@@ -5,6 +5,7 @@ import typer
 from rich import print
 from rich.table import Table
 
+from pypeal.cache import Cache
 from pypeal.cli.prompt_csv_import import prompt_csv_import
 from pypeal.cli.prompt_manual_peal import prompt_manual_peal
 from pypeal.cli.prompt_peal_input import prompt_peal_input
@@ -155,7 +156,8 @@ def run_interactive(peal_id_or_url: str):
                 'Generate reports': lambda: run_generate_reports(),
                 'View peal': lambda: run_view(peal_id_or_url),
                 'Delete peal': lambda: run_delete(peal_id_or_url),
-                'Update static data': lambda: run_update_static_data()
+                'Update static data': lambda: run_update_static_data(),
+                'Clear app cache': lambda: Cache.get_cache().clear_all(),
             }
 
             if summary_data['unsubmitted_count'] > 0:

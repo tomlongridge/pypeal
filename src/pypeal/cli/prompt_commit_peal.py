@@ -12,10 +12,12 @@ def prompt_commit_peal(peal: Peal) -> Peal:
     if duplicate_peal := prompt_database_duplicate(peal):
         match choose_option(['Keep existing', 'Use new', 'Cancel'], default=1):
             case 1:
-                # Forget about the new peal but update the BellBoard ID to the new one
-                # (Bellboard creates new IDs when a peal as been edited)
-                duplicate_peal.update_bellboard_id(peal.bellboard_id, peal.bellboard_submitter, peal.bellboard_submitted_date)
-                peal = None
+                if peal.bellboard_id is not None:
+                    # Forget about the new peal but update the BellBoard ID to the new one
+                    # (Bellboard creates new IDs when a peal as been edited)
+                    duplicate_peal.update_bellboard_id(peal.bellboard_id, peal.bellboard_submitter, peal.bellboard_submitted_date)
+                    print(f'Peal (ID {duplicate_peal.id}) updated with BellBoard ID {peal.bellboard_id}')
+                peal = duplicate_peal
             case 2:
                 # Delete the existing peal and commit the new one
                 existing_peal = duplicate_peal
@@ -23,7 +25,7 @@ def prompt_commit_peal(peal: Peal) -> Peal:
             case 3:
                 return None
 
-    if peal:
+    if peal and peal.id is None:
 
         panel(peal, title='Confirm performance')
         if not user_confirmed and not confirm('Save this peal?'):

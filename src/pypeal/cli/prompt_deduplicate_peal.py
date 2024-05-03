@@ -30,8 +30,8 @@ def prompt_database_duplicate(peal: Peal, preview: str = None) -> Peal:
 
         console = Console()
         for existing_peal in existing_peals:
-            console.print(Columns([make_peal_panel(preview or peal),
-                                   make_peal_panel(existing_peal)]))
+            console.print(Columns([make_peal_panel(existing_peal, title='Database'),
+                                   make_peal_panel(preview or peal, title='New')]))
             if not preview and confirm(None, confirm_message='See differences?'):
                 diffs = ''
                 for field, (left, right) in existing_peal.diff(peal).items():
@@ -54,8 +54,8 @@ def prompt_bellboard_duplicate(peal: Peal, preview: str = None, bb_peal_ids: lis
                 return None
 
         preview_str, submitter, date_submitted = get_preview(bb_peal_id)
-        console.print(Columns([make_peal_panel(preview or peal),
-                               make_peal_panel(preview_str)]))
+        console.print(Columns([make_peal_panel(preview or peal, title='New'),
+                               make_peal_panel(preview_str, title='BellBoard')]))
 
         if confirm(get_url_from_id(bb_peal_id), confirm_message='Is this the same peal?'):
             return bb_peal_id, submitter, date_submitted

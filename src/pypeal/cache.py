@@ -36,6 +36,9 @@ class Cache():
             else:
                 self._data[cache].clear()
 
+    def clear_all(self):
+        self._data.clear()
+
     @staticmethod
     def get_cache():
         if Cache.__instance is None:

@@ -166,13 +166,15 @@ class PealPromptListener(PealGeneratorListener):
         if credit:
             print(f'  - Photo credit: {credit}')
 
-    def bellboard_metadata(self, submitter: str, date: datetime.date):
+    def bellboard_metadata(self, submitter: str, created_date: datetime.date, updated_date: datetime.date):
         submitter = _clean_str_input(submitter)
         self.peal.bellboard_submitter = submitter
-        self.peal.bellboard_submitted_date = date
+        self.peal.bellboard_submitted_date = created_date
         print(f'📮 Submitted by: {self.peal.bellboard_submitter or "Unknown"} on ' +
               utils.format_date_full(self.peal.bellboard_submitted_date)
               if self.peal.bellboard_submitted_date else 'Unknown')
+        if updated_date:
+            print(f'✏️ Updated: {utils.format_date_full(updated_date)}')
 
     def external_reference(self, value: str):
         value = _clean_str_input(value)

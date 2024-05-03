@@ -104,8 +104,6 @@ def _search(peal_search: PealSearch = None, prompt: bool = False):
                                                order_by_submission_date=peal_search.order_by_submission_date,
                                                order_descending=peal_search.order_descending):
 
-                peal_search.record_run()
-
                 if Peal.get(bellboard_id=peal_id):
                     count_duplicate += 1
                     continue
@@ -116,6 +114,7 @@ def _search(peal_search: PealSearch = None, prompt: bool = False):
                     count_added += 1
 
             print(f'{count_added} peal(s) added ({count_duplicate} duplicates)')
+            peal_search.record_run()
             break
 
         except BellboardSearchNoResultFoundError as e:

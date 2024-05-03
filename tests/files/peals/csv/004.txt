@@ -78,10 +78,6 @@ Add new ringer as "Harold" "Hedgehog"? [y/n] (y):
 [User input: "True"]
 👤 Ringer: 8: Harold Hedgehog
 📝 Footnotes: None
-Bell type: 1) Tower, 2) Handbells
-Select option (1): 
->>> 
-[User input: "Tower [1]"]
 🔔 Bell type: Tower
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
@@ -136,10 +132,6 @@ Matching peal titled "Grandsire Doubles"...
 Referenced ringer(s):
   - 3: Ben Bob
   - 4: Ben Bob
-Bell type: 1) Tower, 2) Handbells
-Select option (2): 
->>> 
-[User input: "Handbells [2]"]
 🔔 Bell type: Handbells
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
@@ -190,10 +182,6 @@ Matching peal titled "Grandsire Doubles"...
 Referenced ringer(s):
   - 3: Ben Bob
   - 4: Ben Bob
-Bell type: 1) Tower, 2) Handbells
-Select option (2): 
->>> 
-[User input: "Handbells [2]"]
 🔔 Bell type: Handbells
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮

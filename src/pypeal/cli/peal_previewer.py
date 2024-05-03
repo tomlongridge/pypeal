@@ -79,10 +79,11 @@ class PealPreviewListener(PealGeneratorListener):
         if url:
             self.__lines['photo'] = url
 
-    def bellboard_metadata(self, submitter: str, date: datetime.date):
+    def bellboard_metadata(self, submitter: str, created_date: datetime.date, updated_date: datetime.date):
         self.__lines['bb_metadata'] = {}
         self.__lines['bb_metadata']['submitter'] = submitter or 'unknown'
-        self.__lines['bb_metadata']['date'] = date
+        self.__lines['bb_metadata']['created_date'] = created_date
+        self.__lines['bb_metadata']['updated_date'] = updated_date
 
     def external_reference(self, value: str):
         self.__lines['external_reference'] = value
@@ -107,7 +108,10 @@ class PealPreviewListener(PealGeneratorListener):
         text += f'Bellboard: {get_url_from_id(self.__lines["id"])}' if self.__lines['id'] else ''
         if 'bb_metadata' in self.__lines:
             text += f' (submitted by {self.__lines["bb_metadata"]["submitter"]}'
-            text += f' on {utils.format_date_full(self.__lines["bb_metadata"]["date"])}' if self.__lines["bb_metadata"]["date"] else ''
+            if self.__lines["bb_metadata"]["created_date"]:
+                text += f' on {utils.format_date_full(self.__lines["bb_metadata"]["created_date"])}'
+            if self.__lines["bb_metadata"]["updated_date"]:
+                text += f'; updated {utils.format_date_full(self.__lines["bb_metadata"]["updated_date"])}'
             text += ')'
         text += '\n'
         text += (f'Photo: {self.__lines["photo"]}\n') if 'photo' in self.__lines else ''
@@ -121,4 +125,6 @@ class PealPreviewListener(PealGeneratorListener):
     @property
     def metadata(self) -> tuple[str, datetime.date]:
         if 'bb_metadata' in self.__lines:
-            return self.__lines['bb_metadata']['submitter'], self.__lines['bb_metadata']['date']
+            return (self.__lines['bb_metadata']['submitter'],
+                    self.__lines['bb_metadata']['created_date'],
+                    self.__lines['bb_metadata']['updated_date'])
