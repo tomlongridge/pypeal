@@ -5,7 +5,25 @@ from pypeal.entities.tower import Tower
 from haversine import haversine
 
 
-def get_grabbed_bells(towers: list[Tower], report: Report, length_type: PealLengthType) -> dict[Tower, dict[int, int]]:
+def get_tower_grab_data(report: Report,
+                        length_type: PealLengthType,
+                        home_tower: Tower) -> dict[Tower, dict[int, int]]:
+
+    closest_grabs: dict[Tower, (dict[int, int], float)] = {}
+    if home_tower is None or home_tower.latitude is None or home_tower.longitude is None:
+        home_tower = None
+    for tower, grabbed_bells in _get_grabbed_bells(Tower.get_all(), report, length_type).items():
+        if home_tower and tower.latitude is not None and tower.longitude is not None:
+            distance_mi = haversine((home_tower.latitude, home_tower.longitude), (tower.latitude, tower.longitude), unit='mi')
+        else:
+            distance_mi = None
+        closest_grabs[tower] = (grabbed_bells, distance_mi)
+
+    # Order by distance then name
+    return {tower: bells for tower, (bells, _) in dict(sorted(closest_grabs.items(), key=lambda x: (x[1][1] or 1000000, str(x[0])))).items()}
+
+
+def _get_grabbed_bells(towers: list[Tower], report: Report, length_type: PealLengthType) -> dict[Tower, dict[int, int]]:
 
     tower_data: dict[Tower, dict[int, int]] = {}
     for tower in towers:
@@ -28,28 +46,3 @@ def get_grabbed_bells(towers: list[Tower], report: Report, length_type: PealLeng
                     tower_data[peal.ring.tower][bell_id] += 1
 
     return tower_data
-
-
-def get_closest_grabs(report: Report,
-                      length_type: PealLengthType,
-                      home_tower: Tower) -> dict[Tower, dict[int, int]]:
-
-    closest_grabs: dict[Tower, (dict[int, int], float)] = {}
-    for tower, grabbed_bells in get_grabbed_bells(Tower.get_all(), report, length_type).items():
-        if tower.latitude is None or tower.longitude is None:
-            continue
-        distance_mi = haversine((home_tower.latitude, home_tower.longitude), (tower.latitude, tower.longitude), unit='mi')
-        closest_grabs[tower] = (grabbed_bells, distance_mi)
-
-    return {tower: bells for tower, (bells, _) in dict(sorted(closest_grabs.items(), key=lambda x: x[1][1]))}  # Order by distance
-
-
-def get_all_grabs(report: Report,
-                  length_type: PealLengthType) -> dict[Tower, dict[int, int]]:
-
-    grabs: dict[Tower, dict[int, int]] = {}
-    for tower, grabbed_bells in get_grabbed_bells(Tower.get_all(), report, length_type).items():
-        if sum(grabbed_bells.values()) > 0:
-            grabs[tower] = grabbed_bells
-
-    return dict(sorted(grabs.items(), key=lambda x: x[0].name))

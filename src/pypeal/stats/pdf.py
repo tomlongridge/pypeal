@@ -15,7 +15,7 @@ from pypeal.entities.peal import PealLengthType
 from pypeal.entities.report import Report
 from pypeal.entities.ringer import Ringer
 from pypeal.entities.tower import Bell, Ring
-from pypeal.stats.distance import get_all_grabs, get_closest_grabs
+from pypeal.stats.distance import get_tower_grab_data
 from pypeal.stats.report import generate_summary
 
 PAGE_HEIGHT = 210*mm
@@ -146,9 +146,11 @@ def _generate_peal_length_report(canvas: Canvas, report: Report, data: dict, rep
         tables.extend(
             _draw_table('Nearly-circled Towers',
                         almost_circled_towers,
+                        column_headings=['Tower', 'Remaining', 'Bell(s) Needed'],
+                        column_value_keys=['ungrabbed_count', 'ungrabbed_bells'],
+                        column_widths=['*', 20*mm, 50*mm],
                         key_to_str=lambda k: k.name,
-                        values_to_str=[lambda v: f'{v:.0%}'],
-                        column_headings=['Tower', 'Complete'],
+                        values_to_str=[lambda v: f'{v:,}', lambda v: ', '.join(v)],
                         max_rows=20))
         tables.extend(
             _draw_table('Towers To Grab',
@@ -157,7 +159,7 @@ def _generate_peal_length_report(canvas: Canvas, report: Report, data: dict, rep
                         column_headings=['Tower'],
                         max_rows=20))
 
-    _draw_table_pages(canvas, title, tables, num_columns_per_page=3)
+    _draw_table_pages(canvas, title, tables, num_columns_per_page=2)
 
     milestone_data = _get_milestones(report, data, report_length_type)
     if len(milestone_data) > 0:
@@ -386,28 +388,32 @@ def _get_key_stats(report: Report, data: dict, report_length_type: PealLengthTyp
 
 
 def _get_grab_stats(report: Report, report_length_type: PealLengthType) -> tuple:
-    if report.ringer and report.ringer.home_tower:
-        grabbed_towers = get_closest_grabs(report, report_length_type, report.ringer.home_tower)
+    if report and report.ringer and report.ringer.home_tower and report.ringer.home_tower.latitude and report.ringer.home_tower.longitude:
+        home_tower_with_location = report.ringer.home_tower
     else:
-        grabbed_towers = get_all_grabs(report, report_length_type)
+        home_tower_with_location = None
+    tower_grab_data = get_tower_grab_data(report, report_length_type, home_tower_with_location)
     circled_towers = {}
     almost_circled_towers = {}
     ungrabbed_bells = {}
     ungrabbed_towers = []
-    for tower, bells in grabbed_towers.items():
-        ungrabbed_bell_list = [Bell.get(b).role for b, c in bells.items() if c == 0]
+    for tower, bells in tower_grab_data.items():
+        ungrabbed_bell_list = [str(Bell.get(b).role) for b, c in bells.items() if c == 0]
         if circles := min(bells.values()):
             circled_towers[tower] = circles
         else:
             num_grabbed_bells = len(bells) - len(ungrabbed_bell_list)
-            if num_grabbed_bells == 0:
+            if home_tower_with_location and num_grabbed_bells == 0:
                 ungrabbed_towers.append(tower)
             else:
                 ungrabbed_bells[tower] = ungrabbed_bell_list
                 if num_grabbed_bells > 0:
-                    almost_circled_towers[tower] = num_grabbed_bells / len(bells)
+                    almost_circled_towers[tower] = {'grabbed_count': num_grabbed_bells,
+                                                    'ungrabbed_count': len(bells) - num_grabbed_bells,
+                                                    'ungrabbed_bells': ungrabbed_bell_list}
 
-    almost_circled_towers = dict(sorted(almost_circled_towers.items(), key=lambda item: -item[1])[:20])
+    circled_towers = dict(sorted(circled_towers.items(), key=lambda item: (-item[1], str(item[0]))))
+    almost_circled_towers = dict(sorted(almost_circled_towers.items(), key=lambda item: (item[1]['ungrabbed_count'], str(item[0])))[:20])
 
     return circled_towers, almost_circled_towers, ungrabbed_towers, ungrabbed_bells
 

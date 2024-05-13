@@ -17,7 +17,7 @@ from pypeal.cccbr import update_methods
 from pypeal.cli.prompt_delete_peal import prompt_delete_peal
 from pypeal.cli.prompt_import_peal import prompt_import_peal
 from pypeal.cli.prompt_report_stats import prompt_report
-from pypeal.cli.prompts import UserCancelled, format_timestamp, heading, error, press_any_key
+from pypeal.cli.prompts import UserCancelled, format_timestamp, heading, error
 from pypeal.cli.chooser import choose_option_in_dict
 from pypeal.cli.prompt_search_peals import poll, prompt_search
 from pypeal.db import initialize as initialize_db
@@ -127,7 +127,6 @@ def run_generate_reports():
     heading('Generate PDF reports')
     for report_path in generate_reports():
         print(f'- {report_path}')
-    press_any_key()
 
 
 def run_bulk_upload():
