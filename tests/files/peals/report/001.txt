@@ -449,9 +449,6 @@ Select option (1):
 [User input: "Generate reports [5]"]
 Generate PDF reports
 - /Users/tom.longridge/projects/HomeProjects/pypeal/tests/reports/all2.pdf
-Press any key to continue...
->>> 
-[User input: "[Continue]"]
 pypeal Database
  Quarter Peal count: 1                                Last updated: [Timestamp] 
 ┌──────────────────────────────────────────────────────────────────────────────┐

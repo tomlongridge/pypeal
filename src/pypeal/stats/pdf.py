@@ -135,29 +135,7 @@ def _generate_peal_length_report(canvas: Canvas, report: Report, data: dict, rep
                     number_rows=False))
 
     if not (report.tower or report.ring):
-
-        circled_towers, almost_circled_towers, ungrabbed_towers, _ = _get_grab_stats(report, report_length_type)
-        tables.extend(
-            _draw_table('Circled Towers',
-                        circled_towers,
-                        key_to_str=lambda k: k.name,
-                        column_headings=['Tower', 'Count'],
-                        max_rows=20))
-        tables.extend(
-            _draw_table('Nearly-circled Towers',
-                        almost_circled_towers,
-                        column_headings=['Tower', 'Remaining', 'Bell(s) Needed'],
-                        column_value_keys=['ungrabbed_count', 'ungrabbed_bells'],
-                        column_widths=['*', 20*mm, 50*mm],
-                        key_to_str=lambda k: k.name,
-                        values_to_str=[lambda v: f'{v:,}', lambda v: ', '.join(v)],
-                        max_rows=20))
-        tables.extend(
-            _draw_table('Towers To Grab',
-                        ungrabbed_towers,
-                        key_to_str=lambda k: k.name,
-                        column_headings=['Tower'],
-                        max_rows=20))
+        tables.extend(_get_grab_stats(report, report_length_type))
 
     _draw_table_pages(canvas, title, tables, num_columns_per_page=2)
 
@@ -387,7 +365,7 @@ def _get_key_stats(report: Report, data: dict, report_length_type: PealLengthTyp
     return stats
 
 
-def _get_grab_stats(report: Report, report_length_type: PealLengthType) -> tuple:
+def _get_grab_stats(report: Report, report_length_type: PealLengthType) -> list[Table]:
     if report and report.ringer and report.ringer.home_tower and report.ringer.home_tower.latitude and report.ringer.home_tower.longitude:
         home_tower_with_location = report.ringer.home_tower
     else:
@@ -395,27 +373,63 @@ def _get_grab_stats(report: Report, report_length_type: PealLengthType) -> tuple
     tower_grab_data = get_tower_grab_data(report, report_length_type, home_tower_with_location)
     circled_towers = {}
     almost_circled_towers = {}
-    ungrabbed_bells = {}
-    ungrabbed_towers = []
-    for tower, bells in tower_grab_data.items():
+    ungrabbed_towers = {}
+    completed_counties = {}
+    for tower, (bells, distance) in tower_grab_data.items():
         ungrabbed_bell_list = [str(Bell.get(b).role) for b, c in bells.items() if c == 0]
+        num_grabbed_bells = len(bells) - len(ungrabbed_bell_list)
         if circles := min(bells.values()):
             circled_towers[tower] = circles
         else:
-            num_grabbed_bells = len(bells) - len(ungrabbed_bell_list)
             if home_tower_with_location and num_grabbed_bells == 0:
-                ungrabbed_towers.append(tower)
+                ungrabbed_towers[tower] = distance
             else:
-                ungrabbed_bells[tower] = ungrabbed_bell_list
                 if num_grabbed_bells > 0:
-                    almost_circled_towers[tower] = {'grabbed_count': num_grabbed_bells,
-                                                    'ungrabbed_count': len(bells) - num_grabbed_bells,
+                    almost_circled_towers[tower] = {'ungrabbed_count': len(bells) - num_grabbed_bells,
                                                     'ungrabbed_bells': ungrabbed_bell_list}
+        if tower.county:
+            tower_key = f'{tower.county}, {tower.country}'
+            if tower_key not in completed_counties:
+                completed_counties[tower_key] = {'count': 0, 'grabbed': 0}
+            completed_counties[tower_key]['count'] += 1
+            if num_grabbed_bells > 0:
+                completed_counties[tower_key]['grabbed'] += 1
 
-    circled_towers = dict(sorted(circled_towers.items(), key=lambda item: (-item[1], str(item[0]))))
-    almost_circled_towers = dict(sorted(almost_circled_towers.items(), key=lambda item: (item[1]['ungrabbed_count'], str(item[0])))[:20])
+    circled_towers = dict(sorted(circled_towers.items(), key=lambda item: (-item[1], str(item[0])))[:20])
+    almost_circled_towers = dict(sorted(almost_circled_towers.items(),
+                                        key=lambda item: (item[1]['ungrabbed_count'], str(item[0])))[:20])
+    completed_counties = dict(sorted(filter(lambda item: item[1]['grabbed'] > 1, completed_counties.items()),
+                                     key=lambda item: (-item[1]['grabbed']/item[1]['count'], str(item[0])))[:20])
 
-    return circled_towers, almost_circled_towers, ungrabbed_towers, ungrabbed_bells
+    tables = []
+    tables.extend(
+        _draw_table('Circled Towers',
+                    circled_towers,
+                    key_to_str=lambda k: k.name,
+                    column_headings=['Tower', 'Count']))
+    tables.extend(
+        _draw_table('Nearly-circled Towers',
+                    almost_circled_towers,
+                    column_headings=['Tower', 'Remaining', 'Bell(s) Needed'],
+                    column_value_keys=['ungrabbed_count', 'ungrabbed_bells'],
+                    column_widths=['*', 20*mm, 50*mm],
+                    key_to_str=lambda k: k.name,
+                    values_to_str=[lambda v: f'{v:,}', lambda v: ', '.join(v)]))
+    tables.extend(
+        _draw_table('Towers To Grab',
+                    ungrabbed_towers,
+                    column_headings=['Tower', 'Distance (mi)'],
+                    key_to_str=lambda k: k.name,
+                    column_widths=['*', 20*mm],
+                    values_to_str=[lambda v: f'{v:.1f}'],
+                    max_rows=20))
+    tables.extend(
+        _draw_table('County Completion',
+                    completed_counties,
+                    column_headings=['County', 'Grabbed', 'Total'],
+                    column_value_keys=['grabbed', 'count'],
+                    column_widths=['*', 20*mm, 20*mm]))
+    return tables
 
 
 def _get_milestones(report: Report, data: dict, report_length_type: PealLengthType) -> dict[datetime.date, str]:

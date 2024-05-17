@@ -20,7 +20,8 @@ def get_tower_grab_data(report: Report,
         closest_grabs[tower] = (grabbed_bells, distance_mi)
 
     # Order by distance then name
-    return {tower: bells for tower, (bells, _) in dict(sorted(closest_grabs.items(), key=lambda x: (x[1][1] or 1000000, str(x[0])))).items()}
+    return {tower: (bells, distance) for tower, (bells, distance) in
+            dict(sorted(closest_grabs.items(), key=lambda x: (x[1][1] or 1000000, str(x[0])))).items()}
 
 
 def _get_grabbed_bells(towers: list[Tower], report: Report, length_type: PealLengthType) -> dict[Tower, dict[int, int]]:

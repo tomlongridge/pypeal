@@ -15,7 +15,7 @@ class Ringer():
         self.__names: list[self._RingerName] = []
         self.__aliases: list[self._RingerName] = []
         if last_name:
-            self.__names.append(self._RingerName(last_name, given_names, title, False, None, None))
+            self.__names.append(self._RingerName(last_name, given_names, title))
 
     def __str__(self) -> str:
         return self.__names[-1].name if self.__names else 'Unknown'
@@ -52,6 +52,10 @@ class Ringer():
         self.__names[-1].is_composer = value
 
     @property
+    def home_tower(self) -> Tower:
+        return self.__names[-1].home_tower if self.__names else None
+
+    @property
     def aliases(self) -> list[str]:
         return [alias.name for alias in self.__aliases]
 
@@ -66,10 +70,6 @@ class Ringer():
                     return ringer_name.name
             raise ValueError(f'No name found for ringer {self.id} on date {date}')
 
-    @property
-    def home_tower(self) -> Tower:
-        return self.__names[-1].home_tower if self.__names else None
-
     def commit(self):
         self.__names[-1].commit()
         for ringer_name in self.__names[:-1] + self.__aliases:
@@ -83,14 +83,11 @@ class Ringer():
             original_name = self.__names[-1]
             self.__aliases.append(self._RingerName(original_name.last_name,
                                                    original_name.given_names,
-                                                   None,
-                                                   False,
-                                                   original_name.id,
-                                                   None))
+                                                   link_id=original_name.id))
             original_name.last_name = last_name
             original_name.given_names = given_names
         else:
-            self.__aliases.append(self._RingerName(last_name, given_names, None, False, self.id, None))
+            self.__aliases.append(self._RingerName(last_name, given_names, link_id=self.id))
 
     def has_alias(self, last_name: str, given_names: str) -> bool:
         return any(alias.matches(last_name, given_names) for alias in self.__aliases) \
@@ -189,6 +186,7 @@ class Ringer():
 
     @dataclass
     class _RingerName():
+
         last_name: str
         given_names: str
         title: str
@@ -197,6 +195,24 @@ class Ringer():
         date_to: datetime.date = None
         home_tower: Tower = None
         id: int = None
+
+        def __init__(self,
+                     last_name: str,
+                     given_names: str,
+                     title: str = None,
+                     is_composer: bool = False,
+                     link_id: int = None,
+                     date_to: datetime.date = None,
+                     home_tower_id: int = None,
+                     id: int = None):
+            self.last_name = last_name
+            self.given_names = given_names
+            self.title = title
+            self.is_composer = is_composer
+            self.link_id = link_id
+            self.date_to = date_to
+            self.home_tower = Tower.get(home_tower_id) if home_tower_id else None
+            self.id = id
 
         @property
         def name(self) -> str:
