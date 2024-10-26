@@ -146,6 +146,8 @@ def _add_peal(data: dict, section: str, key: any, peal: Peal) -> dict:
         if 'last_milestone_date' not in selected_dict or peal.date > selected_dict['last_milestone_date']:
             selected_dict['last_milestone_date'] = peal.date
 
+    selected_dict['next_milestone_count'] = (selected_dict['count'] // 25) + 25 - selected_dict['count'] % 25
+
     return selected_dict
 
 

@@ -139,19 +139,31 @@ def _generate_peal_length_report(canvas: Canvas, report: Report, data: dict, rep
 
     _draw_table_pages(canvas, title, tables, num_columns_per_page=2)
 
+    tables = []
     milestone_data = _get_milestones(report, data, report_length_type)
     if len(milestone_data) > 0:
-        _draw_table_pages(
-            canvas,
-            title + ': Recent Milestones',
+        tables.extend(
             _draw_table('Recent Milestones',
                         milestone_data,
-                        column_headings=['Milestone', 'Count'],
-                        max_rows=50,
+                        column_headings=['Date', 'Milestone'],
+                        max_rows=23,
                         number_rows=False,
                         column_widths=[30*mm, '*'],
-                        key_to_str=lambda d: utils.format_date_short(d)),
-            num_columns_per_page=2)
+                        key_to_str=lambda d: utils.format_date_short(d)))
+    milestone_data = _get_next_milestones(report, data, report_length_type)
+    if len(milestone_data) > 0:
+        tables.extend(
+            _draw_table('Upcoming Milestones',
+                        milestone_data,
+                        column_headings=['Current', 'Milestone'],
+                        max_rows=23,
+                        number_rows=False,
+                        column_widths=[30*mm, '*']))
+    _draw_table_pages(
+        canvas,
+        title + ': Milestones',
+        tables,
+        num_columns_per_page=2)
 
     if 'bells' in data['types'][report_length_type]:
         for table in _draw_bell_table(report.ring or report.tower.get_active_ring(),
@@ -468,3 +480,47 @@ def _get_milestones(report: Report, data: dict, report_length_type: PealLengthTy
                     f'{utils.suffix_number(ringer_data["last_milestone_count"])} {"with" if report.ringer else "for"} {ringer}'
 
     return dict(sorted(milestones.items(), reverse=True))
+
+
+def _get_next_milestones(report: Report, data: dict, report_length_type: PealLengthType) -> dict[int, str]:
+
+    report_data = data['types'][report_length_type]
+
+    milestones: list[tuple[int, int, str]] = []
+    if 'stages' in report_data:
+        for stage, section_data in report_data['stages'].items():
+            next = ((section_data['count'] // 25) + 1) * 25
+            diff = next - section_data['count']
+            milestones.append((diff, section_data['count'], f'{utils.suffix_number(next)} of {stage}'))
+
+    if report_length_type >= PealLengthType.PEAL and 'associations' in report_data:
+        for association, section_data in report_data['associations'].items():
+            next = ((section_data['count'] // 25) + 1) * 25
+            diff = next - section_data['count']
+            milestones.append((diff, section_data['count'], f'{utils.suffix_number(next)} for the {association}'))
+
+    if 'methods' in report_data:
+        for method, section_data in report_data['methods'].items():
+            next = ((section_data['count'] // 25) + 1) * 25
+            diff = next - section_data['count']
+            milestones.append((diff, section_data['count'], f'{utils.suffix_number(next)} of {method}'))
+
+    if 'towers' in report_data:
+        for tower, section_data in report_data['towers'].items():
+            next = ((section_data['count'] // 25) + 1) * 25
+            diff = next - section_data['count']
+            milestones.append((diff, section_data['count'], f'{utils.suffix_number(next)} at {tower.name}'))
+
+    if 'ringers' in report_data:
+        for ringer, section_data in report_data['ringers'].items():
+            next = ((section_data['count'] // 25) + 1) * 25
+            diff = next - section_data['count']
+            milestones.append((diff, section_data['count'], f'{utils.suffix_number(next)} {"with" if report.ringer else "for"} {ringer}'))
+
+    milestones.sort(key=lambda x: (x[0], -x[1]))
+
+    milestone_data = {}
+    for diff, count, milestone in milestones:
+        milestone_data[count] = milestone
+
+    return milestone_data

@@ -21,7 +21,7 @@ def submit(peal: Peal | dict) -> tuple[int, str]:
     else:
         params = peal
 
-    response_html = submit_peal(**params)
+    response_html = submit_peal(params)
 
     if match := SUBMITTED_SUCCESS_REGEX.search(response_html):
         bb_peal_id = int(match.group('peal_id'))

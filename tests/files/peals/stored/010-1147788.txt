@@ -277,7 +277,7 @@ Select option (1):
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 11 January 2015                                                   │
 │ A Quarter Peal of 1260 Spliced Caters and Royal (2m) in 48 mins (18-3-20 in  │
-│ Eb)                                                                          │
+│ E♭)                                                                          │
 │ (Grandsire Caters, Grandsire Royal)                                          │
 │                                                                              │
 │ 1: Byron Miller                                                              │
@@ -627,7 +627,7 @@ Select option (1):
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Sunday, 11 January 2015
-A Quarter Peal of 1260 Spliced Caters and Royal (2m) in 48 mins (18-3-20 in Eb)
+A Quarter Peal of 1260 Spliced Caters and Royal (2m) in 48 mins (18-3-20 in E♭)
 (Grandsire Caters, Grandsire Royal)
 
 1: Byron Miller

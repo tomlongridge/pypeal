@@ -86,7 +86,7 @@ Shifting band by 4 bells
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 12 November 2023                                                  │
 │ A Quarter Peal of 1260 Grandsire Doubles (half-muffled) in 49 mins (18-3-20  │
-│ in Eb)                                                                       │
+│ in E♭)                                                                       │
 │                                                                              │
 │ 1 [5]: Ryan Elliott                                                          │
 │ 2 [6]: Leo Bennett                                                           │
@@ -240,7 +240,7 @@ Select option (1):
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 12 November 2023                                                  │
 │ A Quarter Peal of 1260 Grandsire Doubles (half-muffled) in 49 mins (18-3-20  │
-│ in Eb)                                                                       │
+│ in E♭)                                                                       │
 │                                                                              │
 │ 1 [5]: Ryan Elliott                                                          │
 │ 2 [6]: Leo Bennett                                                           │
@@ -693,7 +693,7 @@ Select option (1):
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Sunday, 12 November 2023
-A Quarter Peal of 1260 Grandsire Doubles (half-muffled) in 49 mins (18-3-20 in Eb)
+A Quarter Peal of 1260 Grandsire Doubles (half-muffled) in 49 mins (18-3-20 in E♭)
 
 1 [5]: Ryan Elliott
 2 [6]: Leo Bennett

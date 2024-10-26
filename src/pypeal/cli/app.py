@@ -1,4 +1,5 @@
 import logging
+import os
 from typing import Annotated
 import typer
 
@@ -126,7 +127,8 @@ def run_add_peal():
 def run_generate_reports():
     heading('Generate PDF reports')
     for report_path in generate_reports():
-        print(f'- {report_path}')
+        # convert path to relative
+        print(f'- {os.path.relpath(report_path)}')
 
 
 def run_bulk_upload():

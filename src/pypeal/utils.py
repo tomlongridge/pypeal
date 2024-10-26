@@ -126,8 +126,12 @@ def get_weight_str(lbs: int) -> str:
         return f'{cwt}-{qtr}-{lbs}'
 
 
-def convert_musical_key(key: str):
+def convert_musical_key_to_text(key: str):
     return key.replace('\u266D', 'b').replace('\u266F', '#') if key else None
+
+
+def convert_musical_key_to_unicode(key: str):
+    return key.replace('b', '\u266D').replace('#', '\u266F') if key else None
 
 
 def format_date_full(date: datetime.date) -> str:

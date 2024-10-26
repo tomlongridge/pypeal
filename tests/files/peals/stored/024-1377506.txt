@@ -199,7 +199,7 @@ Select option (1):
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 12 July 2020                                                      │
-│ A Touch of 120 Grandsire Doubles (18-3-20 in Eb)                             │
+│ A Touch of 120 Grandsire Doubles (18-3-20 in E♭)                             │
 │                                                                              │
 │ 1: Jacob Cole                                                                │
 │ 2 [3]: Blake Elliott                                                         │
@@ -621,7 +621,7 @@ Select option (1):
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Sunday, 12 July 2020
-A Touch of 120 Grandsire Doubles (18-3-20 in Eb)
+A Touch of 120 Grandsire Doubles (18-3-20 in E♭)
 
 1: Jacob Cole
 2 [3]: Blake Elliott

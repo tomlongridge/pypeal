@@ -208,7 +208,7 @@ Footnote:
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Wednesday, 1 January 2020                                                 │
-│ A Quarter Peal of 1260 Grandsire Doubles (7-3-12 in Bb)                      │
+│ A Quarter Peal of 1260 Grandsire Doubles (7-3-12 in B♭)                      │
 │                                                                              │
 │ 1: Adam Apple                                                                │
 │ 2: Ben Bob                                                                   │
@@ -231,7 +231,7 @@ Submit peal to BellBoard
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Wednesday, 1 January 2020                                                 │
-│ A Quarter Peal of 1260 Grandsire Doubles (7-3-12 in Bb)                      │
+│ A Quarter Peal of 1260 Grandsire Doubles (7-3-12 in B♭)                      │
 │                                                                              │
 │ 1: Adam Apple                                                                │
 │ 2: Ben Bob                                                                   │
@@ -250,6 +250,29 @@ Submit peal to BellBoard
 Check these peals for duplicates? [y/n] (y): 
 >>> n
 [User input: "False"]
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Association: Bath and Wells Diocesan Association                             │
+│ Place: Bath                                                                  │
+│ Region: Somerset                                                             │
+│ Address: Blessed Virgin Mary, Bathwick                                       │
+│ Date Rung: 01/01/2020                                                        │
+│ Duration: None                                                               │
+│ Tenor Size: 7-3-12 in B♭                                                     │
+│ Changes: 1260                                                                │
+│ Title: Grandsire Doubles                                                     │
+│ Details: None                                                                │
+│ Composer: None                                                               │
+│ Ringers:                                                                     │
+│  - 1 Adam Apple                                                              │
+│  - 2 Ben Bob                                                                 │
+│  - 3 Charlie Cook                                                            │
+│  - 4 Darcy Davis                                                             │
+│  - 5 Enid Evans (c)                                                          │
+│  - 6 Freddie Firth                                                           │
+│ Footnotes: None                                                              │
+│ Perf Type: assigned_bells                                                    │
+│ Bells Type: tower                                                            │
+╰──────────────────────────────────────────────────────────────────────────────╯
 Edit fields before submitting? [y/n] (n): 
 >>> n
 [User input: "False"]
@@ -282,7 +305,7 @@ Bath and Wells Diocesan Association
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Wednesday, 1 January 2020
-A Quarter Peal of 1260 Grandsire Doubles (7-3-12 in Bb)
+A Quarter Peal of 1260 Grandsire Doubles (7-3-12 in B♭)
 
 1: Adam Apple
 2: Ben Bob

@@ -201,7 +201,7 @@ Select option (1):
 │ Portbury, Somerset, England                                                  │
 │ Blessed Virgin Mary                                                          │
 │ On Thursday, 17 October 2019                                                 │
-│ A Quarter Peal of 1260 Mixed Doubles (5m/3v/1p) in 50 mins (21 cwt in Eb)    │
+│ A Quarter Peal of 1260 Mixed Doubles (5m/3v/1p) in 50 mins (21 cwt in E♭)    │
 │                                                                              │
 │ 1: Dainton Casey (Note 1)                                                    │
 │ 2: Daryl Mason (Note 2)                                                      │
@@ -380,7 +380,7 @@ Bath and Wells Diocesan Association
 Portbury, Somerset, England
 Blessed Virgin Mary
 On Thursday, 17 October 2019
-A Quarter Peal of 1260 Mixed Doubles (5m/3v/1p) in 50 mins (21 cwt in Eb)
+A Quarter Peal of 1260 Mixed Doubles (5m/3v/1p) in 50 mins (21 cwt in E♭)
 
 1: Dainton Casey (Note 1)
 2: Daryl Mason (Note 2)

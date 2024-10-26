@@ -306,7 +306,7 @@ Select option (1):
 │ Withycombe Raleigh, Devon, England                                           │
 │ S John Ev                                                                    │
 │ On Saturday, 30 June 2001                                                    │
-│ A Quarter Peal of 1260 Grandsire Triples in 49 mins (17-1-10 in D#)          │
+│ A Quarter Peal of 1260 Grandsire Triples in 49 mins (17-1-10 in D♯)          │
 │                                                                              │
 │ 1 [5]: Lydia Ferguson                                                        │
 │ 2 [6]: Harold Gray                                                           │
@@ -495,7 +495,7 @@ Select option (1):
 Withycombe Raleigh, Devon, England
 S John Ev
 On Saturday, 30 June 2001
-A Quarter Peal of 1260 Grandsire Triples in 49 mins (17-1-10 in D#)
+A Quarter Peal of 1260 Grandsire Triples in 49 mins (17-1-10 in D♯)
 
 1 [5]: Lydia Ferguson
 2 [6]: Harold Gray

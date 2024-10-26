@@ -25,7 +25,7 @@ Importing peal Current L2...
 │ Withycombe Raleigh, Devon, England                                           │
 │ S John Ev                                                                    │
 │ On Monday, 1 January 2001                                                    │
-│ A Quarter Peal of 1260 Grandsire Triples (7-0-16 in A#)                      │
+│ A Quarter Peal of 1260 Grandsire Triples (7-0-16 in A♯)                      │
 │                                                                              │
 │ 1: Adam Apple                                                                │
 │ 2: Ben Bob                                                                   │
@@ -191,7 +191,7 @@ Add new ringer as "David" "Rogers"? [y/n] (y):
 │ Portbury, Somerset, England                                                  │
 │ Blessed Virgin Mary                                                          │
 │ On Thursday, 17 October 2019                                                 │
-│ A Quarter Peal of 1260 Mixed Doubles (5m/3v/1p) in 44 mins (21 cwt in Eb)    │
+│ A Quarter Peal of 1260 Mixed Doubles (5m/3v/1p) in 44 mins (21 cwt in E♭)    │
 │                                                                              │
 │ 1: Dainton Casey                                                             │
 │ 2: Daryl Mason                                                               │
@@ -231,7 +231,7 @@ Importing peal Current L4...
 │ Withycombe Raleigh, Devon, England                                           │
 │ S John Ev                                                                    │
 │ On Monday, 1 January 2001                                                    │
-│ A Quarter Peal of 1260 Grandsire Triples (7-0-16 in A#)                      │
+│ A Quarter Peal of 1260 Grandsire Triples (7-0-16 in A♯)                      │
 │                                                                              │
 │ 1: Adam Apple                                                                │
 │ 2: Ben Bob                                                                   │
@@ -330,7 +330,7 @@ Matching peal titled "Grandsire Triples"...
 │ Withycombe Raleigh, Devon, England                                           │
 │ S John Ev                                                                    │
 │ On Monday, 1 January 2001                                                    │
-│ A Quarter Peal of 1260 Grandsire Triples (7-0-16 in A#)                      │
+│ A Quarter Peal of 1260 Grandsire Triples (7-0-16 in A♯)                      │
 │                                                                              │
 │ 1: Adam Apple                                                                │
 │ 2: Ben Bob                                                                   │
@@ -348,7 +348,7 @@ Matching peal titled "Grandsire Triples"...
 │ Withycombe Raleigh, Devon, England                                           │
 │ S John Ev                                                                    │
 │ On Monday, 1 January 2001                                                    │
-│ A Quarter Peal of 1260 Grandsire Triples (7-0-16 in A#)                      │
+│ A Quarter Peal of 1260 Grandsire Triples (7-0-16 in A♯)                      │
 │                                                                              │
 │ 1: Adam Apple                                                                │
 │ 2: Ben Bob                                                                   │
@@ -371,7 +371,7 @@ Is this the same peal? [y/n] (y):
 │ Withycombe Raleigh, Devon, England                                           │
 │ S John Ev                                                                    │
 │ On Monday, 1 January 2001                                                    │
-│ A Quarter Peal of 1260 Grandsire Triples (7-0-16 in A#)                      │
+│ A Quarter Peal of 1260 Grandsire Triples (7-0-16 in A♯)                      │
 │                                                                              │
 │ 1: Adam Apple                                                                │
 │ 2: Ben Bob                                                                   │
@@ -393,7 +393,7 @@ Peal (ID 4) added
 Withycombe Raleigh, Devon, England
 S John Ev
 On Monday, 1 January 2001
-A Quarter Peal of 1260 Grandsire Triples (7-0-16 in A#)
+A Quarter Peal of 1260 Grandsire Triples (7-0-16 in A♯)
 
 1: Adam Apple
 2: Ben Bob

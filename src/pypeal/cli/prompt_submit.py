@@ -1,5 +1,5 @@
 from pypeal import utils
-from pypeal.bellboard.interface import BellboardError
+from pypeal.bellboard.interface import BellboardError, login as bellboard_login
 from pypeal.bellboard.preview import get_preview
 from pypeal.bellboard.utils import get_url_from_id
 from pypeal.bellboard.submit import BellboardDuplicateError, get_bb_fields_from_peal, submit, submit_bulk
@@ -9,12 +9,15 @@ from pypeal.entities.peal import Peal
 
 
 def prompt_submit_unpublished_peals(in_bulk: bool = False):
-    if in_bulk is True or (in_bulk is None and confirm(None, confirm_message='Submit all peals in bulk?', default=False)):
-        prompt_bulk_upload(list(filter(lambda p: p.bellboard_id is None, Peal.get_all())))
-    else:
-        for peal in Peal.get_all():
-            if peal.bellboard_id is None:
-                prompt_submit_peal(peal)
+    try:
+        if in_bulk is True or (in_bulk is None and confirm(None, confirm_message='Submit all peals in bulk?', default=False)):
+            prompt_bulk_upload(list(filter(lambda p: p.bellboard_id is None, Peal.get_all())))
+        else:
+            for peal in Peal.get_all():
+                if peal.bellboard_id is None:
+                    prompt_submit_peal(peal)
+    except BellboardError as e:
+        error(e)
 
 
 def prompt_submit_peal(peal: int | Peal = None):
@@ -27,6 +30,8 @@ def prompt_submit_peal(peal: int | Peal = None):
         peal = Peal.get(id=peal)
     elif peal.id is None:
         raise ValueError('Peal must be saved to database before submitting to BellBoard')
+
+    bellboard_login()
 
     panel(peal)
 
@@ -42,7 +47,9 @@ def prompt_submit_peal(peal: int | Peal = None):
             peal.update_bellboard_id(*bb_data)
         return
 
-    peal_fields = get_bb_fields_from_peal(peal)
+    peal_fields = get_bb_fields_from_peal(peal)    
+    panel(peal_fields_to_str(peal_fields))
+
     if confirm(None, confirm_message='Edit fields before submitting?', default=False):
         peal_fields = prompt_any(peal_fields, prompt=None)
 
@@ -97,3 +104,20 @@ def prompt_bulk_upload(peals: list[Peal]):
                     continue
 
             break
+
+def peal_fields_to_str(peal_fields: dict, indent: int = 0) -> str:
+    response = ''
+    for k, v in peal_fields.items():
+        if v is None:
+            continue
+        if k == 'ringers':
+            response += 'Ringers:\n'
+            for ringer in v:
+                response += f' - {ringer["bell_1"]}'
+                response += f', {ringer["bell_2"]}' if ringer['bell_2'] else ''
+                response += ' ' + ringer['text'] + '\n'
+        elif k == 'footnotes':
+            response += f'Footnotes:\n{v}\n'
+        else:
+            response += f'{k.title().replace("_", " ")}: {v}\n'
+    return response.strip()

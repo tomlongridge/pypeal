@@ -57,7 +57,7 @@ def update_towers():
                           longitude=line['Long'] if len(line['Long']) > 0 else None,
                           bells=int(line['Bells']),
                           tenor_weight=int(line['Wt']) if len(line['Wt']) > 0 else None,
-                          tenor_note=utils.convert_musical_key(line['Note']),
+                          tenor_note=utils.convert_musical_key_to_text(line['Note']),
                           id=-1 * int(line['TowerID']))
         tower_obj.commit()
         tower_ids.append(line['TowerID'])
@@ -158,7 +158,7 @@ def update_bells():
         bell_obj: Bell = Bell(tower_id=tower.id,
                               role=role,
                               weight=weight,
-                              note=utils.convert_musical_key(line['Note']),
+                              note=utils.convert_musical_key_to_text(line['Note']),
                               cast_year=cast_year,
                               founder=line['Founder'] if len(line['Founder']) > 0 else None,
                               id=-1 * int(line['Bell ID']))

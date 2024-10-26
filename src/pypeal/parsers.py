@@ -233,7 +233,7 @@ def parse_tenor_info(tenor_info_str: str) -> tuple[int, str]:
     if tenor_info['tenor_weight']:
         tenor_weight = parse_bell_weight(tenor_info['tenor_weight'])
     if tenor_info['tenor_note']:
-        tenor_note = utils.convert_musical_key(tenor_info['tenor_note'].strip())
+        tenor_note = utils.convert_musical_key_to_text(tenor_info['tenor_note'].strip())
     return (tenor_weight, tenor_note)
 
 

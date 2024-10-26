@@ -3,6 +3,7 @@ import logging
 import time
 import xml.etree.ElementTree as ET
 
+from bs4 import BeautifulSoup
 import requests
 from requests import RequestException, Response
 from requests.sessions import Session
@@ -43,6 +44,11 @@ def get_search_url(criteria: dict[str, any] = None) -> str:
 
 
 def login() -> Session:
+    global __session
+    
+    if __session:
+        return __session
+
     url = get_config('bellboard', 'url') + '/login.php'
     __logger.info(f'Logging in to Bellboard at {url}')
     payload = {
@@ -53,56 +59,38 @@ def login() -> Session:
     }
     session = requests.session()
     response = _request(url, payload=payload, session=session)
-    if response.status_code == 200:
-        return session
-    else:
+    if response.status_code != 200:
         raise BellboardError(f'Unable to login to Bellboard as {payload["email"]}: {response.status_code}')
 
+    response_html = BeautifulSoup(response.content, 'html.parser')
+    if login_detail := response_html.find('div', id='whoami'):
+        if login_detail.select('a'):
+            logged_in_as_name = login_detail.select('a')[0].text
+            __logger.info(f'Logged in to Bellboard as: {logged_in_as_name}')
+            __session = session
+            return session
+    elif response_html.select("p.error"):
+        raise BellboardError(f'Unable to login to Bellboard as {payload["email"]}: {response_html.select("p.error")[0].text}')
 
-def submit_peal(date_rung: datetime.date,
-                place: str,
-                title: str,
-                ringers: list[dict],
-                is_general_ringing: bool = False,
-                is_in_hand: bool = False,
-                association: str = None,
-                region_or_county: str = None,
-                address_or_dedication: str = None,
-                changes: int = None,
-                duration: str = None,
-                tenor_size: str = None,
-                details: str = None,
-                composer: str = None,
-                footnotes: list[str] = None) -> Response:
+    raise BellboardError(f'Unable to login to Bellboard as {payload["email"]}: unable to parse response')
 
-    if changes is None and \
-       'rounds' not in title.lower() and \
-       'call changes' not in title.lower() and \
-       'tolling' not in title.lower() and \
-       'firing' not in title.lower() and \
-       'general ringing' not in title.lower():
+def submit_peal(fields: dict[str, str]) -> Response:
+
+    if fields['changes'] is None and \
+       'rounds' not in fields['title'].lower() and \
+       'call changes' not in fields['title'].lower() and \
+       'tolling' not in fields['title'].lower() and \
+       'firing' not in fields['title'].lower() and \
+       'general ringing' not in fields['title'].lower():
         raise BellboardError('Changes must be specified for peals that are not rounds, call changes, tolling, firing or general ringing')
 
     payload = {
-        'date_rung': date_rung.strftime("%d/%m/%Y"),
-        'bells_type': 'hand' if is_in_hand else 'tower',
-        'perf_type': 'general_ringing' if is_general_ringing else 'assigned_bells',
-        'association': association,
-        'place': place,
-        'region': region_or_county,
-        'address': address_or_dedication,
-        'changes': str(changes),
-        'title': title,
-        'duration': duration,
-        'tenor_size': tenor_size,
-        'details': details,
-        'composer': composer,
-        'footnotes': '\n'.join(footnotes) if footnotes else None,
+        **fields,
         'submit': 'Submit'
     }
 
     bell_count = 1
-    for ringer in ringers:
+    for ringer in fields['ringers']:
         if 'bell_2' in ringer and ringer['bell_2'] is not None:
             payload[f'ringers[{ringer["bell_1"]}-{ringer["bell_2"]}]'] = ringer['text']
             bell_count += 2
@@ -112,7 +100,8 @@ def submit_peal(date_rung: datetime.date,
         else:
             payload[f'ringers[{bell_count}]'] = ringer['text']
             bell_count += 1
-
+    del payload['ringers']
+    
     url = get_config('bellboard', 'url') + '/submit.php'
     __logger.info(f'Submitting peal to Bellboard at {url}')
 
@@ -184,27 +173,28 @@ def get_bb_fields_from_peal(peal: Peal) -> dict:
     ringer_data = []
     for ringer in peal.ringers:
         ringer_data.append({
-            'bell_1': ringer.bell_nums[0] if ringer.bell_nums and len(ringer.bell_nums) > 0 else None,
-            'bell_2': ringer.bell_nums[1] if ringer.bell_nums and len(ringer.bell_nums) > 1 else None,
+            'bell_1': str(ringer.bell_nums[0]) if ringer.bell_nums and len(ringer.bell_nums) > 0 else None,
+            'bell_2': str(ringer.bell_nums[1]) if ringer.bell_nums and len(ringer.bell_nums) > 1 else None,
             'text': ringer.ringer.name + (' (c)' if ringer.is_conductor else '')
         })
+  
     return {
-        'date_rung': peal.date,
-        'title': peal.title,
-        'ringers': ringer_data,
-        'is_general_ringing': peal.type == PealType.GENERAL_RINGING,
-        'is_in_hand': peal.bell_type == BellType.HANDBELLS,
         'association': peal.association,
         'place': peal.place,
-        'region_or_county': peal.county,
-        'address_or_dedication': (peal.address if peal.address else peal.dedication) +
+        'region': peal.county,
+        'address': (peal.address if peal.address else peal.dedication) +
                                  (f', {peal.sub_place}' if peal.sub_place else ''),
-        'changes': peal.changes,
+        'date_rung': peal.date.strftime("%d/%m/%Y"),
         'duration': utils.get_time_str(peal.duration) if peal.duration else None,
-        'tenor_size': utils.get_weight_str(peal.tenor_weight) if peal.tenor_weight else None,
+        'tenor_size': peal.tenor_description,
+        'changes': str(peal.changes),
+        'title': peal.title,
         'details': peal.composition_note,
         'composer': peal.composer,
-        'footnotes': [str(footnote) for footnote in peal.footnotes]
+        'ringers': ringer_data,
+        'footnotes': peal.get_footnote_summary() if peal.footnotes else None,
+        'perf_type': 'general_ringing' if peal.type == PealType.GENERAL_RINGING else 'assigned_bells',
+        'bells_type': 'hand' if peal.bell_type == BellType.HANDBELLS else 'tower',
     }
 
 

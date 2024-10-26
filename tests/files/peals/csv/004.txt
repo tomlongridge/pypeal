@@ -85,7 +85,7 @@ Add new ringer as "Harold" "Hedgehog"? [y/n] (y):
 │ Withycombe Raleigh, Devon, England                                           │
 │ S John Ev                                                                    │
 │ On Monday, 1 January 2001                                                    │
-│ A Quarter Peal of 1260 Grandsire Triples (7-0-16 in A#)                      │
+│ A Quarter Peal of 1260 Grandsire Triples (7-0-16 in A♯)                      │
 │                                                                              │
 │ 1: Adam Apple                                                                │
 │ 2: Ben Bob                                                                   │

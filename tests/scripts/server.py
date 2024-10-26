@@ -64,7 +64,7 @@ class BellboardMockServer(BaseHTTPRequestHandler):
         elif self.path.startswith('/login.php'):
             self.send_response(200)
             self.end_headers()
-            self.wfile.write(b'Login successful')
+            self.wfile.write(b'<div id="whoami">You are logged in as <b><a href="/preferences">Thomas N Longridge</a></b></div>Login successful')
         else:
             self.send_response(404)
             self.end_headers()

@@ -330,7 +330,7 @@ class Peal:
         if self.tenor_weight:
             text = utils.get_weight_str(self.tenor_weight)
             if self.tenor_note:
-                text += f' in {self.tenor_note}'
+                text += f' in {utils.convert_musical_key_to_unicode(self.tenor_note)}'
             return text
         return None
 

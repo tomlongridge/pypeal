@@ -126,7 +126,7 @@ Add this to previous footnote? [y/n] (y):
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 17 February 2019                                                  │
-│ A Quarter Peal of 1260 Grandsire Triples in 46 mins (18-3-20 in Eb)          │
+│ A Quarter Peal of 1260 Grandsire Triples in 46 mins (18-3-20 in E♭)          │
 │ Composition: Camila Chapman                                                  │
 │                                                                              │
 │ 1 [3]: Lenny Howard                                                          │
@@ -691,7 +691,7 @@ Add this to previous footnote? [y/n] (y):
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 17 February 2019                                                  │
-│ A Quarter Peal of 1260 Grandsire Triples in 46 mins (18-3-20 in Eb)          │
+│ A Quarter Peal of 1260 Grandsire Triples in 46 mins (18-3-20 in E♭)          │
 │ Composition: Camila Chapman                                                  │
 │                                                                              │
 │ 1 [3]: Lenny Howard                                                          │
@@ -725,7 +725,7 @@ Select option (1):
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 17 February 2019                                                  │
-│ A Quarter Peal of 1260 Grandsire Triples in 46 mins (18-3-20 in Eb)          │
+│ A Quarter Peal of 1260 Grandsire Triples in 46 mins (18-3-20 in E♭)          │
 │ Composition: Camila Chapman                                                  │
 │                                                                              │
 │ 1 [3]: Lenny Howard                                                          │
@@ -1084,7 +1084,7 @@ Bellboard URL or peal ID:
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 17 February 2019                                                  │
-│ A Quarter Peal of 1260 Grandsire Triples in 46 mins (18-3-20 in Eb)          │
+│ A Quarter Peal of 1260 Grandsire Triples in 46 mins (18-3-20 in E♭)          │
 │ Composition: Camila Chapman                                                  │
 │                                                                              │
 │ 1 [3]: Lenny Howard                                                          │
@@ -1282,7 +1282,7 @@ Add this to previous footnote? [y/n] (y):
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 17 February 2019                                                  │
-│ A Quarter Peal of 1260 Grandsire Triples in 46 mins (18-3-20 in Eb)          │
+│ A Quarter Peal of 1260 Grandsire Triples in 46 mins (18-3-20 in E♭)          │
 │ Composition: Camila Chapman                                                  │
 │                                                                              │
 │ 1 [3]: Lenny Howard                                                          │
@@ -1337,7 +1337,7 @@ Select option (1):
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Sunday, 17 February 2019
-A Quarter Peal of 1260 Grandsire Triples in 46 mins (18-3-20 in Eb)
+A Quarter Peal of 1260 Grandsire Triples in 46 mins (18-3-20 in E♭)
 Composition: Camila Chapman
 
 1 [3]: Lenny Howard

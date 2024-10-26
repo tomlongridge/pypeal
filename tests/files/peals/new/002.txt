@@ -219,7 +219,7 @@ Footnote:
 │ Withycombe Raleigh, Devon, England                                           │
 │ S John Ev                                                                    │
 │ On Saturday, 1 January 2000                                                  │
-│ A Quarter Peal of 1260 Plain Bob Doubles (17-1-10 in D#)                     │
+│ A Quarter Peal of 1260 Plain Bob Doubles (17-1-10 in D♯)                     │
 │ Composed by: Zachary Zeus                                                    │
 │                                                                              │
 │ 1 [7]: Gordon Gopher                                                         │
@@ -263,7 +263,7 @@ Select option (1):
 Withycombe Raleigh, Devon, England
 S John Ev
 On Saturday, 1 January 2000
-A Quarter Peal of 1260 Plain Bob Doubles (17-1-10 in D#)
+A Quarter Peal of 1260 Plain Bob Doubles (17-1-10 in D♯)
 Composed by: Zachary Zeus
 
 1 [7]: Gordon Gopher
