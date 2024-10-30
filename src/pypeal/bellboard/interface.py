@@ -148,7 +148,7 @@ def submit_peal_xml(peal: Peal, force: bool = False) -> Response:
     ringers = ET.SubElement(performance, 'ringers')
     for peal_ringer in peal.ringers:
         ringer = ET.SubElement(ringers, 'ringer')
-        ringer.text = peal_ringer.ringer.name
+        ringer.text = peal_ringer.ringer.get_name(peal.date)
         if peal_ringer.bell_nums:
             if len(peal_ringer.bell_nums) == 1:
                 ringer.attrib['bell'] = str(peal_ringer.bell_nums[0])
@@ -175,8 +175,16 @@ def get_bb_fields_from_peal(peal: Peal) -> dict:
         ringer_data.append({
             'bell_1': str(ringer.bell_nums[0]) if ringer.bell_nums and len(ringer.bell_nums) > 0 else None,
             'bell_2': str(ringer.bell_nums[1]) if ringer.bell_nums and len(ringer.bell_nums) > 1 else None,
-            'text': ringer.ringer.name + (' (c)' if ringer.is_conductor else '')
+            'text': ringer.ringer.get_name(peal.date) + (' (c)' if ringer.is_conductor else '')
         })
+        
+    details_str = ''
+    if peal.methods:
+        details_str += peal.get_method_summary()
+    details_str += '\n'
+    if peal.composition_note:
+        details_str += peal.composition_note
+    details_str = details_str.strip()
   
     return {
         'association': peal.association,
@@ -189,7 +197,7 @@ def get_bb_fields_from_peal(peal: Peal) -> dict:
         'tenor_size': peal.tenor_description,
         'changes': str(peal.changes),
         'title': peal.title,
-        'details': peal.composition_note,
+        'details': details_str,
         'composer': peal.composer,
         'ringers': ringer_data,
         'footnotes': peal.get_footnote_summary() if peal.footnotes else None,

@@ -12,8 +12,8 @@ FIELD_LIST: list[str] = ['last_name', 'given_names', 'title', 'is_composer', 'li
 class Ringer():
 
     def __init__(self, last_name: str = None, given_names: str = None, title: str = None):
-        self.__names: list[self._RingerName] = []
-        self.__aliases: list[self._RingerName] = []
+        self.__names: list[Ringer._RingerName] = []
+        self.__aliases: list[Ringer._RingerName] = []
         if last_name:
             self.__names.append(self._RingerName(last_name, given_names, title))
 
@@ -59,12 +59,13 @@ class Ringer():
     def aliases(self) -> list[str]:
         return [alias.name for alias in self.__aliases]
 
-    def get_name(self, date: datetime = None) -> str:
+    def get_name(self, date: datetime.date = None) -> str:
         if not self.__names:
             return 'Unknown'
         if date is None:
             return self.__names[-1].name
         else:
+            ringer_name: Ringer._RingerName
             for ringer_name in self.__names:
                 if ringer_name.date_to is None or ringer_name.date_to >= date:
                     return ringer_name.name

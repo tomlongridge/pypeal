@@ -21,7 +21,7 @@ def prompt_submit_unpublished_peals(in_bulk: bool = False):
 
 
 def prompt_submit_peal(peal: int | Peal = None):
-
+    
     heading('Submit peal to BellBoard')
 
     if peal is None:
@@ -30,8 +30,10 @@ def prompt_submit_peal(peal: int | Peal = None):
         peal = Peal.get(id=peal)
     elif peal.id is None:
         raise ValueError('Peal must be saved to database before submitting to BellBoard')
+    
+    submit_peal(peal)
 
-    bellboard_login()
+def submit_peal(peal: Peal):
 
     panel(peal)
 
@@ -47,11 +49,15 @@ def prompt_submit_peal(peal: int | Peal = None):
             peal.update_bellboard_id(*bb_data)
         return
 
+    bellboard_login()
+
     peal_fields = get_bb_fields_from_peal(peal)    
     panel(peal_fields_to_str(peal_fields))
 
     if confirm(None, confirm_message='Edit fields before submitting?', default=False):
-        peal_fields = prompt_any(peal_fields, prompt=None)
+        peal_fields = prompt_any(peal_fields,
+                                 prompt=None,
+                                 required_fields=['place', 'region', 'date_rung', 'title', 'ringers', 'perf_type', 'bells_type'])
 
     if not confirm(None, confirm_message='Submit peal?', default=True):
         return
@@ -59,7 +65,7 @@ def prompt_submit_peal(peal: int | Peal = None):
     print('Submitting peal to BellBoard...')
     try:
         bb_peal_id, submitter_name = submit(peal_fields)
-        print(f'Success: {get_url_from_id(bb_peal_id)}')
+        panel(f'Success: {get_url_from_id(bb_peal_id)}')
         peal.update_bellboard_id(bb_peal_id, submitter_name, utils.get_now())
         print('Updated peal with BellBoard ID')
     except BellboardError as e:

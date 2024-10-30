@@ -165,20 +165,20 @@ def heading(message: str, full: bool = False):
 
 
 # Iterates through dict and uses key names to prompt for values, with pre-existing values as defaults
-def prompt_any(data: dict | list | str | int | bool, prompt: str) -> dict | list | str | int | bool:
+def prompt_any(data: dict | list | str | int | bool, prompt: str, required_fields: list[str] = []) -> dict | list | str | int | bool:
 
     if data is None:
         return
     elif type(data) is bool:
         return confirm(None, prompt, default=data)
     elif type(data) is datetime.date:
-        return ask_date(prompt, default=data)
+        return ask_date(prompt, default=data, required=(prompt in required_fields))
     elif type(data) is str:
-        return ask(prompt, default=data)
+        return ask(prompt, default=data, required=(prompt in required_fields))
     elif type(data) is int:
-        return ask_int(prompt, default=data)
+        return ask_int(prompt, default=data, required=(prompt in required_fields))
     elif type(data) is list:
-        return [prompt_any(value, f'{prompt} {i}') for i, value in enumerate(data, start=1)]
+        return [prompt_any(value, f'{prompt} {i}', required_fields) for i, value in enumerate(data, start=1)]
     elif type(data) is dict:
         if prompt is not None:
             print(prompt)
@@ -186,7 +186,7 @@ def prompt_any(data: dict | list | str | int | bool, prompt: str) -> dict | list
         for field, value in data.items():
             if type(field) is not str:
                 raise ValueError(f'Key names must be strings: "{field}" is {type(field)}')
-            nested_data[field] = prompt_any(value, field.replace("_", " ").title())
+            nested_data[field] = prompt_any(value, field.replace("_", " ").title(), required_fields)
         return nested_data
     else:
         raise ValueError(f'Unknown type for field "{data}": {type(data)}')

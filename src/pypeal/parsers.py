@@ -43,8 +43,8 @@ FOOTNOTE_RINGER_LIST_PATTERN = r'(?P<bells>(?:(?:(?:[1-9][0-9]?(?:st|nd|rd|th)?)
                                r'(?:treble|tenor|' + '|'.join(utils.get_num_words()) + r'))\s?' + \
                                r'(?:' + '|'.join(FOOTNOTE_RINGER_SEPARATORS) + r')?\s?)+)'
 FOOTNOTE_RINGER_REGEX_PREFIX = re.compile(r'^\(?' + FOOTNOTE_RINGER_LIST_PATTERN +
-                                          r'\s?[-:\)]\s?(?P<footnote>.*)\.?$', re.IGNORECASE)
-FOOTNOTE_RINGER_REGEX_SUFFIX = re.compile(r'^(?P<footnote>.*?)\s?(?!on)(?:[-:\(]|for)?\s?' + FOOTNOTE_RINGER_LIST_PATTERN +
+                                          r'\s?[-:;\)]\s?(?P<footnote>.*)\.?$', re.IGNORECASE)
+FOOTNOTE_RINGER_REGEX_SUFFIX = re.compile(r'^(?P<footnote>.*?)\s?(?!on)(?:[-:;\(]|for)?\s?' + FOOTNOTE_RINGER_LIST_PATTERN +
                                           r'\)?\.?$', re.IGNORECASE)
 FOOTNOTE_CONDUCTOR_REGEX = re.compile(r'.*as cond(?:uctor)?.*', re.IGNORECASE)
 FOOTNOTE_COMPOSER_REGEX = re.compile(r'.*(composed|composition) by\s(?P<composer>.*)$', re.IGNORECASE)
@@ -315,7 +315,7 @@ def parse_footnote(footnote: str, num_bells: int, conductor_bells: list[int]) ->
             bells += conductor_bells
     bells = [bell for bell in bells if bell not in not_bells]
     bells = list(dict.fromkeys(bells))  # de-dup
-    text = text.strip(' :,*.')
+    text = text.strip(' :;,*.')
     text += '.' if text[-1] != '.' else ''
     return (sorted(bells) if len(bells) > 0 else None, conductor_bells, text)
 
