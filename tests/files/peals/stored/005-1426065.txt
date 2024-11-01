@@ -46,9 +46,10 @@ Import peal from BellBoard
 │ Hunt on Sunday, 15 January 2012; updated Monday, 22 March 2021)              │
 │ External reference: Campanophile ID: 2972                                    │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Try for a quick-add? [y/n] (y): 
->>> n
-[User input: "False"]
+Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
+>>> 3
+[User input: "Prompt mode [3]"]
 No linked association
 Is this correct? [y/n] (y): 
 >>> n

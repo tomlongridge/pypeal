@@ -15,12 +15,16 @@ from pypeal.cli.prompts import UserCancelled, confirm, error
 from pypeal.entities.peal import Peal, BellType, PealLengthType, PealType
 from pypeal.entities.tower import Tower
 
-
 class PealPromptListener(PealGeneratorListener):
 
     def __init__(self):
         super().__init__()
         self.quick_mode = False
+        self.footnote_amend = True
+    
+    def set_quick_mode(self, quick_mode: bool = True, amend_footnote: bool = False):
+        self.quick_mode = quick_mode
+        self.footnote_amend = amend_footnote
 
     def new_peal(self, id: int):
         self.peal = Peal(bellboard_id=id)
@@ -137,9 +141,9 @@ class PealPromptListener(PealGeneratorListener):
         value = _clean_str_input(value)
         if value:
             self._run_cancellable_prompt(
-                lambda peal: prompt_add_footnote(value, peal, self.quick_mode))
+                lambda peal: prompt_add_footnote(value, peal, self.quick_mode and not self.footnote_amend))
         else:
-            if not self.quick_mode:
+            if not self.quick_mode or self.footnote_amend:
                 self._run_cancellable_prompt(lambda peal: prompt_add_footnote(None, peal, False))
             if len(self.peal.footnotes) == 0:
                 print('📝 Footnotes: None')

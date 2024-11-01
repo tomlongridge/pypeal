@@ -44,9 +44,10 @@ Import peal from BellBoard
 │ Hunt on Sunday, 15 January 2012)                                             │
 │ External reference: Campanophile ID: 1593                                    │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Try for a quick-add? [y/n] (y): 
->>> y
-[User input: "True"]
+Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
+>>> 
+[User input: "Quick mode [1]"]
 🏛 Association: None
 🔔 Bell type: Tower
 📅 Date: Saturday, 30 June 2001

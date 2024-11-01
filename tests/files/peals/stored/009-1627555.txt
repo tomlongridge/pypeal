@@ -46,9 +46,10 @@ Import peal from BellBoard
 │ Bellboard: http://localhost:8080/view.php?id=1627555 (submitted by Carl      │
 │ Johnston on Saturday, 13 May 2023)                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Try for a quick-add? [y/n] (y): 
->>> n
-[User input: "False"]
+Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
+>>> 3
+[User input: "Prompt mode [3]"]
 No linked association
 Is this correct? [y/n] (y): 
 >>> y
@@ -171,25 +172,18 @@ Ringer note:
 [User input: "None"]
 👤 Ringer: 8: Michael Williams
 Footnote 1 text:
-  > 31/.
-Referenced ringer(s):
-  - 50: None
-╭──────────────────────────────────────────────────────────────────────────────╮
-│ Warning: Bell referenced in footnote (50) is greater than number of bells    │
-│ (8)                                                                          │
-│   > 31/.                                                                     │
-╰──────────────────────────────────────────────────────────────────────────────╯
+  > 31/50.
 Is this correct? [y/n] (y): 
 >>> n
 [User input: "False"]
-Footnote text (31/.): 
->>> 31/50
-[User input: "31/50"]
-Bells (comma-separated) (50): 
+Footnote text (31/50.): 
+>>> 31/52
+[User input: "31/52"]
+Bells (comma-separated): 
 >>>  
 [User input: "None"]
 Footnote 1 text:
-  > 31/50.
+  > 31/52.
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -197,7 +191,7 @@ Add new footnote? [y/n] (n):
 >>> n
 [User input: "False"]
 📝 Footnotes:
-  - 31/50.
+  - 31/52.
 🔗 Event link: http://localhost:8080/event.php?id=17567
 📷 Photo link: None
 📮 Submitted by: Carl Johnston on Saturday, 13 May 2023
@@ -226,7 +220,7 @@ Select option (1):
 │ 7: Carl Johnston                                                             │
 │ 8: Michael Williams                                                          │
 │                                                                              │
-│ 31/50.                                                                       │
+│ 31/52.                                                                       │
 │                                                                              │
 │ [BellBoard: http://localhost:8080/view.php?id=1627555 (Carl Johnston,        │
 │ Saturday, 13 May 2023)]                                                      │
@@ -561,7 +555,7 @@ A Quarter Peal of 1280 London Surprise Major in 46 mins (10-3-17 in F)
 7: Carl Johnston
 8: Michael Williams
 
-31/50.
+31/52.
 
 [BellBoard: http://localhost:8080/view.php?id=1627555 (Carl Johnston, Saturday, 13 May 2023)]
 [Event URL: http://localhost:8080/event.php?id=17567]

@@ -133,9 +133,10 @@ Import peal from BellBoard
 │ Bellboard: http://localhost:8080/view.php?id=1306360 (submitted by Arnold    │
 │ Morrison on Thursday, 17 October 2019)                                       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Try for a quick-add? [y/n] (y): 
+Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
 >>> 
-[User input: "True"]
+[User input: "Quick mode [1]"]
 🏛 Association: Bath and Wells Diocesan Association
 🔔 Bell type: Tower
 📅 Date: Thursday, 17 October 2019
@@ -304,9 +305,10 @@ http://localhost:8080/view.php?id=1306360
 Is this the same peal? [y/n] (y): 
 >>> n
 [User input: "False"]
-Try for a quick-add? [y/n] (y): 
->>> y
-[User input: "True"]
+Try for a quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
+>>> 
+[User input: "Quick mode [1]"]
 📅 Date: Monday, 1 January 2001
 🏰 Tower: Withycombe Raleigh, Devon
 🔢 Changes: 1260

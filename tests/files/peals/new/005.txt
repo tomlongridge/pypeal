@@ -23,9 +23,10 @@ Select option (1):
 >>> 3
 [User input: "Add peal manually [3]"]
 Add peal manually
-Try for a quick-add? [y/n] (y): 
->>> y
-[User input: "True"]
+Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
+>>> 
+[User input: "Quick mode [1]"]
 Association: 
 >>> 
 [User input: "None"]
@@ -218,7 +219,7 @@ Footnote:
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Thursday, 1 January 1981                                                  │
-│ A Quarter Peal of 1260 Spliced Surprise Minor (3m) (14-1-4 in F)             │
+│ A Quarter Peal of 1260 Spliced Surprise Minor (3m) (14-1-7 in F)             │
 │ (Cambridge Surprise Minor, Ipswich Surprise Minor, Norwich Surprise Minor)   │
 │ Composition: 40 com                                                          │
 │                                                                              │
@@ -263,7 +264,7 @@ Select option (1):
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
 On Thursday, 1 January 1981
-A Quarter Peal of 1260 Spliced Surprise Minor (3m) (14-1-4 in F)
+A Quarter Peal of 1260 Spliced Surprise Minor (3m) (14-1-7 in F)
 (Norwich Surprise Minor, Ipswich Surprise Minor, Cambridge Surprise Minor)
 Composition: 40 com
 

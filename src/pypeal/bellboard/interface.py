@@ -197,7 +197,7 @@ def get_bb_fields_from_peal(peal: Peal) -> dict:
         'tenor_size': peal.tenor_description,
         'changes': str(peal.changes),
         'title': peal.title,
-        'details': details_str,
+        'details': details_str if len(details_str) else None,
         'composer': peal.composer,
         'ringers': ringer_data,
         'footnotes': peal.get_footnote_summary() if peal.footnotes else None,

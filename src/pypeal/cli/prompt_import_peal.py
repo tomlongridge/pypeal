@@ -3,6 +3,7 @@ import logging
 from pypeal.bellboard.interface import BellboardError
 from pypeal.bellboard.utils import get_url_from_id
 from pypeal.bellboard.html_generator import HTMLPealGenerator
+from pypeal.cli.chooser import choose_option
 from pypeal.cli.generator import PealGenerator
 from pypeal.cli.peal_prompter import PealPromptListener
 from pypeal.cli.peal_previewer import PealPreviewListener
@@ -38,26 +39,33 @@ def prompt_import_peal(peal_id: int = None) -> Peal:
 
 def prompt_add_peal(generator: PealGenerator) -> Peal:
 
-    prompt_listener = PealPromptListener()
-    prompt_listener.quick_mode = confirm(None, confirm_message='Try for a quick-add?', default=True)
-
+    prompt_listener: PealPromptListener = None
+    saved_peal: Peal = None
     while True:
+
+        prompt_choice = choose_option(['Quick mode', 'Amend footnote only', 'Prompt mode'],
+                                      title='Retry entire peal?' if prompt_listener else 'Try for quick-add?',
+                                      none_option='Cancel' if prompt_listener else None,
+                                      default=1 if not prompt_listener else 3 if prompt_listener.quick_mode else None)
+
+        if not prompt_listener:
+            prompt_listener = PealPromptListener()
+
+        match prompt_choice:
+            case 1:
+                prompt_listener.set_quick_mode(True)
+            case 2:
+                prompt_listener.set_quick_mode(amend_footnote=True)
+            case 3:
+                prompt_listener.set_quick_mode(False)
+            case None:
+                break
 
         try:
             generator.parse(prompt_listener)
+            if saved_peal := prompt_commit_peal(prompt_listener.peal):
+                break
         except UserCancelled:
-            if confirm(None, confirm_message='Retry entire peal?', default=True):
-                prompt_listener.quick_mode = False
-                continue
-
-        saved_peal = prompt_commit_peal(prompt_listener.peal)
-        if saved_peal:
-            break
-        elif prompt_listener.quick_mode and \
-                confirm(None, confirm_message='Try again in prompt mode?', default=True):
-            prompt_listener.quick_mode = False
-            continue
-        else:
-            break
+            print('Peal import aborted')
 
     return saved_peal

@@ -44,9 +44,10 @@ Import peal from BellBoard
 │ Bellboard: http://localhost:8080/view.php?id=1668297 (submitted by Chester   │
 │ Edwards on Sunday, 12 November 2023; updated Sunday, 12 November 2023)       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Try for a quick-add? [y/n] (y): 
->>> y
-[User input: "True"]
+Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
+>>> 
+[User input: "Quick mode [1]"]
 🏛 Association: None
 🔔 Bell type: Tower
 📅 Date: Sunday, 12 November 2023
@@ -104,9 +105,10 @@ Save this peal?
 Is this correct? [y/n] (y): 
 >>> n
 [User input: "False"]
-Try again in prompt mode? [y/n] (y): 
->>> y
-[User input: "True"]
+Retry entire peal?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (x = Cancel) (3): 
+>>> 3
+[User input: "Prompt mode [3]"]
 No linked association
 Is this correct? [y/n] (y): 
 >>> 

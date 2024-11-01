@@ -45,9 +45,10 @@ Import peal from BellBoard
 │ Bellboard: http://localhost:8080/view.php?id=1508383 (submitted by Albert    │
 │ Mason on Thursday, 31 March 2022)                                            │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Try for a quick-add? [y/n] (y): 
->>> n
-[User input: "False"]
+Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
+>>> 3
+[User input: "Prompt mode [3]"]
 Matched "Oxford Diocesan Guild" to association: Oxford Diocesan Guild (ID: -274)
 Is this correct? [y/n] (y): 
 >>> 

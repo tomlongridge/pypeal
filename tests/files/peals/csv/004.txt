@@ -19,9 +19,10 @@ Importing peal Current L2...
 │ 7: Gordon T Gopher                                                           │
 │ 8: Harold Hedgehog                                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Try for a quick-add? [y/n] (y): 
->>> y
-[User input: "True"]
+Try for a quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
+>>> 
+[User input: "Quick mode [1]"]
 🔔 Bell type: Tower
 📅 Date: Monday, 1 January 2001
 🏰 Tower: Withycombe Raleigh, Devon
@@ -115,9 +116,10 @@ Importing peal Current L3...
 │                                                                              │
 │ 3,4: 1st quarter                                                             │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Try for a quick-add? [y/n] (y): 
->>> y
-[User input: "True"]
+Try for a quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
+>>> 
+[User input: "Quick mode [1]"]
 🔔 Bell type: Handbells
 📅 Date: Friday, 2 March 2001
 📍 Location: Rewe, Devon, England
@@ -165,9 +167,10 @@ Importing peal Current L4...
 │                                                                              │
 │ 3,4: 1st quarter                                                             │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Try for a quick-add? [y/n] (y): 
->>> y
-[User input: "True"]
+Try for a quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
+>>> 
+[User input: "Quick mode [1]"]
 🔔 Bell type: Handbells
 📅 Date: Saturday, 3 March 2001
 📍 Location: Rewe, Devon, England

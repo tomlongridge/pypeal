@@ -313,11 +313,16 @@ def parse_footnote(footnote: str, num_bells: int, conductor_bells: list[int]) ->
             bells = _referenced_bells_to_list(footnote_info['bells'], num_bells)
         if re.match(FOOTNOTE_CONDUCTOR_REGEX, text):
             bells += conductor_bells
-    bells = [bell for bell in bells if bell not in not_bells]
-    bells = list(dict.fromkeys(bells))  # de-dup
-    text = text.strip(' :;,*.')
-    text += '.' if text[-1] != '.' else ''
-    return (sorted(bells) if len(bells) > 0 else None, conductor_bells, text)
+
+    filtered_bells = []
+    for bell in bells:
+        if bell < 1 or bell > num_bells:
+            # We've probably parsed the footnote wrong - treat as text
+            return None, conductor_bells, footnote
+        elif bell not in not_bells and bell not in filtered_bells:
+            filtered_bells.append(bell)
+
+    return (sorted(filtered_bells) if filtered_bells else None, conductor_bells, text.strip(' :;,*.'))
 
 
 def parse_footnote_for_composer(footnote: str) -> str:

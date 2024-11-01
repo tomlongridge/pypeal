@@ -111,18 +111,16 @@ def prompt_bulk_upload(peals: list[Peal]):
 
             break
 
-def peal_fields_to_str(peal_fields: dict, indent: int = 0) -> str:
+def peal_fields_to_str(peal_fields: dict) -> str:
     response = ''
     for k, v in peal_fields.items():
-        if v is None:
-            continue
-        if k == 'ringers':
+        if v and k == 'ringers':
             response += 'Ringers:\n'
             for ringer in v:
                 response += f' - {ringer["bell_1"]}'
                 response += f', {ringer["bell_2"]}' if ringer['bell_2'] else ''
                 response += ' ' + ringer['text'] + '\n'
-        elif k == 'footnotes':
+        elif v and k == 'footnotes':
             response += f'Footnotes:\n{v}\n'
         else:
             response += f'{k.title().replace("_", " ")}: {v}\n'

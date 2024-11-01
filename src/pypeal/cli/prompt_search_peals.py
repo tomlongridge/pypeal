@@ -110,8 +110,8 @@ def _search(peal_search: PealSearch = None, prompt: bool = False):
                 else:
                     if count_added > 0 and not confirm(None, confirm_message='Add next peal?'):
                         break
-                    prompt_import_peal(peal_id)
-                    count_added += 1
+                    if prompt_import_peal(peal_id):
+                        count_added += 1
 
             print(f'{count_added} peal(s) added ({count_duplicate} duplicates)')
             peal_search.record_run()

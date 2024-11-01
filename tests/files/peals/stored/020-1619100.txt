@@ -53,9 +53,10 @@ Import peal from BellBoard
 │ Bellboard: http://localhost:8080/view.php?id=1619100 (submitted by Chester   │
 │ Edwards on Saturday, 6 May 2023; updated Saturday, 6 May 2023)               │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Try for a quick-add? [y/n] (y): 
->>> y
-[User input: "True"]
+Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
+>>> 
+[User input: "Quick mode [1]"]
 🏛 Association: None
 🔔 Bell type: Tower
 📅 Date: Saturday, 6 May 2023

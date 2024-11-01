@@ -44,9 +44,10 @@ Import peal from BellBoard
 │ Bellboard: http://localhost:8080/view.php?id=1657469 (submitted by Joyce     │
 │ Sullivan on Sunday, 10 September 2023; updated Sunday, 10 September 2023)    │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Try for a quick-add? [y/n] (y): 
->>> n
-[User input: "False"]
+Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
+>>> 3
+[User input: "Prompt mode [3]"]
 No linked association
 Is this correct? [y/n] (y): 
 >>> n

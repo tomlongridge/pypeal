@@ -3,6 +3,7 @@ from datetime import datetime
 import os
 import re
 from pypeal.bellboard.listener import PealGeneratorListener
+from pypeal.cli.chooser import choose_option
 from pypeal.cli.prompt_commit_peal import prompt_commit_peal
 from pypeal.cli.peal_previewer import PealPreviewListener
 from pypeal.cli.peal_prompter import PealPromptListener
@@ -30,7 +31,7 @@ def prompt_csv_import(data_file_path: str):
 
     preview_listener = PealPreviewListener()
     quick_mode_listener = PealPromptListener()
-    quick_mode_listener.quick_mode = True
+    quick_mode_listener.set_quick_mode()
     prompt_listener = PealPromptListener()
 
     while True:
@@ -96,7 +97,9 @@ def prompt_csv_import(data_file_path: str):
                 else:
 
                     prompt_listener = PealPromptListener()
-                    prompt_listener.quick_mode = confirm(None, confirm_message='Try for a quick-add?', default=True)
+                    prompt_mode = choose_option(['Quick mode', 'Amend footnote only', 'Prompt mode'], title='Try for a quick-add?', default=1)
+                    if prompt_mode != 3:
+                        prompt_listener.set_quick_mode(amend_footnote=prompt_mode == 2)
 
                     while True:
 

@@ -53,9 +53,10 @@ Import peal from BellBoard
 │ Sullivan on Sunday, 17 February 2019; updated Tuesday, 19 February 2019)     │
 │ Photo: http://localhost:8080/uploads/57/002a57.jpg                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Try for a quick-add? [y/n] (y): 
+Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
 >>> 
-[User input: "True"]
+[User input: "Quick mode [1]"]
 🏛 Association: None
 🔔 Bell type: Tower
 📅 Date: Sunday, 17 February 2019
@@ -82,36 +83,6 @@ First bell number(s) in the tower (1):
 👤 Ringer: 6 [8]: Melissa Baker
 👤 Ringer: 7 [9]: Joyce Sullivan (c)
 👤 Ringer: 8 [10]: Leo Bennett
-Referenced ringer(s):
-  - 29: None
-╭──────────────────────────────────────────────────────────────────────────────╮
-│ Warning: Bell referenced in footnote (29) is greater than number of bells    │
-│ (8)                                                                          │
-│   > And in memory of the composer: Sergeant Albert Percy Wakley, Labour      │
-│ Corps and 6th North Staffordshire Regiment, a ringer at St Paul's,           │
-│ Burton-on-Trent, who died on the 18th February 1919, aged.                   │
-╰──────────────────────────────────────────────────────────────────────────────╯
-Is this correct? [y/n] (y): 
->>> n
-[User input: "False"]
-Footnote text (And in memory of the composer: Sergeant Albert Percy Wakley, 
-Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, 
-Burton-on-Trent, who died on the 18th February 1919, aged.): 
->>> And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.
-[User input: "And in memory of the composer: Sergeant Albert Percy Wakley, 
-Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, 
-Burton-on-Trent, who died on the 18th February 1919, aged 29."]
-Bells (comma-separated) (29): 
->>>  
-[User input: "None"]
-Footnote 2 text:
-  > And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
-Add this to previous footnote? [y/n] (y): 
->>> y
-[User input: "True"]
 📝 Footnotes:
   - Rung for Morning Service. And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
 🔗 Event link: None
@@ -618,9 +589,10 @@ Peal 1272466 already added to database
 Overwrite? [y/n] (n): 
 >>> y
 [User input: "True"]
-Try for a quick-add? [y/n] (y): 
+Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
 >>> 
-[User input: "True"]
+[User input: "Quick mode [1]"]
 🏛 Association: None
 🔔 Bell type: Tower
 📅 Date: Sunday, 17 February 2019
@@ -647,36 +619,6 @@ First bell number(s) in the tower (1):
 👤 Ringer: 6 [8]: Melissa Baker
 👤 Ringer: 7 [9]: Joyce Sullivan (c)
 👤 Ringer: 8 [10]: Leo Bennett
-Referenced ringer(s):
-  - 29: None
-╭──────────────────────────────────────────────────────────────────────────────╮
-│ Warning: Bell referenced in footnote (29) is greater than number of bells    │
-│ (8)                                                                          │
-│   > And in memory of the composer: Sergeant Albert Percy Wakley, Labour      │
-│ Corps and 6th North Staffordshire Regiment, a ringer at St Paul's,           │
-│ Burton-on-Trent, who died on the 18th February 1919, aged.                   │
-╰──────────────────────────────────────────────────────────────────────────────╯
-Is this correct? [y/n] (y): 
->>> n
-[User input: "False"]
-Footnote text (And in memory of the composer: Sergeant Albert Percy Wakley, 
-Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, 
-Burton-on-Trent, who died on the 18th February 1919, aged.): 
->>> And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.
-[User input: "And in memory of the composer: Sergeant Albert Percy Wakley, 
-Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, 
-Burton-on-Trent, who died on the 18th February 1919, aged 29."]
-Bells (comma-separated) (29): 
->>>  
-[User input: "None"]
-Footnote 2 text:
-  > And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
-Add this to previous footnote? [y/n] (y): 
->>> y
-[User input: "True"]
 📝 Footnotes:
   - Rung for Morning Service. And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
 🔗 Event link: None
@@ -1209,9 +1151,10 @@ Import peal from BellBoard
 │ Sullivan on Sunday, 17 February 2019; updated Tuesday, 19 February 2019)     │
 │ Photo: http://localhost:8080/uploads/57/002a57.jpg                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Try for a quick-add? [y/n] (y): 
->>> y
-[User input: "True"]
+Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
+>>> 
+[User input: "Quick mode [1]"]
 🏛 Association: None
 🔔 Bell type: Tower
 📅 Date: Sunday, 17 February 2019
@@ -1238,36 +1181,6 @@ First bell number(s) in the tower (1):
 👤 Ringer: 6 [8]: Melissa Baker
 👤 Ringer: 7 [9]: Joyce Sullivan (c)
 👤 Ringer: 8 [10]: Leo Bennett
-Referenced ringer(s):
-  - 29: None
-╭──────────────────────────────────────────────────────────────────────────────╮
-│ Warning: Bell referenced in footnote (29) is greater than number of bells    │
-│ (8)                                                                          │
-│   > And in memory of the composer: Sergeant Albert Percy Wakley, Labour      │
-│ Corps and 6th North Staffordshire Regiment, a ringer at St Paul's,           │
-│ Burton-on-Trent, who died on the 18th February 1919, aged.                   │
-╰──────────────────────────────────────────────────────────────────────────────╯
-Is this correct? [y/n] (y): 
->>> n
-[User input: "False"]
-Footnote text (And in memory of the composer: Sergeant Albert Percy Wakley, 
-Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, 
-Burton-on-Trent, who died on the 18th February 1919, aged.): 
->>> And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.
-[User input: "And in memory of the composer: Sergeant Albert Percy Wakley, 
-Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, 
-Burton-on-Trent, who died on the 18th February 1919, aged 29."]
-Bells (comma-separated) (29): 
->>>  
-[User input: "None"]
-Footnote 2 text:
-  > And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
-Add this to previous footnote? [y/n] (y): 
->>> y
-[User input: "True"]
 📝 Footnotes:
   - Rung for Morning Service. And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
 🔗 Event link: None

@@ -93,9 +93,10 @@ Import peal from BellBoard
 │ Hunt on Sunday, 15 January 2012)                                             │
 │ External reference: Campanophile ID: 1593                                    │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Try for a quick-add? [y/n] (y): 
->>> y
-[User input: "True"]
+Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
+>>> 
+[User input: "Quick mode [1]"]
 🏛 Association: None
 🔔 Bell type: Tower
 📅 Date: Saturday, 30 June 2001
@@ -237,9 +238,10 @@ Import peal from BellBoard
 │ Hunt on Sunday, 15 January 2012)                                             │
 │ External reference: Campanophile ID: 29386                                   │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Try for a quick-add? [y/n] (y): 
->>> n
-[User input: "False"]
+Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
+>>> 3
+[User input: "Prompt mode [3]"]
 No linked association
 Is this correct? [y/n] (y): 
 >>> 
@@ -461,9 +463,10 @@ Import peal from BellBoard
 │ Hunt on Sunday, 15 January 2012; updated Sunday, 15 February 2015)           │
 │ External reference: Campanophile ID: 116670                                  │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Try for a quick-add? [y/n] (y): 
->>> y
-[User input: "True"]
+Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
+>>> 
+[User input: "Quick mode [1]"]
 🏛 Association: Bath and Wells Diocesan Association
 🔔 Bell type: Tower
 📅 Date: Sunday, 27 February 2011
@@ -701,9 +704,10 @@ Import peal from BellBoard
 │ Sullivan on Sunday, 21 September 2014; updated Friday, 6 January 2017)       │
 │ External reference: Campanophile ID: 183937                                  │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Try for a quick-add? [y/n] (y): 
->>> y
-[User input: "True"]
+Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
+>>> 
+[User input: "Quick mode [1]"]
 🏛 Association: None
 🔔 Bell type: Tower
 📅 Date: Sunday, 21 September 2014
@@ -830,9 +834,10 @@ Import peal from BellBoard
 │ Miller on Sunday, 11 January 2015; updated Monday, 9 January 2017)           │
 │ External reference: Campanophile ID: 188334                                  │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Try for a quick-add? [y/n] (y): 
->>> y
-[User input: "True"]
+Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
+>>> 
+[User input: "Quick mode [1]"]
 🏛 Association: None
 🔔 Bell type: Tower
 📅 Date: Sunday, 11 January 2015
@@ -981,9 +986,10 @@ Import peal from BellBoard
 │ Sullivan on Sunday, 17 February 2019; updated Tuesday, 19 February 2019)     │
 │ Photo: http://localhost:8080/uploads/57/002a57.jpg                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Try for a quick-add? [y/n] (y): 
->>> y
-[User input: "True"]
+Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
+>>> 
+[User input: "Quick mode [1]"]
 🏛 Association: None
 🔔 Bell type: Tower
 📅 Date: Sunday, 17 February 2019
@@ -1018,36 +1024,6 @@ Add new ringer as "Melissa" "Baker"? [y/n] (y):
 👤 Ringer: 6: Melissa Baker
 👤 Ringer: 7: Joyce Sullivan (c)
 👤 Ringer: 8: Leonardo Bennett
-Referenced ringer(s):
-  - 29: None
-╭──────────────────────────────────────────────────────────────────────────────╮
-│ Warning: Bell referenced in footnote (29) is greater than number of bells    │
-│ (8)                                                                          │
-│   > And in memory of the composer: Sergeant Albert Percy Wakley, Labour      │
-│ Corps and 6th North Staffordshire Regiment, a ringer at St Paul's,           │
-│ Burton-on-Trent, who died on the 18th February 1919, aged.                   │
-╰──────────────────────────────────────────────────────────────────────────────╯
-Is this correct? [y/n] (y): 
->>> n
-[User input: "False"]
-Footnote text (And in memory of the composer: Sergeant Albert Percy Wakley, 
-Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, 
-Burton-on-Trent, who died on the 18th February 1919, aged.): 
->>> And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.
-[User input: "And in memory of the composer: Sergeant Albert Percy Wakley, 
-Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, 
-Burton-on-Trent, who died on the 18th February 1919, aged 29."]
-Bells (comma-separated) (29): 
->>>  
-[User input: "None"]
-Footnote 2 text:
-  > And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
-Add this to previous footnote? [y/n] (y): 
->>> y
-[User input: "True"]
 📝 Footnotes:
   - Rung for Morning Service. And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
 🔗 Event link: None

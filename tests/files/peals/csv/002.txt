@@ -18,9 +18,10 @@ Importing peal My Peal Records L4...
 │ 7: Gordon T Gopher                                                           │
 │ 8: Harold Hedgehog                                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Try for a quick-add? [y/n] (y): 
->>> y
-[User input: "True"]
+Try for a quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
+>>> 
+[User input: "Quick mode [1]"]
 📅 Date: Monday, 1 January 2001
 🏰 Tower: Withycombe Raleigh, Devon
 🔢 Changes: 1260
@@ -108,9 +109,10 @@ Importing peal My Peal Records L5...
 │ 5 [9]: Enid Evans                                                            │
 │ 6 [10]: Freddie Firth (c)                                                    │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Try for a quick-add? [y/n] (y): 
->>> y
-[User input: "True"]
+Try for a quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
+>>> 
+[User input: "Quick mode [1]"]
 📅 Date: Tuesday, 31 July 2001
 🏰 Tower: Bath (Bathwick), Somerset
 🔢 Changes: 1260
