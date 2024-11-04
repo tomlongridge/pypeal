@@ -111,7 +111,7 @@ Is this correct? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (1): 
+Bell number(s) (1): 
 >>> 
 [User input: "1"]
 👤 Ringer: 1: Vivian Murray
@@ -122,7 +122,7 @@ Is this correct? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (2): 
+Bell number(s) (2): 
 >>> 
 [User input: "2"]
 👤 Ringer: 2: Byron Robinson
@@ -133,7 +133,7 @@ Is this correct? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (3): 
+Bell number(s) (3): 
 >>> 
 [User input: "3"]
 👤 Ringer: 3: Daryl Mason
@@ -144,7 +144,7 @@ Is this correct? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (4): 
+Bell number(s) (4): 
 >>> 
 [User input: "4"]
 👤 Ringer: 4: Chester Edwards
@@ -155,7 +155,7 @@ Is this correct? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (5): 
+Bell number(s) (5): 
 >>> 
 [User input: "5"]
 👤 Ringer: 5: Joyce Sullivan
@@ -166,7 +166,7 @@ Is this correct? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (6): 
+Bell number(s) (6): 
 >>> 
 [User input: "6"]
 👤 Ringer: 6: Arnold Johnson
@@ -181,7 +181,7 @@ Add new ringer as "Kate" "Crawford"? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (7): 
+Bell number(s) (7): 
 >>> 
 [User input: "7"]
 👤 Ringer: 7: Kate Crawford
@@ -192,7 +192,7 @@ Is this correct? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (8): 
+Bell number(s) (8): 
 >>> 
 [User input: "8"]
 👤 Ringer: 8: Heather Sullivan (c)

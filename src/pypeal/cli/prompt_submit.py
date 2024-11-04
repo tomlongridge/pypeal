@@ -16,6 +16,8 @@ def prompt_submit_unpublished_peals(in_bulk: bool = False):
             for peal in Peal.get_all():
                 if peal.bellboard_id is None:
                     prompt_submit_peal(peal)
+                    if not confirm(None, confirm_message='Continue to next peal?'):
+                        break
     except BellboardError as e:
         error(e)
 
@@ -45,7 +47,9 @@ def submit_peal(peal: Peal):
             return
 
     if bb_data := prompt_bellboard_duplicate(peal):
-        if confirm(None, confirm_message=f'Link existing peal to this BellBoard ID {bb_data[0]}?'):
+        if Peal.get(bellboard_id=bb_data[0]):
+            error(f'Peal with BellBoard ID {bb_data[0]} already exists in database')
+        elif confirm(None, confirm_message=f'Link existing peal to this BellBoard ID {bb_data[0]}?'):
             peal.update_bellboard_id(*bb_data)
         return
 

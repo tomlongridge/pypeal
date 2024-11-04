@@ -107,8 +107,8 @@ Add new ringer as "Edward" "Chapman"? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (1): 
->>> 
+Bell number(s) in the tower (max 10) (5): 
+>>> 1
 [User input: "1"]
 👤 Ringer: 1: Edward Chapman
 2: "Blake Elliott" -> Blake Elliott
@@ -118,7 +118,7 @@ Is this correct? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (2): 
+Bell number(s) in the tower (max 10) (2): 
 >>> 
 [User input: "2"]
 👤 Ringer: 2: Blake Elliott
@@ -133,7 +133,7 @@ Add new ringer as "Olivia" "West"? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (3): 
+Bell number(s) in the tower (max 10) (3): 
 >>> 
 [User input: "3"]
 👤 Ringer: 3: Olivia West
@@ -167,7 +167,7 @@ Select option (2):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (4): 
+Bell number(s) in the tower (max 10) (4): 
 >>> 
 [User input: "4"]
 👤 Ringer: 4: Mike Sullivan
@@ -182,7 +182,7 @@ Add new ringer as "Jack" "Spencer"? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (5): 
+Bell number(s) in the tower (max 10) (5): 
 >>> 
 [User input: "5"]
 👤 Ringer: 5: Jack Spencer (c)
@@ -197,7 +197,7 @@ Add new ringer as "Eric" "Ryan"? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (6): 
+Bell number(s) in the tower (max 10) (6): 
 >>> 
 [User input: "6"]
 👤 Ringer: 6: Eric Ryan

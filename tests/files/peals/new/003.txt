@@ -172,7 +172,7 @@ Is this correct? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (5,6): 
+Bell number(s) (5,6): 
 >>> 
 [User input: "5,6"]
 👤 Ringer: 5,6: Iris Iguana

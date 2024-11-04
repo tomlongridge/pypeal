@@ -129,8 +129,8 @@ Add new ringer as "Lydia" "Ferguson"? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (1): 
->>> 5
+Bell number(s) in the tower (max 12) (5): 
+>>> 
 [User input: "5"]
 👤 Ringer: 1 [5]: Lydia Ferguson
 2: Couldn't find ringer matching "Harold Gray" (or aliases)
@@ -144,7 +144,7 @@ Add new ringer as "Harold" "Gray"? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (6): 
+Bell number(s) in the tower (max 12) (6): 
 >>> 
 [User input: "6"]
 👤 Ringer: 2 [6]: Harold Gray
@@ -171,7 +171,7 @@ Title:
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (7): 
+Bell number(s) in the tower (max 12) (7): 
 >>> 
 [User input: "7"]
 👤 Ringer: 3 [7]: Chloe Henderson
@@ -198,7 +198,7 @@ Title:
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (8): 
+Bell number(s) in the tower (max 12) (8): 
 >>> 
 [User input: "8"]
 👤 Ringer: 4 [8]: Rev Alen Henderson
@@ -213,7 +213,7 @@ Add new ringer as "Lucas" "Wright"? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (9): 
+Bell number(s) in the tower (max 12) (9): 
 >>> 
 [User input: "9"]
 👤 Ringer: 5 [9]: Lucas Wright
@@ -228,7 +228,7 @@ Add new ringer as "Lucas" "Farrell"? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (10): 
+Bell number(s) in the tower (max 12) (10): 
 >>> 
 [User input: "10"]
 👤 Ringer: 6 [10]: Lucas Farrell (c)
@@ -243,7 +243,7 @@ Add new ringer as "Ryan" "Elliott"? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (11): 
+Bell number(s) in the tower (max 12) (11): 
 >>> 
 [User input: "11"]
 👤 Ringer: 7 [11]: Ryan Elliott
@@ -258,7 +258,7 @@ Add new ringer as "Ted" "Harris"? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (12): 
+Bell number(s) in the tower (max 12) (12): 
 >>> 
 [User input: "12"]
 👤 Ringer: 8 [12]: Ted Harris

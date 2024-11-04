@@ -111,8 +111,8 @@ Matching peal titled "Grandsire Triples"...
 Add new ringer as "Lydia" "Ferguson"? [y/n] (y): 
 >>> 
 [User input: "True"]
-First bell number(s) in the tower (1): 
->>> 
+First bell number(s) in the tower (max 12) (5): 
+>>> 1
 [User input: "1"]
 👤 Ringer: 1: Lydia Ferguson
 2: Couldn't find ringer matching "Harold Gray" (or aliases)
@@ -540,8 +540,8 @@ Method 8: London Surprise Major (unknown changes)
 Add new ringer as "Patrick" "Bennett"? [y/n] (y): 
 >>> 
 [User input: "True"]
-First bell number(s) in the tower (1): 
->>> 
+First bell number(s) in the tower (max 10) (3): 
+>>> 1
 [User input: "1"]
 👤 Ringer: 1: Patrick Bennett
 2: Couldn't find ringer matching "Byron Miller" (or aliases)
@@ -719,7 +719,7 @@ Select option (1):
 Matching peal titled "Cambridge Surprise Major"...
 📕 Title: Cambridge Surprise Major
 🎼 Composer: Unknown
-First bell number(s) in the tower (1): 
+First bell number(s) (1): 
 >>> 
 [User input: "1"]
 👤 Ringer: 1: Vivian Murray
@@ -1009,8 +1009,8 @@ Add as composition note? [y/n] (y):
 Add new ringer as "Lenny" "Howard"? [y/n] (y): 
 >>> 
 [User input: "True"]
-First bell number(s) in the tower (1): 
->>> 
+First bell number(s) in the tower (max 10) (3): 
+>>> 1
 [User input: "1"]
 👤 Ringer: 1: Lenny Howard
 👤 Ringer: 2: Chester Edwards

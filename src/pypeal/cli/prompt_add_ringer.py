@@ -68,7 +68,7 @@ def prompt_add_ringer(name: str,
         bell_nums_in_ring = []
         while bell_nums_in_peal is not None and len(bell_nums_in_ring) < len(bell_nums_in_peal):
 
-            if peal.stage is not None and peal.ring is not None and peal.stage.num_bells == len(peal.ring.bells):
+            if peal.stage is not None and peal.ring is not None and peal.stage.num_bells == peal.ring.num_bells:
                 # There is no choice of bells as the stage size matches the number of bells in the tower
                 bell_nums_in_ring += bell_nums_in_peal
             else:
@@ -79,16 +79,21 @@ def prompt_add_ringer(name: str,
                     last_bell = peal.ring.get_bell_by_id(last_bell_id).role
                     for i in range(len(bell_nums_in_peal)):
                         suggested_bells.append(last_bell + i + 1)
+                elif peal.stage is not None and peal.ring is not None:
+                    suggested_bells = [peal.ring.num_bells - peal.stage.num_bells + bell for bell in bell_nums_in_peal]
                 else:
                     suggested_bells = bell_nums_in_peal
                 bell_nums_str = get_bell_label(suggested_bells)
-                if quick_mode and bell_nums_in_peal[0] == 1:
-                    prompt_str = 'First bell number(s) in the tower'
-                elif not quick_mode:
-                    prompt_str = 'Bell number(s) in the tower'
-                else:
+                if quick_mode and bell_nums_in_peal[0] > 1:
                     prompt_str = None
                     bell_nums_in_ring = suggested_bells
+                else:
+                    if quick_mode and bell_nums_in_peal[0] == 1:
+                        prompt_str = f'First bell number(s)'
+                    else:
+                        prompt_str = f'Bell number(s)'
+                    if peal.ring:
+                        prompt_str += f' in the tower (max {peal.ring.num_bells})'
                 while prompt_str is not None and len(bell_nums_in_ring) == 0:
                     try:
                         bell_nums = parse_bell_nums(

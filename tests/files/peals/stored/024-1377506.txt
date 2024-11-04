@@ -83,8 +83,8 @@ Is this correct? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (1): 
->>> 
+Bell number(s) in the tower (max 10) (5): 
+>>> 1
 [User input: "1"]
 👤 Ringer: 1: Jacob Cole
 ╭──────────────────────────────────────────────────────────────────────────────╮
@@ -102,7 +102,7 @@ Select option (x = None):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (2): 
+Bell number(s) in the tower (max 10) (2): 
 >>> 3
 [User input: "3"]
 👤 Ringer: 2 [3]: Blake Elliott
@@ -120,7 +120,7 @@ Is this correct? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (4): 
+Bell number(s) in the tower (max 10) (4): 
 >>> 6
 [User input: "6"]
 👤 Ringer: 3 [6]: Savana Davis
@@ -142,7 +142,7 @@ Add new ringer as "Dominik" "Bailey"? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (7): 
+Bell number(s) in the tower (max 10) (7): 
 >>> 8
 [User input: "8"]
 👤 Ringer: 4 [8]: Dominik Bailey
@@ -160,7 +160,7 @@ Is this correct? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (9): 
+Bell number(s) in the tower (max 10) (9): 
 >>> 10
 [User input: "10"]
 👤 Ringer: 5 [10]: Leo Bennett (c)

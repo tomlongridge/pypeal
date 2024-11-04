@@ -62,8 +62,8 @@ Matching peal titled "Grandsire Triples"...
 Add new ringer as "Lydia" "Ferguson"? [y/n] (y): 
 >>> 
 [User input: "True"]
-First bell number(s) in the tower (1): 
->>> 
+First bell number(s) in the tower (max 12) (5): 
+>>> 1
 [User input: "1"]
 👤 Ringer: 1: Lydia Ferguson
 2: Couldn't find ringer matching "Harold Gray" (or aliases)

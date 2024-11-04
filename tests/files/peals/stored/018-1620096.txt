@@ -59,7 +59,7 @@ Select option (1):
 Matching peal titled "Grandsire Doubles"...
 📕 Title: Grandsire Doubles
 🎼 Composer: Unknown
-First bell number(s) in the tower (1): 
+First bell number(s) in the tower (max 10) (5): 
 >>> 5
 [User input: "5"]
 👤 Ringer: 1 [5]: Ryan Elliott
@@ -144,8 +144,8 @@ Is this correct? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (1): 
->>> 
+Bell number(s) in the tower (max 10) (5): 
+>>> 1
 [User input: "1"]
 👤 Ringer: 1: Ryan Elliott
 2: "Arnold Johnson" -> Arnold Johnson
@@ -155,7 +155,7 @@ Is this correct? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (2): 
+Bell number(s) in the tower (max 10) (2): 
 >>> 
 [User input: "2"]
 👤 Ringer: 2: Arnold Johnson
@@ -166,7 +166,7 @@ Is this correct? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (3): 
+Bell number(s) in the tower (max 10) (3): 
 >>> 
 [User input: "3"]
 👤 Ringer: 3: Heather Sullivan (c)
@@ -177,7 +177,7 @@ Is this correct? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (4): 
+Bell number(s) in the tower (max 10) (4): 
 >>> 
 [User input: "4"]
 👤 Ringer: 4: Joyce Sullivan
@@ -188,7 +188,7 @@ Is this correct? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (5): 
+Bell number(s) in the tower (max 10) (5): 
 >>> 
 [User input: "5"]
 👤 Ringer: 5: Leo Bennett
@@ -199,7 +199,7 @@ Is this correct? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (6): 
+Bell number(s) in the tower (max 10) (6): 
 >>> 
 [User input: "6"]
 👤 Ringer: 6: Grace Perry
