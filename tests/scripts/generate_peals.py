@@ -51,11 +51,11 @@ def generate_peal(url: str):
         if match := re.match(METADATA_SUBMITTED_REGEX, metadata.text):
             submitter = match.groupdict()['submitter']
             if submitter is not None:
-                metadata.string.replace_with(metadata.text.replace(submitter, anonymize_ringer(submitter)))
+                metadata.contents[0].string.replace_with(metadata.text.replace(submitter, anonymize_ringer(submitter)))
         elif match := re.match(METADATA_IMPORTED_REGEX, metadata.text):
             submitter = match.groupdict()['submitter']
             if submitter is not None:
-                metadata.string.replace_with(metadata.text.replace(submitter, anonymize_ringer(submitter)))
+                metadata.contents[0].string.replace_with(metadata.text.replace(submitter, anonymize_ringer(submitter)))
 
     print(f'Writing peal to {file_path}...')
     with open(file_path, 'w') as f:
