@@ -72,9 +72,6 @@ Add as composition note? [y/n] (y):
 [User input: "True"]
 🎼 Composer: Unknown
 🎼 Composition: Camila Chapman
-First bell number(s) in the tower (max 10) (3): 
->>> 
-[User input: "3"]
 👤 Ringer: 1 [3]: Lenny Howard
 👤 Ringer: 2 [4]: Chester Edwards
 👤 Ringer: 3 [5]: Paul Armstrong
@@ -608,9 +605,6 @@ Add as composition note? [y/n] (y):
 [User input: "True"]
 🎼 Composer: Unknown
 🎼 Composition: Camila Chapman
-First bell number(s) in the tower (max 10) (3): 
->>> 
-[User input: "3"]
 👤 Ringer: 1 [3]: Lenny Howard
 👤 Ringer: 2 [4]: Chester Edwards
 👤 Ringer: 3 [5]: Paul Armstrong
@@ -1170,9 +1164,6 @@ Add as composition note? [y/n] (y):
 [User input: "True"]
 🎼 Composer: Unknown
 🎼 Composition: Camila Chapman
-First bell number(s) in the tower (max 10) (3): 
->>> 
-[User input: "3"]
 👤 Ringer: 1 [3]: Lenny Howard
 👤 Ringer: 2 [4]: Chester Edwards
 👤 Ringer: 3 [5]: Paul Armstrong

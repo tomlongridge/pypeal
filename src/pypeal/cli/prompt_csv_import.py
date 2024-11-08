@@ -252,12 +252,13 @@ def _read_peal_line(listener: PealGeneratorListener, data: dict, basic_peal: Pea
                 ringer_data = (ringer_name,
                                [*ringer_data[1], ringer_num],
                                [*ringer_data[2], bell_num],
-                               ringer_data[3] or is_conductor)
+                               ringer_data[3] or is_conductor,
+                               num_ringers)
             else:
                 listener.ringer(*ringer_data)
-                ringer_data = (ringer_name, [ringer_num], [bell_num], is_conductor)
+                ringer_data = (ringer_name, [ringer_num], [bell_num], is_conductor, num_ringers)
         else:
-            ringer_data = (ringer_name, [ringer_num], [bell_num], is_conductor)
+            ringer_data = (ringer_name, [ringer_num], [bell_num], is_conductor, num_ringers)
 
     listener.ringer(*ringer_data)
 

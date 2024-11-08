@@ -28,7 +28,11 @@ class ManualGenerator(PealGenerator):
         last_bell_num_in_peal = None
         last_bell_num_in_ring = None
         found_conductor = False
-        expected_num_bells_in_peal = listener.peal.stage.value if listener.peal.stage else None
+        if listener.peal.stage:
+            expected_num_bells_in_peal = listener.peal.stage.value
+            max_expected_num_bells_in_peal = expected_num_bells_in_peal + (1 if expected_num_bells_in_peal % 2 == 1 else 0)
+        else:
+            expected_num_bells_in_peal = max_expected_num_bells_in_peal = None
 
         while True:
 
@@ -64,7 +68,7 @@ class ManualGenerator(PealGenerator):
             if listener.peal.type != PealType.GENERAL_RINGING:
                 is_conductor = confirm(None, confirm_message='Is this ringer the conductor', default=not found_conductor)
 
-            listener.ringer(name, bell_nums_in_peal, bell_nums_in_ring, is_conductor)
+            listener.ringer(name, bell_nums_in_peal, bell_nums_in_ring, is_conductor, max_expected_num_bells_in_peal)
 
             if (expected_num_bells_in_peal is None or bell_nums_in_peal[-1] >= expected_num_bells_in_peal) and \
                     not confirm(None, confirm_message='Add another ringer?', default=False):

@@ -44,7 +44,7 @@ class PealGeneratorListener():
     def duration(self, value: str):
         pass
 
-    def ringer(self, name: str, bell_nums_in_peal: list[int], bell_nums_in_ring: list[int], is_conductor: bool):
+    def ringer(self, name: str, bell_nums_in_peal: list[int], bell_nums_in_ring: list[int], is_conductor: bool, total_bells: int):
         pass
 
     def footnote(self, value: str):

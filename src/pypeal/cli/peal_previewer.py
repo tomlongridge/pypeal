@@ -52,7 +52,7 @@ class PealPreviewListener(PealGeneratorListener):
         if value:
             self.__lines['date'] += f' in {value}'
 
-    def ringer(self, name: str, nums: list[int], bells: list[int], is_conductor: bool):
+    def ringer(self, name: str, nums: list[int], bells: list[int], is_conductor: bool, total_bells: int):
         if 'ringers' not in self.__lines:
             self.__lines['ringers'] = []
         ringer_line = ''

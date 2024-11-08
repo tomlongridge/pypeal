@@ -27,3 +27,6 @@ VALUES ("v2883", 5, "Southrepps", "Southrepps Doubles");
 
 INSERT INTO @db_name.`methods` (id, stage, name, full_name)
 VALUES ("v124", 5, "Dedworth", "Dedworth Doubles");
+
+INSERT INTO @db_name.`methods` (id, stage, name, full_name)
+VALUES ("v828", 5, "Elford", "Elford Doubles");

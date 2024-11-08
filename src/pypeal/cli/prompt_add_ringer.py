@@ -4,6 +4,7 @@ from pypeal.cli.prompts import ask, confirm
 from pypeal.cli.chooser import choose_option
 from pypeal.entities.peal import Peal
 from pypeal.entities.ringer import Ringer
+from pypeal.entities.tower import Bell
 from pypeal.utils import get_bell_label
 from pypeal.parsers import parse_bell_nums, parse_ringer_name
 
@@ -15,6 +16,7 @@ def prompt_add_ringer(name: str,
                       bell_nums_in_peal: list[int],
                       bell_nums_in_ring: list[int],
                       is_conductor: bool,
+                      total_bells: int | None,
                       peal: Peal,
                       quick_mode: bool):
 
@@ -33,9 +35,8 @@ def prompt_add_ringer(name: str,
                         expected_bell_num_in_peal += 1
                 else:
                     bell_nums_in_peal = None
-        max_possible_bells = peal.stage.value + (1 if peal.stage.value % 2 == 1 else 0)
-        if bell_nums_in_peal[-1] > max_possible_bells:
-            warning(f'Bell number ({bell_nums_in_peal[-1]}) exceeds expected number of bells in the peal ({max_possible_bells}), ' +
+        if total_bells and bell_nums_in_peal[-1] > total_bells:
+            warning(f'Bell number ({bell_nums_in_peal[-1]}) exceeds expected number of bells in the peal ({total_bells}), ' +
                     'based on method(s)')
             if not confirm(None, default=False):
                 bell_nums_in_peal = None
@@ -68,30 +69,42 @@ def prompt_add_ringer(name: str,
         bell_nums_in_ring = []
         while bell_nums_in_peal is not None and len(bell_nums_in_ring) < len(bell_nums_in_peal):
 
-            if peal.stage is not None and peal.ring is not None and peal.stage.num_bells == peal.ring.num_bells:
+            if peal.stage is not None and peal.ring is not None and peal.stage.num_bells >= peal.ring.num_bells:
                 # There is no choice of bells as the stage size matches the number of bells in the tower
                 bell_nums_in_ring += bell_nums_in_peal
             else:
 
                 suggested_bells = []
+                # If this isn't the first ringer, then add 1 to the last ringer
                 if len(peal.ringers) and peal.ringers[-1].bell_ids is not None:
                     last_bell_id: int = peal.ringers[-1].bell_ids[-1]
                     last_bell = peal.ring.get_bell_by_id(last_bell_id).role
                     for i in range(len(bell_nums_in_peal)):
                         suggested_bells.append(last_bell + i + 1)
-                elif peal.stage is not None and peal.ring is not None:
-                    suggested_bells = [peal.ring.num_bells - peal.stage.num_bells + bell for bell in bell_nums_in_peal]
+                elif peal.stage is not None and peal.ring is not None and total_bells is not None:
+                    # If we have a tenor weight recorded, then match it up to the ring's weight
+                    if peal.tenor_weight:
+                        bell: Bell
+                        for bell in peal.ring.bells.values():
+                            if bell.weight >= peal.tenor_weight:
+                                suggested_bells = [bell.role - total_bells + peal_bell for peal_bell in bell_nums_in_peal]
+                                break
+                    else:
+                        # Otherwise, assume the peal is on the back bells
+                        suggested_bells = [peal.ring.num_bells - total_bells + peal_bell for peal_bell in bell_nums_in_peal]
+                        if bell_nums_in_peal[0] == 1:  # Don't trust this for the first ringer
+                            quick_mode = False
                 else:
+                    # Finally just use the bell number from the peal
                     suggested_bells = bell_nums_in_peal
+                    if bell_nums_in_peal[0] == 1:   # Don't trust this for the first ringer
+                        quick_mode = False
                 bell_nums_str = get_bell_label(suggested_bells)
-                if quick_mode and bell_nums_in_peal[0] > 1:
+                if quick_mode:
                     prompt_str = None
                     bell_nums_in_ring = suggested_bells
                 else:
-                    if quick_mode and bell_nums_in_peal[0] == 1:
-                        prompt_str = f'First bell number(s)'
-                    else:
-                        prompt_str = f'Bell number(s)'
+                    prompt_str = f'Bell number(s)'
                     if peal.ring:
                         prompt_str += f' in the tower (max {peal.ring.num_bells})'
                 while prompt_str is not None and len(bell_nums_in_ring) == 0:

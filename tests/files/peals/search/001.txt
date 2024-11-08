@@ -111,45 +111,42 @@ Matching peal titled "Grandsire Triples"...
 Add new ringer as "Lydia" "Ferguson"? [y/n] (y): 
 >>> 
 [User input: "True"]
-First bell number(s) in the tower (max 12) (5): 
->>> 1
-[User input: "1"]
-👤 Ringer: 1: Lydia Ferguson
+👤 Ringer: 1 [5]: Lydia Ferguson
 2: Couldn't find ringer matching "Harold Gray" (or aliases)
 Add new ringer as "Harold" "Gray"? [y/n] (y): 
 >>> 
 [User input: "True"]
-👤 Ringer: 2: Harold Gray
+👤 Ringer: 2 [6]: Harold Gray
 3: Couldn't find ringer matching "Chloe Henderson" (or aliases)
 Add new ringer as "Chloe" "Henderson"? [y/n] (y): 
 >>> 
 [User input: "True"]
-👤 Ringer: 3: Chloe Henderson
+👤 Ringer: 3 [7]: Chloe Henderson
 4: Couldn't find ringer matching "Alen Henderson" (or aliases)
 Add new ringer as "Alen" "Henderson"? [y/n] (y): 
 >>> 
 [User input: "True"]
-👤 Ringer: 4: Alen Henderson
+👤 Ringer: 4 [8]: Alen Henderson
 5: Couldn't find ringer matching "Lucas Wright" (or aliases)
 Add new ringer as "Lucas" "Wright"? [y/n] (y): 
 >>> 
 [User input: "True"]
-👤 Ringer: 5: Lucas Wright
+👤 Ringer: 5 [9]: Lucas Wright
 6: Couldn't find ringer matching "Lucas Farrell" (or aliases)
 Add new ringer as "Lucas" "Farrell"? [y/n] (y): 
 >>> 
 [User input: "True"]
-👤 Ringer: 6: Lucas Farrell (c)
+👤 Ringer: 6 [10]: Lucas Farrell (c)
 7: Couldn't find ringer matching "Ryan Elliott" (or aliases)
 Add new ringer as "Ryan" "Elliott"? [y/n] (y): 
 >>> 
 [User input: "True"]
-👤 Ringer: 7: Ryan Elliott
+👤 Ringer: 7 [11]: Ryan Elliott
 8: Couldn't find ringer matching "Ted Harris" (or aliases)
 Add new ringer as "Ted" "Harris"? [y/n] (y): 
 >>> 
 [User input: "True"]
-👤 Ringer: 8: Ted Harris
+👤 Ringer: 8 [12]: Ted Harris
 Referenced ringer(s):
   - 1: Lydia Ferguson
 Referenced ringer(s):
@@ -163,12 +160,11 @@ Referenced ringer(s):
 🔗 External reference: Campanophile ID: 1593
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Warning: Tenor weight 17 cwt reported on Bellboard does not match the weight │
-│ of largest bell rung (7-0-16) on Dove                                        │
+│ of largest bell rung (17-1-10) on Dove                                       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Confirm tenor bell (12): 
 >>> 
 [User input: "12"]
-Shifting band by 4 bells
 🔔 Bell type: Tower
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
@@ -540,33 +536,30 @@ Method 8: London Surprise Major (unknown changes)
 Add new ringer as "Patrick" "Bennett"? [y/n] (y): 
 >>> 
 [User input: "True"]
-First bell number(s) in the tower (max 10) (3): 
->>> 1
-[User input: "1"]
-👤 Ringer: 1: Patrick Bennett
+👤 Ringer: 1 [3]: Patrick Bennett
 2: Couldn't find ringer matching "Byron Miller" (or aliases)
 Add new ringer as "Byron" "Miller"? [y/n] (y): 
 >>> 
 [User input: "True"]
-👤 Ringer: 2: Byron Miller
-👤 Ringer: 3: Clark Elliott
-👤 Ringer: 4: John Parker
+👤 Ringer: 2 [4]: Byron Miller
+👤 Ringer: 3 [5]: Clark Elliott
+👤 Ringer: 4 [6]: John Parker
 5: Couldn't find ringer matching "Jacob Cole" (or aliases)
 Add new ringer as "Jacob" "Cole"? [y/n] (y): 
 >>> 
 [User input: "True"]
-👤 Ringer: 5: Jacob Cole
+👤 Ringer: 5 [7]: Jacob Cole
 6: Couldn't find ringer matching "Eric Ryan" (or aliases)
 Add new ringer as "Eric" "Ryan"? [y/n] (y): 
 >>> 
 [User input: "True"]
-👤 Ringer: 6: Eric Ryan
-👤 Ringer: 7: Joyce Sullivan
+👤 Ringer: 6 [8]: Eric Ryan
+👤 Ringer: 7 [9]: Joyce Sullivan
 8: Couldn't find ringer matching "Byron Robinson" (or aliases)
 Add new ringer as "Byron" "Robinson"? [y/n] (y): 
 >>> 
 [User input: "True"]
-👤 Ringer: 8: Byron Robinson (c)
+👤 Ringer: 8 [10]: Byron Robinson (c)
 📝 Footnotes:
   - Rung for morning service.
 🔗 Event link: None
@@ -574,12 +567,6 @@ Add new ringer as "Byron" "Robinson"? [y/n] (y):
 📮 Submitted by: Nicholas Hunt on Sunday, 15 January 2012
 ✏️ Updated: Sunday, 15 February 2015
 🔗 External reference: Campanophile ID: 116670
-╭──────────────────────────────────────────────────────────────────────────────╮
-│ Warning: Tenor weight 18-3-20 reported on Bellboard does not match the       │
-│ weight of largest bell rung (11-1-2) on Dove                                 │
-╰──────────────────────────────────────────────────────────────────────────────╯
-Suggested tenor, based on weight: 10 (18-3-20)
-Shifting band by 2 bells
 🔔 Bell type: Tower
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
@@ -719,7 +706,7 @@ Select option (1):
 Matching peal titled "Cambridge Surprise Major"...
 📕 Title: Cambridge Surprise Major
 🎼 Composer: Unknown
-First bell number(s) (1): 
+Bell number(s) (1): 
 >>> 
 [User input: "1"]
 👤 Ringer: 1: Vivian Murray
@@ -988,42 +975,161 @@ Import peal from BellBoard
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
+>>> 3
+[User input: "Prompt mode [3]"]
+No linked association
+Is this correct? [y/n] (y): 
 >>> 
-[User input: "Quick mode [1]"]
+[User input: "True"]
 🏛 Association: None
 🔔 Bell type: Tower
 📅 Date: Sunday, 17 February 2019
 🔔 Tenor: 2120 in Eb
+Duration (46): 
+>>> 
+[User input: "46"]
 ⏱ Duration: 46 mins
 🏰 Tower: Bath (Bathwick), Somerset
 🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
+Matched "Grandsire Triples" to method "Grandsire Triples" (ID: m12415)
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
 📕 Title: Grandsire Triples
 No composer found matching "Camila Chapman" exactly
 Add as composition note? [y/n] (y): 
 >>> 
 [User input: "True"]
+No composer attributed
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Composition URL (http://localhost:8080/comp.php?id=2271034): 
+>>> 
+[User input: "http://localhost:8080/comp.php?id=2271034"]
 🎼 Composer: Unknown
 🎼 Composition: Camila Chapman
 1: Couldn't find ringer matching "Lenny Howard" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 
+[User input: "Add new ringer [1]"]
 Add new ringer as "Lenny" "Howard"? [y/n] (y): 
 >>> 
 [User input: "True"]
-First bell number(s) in the tower (max 10) (3): 
+Ringer note: 
+>>> 
+[User input: "None"]
+Bell number(s) in the tower (max 10) (3): 
 >>> 1
 [User input: "1"]
 👤 Ringer: 1: Lenny Howard
+2: "Chester Edwards" -> Chester Edwards
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+Bell number(s) in the tower (max 10) (2): 
+>>> 
+[User input: "2"]
 👤 Ringer: 2: Chester Edwards
+3: "Paul Armstrong" -> Paul Armstrong
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+Bell number(s) in the tower (max 10) (3): 
+>>> 
+[User input: "3"]
 👤 Ringer: 3: Paul Armstrong
+4: "Arnold Johnson" -> Arnold Johnson
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+Bell number(s) in the tower (max 10) (4): 
+>>> 
+[User input: "4"]
 👤 Ringer: 4: Arnold Johnson
+5: "Daryl Mason" -> Daryl Mason
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+Bell number(s) in the tower (max 10) (5): 
+>>> 
+[User input: "5"]
 👤 Ringer: 5: Daryl Mason
 6: Couldn't find ringer matching "Melissa Baker" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 
+[User input: "Add new ringer [1]"]
 Add new ringer as "Melissa" "Baker"? [y/n] (y): 
 >>> 
 [User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+Bell number(s) in the tower (max 10) (6): 
+>>> 
+[User input: "6"]
 👤 Ringer: 6: Melissa Baker
+7: "Joyce Sullivan" -> Joyce Sullivan
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+Bell number(s) in the tower (max 10) (7): 
+>>> 
+[User input: "7"]
 👤 Ringer: 7: Joyce Sullivan (c)
+8: "Leonardo Bennett" -> Leonardo Bennett
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+Bell number(s) in the tower (max 10) (8): 
+>>> 
+[User input: "8"]
 👤 Ringer: 8: Leonardo Bennett
+Footnote 1 text:
+  > Rung for Morning Service.
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Footnote 2 text:
+  > And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Add this to previous footnote? [y/n] (y): 
+>>> 
+[User input: "True"]
+Footnote 2 text:
+  > Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Add this to previous footnote? [y/n] (y): 
+>>> 
+[User input: "True"]
+Add new footnote? [y/n] (n): 
+>>> 
+[User input: "False"]
 📝 Footnotes:
   - Rung for Morning Service. And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
 🔗 Event link: None
@@ -1037,8 +1143,19 @@ Add new ringer as "Melissa" "Baker"? [y/n] (y):
 │ weight of largest bell rung (11-1-2) on Dove                                 │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Suggested tenor, based on weight: 10 (18-3-20)
+Confirm tenor bell (10): 
+>>> 
+[User input: "10"]
 Shifting band by 2 bells
+Bell type: 1) Tower, 2) Handbells
+Select option (1): 
+>>> 
+[User input: "Tower [1]"]
 🔔 Bell type: Tower
+Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
+Select option (1): 
+>>> 
+[User input: "None [1]"]
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Bath, Somerset, England                                                      │

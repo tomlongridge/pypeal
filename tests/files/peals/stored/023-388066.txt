@@ -102,9 +102,6 @@ Method 8: London Surprise Major (160 changes)
   - Bristol Surprise Major (160)
   - London Surprise Major (160)
 🎼 Composer: Unknown
-First bell number(s) in the tower (max 10) (3): 
->>> 
-[User input: "3"]
 👤 Ringer: 1 [3]: Patrick Bennett
 👤 Ringer: 2 [4]: Byron Miller
 👤 Ringer: 3 [5]: Clark Elliott

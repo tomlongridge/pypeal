@@ -59,26 +59,17 @@ Select option (1):
 Matching peal titled "Grandsire Doubles"...
 📕 Title: Grandsire Doubles
 🎼 Composer: Unknown
-First bell number(s) in the tower (max 10) (5): 
->>> 5
-[User input: "5"]
-👤 Ringer: 1 [5]: Ryan Elliott
-👤 Ringer: 2 [6]: Arnold Johnson
-👤 Ringer: 3 [7]: Heather Sullivan (c)
-👤 Ringer: 4 [8]: Joyce Sullivan
-👤 Ringer: 5 [9]: Leo Bennett
-👤 Ringer: 6 [10]: Grace Perry
+👤 Ringer: 1: Ryan Elliott
+👤 Ringer: 2: Arnold Johnson
+👤 Ringer: 3: Heather Sullivan (c)
+👤 Ringer: 4: Joyce Sullivan
+👤 Ringer: 5: Leo Bennett
+👤 Ringer: 6: Grace Perry
 📝 Footnotes:
   - For morning service, and to mark the coronation of King Charles III and Queen Camilla.
 🔗 Event link: http://localhost:8080/event.php?id=16774
 📷 Photo link: None
 📮 Submitted by: Heather Sullivan on Sunday, 7 May 2023
-╭──────────────────────────────────────────────────────────────────────────────╮
-│ Warning: Tenor weight 7-3-12 reported on Bellboard does not match the weight │
-│ of largest bell rung (18-3-20) on Dove                                       │
-╰──────────────────────────────────────────────────────────────────────────────╯
-Suggested tenor, based on weight: 6 (7-3-12)
-Shifting band by -4 bells
 🔔 Bell type: Tower
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
@@ -144,55 +135,11 @@ Is this correct? [y/n] (y):
 Ringer note: 
 >>> 
 [User input: "None"]
-Bell number(s) in the tower (max 10) (5): 
->>> 1
-[User input: "1"]
-👤 Ringer: 1: Ryan Elliott
-2: "Arnold Johnson" -> Arnold Johnson
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-Ringer note: 
->>> 
-[User input: "None"]
-Bell number(s) in the tower (max 10) (2): 
->>> 
-[User input: "2"]
-👤 Ringer: 2: Arnold Johnson
-3: "Heather Sullivan" -> Heather Sullivan
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-Ringer note: 
->>> 
-[User input: "None"]
-Bell number(s) in the tower (max 10) (3): 
->>> 
-[User input: "3"]
-👤 Ringer: 3: Heather Sullivan (c)
-4: "Joyce Sullivan" -> Joyce Sullivan
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-Ringer note: 
->>> 
-[User input: "None"]
-Bell number(s) in the tower (max 10) (4): 
->>> 
-[User input: "4"]
-👤 Ringer: 4: Joyce Sullivan
-5: "Leonardo Bennett" -> Leo Bennett
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-Ringer note: 
->>> 
-[User input: "None"]
-Bell number(s) in the tower (max 10) (5): 
->>> 
+Bell number(s) in the tower (max 10) (1): 
+>>> 5
 [User input: "5"]
-👤 Ringer: 5: Leo Bennett
-6: "Grace Perry" -> Grace Perry
+👤 Ringer: 1 [5]: Ryan Elliott
+2: "Arnold Johnson" -> Arnold Johnson
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
@@ -202,7 +149,51 @@ Ringer note:
 Bell number(s) in the tower (max 10) (6): 
 >>> 
 [User input: "6"]
-👤 Ringer: 6: Grace Perry
+👤 Ringer: 2 [6]: Arnold Johnson
+3: "Heather Sullivan" -> Heather Sullivan
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+Bell number(s) in the tower (max 10) (7): 
+>>> 
+[User input: "7"]
+👤 Ringer: 3 [7]: Heather Sullivan (c)
+4: "Joyce Sullivan" -> Joyce Sullivan
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+Bell number(s) in the tower (max 10) (8): 
+>>> 
+[User input: "8"]
+👤 Ringer: 4 [8]: Joyce Sullivan
+5: "Leonardo Bennett" -> Leo Bennett
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+Bell number(s) in the tower (max 10) (9): 
+>>> 
+[User input: "9"]
+👤 Ringer: 5 [9]: Leo Bennett
+6: "Grace Perry" -> Grace Perry
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+Bell number(s) in the tower (max 10) (10): 
+>>> 
+[User input: "10"]
+👤 Ringer: 6 [10]: Grace Perry
 Footnote 1 text:
   > For morning service, and to mark the coronation of King Charles III and Queen Camilla.
 Is this correct? [y/n] (y): 
@@ -216,6 +207,15 @@ Add new footnote? [y/n] (n):
 🔗 Event link: http://localhost:8080/event.php?id=16774
 📷 Photo link: None
 📮 Submitted by: Heather Sullivan on Sunday, 7 May 2023
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Warning: Tenor weight 7-3-12 reported on Bellboard does not match the weight │
+│ of largest bell rung (18-3-20) on Dove                                       │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Suggested tenor, based on weight: 6 (7-3-12)
+Confirm tenor bell (6): 
+>>> 
+[User input: "6"]
+Shifting band by -4 bells
 Bell type: 1) Tower, 2) Handbells
 Select option (1): 
 >>> 

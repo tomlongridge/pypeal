@@ -74,6 +74,23 @@ def _referenced_bells_to_list(bells_description: str, num_bells: int):
     return bells
 
 
+def extract_method_type(method: Method):
+    if method.name is None:
+        return
+    # Only trim Little and Differential methods as they appear in the title
+    if method.name.lower().endswith('plain'):
+        method.is_plain = True
+    elif method.name.lower().endswith('little'):
+        method.is_little = True
+        method.name = method.name[:-6]
+    elif method.name.lower().endswith('differential'):
+        method.is_differential = True
+        method.name = method.name[:-12]
+    elif method.name.lower().endswith('treble dodging'):
+        method.is_treble_dodging = True
+    method.name = method.name if len(method.name) > 0 else None
+
+
 def parse_method_title(title: str) -> tuple[list[Method], PealType, int, int, int]:
 
     methods: list[Method] = [Method()]
@@ -168,20 +185,7 @@ def parse_method_title(title: str) -> tuple[list[Method], PealType, int, int, in
             peal_type = PealType.GENERAL_RINGING
 
     for method in methods:
-        if method.name is None:
-            continue
-        # Only trim Little and Differential methods as they appear in the title
-        if method.name.lower().endswith('plain'):
-            method.is_plain = True
-        elif method.name.lower().endswith('little'):
-            method.is_little = True
-            method.name = method.name[:-6]
-        elif method.name.lower().endswith('differential'):
-            method.is_differential = True
-            method.name = method.name[:-12]
-        elif method.name.lower().endswith('treble dodging'):
-            method.is_treble_dodging = True
-        method.name = method.name if len(method.name) > 0 else None
+        extract_method_type(method)
 
     return (methods, peal_type, num_methods, num_variants, num_principles)
 

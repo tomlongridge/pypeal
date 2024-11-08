@@ -58,28 +58,19 @@ Select option (1):
 Matching peal titled "Grandsire Doubles"...
 📕 Title: Grandsire Doubles
 🎼 Composer: Unknown
-First bell number(s) in the tower (max 10) (5): 
->>> 1
-[User input: "1"]
-👤 Ringer: 1: Ryan Elliott
-👤 Ringer: 2: Leo Bennett
-👤 Ringer: 3: Heather Sullivan
+👤 Ringer: 1 [5]: Ryan Elliott
+👤 Ringer: 2 [6]: Leo Bennett
+👤 Ringer: 3 [7]: Heather Sullivan
 4: Found 2 ringers matching "Blake Elliott" (or aliases)
-👤 Ringer: 4: Blake Elliott
-👤 Ringer: 5: Chester Edwards (c)
-👤 Ringer: 6: Lenny Howard
+👤 Ringer: 4 [8]: Blake Elliott
+👤 Ringer: 5 [9]: Chester Edwards (c)
+👤 Ringer: 6 [10]: Lenny Howard
 📝 Footnotes:
   - Rung half muffled on the back six for Remembrance Day.
 🔗 Event link: None
 📷 Photo link: None
 📮 Submitted by: Chester Edwards on Sunday, 12 November 2023
 ✏️ Updated: Sunday, 12 November 2023
-╭──────────────────────────────────────────────────────────────────────────────╮
-│ Warning: Footnote suggests ringing on the back 6, but the tenor entered is   │
-│ the 6                                                                        │
-│   > Rung half muffled on the back six for Remembrance Day.                   │
-╰──────────────────────────────────────────────────────────────────────────────╯
-Shifting band by 4 bells
 🔔 Bell type: Tower
 🔕 Muffles: Half
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮

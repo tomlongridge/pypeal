@@ -105,15 +105,23 @@ class HTMLPealGenerator(PealGenerator):
             listener.method_details(None)
 
         element = soup.select('div.attribution')
-        composer_str = url_str = None
+        composer_str = url_str = composition_note = None
         if len(element) > 0:
             composer_element = element[0].select('span.composer.persona')
             if len(composer_element) > 0:
-                composer_str = composer_element[0].text.strip().strip('()')
+                composer_str = composer_element[0].text.strip()
+                if composer_str.lower() in ['anon', 'anonymous', 'trad', 'traditional']:
+                    composition_note = composer_str
+                    composer_str = None
+                elif match := re.match(r'(?P<composer>.*)(?:\((?P<note>.*)\))?', composer_str):
+                    composer_info = match.groupdict()
+                    composer_str = composer_info['composer'].strip()
+                    if 'note' in composer_info:
+                        composition_note = match.group('note')
             url_element = element[0].select('a')
             if len(url_element) > 0:
                 url_str = config.get_config('bellboard', 'url') + url_element[0]['href']
-        listener.composition_details(composer_str, url_str, None)
+        listener.composition_details(composer_str, url_str, composition_note)
 
         # Get ringers and their bells and add them to the ringers list
         ringer_names = []
@@ -123,16 +131,35 @@ class HTMLPealGenerator(PealGenerator):
             if not ringer.text.strip(' -'):  # Remove empty ringer entries (e.g. COVID gaps)
                 continue
             ringer_names.append(ringer.text)
-            ringer_bells.append(bells.text.strip() if bells else None)
+            ringer_bells.append([int(bell) for bell in bells.text.strip().split('–')] if bells else None)
             conductors.append(
                 ringer.next_sibling is not None and
                 ringer.next_sibling.lower().strip() == '(c)')
 
+        # For non-contiguous peals, we can safely assume the submitter has entered the bell number in the ring
+        # rather than in the peal. Check whether the bell labels go up sequencially and if not, use them as the
+        # bells in ring label. We also need to generate the number in the peal to use if this is the case.
+        total_bells = 0
+        last_bell = 0
+        is_contiguous = True
+        bell_nums_in_peal = []
+        for ringer in ringer_bells:
+            for bell in ringer or []:
+                is_contiguous = False if bell - last_bell != 1 else is_contiguous
+                last_bell = bell
+                total_bells += 1
+            bell_nums_in_peal.append(list(range(total_bells, total_bells + len(ringer))) if ringer else None)
+
         # Loop over the ringers and their bell (or bells) and add them to the peal
-        for full_name, bells, is_conductor in zip(ringer_names, ringer_bells, conductors):
-            if bells is not None:
-                bells = [int(bell) for bell in bells.split('–')]
-            listener.ringer(full_name, bells, None, is_conductor)
+        for full_name, bells, bell_nums, is_conductor in zip(ringer_names, ringer_bells, bell_nums_in_peal, conductors):
+            listener.ringer(full_name,
+                            bells if is_contiguous else bell_nums,
+                            bells if not is_contiguous else None,
+                            is_conductor,
+                            total_bells)
+        
+        if not total_bells:
+            total_bells = len(ringer_names)
 
         for footnote in soup.select('div.footnote'):
             text = footnote.text.strip()

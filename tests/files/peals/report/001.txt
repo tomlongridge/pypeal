@@ -62,45 +62,42 @@ Matching peal titled "Grandsire Triples"...
 Add new ringer as "Lydia" "Ferguson"? [y/n] (y): 
 >>> 
 [User input: "True"]
-First bell number(s) in the tower (max 12) (5): 
->>> 1
-[User input: "1"]
-👤 Ringer: 1: Lydia Ferguson
+👤 Ringer: 1 [5]: Lydia Ferguson
 2: Couldn't find ringer matching "Harold Gray" (or aliases)
 Add new ringer as "Harold" "Gray"? [y/n] (y): 
 >>> 
 [User input: "True"]
-👤 Ringer: 2: Harold Gray
+👤 Ringer: 2 [6]: Harold Gray
 3: Couldn't find ringer matching "Chloe Henderson" (or aliases)
 Add new ringer as "Chloe" "Henderson"? [y/n] (y): 
 >>> 
 [User input: "True"]
-👤 Ringer: 3: Chloe Henderson
+👤 Ringer: 3 [7]: Chloe Henderson
 4: Couldn't find ringer matching "Alen Henderson" (or aliases)
 Add new ringer as "Alen" "Henderson"? [y/n] (y): 
 >>> 
 [User input: "True"]
-👤 Ringer: 4: Alen Henderson
+👤 Ringer: 4 [8]: Alen Henderson
 5: Couldn't find ringer matching "Lucas Wright" (or aliases)
 Add new ringer as "Lucas" "Wright"? [y/n] (y): 
 >>> 
 [User input: "True"]
-👤 Ringer: 5: Lucas Wright
+👤 Ringer: 5 [9]: Lucas Wright
 6: Couldn't find ringer matching "Lucas Farrell" (or aliases)
 Add new ringer as "Lucas" "Farrell"? [y/n] (y): 
 >>> 
 [User input: "True"]
-👤 Ringer: 6: Lucas Farrell (c)
+👤 Ringer: 6 [10]: Lucas Farrell (c)
 7: Couldn't find ringer matching "Ryan Elliott" (or aliases)
 Add new ringer as "Ryan" "Elliott"? [y/n] (y): 
 >>> 
 [User input: "True"]
-👤 Ringer: 7: Ryan Elliott
+👤 Ringer: 7 [11]: Ryan Elliott
 8: Couldn't find ringer matching "Ted Harris" (or aliases)
 Add new ringer as "Ted" "Harris"? [y/n] (y): 
 >>> 
 [User input: "True"]
-👤 Ringer: 8: Ted Harris
+👤 Ringer: 8 [12]: Ted Harris
 Referenced ringer(s):
   - 1: Lydia Ferguson
 Referenced ringer(s):
@@ -114,12 +111,11 @@ Referenced ringer(s):
 🔗 External reference: Campanophile ID: 1593
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Warning: Tenor weight 17 cwt reported on Bellboard does not match the weight │
-│ of largest bell rung (7-0-16) on Dove                                        │
+│ of largest bell rung (17-1-10) on Dove                                       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Confirm tenor bell (12): 
 >>> 
 [User input: "12"]
-Shifting band by 4 bells
 🔔 Bell type: Tower
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
