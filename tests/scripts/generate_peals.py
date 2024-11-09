@@ -93,7 +93,7 @@ def anonymize_ringer(name: str) -> str:
 
 
 if len(sys.argv) == 2:
-    generate_peal(sys.argv[1])
+    generate_peal(f'https://bb.ringingworld.co.uk/view.php?id={sys.argv[1]}')
 else:
     regenerate_all()
 regenerate_search_response()

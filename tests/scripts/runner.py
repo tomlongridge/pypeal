@@ -37,6 +37,8 @@ def cli_runner(app: Typer, input_file: str):
     for line in console_text.split('\n'):
         if line.startswith('>>> '):
             stdin.append(line[4:])
+        elif line.startswith('###'):
+            pass
         else:
             expected_stdout += line + '\n'
     expected_stdout = expected_stdout.strip()

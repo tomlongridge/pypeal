@@ -604,7 +604,7 @@ Peal (ID 3) added
 Add next peal? [y/n] (y): 
 >>> n
 [User input: "False"]
-2 peal(s) added (2 duplicates)
+2 peal(s) added (1 duplicates)
 1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
 Select option (x = Back) (1): 
 >>> 5
@@ -777,7 +777,7 @@ Peal (ID 4) added
 Add next peal? [y/n] (y): 
 >>> n
 [User input: "False"]
-1 peal(s) added (4 duplicates)
+1 peal(s) added (3 duplicates)
 Save search? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -918,7 +918,7 @@ Peal (ID 5) added
 Add next peal? [y/n] (y): 
 >>> n
 [User input: "False"]
-1 peal(s) added (5 duplicates)
+1 peal(s) added (4 duplicates)
 1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
 Select option (x = Back) (1): 
 >>> 4
@@ -1192,7 +1192,7 @@ Peal (ID 6) added
 Add next peal? [y/n] (y): 
 >>> n
 [User input: "False"]
-1 peal(s) added (6 duplicates)
+1 peal(s) added (5 duplicates)
 Save search? [y/n] (y): 
 >>> y
 [User input: "True"]

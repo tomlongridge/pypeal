@@ -245,6 +245,28 @@
     </method>
   </methodSet>
   <methodSet>
+    <notes>Little Bob Minor methods with a lead length of 8 and 1 hunt bell</notes>
+    <properties>
+      <stage>6</stage>
+      <classification
+        little="true"
+        plain="true">Bob</classification>
+      <lengthOfLead>8</lengthOfLead>
+      <numberOfHunts>1</numberOfHunts>
+      <huntbellPath>1 2 3 4 4 3 2 1</huntbellPath>
+    </properties>
+    <method
+      id="m11932">
+      <title>Little Bob Minor</title>
+      <name />
+      <notation>-16-14,12</notation>
+      <symmetry>palindromic</symmetry>
+      <leadHeadCode>e</leadHeadCode>
+      <leadHead>164523</leadHead>
+      <extensionConstruction>EP1-4</extensionConstruction>
+    </method>
+  </methodSet>
+  <methodSet>
     <notes>Bob Minor methods with a lead length of 12 and 1 hunt bell</notes>
     <properties>
       <stage>6</stage>

@@ -38,7 +38,10 @@ class BellboardMockServer(BaseHTTPRequestHandler):
                 return
             self.respond_with_content(EMPTY_SEARCH_CONTENT, content_type='application/xml')
         elif self.path.startswith('/uploads'):
-            with open(os.path.join(os.path.dirname(__file__), '..', 'files', 'peals') + self.path, 'rb') as f:
+            image_path = os.path.join(os.path.dirname(__file__), '..', 'files', 'peals') + self.path
+            if not os.path.exists(image_path):
+                image_path = os.path.join(os.path.dirname(__file__), '..', 'files', 'peals', 'uploads', 'default.jpg')
+            with open(image_path, 'rb') as f:
                 self.respond_with_content(f.read(), content_type='image/jpeg', encoding=None)
         else:
             self.send_response(404)

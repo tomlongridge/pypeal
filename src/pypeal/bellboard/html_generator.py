@@ -121,6 +121,9 @@ class HTMLPealGenerator(PealGenerator):
             url_element = element[0].select('a')
             if len(url_element) > 0:
                 url_str = config.get_config('bellboard', 'url') + url_element[0]['href']
+            composition_name_element = element[0].select('span.compname')
+            if len(composition_name_element) > 0:
+                composition_note = composition_name_element[0].text.strip()
         listener.composition_details(composer_str, url_str, composition_note)
 
         # Get ringers and their bells and add them to the ringers list

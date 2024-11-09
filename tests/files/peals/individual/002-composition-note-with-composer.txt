@@ -1,0 +1,217 @@
+--reset-database
+===
+===
+Polling for new peals...
+pypeal Database
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) BellBoard search                                                          │
+│ 2) Add peal by ID/URL                                                        │
+│ 3) Add peal manually                                                         │
+│ 4) View statistics                                                           │
+│ 5) Generate reports                                                          │
+│ 6) View peal                                                                 │
+│ 7) Delete peal                                                               │
+│ 8) Update static data                                                        │
+│ 9) Clear app cache                                                           │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> 2
+[User input: "Add peal by ID/URL [2]"]
+Bellboard URL or peal ID: 
+>>> 1701004
+[User input: "1701004"]
+Import peal from BellBoard
+╭───────────────── http://localhost:8080/view.php?id=1701004 ──────────────────╮
+│ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
+│ 1296 Little Bob Royal                                                        │
+│ Composer: Steven Anderson                                                    │
+│ Sunday, 18 February 2024 (18–3–20 in E♭)                                     │
+│                                                                              │
+│ 1: Aston Mitchell                                                            │
+│ 2: George Roberts                                                            │
+│ 3: Paul Armstrong                                                            │
+│ 4: Nicholas Henderson                                                        │
+│ 5: Heather Sullivan                                                          │
+│ 6: Arnold Johnson                                                            │
+│ 7: Melissa Baker                                                             │
+│ 8: Leonardo Bennett                                                          │
+│ 9: Lenny Howard (c)                                                          │
+│ 10: Daryl Mason                                                              │
+│                                                                              │
+│ For morning service.                                                         │
+│ First of Little Bob: 4.                                                      │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=1701004 (submitted by Daryl     │
+│ Mason on Sunday, 18 February 2024; updated Sunday, 18 February 2024)         │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
+>>> 1
+[User input: "Quick mode [1]"]
+🏛 Association: None
+🔔 Bell type: Tower
+📅 Date: Sunday, 18 February 2024
+🔔 Tenor: 2120 in Eb
+⏱ Duration: Unknown
+🏰 Tower: Bath (Bathwick), Somerset
+🔢 Changes: 1296
+Matching peal titled "Little Bob Royal"...
+📕 Title: Little Bob Royal
+Composer: Attempting to find "Steven Anderson"
+Add new ringer as "Steven" "Anderson"? [y/n] (y): 
+>>> n
+[User input: "False"]
+Add new ringer with different name? [y/n] (y): 
+>>> y
+[User input: "True"]
+Last name (Anderson): 
+>>> 
+[User input: "Anderson"]
+Given name(s) (Steven): 
+>>> 
+[User input: "Steven"]
+Title: 
+>>> 
+[User input: "None"]
+🎼 Composer: Steven Anderson
+🎼 Composition: 12824
+1: Couldn't find ringer matching "Aston Mitchell" (or aliases)
+Add new ringer as "Aston" "Mitchell"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 1: Aston Mitchell
+2: Couldn't find ringer matching "George Roberts" (or aliases)
+Add new ringer as "George" "Roberts"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 2: George Roberts
+3: Couldn't find ringer matching "Paul Armstrong" (or aliases)
+Add new ringer as "Paul" "Armstrong"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 3: Paul Armstrong
+4: Couldn't find ringer matching "Nicholas Henderson" (or aliases)
+Add new ringer as "Nicholas" "Henderson"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 4: Nicholas Henderson
+5: Couldn't find ringer matching "Heather Sullivan" (or aliases)
+Add new ringer as "Heather" "Sullivan"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 5: Heather Sullivan
+6: Couldn't find ringer matching "Arnold Johnson" (or aliases)
+Add new ringer as "Arnold" "Johnson"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 6: Arnold Johnson
+7: Couldn't find ringer matching "Melissa Baker" (or aliases)
+Add new ringer as "Melissa" "Baker"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 7: Melissa Baker
+8: Couldn't find ringer matching "Leonardo Bennett" (or aliases)
+Add new ringer as "Leonardo" "Bennett"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 8: Leonardo Bennett
+9: Couldn't find ringer matching "Lenny Howard" (or aliases)
+Add new ringer as "Lenny" "Howard"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 9: Lenny Howard (c)
+10: Couldn't find ringer matching "Daryl Mason" (or aliases)
+Add new ringer as "Daryl" "Mason"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 10: Daryl Mason
+Referenced ringer(s):
+  - 4: Nicholas Henderson
+📝 Footnotes:
+  - For morning service.
+  - [4: Nicholas Henderson] First of Little Bob.
+🔗 Event link: None
+📷 Photo link: None
+📮 Submitted by: Daryl Mason on Sunday, 18 February 2024
+✏️ Updated: Sunday, 18 February 2024
+🔔 Bell type: Tower
+🔕 Muffles: None
+╭──────────────────────────── Confirm performance ─────────────────────────────╮
+│ Bath, Somerset, England                                                      │
+│ Blessed Virgin Mary, Bathwick                                                │
+│ On Sunday, 18 February 2024                                                  │
+│ A Quarter Peal of 1296 Little Bob Royal (18-3-20 in E♭)                      │
+│ Composed by: Steven Anderson                                                 │
+│ Composition: 12824                                                           │
+│                                                                              │
+│ 1: Aston Mitchell                                                            │
+│ 2: George Roberts                                                            │
+│ 3: Paul Armstrong                                                            │
+│ 4: Nicholas Henderson                                                        │
+│ 5: Heather Sullivan                                                          │
+│ 6: Arnold Johnson                                                            │
+│ 7: Melissa Baker                                                             │
+│ 8: Leonardo Bennett                                                          │
+│ 9: Lenny Howard (c)                                                          │
+│ 10: Daryl Mason                                                              │
+│                                                                              │
+│ For morning service.                                                         │
+│ 4: First of Little Bob.                                                      │
+│                                                                              │
+│ [BellBoard: http://localhost:8080/view.php?id=1701004 (Daryl Mason, Sunday,  │
+│ 18 February 2024)]                                                           │
+│ [Composition URL: http://localhost:8080/comp.php?id=2295910]                 │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Peal (ID 1) added
+Bellboard URL or peal ID (enter to exit): 
+>>> 
+[User input: "None"]
+pypeal Database
+ Quarter Peal count: 1                                Last updated: [Timestamp] 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) BellBoard search                                                          │
+│ 2) Add peal by ID/URL                                                        │
+│ 3) Add peal manually                                                         │
+│ 4) View statistics                                                           │
+│ 5) Generate reports                                                          │
+│ 6) View peal                                                                 │
+│ 7) Delete peal                                                               │
+│ 8) Update static data                                                        │
+│ 9) Clear app cache                                                           │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> x
+[User input: "None"]
+===
+Bath, Somerset, England
+Blessed Virgin Mary, Bathwick
+On Sunday, 18 February 2024
+A Quarter Peal of 1296 Little Bob Royal (18-3-20 in E♭)
+Composed by: Steven Anderson
+Composition: 12824
+
+1: Aston Mitchell
+2: George Roberts
+3: Paul Armstrong
+4: Nicholas Henderson
+5: Heather Sullivan
+6: Arnold Johnson
+7: Melissa Baker
+8: Leonardo Bennett
+9: Lenny Howard (c)
+10: Daryl Mason
+
+For morning service.
+4: First of Little Bob.
+
+[BellBoard: http://localhost:8080/view.php?id=1701004 (Daryl Mason, Sunday, 18 February 2024)]
+[Composition URL: http://localhost:8080/comp.php?id=2295910]
+[Database ID: 1]
