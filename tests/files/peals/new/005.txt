@@ -68,21 +68,12 @@ Method details:
 Adding changes of methods to multi-method peal...
 Matching method "cambridge"... [0 methods excluded]
 Matched "cambridge" to method "Cambridge Surprise Minor"
-Number of changes: 
->>> 
-[User input: "None"]
 Method 1: Cambridge Surprise Minor (unknown changes)
 Matching method "ipswich"... [1 methods excluded]
 Matched "ipswich" to method "Ipswich Surprise Minor"
-Number of changes: 
->>> 
-[User input: "None"]
 Method 2: Ipswich Surprise Minor (unknown changes)
 Matching method "norwich"... [2 methods excluded]
 Matched "norwich" to method "Norwich Surprise Minor"
-Number of changes: 
->>> 
-[User input: "None"]
 Method 3: Norwich Surprise Minor (unknown changes)
 📝 Method details:
   - Cambridge Surprise Minor

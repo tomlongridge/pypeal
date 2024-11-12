@@ -1,0 +1,187 @@
+--reset-database
+===
+===
+Polling for new peals...
+pypeal Database
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) BellBoard search                                                          │
+│ 2) Add peal by ID/URL                                                        │
+│ 3) Add peal manually                                                         │
+│ 4) View statistics                                                           │
+│ 5) Generate reports                                                          │
+│ 6) View peal                                                                 │
+│ 7) Delete peal                                                               │
+│ 8) Update static data                                                        │
+│ 9) Clear app cache                                                           │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> 2
+[User input: "Add peal by ID/URL [2]"]
+Bellboard URL or peal ID: 
+>>> 1176329
+[User input: "1176329"]
+Import peal from BellBoard
+╭───────────────── http://localhost:8080/view.php?id=1176329 ──────────────────╮
+│ Christ Church, Bath, Somerset                                                │
+│ Call Changes on Eight                                                        │
+│ From rounds to Queens, to Kings, to Whittingtons, and back to rounds.        │
+│ Thursday, 15 June 2017 (13–0–4 in G)                                         │
+│                                                                              │
+│ 1: Preston Miller                                                            │
+│ 2: Chester Edwards                                                           │
+│ 3: Reid Bailey                                                               │
+│ 4: Arnold Johnson                                                            │
+│ 5: Clark Elliott                                                             │
+│ 6: Maria Johnson                                                             │
+│ 7: John Parker (c)                                                           │
+│ 8: Savana Davis                                                              │
+│                                                                              │
+│ For BBC Music Day, starting at 7.00 PM.                                      │
+│ Followed by a "round peal" with John Cope (6) and Ian Hay Davison (8).       │
+│                                                                              │
+│ Linked event: http://localhost:8080/event.php?id=6361                        │
+│ Bellboard: http://localhost:8080/view.php?id=1176329 (submitted by John      │
+│ Parker on Thursday, 15 June 2017; updated Thursday, 15 June 2017)            │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
+>>> 
+[User input: "Quick mode [1]"]
+🏛 Association: None
+🔔 Bell type: Tower
+📅 Date: Thursday, 15 June 2017
+🔔 Tenor: 1460 in G
+⏱ Duration: Unknown
+🏰 Tower: Bath, Somerset
+🔢 Changes: Unknown
+Matching peal titled "Call Changes on Eight"...
+📕 Title: Call Changes on Eight
+📝 Details: From rounds to Queens, to Kings, to Whittingtons, and back to rounds.
+🎼 Composer: Unknown
+1: Couldn't find ringer matching "Preston Miller" (or aliases)
+Add new ringer as "Preston" "Miller"? [y/n] (y): 
+>>> 
+[User input: "True"]
+Bell number(s) in the tower (max 8) (1): 
+>>> 
+[User input: "1"]
+👤 Ringer: 1: Preston Miller
+2: Couldn't find ringer matching "Chester Edwards" (or aliases)
+Add new ringer as "Chester" "Edwards"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 2: Chester Edwards
+3: Couldn't find ringer matching "Reid Bailey" (or aliases)
+Add new ringer as "Reid" "Bailey"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 3: Reid Bailey
+4: Couldn't find ringer matching "Arnold Johnson" (or aliases)
+Add new ringer as "Arnold" "Johnson"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 4: Arnold Johnson
+5: Couldn't find ringer matching "Clark Elliott" (or aliases)
+Add new ringer as "Clark" "Elliott"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 5: Clark Elliott
+6: Couldn't find ringer matching "Maria Johnson" (or aliases)
+Add new ringer as "Maria" "Johnson"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 6: Maria Johnson
+7: Couldn't find ringer matching "John Parker" (or aliases)
+Add new ringer as "John" "Parker"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 7: John Parker (c)
+8: Couldn't find ringer matching "Savana Davis" (or aliases)
+Add new ringer as "Savana" "Davis"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 8: Savana Davis
+Referenced ringer(s):
+  - 8: Savana Davis
+📝 Footnotes:
+  - For BBC Music Day, starting at 7.00 PM.
+  - [8: Savana Davis] Followed by a "round peal" with John Cope (6) and Ian Hay Davison.
+🔗 Event link: http://localhost:8080/event.php?id=6361
+📷 Photo link: None
+📮 Submitted by: John Parker on Thursday, 15 June 2017
+✏️ Updated: Thursday, 15 June 2017
+🔔 Bell type: Tower
+🔕 Muffles: None
+╭──────────────────────────── Confirm performance ─────────────────────────────╮
+│ Bath, Somerset, England                                                      │
+│ Christ Church                                                                │
+│ On Thursday, 15 June 2017                                                    │
+│ Call Changes on Eight (13-0-4 in G)                                          │
+│ From rounds to Queens, to Kings, to Whittingtons, and back to rounds.        │
+│                                                                              │
+│ 1: Preston Miller                                                            │
+│ 2: Chester Edwards                                                           │
+│ 3: Reid Bailey                                                               │
+│ 4: Arnold Johnson                                                            │
+│ 5: Clark Elliott                                                             │
+│ 6: Maria Johnson                                                             │
+│ 7: John Parker (c)                                                           │
+│ 8: Savana Davis                                                              │
+│                                                                              │
+│ For BBC Music Day, starting at 7.00 PM.                                      │
+│ 8: Followed by a "round peal" with John Cope (6) and Ian Hay Davison.        │
+│                                                                              │
+│ [BellBoard: http://localhost:8080/view.php?id=1176329 (John Parker,          │
+│ Thursday, 15 June 2017)]                                                     │
+│ [Event URL: http://localhost:8080/event.php?id=6361]                         │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Peal (ID 1) added
+Bellboard URL or peal ID (enter to exit): 
+>>> 
+[User input: "None"]
+pypeal Database
+ General Ringing count: 1                             Last updated: [Timestamp] 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) BellBoard search                                                          │
+│ 2) Add peal by ID/URL                                                        │
+│ 3) Add peal manually                                                         │
+│ 4) View statistics                                                           │
+│ 5) Generate reports                                                          │
+│ 6) View peal                                                                 │
+│ 7) Delete peal                                                               │
+│ 8) Update static data                                                        │
+│ 9) Clear app cache                                                           │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> x
+[User input: "None"]
+===
+Bath, Somerset, England
+Christ Church
+On Thursday, 15 June 2017
+Call Changes on Eight (13-0-4 in G)
+From rounds to Queens, to Kings, to Whittingtons, and back to rounds.
+
+1: Preston Miller
+2: Chester Edwards
+3: Reid Bailey
+4: Arnold Johnson
+5: Clark Elliott
+6: Maria Johnson
+7: John Parker (c)
+8: Savana Davis
+
+For BBC Music Day, starting at 7.00 PM.
+8: Followed by a "round peal" with John Cope (6) and Ian Hay Davison.
+
+[BellBoard: http://localhost:8080/view.php?id=1176329 (John Parker, Thursday, 15 June 2017)]
+[Event URL: http://localhost:8080/event.php?id=6361]
+[Database ID: 1]

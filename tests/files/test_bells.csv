@@ -1,90 +1,98 @@
-﻿Bell ID,Place,Dedication,Region,Tower ID,Grid Ref,Latitude,Longitude,Ring ID,Collection Type,Ring Size,Bell Role,Weight (lbs),Weight (approx),Nominal (Hz),Note,Diameter (in),Cast Date,Listed,Founder,Founder Uncertain,Caster,Canons,Turnings,Cracked,Frame ID,In Pit
-20605,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,1,505,,1821.3,A♯,24.88,c2006,,Whitechapel Bell Foundry,,,flat,unturned,,2507,Y
-20606,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,2,520,,1623.5,G♯,25.94,-2006,,Whitechapel Bell Foundry,,,flat,unturned,,2507,Y
-20607,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,3,540,,1529.0,F𝄪,27.00,(1976),,Whitechapel Bell Foundry,,,flat,unturned,,2507,Y
-20608,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,4,631,,1364.0,E♯,29.00,1900 (1893),,John Warner & Sons,,,removed,eighth,,2507,Y
-20609,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,5,645,,1215.0,D♯,30.25,1893,,John Warner & Sons,,,removed,eighth,,2507,Y
-20610,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,6,691,,1145.0,C𝄪,31.50,1889,,John Warner & Sons,,,removed,eighth,,2507,Y
-20611,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,7,704,,1020.0,B♯,32.75,1889,,John Warner & Sons,,,removed,eighth,,2508,Y
-20612,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,8,800,,908.5,A♯,34.50,1889,,John Warner & Sons,,,removed,eighth,,2507,Y
-20613,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,9,993,,809.0,G♯,38.00,1991,,Whitechapel Bell Foundry,,,flat,unturned,,2507,Y
-20614,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,10,1173,,763.0,F𝄪,39.88,1889,,John Warner & Sons,,,removed,eighth,,2508,Y
-20615,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,11,1413,,680.0,E♯,43.38,1864,,John Warner & Sons,,,removed,eighth,,2507,Y
-2482,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,12,1942,,606.0,D♯,48.88,1831,,William Dobson,,,removed,eighth,,2507,Y
-20616,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,6b,698,,1082.0,C♯,31.50,2006,,Whitechapel Bell Foundry,,,flat,unturned,,2508,Y
-35438,Portbury,Blessed Virgin Mary,Somerset,11057,ST502754,51.47565,-2.71731,1058,full-circle ring,6,1,728,Y,1051.0,C,32.00,1885,,Llewellins & James,,,removed,,,5408,Y
-35439,Portbury,Blessed Virgin Mary,Somerset,11057,ST502754,51.47565,-2.71731,1058,full-circle ring,6,2,672,Y,906.0,B♭,32.50,1610,Y,Roger I Purdue,,,removed,,,5408,Y
-35440,Portbury,Blessed Virgin Mary,Somerset,11057,ST502754,51.47565,-2.71731,1058,full-circle ring,6,3,868,Y,815.0,A♭,36.00,1699,Y,Edward Bilbie,,,removed,,,8358,Y
-35441,Portbury,Blessed Virgin Mary,Somerset,11057,ST502754,51.47565,-2.71731,1058,full-circle ring,6,4,1176,Y,765.0,G,40.00,1749,,William Evans,,,removed,,,5408,Y
-35442,Portbury,Blessed Virgin Mary,Somerset,11057,ST502754,51.47565,-2.71731,1058,full-circle ring,6,5,1596,Y,680.5,F,44.50,1749,,William Evans,,,removed,,,5408,Y
-5369,Portbury,Blessed Virgin Mary,Somerset,11057,ST502754,51.47565,-2.71731,1058,full-circle ring,6,6,2352,Y,616.0,E♭,50.00,1713,Y,Edward Bilbie,,,removed,,,5408,Y
-11856,Blythburgh,Holy Trinity,Suffolk,13451,TM450753,52.32109,1.59442,3452,full-circle ring,6,1,469,,1301.5,E,27.00,1950,,Mears & Stainbank,,,flat,unturned,,832,Y
-11857,Blythburgh,Holy Trinity,Suffolk,13451,TM450753,52.32109,1.59442,3452,full-circle ring,6,2,550,,1167.5,D,29.00,1950,,Mears & Stainbank,,,flat,unturned,,832,Y
-11858,Blythburgh,Holy Trinity,Suffolk,13451,TM450753,52.32109,1.59442,3452,full-circle ring,6,3,631,,1040.0,C,31.00,1950,,Mears & Stainbank,,,flat,unturned,,832,Y
-11859,Blythburgh,Holy Trinity,Suffolk,13451,TM450753,52.32109,1.59442,3452,full-circle ring,6,4,635,,974.0,B,31.75,1950,,Mears & Stainbank,,,flat,unturned,,832,Y
-11860,Blythburgh,Holy Trinity,Suffolk,13451,TM450753,52.32109,1.59442,3452,full-circle ring,6,5,860,,878.0,A,34.88,1950,,Mears & Stainbank,,,flat,unturned,,832,Y
-797,Blythburgh,Holy Trinity,Suffolk,13451,TM450753,52.32109,1.59442,3452,full-circle ring,6,6,1158,,778.5,G,39.00,1950,,Mears & Stainbank,,,flat,unturned,,832,Y
-10930,Bexhill on Sea,S Peter,East Sussex,12863,TQ745081,50.84611,0.47863,2864,full-circle ring,10,1c3,499,,1662.5,G♯,25.50,1991,,Whitechapel Bell Foundry,,,flat,,,,Y
-10931,Bexhill on Sea,S Peter,East Sussex,12863,TQ745081,50.84611,0.47863,2864,full-circle ring,10,2c4,517,,1477.5,F♯,26.25,1991,,Whitechapel Bell Foundry,,,flat,,,,Y
-10932,Bexhill on Sea,S Peter,East Sussex,12863,TQ745081,50.84611,0.47863,2864,full-circle ring,10,3c5,538,,1318.5,E,27.25,1991,,Whitechapel Bell Foundry,,,flat,,,,Y
-10933,Bexhill on Sea,S Peter,East Sussex,12863,TQ745081,50.84611,0.47863,2864,full-circle ring,10,4c6,556,,1246.5,D♯,28.38,1769,,Lester & Pack,,,,,,,Y
-10934,Bexhill on Sea,S Peter,East Sussex,12863,TQ745081,50.84611,0.47863,2864,full-circle ring,10,5c7,627,,1107.0,C♯,30.88,1892,,Mears & Stainbank,,,removed,,,,Y
-10935,Bexhill on Sea,S Peter,East Sussex,12863,TQ745081,50.84611,0.47863,2864,full-circle ring,10,6c8,700,,989.5,B,32.13,1769,,"Lester, Pack & Chapman",,,,,,,Y
-10936,Bexhill on Sea,S Peter,East Sussex,12863,TQ745081,50.84611,0.47863,2864,full-circle ring,10,7c9,941,,882.5,A,33.25,1991,,Whitechapel Bell Foundry,,,flat,,,,Y
-10937,Bexhill on Sea,S Peter,East Sussex,12863,TQ745081,50.84611,0.47863,2864,full-circle ring,10,8c10,995,,833.0,G♯,37.50,1865,,George Mears,,,removed,,,,Y
-10938,Bexhill on Sea,S Peter,East Sussex,12863,TQ745081,50.84611,0.47863,2864,full-circle ring,10,9c11,1292,,742.0,F♯,41.00,1955,,Mears & Stainbank,,,flat,,,,Y
-628,Bexhill on Sea,S Peter,East Sussex,12863,TQ745081,50.84611,0.47863,2864,full-circle ring,10,10c12,1975,,659.5,E,46.00,1991,,Whitechapel Bell Foundry,,,flat,,,,Y
-10939,Bexhill on Sea,S Peter,East Sussex,12863,TQ745081,50.84611,0.47863,2864,full-circle ring,10,7#,803,,938.5,A♯,34.38,1867,,Mears & Stainbank,,,,,,,Y
-10181,Bath,"Blessed Virgin Mary, Bathwick",Somerset,13019,ST756650,51.38421,-2.35115,3020,full-circle ring,10,1,650,,1592.0,G,27.25,1986,,Whitechapel Bell Foundry,,,flat,unturned,,483,Y
-10182,Bath,"Blessed Virgin Mary, Bathwick",Somerset,13019,ST756650,51.38421,-2.35115,3020,full-circle ring,10,2,647,,1422.0,F,28.38,1986,,Whitechapel Bell Foundry,,,flat,unturned,,483,Y
-10183,Bath,"Blessed Virgin Mary, Bathwick",Somerset,13019,ST756650,51.38421,-2.35115,3020,full-circle ring,10,3,647,,1272.0,E♭,30.63,1897,,John Warner & Sons,,,removed,eighth,,482,Y
-10184,Bath,"Blessed Virgin Mary, Bathwick",Somerset,13019,ST756650,51.38421,-2.35115,3020,full-circle ring,10,4,715,,1192.0,D,31.63,1897,,John Warner & Sons,,,removed,eighth,,483,Y
-10185,Bath,"Blessed Virgin Mary, Bathwick",Somerset,13019,ST756650,51.38421,-2.35115,3020,full-circle ring,10,5,719,,1064.0,C,32.88,1819,,Thomas II Mears,,,removed,eighth,,483,Y
-10186,Bath,"Blessed Virgin Mary, Bathwick",Somerset,13019,ST756650,51.38421,-2.35115,3020,full-circle ring,10,6,880,,952.0,B♭,35.13,1880,,John Warner & Sons,,,removed,eighth,,482,Y
-10187,Bath,"Blessed Virgin Mary, Bathwick",Somerset,13019,ST756650,51.38421,-2.35115,3020,full-circle ring,10,7,1012,,848.0,A♭,38.19,1819,,Thomas II Mears,,,removed,eighth,,482,Y
-10188,Bath,"Blessed Virgin Mary, Bathwick",Somerset,13019,ST756650,51.38421,-2.35115,3020,full-circle ring,10,8,1262,,792.0,G,40.00,1880,,John Warner & Sons,,,removed,eighth,,482,Y
-10189,Bath,"Blessed Virgin Mary, Bathwick",Somerset,13019,ST756650,51.38421,-2.35115,3020,full-circle ring,10,9,1547,,708.0,F,44.00,1818,,John Rudhall,,,removed,eighth,,483,Y
-484,Bath,"Blessed Virgin Mary, Bathwick",Somerset,13019,ST756650,51.38421,-2.35115,3020,full-circle ring,10,10,2120,,632.0,E♭,49.50,1819,,Thomas II Mears,,,removed,eighth,,482,Y
-43471,Twickenham,All Hallows,Greater London,12600,TQ158741,51.45435,-0.33422,2601,full-circle ring,10,1,507,,1626.0,G♯,26.00,1988,,Whitechapel Bell Foundry,,,flat,unturned,,6944,Y
-43472,Twickenham,All Hallows,Greater London,12600,TQ158741,51.45435,-0.33422,2601,full-circle ring,10,2,553,,1464.0,F♯,27.25,1988,,Whitechapel Bell Foundry,,,flat,unturned,,6944,Y
-43473,Twickenham,All Hallows,Greater London,12600,TQ158741,51.45435,-0.33422,2601,full-circle ring,10,3,620,,1304.0,E,28.75,1726,,Richard Phelps,,,removed,quarter,,6944,Y
-43474,Twickenham,All Hallows,Greater London,12600,TQ158741,51.45435,-0.33422,2601,full-circle ring,10,4,718,,1222.0,D♯,31.00,1750,,Thomas Lester,,,removed,quarter,,6944,Y
-43475,Twickenham,All Hallows,Greater London,12600,TQ158741,51.45435,-0.33422,2601,full-circle ring,10,5,746,,1080.0,C♯,32.75,1726,,Richard Phelps,,,removed,quarter,,6944,Y
-43476,Twickenham,All Hallows,Greater London,12600,TQ158741,51.45435,-0.33422,2601,full-circle ring,10,6,823,,972.0,B,34.50,1726,,Richard Phelps,,,removed,quarter,,6944,Y
-43477,Twickenham,All Hallows,Greater London,12600,TQ158741,51.45435,-0.33422,2601,full-circle ring,10,7,1211,,864.0,A,39.00,1726,,Richard Phelps,,,removed,quarter,,6944,Y
-43478,Twickenham,All Hallows,Greater London,12600,TQ158741,51.45435,-0.33422,2601,full-circle ring,10,8,1356,,808.0,G♯,40.00,1951,,Mears & Stainbank,,,flat,unturned,,6944,Y
-43479,Twickenham,All Hallows,Greater London,12600,TQ158741,51.45435,-0.33422,2601,full-circle ring,10,9,1554,,730.0,F♯,43.25,1726,,Richard Phelps,,,removed,quarter,,6944,Y
-6944,Twickenham,All Hallows,Greater London,12600,TQ158741,51.45435,-0.33422,2601,full-circle ring,10,10,2095,,648.0,E,48.00,1951,,Mears & Stainbank,,,flat,unturned,,6944,Y
-29666,Longney,S Lawrence,Gloucestershire,12074,SO763124,51.81002,-2.34393,2075,full-circle ring,8,1,531,,1386.0,F,26.13,1914,,John Taylor & Co,,,flat,unturned,,4301,Y
-29667,Longney,S Lawrence,Gloucestershire,12074,SO763124,51.81002,-2.34393,2075,full-circle ring,8,2,574,,1305.0,E,27.00,1914,,John Taylor & Co,,,flat,unturned,,4301,Y
-29668,Longney,S Lawrence,Gloucestershire,12074,SO763124,51.81002,-2.34393,2075,full-circle ring,8,3,571,,1161.0,D,29.00,1914,,John Taylor & Co,,,flat,unturned,,4301,Y
-29669,Longney,S Lawrence,Gloucestershire,12074,SO763124,51.81002,-2.34393,2075,full-circle ring,8,4,601,,1036.5,C,31.13,1796,,John Rudhall,,,removed,turned,,4301,Y
-29670,Longney,S Lawrence,Gloucestershire,12074,SO763124,51.81002,-2.34393,2075,full-circle ring,8,5,645,,923.0,B♭,31.63,1796,,John Rudhall,,,removed,turned,,4301,Y
-29671,Longney,S Lawrence,Gloucestershire,12074,SO763124,51.81002,-2.34393,2075,full-circle ring,8,6,814,,870.0,A,35.38,1712,,Abraham I Rudhall,,,removed,turned,,4301,Y
-29672,Longney,S Lawrence,Gloucestershire,12074,SO763124,51.81002,-2.34393,2075,full-circle ring,8,7,1101,,776.5,G,38.38,1914,,John Taylor & Co,,,flat,unturned,,4301,Y
-4254,Longney,S Lawrence,Gloucestershire,12074,SO763124,51.81002,-2.34393,2075,full-circle ring,8,8,1221,,692.0,F,41.75,1899,,John Warner & Sons,,,removed,turned,,4301,Y
-38128,Saxmundham,S John Bapt,Suffolk,10145,TM388629,52.21285,1.49535,146,full-circle ring,6,1,441,,1424.0,F♯,25.75,1938,,Alfred Bowell,,,flat,unturned,,5881,Y
-38129,Saxmundham,S John Bapt,Suffolk,10145,TM388629,52.21285,1.49535,146,full-circle ring,6,2,448,Y,1271.0,E,27.94,1880,,John Warner & Sons,,,conventional,unturned,,5881,Y
-38130,Saxmundham,S John Bapt,Suffolk,10145,TM388629,52.21285,1.49535,146,full-circle ring,6,3,476,Y,1145.0,D,28.19,c1530,Y,Roger Reve,Y,,conventional,quarter,,5881,Y
-38131,Saxmundham,S John Bapt,Suffolk,10145,TM388629,52.21285,1.49535,146,full-circle ring,6,4,532,Y,1089.0,C♯,30.50,c1440,Y,John Sturdy,Y,,removed,eighth,,5881,Y
-38132,Saxmundham,S John Bapt,Suffolk,10145,TM388629,52.21285,1.49535,146,full-circle ring,6,5,672,Y,968.0,B,33.07,c1440,Y,John Sturdy,Y,,removed,eighth,,5881,Y
-5887,Saxmundham,S John Bapt,Suffolk,10145,TM388629,52.21285,1.49535,146,full-circle ring,6,6,987,,861.0,A,36.32,1762,,Lester & Pack,,,removed,quarter,,5881,Y
-39126,Shrivenham,S Andrew,Oxfordshire,16485,SU240890,51.60003,-1.65374,6486,full-circle ring,10,1,481,,,A,24.88,2003,,Whitechapel Bell Foundry,,,flat,,,,Y
-39127,Shrivenham,S Andrew,Oxfordshire,16485,SU240890,51.60003,-1.65374,6486,full-circle ring,10,2,508,,,G,25.94,2003,,Whitechapel Bell Foundry,,,flat,,,,Y
-39128,Shrivenham,S Andrew,Oxfordshire,16485,SU240890,51.60003,-1.65374,6486,full-circle ring,10,3,567,,,F,27.56,1948,,Gillett & Johnston,,,flat,,,,Y
-39129,Shrivenham,S Andrew,Oxfordshire,16485,SU240890,51.60003,-1.65374,6486,full-circle ring,10,4,607,,,E,28.56,1948,,Gillett & Johnston,,,flat,,,,Y
-39130,Shrivenham,S Andrew,Oxfordshire,16485,SU240890,51.60003,-1.65374,6486,full-circle ring,10,5,591,,,D,30.25,1908,,Mears & Stainbank,,,removed,,,,Y
-39131,Shrivenham,S Andrew,Oxfordshire,16485,SU240890,51.60003,-1.65374,6486,full-circle ring,10,6,689,,,C,32.25,1908,,Mears & Stainbank,,,removed,,,,Y
-39132,Shrivenham,S Andrew,Oxfordshire,16485,SU240890,51.60003,-1.65374,6486,full-circle ring,10,7,767,,,B♭,34.75,1908,,Mears & Stainbank,,,removed,,,,Y
-39133,Shrivenham,S Andrew,Oxfordshire,16485,SU240890,51.60003,-1.65374,6486,full-circle ring,10,8,883,,,A,36.63,1908,,Mears & Stainbank,,,removed,,,,Y
-39134,Shrivenham,S Andrew,Oxfordshire,16485,SU240890,51.60003,-1.65374,6486,full-circle ring,10,9,1088,,,G,39.75,1908,,Mears & Stainbank,,,removed,,,,Y
-6078,Shrivenham,S Andrew,Oxfordshire,16485,SU240890,51.60003,-1.65374,6486,full-circle ring,10,10,1458,,,F,43.94,1908,,Mears & Stainbank,,,removed,,,,Y
-10190,Bath,"S Stephen, Lansdown",Somerset,12686,ST748660,51.39259,-2.36357,2687,full-circle ring,6,1,147,,2312.2,D,17.25,2007,,Whitechapel Bell Foundry,,,flat,unturned,,484,Y
-10191,Bath,"S Stephen, Lansdown",Somerset,12686,ST748660,51.39259,-2.36357,2687,full-circle ring,6,2,155,,2067.0,C,18.19,2007,,Whitechapel Bell Foundry,,,flat,unturned,,484,Y
-10192,Bath,"S Stephen, Lansdown",Somerset,12686,ST748660,51.39259,-2.36357,2687,full-circle ring,6,3,163,,1848.2,B♭,18.81,2007,,Whitechapel Bell Foundry,,,flat,unturned,,484,Y
-10193,Bath,"S Stephen, Lansdown",Somerset,12686,ST748660,51.39259,-2.36357,2687,full-circle ring,6,4,184,,1729.3,A,19.88,2007,,Whitechapel Bell Foundry,,,flat,unturned,,484,Y
-10194,Bath,"S Stephen, Lansdown",Somerset,12686,ST748660,51.39259,-2.36357,2687,full-circle ring,6,5,240,,1546.4,G,21.50,1961,,John Taylor & Co,,,flat,unturned,,484,Y
-485,Bath,"S Stephen, Lansdown",Somerset,12686,ST748660,51.39259,-2.36357,2687,full-circle ring,6,6,317,,1381.8,F,23.94,1974,,John Taylor & Co,,,flat,unturned,,484,Y
+﻿Bell ID,Place,Dedication,Region,Tower ID,Grid Ref,Latitude,Longitude,Ring ID,Collection Type,Ring Size,Bell Role,Bell Name,Weight (lbs),Weight (approx),Nominal (Hz),Note,Diameter (in),Cast Date,Listed,Founder,Founder Uncertain,Caster,Canons,Turnings,Cracked,Frame ID,In Pit
+20605,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,1,,505,,1821.3,A♯,24.88,2006,,Whitechapel Bell Foundry,,,flat,unturned,,2507,Y
+20606,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,2,,520,,1623.5,G♯,25.94,2006,,Whitechapel Bell Foundry,,,flat,unturned,,2507,Y
+20607,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,3,,540,,1529.0,F𝄪,27.00,1976,,Whitechapel Bell Foundry,,,flat,unturned,,2507,Y
+20608,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,4,,631,,1364.0,E♯,29.00,1893,,John Warner & Sons,,,removed,eighth,,2507,Y
+20609,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,5,,645,,1215.0,D♯,30.25,1893,,John Warner & Sons,,,removed,eighth,,2507,Y
+20610,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,6,,691,,1145.0,C𝄪,31.50,1889,,John Warner & Sons,,,removed,eighth,,2507,Y
+20611,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,7,,704,,1020.0,B♯,32.75,1889,,John Warner & Sons,,,removed,eighth,,2508,Y
+20612,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,8,,800,,908.5,A♯,34.50,1889,,John Warner & Sons,,,removed,eighth,,2507,Y
+20613,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,9,,993,,809.0,G♯,38.00,1991,,Whitechapel Bell Foundry,,,flat,unturned,,2507,Y
+20614,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,10,,1173,,763.0,F𝄪,39.88,1889,,John Warner & Sons,,,removed,eighth,,2508,Y
+20615,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,11,,1413,,680.0,E♯,43.38,1864,,John Warner & Sons,,,removed,eighth,,2507,Y
+2482,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,12,,1942,,606.0,D♯,48.88,1831,,William Dobson,,,removed,eighth,,2507,Y
+20616,Withycombe Raleigh,S John Ev,Devon,16183,SY007818,50.62773,-3.40411,6184,full-circle ring,12,6b,,698,,1082.0,C♯,31.50,2006,,Whitechapel Bell Foundry,,,flat,unturned,,2508,Y
+35438,Portbury,Blessed Virgin Mary,Somerset,11057,ST502754,51.47565,-2.71731,1058,full-circle ring,6,1,,728,Y,1051.0,C,32.00,1885,,Llewellins & James,,,removed,,,5408,Y
+35439,Portbury,Blessed Virgin Mary,Somerset,11057,ST502754,51.47565,-2.71731,1058,full-circle ring,6,2,,672,Y,906.0,B♭,32.50,1610,Y,Roger I Purdue,,,removed,,,5408,Y
+35440,Portbury,Blessed Virgin Mary,Somerset,11057,ST502754,51.47565,-2.71731,1058,full-circle ring,6,3,,868,Y,815.0,A♭,36.00,1699,Y,Edward Bilbie,,,removed,,,8358,Y
+35441,Portbury,Blessed Virgin Mary,Somerset,11057,ST502754,51.47565,-2.71731,1058,full-circle ring,6,4,,1176,Y,765.0,G,40.00,1749,,William Evans,,,removed,,,5408,Y
+35442,Portbury,Blessed Virgin Mary,Somerset,11057,ST502754,51.47565,-2.71731,1058,full-circle ring,6,5,,1596,Y,680.5,F,44.50,1749,,William Evans,,,removed,,,5408,Y
+5369,Portbury,Blessed Virgin Mary,Somerset,11057,ST502754,51.47565,-2.71731,1058,full-circle ring,6,6,,2352,Y,616.0,E♭,50.00,1713,Y,Edward Bilbie,,,removed,,,5408,Y
+11856,Blythburgh,Holy Trinity,Suffolk,13451,TM450753,52.32109,1.59442,3452,full-circle ring,6,1,,469,,1301.5,E,27.00,1950,,Mears & Stainbank,,,flat,unturned,,832,Y
+11857,Blythburgh,Holy Trinity,Suffolk,13451,TM450753,52.32109,1.59442,3452,full-circle ring,6,2,,550,,1167.5,D,29.00,1950,,Mears & Stainbank,,,flat,unturned,,832,Y
+11858,Blythburgh,Holy Trinity,Suffolk,13451,TM450753,52.32109,1.59442,3452,full-circle ring,6,3,,631,,1040.0,C,31.00,1950,,Mears & Stainbank,,,flat,unturned,,832,Y
+11859,Blythburgh,Holy Trinity,Suffolk,13451,TM450753,52.32109,1.59442,3452,full-circle ring,6,4,,635,,974.0,B,31.75,1950,,Mears & Stainbank,,,flat,unturned,,832,Y
+11860,Blythburgh,Holy Trinity,Suffolk,13451,TM450753,52.32109,1.59442,3452,full-circle ring,6,5,,860,,878.0,A,34.88,1950,,Mears & Stainbank,,,flat,unturned,,832,Y
+797,Blythburgh,Holy Trinity,Suffolk,13451,TM450753,52.32109,1.59442,3452,full-circle ring,6,6,,1158,,778.5,G,39.00,1950,,Mears & Stainbank,,,flat,unturned,,832,Y
+10930,Bexhill on Sea,S Peter,East Sussex,12863,TQ745081,50.84611,0.47863,2864,full-circle ring,10,1,,499,,1662.5,G♯,25.50,1991,,Whitechapel Bell Foundry,,,flat,,,,Y
+10931,Bexhill on Sea,S Peter,East Sussex,12863,TQ745081,50.84611,0.47863,2864,full-circle ring,10,2,,517,,1477.5,F♯,26.25,1991,,Whitechapel Bell Foundry,,,flat,,,,Y
+10932,Bexhill on Sea,S Peter,East Sussex,12863,TQ745081,50.84611,0.47863,2864,full-circle ring,10,3,,538,,1318.5,E,27.25,1991,,Whitechapel Bell Foundry,,,flat,,,,Y
+10933,Bexhill on Sea,S Peter,East Sussex,12863,TQ745081,50.84611,0.47863,2864,full-circle ring,10,4,,556,,1246.5,D♯,28.38,1769,,Lester & Pack,,,,,,,Y
+10934,Bexhill on Sea,S Peter,East Sussex,12863,TQ745081,50.84611,0.47863,2864,full-circle ring,10,5,,627,,1107.0,C♯,30.88,1892,,Mears & Stainbank,,,removed,,,,Y
+10935,Bexhill on Sea,S Peter,East Sussex,12863,TQ745081,50.84611,0.47863,2864,full-circle ring,10,6,,700,,989.5,B,32.13,1769,,"Lester, Pack & Chapman",,,,,,,Y
+10936,Bexhill on Sea,S Peter,East Sussex,12863,TQ745081,50.84611,0.47863,2864,full-circle ring,10,7,,941,,882.5,A,33.25,1991,,Whitechapel Bell Foundry,,,flat,,,,Y
+10937,Bexhill on Sea,S Peter,East Sussex,12863,TQ745081,50.84611,0.47863,2864,full-circle ring,10,8,,995,,833.0,G♯,37.50,1865,,George Mears,,,removed,,,,Y
+10938,Bexhill on Sea,S Peter,East Sussex,12863,TQ745081,50.84611,0.47863,2864,full-circle ring,10,9,,1292,,742.0,F♯,41.00,1955,,Mears & Stainbank,,,flat,,,,Y
+628,Bexhill on Sea,S Peter,East Sussex,12863,TQ745081,50.84611,0.47863,2864,full-circle ring,10,10,,1975,,659.5,E,46.00,1991,,Whitechapel Bell Foundry,,,flat,,,,Y
+10939,Bexhill on Sea,S Peter,East Sussex,12863,TQ745081,50.84611,0.47863,2864,full-circle ring,10,7#,,803,,938.5,A♯,34.38,1867,,Mears & Stainbank,,,,,,,Y
+10181,Bath,"Blessed Virgin Mary, Bathwick",Somerset,13019,ST756650,51.38421,-2.35115,3020,full-circle ring,10,1,,650,,1592.0,G,27.25,1986,,Whitechapel Bell Foundry,,,flat,unturned,,482,Y
+10182,Bath,"Blessed Virgin Mary, Bathwick",Somerset,13019,ST756650,51.38421,-2.35115,3020,full-circle ring,10,2,,647,,1422.0,F,28.38,1986,,Whitechapel Bell Foundry,,,flat,unturned,,483,Y
+10183,Bath,"Blessed Virgin Mary, Bathwick",Somerset,13019,ST756650,51.38421,-2.35115,3020,full-circle ring,10,3,,647,,1272.0,E♭,30.63,1897,,John Warner & Sons,,,removed,eighth,,482,Y
+10184,Bath,"Blessed Virgin Mary, Bathwick",Somerset,13019,ST756650,51.38421,-2.35115,3020,full-circle ring,10,4,,715,,1192.0,D,31.63,1897,,John Warner & Sons,,,removed,eighth,,483,Y
+10185,Bath,"Blessed Virgin Mary, Bathwick",Somerset,13019,ST756650,51.38421,-2.35115,3020,full-circle ring,10,5,,719,,1064.0,C,32.88,1819,,Thomas II Mears,,,removed,eighth,,483,Y
+10186,Bath,"Blessed Virgin Mary, Bathwick",Somerset,13019,ST756650,51.38421,-2.35115,3020,full-circle ring,10,6,,880,,952.0,B♭,35.13,1880,,John Warner & Sons,,,removed,eighth,,482,Y
+10187,Bath,"Blessed Virgin Mary, Bathwick",Somerset,13019,ST756650,51.38421,-2.35115,3020,full-circle ring,10,7,,1012,,848.0,A♭,38.19,1819,,Thomas II Mears,,,removed,eighth,,482,Y
+10188,Bath,"Blessed Virgin Mary, Bathwick",Somerset,13019,ST756650,51.38421,-2.35115,3020,full-circle ring,10,8,,1262,,792.0,G,40.00,1880,,John Warner & Sons,,,removed,eighth,,483,Y
+10189,Bath,"Blessed Virgin Mary, Bathwick",Somerset,13019,ST756650,51.38421,-2.35115,3020,full-circle ring,10,9,,1547,,708.0,F,44.00,1818,,John Rudhall,,,removed,eighth,,482,Y
+484,Bath,"Blessed Virgin Mary, Bathwick",Somerset,13019,ST756650,51.38421,-2.35115,3020,full-circle ring,10,10,,2120,,632.0,E♭,49.50,1819,,Thomas II Mears,,,removed,eighth,,482,Y
+43471,Twickenham,All Hallows,Greater London,12600,TQ158741,51.45435,-0.33422,2601,full-circle ring,10,1,,507,,1626.0,G♯,26.00,1988,,Whitechapel Bell Foundry,,,flat,unturned,,6944,Y
+43472,Twickenham,All Hallows,Greater London,12600,TQ158741,51.45435,-0.33422,2601,full-circle ring,10,2,,553,,1464.0,F♯,27.25,1988,,Whitechapel Bell Foundry,,,flat,unturned,,6944,Y
+43473,Twickenham,All Hallows,Greater London,12600,TQ158741,51.45435,-0.33422,2601,full-circle ring,10,3,,620,,1304.0,E,28.75,1726,,Richard Phelps,,,removed,quarter,,6944,Y
+43474,Twickenham,All Hallows,Greater London,12600,TQ158741,51.45435,-0.33422,2601,full-circle ring,10,4,,718,,1222.0,D♯,31.00,1750,,Thomas Lester,,,removed,quarter,,6944,Y
+43475,Twickenham,All Hallows,Greater London,12600,TQ158741,51.45435,-0.33422,2601,full-circle ring,10,5,,746,,1080.0,C♯,32.75,1726,,Richard Phelps,,,removed,quarter,,6944,Y
+43476,Twickenham,All Hallows,Greater London,12600,TQ158741,51.45435,-0.33422,2601,full-circle ring,10,6,,823,,972.0,B,34.50,1726,,Richard Phelps,,,removed,quarter,,6944,Y
+43477,Twickenham,All Hallows,Greater London,12600,TQ158741,51.45435,-0.33422,2601,full-circle ring,10,7,,1211,,864.0,A,39.00,1726,,Richard Phelps,,,removed,quarter,,6944,Y
+43478,Twickenham,All Hallows,Greater London,12600,TQ158741,51.45435,-0.33422,2601,full-circle ring,10,8,,1356,,808.0,G♯,40.00,1951,,Mears & Stainbank,,,flat,unturned,,6944,Y
+43479,Twickenham,All Hallows,Greater London,12600,TQ158741,51.45435,-0.33422,2601,full-circle ring,10,9,,1554,,730.0,F♯,43.25,1726,,Richard Phelps,,,removed,quarter,,6944,Y
+6944,Twickenham,All Hallows,Greater London,12600,TQ158741,51.45435,-0.33422,2601,full-circle ring,10,10,,2095,,648.0,E,48.00,1951,,Mears & Stainbank,,,flat,unturned,,6944,Y
+29666,Longney,S Lawrence,Gloucestershire,12074,SO763124,51.81002,-2.34393,2075,full-circle ring,8,1,,531,,1386.0,F,26.13,1914,,John Taylor & Co,,,flat,unturned,,4301,Y
+29667,Longney,S Lawrence,Gloucestershire,12074,SO763124,51.81002,-2.34393,2075,full-circle ring,8,2,,574,,1305.0,E,27.00,1914,,John Taylor & Co,,,flat,unturned,,4301,Y
+29668,Longney,S Lawrence,Gloucestershire,12074,SO763124,51.81002,-2.34393,2075,full-circle ring,8,3,,571,,1161.0,D,29.00,1914,,John Taylor & Co,,,flat,unturned,,4301,Y
+29669,Longney,S Lawrence,Gloucestershire,12074,SO763124,51.81002,-2.34393,2075,full-circle ring,8,4,,601,,1036.5,C,31.13,1796,,John Rudhall,,,removed,turned,,4301,Y
+29670,Longney,S Lawrence,Gloucestershire,12074,SO763124,51.81002,-2.34393,2075,full-circle ring,8,5,,645,,923.0,B♭,31.63,1796,,John Rudhall,,,removed,turned,,4301,Y
+29671,Longney,S Lawrence,Gloucestershire,12074,SO763124,51.81002,-2.34393,2075,full-circle ring,8,6,,814,,870.0,A,35.38,1712,,Abraham I Rudhall,,,removed,turned,,4301,Y
+29672,Longney,S Lawrence,Gloucestershire,12074,SO763124,51.81002,-2.34393,2075,full-circle ring,8,7,,1101,,776.5,G,38.38,1914,,John Taylor & Co,,,flat,unturned,,4301,Y
+4254,Longney,S Lawrence,Gloucestershire,12074,SO763124,51.81002,-2.34393,2075,full-circle ring,8,8,,1221,,692.0,F,41.75,1899,,John Warner & Sons,,,removed,turned,,4301,Y
+38128,Saxmundham,S John Bapt,Suffolk,10145,TM388629,52.21285,1.49535,146,full-circle ring,6,1,,441,,1424.0,F♯,25.75,1938,,Alfred Bowell,,,flat,unturned,,5881,Y
+38129,Saxmundham,S John Bapt,Suffolk,10145,TM388629,52.21285,1.49535,146,full-circle ring,6,2,,448,Y,1271.0,E,27.94,1880,,John Warner & Sons,,,conventional,unturned,,5881,Y
+38130,Saxmundham,S John Bapt,Suffolk,10145,TM388629,52.21285,1.49535,146,full-circle ring,6,3,,476,Y,1145.0,D,28.19,c1530,Y,Roger Reve,Y,,conventional,quarter,,5881,Y
+38131,Saxmundham,S John Bapt,Suffolk,10145,TM388629,52.21285,1.49535,146,full-circle ring,6,4,,532,Y,1089.0,C♯,30.50,c1440,Y,John Sturdy,Y,,removed,eighth,,5881,Y
+38132,Saxmundham,S John Bapt,Suffolk,10145,TM388629,52.21285,1.49535,146,full-circle ring,6,5,,672,Y,968.0,B,33.07,c1440,Y,John Sturdy,Y,,removed,eighth,,5881,Y
+5887,Saxmundham,S John Bapt,Suffolk,10145,TM388629,52.21285,1.49535,146,full-circle ring,6,6,,987,,861.0,A,36.32,1762,,Lester & Pack,,,removed,quarter,,5881,Y
+39126,Shrivenham,S Andrew,Oxfordshire,16485,SU240890,51.60003,-1.65374,6486,full-circle ring,10,1,,481,,,A,24.88,2003,,Whitechapel Bell Foundry,,,flat,,,,Y
+39127,Shrivenham,S Andrew,Oxfordshire,16485,SU240890,51.60003,-1.65374,6486,full-circle ring,10,2,,508,,,G,25.94,2003,,Whitechapel Bell Foundry,,,flat,,,,Y
+39128,Shrivenham,S Andrew,Oxfordshire,16485,SU240890,51.60003,-1.65374,6486,full-circle ring,10,3,,567,,,F,27.56,1948,,Gillett & Johnston,,,flat,,,,Y
+39129,Shrivenham,S Andrew,Oxfordshire,16485,SU240890,51.60003,-1.65374,6486,full-circle ring,10,4,,607,,,E,28.56,1948,,Gillett & Johnston,,,flat,,,,Y
+39130,Shrivenham,S Andrew,Oxfordshire,16485,SU240890,51.60003,-1.65374,6486,full-circle ring,10,5,,591,,,D,30.25,1908,,Mears & Stainbank,,,removed,,,,Y
+39131,Shrivenham,S Andrew,Oxfordshire,16485,SU240890,51.60003,-1.65374,6486,full-circle ring,10,6,,689,,,C,32.25,1908,,Mears & Stainbank,,,removed,,,,Y
+39132,Shrivenham,S Andrew,Oxfordshire,16485,SU240890,51.60003,-1.65374,6486,full-circle ring,10,7,,767,,,B♭,34.75,1908,,Mears & Stainbank,,,removed,,,,Y
+39133,Shrivenham,S Andrew,Oxfordshire,16485,SU240890,51.60003,-1.65374,6486,full-circle ring,10,8,,883,,,A,36.63,1908,,Mears & Stainbank,,,removed,,,,Y
+39134,Shrivenham,S Andrew,Oxfordshire,16485,SU240890,51.60003,-1.65374,6486,full-circle ring,10,9,,1088,,,G,39.75,1908,,Mears & Stainbank,,,removed,,,,Y
+6078,Shrivenham,S Andrew,Oxfordshire,16485,SU240890,51.60003,-1.65374,6486,full-circle ring,10,10,,1458,,,F,43.94,1908,,Mears & Stainbank,,,removed,,,,Y
+10190,Bath,"S Stephen, Lansdown",Somerset,12686,ST748660,51.39259,-2.36357,2687,full-circle ring,6,1,,147,,2312.2,D,17.25,2007,,Whitechapel Bell Foundry,,,flat,unturned,,484,Y
+10191,Bath,"S Stephen, Lansdown",Somerset,12686,ST748660,51.39259,-2.36357,2687,full-circle ring,6,2,,155,,2067.0,C,18.19,2007,,Whitechapel Bell Foundry,,,flat,unturned,,484,Y
+10192,Bath,"S Stephen, Lansdown",Somerset,12686,ST748660,51.39259,-2.36357,2687,full-circle ring,6,3,,163,,1848.2,B♭,18.81,2007,,Whitechapel Bell Foundry,,,flat,unturned,,484,Y
+10193,Bath,"S Stephen, Lansdown",Somerset,12686,ST748660,51.39259,-2.36357,2687,full-circle ring,6,4,,184,,1729.3,A,19.88,2007,,Whitechapel Bell Foundry,,,flat,unturned,,484,Y
+10194,Bath,"S Stephen, Lansdown",Somerset,12686,ST748660,51.39259,-2.36357,2687,full-circle ring,6,5,,240,,1546.4,G,21.50,1961,,John Taylor & Co,,,flat,unturned,,484,Y
+485,Bath,"S Stephen, Lansdown",Somerset,12686,ST748660,51.39259,-2.36357,2687,full-circle ring,6,6,,317,,1381.8,F,23.94,1974,,John Taylor & Co,,,flat,unturned,,484,Y
+10210,Bath,Christ Church,Somerset,14089,ST748654,51.38767,-2.36262,4090,full-circle ring,8,1,,426,,1554.5,G,25.19,2014,,Whitechapel Bell Foundry,,,flat,unturned,,489,Y
+10211,Bath,Christ Church,Somerset,14089,ST748654,51.38767,-2.36262,4090,full-circle ring,8,2,,440,,1457.1,F♯,25.69,2014,,Whitechapel Bell Foundry,,,flat,unturned,,489,Y
+10212,Bath,Christ Church,Somerset,14089,ST748654,51.38767,-2.36262,4090,full-circle ring,8,3,,493,,1299.6,E,27.09,2014,,Whitechapel Bell Foundry,,,flat,unturned,,489,Y
+10213,Bath,Christ Church,Somerset,14089,ST748654,51.38767,-2.36262,4090,full-circle ring,8,4,,534,,1160.5,D,28.33,2014,,Whitechapel Bell Foundry,,,flat,unturned,,489,Y
+10214,Bath,Christ Church,Somerset,14089,ST748654,51.38767,-2.36262,4090,full-circle ring,8,5,,607,,1036.2,C,30.63,2014,,Whitechapel Bell Foundry,,,flat,unturned,,489,Y
+10215,Bath,Christ Church,Somerset,14089,ST748654,51.38767,-2.36262,4090,full-circle ring,8,6,,708,,973.0,B,32.00,1952,,John Taylor & Co,,,flat,unturned,,489,Y
+10216,Bath,Christ Church,Somerset,14089,ST748654,51.38767,-2.36262,4090,full-circle ring,8,7,,1003,,866.4,A,36.00,1952,,John Taylor & Co,,,flat,unturned,,489,Y
+488,Bath,Christ Church,Somerset,14089,ST748654,51.38767,-2.36262,4090,full-circle ring,8,8,,1460,,775.4,G,40.50,1952,,John Taylor & Co,,,flat,unturned,,489,Y
 
 # Data is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License from https://dove.cccbr.org.uk/downloads
 # https://creativecommons.org/licenses/by-sa/4.0/

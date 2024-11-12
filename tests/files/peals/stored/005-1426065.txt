@@ -241,14 +241,27 @@ Footnote 2 text:
 Referenced ringer(s):
   - 4: Chester Edwards
 Is this correct? [y/n] (y): 
->>> y
+>>> n
+[User input: "False"]
+Footnote text (First of Triples "inside".): 
+>>> First of Triples inside
+[User input: "First of Triples inside"]
+Bells (comma-separated) (4): 
+>>> 5
+[User input: "5"]
+Footnote 2 text:
+  > First of Triples inside.
+Referenced ringer(s):
+  - 5: Aston Mitchell
+Is this correct? [y/n] (y): 
+>>> 
 [User input: "True"]
 Add new footnote? [y/n] (n): 
 >>> n
 [User input: "False"]
 📝 Footnotes:
   - Rung for Morning Service.
-  - [4: Chester Edwards] First of Triples "inside".
+  - [5: Aston Mitchell] First of Triples inside.
 🔗 Event link: None
 📷 Photo link: None
 📮 Submitted by: Nicholas Hunt on Sunday, 15 January 2012
@@ -281,7 +294,7 @@ Select option (1):
 │ 8 [10]: Leo Bennett                                                          │
 │                                                                              │
 │ Rung for Morning Service.                                                    │
-│ 4: First of Triples "inside".                                                │
+│ 5: First of Triples inside.                                                  │
 │                                                                              │
 │ [BellBoard: http://localhost:8080/view.php?id=1426065 (Nicholas Hunt,        │
 │ Sunday, 15 January 2012)]                                                    │
@@ -580,7 +593,7 @@ A Quarter Peal of 1260 Grandsire Triples in 50 mins (18-3-20 in E♭)
 8 [10]: Leo Bennett
 
 Rung for Morning Service.
-4: First of Triples "inside".
+5: First of Triples inside.
 
 [BellBoard: http://localhost:8080/view.php?id=1426065 (Nicholas Hunt, Sunday, 15 January 2012)]
 [External reference: Campanophile ID: 2972]

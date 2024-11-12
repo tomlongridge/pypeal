@@ -15,10 +15,12 @@ def prompt_add_footnote(text: str, peal: Peal, quick_mode: bool):
     if text:
         for line in text.strip(',. ').split('\n'):
 
+            did_split_footnote = False
             if line.strip('. ').count('. ') > 0 and \
                     (quick_mode or
                         confirm(f'Footnote line:\n  > {line}', confirm_message='Split footnote by sentences?', default=True)):
                 line_parts = line.strip(' ').split('. ')
+                did_split_footnote = True
             else:
                 line_parts = [line]
 
@@ -30,12 +32,12 @@ def prompt_add_footnote(text: str, peal: Peal, quick_mode: bool):
                 else:
                     conductor_bells = [bell for conductor in peal.conductors for bell in conductor.bell_nums]
                     bells, conductor_bells, footnote_str = parse_footnote(line_part, peal.num_bells, conductor_bells)
-                    _prompt_add_single_footnote(bells, footnote_str, peal, quick_mode)
+                    _prompt_add_single_footnote(bells, footnote_str, peal, did_split_footnote, quick_mode)
     else:
         while True:
             if not confirm(None, confirm_message='Add new footnote?', default=False):
                 break
-            _prompt_add_single_footnote(None, None, peal, False)
+            _prompt_add_single_footnote(None, None, peal, False, False)
 
 
 def prompt_add_muffle_type(peal: Peal):
@@ -49,6 +51,7 @@ def prompt_add_muffle_type(peal: Peal):
 def _prompt_add_single_footnote(bells: list[int],
                                 text: str,
                                 peal: Peal,
+                                did_split_footnote: bool,
                                 quick_mode: bool = False) -> MuffleType:
     
     # Ensure full sentence
@@ -79,7 +82,8 @@ def _prompt_add_single_footnote(bells: list[int],
             peal.add_footnote(text, bell, ringer)
     elif len(peal.footnotes) > 0 and \
             peal.footnotes[-1].bell is None and \
-            (quick_mode or confirm(None, confirm_message='Add this to previous footnote?', default=True)):
+            ((quick_mode and did_split_footnote) or \
+            (not quick_mode and confirm(None, confirm_message='Add this to previous footnote?', default=True))):
         peal.footnotes[-1].text = peal.footnotes[-1].text + ' ' + text
     else:
         peal.add_footnote(text, None, None)

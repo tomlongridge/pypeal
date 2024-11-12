@@ -55,8 +55,8 @@ Import peal from BellBoard
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
->>> 
-[User input: "Quick mode [1]"]
+>>> 2
+[User input: "Amend footnote only [2]"]
 🏛 Association: None
 🔔 Bell type: Tower
 📅 Date: Sunday, 17 February 2019
@@ -80,8 +80,33 @@ Add as composition note? [y/n] (y):
 👤 Ringer: 6 [8]: Melissa Baker
 👤 Ringer: 7 [9]: Joyce Sullivan (c)
 👤 Ringer: 8 [10]: Leo Bennett
+Footnote 1 text:
+  > Rung for Morning Service.
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Footnote 2 text:
+  > And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Add this to previous footnote? [y/n] (y): 
+>>> n 
+[User input: "False"]
+Footnote 3 text:
+  > Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Add this to previous footnote? [y/n] (y): 
+>>> y
+[User input: "True"]
+Add new footnote? [y/n] (n): 
+>>> 
+[User input: "False"]
 📝 Footnotes:
-  - Rung for Morning Service. And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
+  - Rung for Morning Service.
+  - And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
 🔗 Event link: None
 📷 Photo link: http://localhost:8080/uploads/57/002a57.jpg
   - The CWGC grave marker of Sgt A P Wakley in Stapenhill Cemetery, Burton-on-Trent (Staffordshire)
@@ -106,9 +131,10 @@ Add as composition note? [y/n] (y):
 │ 7 [9]: Joyce Sullivan (c)                                                    │
 │ 8 [10]: Leo Bennett                                                          │
 │                                                                              │
-│ Rung for Morning Service. And in memory of the composer: Sergeant Albert     │
-│ Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at │
-│ St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.     │
+│ Rung for Morning Service.                                                    │
+│ And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps    │
+│ and 6th North Staffordshire Regiment, a ringer at St Paul's,                 │
+│ Burton-on-Trent, who died on the 18th February 1919, aged 29.                │
 │ Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
 │ -staffordshire-regiment/.                                                    │
 │                                                                              │
@@ -123,7 +149,7 @@ Is this correct? [y/n] (y):
 Saving photo http://localhost:8080/uploads/57/002a57.jpg...
 Peal (ID 22) added
 Bellboard URL or peal ID (enter to exit): 
->>> 
+>>>  
 [User input: "None"]
 pypeal Database
  Quarter Peal count: 18                               Last updated: [Timestamp] 
@@ -614,7 +640,9 @@ Add as composition note? [y/n] (y):
 👤 Ringer: 7 [9]: Joyce Sullivan (c)
 👤 Ringer: 8 [10]: Leo Bennett
 📝 Footnotes:
-  - Rung for Morning Service. And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
+  - Rung for Morning Service.
+  - And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.
+  - Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
 🔗 Event link: None
 📷 Photo link: http://localhost:8080/uploads/57/002a57.jpg
   - The CWGC grave marker of Sgt A P Wakley in Stapenhill Cemetery, Burton-on-Trent (Staffordshire)
@@ -639,9 +667,10 @@ Add as composition note? [y/n] (y):
 │ 7 [9]: Joyce Sullivan (c)                                                    │
 │ 8 [10]: Leo Bennett                                                          │
 │                                                                              │
-│ Rung for Morning Service. And in memory of the composer: Sergeant Albert     │
-│ Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at │
-│ St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.     │
+│ Rung for Morning Service.                                                    │
+│ And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps    │
+│ and 6th North Staffordshire Regiment, a ringer at St Paul's,                 │
+│ Burton-on-Trent, who died on the 18th February 1919, aged 29.                │
 │ Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
 │ -staffordshire-regiment/.                                                    │
 │                                                                              │
@@ -673,9 +702,10 @@ Select option (1):
 │ 7 [9]: Joyce Sullivan (c)                                                    │
 │ 8 [10]: Leo Bennett                                                          │
 │                                                                              │
-│ Rung for Morning Service. And in memory of the composer: Sergeant Albert     │
-│ Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at │
-│ St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.     │
+│ Rung for Morning Service.                                                    │
+│ And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps    │
+│ and 6th North Staffordshire Regiment, a ringer at St Paul's,                 │
+│ Burton-on-Trent, who died on the 18th February 1919, aged 29.                │
 │ Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
 │ -staffordshire-regiment/.                                                    │
 │                                                                              │
@@ -1032,9 +1062,10 @@ Bellboard URL or peal ID:
 │ 7 [9]: Joyce Sullivan (c)                                                    │
 │ 8 [10]: Leo Bennett                                                          │
 │                                                                              │
-│ Rung for Morning Service. And in memory of the composer: Sergeant Albert     │
-│ Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at │
-│ St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.     │
+│ Rung for Morning Service.                                                    │
+│ And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps    │
+│ and 6th North Staffordshire Regiment, a ringer at St Paul's,                 │
+│ Burton-on-Trent, who died on the 18th February 1919, aged 29.                │
 │ Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
 │ -staffordshire-regiment/.                                                    │
 │                                                                              │
@@ -1147,8 +1178,8 @@ Import peal from BellBoard
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
->>> 
-[User input: "Quick mode [1]"]
+>>> 2
+[User input: "Amend footnote only [2]"]
 🏛 Association: None
 🔔 Bell type: Tower
 📅 Date: Sunday, 17 February 2019
@@ -1172,8 +1203,48 @@ Add as composition note? [y/n] (y):
 👤 Ringer: 6 [8]: Melissa Baker
 👤 Ringer: 7 [9]: Joyce Sullivan (c)
 👤 Ringer: 8 [10]: Leo Bennett
+Footnote 1 text:
+  > Rung for Morning Service.
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Footnote 2 text:
+  > And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Add this to previous footnote? [y/n] (y): 
+>>> n 
+[User input: "False"]
+Footnote 3 text:
+  > Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
+Is this correct? [y/n] (y): 
+>>> n
+[User input: "False"]
+Footnote text 
+(Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-st
+affordshire-regiment/.): 
+>>> See: https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/
+[User input: "See: 
+https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-sta
+ffordshire-regiment/"]
+Bells (comma-separated): 
+>>> 
+[User input: "None"]
+Footnote 3 text:
+  > See: https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Add this to previous footnote? [y/n] (y): 
+>>> 
+[User input: "True"]
+Add new footnote? [y/n] (n): 
+>>> 
+[User input: "False"]
 📝 Footnotes:
-  - Rung for Morning Service. And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
+  - Rung for Morning Service.
+  - And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. See: https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
 🔗 Event link: None
 📷 Photo link: http://localhost:8080/uploads/57/002a57.jpg
   - The CWGC grave marker of Sgt A P Wakley in Stapenhill Cemetery, Burton-on-Trent (Staffordshire)
@@ -1198,10 +1269,11 @@ Add as composition note? [y/n] (y):
 │ 7 [9]: Joyce Sullivan (c)                                                    │
 │ 8 [10]: Leo Bennett                                                          │
 │                                                                              │
-│ Rung for Morning Service. And in memory of the composer: Sergeant Albert     │
-│ Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at │
-│ St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.     │
-│ Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
+│ Rung for Morning Service.                                                    │
+│ And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps    │
+│ and 6th North Staffordshire Regiment, a ringer at St Paul's,                 │
+│ Burton-on-Trent, who died on the 18th February 1919, aged 29. See:           │
+│ https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
 │ -staffordshire-regiment/.                                                    │
 │                                                                              │
 │ [BellBoard: http://localhost:8080/view.php?id=1272466 (Joyce Sullivan,       │
@@ -1253,7 +1325,8 @@ Composition: Camila Chapman
 7 [9]: Joyce Sullivan (c)
 8 [10]: Leo Bennett
 
-Rung for Morning Service. And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
+Rung for Morning Service.
+And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. See: https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
 
 [BellBoard: http://localhost:8080/view.php?id=1272466 (Joyce Sullivan, Sunday, 17 February 2019)]
 [Composition URL: http://localhost:8080/comp.php?id=2271034]

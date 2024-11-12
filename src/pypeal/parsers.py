@@ -53,6 +53,7 @@ FOOTNOTE_ALL_BAND_REGEX = \
                re.IGNORECASE)
 FOOTNOTE_JOINT_CONDUCTORS_REGEX = re.compile(r'Joint(?:ly)? conducted\s?(?:by)?\s?(?:(?:all )?the band)?' +
                                              FOOTNOTE_RINGER_LIST_PATTERN + r'?')
+FOOTNOTE_N_OF_N_REGEX = re.compile(r'^\d+\s?/\s?\d+$')
 
 
 def _referenced_bells_to_list(bells_description: str, num_bells: int):
@@ -280,6 +281,8 @@ def parse_footnote(footnote: str, num_bells: int, conductor_bells: list[int]) ->
         text = text[:-3] + 'conductor'
     if len(text) == 0:
         return None, conductor_bells, None
+    elif re.match(FOOTNOTE_N_OF_N_REGEX, text):
+        return None, conductor_bells, text
     elif footnote_match := re.match(FOOTNOTE_JOINT_CONDUCTORS_REGEX, text):
         footnote_info = footnote_match.groupdict()
         if footnote_info['bells']:

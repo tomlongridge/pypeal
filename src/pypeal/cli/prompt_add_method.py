@@ -100,7 +100,7 @@ def prompt_add_method(method: Method, original_name: str, changes: int, peal: Pe
             peal.composition_note = note
         return False
     else:
-        if not changes or not quick_mode:
+        if not quick_mode:
             changes = ask_int('Number of changes', default=changes, required=False)
         peal.add_method(matched_method, changes)
         print(f'Method {len(peal.methods)}: {matched_method.full_name} ({changes if changes else "unknown"} changes)')

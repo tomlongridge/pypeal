@@ -40,11 +40,19 @@ def generate_peal(url: str):
             metadata.replace_with('')
 
     for ringer in [*soup.select('span.ringer.persona')]:
-        if len(ringer.string.strip(' -')):
-            ringer.string.replace_with(anonymize_ringer(ringer.string))
+        name = ringer.string
+        conductor_part = ''
+        if len(name.strip(' -')):
+            # The name can contain a bracketed part - either a ringer note or something like '(conductor)' as it's not 
+            # been recogised as '(c)' so isn't separated in the HTML structure. We need to separate these out and only
+            # anonymize the name part.
+            if '(' in name:
+                name, conductor_part = name.split('(')
+                conductor_part = ' (' + conductor_part if conductor_part.strip() else ''
+            ringer.string.replace_with(anonymize_ringer(name.strip()) + conductor_part)
 
     composer_element = soup.select('span.composer.persona')
-    if len(composer_element) > 0:
+    if len(composer_element) > 0 and composer_element[0].string.lower() not in ['old rw diary']:
         composer_element[0].string.replace_with(anonymize_ringer(composer_element[0].string))
 
     for metadata in [*soup.select('p.metadata')]:

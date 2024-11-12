@@ -52,46 +52,134 @@ Import peal from BellBoard
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
+>>> 3
+[User input: "Prompt mode [3]"]
+Matched "Bath & Wells Diocesan Association" to association: Bath and Wells 
+Diocesan Association (ID: -236)
+Is this correct? [y/n] (y): 
 >>> 
-[User input: "Quick mode [1]"]
+[User input: "True"]
 🏛 Association: Bath and Wells Diocesan Association
 🔔 Bell type: Tower
 📅 Date: Sunday, 27 February 2011
 🔔 Tenor: 2120
+Duration (47): 
+>>> 
+[User input: "47"]
 ⏱ Duration: 47 mins
 🏰 Tower: Bath (Bathwick), Somerset
 🔢 Changes: 1280
 Matching peal titled "Spliced Surprise Major (8 methods)"...
+What kind of peal is being rung?: 1) Single Method, 2) Mixed Methods, 3) Spliced Methods, 4) General Ringing
+Select option (3): 
+>>> 
+[User input: "Spliced Methods [3]"]
 Multi-method peal: "Spliced Surprise Major (8 methods)"...
+Number of methods (8): 
+>>> 
+[User input: "8"]
+Number of principles (0): 
+>>> 
+[User input: "0"]
+Number of variants (0): 
+>>> 
+[User input: "0"]
+Stage (8): 
+>>> 
+[User input: "8"]
+Classification:
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) Alliance                                                                  │
+│ 2) Bob                                                                       │
+│ 3) Delight                                                                   │
+│ 4) Hybrid                                                                    │
+│ 5) Place                                                                     │
+│ 6) Surprise                                                                  │
+│ 7) Treble Bob                                                                │
+│ 8) Treble Place                                                              │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) None                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (6): 
+>>> 
+[User input: "Surprise [6]"]
 📕 Title: Spliced Surprise Major (8m)
 Adding changes of methods to multi-method peal...
 Matching method "Cambridge"... [0 methods excluded]
 Matched "Cambridge" to method "Cambridge Surprise Major"
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
 Number of changes: 
 >>> 160
 [User input: "160"]
 Method 1: Cambridge Surprise Major (160 changes)
 Matching method "Yorkshire"... [1 methods excluded]
 Matched "Yorkshire" to method "Yorkshire Surprise Major"
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Number of changes (160): 
+>>> 
+[User input: "160"]
 Method 2: Yorkshire Surprise Major (160 changes)
 Matching method "Lincolnshire"... [2 methods excluded]
 Matched "Lincolnshire" to method "Lincolnshire Surprise Major"
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Number of changes (160): 
+>>> 
+[User input: "160"]
 Method 3: Lincolnshire Surprise Major (160 changes)
 Matching method "Superlative"... [3 methods excluded]
 Matched "Superlative" to method "Superlative Surprise Major"
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Number of changes (160): 
+>>> 
+[User input: "160"]
 Method 4: Superlative Surprise Major (160 changes)
 Matching method "Rutland"... [4 methods excluded]
 Matched "Rutland" to method "Rutland Surprise Major"
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Number of changes (160): 
+>>> 
+[User input: "160"]
 Method 5: Rutland Surprise Major (160 changes)
 Matching method "Pudsey"... [5 methods excluded]
 Matched "Pudsey" to method "Pudsey Surprise Major"
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Number of changes (160): 
+>>> 
+[User input: "160"]
 Method 6: Pudsey Surprise Major (160 changes)
 Matching method "Bristol"... [6 methods excluded]
 Matched "Bristol" to method "Bristol Surprise Major"
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Number of changes (160): 
+>>> 
+[User input: "160"]
 Method 7: Bristol Surprise Major (160 changes)
 Matching method "London"... [7 methods excluded]
 Matched "London" to method "London Surprise Major"
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Number of changes (160): 
+>>> 
+[User input: "160"]
 Method 8: London Surprise Major (160 changes)
+Add more changes of method? [y/n] (n): 
+>>> 
+[User input: "False"]
 📝 Method details:
   - Cambridge Surprise Major (160)
   - Yorkshire Surprise Major (160)
@@ -101,15 +189,110 @@ Method 8: London Surprise Major (160 changes)
   - Pudsey Surprise Major (160)
   - Bristol Surprise Major (160)
   - London Surprise Major (160)
+No composer attributed
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Composition note: 
+>>> 
+[User input: "None"]
 🎼 Composer: Unknown
+1: "Patrick Bennett" -> Patrick Bennett
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+Bell number(s) in the tower (max 10) (3): 
+>>> 
+[User input: "3"]
 👤 Ringer: 1 [3]: Patrick Bennett
+2: "Byron Miller" -> Byron Miller
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+Bell number(s) in the tower (max 10) (4): 
+>>> 
+[User input: "4"]
 👤 Ringer: 2 [4]: Byron Miller
+3: "Clark Elliott" -> Clark Elliott
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+Bell number(s) in the tower (max 10) (5): 
+>>> 
+[User input: "5"]
 👤 Ringer: 3 [5]: Clark Elliott
+4: "John Parker" -> John Parker
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+Bell number(s) in the tower (max 10) (6): 
+>>> 
+[User input: "6"]
 👤 Ringer: 4 [6]: John Parker
+5: "Jacob Cole" -> Jacob Cole
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+Bell number(s) in the tower (max 10) (7): 
+>>> 
+[User input: "7"]
 👤 Ringer: 5 [7]: Jacob Cole
+6: "Eric Ryan" -> Eric Ryan
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+Bell number(s) in the tower (max 10) (8): 
+>>> 
+[User input: "8"]
 👤 Ringer: 6 [8]: Eric Ryan
+7: "Joyce Sullivan" -> Joyce Sullivan
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+Bell number(s) in the tower (max 10) (9): 
+>>> 
+[User input: "9"]
 👤 Ringer: 7 [9]: Joyce Sullivan
+8: "Byron Robinson" -> Byron Robinson
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+Bell number(s) in the tower (max 10) (10): 
+>>> 
+[User input: "10"]
 👤 Ringer: 8 [10]: Byron Robinson (c)
+Footnote 1 text:
+  > Rung for morning service.
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Add new footnote? [y/n] (n): 
+>>> 
+[User input: "False"]
 📝 Footnotes:
   - Rung for morning service.
 🔗 Event link: None
@@ -117,7 +300,15 @@ Method 8: London Surprise Major (160 changes)
 📮 Submitted by: Nicholas Hunt on Sunday, 15 January 2012
 ✏️ Updated: Sunday, 15 February 2015
 🔗 External reference: Campanophile ID: 116670
+Bell type: 1) Tower, 2) Handbells
+Select option (1): 
+>>> 
+[User input: "Tower [1]"]
 🔔 Bell type: Tower
+Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
+Select option (1): 
+>>> 
+[User input: "None [1]"]
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Bath and Wells Diocesan Association                                          │

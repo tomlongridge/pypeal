@@ -26,7 +26,8 @@ def prompt_add_change_of_method_from_string(method_details: str, peal: Peal, qui
                     if not method_name:
                         continue
                     method_name = re.sub(METHOD_PREFIX_IGNORE_REGEX, '', method_name, 1)
-                    if not method_name:
+                    # if there is no name remaining or there are no alphabetical characters, it is not a method name
+                    if not method_name or not re.search(r'[a-zA-Z]', method_name):
                         continue
                     method_obj = Method(None)
                     method_obj.stage, method_obj.classification, method_obj.name, changes = parse_single_method(method_name)

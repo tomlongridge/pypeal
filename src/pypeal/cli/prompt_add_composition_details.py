@@ -1,14 +1,21 @@
+import re
 from pypeal.cli.prompt_add_ringer import prompt_add_ringer_by_name_match, prompt_add_ringer_by_search, prompt_commit_ringer
 from pypeal.cli.prompts import ask, confirm
 from pypeal.entities.peal import Peal
 from pypeal.entities.ringer import Ringer
 
+COMPOSITION_NOTE_REGEX = re.compile(r'^anon\.?$|anonymous|^trad\.?$|traditional|(?:old )rw diary', re.IGNORECASE)
+
 
 def prompt_add_composition_details(name: str, url: str, note: str, peal: Peal, quick_mode: bool):
 
-    matched_ringer = None
     if note:
         peal.composition_note = note
+    elif name and COMPOSITION_NOTE_REGEX.match(name):
+        peal.composition_note = name
+        name = None
+
+    matched_ringer = None
     if name:
         matched_ringer: Ringer = prompt_add_ringer_by_name_match(name, 'Composer: ', quick_mode)
         if peal.composition_note is None and matched_ringer is None and name and \

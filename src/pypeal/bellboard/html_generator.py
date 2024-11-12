@@ -23,6 +23,8 @@ METADATA_IMPORTED_REGEX = \
     re.compile(r'.*?[\s]*Imported from (?P<source>[\w\d\s]+) entry (?P<id>[\d]+)(?:\s+\(submitted by (?P<submitter>[\w\d\s]+)\))?.$',
                re.MULTILINE)
 
+COMPOSER_AND_COMPOSITION_REGEX = re.compile(r'(?P<composer>[^\(]+)(?:\((?P<note>.*)\))?')
+CONDUCTOR_REGEX = re.compile(r'(?P<name>[^\(]+)\s?\((?P<conductor>.*)\)')
 
 class HTMLPealGenerator(PealGenerator):
 
@@ -110,21 +112,18 @@ class HTMLPealGenerator(PealGenerator):
             composer_element = element[0].select('span.composer.persona')
             if len(composer_element) > 0:
                 composer_str = composer_element[0].text.strip()
-                if composer_str.lower() in ['anon', 'anonymous', 'trad', 'traditional']:
-                    composition_note = composer_str
-                    composer_str = None
-                elif match := re.match(r'(?P<composer>.*)(?:\((?P<note>.*)\))?', composer_str):
+                if match := re.match(COMPOSER_AND_COMPOSITION_REGEX, composer_str):
                     composer_info = match.groupdict()
                     composer_str = composer_info['composer'].strip()
                     if 'note' in composer_info:
-                        composition_note = match.group('note')
+                        composition_note = composer_info['note']
             url_element = element[0].select('a')
             if len(url_element) > 0:
                 url_str = config.get_config('bellboard', 'url') + url_element[0]['href']
             composition_name_element = element[0].select('span.compname')
             if len(composition_name_element) > 0:
                 composition_note = composition_name_element[0].text.strip()
-        listener.composition_details(composer_str, url_str, composition_note)
+        # Don't set composer yet - in case it's declared in ringer list
 
         # Get ringers and their bells and add them to the ringers list
         ringer_names = []
@@ -133,11 +132,31 @@ class HTMLPealGenerator(PealGenerator):
         for ringer, bells in zip_longest(soup.select('span.ringer.persona'),  soup.select('span.bell')):
             if not ringer.text.strip(' -'):  # Remove empty ringer entries (e.g. COVID gaps)
                 continue
-            ringer_names.append(ringer.text)
+            ringer_name = ringer.text
+            conductor_marker = None
+            if ringer.next_sibling:
+                conductor_marker = ringer.next_sibling.lower().strip(' ()\xa0')
+            elif conductor_match := re.match(CONDUCTOR_REGEX, ringer.text):
+                conductor_data = conductor_match.groupdict()
+                ringer_name = conductor_data['name'].strip()
+                conductor_marker = conductor_data['conductor'].lower()
+            ringer_names.append(ringer_name)
             ringer_bells.append([int(bell) for bell in bells.text.strip().split('–')] if bells else None)
-            conductors.append(
-                ringer.next_sibling is not None and
-                ringer.next_sibling.lower().strip() == '(c)')
+            conductors.append(conductor_marker is not None and \
+                              (conductor_marker == 'c' or \
+                               conductor_marker == 'c and c' or \
+                               'cond' in conductor_marker or \
+                               'conductor' in conductor_marker or \
+                               'calling' in conductor_marker))
+            if composer_str is None and \
+                    conductor_marker and \
+                    (conductor_marker == 'c and c' or \
+                     'comp' in conductor_marker or \
+                     'composer' in conductor_marker):
+                composer_str = ringer_name
+
+        # Set the composition details ahead of ringers
+        listener.composition_details(composer_str, url_str, composition_note)
 
         # For non-contiguous peals, we can safely assume the submitter has entered the bell number in the ring
         # rather than in the peal. Check whether the bell labels go up sequencially and if not, use them as the

@@ -476,51 +476,27 @@ Multi-method peal: "Spliced Surprise Major (8 methods)"...
 Adding changes of methods to multi-method peal...
 Matching method "Cambridge"... [0 methods excluded]
 Matched "Cambridge" to method "Cambridge Surprise Major"
-Number of changes: 
->>> 
-[User input: "None"]
 Method 1: Cambridge Surprise Major (unknown changes)
 Matching method "Yorkshire"... [1 methods excluded]
 Matched "Yorkshire" to method "Yorkshire Surprise Major"
-Number of changes: 
->>> 
-[User input: "None"]
 Method 2: Yorkshire Surprise Major (unknown changes)
 Matching method "Lincolnshire"... [2 methods excluded]
 Matched "Lincolnshire" to method "Lincolnshire Surprise Major"
-Number of changes: 
->>> 
-[User input: "None"]
 Method 3: Lincolnshire Surprise Major (unknown changes)
 Matching method "Superlative"... [3 methods excluded]
 Matched "Superlative" to method "Superlative Surprise Major"
-Number of changes: 
->>> 
-[User input: "None"]
 Method 4: Superlative Surprise Major (unknown changes)
 Matching method "Rutland"... [4 methods excluded]
 Matched "Rutland" to method "Rutland Surprise Major"
-Number of changes: 
->>> 
-[User input: "None"]
 Method 5: Rutland Surprise Major (unknown changes)
 Matching method "Pudsey"... [5 methods excluded]
 Matched "Pudsey" to method "Pudsey Surprise Major"
-Number of changes: 
->>> 
-[User input: "None"]
 Method 6: Pudsey Surprise Major (unknown changes)
 Matching method "Bristol"... [6 methods excluded]
 Matched "Bristol" to method "Bristol Surprise Major"
-Number of changes: 
->>> 
-[User input: "None"]
 Method 7: Bristol Surprise Major (unknown changes)
 Matching method "London"... [7 methods excluded]
 Matched "London" to method "London Surprise Major"
-Number of changes: 
->>> 
-[User input: "None"]
 Method 8: London Surprise Major (unknown changes)
 📝 Method details:
   - Cambridge Surprise Major
@@ -837,15 +813,9 @@ Multi-method peal: "Grandsire Caters and Royal"...
 Adding changes of methods to multi-method peal...
 Matching method "Grandsire Caters"... [0 methods excluded]
 Matched "Grandsire Caters" to method "Grandsire Caters"
-Number of changes: 
->>> 
-[User input: "None"]
 Method 1: Grandsire Caters (unknown changes)
 Matching method "Grandsire Royal"... [1 methods excluded]
 Matched "Grandsire Royal" to method "Grandsire Royal"
-Number of changes: 
->>> 
-[User input: "None"]
 Method 2: Grandsire Royal (unknown changes)
 📕 Title: Spliced Caters and Royal (2m)
 📝 Method details:
@@ -875,7 +845,8 @@ Add new ringer as "Leonardo" "Bennett"? [y/n] (y):
 👤 Ringer: 9: Leonardo Bennett (c)
 👤 Ringer: 10: Byron Robinson
 📝 Footnotes:
-  - For Morning Service, and to welcome Rafe Jackson-Swift, son of Russell and Angela, born on 8th January. 900th Quarter of Grandsire on the bells.
+  - For Morning Service, and to welcome Rafe Jackson-Swift, son of Russell and Angela, born on 8th January.
+  - 900th Quarter of Grandsire on the bells.
 🔗 Event link: None
 📷 Photo link: None
 📮 Submitted by: Byron Miller on Sunday, 11 January 2015
@@ -903,7 +874,8 @@ Add new ringer as "Leonardo" "Bennett"? [y/n] (y):
 │ 10: Byron Robinson                                                           │
 │                                                                              │
 │ For Morning Service, and to welcome Rafe Jackson-Swift, son of Russell and   │
-│ Angela, born on 8th January. 900th Quarter of Grandsire on the bells.        │
+│ Angela, born on 8th January.                                                 │
+│ 900th Quarter of Grandsire on the bells.                                     │
 │                                                                              │
 │ [BellBoard: http://localhost:8080/view.php?id=1147788 (Byron Miller, Sunday, │
 │ 11 January 2015)]                                                            │
@@ -947,247 +919,108 @@ Bellboard URL:
 >>> http://localhost:8080/search.php?ringer=ringer+name
 [User input: "http://localhost:8080/search.php?ringer=ringer+name"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1272466 ──────────────────╮
-│ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
-│ 1260 Grandsire Triples                                                       │
-│ Composer: Camila Chapman                                                     │
-│ Sunday, 17 February 2019 (18–3–20 in E♭) in 46m                              │
+╭───────────────── http://localhost:8080/view.php?id=1176329 ──────────────────╮
+│ Christ Church, Bath, Somerset                                                │
+│ Call Changes on Eight                                                        │
+│ From rounds to Queens, to Kings, to Whittingtons, and back to rounds.        │
+│ Thursday, 15 June 2017 (13–0–4 in G)                                         │
 │                                                                              │
-│ 1: Lenny Howard                                                              │
+│ 1: Preston Miller                                                            │
 │ 2: Chester Edwards                                                           │
-│ 3: Paul Armstrong                                                            │
+│ 3: Reid Bailey                                                               │
 │ 4: Arnold Johnson                                                            │
-│ 5: Daryl Mason                                                               │
-│ 6: Melissa Baker                                                             │
-│ 7: Joyce Sullivan (c)                                                        │
-│ 8: Leonardo Bennett                                                          │
+│ 5: Clark Elliott                                                             │
+│ 6: Maria Johnson                                                             │
+│ 7: John Parker (c)                                                           │
+│ 8: Savana Davis                                                              │
 │                                                                              │
-│ Rung for Morning Service.                                                    │
-│ And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps    │
-│ and 6th North Staffordshire Regiment, a ringer at St Paul's,                 │
-│ Burton-on-Trent, who died on the 18th February 1919, aged 29.                │
-│ https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
-│ -staffordshire-regiment/                                                     │
+│ For BBC Music Day, starting at 7.00 PM.                                      │
+│ Followed by a "round peal" with John Cope (6) and Ian Hay Davison (8).       │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1272466 (submitted by Joyce     │
-│ Sullivan on Sunday, 17 February 2019; updated Tuesday, 19 February 2019)     │
-│ Photo: http://localhost:8080/uploads/57/002a57.jpg                           │
+│ Linked event: http://localhost:8080/event.php?id=6361                        │
+│ Bellboard: http://localhost:8080/view.php?id=1176329 (submitted by John      │
+│ Parker on Thursday, 15 June 2017; updated Thursday, 15 June 2017)            │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
->>> 3
-[User input: "Prompt mode [3]"]
-No linked association
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
+>>> 1
+[User input: "Quick mode [1]"]
 🏛 Association: None
 🔔 Bell type: Tower
-📅 Date: Sunday, 17 February 2019
-🔔 Tenor: 2120 in Eb
-Duration (46): 
->>> 
-[User input: "46"]
-⏱ Duration: 46 mins
-🏰 Tower: Bath (Bathwick), Somerset
-🔢 Changes: 1260
-Matching peal titled "Grandsire Triples"...
-Matched "Grandsire Triples" to method "Grandsire Triples" (ID: m12415)
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-📕 Title: Grandsire Triples
-No composer found matching "Camila Chapman" exactly
-Add as composition note? [y/n] (y): 
->>> 
-[User input: "True"]
-No composer attributed
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-Composition URL (http://localhost:8080/comp.php?id=2271034): 
->>> 
-[User input: "http://localhost:8080/comp.php?id=2271034"]
+📅 Date: Thursday, 15 June 2017
+🔔 Tenor: 1460 in G
+⏱ Duration: Unknown
+🏰 Tower: Bath, Somerset
+🔢 Changes: Unknown
+Matching peal titled "Call Changes on Eight"...
+📕 Title: Call Changes on Eight
+📝 Details: From rounds to Queens, to Kings, to Whittingtons, and back to rounds.
 🎼 Composer: Unknown
-🎼 Composition: Camila Chapman
-1: Couldn't find ringer matching "Lenny Howard" (or aliases)
-1) Add new ringer, 2) Search ringers
-Select option (1): 
->>> 
-[User input: "Add new ringer [1]"]
-Add new ringer as "Lenny" "Howard"? [y/n] (y): 
+1: Couldn't find ringer matching "Preston Miller" (or aliases)
+Add new ringer as "Preston" "Miller"? [y/n] (y): 
 >>> 
 [User input: "True"]
-Ringer note: 
+Bell number(s) in the tower (max 8) (1): 
 >>> 
-[User input: "None"]
-Bell number(s) in the tower (max 10) (3): 
->>> 1
 [User input: "1"]
-👤 Ringer: 1: Lenny Howard
-2: "Chester Edwards" -> Chester Edwards
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-Ringer note: 
->>> 
-[User input: "None"]
-Bell number(s) in the tower (max 10) (2): 
->>> 
-[User input: "2"]
+👤 Ringer: 1: Preston Miller
 👤 Ringer: 2: Chester Edwards
-3: "Paul Armstrong" -> Paul Armstrong
-Is this correct? [y/n] (y): 
+3: Couldn't find ringer matching "Reid Bailey" (or aliases)
+Add new ringer as "Reid" "Bailey"? [y/n] (y): 
 >>> 
 [User input: "True"]
-Ringer note: 
->>> 
-[User input: "None"]
-Bell number(s) in the tower (max 10) (3): 
->>> 
-[User input: "3"]
-👤 Ringer: 3: Paul Armstrong
-4: "Arnold Johnson" -> Arnold Johnson
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-Ringer note: 
->>> 
-[User input: "None"]
-Bell number(s) in the tower (max 10) (4): 
->>> 
-[User input: "4"]
+👤 Ringer: 3: Reid Bailey
 👤 Ringer: 4: Arnold Johnson
-5: "Daryl Mason" -> Daryl Mason
-Is this correct? [y/n] (y): 
+👤 Ringer: 5: Clark Elliott
+6: Couldn't find ringer matching "Maria Johnson" (or aliases)
+Add new ringer as "Maria" "Johnson"? [y/n] (y): 
 >>> 
 [User input: "True"]
-Ringer note: 
->>> 
-[User input: "None"]
-Bell number(s) in the tower (max 10) (5): 
->>> 
-[User input: "5"]
-👤 Ringer: 5: Daryl Mason
-6: Couldn't find ringer matching "Melissa Baker" (or aliases)
-1) Add new ringer, 2) Search ringers
-Select option (1): 
->>> 
-[User input: "Add new ringer [1]"]
-Add new ringer as "Melissa" "Baker"? [y/n] (y): 
+👤 Ringer: 6: Maria Johnson
+👤 Ringer: 7: John Parker (c)
+8: Couldn't find ringer matching "Savana Davis" (or aliases)
+Add new ringer as "Savana" "Davis"? [y/n] (y): 
 >>> 
 [User input: "True"]
-Ringer note: 
->>> 
-[User input: "None"]
-Bell number(s) in the tower (max 10) (6): 
->>> 
-[User input: "6"]
-👤 Ringer: 6: Melissa Baker
-7: "Joyce Sullivan" -> Joyce Sullivan
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-Ringer note: 
->>> 
-[User input: "None"]
-Bell number(s) in the tower (max 10) (7): 
->>> 
-[User input: "7"]
-👤 Ringer: 7: Joyce Sullivan (c)
-8: "Leonardo Bennett" -> Leonardo Bennett
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-Ringer note: 
->>> 
-[User input: "None"]
-Bell number(s) in the tower (max 10) (8): 
->>> 
-[User input: "8"]
-👤 Ringer: 8: Leonardo Bennett
-Footnote 1 text:
-  > Rung for Morning Service.
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-Footnote 2 text:
-  > And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-Add this to previous footnote? [y/n] (y): 
->>> 
-[User input: "True"]
-Footnote 2 text:
-  > Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-Add this to previous footnote? [y/n] (y): 
->>> 
-[User input: "True"]
-Add new footnote? [y/n] (n): 
->>> 
-[User input: "False"]
+👤 Ringer: 8: Savana Davis
+Referenced ringer(s):
+  - 8: Savana Davis
 📝 Footnotes:
-  - Rung for Morning Service. And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
-🔗 Event link: None
-📷 Photo link: http://localhost:8080/uploads/57/002a57.jpg
-  - The CWGC grave marker of Sgt A P Wakley in Stapenhill Cemetery, Burton-on-Trent (Staffordshire)
-  - Photo credit: Michael W Day
-📮 Submitted by: Joyce Sullivan on Sunday, 17 February 2019
-✏️ Updated: Tuesday, 19 February 2019
-╭──────────────────────────────────────────────────────────────────────────────╮
-│ Warning: Tenor weight 18-3-20 reported on Bellboard does not match the       │
-│ weight of largest bell rung (11-1-2) on Dove                                 │
-╰──────────────────────────────────────────────────────────────────────────────╯
-Suggested tenor, based on weight: 10 (18-3-20)
-Confirm tenor bell (10): 
->>> 
-[User input: "10"]
-Shifting band by 2 bells
-Bell type: 1) Tower, 2) Handbells
-Select option (1): 
->>> 
-[User input: "Tower [1]"]
+  - For BBC Music Day, starting at 7.00 PM.
+  - [8: Savana Davis] Followed by a "round peal" with John Cope (6) and Ian Hay Davison.
+🔗 Event link: http://localhost:8080/event.php?id=6361
+📷 Photo link: None
+📮 Submitted by: John Parker on Thursday, 15 June 2017
+✏️ Updated: Thursday, 15 June 2017
 🔔 Bell type: Tower
-Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
-Select option (1): 
->>> 
-[User input: "None [1]"]
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Bath, Somerset, England                                                      │
-│ Blessed Virgin Mary, Bathwick                                                │
-│ On Sunday, 17 February 2019                                                  │
-│ A Quarter Peal of 1260 Grandsire Triples in 46 mins (18-3-20 in E♭)          │
-│ Composition: Camila Chapman                                                  │
+│ Christ Church                                                                │
+│ On Thursday, 15 June 2017                                                    │
+│ Call Changes on Eight (13-0-4 in G)                                          │
+│ From rounds to Queens, to Kings, to Whittingtons, and back to rounds.        │
 │                                                                              │
-│ 1 [3]: Lenny Howard                                                          │
-│ 2 [4]: Chester Edwards                                                       │
-│ 3 [5]: Paul Armstrong                                                        │
-│ 4 [6]: Arnold Johnson                                                        │
-│ 5 [7]: Daryl Mason                                                           │
-│ 6 [8]: Melissa Baker                                                         │
-│ 7 [9]: Joyce Sullivan (c)                                                    │
-│ 8 [10]: Leonardo Bennett                                                     │
+│ 1: Preston Miller                                                            │
+│ 2: Chester Edwards                                                           │
+│ 3: Reid Bailey                                                               │
+│ 4: Arnold Johnson                                                            │
+│ 5: Clark Elliott                                                             │
+│ 6: Maria Johnson                                                             │
+│ 7: John Parker (c)                                                           │
+│ 8: Savana Davis                                                              │
 │                                                                              │
-│ Rung for Morning Service. And in memory of the composer: Sergeant Albert     │
-│ Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at │
-│ St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.     │
-│ Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
-│ -staffordshire-regiment/.                                                    │
+│ For BBC Music Day, starting at 7.00 PM.                                      │
+│ 8: Followed by a "round peal" with John Cope (6) and Ian Hay Davison.        │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1272466 (Joyce Sullivan,       │
-│ Sunday, 17 February 2019)]                                                   │
-│ [Composition URL: http://localhost:8080/comp.php?id=2271034]                 │
+│ [BellBoard: http://localhost:8080/view.php?id=1176329 (John Parker,          │
+│ Thursday, 15 June 2017)]                                                     │
+│ [Event URL: http://localhost:8080/event.php?id=6361]                         │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
-Saving photo http://localhost:8080/uploads/57/002a57.jpg...
 Peal (ID 6) added
 Add next peal? [y/n] (y): 
 >>> n
@@ -1210,7 +1043,8 @@ Select option (x = Back) (1):
 >>> x
 [User input: "None"]
 pypeal Database
- Quarter Peal count: 6                                Last updated: [Timestamp] 
+ Quarter Peal count: 5                                Last updated: [Timestamp] 
+ General Ringing count: 1                                                       
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
 │ 2) Add peal by ID/URL                                                        │
@@ -1229,22 +1063,23 @@ Select option (1):
 [User input: "None"]
 ===
 Bath, Somerset, England
-Blessed Virgin Mary, Bathwick
-On Sunday, 17 February 2019
-A Quarter Peal of 1260 Grandsire Triples in 46 mins (18-3-20 in E♭)
-Composition: Camila Chapman
+Christ Church
+On Thursday, 15 June 2017
+Call Changes on Eight (13-0-4 in G)
+From rounds to Queens, to Kings, to Whittingtons, and back to rounds.
 
-1 [3]: Lenny Howard
-2 [4]: Chester Edwards
-3 [5]: Paul Armstrong
-4 [6]: Arnold Johnson
-5 [7]: Daryl Mason
-6 [8]: Melissa Baker
-7 [9]: Joyce Sullivan (c)
-8 [10]: Leonardo Bennett
+1: Preston Miller
+2: Chester Edwards
+3: Reid Bailey
+4: Arnold Johnson
+5: Clark Elliott
+6: Maria Johnson
+7: John Parker (c)
+8: Savana Davis
 
-Rung for Morning Service. And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
+For BBC Music Day, starting at 7.00 PM.
+8: Followed by a "round peal" with John Cope (6) and Ian Hay Davison.
 
-[BellBoard: http://localhost:8080/view.php?id=1272466 (Joyce Sullivan, Sunday, 17 February 2019)]
-[Composition URL: http://localhost:8080/comp.php?id=2271034]
+[BellBoard: http://localhost:8080/view.php?id=1176329 (John Parker, Thursday, 15 June 2017)]
+[Event URL: http://localhost:8080/event.php?id=6361]
 [Database ID: 6]
