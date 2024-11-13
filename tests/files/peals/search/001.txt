@@ -22,7 +22,7 @@ Select option (1):
 Search BellBoard
 New peal search
 1) Enter criteria, 2) Enter Bellboard URL
-Select option (1): 
+Select option (x = Back) (1): 
 >>> 1
 [User input: "Enter criteria [1]"]
 % for wildcards, " for absolute match
@@ -103,9 +103,9 @@ Select option (1):
 🔔 Tenor: 1904
 ⏱ Duration: 49 mins
 🏰 Tower: Withycombe Raleigh, Devon
-🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
 📕 Title: Grandsire Triples
+🔢 Changes: 1260
 🎼 Composer: Unknown
 1: Couldn't find ringer matching "Lydia Ferguson" (or aliases)
 Add new ringer as "Lydia" "Ferguson"? [y/n] (y): 
@@ -279,13 +279,16 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 📍 Location: Cleator Moor, Cumbria, England
 📍 Detail: St John the Evangelist
-🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
 Matched "Grandsire Triples" to method "Grandsire Triples" (ID: m12415)
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
 📕 Title: Grandsire Triples
+Number of changes (1260): 
+>>> 
+[User input: "1260"]
+🔢 Changes: 1260
 No composer attributed
 Is this correct? [y/n] (y): 
 >>> 
@@ -469,10 +472,10 @@ Select option (1):
 🔔 Tenor: 2120
 ⏱ Duration: 47 mins
 🏰 Tower: Bath (Bathwick), Somerset
-🔢 Changes: 1280
 Matching peal titled "Spliced Surprise Major (8 methods)"...
 Multi-method peal: "Spliced Surprise Major (8 methods)"...
 📕 Title: Spliced Surprise Major (8m)
+🔢 Changes: 1280
 Adding changes of methods to multi-method peal...
 Matching method "Cambridge"... [0 methods excluded]
 Matched "Cambridge" to method "Cambridge Surprise Major"
@@ -678,9 +681,9 @@ Select option (1):
 ⏱ Duration: Unknown
 📍 Location: Marston Bigot, Somerset
 📍 Detail: Pig-le-Tower
-🔢 Changes: 1280
 Matching peal titled "Cambridge Surprise Major"...
 📕 Title: Cambridge Surprise Major
+🔢 Changes: 1280
 🎼 Composer: Unknown
 Bell number(s) (1): 
 >>> 
@@ -807,7 +810,6 @@ Select option (1):
 🔔 Tenor: 2120
 ⏱ Duration: 48 mins
 🏰 Tower: Bath (Bathwick), Somerset
-🔢 Changes: 1260
 Matching peal titled "Grandsire Caters and Royal"...
 Multi-method peal: "Grandsire Caters and Royal"...
 Adding changes of methods to multi-method peal...
@@ -818,6 +820,7 @@ Matching method "Grandsire Royal"... [1 methods excluded]
 Matched "Grandsire Royal" to method "Grandsire Royal"
 Method 2: Grandsire Royal (unknown changes)
 📕 Title: Spliced Caters and Royal (2m)
+🔢 Changes: 1260
 📝 Method details:
   - Grandsire Caters
   - Grandsire Royal
@@ -905,146 +908,11 @@ Is this correct? [y/n] (n):
 [User input: "True"]
 New peal search
 1) Enter criteria, 2) Enter Bellboard URL
-Select option (1): 
->>> 2
-[User input: "Enter Bellboard URL [2]"]
-Bellboard URL: 
->>> https://bb.ringingworld.co.uk/search.php?ringer=ringer+name
-[User input: "https://bb.ringingworld.co.uk/search.php?ringer=ringer+name"]
-╭──────────────────────────────────────────────────────────────────────────────╮
-│ Error: Invalid Bellboard search URL:                                         │
-│ https://bb.ringingworld.co.uk/search.php?ringer=ringer+name                  │
-╰──────────────────────────────────────────────────────────────────────────────╯
-Bellboard URL: 
->>> http://localhost:8080/search.php?ringer=ringer+name
-[User input: "http://localhost:8080/search.php?ringer=ringer+name"]
-Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1176329 ──────────────────╮
-│ Christ Church, Bath, Somerset                                                │
-│ Call Changes on Eight                                                        │
-│ From rounds to Queens, to Kings, to Whittingtons, and back to rounds.        │
-│ Thursday, 15 June 2017 (13–0–4 in G)                                         │
-│                                                                              │
-│ 1: Preston Miller                                                            │
-│ 2: Chester Edwards                                                           │
-│ 3: Reid Bailey                                                               │
-│ 4: Arnold Johnson                                                            │
-│ 5: Clark Elliott                                                             │
-│ 6: Maria Johnson                                                             │
-│ 7: John Parker (c)                                                           │
-│ 8: Savana Davis                                                              │
-│                                                                              │
-│ For BBC Music Day, starting at 7.00 PM.                                      │
-│ Followed by a "round peal" with John Cope (6) and Ian Hay Davison (8).       │
-│                                                                              │
-│ Linked event: http://localhost:8080/event.php?id=6361                        │
-│ Bellboard: http://localhost:8080/view.php?id=1176329 (submitted by John      │
-│ Parker on Thursday, 15 June 2017; updated Thursday, 15 June 2017)            │
-╰──────────────────────────────────────────────────────────────────────────────╯
-Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
-Select option (1): 
->>> 1
-[User input: "Quick mode [1]"]
-🏛 Association: None
-🔔 Bell type: Tower
-📅 Date: Thursday, 15 June 2017
-🔔 Tenor: 1460 in G
-⏱ Duration: Unknown
-🏰 Tower: Bath, Somerset
-🔢 Changes: Unknown
-Matching peal titled "Call Changes on Eight"...
-📕 Title: Call Changes on Eight
-📝 Details: From rounds to Queens, to Kings, to Whittingtons, and back to rounds.
-🎼 Composer: Unknown
-1: Couldn't find ringer matching "Preston Miller" (or aliases)
-Add new ringer as "Preston" "Miller"? [y/n] (y): 
->>> 
-[User input: "True"]
-Bell number(s) in the tower (max 8) (1): 
->>> 
-[User input: "1"]
-👤 Ringer: 1: Preston Miller
-👤 Ringer: 2: Chester Edwards
-3: Couldn't find ringer matching "Reid Bailey" (or aliases)
-Add new ringer as "Reid" "Bailey"? [y/n] (y): 
->>> 
-[User input: "True"]
-👤 Ringer: 3: Reid Bailey
-👤 Ringer: 4: Arnold Johnson
-👤 Ringer: 5: Clark Elliott
-6: Couldn't find ringer matching "Maria Johnson" (or aliases)
-Add new ringer as "Maria" "Johnson"? [y/n] (y): 
->>> 
-[User input: "True"]
-👤 Ringer: 6: Maria Johnson
-👤 Ringer: 7: John Parker (c)
-8: Couldn't find ringer matching "Savana Davis" (or aliases)
-Add new ringer as "Savana" "Davis"? [y/n] (y): 
->>> 
-[User input: "True"]
-👤 Ringer: 8: Savana Davis
-Referenced ringer(s):
-  - 8: Savana Davis
-📝 Footnotes:
-  - For BBC Music Day, starting at 7.00 PM.
-  - [8: Savana Davis] Followed by a "round peal" with John Cope (6) and Ian Hay Davison.
-🔗 Event link: http://localhost:8080/event.php?id=6361
-📷 Photo link: None
-📮 Submitted by: John Parker on Thursday, 15 June 2017
-✏️ Updated: Thursday, 15 June 2017
-🔔 Bell type: Tower
-🔕 Muffles: None
-╭──────────────────────────── Confirm performance ─────────────────────────────╮
-│ Bath, Somerset, England                                                      │
-│ Christ Church                                                                │
-│ On Thursday, 15 June 2017                                                    │
-│ Call Changes on Eight (13-0-4 in G)                                          │
-│ From rounds to Queens, to Kings, to Whittingtons, and back to rounds.        │
-│                                                                              │
-│ 1: Preston Miller                                                            │
-│ 2: Chester Edwards                                                           │
-│ 3: Reid Bailey                                                               │
-│ 4: Arnold Johnson                                                            │
-│ 5: Clark Elliott                                                             │
-│ 6: Maria Johnson                                                             │
-│ 7: John Parker (c)                                                           │
-│ 8: Savana Davis                                                              │
-│                                                                              │
-│ For BBC Music Day, starting at 7.00 PM.                                      │
-│ 8: Followed by a "round peal" with John Cope (6) and Ian Hay Davison.        │
-│                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1176329 (John Parker,          │
-│ Thursday, 15 June 2017)]                                                     │
-│ [Event URL: http://localhost:8080/event.php?id=6361]                         │
-╰──────────────────────────────────────────────────────────────────────────────╯
-Save this peal?
-Is this correct? [y/n] (y): 
->>> 
-[User input: "True"]
-Peal (ID 6) added
-Add next peal? [y/n] (y): 
->>> n
-[User input: "False"]
-1 peal(s) added (5 duplicates)
-Save search? [y/n] (y): 
->>> y
-[User input: "True"]
-Description: 
->>> second search
-[User input: "second search"]
-Include in poll? [y/n] (n): 
->>> y
-[User input: "True"]
-Poll frequency (days): 
->>> 2
-[User input: "2"]
-1) Run saved search, 2) New search, 3) Edit search, 4) Delete search, 5) Poll for new peals
 Select option (x = Back) (1): 
 >>> x
 [User input: "None"]
 pypeal Database
  Quarter Peal count: 5                                Last updated: [Timestamp] 
- General Ringing count: 1                                                       
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
 │ 2) Add peal by ID/URL                                                        │
@@ -1061,25 +929,29 @@ pypeal Database
 Select option (1): 
 >>> x
 [User input: "None"]
+
 ===
 Bath, Somerset, England
-Christ Church
-On Thursday, 15 June 2017
-Call Changes on Eight (13-0-4 in G)
-From rounds to Queens, to Kings, to Whittingtons, and back to rounds.
+Blessed Virgin Mary, Bathwick
+On Sunday, 11 January 2015
+A Quarter Peal of 1260 Spliced Caters and Royal (2m) in 48 mins (18-3-20 in E♭)
+(Grandsire Caters, Grandsire Royal)
 
-1: Preston Miller
-2: Chester Edwards
-3: Reid Bailey
-4: Arnold Johnson
-5: Clark Elliott
-6: Maria Johnson
-7: John Parker (c)
-8: Savana Davis
+1: Byron Miller
+2: Paul Armstrong
+3: Clark Elliott
+4: Alisa Cole
+5: Chester Edwards
+6: Heather Sullivan
+7: Jacob Cole
+8: Joyce Sullivan
+9: Leonardo Bennett (c)
+10: Byron Robinson
 
-For BBC Music Day, starting at 7.00 PM.
-8: Followed by a "round peal" with John Cope (6) and Ian Hay Davison.
+For Morning Service, and to welcome Rafe Jackson-Swift, son of Russell and Angela, born on 8th January.
+900th Quarter of Grandsire on the bells.
 
-[BellBoard: http://localhost:8080/view.php?id=1176329 (John Parker, Thursday, 15 June 2017)]
-[Event URL: http://localhost:8080/event.php?id=6361]
-[Database ID: 6]
+[BellBoard: http://localhost:8080/view.php?id=1147788 (Byron Miller, Sunday, 11 January 2015)]
+[Published title: Grandsire Caters and Royal]
+[External reference: Campanophile ID: 188334]
+[Database ID: 5]

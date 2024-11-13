@@ -68,7 +68,6 @@ Duration (41):
 [User input: "41"]
 ⏱ Duration: 41 mins
 🏰 Tower: Bath (Bathwick), Somerset
-🔢 Changes: 1260
 Matching peal titled "Doubles (3m)"...
 What kind of peal is being rung?: 1) Single Method, 2) Mixed Methods, 3) Spliced Methods, 4) General Ringing
 Select option (2): 
@@ -107,6 +106,10 @@ Is this peal variable cover? [y/n] (n):
 >>> 
 [User input: "False"]
 📕 Title: Mixed Doubles (3m)
+Number of changes (1260): 
+>>> 
+[User input: "1260"]
+🔢 Changes: 1260
 Adding changes of methods to multi-method peal...
 Matching method "360 each Reverse Canterbury Pleasure Place"... [0 methods excluded]
 Matched "360 each Reverse Canterbury Pleasure Place" to method "Reverse 

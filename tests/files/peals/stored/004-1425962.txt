@@ -62,13 +62,16 @@ Duration (45):
 [User input: "45"]
 ⏱ Duration: 45 mins
 🏰 Tower: Bexhill on Sea, East Sussex
-🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
 Matched "Grandsire Triples" to method "Grandsire Triples" (ID: m12415)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 📕 Title: Grandsire Triples
+Number of changes (1260): 
+>>> 
+[User input: "1260"]
+🔢 Changes: 1260
 No composer attributed
 Is this correct? [y/n] (y): 
 >>> y

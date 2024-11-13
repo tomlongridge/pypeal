@@ -25,8 +25,9 @@ class PealPreviewListener(PealGeneratorListener):
         self.__lines['location'] += country or ''
         self.__lines['location'] = self.__lines['location'].strip(', ')
 
-    def changes(self, value: int):
-        self.__lines['title'] = f'{value} ' if value else ''
+    def changes(self, value: str):
+        if value:
+            self.__lines['changes'] = value
 
     def title(self, value: str):
         if 'title' not in self.__lines:
@@ -93,7 +94,9 @@ class PealPreviewListener(PealGeneratorListener):
         text = ''
         text += (self.__lines['association'] + '\n') if 'association' in self.__lines else ''
         text += (self.__lines['location'] + '\n') if 'location' in self.__lines else ''
-        text += (self.__lines['title'] + '\n') if 'title' in self.__lines else ''
+        if 'title' in self.__lines:
+            text += (self.__lines['changes'] + ' ') if 'changes' in self.__lines else ''
+            text += self.__lines['title'] + '\n'
         text += (self.__lines['method_details'] + '\n') if 'method_details' in self.__lines else ''
         text += f'Composer: {self.__lines["composer"]}\n' if 'composer' in self.__lines else ''
         text += (self.__lines['date'] + '\n') if 'date' in self.__lines else ''

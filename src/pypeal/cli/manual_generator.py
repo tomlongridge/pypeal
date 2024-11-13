@@ -15,8 +15,8 @@ class ManualGenerator(PealGenerator):
         listener.association(ask('Association', required=False))
         listener.date(ask_date('Date', default=utils.get_now(), required=True))
         listener.location(None, None, None, None)
-        listener.changes(ask_int('Number of changes', required=False))
         listener.title(ask('Title', required=True))
+        listener.changes(None)
 
         if listener.peal.type != PealType.GENERAL_RINGING:
             listener.method_details(ask('Method details', required=False))

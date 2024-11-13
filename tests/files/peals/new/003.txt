@@ -62,10 +62,6 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 📍 Location: Bath, Somerset, England
 📍 Detail: 1 High Street
-Number of changes: 
->>> 5040
-[User input: "5040"]
-🔢 Changes: 5040
 Title: 
 >>> Cambridge Minor
 [User input: "Cambridge Minor"]
@@ -75,6 +71,10 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 📕 Title: Cambridge Surprise Minor
+Number of changes: 
+>>> 5040
+[User input: "5040"]
+🔢 Changes: 5040
 Method details: 
 >>> 
 [User input: "None"]

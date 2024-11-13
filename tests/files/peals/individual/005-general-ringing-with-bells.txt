@@ -1,0 +1,320 @@
+--reset-database
+===
+===
+Polling for new peals...
+pypeal Database
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) BellBoard search                                                          │
+│ 2) Add peal by ID/URL                                                        │
+│ 3) Add peal manually                                                         │
+│ 4) View statistics                                                           │
+│ 5) Generate reports                                                          │
+│ 6) View peal                                                                 │
+│ 7) Delete peal                                                               │
+│ 8) Update static data                                                        │
+│ 9) Clear app cache                                                           │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> 2
+[User input: "Add peal by ID/URL [2]"]
+Bellboard URL or peal ID: 
+>>> 1156733
+[User input: "1156733"]
+Import peal from BellBoard
+╭───────────────── http://localhost:8080/view.php?id=1156733 ──────────────────╮
+│ Bath & Wells Diocesan Association                                            │
+│ Abbey Church of SS Peter and Paul, Bath, Somerset                            │
+│ 30 Minutes Of General Ringing                                                │
+│ Saturday, 23 April 2016                                                      │
+│                                                                              │
+│ 1: Daniel Miller                                                             │
+│ 2: John Parker                                                               │
+│ 3: Reid Bailey                                                               │
+│ 4: Byron Miller                                                              │
+│ 5: Nicole Cole                                                               │
+│ 6: Maria Johnson                                                             │
+│ 7: Myra Ross                                                                 │
+│ 8: Robert Fowler                                                             │
+│ 9: Sophia Payne                                                              │
+│ 10: Daryl Mason                                                              │
+│ 11: Arnold Johnson                                                           │
+│                                                                              │
+│ 30 minutes of general ringing to mark St George's Day                        │
+│                                                                              │
+│ Bellboard: http://localhost:8080/view.php?id=1156733 (submitted by Arnold    │
+│ Johnson on Saturday, 23 April 2016; updated Monday, 9 January 2017)          │
+│ External reference: Campanophile ID: 241085                                  │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
+>>> 3
+[User input: "Prompt mode [3]"]
+Matched "Bath & Wells Diocesan Association" to association: Bath and Wells 
+Diocesan Association (ID: -236)
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+🏛 Association: Bath and Wells Diocesan Association
+🔔 Bell type: Tower
+📅 Date: Saturday, 23 April 2016
+🔔 Tenor: Unknown
+Duration: 
+>>> 
+[User input: "None"]
+⏱ Duration: Unknown
+🏰 Tower: Bath (Abbey Ch of S Peter & S Paul), Somerset
+Matching peal titled "Minutes Of General Ringing"...
+What kind of peal is being rung?: 1) Single Method, 2) Mixed Methods, 3) Spliced Methods, 4) General Ringing
+Select option (1): 
+>>> 4
+[User input: "General Ringing [4]"]
+📕 Title: Minutes Of General Ringing
+Number of changes (30): 
+>>>  
+[User input: "None"]
+🔢 Changes: None
+No composer attributed
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Composition note: 
+>>> 
+[User input: "None"]
+🎼 Composer: Unknown
+Assign bell numbers? [y/n] (y): 
+>>> n
+[User input: "False"]
+Ringer: Couldn't find ringer matching "Daniel Miller" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 
+[User input: "Add new ringer [1]"]
+Add new ringer as "Daniel" "Miller"? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: Daniel Miller
+Ringer: Couldn't find ringer matching "John Parker" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 
+[User input: "Add new ringer [1]"]
+Add new ringer as "John" "Parker"? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: John Parker
+Ringer: Couldn't find ringer matching "Reid Bailey" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 
+[User input: "Add new ringer [1]"]
+Add new ringer as "Reid" "Bailey"? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: Reid Bailey
+Ringer: Couldn't find ringer matching "Byron Miller" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 
+[User input: "Add new ringer [1]"]
+Add new ringer as "Byron" "Miller"? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: Byron Miller
+Ringer: Couldn't find ringer matching "Nicole Cole" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 
+[User input: "Add new ringer [1]"]
+Add new ringer as "Nicole" "Cole"? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: Nicole Cole
+Ringer: Couldn't find ringer matching "Maria Johnson" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 
+[User input: "Add new ringer [1]"]
+Add new ringer as "Maria" "Johnson"? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: Maria Johnson
+Ringer: Couldn't find ringer matching "Myra Ross" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 
+[User input: "Add new ringer [1]"]
+Add new ringer as "Myra" "Ross"? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: Myra Ross
+Ringer: Couldn't find ringer matching "Robert Fowler" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 
+[User input: "Add new ringer [1]"]
+Add new ringer as "Robert" "Fowler"? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: Robert Fowler
+Ringer: Couldn't find ringer matching "Sophia Payne" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 
+[User input: "Add new ringer [1]"]
+Add new ringer as "Sophia" "Payne"? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: Sophia Payne
+Ringer: Couldn't find ringer matching "Daryl Mason" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 
+[User input: "Add new ringer [1]"]
+Add new ringer as "Daryl" "Mason"? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: Daryl Mason
+Ringer: Couldn't find ringer matching "Arnold Johnson" (or aliases)
+1) Add new ringer, 2) Search ringers
+Select option (1): 
+>>> 
+[User input: "Add new ringer [1]"]
+Add new ringer as "Arnold" "Johnson"? [y/n] (y): 
+>>> 
+[User input: "True"]
+Ringer note: 
+>>> 
+[User input: "None"]
+👤 Ringer: Arnold Johnson
+Footnote 1 text:
+  > 30 minutes of general ringing to mark St George's Day.
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Add new footnote? [y/n] (n): 
+>>> 
+[User input: "False"]
+📝 Footnotes:
+  - 30 minutes of general ringing to mark St George's Day.
+🔗 Event link: None
+📷 Photo link: None
+📮 Submitted by: Arnold Johnson on Saturday, 23 April 2016
+✏️ Updated: Monday, 9 January 2017
+🔗 External reference: Campanophile ID: 241085
+Bell type: 1) Tower, 2) Handbells
+Select option (1): 
+>>> 
+[User input: "Tower [1]"]
+🔔 Bell type: Tower
+Muffle type: 1) None, 2) Half-muffled, 3) Fully-muffled
+Select option (1): 
+>>> 
+[User input: "None [1]"]
+🔕 Muffles: None
+╭──────────────────────────── Confirm performance ─────────────────────────────╮
+│ Bath and Wells Diocesan Association                                          │
+│ Bath, Somerset, England                                                      │
+│ Abbey Ch of S Peter & S Paul                                                 │
+│ On Saturday, 23 April 2016                                                   │
+│ Minutes Of General Ringing                                                   │
+│                                                                              │
+│ Daniel Miller                                                                │
+│ John Parker                                                                  │
+│ Reid Bailey                                                                  │
+│ Byron Miller                                                                 │
+│ Nicole Cole                                                                  │
+│ Maria Johnson                                                                │
+│ Myra Ross                                                                    │
+│ Robert Fowler                                                                │
+│ Sophia Payne                                                                 │
+│ Daryl Mason                                                                  │
+│ Arnold Johnson                                                               │
+│                                                                              │
+│ 30 minutes of general ringing to mark St George's Day.                       │
+│                                                                              │
+│ [BellBoard: http://localhost:8080/view.php?id=1156733 (Arnold Johnson,       │
+│ Saturday, 23 April 2016)]                                                    │
+│ [External reference: Campanophile ID: 241085]                                │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> 
+[User input: "True"]
+Peal (ID 1) added
+Bellboard URL or peal ID (enter to exit): 
+>>> 
+[User input: "None"]
+pypeal Database
+ General Ringing count: 1                             Last updated: [Timestamp] 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) BellBoard search                                                          │
+│ 2) Add peal by ID/URL                                                        │
+│ 3) Add peal manually                                                         │
+│ 4) View statistics                                                           │
+│ 5) Generate reports                                                          │
+│ 6) View peal                                                                 │
+│ 7) Delete peal                                                               │
+│ 8) Update static data                                                        │
+│ 9) Clear app cache                                                           │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> x
+[User input: "None"]
+===
+Bath and Wells Diocesan Association
+Bath, Somerset, England
+Abbey Ch of S Peter & S Paul
+On Saturday, 23 April 2016
+Minutes Of General Ringing 
+
+Daniel Miller
+John Parker
+Reid Bailey
+Byron Miller
+Nicole Cole
+Maria Johnson
+Myra Ross
+Robert Fowler
+Sophia Payne
+Daryl Mason
+Arnold Johnson
+
+30 minutes of general ringing to mark St George's Day.
+
+[BellBoard: http://localhost:8080/view.php?id=1156733 (Arnold Johnson, Saturday, 23 April 2016)]
+[External reference: Campanophile ID: 241085]
+[Database ID: 1]

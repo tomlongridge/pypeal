@@ -76,7 +76,7 @@ def _search(peal_search: PealSearch = None, prompt: bool = False):
 
         if peal_search.id is None or prompt:
 
-            match choose_option(['Enter criteria', 'Enter Bellboard URL'], default=1) if peal_search.id is None else 1:
+            match choose_option(['Enter criteria', 'Enter Bellboard URL'], none_option='Back', default=1) if peal_search.id is None else 1:
                 case 1:
                     _create_search(peal_search)
                 case 2:
@@ -87,6 +87,8 @@ def _search(peal_search: PealSearch = None, prompt: bool = False):
                         except ValueError as e:
                             error(e)
                             continue
+                case _:
+                    raise UserCancelled()
 
         try:
             count_duplicate = 0

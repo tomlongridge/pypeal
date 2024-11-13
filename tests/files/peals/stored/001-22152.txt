@@ -22,7 +22,7 @@ Select option (1):
 Search BellBoard
 New peal search
 1) Enter criteria, 2) Enter Bellboard URL
-Select option (1): 
+Select option (x = Back) (1): 
 >>> 1
 [User input: "Enter criteria [1]"]
 % for wildcards, " for absolute match
@@ -103,13 +103,16 @@ Duration (49):
 [User input: "49"]
 ⏱ Duration: 49 mins
 🏰 Tower: Withycombe Raleigh, Devon
-🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
 Matched "Grandsire Triples" to method "Grandsire Triples" (ID: m12415)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 📕 Title: Grandsire Triples
+Number of changes (1260): 
+>>> 
+[User input: "1260"]
+🔢 Changes: 1260
 No composer attributed
 Is this correct? [y/n] (y): 
 >>> y

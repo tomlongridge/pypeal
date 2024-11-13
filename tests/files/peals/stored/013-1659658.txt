@@ -66,13 +66,16 @@ Duration (50):
 [User input: "50"]
 ⏱ Duration: 50 mins
 🏰 Tower: Shrivenham, Oxfordshire
-🔢 Changes: 1296
 Matching peal titled "Little Bob Royal"...
 Matched "Little Bob Royal" to method "Little Bob Royal" (ID: m14020)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 📕 Title: Little Bob Royal
+Number of changes (1296): 
+>>> 
+[User input: "1296"]
+🔢 Changes: 1296
 No composer found matching "Steven Anderson" exactly
 Add as composition note? [y/n] (y): 
 >>> y

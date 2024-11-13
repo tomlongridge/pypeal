@@ -54,10 +54,10 @@ Select option (1):
 📅 Date: Thursday, 15 June 2017
 🔔 Tenor: 1460 in G
 ⏱ Duration: Unknown
-🏰 Tower: Bath, Somerset
-🔢 Changes: Unknown
+🏰 Tower: Bath (Christ Church), Somerset
 Matching peal titled "Call Changes on Eight"...
 📕 Title: Call Changes on Eight
+🔢 Changes: None
 📝 Details: From rounds to Queens, to Kings, to Whittingtons, and back to rounds.
 🎼 Composer: Unknown
 1: Couldn't find ringer matching "Preston Miller" (or aliases)

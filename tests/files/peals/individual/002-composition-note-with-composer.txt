@@ -56,9 +56,9 @@ Select option (1):
 🔔 Tenor: 2120 in Eb
 ⏱ Duration: Unknown
 🏰 Tower: Bath (Bathwick), Somerset
-🔢 Changes: 1296
 Matching peal titled "Little Bob Royal"...
 📕 Title: Little Bob Royal
+🔢 Changes: 1296
 Composer: Attempting to find "Steven Anderson"
 Add new ringer as "Steven" "Anderson"? [y/n] (y): 
 >>> n

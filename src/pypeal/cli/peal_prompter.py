@@ -2,6 +2,7 @@ from datetime import datetime
 from pypeal import utils
 from pypeal.bellboard.listener import PealGeneratorListener
 from pypeal.cli.prompt_add_bell_type import prompt_add_bell_type
+from pypeal.cli.prompt_add_changes import prompt_add_changes
 from pypeal.cli.prompt_add_duration import prompt_add_duration
 from pypeal.cli.prompt_add_footnote import prompt_add_footnote, prompt_add_muffle_type
 from pypeal.cli.prompt_add_tenor import prompt_add_tenor, prompt_validate_tenor
@@ -63,9 +64,11 @@ class PealPromptListener(PealGeneratorListener):
             if self.peal.location_detail:
                 print(f'📍 Detail: {self.peal.location_detail}')
 
-    def changes(self, value: int):
-        self.peal.changes = value
-        print(f'🔢 Changes: {value or "Unknown"}')
+    def changes(self, value: str):
+        value = _clean_str_input(value)
+        self._run_cancellable_prompt(
+            lambda peal: prompt_add_changes(value, peal, self.quick_mode))
+        print(f'🔢 Changes: {self.peal.changes}')
 
     def title(self, value: str):
         value = _clean_str_input(value)

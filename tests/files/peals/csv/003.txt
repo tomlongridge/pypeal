@@ -143,10 +143,10 @@ Select option (1):
 🔔 Tenor: 2352 in Eb
 ⏱ Duration: 44 mins
 🏰 Tower: Portbury, Somerset
-🔢 Changes: 1260
 Matching peal titled "Doubles (1p/5m/3v)"...
 Multi-method peal: "Doubles (1p/5m/3v)"...
 📕 Title: Mixed Doubles (5m/3v/1p)
+🔢 Changes: 1260
 Adding changes of methods to multi-method peal...
 📝 Method details:
   - None

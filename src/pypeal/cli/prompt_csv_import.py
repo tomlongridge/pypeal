@@ -201,7 +201,7 @@ def _read_peal_line(listener: PealGeneratorListener, data: dict, basic_peal: Pea
     if 'Association' in data:
         listener.association(data['Association'])
     if 'Changes' in data and data['Changes'].isnumeric():
-        listener.changes(int(data['Changes']))
+        listener.changes(data['Changes'])
     if 'Title' in data:
         if 'Stage' in data:
             stage = data['Stage']

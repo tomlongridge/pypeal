@@ -67,7 +67,6 @@ Duration (48):
 [User input: "48"]
 ⏱ Duration: 48 mins
 🏰 Tower: Bath (Bathwick), Somerset
-🔢 Changes: 1260
 Matching peal titled "Grandsire Caters and Royal"...
 What kind of peal is being rung?: 1) Single Method, 2) Mixed Methods, 3) Spliced Methods, 4) General Ringing
 Select option (3): 
@@ -128,6 +127,10 @@ Add more changes of method? [y/n] (n):
 >>> n
 [User input: "False"]
 📕 Title: Spliced Caters and Royal (2m)
+Number of changes (1260): 
+>>> 
+[User input: "1260"]
+🔢 Changes: 1260
 📝 Method details:
   - Grandsire Caters
   - Grandsire Royal

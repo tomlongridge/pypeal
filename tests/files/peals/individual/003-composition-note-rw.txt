@@ -54,9 +54,9 @@ Select option (1):
 🔔 Tenor: 2120 in Eb
 ⏱ Duration: 47 mins
 🏰 Tower: Bath (Bathwick), Somerset
-🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
 📕 Title: Grandsire Triples
+🔢 Changes: 1260
 🎼 Composer: Unknown
 🎼 Composition: Old RW Diary
 1: Couldn't find ringer matching "Chloe Grant" (or aliases)

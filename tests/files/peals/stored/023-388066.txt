@@ -68,7 +68,6 @@ Duration (47):
 [User input: "47"]
 ⏱ Duration: 47 mins
 🏰 Tower: Bath (Bathwick), Somerset
-🔢 Changes: 1280
 Matching peal titled "Spliced Surprise Major (8 methods)"...
 What kind of peal is being rung?: 1) Single Method, 2) Mixed Methods, 3) Spliced Methods, 4) General Ringing
 Select option (3): 
@@ -104,6 +103,10 @@ Select option (6):
 >>> 
 [User input: "Surprise [6]"]
 📕 Title: Spliced Surprise Major (8m)
+Number of changes (1280): 
+>>> 
+[User input: "1280"]
+🔢 Changes: 1280
 Adding changes of methods to multi-method peal...
 Matching method "Cambridge"... [0 methods excluded]
 Matched "Cambridge" to method "Cambridge Surprise Major"

@@ -63,9 +63,9 @@ Select option (1):
 🔔 Tenor: 2120 in Eb
 ⏱ Duration: Unknown
 🏰 Tower: Bath (Bathwick), Somerset
-🔢 Changes: Unknown
 Matching peal titled "General Ringing"...
 📕 Title: General Ringing
+🔢 Changes: None
 📝 Details: Including Call Changes to Kings and Queens on 10
 🎼 Composer: Unknown
 👤 Ringer: Arnold Johnson

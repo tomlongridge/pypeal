@@ -54,9 +54,9 @@ Select option (1):
 🔔 Tenor: 1904
 ⏱ Duration: 49 mins
 🏰 Tower: Withycombe Raleigh, Devon
-🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
 📕 Title: Grandsire Triples
+🔢 Changes: 1260
 🎼 Composer: Unknown
 1: Couldn't find ringer matching "Lydia Ferguson" (or aliases)
 Add new ringer as "Lydia" "Ferguson"? [y/n] (y): 

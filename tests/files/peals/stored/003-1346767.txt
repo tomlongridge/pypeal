@@ -64,7 +64,6 @@ Duration (162):
 [User input: "2h 42"]
 ⏱ Duration: 2 hours, 42 mins
 🏰 Tower: Blythburgh, Suffolk
-🔢 Changes: 5040
 Matching peal titled "8 Methods Minor"...
 What kind of peal is being rung?: 1) Single Method, 2) Mixed Methods, 3) Spliced Methods, 4) General Ringing
 Select option (1): 
@@ -100,6 +99,10 @@ Select option:
 >>> 6
 [User input: "Surprise [6]"]
 📕 Title: Mixed Surprise Minor (8m)
+Number of changes (5040): 
+>>> 
+[User input: "5040"]
+🔢 Changes: 5040
 Adding changes of methods to multi-method peal...
 Matching method "seven extents in eight methods"... [0 methods excluded]
 No methods match "seven extents in eight methods" (or similar)

@@ -58,9 +58,9 @@ Select option (1):
 🔔 Tenor: 2120 in Eb
 ⏱ Duration: 49 mins
 🏰 Tower: Bath (Bathwick), Somerset
-🔢 Changes: 1259
 Matching peal titled "Grandsire Caters"...
 📕 Title: Grandsire Caters
+🔢 Changes: 1259
 🎼 Composer: Unknown
 👤 Ringer: 1: Lenny Howard
 👤 Ringer: 2: Jacob Cole

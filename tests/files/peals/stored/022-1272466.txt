@@ -63,9 +63,9 @@ Select option (1):
 🔔 Tenor: 2120 in Eb
 ⏱ Duration: 46 mins
 🏰 Tower: Bath (Bathwick), Somerset
-🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
 📕 Title: Grandsire Triples
+🔢 Changes: 1260
 No composer found matching "Camila Chapman" exactly
 Add as composition note? [y/n] (y): 
 >>> y
@@ -622,9 +622,9 @@ Select option (1):
 🔔 Tenor: 2120 in Eb
 ⏱ Duration: 46 mins
 🏰 Tower: Bath (Bathwick), Somerset
-🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
 📕 Title: Grandsire Triples
+🔢 Changes: 1260
 No composer found matching "Camila Chapman" exactly
 Add as composition note? [y/n] (y): 
 >>> y
@@ -1186,9 +1186,9 @@ Select option (1):
 🔔 Tenor: 2120 in Eb
 ⏱ Duration: 46 mins
 🏰 Tower: Bath (Bathwick), Somerset
-🔢 Changes: 1260
 Matching peal titled "Grandsire Triples"...
 📕 Title: Grandsire Triples
+🔢 Changes: 1260
 No composer found matching "Camila Chapman" exactly
 Add as composition note? [y/n] (y): 
 >>> y

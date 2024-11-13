@@ -67,13 +67,16 @@ Duration (49):
 [User input: "49"]
 ⏱ Duration: 49 mins
 🏰 Tower: Bath (Bathwick), Somerset
-🔢 Changes: 1260
 Matching peal titled "Plain Bob Royal"...
 Matched "Plain Bob Royal" to method "Plain Bob Royal" (ID: m13972)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 📕 Title: Plain Bob Royal
+Number of changes (1260): 
+>>> 
+[User input: "1260"]
+🔢 Changes: 1260
 No composer attributed
 Is this correct? [y/n] (y): 
 >>> y

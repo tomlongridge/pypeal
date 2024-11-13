@@ -55,9 +55,9 @@ Select option (1):
 🔔 Tenor: 880
 ⏱ Duration: 40 mins
 🏰 Tower: Bath (Bathwick), Somerset
-🔢 Changes: 1260
 Matching peal titled "Grandsire Doubles"...
 📕 Title: Grandsire Doubles
+🔢 Changes: 1260
 🎼 Composer: Unknown
 👤 Ringer: 1: Ryan Elliott
 👤 Ringer: 2: Arnold Johnson
@@ -113,13 +113,16 @@ Duration (40):
 [User input: "40"]
 ⏱ Duration: 40 mins
 🏰 Tower: Bath (Bathwick), Somerset
-🔢 Changes: 1260
 Matching peal titled "Grandsire Doubles"...
 Matched "Grandsire Doubles" to method "Grandsire Doubles" (ID: m10587)
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
 📕 Title: Grandsire Doubles
+Number of changes (1260): 
+>>> 
+[User input: "1260"]
+🔢 Changes: 1260
 No composer attributed
 Is this correct? [y/n] (y): 
 >>> 

@@ -61,13 +61,16 @@ Duration:
 [User input: "None"]
 ⏱ Duration: Unknown
 🏰 Tower: Bath (Bathwick), Somerset
-🔢 Changes: 120
 Matching peal titled "Grandsire Doubles"...
 Matched "Grandsire Doubles" to method "Grandsire Doubles" (ID: m10587)
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
 📕 Title: Grandsire Doubles
+Number of changes (120): 
+>>> 
+[User input: "120"]
+🔢 Changes: 120
 No composer attributed
 Is this correct? [y/n] (y): 
 >>> 

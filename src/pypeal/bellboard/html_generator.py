@@ -85,12 +85,6 @@ class HTMLPealGenerator(PealGenerator):
 
         listener.location(address_dedication, place, county, None)
 
-        element = soup.select('span.changes')
-        if len(element) > 0:
-            listener.changes(int(element[0].text.strip()))
-        else:
-            listener.changes(None)
-
         element = soup.select('span.title')
         if len(element) > 0:
             title = element[0].text.strip()
@@ -99,6 +93,13 @@ class HTMLPealGenerator(PealGenerator):
             listener.title(title)
         else:
             raise BellboardError(f'Unable to find title in peal {id}')
+
+        # Register number of changes after the title so we know if it's general ringing
+        element = soup.select('span.changes')
+        if len(element) > 0:
+            listener.changes(element[0].text.strip())
+        else:
+            listener.changes(None)
 
         element = soup.select('div.details')
         if len(element) > 0:

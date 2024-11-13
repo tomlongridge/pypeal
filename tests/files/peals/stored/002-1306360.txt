@@ -59,7 +59,6 @@ Duration (44):
 [User input: "50 mins"]
 ⏱ Duration: 50 mins
 🏰 Tower: Portbury, Somerset
-🔢 Changes: 1260
 Matching peal titled "Doubles (1p/5m/3v)"...
 What kind of peal is being rung?: 1) Single Method, 2) Mixed Methods, 3) Spliced Methods, 4) General Ringing
 Select option (2): 
@@ -98,6 +97,10 @@ Is this peal variable cover? [y/n] (n):
 >>> n
 [User input: "False"]
 📕 Title: Mixed Doubles (5m/3v/1p)
+Number of changes (1260): 
+>>> 
+[User input: "1260"]
+🔢 Changes: 1260
 Adding changes of methods to multi-method peal...
 Add changes of method? [y/n] (y): 
 >>> n

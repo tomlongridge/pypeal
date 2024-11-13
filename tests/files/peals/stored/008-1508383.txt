@@ -86,7 +86,6 @@ Is this correct? [y/n] (y):
 [User input: "True"]
 📍 Location: Maidenhead, Kent, England
 📍 Detail: 80 Lambourne Drive, Cox Green
-🔢 Changes: 5232
 Matching peal titled "Bristol Surprise Maximus"...
 Matched "Bristol Surprise Maximus" to method "Bristol Surprise Maximus" (ID: 
 m22952)
@@ -94,6 +93,10 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 📕 Title: Bristol Surprise Maximus
+Number of changes (5232): 
+>>> 
+[User input: "5232"]
+🔢 Changes: 5232
 Composer: "Lenny Howard" -> Lenny Howard
 Is this correct? [y/n] (y): 
 >>> y

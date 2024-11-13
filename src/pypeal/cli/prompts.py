@@ -38,7 +38,7 @@ def format_timestamp(date: any):
 def ask(prompt: str, default: any = None, required: bool = True) -> str:
     try:
         while True:
-            response = Prompt.ask(prompt, default=str(default) if default else None, show_default=default is not None)
+            response = Prompt.ask(prompt, default=str(default) if default is not None else None, show_default=(default is not None))
             if response is not None and response.strip() == '':  # Allow empty string to indicate no value when there's a default value
                 response = None
             if not required or response:
@@ -51,29 +51,27 @@ def ask(prompt: str, default: any = None, required: bool = True) -> str:
 
 
 def ask_int(prompt: str, default: int = None, min: int = None, max: int = None, required: bool = True) -> int:
-    try:
-        while True:
-            response = IntPrompt.ask(prompt, default=default, show_default=(default is not None))
-            if response is None:
-                if not required:
-                    break
-                else:
-                    continue
+    while True:
+        response = ask(prompt, default, required)
+        if response is None:
+            if not required:
+                break
             else:
-                if min is not None and response < min:
-                    error(f'Number must be {min} or more')
-                    continue
-                if max is not None and response > max:
-                    error(f'Number must be {max} or less')
-                    continue
-            break
-    except KeyboardInterrupt:
-        print_user_input(prompt, '[Abort]')
-        print()  # Ensure subsequent prompt is on a new line
-        raise UserCancelled()
-    print_user_input(prompt, response)
+                continue
+        else:
+            try:
+                response = int(response)
+            except ValueError:
+                error('Invalid number')
+                continue
+            if min is not None and response < min:
+                error(f'Number must be {min} or more')
+                continue
+            if max is not None and response > max:
+                error(f'Number must be {max} or less')
+                continue
+        break
     return response
-
 
 def ask_date(prompt: str,
              default: datetime.date = None,

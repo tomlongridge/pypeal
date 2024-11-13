@@ -56,10 +56,10 @@ Select option (1):
 Tower ID 15243 not found
 📍 Location: Widcombe, Somerset
 📍 Detail: St Matthew
-🔢 Changes: 1296
 Matching peal titled "Spliced Minor (3m)"...
 Multi-method peal: "Spliced Minor (3m)"...
 📕 Title: Spliced Minor (3m)
+🔢 Changes: 1296
 Adding changes of methods to multi-method peal...
 Matching method "720 Cambridge Surprise"... [0 methods excluded]
 Matched "720 Cambridge Surprise" to method "Cambridge Surprise Minor"
@@ -75,7 +75,6 @@ Method 3: Little Bob Minor (72 changes)
   - Plain Bob Minor (504)
   - Little Bob Minor (72)
 🎼 Composer: Unknown
-### "Little" is part of the method type, so needs extra work not to search under its name
 1: Couldn't find ringer matching "Daryl Mason" (or aliases)
 Add new ringer as "Daryl" "Mason"? [y/n] (y): 
 >>> 

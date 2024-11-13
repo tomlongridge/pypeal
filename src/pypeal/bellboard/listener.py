@@ -23,7 +23,7 @@ class PealGeneratorListener():
     def location(self, address_dedication: str, place: str, county: str, country: str):
         pass
 
-    def changes(self, value: int):
+    def changes(self, value: str):
         pass
 
     def title(self, value: str):

@@ -69,7 +69,6 @@ Duration (149):
 [User input: "149"]
 ⏱ Duration: 2 hours, 29 mins
 🏰 Tower: Saxmundham, Suffolk
-🔢 Changes: 5040
 Matching peal titled "8 Methods/variations Doubles"...
 What kind of peal is being rung?: 1) Single Method, 2) Mixed Methods, 3) Spliced Methods, 4) General Ringing
 Select option (1): 
@@ -108,6 +107,10 @@ Is this peal variable cover? [y/n] (n):
 >>> n
 [User input: "False"]
 📕 Title: Mixed Doubles (4m/4v)
+Number of changes (5040): 
+>>> 
+[User input: "5040"]
+🔢 Changes: 5040
 Adding changes of methods to multi-method peal...
 Matching method "Stedman"... [0 methods excluded]
 Matched "Stedman" to method "Stedman Doubles"

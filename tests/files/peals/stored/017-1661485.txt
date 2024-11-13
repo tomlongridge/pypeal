@@ -60,7 +60,6 @@ Duration (36):
 [User input: "36"]
 ⏱ Duration: 36 mins
 🏰 Tower: Bath (Lansdown), Somerset
-🔢 Changes: 1296
 Matching peal titled "Honeywell Delight Minor"...
 Matched "Honeywell Delight Minor" to method "Honeywell Delight Minor" (ID: 
 m23748)
@@ -68,6 +67,10 @@ Is this correct? [y/n] (y):
 >>> y
 [User input: "True"]
 📕 Title: Honeywell Delight Minor
+Number of changes (1296): 
+>>> 
+[User input: "1296"]
+🔢 Changes: 1296
 No composer found matching "Maya Armstrong" exactly
 Add as composition note? [y/n] (y): 
 >>> n

@@ -63,13 +63,16 @@ Duration (46):
 [User input: "46"]
 ⏱ Duration: 46 mins
 🏰 Tower: Longney, Gloucestershire
-🔢 Changes: 1280
 Matching peal titled "London Surprise Major"...
 Matched "London Surprise Major" to method "London Surprise Major" (ID: m20166)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
 📕 Title: London Surprise Major
+Number of changes (1280): 
+>>> 
+[User input: "1280"]
+🔢 Changes: 1280
 No composer attributed
 Is this correct? [y/n] (y): 
 >>> y

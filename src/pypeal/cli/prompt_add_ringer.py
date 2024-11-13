@@ -2,7 +2,7 @@ import logging
 from pypeal.cli.prompts import error, warning
 from pypeal.cli.prompts import ask, confirm
 from pypeal.cli.chooser import choose_option
-from pypeal.entities.peal import Peal
+from pypeal.entities.peal import Peal, PealType
 from pypeal.entities.ringer import Ringer
 from pypeal.entities.tower import Bell
 from pypeal.utils import get_bell_label
@@ -22,6 +22,18 @@ def prompt_add_ringer(name: str,
 
     # Remove extraneous punctuation surrounding the name
     name = name.strip(' .*:')
+    
+    # For general ringing in quick mode, check if we have assigned bells (sometimes it's submitted with bell numbers but shouldn't have)
+    # onlh prompt first time, otherwise base it on the last ringer
+    has_assigned_bells = bell_nums_in_peal is not None
+    if len(peal.ringers) == 0:
+        if peal.type == PealType.GENERAL_RINGING and not quick_mode:
+            has_assigned_bells = confirm(None, confirm_message='Assign bell numbers?', default=has_assigned_bells)
+    else:
+        has_assigned_bells = peal.ringers[-1].bell_nums is not None
+
+    if not has_assigned_bells:
+        bell_nums_in_peal = None
 
     if peal.stage is not None:
         if len(peal.ringers) > 0 and bell_nums_in_peal and peal.ringers[-1].bell_nums is not None:
@@ -64,10 +76,10 @@ def prompt_add_ringer(name: str,
     if not quick_mode:
         note = ask('Ringer note', default=note, required=False)
 
-    if bell_nums_in_ring is None:
+    if has_assigned_bells and bell_nums_in_peal is not None and bell_nums_in_ring is None:
 
         bell_nums_in_ring = []
-        while bell_nums_in_peal is not None and len(bell_nums_in_ring) < len(bell_nums_in_peal):
+        while len(bell_nums_in_ring) < len(bell_nums_in_peal):
 
             if peal.stage is not None and peal.ring is not None and peal.stage.num_bells >= peal.ring.num_bells:
                 # There is no choice of bells as the stage size matches the number of bells in the tower
@@ -122,7 +134,7 @@ def prompt_add_ringer(name: str,
                         bell_nums_in_ring = []
                         quick_mode = False
 
-    if peal.ring and len(bell_nums_in_ring) > 0:
+    if peal.ring and bell_nums_in_ring and len(bell_nums_in_ring) > 0:
         bell_ids = [peal.ring.bells[bell].id for bell in bell_nums_in_ring]
     else:
         bell_ids = None
