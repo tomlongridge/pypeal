@@ -94,8 +94,7 @@ class Report():
 
     @classmethod
     def clear_data(cls):
-        Database.get_connection().query('SET FOREIGN_KEY_CHECKS=0;')
-        Database.get_connection().query('TRUNCATE TABLE reports')
+        Database.get_connection().query('DELETE FROM reports WHERE id > 0')
+        Database.get_connection().query('ALTER TABLE reports AUTO_INCREMENT = 1')
         Database.get_connection().commit()
-        Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')
         Cache.get_cache().clear(cls.__name__)

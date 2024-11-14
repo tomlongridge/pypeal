@@ -1,4 +1,4 @@
---reset-database
+--clear-data
 ===
 ===
 Polling for new peals...
@@ -65,7 +65,7 @@ Select option (1):
 >>> 1
 [User input: "Newest [1]"]
 Import peal from BellBoard
-╭────────────────── http://localhost:8080/view.php?id=22152 ───────────────────╮
+╭───────────── http://localhost:8080/bellboard/view.php?id=22152 ──────────────╮
 │ S John the Evangelist, Withycombe Raleigh, Devon                             │
 │ 1260 Grandsire Triples                                                       │
 │ Saturday, 30 June 2001 (17) in 49m                                           │
@@ -82,8 +82,8 @@ Import peal from BellBoard
 │ First away from cover on 8: 1.                                               │
 │ First of Grandsire inside: 4.                                                │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=22152 (submitted by Nicholas    │
-│ Hunt on Sunday, 15 January 2012)                                             │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=22152 (submitted by   │
+│ Nicholas Hunt on Sunday, 15 January 2012)                                    │
 │ External reference: Campanophile ID: 1593                                    │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
@@ -324,8 +324,8 @@ Select option (1):
 │ 1: First away from cover on 8.                                               │
 │ 4: First of Grandsire inside.                                                │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=22152 (Nicholas Hunt, Sunday,  │
-│ 15 January 2012)]                                                            │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=22152 (Nicholas      │
+│ Hunt, Sunday, 15 January 2012)]                                              │
 │ [External reference: Campanophile ID: 1593]                                  │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -513,6 +513,6 @@ A Quarter Peal of 1260 Grandsire Triples in 49 mins (17-1-10 in D♯)
 1: First away from cover on 8.
 4: First of Grandsire inside.
 
-[BellBoard: http://localhost:8080/view.php?id=22152 (Nicholas Hunt, Sunday, 15 January 2012)]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=22152 (Nicholas Hunt, Sunday, 15 January 2012)]
 [External reference: Campanophile ID: 1593]
 [Database ID: 1]

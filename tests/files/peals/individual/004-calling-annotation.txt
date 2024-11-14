@@ -1,4 +1,4 @@
---reset-database
+--clear-data
 ===
 ===
 Polling for new peals...
@@ -23,7 +23,7 @@ Bellboard URL or peal ID:
 >>> 1176329
 [User input: "1176329"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1176329 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1176329 ─────────────╮
 │ Christ Church, Bath, Somerset                                                │
 │ Call Changes on Eight                                                        │
 │ From rounds to Queens, to Kings, to Whittingtons, and back to rounds.        │
@@ -41,9 +41,9 @@ Import peal from BellBoard
 │ For BBC Music Day, starting at 7.00 PM.                                      │
 │ Followed by a "round peal" with John Cope (6) and Ian Hay Davison (8).       │
 │                                                                              │
-│ Linked event: http://localhost:8080/event.php?id=6361                        │
-│ Bellboard: http://localhost:8080/view.php?id=1176329 (submitted by John      │
-│ Parker on Thursday, 15 June 2017; updated Thursday, 15 June 2017)            │
+│ Linked event: http://localhost:8080/bellboard/event.php?id=6361              │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1176329 (submitted by │
+│ John Parker on Thursday, 15 June 2017; updated Thursday, 15 June 2017)       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
@@ -108,7 +108,7 @@ Referenced ringer(s):
 📝 Footnotes:
   - For BBC Music Day, starting at 7.00 PM.
   - [8: Savana Davis] Followed by a "round peal" with John Cope (6) and Ian Hay Davison.
-🔗 Event link: http://localhost:8080/event.php?id=6361
+🔗 Event link: http://localhost:8080/bellboard/event.php?id=6361
 📷 Photo link: None
 📮 Submitted by: John Parker on Thursday, 15 June 2017
 ✏️ Updated: Thursday, 15 June 2017
@@ -133,9 +133,9 @@ Referenced ringer(s):
 │ For BBC Music Day, starting at 7.00 PM.                                      │
 │ 8: Followed by a "round peal" with John Cope (6) and Ian Hay Davison.        │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1176329 (John Parker,          │
-│ Thursday, 15 June 2017)]                                                     │
-│ [Event URL: http://localhost:8080/event.php?id=6361]                         │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1176329 (John        │
+│ Parker, Thursday, 15 June 2017)]                                             │
+│ [Event URL: http://localhost:8080/bellboard/event.php?id=6361]               │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -182,6 +182,6 @@ From rounds to Queens, to Kings, to Whittingtons, and back to rounds.
 For BBC Music Day, starting at 7.00 PM.
 8: Followed by a "round peal" with John Cope (6) and Ian Hay Davison.
 
-[BellBoard: http://localhost:8080/view.php?id=1176329 (John Parker, Thursday, 15 June 2017)]
-[Event URL: http://localhost:8080/event.php?id=6361]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1176329 (John Parker, Thursday, 15 June 2017)]
+[Event URL: http://localhost:8080/bellboard/event.php?id=6361]
 [Database ID: 1]

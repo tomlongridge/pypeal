@@ -26,7 +26,7 @@ Bellboard URL or peal ID:
 >>> 1066455
 [User input: "1066455"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1066455 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1066455 ─────────────╮
 │ Pig-le-Tower, Marston Bigot, Somerset                                        │
 │ 1280 Cambridge Surprise Major                                                │
 │ Sunday, 21 September 2014                                                    │
@@ -43,8 +43,9 @@ Import peal from BellBoard
 │ Birthday compliment to Paul Clewett                                          │
 │ First on a mini-ring: 3 & 6                                                  │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1066455 (submitted by Heather   │
-│ Sullivan on Sunday, 21 September 2014; updated Friday, 6 January 2017)       │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1066455 (submitted by │
+│ Heather Sullivan on Sunday, 21 September 2014; updated Friday, 6 January     │
+│ 2017)                                                                        │
 │ External reference: Campanophile ID: 183937                                  │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
@@ -252,8 +253,8 @@ Select option (1):
 │ Birthday compliment to Paul Clewett.                                         │
 │ 3,6: First on a mini-ring.                                                   │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1066455 (Heather Sullivan,     │
-│ Sunday, 21 September 2014)]                                                  │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1066455 (Heather     │
+│ Sullivan, Sunday, 21 September 2014)]                                        │
 │ [External reference: Campanophile ID: 183937]                                │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -623,6 +624,6 @@ A Quarter Peal of 1280 Cambridge Surprise Major
 Birthday compliment to Paul Clewett.
 3,6: First on a mini-ring.
 
-[BellBoard: http://localhost:8080/view.php?id=1066455 (Heather Sullivan, Sunday, 21 September 2014)]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1066455 (Heather Sullivan, Sunday, 21 September 2014)]
 [External reference: Campanophile ID: 183937]
 [Database ID: 16]

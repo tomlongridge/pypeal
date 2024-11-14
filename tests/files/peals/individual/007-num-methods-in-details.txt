@@ -1,0 +1,252 @@
+--clear-data
+===
+===
+Polling for new peals...
+pypeal Database
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) BellBoard search                                                          │
+│ 2) Add peal by ID/URL                                                        │
+│ 3) Add peal manually                                                         │
+│ 4) View statistics                                                           │
+│ 5) Generate reports                                                          │
+│ 6) View peal                                                                 │
+│ 7) Delete peal                                                               │
+│ 8) Update static data                                                        │
+│ 9) Clear app cache                                                           │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> 2
+[User input: "Add peal by ID/URL [2]"]
+Bellboard URL or peal ID: 
+>>> 1148292
+[User input: "1148292"]
+Import peal from BellBoard
+╭──────────── http://localhost:8080/bellboard/view.php?id=1148292 ─────────────╮
+│ Guild of Saint Agatha                                                        │
+│ Sacred Heart, Bournemouth, Dorset                                            │
+│ 5040 Minor                                                                   │
+│ (7 methods: 720 each Guild of St Agatha Surprise, Beverley Surprise,         │
+│ Surfleet Surprise, Cambridge Surprise, St Clements College Bob, Buxton Bob   │
+│ and Plain Bob)                                                               │
+│ Saturday, 22 September 2012 (3) in 2h 20                                     │
+│                                                                              │
+│ 1: Preston Carroll                                                           │
+│ 2: Paul Armstrong                                                            │
+│ 3: Arnold Johnson                                                            │
+│ 4: Edward Chapman                                                            │
+│ 5: Deanna Bennett (c)                                                        │
+│ 6: Patrick Bennett                                                           │
+│                                                                              │
+│ First peal - 1                                                               │
+│ First for the Guild - 3, 4                                                   │
+│ Following the ordination to the sacred priesthood of John Maunder, who will  │
+│ serve at St Agatha's Portsmouth within the Personal Ordinariate of Our Lady  │
+│ of Walsingham                                                                │
+│                                                                              │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1148292 (submitted by │
+│ Deanna Bennett on Saturday, 22 September 2012; updated Monday, 9 January     │
+│ 2017)                                                                        │
+│ External reference: Campanophile ID: 149324                                  │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
+Select option (1): 
+>>> 
+[User input: "Quick mode [1]"]
+No associations match "Guild of Saint Agatha"
+1) Search alternatives, 2) Add new association, 3) Remove association
+Select option (1): 
+>>> 2
+[User input: "Add new association [2]"]
+Name (Guild of Saint Agatha): 
+>>> 
+[User input: "Guild of Saint Agatha"]
+🏛 Association: Guild of Saint Agatha
+🔔 Bell type: Tower
+📅 Date: Saturday, 22 September 2012
+🔔 Tenor: 336
+⏱ Duration: 2 hours, 20 mins
+🏰 Tower: Bournemouth (Sacred Heart), Dorset
+Matching peal titled "Minor"...
+Multi-method peal: "Minor"...
+📕 Title: Spliced Minor
+🔢 Changes: 5040
+Adding changes of methods to multi-method peal...
+Matching method "720 each Guild of St Agatha Surprise"... [0 methods excluded]
+Matched "720 each Guild of St Agatha Surprise" to method "Guild of St Agatha Surprise Minor"
+Method 1: Guild of St Agatha Surprise Minor (720 changes)
+Matching method "Beverley Surprise"... [1 methods excluded]
+Matched "Beverley Surprise" to method "Beverley Surprise Minor"
+Method 2: Beverley Surprise Minor (720 changes)
+Matching method "Surfleet Surprise"... [2 methods excluded]
+Matched "Surfleet Surprise" to method "Surfleet Surprise Minor"
+Method 3: Surfleet Surprise Minor (720 changes)
+Matching method "Cambridge Surprise"... [3 methods excluded]
+Matched "Cambridge Surprise" to method "Cambridge Surprise Minor"
+Method 4: Cambridge Surprise Minor (720 changes)
+Matching method "St Clements College Bob"... [4 methods excluded]
+Matched "St Clements College Bob" to method "St Clement's College Bob Minor"
+Method 5: St Clement's College Bob Minor (720 changes)
+Matching method "Buxton Bob"... [5 methods excluded]
+Matched "Buxton Bob" to method "Buxton Bob Minor"
+Method 6: Buxton Bob Minor (720 changes)
+Matching method "Plain Bob"... [6 methods excluded]
+Matched "Plain Bob" to method "Plain Bob Minor"
+Method 7: Plain Bob Minor (720 changes)
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Warning: Number of methods (7) does not match number of methods from peal    │
+│ title (0).                                                                   │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Do you want to update the title? [y/n] (y): 
+>>> y
+[User input: "True"]
+Number of methods (7): 
+>>> 
+[User input: "7"]
+Number of principles (0): 
+>>> 
+[User input: "0"]
+Number of variants (0): 
+>>> 
+[User input: "0"]
+📝 Method details:
+  - Guild of St Agatha Surprise Minor (720)
+  - Beverley Surprise Minor (720)
+  - Surfleet Surprise Minor (720)
+  - Cambridge Surprise Minor (720)
+  - St Clement's College Bob Minor (720)
+  - Buxton Bob Minor (720)
+  - Plain Bob Minor (720)
+🎼 Composer: Unknown
+1: Couldn't find ringer matching "Preston Carroll" (or aliases)
+Add new ringer as "Preston" "Carroll"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 1: Preston Carroll
+2: Couldn't find ringer matching "Paul Armstrong" (or aliases)
+Add new ringer as "Paul" "Armstrong"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 2: Paul Armstrong
+3: Couldn't find ringer matching "Arnold Johnson" (or aliases)
+Add new ringer as "Arnold" "Johnson"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 3: Arnold Johnson
+4: Couldn't find ringer matching "Edward Chapman" (or aliases)
+Add new ringer as "Edward" "Chapman"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 4: Edward Chapman
+5: Couldn't find ringer matching "Deanna Bennett" (or aliases)
+Add new ringer as "Deanna" "Bennett"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 5: Deanna Bennett (c)
+6: Couldn't find ringer matching "Patrick Bennett" (or aliases)
+Add new ringer as "Patrick" "Bennett"? [y/n] (y): 
+>>> 
+[User input: "True"]
+👤 Ringer: 6: Patrick Bennett
+Referenced ringer(s):
+  - 1: Preston Carroll
+Referenced ringer(s):
+  - 3: Arnold Johnson
+  - 4: Edward Chapman
+📝 Footnotes:
+  - [1: Preston Carroll] First peal.
+  - [3: Arnold Johnson] First for the Guild.
+  - [4: Edward Chapman] First for the Guild.
+  - Following the ordination to the sacred priesthood of John Maunder, who will serve at St Agatha's Portsmouth within the Personal Ordinariate of Our Lady of Walsingham.
+🔗 Event link: None
+📷 Photo link: None
+📮 Submitted by: Deanna Bennett on Saturday, 22 September 2012
+✏️ Updated: Monday, 9 January 2017
+🔗 External reference: Campanophile ID: 149324
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Warning: Tenor weight 3 cwt reported on Bellboard does not match the weight  │
+│ of largest bell rung (3-2-6) on Dove                                         │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Confirm tenor bell (6): 
+>>> 6
+[User input: "6"]
+🔔 Bell type: Tower
+🔕 Muffles: None
+╭──────────────────────────── Confirm performance ─────────────────────────────╮
+│ Guild of Saint Agatha                                                        │
+│ Bournemouth, Dorset, England                                                 │
+│ Sacred Heart                                                                 │
+│ On Saturday, 22 September 2012                                               │
+│ A Peal of 5040 Spliced Minor (7m) in 2 hours, 20 mins (3-2-6 in E♭)          │
+│ (720 Guild of St Agatha Surprise Minor, 720 Beverley Surprise Minor, 720     │
+│ Surfleet Surprise Minor, 720 Cambridge Surprise Minor, 720 St Clement's      │
+│ College Bob Minor, 720 Buxton Bob Minor, 720 Plain Bob Minor)                │
+│                                                                              │
+│ 1: Preston Carroll                                                           │
+│ 2: Paul Armstrong                                                            │
+│ 3: Arnold Johnson                                                            │
+│ 4: Edward Chapman                                                            │
+│ 5: Deanna Bennett (c)                                                        │
+│ 6: Patrick Bennett                                                           │
+│                                                                              │
+│ Following the ordination to the sacred priesthood of John Maunder, who will  │
+│ serve at St Agatha's Portsmouth within the Personal Ordinariate of Our Lady  │
+│ of Walsingham.                                                               │
+│ 1: First peal.                                                               │
+│ 3,4: First for the Guild.                                                    │
+│                                                                              │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1148292 (Deanna      │
+│ Bennett, Saturday, 22 September 2012)]                                       │
+│ [Published title: Minor]                                                     │
+│ [External reference: Campanophile ID: 149324]                                │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Save this peal?
+Is this correct? [y/n] (y): 
+>>> y
+[User input: "True"]
+Peal (ID 1) added
+Bellboard URL or peal ID (enter to exit): 
+>>> 
+[User input: "None"]
+pypeal Database
+ Peal count: 1                                        Last updated: [Timestamp] 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1) BellBoard search                                                          │
+│ 2) Add peal by ID/URL                                                        │
+│ 3) Add peal manually                                                         │
+│ 4) View statistics                                                           │
+│ 5) Generate reports                                                          │
+│ 6) View peal                                                                 │
+│ 7) Delete peal                                                               │
+│ 8) Update static data                                                        │
+│ 9) Clear app cache                                                           │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ x) Exit                                                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+Select option (1): 
+>>> x
+[User input: "None"]
+===
+Guild of Saint Agatha
+Bournemouth, Dorset, England
+Sacred Heart
+On Saturday, 22 September 2012
+A Peal of 5040 Spliced Minor (7m) in 2 hours, 20 mins (3-2-6 in E♭)
+(720 Buxton Bob Minor, 720 Plain Bob Minor, 720 St Clement's College Bob Minor, 720 Guild of St Agatha Surprise Minor, 720 Cambridge Surprise Minor, 720 Surfleet Surprise Minor, 720 Beverley Surprise Minor)
+
+1: Preston Carroll
+2: Paul Armstrong
+3: Arnold Johnson
+4: Edward Chapman
+5: Deanna Bennett (c)
+6: Patrick Bennett
+
+Following the ordination to the sacred priesthood of John Maunder, who will serve at St Agatha's Portsmouth within the Personal Ordinariate of Our Lady of Walsingham.
+1: First peal.
+3,4: First for the Guild.
+
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1148292 (Deanna Bennett, Saturday, 22 September 2012)]
+[Published title: Minor]
+[External reference: Campanophile ID: 149324]
+[Database ID: 1]

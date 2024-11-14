@@ -26,7 +26,7 @@ Bellboard URL or peal ID:
 >>> 1627555
 [User input: "1627555"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1627555 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1627555 ─────────────╮
 │ St Lawrence, Longney, Gloucestershire                                        │
 │ 1280 London Surprise Major                                                   │
 │ Saturday, 13 May 2023 (10–3–17 in F) in 46m                                  │
@@ -42,9 +42,9 @@ Import peal from BellBoard
 │                                                                              │
 │ 31/50                                                                        │
 │                                                                              │
-│ Linked event: http://localhost:8080/event.php?id=17567                       │
-│ Bellboard: http://localhost:8080/view.php?id=1627555 (submitted by Carl      │
-│ Johnston on Saturday, 13 May 2023)                                           │
+│ Linked event: http://localhost:8080/bellboard/event.php?id=17567             │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1627555 (submitted by │
+│ Carl Johnston on Saturday, 13 May 2023)                                      │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
@@ -184,7 +184,7 @@ Add new footnote? [y/n] (n):
 [User input: "False"]
 📝 Footnotes:
   - 31/50.
-🔗 Event link: http://localhost:8080/event.php?id=17567
+🔗 Event link: http://localhost:8080/bellboard/event.php?id=17567
 📷 Photo link: None
 📮 Submitted by: Carl Johnston on Saturday, 13 May 2023
 Bell type: 1) Tower, 2) Handbells
@@ -214,9 +214,9 @@ Select option (1):
 │                                                                              │
 │ 31/50.                                                                       │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1627555 (Carl Johnston,        │
-│ Saturday, 13 May 2023)]                                                      │
-│ [Event URL: http://localhost:8080/event.php?id=17567]                        │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1627555 (Carl        │
+│ Johnston, Saturday, 13 May 2023)]                                            │
+│ [Event URL: http://localhost:8080/bellboard/event.php?id=17567]              │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -549,6 +549,6 @@ A Quarter Peal of 1280 London Surprise Major in 46 mins (10-3-17 in F)
 
 31/50.
 
-[BellBoard: http://localhost:8080/view.php?id=1627555 (Carl Johnston, Saturday, 13 May 2023)]
-[Event URL: http://localhost:8080/event.php?id=17567]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1627555 (Carl Johnston, Saturday, 13 May 2023)]
+[Event URL: http://localhost:8080/bellboard/event.php?id=17567]
 [Database ID: 9]

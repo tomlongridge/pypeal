@@ -26,7 +26,7 @@ Bellboard URL or peal ID:
 >>> 1426065
 [User input: "1426065"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1426065 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1426065 ─────────────╮
 │ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
 │ 1260 Grandsire Triples                                                       │
 │ Sunday, 2 December 2001 in 50m                                               │
@@ -42,8 +42,8 @@ Import peal from BellBoard
 │                                                                              │
 │ Rung for Morning Service. First of Triples "inside"-4.                       │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1426065 (submitted by Nicholas  │
-│ Hunt on Sunday, 15 January 2012; updated Monday, 22 March 2021)              │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1426065 (submitted by │
+│ Nicholas Hunt on Sunday, 15 January 2012; updated Monday, 22 March 2021)     │
 │ External reference: Campanophile ID: 2972                                    │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
@@ -299,8 +299,8 @@ Select option (1):
 │ Rung for Morning Service.                                                    │
 │ 5: First of Triples inside.                                                  │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1426065 (Nicholas Hunt,        │
-│ Sunday, 15 January 2012)]                                                    │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1426065 (Nicholas    │
+│ Hunt, Sunday, 15 January 2012)]                                              │
 │ [External reference: Campanophile ID: 2972]                                  │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -598,6 +598,6 @@ A Quarter Peal of 1260 Grandsire Triples in 50 mins (18-3-20 in E♭)
 Rung for Morning Service.
 5: First of Triples inside.
 
-[BellBoard: http://localhost:8080/view.php?id=1426065 (Nicholas Hunt, Sunday, 15 January 2012)]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1426065 (Nicholas Hunt, Sunday, 15 January 2012)]
 [External reference: Campanophile ID: 2972]
 [Database ID: 5]

@@ -1,4 +1,4 @@
---reset-database
+--clear-data
 ===
 ===
 Polling for new peals...
@@ -245,8 +245,8 @@ Submit peal to BellBoard
 ╰──────────────────────────────────────────────────────────────────────────────╯
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Warning: Possible duplicate peals found on BellBoard:                        │
-│ http://localhost:8080/search.php?from=01/01/2020&to=01/01/2020&dove_tower=13 │
-│ 019&bells_type=tower&order=newest&page=1                                     │
+│ http://localhost:8080/bellboard/search.php?from=01/01/2020&to=01/01/2020&dov │
+│ e_tower=13019&bells_type=tower&order=newest&page=1                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Check these peals for duplicates? [y/n] (y): 
 >>> n
@@ -282,7 +282,7 @@ Submit peal? [y/n] (y):
 [User input: "True"]
 Submitting peal to BellBoard...
 ╭──────────────────────────────────────────────────────────────────────────────╮
-│ Success: http://localhost:8080/view.php?id=1                                 │
+│ Success: http://localhost:8080/bellboard/view.php?id=1                       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Updated peal with BellBoard ID
 pypeal Database
@@ -317,5 +317,5 @@ A Quarter Peal of 1260 Grandsire Doubles (7-3-12 in B♭)
 5: Enid Evans (c)
 6: Freddie Firth
 
-[BellBoard: http://localhost:8080/view.php?id=1 (username, Friday, 1 January 2021)]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1 (username, Friday, 1 January 2021)]
 [Database ID: 1]

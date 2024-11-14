@@ -46,6 +46,8 @@ def update_towers():
             continue  # todo: handle multiple rings in one line
         if len(line['County']) == len(line['Country']) == len(line['ISO3166code']) == 0:
             continue
+        if line['UR']:
+            continue  # unringable
         tower_obj = Tower(towerbase_id=int(line['TowerBase']) if len(line['TowerBase']) > 0 else None,
                           place=line['Place'] if len(line['Place']) > 0 else None,
                           sub_place=line['Place2'] if len(line['Place2']) > 0 else None,

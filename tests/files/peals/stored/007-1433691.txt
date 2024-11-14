@@ -26,7 +26,7 @@ Bellboard URL or peal ID:
 >>> 1433691
 [User input: "1433691"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1433691 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1433691 ─────────────╮
 │ Middlesex County Association & London Diocesan Guild                         │
 │ All Hallows, Twickenham, Greater London                                      │
 │ 1320 Plain Bob Doubles                                                       │
@@ -42,8 +42,8 @@ Import peal from BellBoard
 │ First quarter peal: 6                                                        │
 │ For evensong                                                                 │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1433691 (submitted by Richard   │
-│ Higgins on Friday, 19 October 2018; updated Sunday, 11 April 2021)           │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1433691 (submitted by │
+│ Richard Higgins on Friday, 19 October 2018; updated Sunday, 11 April 2021)   │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
@@ -80,7 +80,7 @@ Duration:
 >>> 
 [User input: "None"]
 ⏱ Duration: Unknown
-🏰 Tower: Twickenham, Greater London
+🏰 Tower: Twickenham (All Hallows), Greater London
 Matching peal titled "Plain Bob Doubles"...
 Matched "Plain Bob Doubles" to method "Plain Bob Doubles" (ID: m10550)
 Is this correct? [y/n] (y): 
@@ -253,8 +253,8 @@ Select option (1):
 │ For evensong.                                                                │
 │ 6: First quarter peal.                                                       │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1433691 (Richard Higgins,      │
-│ Friday, 19 October 2018)]                                                    │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1433691 (Richard     │
+│ Higgins, Friday, 19 October 2018)]                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -563,5 +563,5 @@ A Quarter Peal of 1320 Plain Bob Doubles (7-1-11 in B)
 For evensong.
 6: First quarter peal.
 
-[BellBoard: http://localhost:8080/view.php?id=1433691 (Richard Higgins, Friday, 19 October 2018)]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1433691 (Richard Higgins, Friday, 19 October 2018)]
 [Database ID: 7]

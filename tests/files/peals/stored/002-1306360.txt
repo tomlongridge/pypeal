@@ -25,7 +25,7 @@ Bellboard URL or peal ID:
 >>> 1306360
 [User input: "1306360"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1306360 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1306360 ─────────────╮
 │ Bath & Wells Diocesan Association                                            │
 │ Blessed Virgin Mary, Portbury, Somerset                                      │
 │ 1260 Doubles (1p/5m/3v)                                                      │
@@ -38,8 +38,8 @@ Import peal from BellBoard
 │ 5: Ted Harris (c)                                                            │
 │ 6: David Rogers                                                              │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1306360 (submitted by Arnold    │
-│ Morrison on Thursday, 17 October 2019)                                       │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1306360 (submitted by │
+│ Arnold Morrison on Thursday, 17 October 2019)                                │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
@@ -214,8 +214,8 @@ Select option (1):
 │ 5: Ted Harris (Note 5) (c)                                                   │
 │ 6: David Rogers (Note 6)                                                     │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1306360 (Arnold Morrison,      │
-│ Thursday, 17 October 2019)]                                                  │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1306360 (Arnold      │
+│ Morrison, Thursday, 17 October 2019)]                                        │
 │ [Published title: Doubles (1p/5m/3v)]                                        │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -393,6 +393,6 @@ A Quarter Peal of 1260 Mixed Doubles (5m/3v/1p) in 50 mins (21 cwt in E♭)
 5: Ted Harris (Note 5) (c)
 6: David Rogers (Note 6)
 
-[BellBoard: http://localhost:8080/view.php?id=1306360 (Arnold Morrison, Thursday, 17 October 2019)]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1306360 (Arnold Morrison, Thursday, 17 October 2019)]
 [Published title: Doubles (1p/5m/3v)]
 [Database ID: 2]

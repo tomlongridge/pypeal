@@ -16,13 +16,14 @@ from pypeal.cli.prompts import UserCancelled, confirm, error
 from pypeal.entities.peal import Peal, BellType, PealLengthType, PealType
 from pypeal.entities.tower import Tower
 
+
 class PealPromptListener(PealGeneratorListener):
 
     def __init__(self):
         super().__init__()
         self.quick_mode = False
         self.footnote_amend = True
-    
+
     def set_quick_mode(self, quick_mode: bool = True, amend_footnote: bool = False):
         self.quick_mode = quick_mode
         self.footnote_amend = amend_footnote

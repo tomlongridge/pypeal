@@ -1,4 +1,4 @@
---reset-database
+--clear-data
 ===
 ===
 Polling for new peals...
@@ -72,7 +72,7 @@ Select option (1):
 >>> 1
 [User input: "Newest [1]"]
 Import peal from BellBoard
-╭────────────────── http://localhost:8080/view.php?id=22152 ───────────────────╮
+╭───────────── http://localhost:8080/bellboard/view.php?id=22152 ──────────────╮
 │ S John the Evangelist, Withycombe Raleigh, Devon                             │
 │ 1260 Grandsire Triples                                                       │
 │ Saturday, 30 June 2001 (17) in 49m                                           │
@@ -89,8 +89,8 @@ Import peal from BellBoard
 │ First away from cover on 8: 1.                                               │
 │ First of Grandsire inside: 4.                                                │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=22152 (submitted by Nicholas    │
-│ Hunt on Sunday, 15 January 2012)                                             │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=22152 (submitted by   │
+│ Nicholas Hunt on Sunday, 15 January 2012)                                    │
 │ External reference: Campanophile ID: 1593                                    │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
@@ -185,8 +185,8 @@ Confirm tenor bell (12):
 │ 1: First away from cover on 8.                                               │
 │ 4: First of Grandsire inside.                                                │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=22152 (Nicholas Hunt, Sunday,  │
-│ 15 January 2012)]                                                            │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=22152 (Nicholas      │
+│ Hunt, Sunday, 15 January 2012)]                                              │
 │ [External reference: Campanophile ID: 1593]                                  │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -216,7 +216,7 @@ Select option (x = New search):
 >>> 1
 [User input: "new search 1 [1]"]
 Import peal from BellBoard
-╭────────────────── http://localhost:8080/view.php?id=41426 ───────────────────╮
+╭───────────── http://localhost:8080/bellboard/view.php?id=41426 ──────────────╮
 │ Cleator Moor, Cumbria                                                        │
 │ 1260 Grandsire Triples                                                       │
 │ Tuesday, 28 June 2005                                                        │
@@ -230,8 +230,8 @@ Import peal from BellBoard
 │ 7: Joyce Sullivan (c)                                                        │
 │ 8: Myra Andrews                                                              │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=41426 (submitted by Nicholas    │
-│ Hunt on Sunday, 15 January 2012)                                             │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=41426 (submitted by   │
+│ Nicholas Hunt on Sunday, 15 January 2012)                                    │
 │ External reference: Campanophile ID: 29386                                   │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
@@ -426,8 +426,8 @@ Select option (1):
 │ 7: Joyce Sullivan (c)                                                        │
 │ 8: Myra Andrews                                                              │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=41426 (Nicholas Hunt, Sunday,  │
-│ 15 January 2012)]                                                            │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=41426 (Nicholas      │
+│ Hunt, Sunday, 15 January 2012)]                                              │
 │ [External reference: Campanophile ID: 29386]                                 │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -439,7 +439,7 @@ Add next peal? [y/n] (y):
 >>> y
 [User input: "True"]
 Import peal from BellBoard
-╭────────────────── http://localhost:8080/view.php?id=388066 ──────────────────╮
+╭───────────── http://localhost:8080/bellboard/view.php?id=388066 ─────────────╮
 │ Bath & Wells Diocesan Association                                            │
 │ St Mary the Virgin, Bathwick, Somerset                                       │
 │ 1280 Spliced Surprise Major (8 methods)                                      │
@@ -458,8 +458,8 @@ Import peal from BellBoard
 │                                                                              │
 │ Rung for morning service                                                     │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=388066 (submitted by Nicholas   │
-│ Hunt on Sunday, 15 January 2012; updated Sunday, 15 February 2015)           │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=388066 (submitted by  │
+│ Nicholas Hunt on Sunday, 15 January 2012; updated Sunday, 15 February 2015)  │
 │ External reference: Campanophile ID: 116670                                  │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
@@ -570,8 +570,8 @@ Add new ringer as "Byron" "Robinson"? [y/n] (y):
 │                                                                              │
 │ Rung for morning service.                                                    │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=388066 (Nicholas Hunt, Sunday, │
-│ 15 January 2012)]                                                            │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=388066 (Nicholas     │
+│ Hunt, Sunday, 15 January 2012)]                                              │
 │ [Published title: Spliced Surprise Major (8 methods)]                        │
 │ [External reference: Campanophile ID: 116670]                                │
 ╰──────────────────────────────────────────────────────────────────────────────╯
@@ -649,7 +649,7 @@ Select option (2):
 >>> 
 [User input: "Oldest [2]"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1066455 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1066455 ─────────────╮
 │ Pig-le-Tower, Marston Bigot, Somerset                                        │
 │ 1280 Cambridge Surprise Major                                                │
 │ Sunday, 21 September 2014                                                    │
@@ -666,8 +666,9 @@ Import peal from BellBoard
 │ Birthday compliment to Paul Clewett                                          │
 │ First on a mini-ring: 3 & 6                                                  │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1066455 (submitted by Heather   │
-│ Sullivan on Sunday, 21 September 2014; updated Friday, 6 January 2017)       │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1066455 (submitted by │
+│ Heather Sullivan on Sunday, 21 September 2014; updated Friday, 6 January     │
+│ 2017)                                                                        │
 │ External reference: Campanophile ID: 183937                                  │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
@@ -744,8 +745,8 @@ Referenced ringer(s):
 │ Birthday compliment to Paul Clewett.                                         │
 │ 3,6: First on a mini-ring.                                                   │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1066455 (Heather Sullivan,     │
-│ Sunday, 21 September 2014)]                                                  │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1066455 (Heather     │
+│ Sullivan, Sunday, 21 September 2014)]                                        │
 │ [External reference: Campanophile ID: 183937]                                │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -776,7 +777,7 @@ Select option (x = Back) (1):
 Polling for new peals...
 Polling for new peals matching search "amended search 1"...
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1147788 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1147788 ─────────────╮
 │ St Mary the Virgin, Bathwick, Somerset                                       │
 │ 1260 Grandsire Caters and Royal                                              │
 │ Sunday, 11 January 2015 (18–3–20) in 48m                                     │
@@ -796,8 +797,8 @@ Import peal from BellBoard
 │ Angela, born on 8th January.                                                 │
 │ 900th Quarter of Grandsire on the bells.                                     │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1147788 (submitted by Byron     │
-│ Miller on Sunday, 11 January 2015; updated Monday, 9 January 2017)           │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1147788 (submitted by │
+│ Byron Miller on Sunday, 11 January 2015; updated Monday, 9 January 2017)     │
 │ External reference: Campanophile ID: 188334                                  │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
@@ -880,8 +881,8 @@ Add new ringer as "Leonardo" "Bennett"? [y/n] (y):
 │ Angela, born on 8th January.                                                 │
 │ 900th Quarter of Grandsire on the bells.                                     │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1147788 (Byron Miller, Sunday, │
-│ 11 January 2015)]                                                            │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1147788 (Byron       │
+│ Miller, Sunday, 11 January 2015)]                                            │
 │ [Published title: Grandsire Caters and Royal]                                │
 │ [External reference: Campanophile ID: 188334]                                │
 ╰──────────────────────────────────────────────────────────────────────────────╯
@@ -929,7 +930,6 @@ pypeal Database
 Select option (1): 
 >>> x
 [User input: "None"]
-
 ===
 Bath, Somerset, England
 Blessed Virgin Mary, Bathwick
@@ -951,7 +951,7 @@ A Quarter Peal of 1260 Spliced Caters and Royal (2m) in 48 mins (18-3-20 in E♭
 For Morning Service, and to welcome Rafe Jackson-Swift, son of Russell and Angela, born on 8th January.
 900th Quarter of Grandsire on the bells.
 
-[BellBoard: http://localhost:8080/view.php?id=1147788 (Byron Miller, Sunday, 11 January 2015)]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1147788 (Byron Miller, Sunday, 11 January 2015)]
 [Published title: Grandsire Caters and Royal]
 [External reference: Campanophile ID: 188334]
 [Database ID: 5]

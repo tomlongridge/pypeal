@@ -26,7 +26,7 @@ Bellboard URL or peal ID:
 >>> 1346945
 [User input: "1346945"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1346945 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1346945 ─────────────╮
 │ Suffolk Guild                                                                │
 │ St John the Baptist, Saxmundham, Suffolk                                     │
 │ 5040 8 Methods/variations Doubles                                            │
@@ -45,8 +45,8 @@ Import peal from BellBoard
 │ New York, U.S.A., and Mrs Linda Archer of Saxmundham, daughter of the tower  │
 │ captain at this tower, who were married at this church on Easter Saturday.   │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1346945 (submitted by Ned       │
-│ Andrews on Monday, 13 April 2020)                                            │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1346945 (submitted by │
+│ Ned Andrews on Monday, 13 April 2020)                                        │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
@@ -314,8 +314,8 @@ Select option (1):
 │ New York, U.S.A., and Mrs Linda Archer of Saxmundham, daughter of the tower  │
 │ captain at this tower, who were married at this church on Easter Saturday.   │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1346945 (Ned Andrews, Monday,  │
-│ 13 April 2020)]                                                              │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1346945 (Ned         │
+│ Andrews, Monday, 13 April 2020)]                                             │
 │ [Published title: 8 Methods/variations Doubles]                              │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -664,6 +664,6 @@ A Peal of 5042 Mixed Doubles (4m/4v) in 2 hours, 29 mins (8-3-7 in A)
 
 Rung as a wedding compliment To Terry Lee Nash, of Lindenhurst, Long Island, New York, U.S.A., and Mrs Linda Archer of Saxmundham, daughter of the tower captain at this tower, who were married at this church on Easter Saturday.
 
-[BellBoard: http://localhost:8080/view.php?id=1346945 (Ned Andrews, Monday, 13 April 2020)]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1346945 (Ned Andrews, Monday, 13 April 2020)]
 [Published title: 8 Methods/variations Doubles]
 [Database ID: 11]

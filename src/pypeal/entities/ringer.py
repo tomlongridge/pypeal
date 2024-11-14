@@ -179,9 +179,9 @@ class Ringer():
 
     @classmethod
     def clear_data(cls):
-        Database.get_connection().query('SET FOREIGN_KEY_CHECKS=0;')
-        Database.get_connection().query('TRUNCATE TABLE ringers')
-        Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')
+        Database.get_connection().query('DELETE FROM ringers WHERE link_id IS NOT NULL')
+        Database.get_connection().query('DELETE FROM ringers WHERE id > 0')
+        Database.get_connection().query('ALTER TABLE ringers AUTO_INCREMENT = 1')
         Database.get_connection().commit()
         Cache.get_cache().clear(cls.__name__)
 

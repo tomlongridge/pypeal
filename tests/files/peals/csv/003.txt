@@ -73,8 +73,8 @@ Importing peal Current L3...
 ╰──────────────────────────────────────────────────────────────────────────────╯
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Warning: Possible duplicate peals found on BellBoard:                        │
-│ http://localhost:8080/search.php?from=17/10/2019&to=17/10/2019&dove_tower=11 │
-│ 057&order=newest&page=1                                                      │
+│ http://localhost:8080/bellboard/search.php?from=17/10/2019&to=17/10/2019&dov │
+│ e_tower=11057&order=newest&page=1                                            │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Check these peals for duplicates? [y/n] (y): 
 >>> y
@@ -104,10 +104,10 @@ Check these peals for duplicates? [y/n] (y):
 │ 5: Ted Harris (c)                                                            │
 │ 6: David Rogers                                                              │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1306360 (submitted by Arnold    │
-│ Morrison on Thursday, 17 October 2019)                                       │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1306360 (submitted by │
+│ Arnold Morrison on Thursday, 17 October 2019)                                │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-http://localhost:8080/view.php?id=1306360
+http://localhost:8080/bellboard/view.php?id=1306360
 Is this the same peal? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -117,7 +117,7 @@ Import? [y/n] (y):
 >>> y
 [User input: "True"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1306360 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1306360 ─────────────╮
 │ Bath & Wells Diocesan Association                                            │
 │ Blessed Virgin Mary, Portbury, Somerset                                      │
 │ 1260 Doubles (1p/5m/3v)                                                      │
@@ -130,8 +130,8 @@ Import peal from BellBoard
 │ 5: Ted Harris (c)                                                            │
 │ 6: David Rogers                                                              │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1306360 (submitted by Arnold    │
-│ Morrison on Thursday, 17 October 2019)                                       │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1306360 (submitted by │
+│ Arnold Morrison on Thursday, 17 October 2019)                                │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
@@ -201,8 +201,8 @@ Add new ringer as "David" "Rogers"? [y/n] (y):
 │ 5: Ted Harris (c)                                                            │
 │ 6: David Rogers                                                              │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1306360 (Arnold Morrison,      │
-│ Thursday, 17 October 2019)]                                                  │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1306360 (Arnold      │
+│ Morrison, Thursday, 17 October 2019)]                                        │
 │ [Published title: Doubles (1p/5m/3v)]                                        │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -265,8 +265,8 @@ Is this the same peal? [y/n] (y):
 [User input: "False"]
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │ Warning: Possible duplicate peals found on BellBoard:                        │
-│ http://localhost:8080/search.php?from=01/01/2001&to=01/01/2001&dove_tower=16 │
-│ 183&order=newest&page=1                                                      │
+│ http://localhost:8080/bellboard/search.php?from=01/01/2001&to=01/01/2001&dov │
+│ e_tower=16183&order=newest&page=1                                            │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Check these peals for duplicates? [y/n] (y): 
 >>> y
@@ -298,10 +298,10 @@ Check these peals for duplicates? [y/n] (y):
 │ 5: Ted Harris (c)                                                            │
 │ 6: David Rogers                                                              │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1306360 (submitted by Arnold    │
-│ Morrison on Thursday, 17 October 2019)                                       │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1306360 (submitted by │
+│ Arnold Morrison on Thursday, 17 October 2019)                                │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-http://localhost:8080/view.php?id=1306360
+http://localhost:8080/bellboard/view.php?id=1306360
 Is this the same peal? [y/n] (y): 
 >>> n
 [User input: "False"]

@@ -1,4 +1,4 @@
---reset-database
+--clear-data
 ===
 ===
 Polling for new peals...
@@ -23,7 +23,7 @@ Bellboard URL or peal ID:
 >>> 1701004
 [User input: "1701004"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1701004 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1701004 ─────────────╮
 │ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
 │ 1296 Little Bob Royal                                                        │
 │ Composer: Steven Anderson                                                    │
@@ -43,8 +43,8 @@ Import peal from BellBoard
 │ For morning service.                                                         │
 │ First of Little Bob: 4.                                                      │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1701004 (submitted by Daryl     │
-│ Mason on Sunday, 18 February 2024; updated Sunday, 18 February 2024)         │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1701004 (submitted by │
+│ Daryl Mason on Sunday, 18 February 2024; updated Sunday, 18 February 2024)   │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
@@ -160,9 +160,9 @@ Referenced ringer(s):
 │ For morning service.                                                         │
 │ 4: First of Little Bob.                                                      │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1701004 (Daryl Mason, Sunday,  │
-│ 18 February 2024)]                                                           │
-│ [Composition URL: http://localhost:8080/comp.php?id=2295910]                 │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1701004 (Daryl       │
+│ Mason, Sunday, 18 February 2024)]                                            │
+│ [Composition URL: http://localhost:8080/bellboard/comp.php?id=2295910]       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -212,6 +212,6 @@ Composition: 12824
 For morning service.
 4: First of Little Bob.
 
-[BellBoard: http://localhost:8080/view.php?id=1701004 (Daryl Mason, Sunday, 18 February 2024)]
-[Composition URL: http://localhost:8080/comp.php?id=2295910]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1701004 (Daryl Mason, Sunday, 18 February 2024)]
+[Composition URL: http://localhost:8080/bellboard/comp.php?id=2295910]
 [Database ID: 1]

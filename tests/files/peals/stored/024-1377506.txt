@@ -27,7 +27,7 @@ Bellboard URL or peal ID:
 >>> 1377506
 [User input: "1377506"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1377506 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1377506 ─────────────╮
 │ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
 │ 120 Grandsire Doubles                                                        │
 │ Sunday, 12 July 2020 (18–3–20 in E♭)                                         │
@@ -41,8 +41,8 @@ Import peal from BellBoard
 │ For morning service                                                          │
 │ The first ringing at Bathwick in 17 weeks                                    │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1377506 (submitted by Jacob     │
-│ Cole on Wednesday, 15 July 2020)                                             │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1377506 (submitted by │
+│ Jacob Cole on Wednesday, 15 July 2020)                                       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
@@ -191,7 +191,7 @@ Select option (1):
 │ For morning service.                                                         │
 │ The first ringing at Bathwick in 17 weeks.                                   │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1377506 (Jacob Cole,           │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1377506 (Jacob Cole, │
 │ Wednesday, 15 July 2020)]                                                    │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -613,5 +613,5 @@ A Touch of 120 Grandsire Doubles (18-3-20 in E♭)
 For morning service.
 The first ringing at Bathwick in 17 weeks.
 
-[BellBoard: http://localhost:8080/view.php?id=1377506 (Jacob Cole, Wednesday, 15 July 2020)]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1377506 (Jacob Cole, Wednesday, 15 July 2020)]
 [Database ID: 26]

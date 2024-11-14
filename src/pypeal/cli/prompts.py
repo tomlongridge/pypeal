@@ -1,6 +1,6 @@
 import datetime
 import logging
-from rich.prompt import IntPrompt, Prompt, Confirm
+from rich.prompt import Prompt, Confirm
 from rich.panel import Panel
 from rich import print
 from rich.style import Style
@@ -72,6 +72,7 @@ def ask_int(prompt: str, default: int = None, min: int = None, max: int = None, 
                 continue
         break
     return response
+
 
 def ask_date(prompt: str,
              default: datetime.date = None,

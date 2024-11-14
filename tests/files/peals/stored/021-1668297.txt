@@ -27,7 +27,7 @@ Bellboard URL or peal ID:
 >>> 1668297
 [User input: "1668297"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1668297 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1668297 ─────────────╮
 │ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
 │ 1260 Grandsire Doubles                                                       │
 │ Sunday, 12 November 2023 (18–3–20 in E♭) in 49m                              │
@@ -41,8 +41,9 @@ Import peal from BellBoard
 │                                                                              │
 │ Rung half muffled on the back six for Remembrance Day.                       │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1668297 (submitted by Chester   │
-│ Edwards on Sunday, 12 November 2023; updated Sunday, 12 November 2023)       │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1668297 (submitted by │
+│ Chester Edwards on Sunday, 12 November 2023; updated Sunday, 12 November     │
+│ 2023)                                                                        │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
@@ -89,8 +90,8 @@ Matching peal titled "Grandsire Doubles"...
 │                                                                              │
 │ Rung half muffled on the back six for Remembrance Day.                       │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1668297 (Chester Edwards,      │
-│ Sunday, 12 November 2023)]                                                   │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1668297 (Chester     │
+│ Edwards, Sunday, 12 November 2023)]                                          │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -247,8 +248,8 @@ Select option (1):
 │                                                                              │
 │ Rung half muffled on the back six for Remembrance Day.                       │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1668297 (Chester Edwards,      │
-│ Sunday, 12 November 2023)]                                                   │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1668297 (Chester     │
+│ Edwards, Sunday, 12 November 2023)]                                          │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -700,5 +701,5 @@ A Quarter Peal of 1260 Grandsire Doubles (half-muffled) in 49 mins (18-3-20 in E
 
 Rung half muffled on the back six for Remembrance Day.
 
-[BellBoard: http://localhost:8080/view.php?id=1668297 (Chester Edwards, Sunday, 12 November 2023)]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1668297 (Chester Edwards, Sunday, 12 November 2023)]
 [Database ID: 21]

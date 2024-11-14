@@ -2,11 +2,11 @@ import re
 from pypeal.cli.prompt_add_method import prompt_add_method
 from pypeal.cli.prompts import ask_int, confirm, warning
 from pypeal.entities.method import Classification, Method
-from pypeal.parsers import extract_method_type, extract_method_type, parse_single_method
+from pypeal.parsers import extract_method_type, parse_single_method
 from pypeal.entities.peal import Peal
 
 METHOD_LIST_SEPARATORS_REGEX = re.compile(r',|;|\sand\s|&|\n|<br/>|\(\d+\)')
-METHOD_PREFIX_IGNORE_REGEX = re.compile(r'^(and\s+|being\s+|\(?\d+[\)\.:]{1}\s?)', re.IGNORECASE)
+METHOD_PREFIX_IGNORE_REGEX = re.compile(r'^(and\s+|being\s+|\(?\d+(?:\s?methods)?\s?[\)\.:]{1}\s?)', re.IGNORECASE)
 
 
 def prompt_add_change_of_method_from_string(method_details: str, peal: Peal, quick_mode: bool):

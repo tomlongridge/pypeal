@@ -25,7 +25,7 @@ Bellboard URL or peal ID:
 >>> 1346767
 [User input: "1346767"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1346767 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1346767 ─────────────╮
 │ Suffolk Guild                                                                │
 │ Holy Trinity, Blythburgh, Suffolk                                            │
 │ 5040 8 Methods Minor                                                         │
@@ -44,8 +44,8 @@ Import peal from BellBoard
 │ Rung as a wedding compliment to Miss Ann Pearce and Mr George Bradlaugh;     │
 │ Also a birthday compliment to Vernon B Bedford.                              │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1346767 (submitted by Ned       │
-│ Andrews on Monday, 13 April 2020)                                            │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1346767 (submitted by │
+│ Ned Andrews on Monday, 13 April 2020)                                        │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
@@ -338,8 +338,8 @@ Select option (1):
 │ Rung as a wedding compliment to Miss Ann Pearce and Mr George Bradlaugh;     │
 │ Also a birthday compliment to Vernon B Bedford.                              │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1346767 (Ned Andrews, Monday,  │
-│ 13 April 2020)]                                                              │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1346767 (Ned         │
+│ Andrews, Monday, 13 April 2020)]                                             │
 │ [Composition URL: http://www.composition_url.com]                            │
 │ [Published title: 8 Methods Minor]                                           │
 ╰──────────────────────────────────────────────────────────────────────────────╯
@@ -620,7 +620,7 @@ Composition: Seven extents in eight methods
 
 Rung as a wedding compliment to Miss Ann Pearce and Mr George Bradlaugh; Also a birthday compliment to Vernon B Bedford.
 
-[BellBoard: http://localhost:8080/view.php?id=1346767 (Ned Andrews, Monday, 13 April 2020)]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1346767 (Ned Andrews, Monday, 13 April 2020)]
 [Composition URL: http://www.composition_url.com]
 [Published title: 8 Methods Minor]
 [Database ID: 3]

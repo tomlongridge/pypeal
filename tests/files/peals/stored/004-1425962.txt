@@ -26,7 +26,7 @@ Bellboard URL or peal ID:
 >>> 1425962
 [User input: "1425962"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1425962 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1425962 ─────────────╮
 │ St Peter, Bexhill on Sea, East Sussex                                        │
 │ 1260 Grandsire Triples                                                       │
 │ Sunday, 13 September 2009 (17–2–15 in E) in 45m                              │
@@ -42,8 +42,8 @@ Import peal from BellBoard
 │                                                                              │
 │ For Evensong                                                                 │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1425962 (submitted by Savana    │
-│ Davis on Monday, 22 March 2021)                                              │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1425962 (submitted by │
+│ Savana Davis on Monday, 22 March 2021)                                       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
@@ -250,8 +250,8 @@ Select option (1):
 │ 7 [9]: Blake Harper (c)                                                      │
 │ 8 [10]: Lenny Howard                                                         │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1425962 (Savana Davis, Monday, │
-│ 22 March 2021)]                                                              │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1425962 (Savana      │
+│ Davis, Monday, 22 March 2021)]                                               │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -535,5 +535,5 @@ A Quarter Peal of 1260 Grandsire Triples in 45 mins (17-2-15 in E)
 7 [9]: Blake Harper (c)
 8 [10]: Lenny Howard
 
-[BellBoard: http://localhost:8080/view.php?id=1425962 (Savana Davis, Monday, 22 March 2021)]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1425962 (Savana Davis, Monday, 22 March 2021)]
 [Database ID: 4]

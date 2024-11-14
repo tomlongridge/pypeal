@@ -22,7 +22,13 @@ def mock_bellboard_server(xprocess: XProcess):
     set_search_results(None)
 
 
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
+@pytest.fixture
+def setup():
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
+
+def test_a_database_setup(mock_bellboard_server, setup):
+    cli_runner(app, 'files/peals/database-setup.txt')
 
 
 @pytest.mark.parametrize(
@@ -31,7 +37,7 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
      for filepath in sorted(pathlib.Path(os.path.join(os.path.dirname(__file__), 'files', 'peals', 'stored')).glob('*.txt'))],
     ids=[filepath.name.split('.')[0]
          for filepath in sorted(pathlib.Path(os.path.join(os.path.dirname(__file__), 'files', 'peals', 'stored')).glob('*.txt'))])
-def test_bellboard_import(mock_bellboard_server, input_file: int):
+def test_bellboard_import(mock_bellboard_server, setup, input_file: str):
     cli_runner(app, input_file)
 
 
@@ -41,7 +47,7 @@ def test_bellboard_import(mock_bellboard_server, input_file: int):
      for filepath in sorted(pathlib.Path(os.path.join(os.path.dirname(__file__), 'files', 'peals', 'individual')).glob('*.txt'))],
     ids=[filepath.name.split('.')[0]
          for filepath in sorted(pathlib.Path(os.path.join(os.path.dirname(__file__), 'files', 'peals', 'individual')).glob('*.txt'))])
-def test_bellboard_import_individual(mock_bellboard_server, input_file: int):
+def test_bellboard_import_individual(mock_bellboard_server, setup, input_file: str):
     cli_runner(app, input_file)
 
 
@@ -51,7 +57,7 @@ def test_bellboard_import_individual(mock_bellboard_server, input_file: int):
      for filepath in sorted(pathlib.Path(os.path.join(os.path.dirname(__file__), 'files', 'peals', 'new')).glob('*.txt'))],
     ids=[filepath.name.split('.')[0]
          for filepath in sorted(pathlib.Path(os.path.join(os.path.dirname(__file__), 'files', 'peals', 'new')).glob('*.txt'))])
-def test_new_peals(mock_bellboard_server, input_file: int):
+def test_new_peals(mock_bellboard_server, setup, input_file: str):
     cli_runner(app, input_file)
 
 
@@ -61,7 +67,7 @@ def test_new_peals(mock_bellboard_server, input_file: int):
      for filepath in sorted(pathlib.Path(os.path.join(os.path.dirname(__file__), 'files', 'peals', 'search')).glob('*.txt'))],
     ids=[filepath.name.split('.')[0]
          for filepath in sorted(pathlib.Path(os.path.join(os.path.dirname(__file__), 'files', 'peals', 'search')).glob('*.txt'))])
-def test_peal_search(mock_bellboard_server, input_file: int):
+def test_peal_search(mock_bellboard_server, setup, input_file: str):
     cli_runner(app, input_file)
 
 
@@ -71,7 +77,7 @@ def test_peal_search(mock_bellboard_server, input_file: int):
      for filepath in sorted(pathlib.Path(os.path.join(os.path.dirname(__file__), 'files', 'peals', 'report')).glob('*.txt'))],
     ids=[filepath.name.split('.')[0]
          for filepath in sorted(pathlib.Path(os.path.join(os.path.dirname(__file__), 'files', 'peals', 'report')).glob('*.txt'))])
-def test_report(mock_bellboard_server, input_file: int):
+def test_report(mock_bellboard_server, setup, input_file: str):
     cli_runner(app, input_file)
 
 
@@ -81,7 +87,7 @@ def test_report(mock_bellboard_server, input_file: int):
      for filepath in sorted(pathlib.Path(os.path.join(os.path.dirname(__file__), 'files', 'peals', 'csv')).glob('*.txt'))],
     ids=[filepath.name.split('.')[0]
          for filepath in sorted(pathlib.Path(os.path.join(os.path.dirname(__file__), 'files', 'peals', 'csv')).glob('*.txt'))])
-def test_csv_import(mock_bellboard_server, input_file: int):
+def test_csv_import(mock_bellboard_server, setup, input_file: str):
     csv_file = os.path.join(os.path.dirname(input_file), os.path.basename(input_file).replace('.txt', '.csv'))
     assert os.path.exists(csv_file)
     tmp_file = os.path.join(os.path.dirname(csv_file), 'current.csv')

@@ -1,4 +1,4 @@
-import|--peal|files/peals/csv/current.csv|--reset-database
+import|--peal|files/peals/csv/current.csv|--clear-data
 ===
 |
 ===

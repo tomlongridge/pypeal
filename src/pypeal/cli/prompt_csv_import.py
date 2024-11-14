@@ -97,7 +97,9 @@ def prompt_csv_import(data_file_path: str):
                 else:
 
                     prompt_listener = PealPromptListener()
-                    prompt_mode = choose_option(['Quick mode', 'Amend footnote only', 'Prompt mode'], title='Try for a quick-add?', default=1)
+                    prompt_mode = choose_option(['Quick mode', 'Amend footnote only', 'Prompt mode'],
+                                                title='Try for a quick-add?',
+                                                default=1)
                     if prompt_mode != 3:
                         prompt_listener.set_quick_mode(amend_footnote=prompt_mode == 2)
 
@@ -275,16 +277,17 @@ def _generate_basic_peal(data: dict, date_format: str) -> Peal:
 
     place = data['Place'].strip()
     tower = None
-    if place.isnumeric():
-        tower = Tower.get(dove_id=int(place))
-        if not tower:
-            raise CSVImportError(f'Tower with Dove ID {data["Place"]} not found')
-    else:
-        tower_matches = Tower.search(place=place, exact_match=False)
-        if len(tower_matches) == 1:
-            tower = tower_matches[0]
-    if not tower and peal.bell_type != BellType.HANDBELLS and confirm(None, 'Attempt to find a tower?', default=True):
-        tower = prompt_find_tower(data.get('Place', None))
+    if peal.bell_type != BellType.HANDBELLS:
+        if place.isnumeric():
+            tower = Tower.get(dove_id=int(place))
+            if not tower:
+                raise CSVImportError(f'Tower with Dove ID {data["Place"]} not found')
+        else:
+            tower_matches = Tower.search(place=place, exact_match=False)
+            if len(tower_matches) == 1:
+                tower = tower_matches[0]
+        if not tower and confirm(None, 'Attempt to find a tower?', default=True):
+            tower = prompt_find_tower(data.get('Place', None))
     if tower:
         peal.ring = tower.get_active_ring(peal.date)
     else:

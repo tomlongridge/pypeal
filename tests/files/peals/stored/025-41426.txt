@@ -28,7 +28,7 @@ Bellboard URL or peal ID:
 >>> 41426
 [User input: "41426"]
 Import peal from BellBoard
-╭────────────────── http://localhost:8080/view.php?id=41426 ───────────────────╮
+╭───────────── http://localhost:8080/bellboard/view.php?id=41426 ──────────────╮
 │ Cleator Moor, Cumbria                                                        │
 │ 1260 Grandsire Triples                                                       │
 │ Tuesday, 28 June 2005                                                        │
@@ -42,8 +42,8 @@ Import peal from BellBoard
 │ 7: Joyce Sullivan (c)                                                        │
 │ 8: Myra Andrews                                                              │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=41426 (submitted by Nicholas    │
-│ Hunt on Sunday, 15 January 2012)                                             │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=41426 (submitted by   │
+│ Nicholas Hunt on Sunday, 15 January 2012)                                    │
 │ External reference: Campanophile ID: 29386                                   │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
@@ -218,8 +218,8 @@ Select option (1):
 │ 7: Joyce Sullivan (c)                                                        │
 │ 8: Myra Andrews                                                              │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=41426 (Nicholas Hunt, Sunday,  │
-│ 15 January 2012)]                                                            │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=41426 (Nicholas      │
+│ Hunt, Sunday, 15 January 2012)]                                              │
 │ [External reference: Campanophile ID: 29386]                                 │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -266,6 +266,6 @@ A Quarter Peal of 1260 Grandsire Triples (21-2-22 in E)
 7: Joyce Sullivan (c)
 8: Myra Andrews
 
-[BellBoard: http://localhost:8080/view.php?id=41426 (Nicholas Hunt, Sunday, 15 January 2012)]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=41426 (Nicholas Hunt, Sunday, 15 January 2012)]
 [External reference: Campanophile ID: 29386]
 [Database ID: 27]

@@ -26,6 +26,7 @@ METADATA_IMPORTED_REGEX = \
 COMPOSER_AND_COMPOSITION_REGEX = re.compile(r'(?P<composer>[^\(]+)(?:\((?P<note>.*)\))?')
 CONDUCTOR_REGEX = re.compile(r'(?P<name>[^\(]+)\s?\((?P<conductor>.*)\)')
 
+
 class HTMLPealGenerator(PealGenerator):
 
     def __init__(self):
@@ -143,16 +144,16 @@ class HTMLPealGenerator(PealGenerator):
                 conductor_marker = conductor_data['conductor'].lower()
             ringer_names.append(ringer_name)
             ringer_bells.append([int(bell) for bell in bells.text.strip().split('–')] if bells else None)
-            conductors.append(conductor_marker is not None and \
-                              (conductor_marker == 'c' or \
-                               conductor_marker == 'c and c' or \
-                               'cond' in conductor_marker or \
-                               'conductor' in conductor_marker or \
+            conductors.append(conductor_marker is not None and
+                              (conductor_marker == 'c' or
+                               conductor_marker == 'c and c' or
+                               'cond' in conductor_marker or
+                               'conductor' in conductor_marker or
                                'calling' in conductor_marker))
             if composer_str is None and \
                     conductor_marker and \
-                    (conductor_marker == 'c and c' or \
-                     'comp' in conductor_marker or \
+                    (conductor_marker == 'c and c' or
+                     'comp' in conductor_marker or
                      'composer' in conductor_marker):
                 composer_str = ringer_name
 
@@ -180,7 +181,7 @@ class HTMLPealGenerator(PealGenerator):
                             bells if not is_contiguous else None,
                             is_conductor,
                             total_bells)
-        
+
         if not total_bells:
             total_bells = len(ringer_names)
 

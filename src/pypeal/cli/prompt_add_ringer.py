@@ -22,7 +22,7 @@ def prompt_add_ringer(name: str,
 
     # Remove extraneous punctuation surrounding the name
     name = name.strip(' .*:')
-    
+
     # For general ringing in quick mode, check if we have assigned bells (sometimes it's submitted with bell numbers but shouldn't have)
     # onlh prompt first time, otherwise base it on the last ringer
     has_assigned_bells = bell_nums_in_peal is not None
@@ -81,7 +81,7 @@ def prompt_add_ringer(name: str,
         bell_nums_in_ring = []
         while len(bell_nums_in_ring) < len(bell_nums_in_peal):
 
-            if peal.stage is not None and peal.ring is not None and peal.stage.num_bells >= peal.ring.num_bells:
+            if peal.stage is not None and peal.ring is not None and (total_bells or peal.stage.value) >= peal.ring.num_bells:
                 # There is no choice of bells as the stage size matches the number of bells in the tower
                 bell_nums_in_ring += bell_nums_in_peal
             else:
@@ -116,7 +116,7 @@ def prompt_add_ringer(name: str,
                     prompt_str = None
                     bell_nums_in_ring = suggested_bells
                 else:
-                    prompt_str = f'Bell number(s)'
+                    prompt_str = 'Bell number(s)'
                     if peal.ring:
                         prompt_str += f' in the tower (max {peal.ring.num_bells})'
                 while prompt_str is not None and len(bell_nums_in_ring) == 0:

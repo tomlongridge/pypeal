@@ -220,14 +220,6 @@ class Tower():
         results = Database.get_connection().query(query, params).fetchall()
         return Cache.get_cache().add_all(cls.__name__, {result[-1]: Tower(*result) for result in results})
 
-    @classmethod
-    def clear_data(cls):
-        Database.get_connection().query('SET FOREIGN_KEY_CHECKS=0;')
-        Database.get_connection().query('TRUNCATE TABLE towers')
-        Database.get_connection().commit()
-        Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')
-        Cache.get_cache().clear(cls.__name__)
-
 
 class Ring():
 
@@ -350,10 +342,10 @@ class Ring():
 
     @classmethod
     def clear_data(cls):
-        Database.get_connection().query('SET FOREIGN_KEY_CHECKS=0;')
-        Database.get_connection().query('TRUNCATE TABLE rings')
+        Database.get_connection().query('DELETE FROM ringbells WHERE ring_id > 0')
+        Database.get_connection().query('DELETE FROM rings WHERE id > 0')
+        Database.get_connection().query('ALTER TABLE rings AUTO_INCREMENT = 1')
         Database.get_connection().commit()
-        Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')
         Cache.get_cache().clear(cls.__name__)
 
 

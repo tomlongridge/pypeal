@@ -26,7 +26,7 @@ Bellboard URL or peal ID:
 >>> 1508383
 [User input: "1508383"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1508383 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1508383 ─────────────╮
 │ Oxford Diocesan Guild                                                        │
 │ 80 Lambourne Drive, Cox Green, Maidenhead                                    │
 │ 5232 Bristol Surprise Maximus                                                │
@@ -42,8 +42,8 @@ Import peal from BellBoard
 │                                                                              │
 │ First peal of Bristol Maximus rung in hand.                                  │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1508383 (submitted by Albert    │
-│ Mason on Thursday, 31 March 2022)                                            │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1508383 (submitted by │
+│ Albert Mason on Thursday, 31 March 2022)                                     │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
@@ -108,9 +108,9 @@ Is this correct? [y/n] (y):
 Composition note: 
 >>> Traditional
 [User input: "Traditional"]
-Composition URL (http://localhost:8080/comp.php?id=2284506): 
+Composition URL (http://localhost:8080/bellboard/comp.php?id=2284506): 
 >>> 
-[User input: "http://localhost:8080/comp.php?id=2284506"]
+[User input: "http://localhost:8080/bellboard/comp.php?id=2284506"]
 🎼 Composer: Lenny Howard
 🎼 Composition: Traditional
 1,2: Couldn't find ringer matching "Sam Wells" (or aliases)
@@ -232,9 +232,9 @@ Select option (1):
 │                                                                              │
 │ First peal of Bristol Maximus rung in hand.                                  │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1508383 (Albert Mason,         │
-│ Thursday, 31 March 2022)]                                                    │
-│ [Composition URL: http://localhost:8080/comp.php?id=2284506]                 │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1508383 (Albert      │
+│ Mason, Thursday, 31 March 2022)]                                             │
+│ [Composition URL: http://localhost:8080/bellboard/comp.php?id=2284506]       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -559,6 +559,6 @@ Composition: Traditional
 
 First peal of Bristol Maximus rung in hand.
 
-[BellBoard: http://localhost:8080/view.php?id=1508383 (Albert Mason, Thursday, 31 March 2022)]
-[Composition URL: http://localhost:8080/comp.php?id=2284506]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1508383 (Albert Mason, Thursday, 31 March 2022)]
+[Composition URL: http://localhost:8080/bellboard/comp.php?id=2284506]
 [Database ID: 8]

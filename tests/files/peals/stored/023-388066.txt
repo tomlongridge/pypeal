@@ -27,7 +27,7 @@ Bellboard URL or peal ID:
 >>> 388066
 [User input: "388066"]
 Import peal from BellBoard
-╭────────────────── http://localhost:8080/view.php?id=388066 ──────────────────╮
+╭───────────── http://localhost:8080/bellboard/view.php?id=388066 ─────────────╮
 │ Bath & Wells Diocesan Association                                            │
 │ St Mary the Virgin, Bathwick, Somerset                                       │
 │ 1280 Spliced Surprise Major (8 methods)                                      │
@@ -46,8 +46,8 @@ Import peal from BellBoard
 │                                                                              │
 │ Rung for morning service                                                     │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=388066 (submitted by Nicholas   │
-│ Hunt on Sunday, 15 January 2012; updated Sunday, 15 February 2015)           │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=388066 (submitted by  │
+│ Nicholas Hunt on Sunday, 15 January 2012; updated Sunday, 15 February 2015)  │
 │ External reference: Campanophile ID: 116670                                  │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
@@ -336,8 +336,8 @@ Select option (1):
 │                                                                              │
 │ Rung for morning service.                                                    │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=388066 (Nicholas Hunt, Sunday, │
-│ 15 January 2012)]                                                            │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=388066 (Nicholas     │
+│ Hunt, Sunday, 15 January 2012)]                                              │
 │ [Published title: Spliced Surprise Major (8 methods)]                        │
 │ [External reference: Campanophile ID: 116670]                                │
 ╰──────────────────────────────────────────────────────────────────────────────╯
@@ -797,7 +797,7 @@ A Quarter Peal of 1280 Spliced Surprise Major (8m) in 47 mins (18-3-20 in E♭)
 
 Rung for morning service.
 
-[BellBoard: http://localhost:8080/view.php?id=388066 (Nicholas Hunt, Sunday, 15 January 2012)]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=388066 (Nicholas Hunt, Sunday, 15 January 2012)]
 [Published title: Spliced Surprise Major (8 methods)]
 [External reference: Campanophile ID: 116670]
 [Database ID: 25]

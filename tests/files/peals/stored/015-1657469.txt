@@ -26,7 +26,7 @@ Bellboard URL or peal ID:
 >>> 1657469
 [User input: "1657469"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1657469 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1657469 ─────────────╮
 │ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
 │ 1260 Doubles (3m)                                                            │
 │ 360 each Reverse Canterbury Pleasure Place, Plain Bob; 540 Grandsire.        │
@@ -41,8 +41,9 @@ Import peal from BellBoard
 │                                                                              │
 │ Rung for Morning Service.                                                    │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1657469 (submitted by Joyce     │
-│ Sullivan on Sunday, 10 September 2023; updated Sunday, 10 September 2023)    │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1657469 (submitted by │
+│ Joyce Sullivan on Sunday, 10 September 2023; updated Sunday, 10 September    │
+│ 2023)                                                                        │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
@@ -367,8 +368,8 @@ Select option (1):
 │ Rung for Morning Service. Testing the new footnote function.                 │
 │ 1,6: Testing new footnote with ringers.                                      │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1657469 (Joyce Sullivan,       │
-│ Sunday, 10 September 2023)]                                                  │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1657469 (Joyce       │
+│ Sullivan, Sunday, 10 September 2023)]                                        │
 │ [Published title: Doubles (3m)]                                              │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -735,6 +736,6 @@ A Quarter Peal of 1260 Mixed Doubles (3m) in 41 mins (7-3-12 in B♭)
 Rung for Morning Service. Testing the new footnote function.
 1,6: Testing new footnote with ringers.
 
-[BellBoard: http://localhost:8080/view.php?id=1657469 (Joyce Sullivan, Sunday, 10 September 2023)]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1657469 (Joyce Sullivan, Sunday, 10 September 2023)]
 [Published title: Doubles (3m)]
 [Database ID: 15]

@@ -1,4 +1,4 @@
---reset-database
+--clear-data
 ===
 ===
 Polling for new peals...
@@ -23,7 +23,7 @@ Bellboard URL or peal ID:
 >>> 1510601
 [User input: "1510601"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1510601 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1510601 ─────────────╮
 │ Bath & Wells Diocesan Association                                            │
 │ St Matthew, Widcombe, Somerset                                               │
 │ 1296 Spliced Minor (3m)                                                      │
@@ -40,9 +40,9 @@ Import peal from BellBoard
 │ Rung to celebrate the 84th Birthday of Partick C Bridges. Also Patrick's     │
 │ first of Spliced. Many happy returns!                                        │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1510601 (submitted by David     │
-│ Rogers on Sunday, 10 April 2022; updated Monday, 11 April 2022)              │
-│ Photo: http://localhost:8080/uploads/8d/00578d.jpg                           │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1510601 (submitted by │
+│ David Rogers on Sunday, 10 April 2022; updated Monday, 11 April 2022)        │
+│ Photo: http://localhost:8080/bellboard/uploads/8d/00578d.jpg                 │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
@@ -53,9 +53,7 @@ Select option (1):
 📅 Date: Sunday, 10 April 2022
 🔔 Tenor: 1344 in F#
 ⏱ Duration: 43 mins
-Tower ID 15243 not found
-📍 Location: Widcombe, Somerset
-📍 Detail: St Matthew
+🏰 Tower: Bath (Widcombe), Somerset
 Matching peal titled "Spliced Minor (3m)"...
 Multi-method peal: "Spliced Minor (3m)"...
 📕 Title: Spliced Minor (3m)
@@ -79,9 +77,6 @@ Method 3: Little Bob Minor (72 changes)
 Add new ringer as "Daryl" "Mason"? [y/n] (y): 
 >>> 
 [User input: "True"]
-Bell number(s) (1): 
->>> 
-[User input: "1"]
 👤 Ringer: 1: Daryl Mason
 2: Couldn't find ringer matching "Aston Mitchell" (or aliases)
 Add new ringer as "Aston" "Mitchell"? [y/n] (y): 
@@ -111,7 +106,7 @@ Add new ringer as "David" "Rogers"? [y/n] (y):
 📝 Footnotes:
   - Rung to celebrate the 84th Birthday of Partick C Bridges. Also Patrick's first of Spliced. Many happy returns!.
 🔗 Event link: None
-📷 Photo link: http://localhost:8080/uploads/8d/00578d.jpg
+📷 Photo link: http://localhost:8080/bellboard/uploads/8d/00578d.jpg
   - The band...
   - Photo credit: Simon A Percy
 📮 Submitted by: David Rogers on Sunday, 10 April 2022
@@ -120,8 +115,8 @@ Add new ringer as "David" "Rogers"? [y/n] (y):
 🔕 Muffles: None
 ╭──────────────────────────── Confirm performance ─────────────────────────────╮
 │ Bath and Wells Diocesan Association                                          │
-│ Widcombe, Somerset                                                           │
-│ St Matthew                                                                   │
+│ Bath, Somerset, England                                                      │
+│ S Matthew, Widcombe                                                          │
 │ On Sunday, 10 April 2022                                                     │
 │ A Quarter Peal of 1296 Spliced Minor (3m) in 43 mins (12 cwt in F♯)          │
 │ (720 Cambridge Surprise Minor, 504 Plain Bob Minor, 72 Little Bob Minor)     │
@@ -136,14 +131,14 @@ Add new ringer as "David" "Rogers"? [y/n] (y):
 │ Rung to celebrate the 84th Birthday of Partick C Bridges. Also Patrick's     │
 │ first of Spliced. Many happy returns!.                                       │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1510601 (David Rogers, Sunday, │
-│ 10 April 2022)]                                                              │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1510601 (David       │
+│ Rogers, Sunday, 10 April 2022)]                                              │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Saving photo http://localhost:8080/uploads/8d/00578d.jpg...
+Saving photo http://localhost:8080/bellboard/uploads/8d/00578d.jpg...
 Peal (ID 1) added
 Bellboard URL or peal ID (enter to exit): 
 >>>  
@@ -168,8 +163,8 @@ Select option (1):
 [User input: "None"]
 ===
 Bath and Wells Diocesan Association
-Widcombe, Somerset
-St Matthew
+Bath, Somerset, England
+S Matthew, Widcombe
 On Sunday, 10 April 2022
 A Quarter Peal of 1296 Spliced Minor (3m) in 43 mins (12 cwt in F♯)
 (504 Plain Bob Minor, 72 Little Bob Minor, 720 Cambridge Surprise Minor)
@@ -183,5 +178,5 @@ A Quarter Peal of 1296 Spliced Minor (3m) in 43 mins (12 cwt in F♯)
 
 Rung to celebrate the 84th Birthday of Partick C Bridges. Also Patrick's first of Spliced. Many happy returns!.
 
-[BellBoard: http://localhost:8080/view.php?id=1510601 (David Rogers, Sunday, 10 April 2022)]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1510601 (David Rogers, Sunday, 10 April 2022)]
 [Database ID: 1]

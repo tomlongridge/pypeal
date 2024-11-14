@@ -26,7 +26,7 @@ Bellboard URL or peal ID:
 >>> 1660822
 [User input: "1660822"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1660822 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1660822 ─────────────╮
 │ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
 │ 1260 Plain Bob Triples                                                       │
 │ Sunday, 1 October 2023 (18–3–20 in E♭) in 47m                                │
@@ -43,8 +43,8 @@ Import peal from BellBoard
 │ For morning service and to mark the christening of Naomi Rebecca Grace       │
 │ Pearson                                                                      │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1660822 (submitted by Dominik   │
-│ Warren on Sunday, 1 October 2023; updated Sunday, 1 October 2023)            │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1660822 (submitted by │
+│ Dominik Warren on Sunday, 1 October 2023; updated Sunday, 1 October 2023)    │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
@@ -212,8 +212,8 @@ Select option (1):
 │ For morning service and to mark the christening of Naomi Rebecca Grace       │
 │ Pearson.                                                                     │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1660822 (Dominik Warren,       │
-│ Sunday, 1 October 2023)]                                                     │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1660822 (Dominik     │
+│ Warren, Sunday, 1 October 2023)]                                             │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -573,5 +573,5 @@ A Quarter Peal of 1260 Plain Bob Triples in 47 mins (18-3-20 in E♭)
 
 For morning service and to mark the christening of Naomi Rebecca Grace Pearson.
 
-[BellBoard: http://localhost:8080/view.php?id=1660822 (Dominik Warren, Sunday, 1 October 2023)]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1660822 (Dominik Warren, Sunday, 1 October 2023)]
 [Database ID: 14]

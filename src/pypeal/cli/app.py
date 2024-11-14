@@ -23,7 +23,6 @@ from pypeal.cli.chooser import choose_option_in_dict
 from pypeal.cli.prompt_search_peals import poll, prompt_search
 from pypeal.db import initialize as initialize_db
 from pypeal.dove import update_associations, update_bells, update_rings, update_towers
-from pypeal.entities.method import Method
 from pypeal.entities.peal import Peal
 from pypeal.entities.peal_search import PealSearch
 from pypeal.entities.report import Report
@@ -31,7 +30,7 @@ from pypeal.entities.ringer import Ringer
 from pypeal.config import set_config_file
 from pypeal.stats.pdf import generate_reports
 from pypeal.stats.report import generate_global_summary
-from pypeal.entities.tower import Ring, Tower
+from pypeal.entities.tower import Ring
 
 logger = logging.getLogger('pypeal')
 logger.setLevel(logging.DEBUG)
@@ -208,8 +207,6 @@ def initialize_or_exit(reset_db: bool, clear_data: bool):
         Peal.clear_data()
         Ringer.clear_data()
         Ring.clear_data()
-        Method.clear_data()
-        Tower.clear_data()
         Association.clear_data()
     if reset_db:
         update_associations()

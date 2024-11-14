@@ -26,7 +26,7 @@ Bellboard URL or peal ID:
 >>> 1661485
 [User input: "1661485"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1661485 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1661485 ─────────────╮
 │ St Stephen, Lansdown, Bath, Somerset                                         │
 │ 1296 Honeywell Delight Minor                                                 │
 │ Composer: Maya Armstrong                                                     │
@@ -39,9 +39,9 @@ Import peal from BellBoard
 │ 5: Deanna Bennett                                                            │
 │ 6: Brooke Adams (c)                                                          │
 │                                                                              │
-│ Linked event: http://localhost:8080/event.php?id=17514                       │
-│ Bellboard: http://localhost:8080/view.php?id=1661485 (submitted by Brooke    │
-│ Adams on Friday, 6 October 2023)                                             │
+│ Linked event: http://localhost:8080/bellboard/event.php?id=17514             │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1661485 (submitted by │
+│ Brooke Adams on Friday, 6 October 2023)                                      │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
@@ -104,9 +104,9 @@ Select option (2):
 Composition note: 
 >>> 
 [User input: "None"]
-Composition URL (http://localhost:8080/comp.php?id=2293479): 
+Composition URL (http://localhost:8080/bellboard/comp.php?id=2293479): 
 >>> 
-[User input: "http://localhost:8080/comp.php?id=2293479"]
+[User input: "http://localhost:8080/bellboard/comp.php?id=2293479"]
 🎼 Composer: Byron Miller
 1: "Leonardo Bennett" -> Leo Bennett
 Is this correct? [y/n] (y): 
@@ -172,7 +172,7 @@ Add new footnote? [y/n] (n):
 >>> n
 [User input: "False"]
 📝 Footnotes: None
-🔗 Event link: http://localhost:8080/event.php?id=17514
+🔗 Event link: http://localhost:8080/bellboard/event.php?id=17514
 📷 Photo link: None
 📮 Submitted by: Brooke Adams on Friday, 6 October 2023
 Bell type: 1) Tower, 2) Handbells
@@ -199,10 +199,10 @@ Select option (1):
 │ 5: Deanna Bennett                                                            │
 │ 6: Brooke Adams (c)                                                          │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1661485 (Brooke Adams, Friday, │
-│ 6 October 2023)]                                                             │
-│ [Composition URL: http://localhost:8080/comp.php?id=2293479]                 │
-│ [Event URL: http://localhost:8080/event.php?id=17514]                        │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1661485 (Brooke      │
+│ Adams, Friday, 6 October 2023)]                                              │
+│ [Composition URL: http://localhost:8080/bellboard/comp.php?id=2293479]       │
+│ [Event URL: http://localhost:8080/bellboard/event.php?id=17514]              │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -573,7 +573,7 @@ Composed by: Byron Miller
 5: Deanna Bennett
 6: Brooke Adams (c)
 
-[BellBoard: http://localhost:8080/view.php?id=1661485 (Brooke Adams, Friday, 6 October 2023)]
-[Composition URL: http://localhost:8080/comp.php?id=2293479]
-[Event URL: http://localhost:8080/event.php?id=17514]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1661485 (Brooke Adams, Friday, 6 October 2023)]
+[Composition URL: http://localhost:8080/bellboard/comp.php?id=2293479]
+[Event URL: http://localhost:8080/bellboard/event.php?id=17514]
 [Database ID: 17]

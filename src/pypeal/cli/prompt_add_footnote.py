@@ -1,6 +1,6 @@
 import re
 from pypeal.cli.prompt_add_composition_details import prompt_add_composition_details
-from pypeal.cli.prompts import ask, confirm, error, warning
+from pypeal.cli.prompts import ask, confirm, error
 from pypeal.cli.chooser import choose_option
 from pypeal.parsers import parse_footnote, parse_footnote_for_composer
 from pypeal.entities.peal import MuffleType, Peal
@@ -53,7 +53,7 @@ def _prompt_add_single_footnote(bells: list[int],
                                 peal: Peal,
                                 did_split_footnote: bool,
                                 quick_mode: bool = False) -> MuffleType:
-    
+
     # Ensure full sentence
     if text and text[-1] != '.':
         text += '.'
@@ -82,8 +82,8 @@ def _prompt_add_single_footnote(bells: list[int],
             peal.add_footnote(text, bell, ringer)
     elif len(peal.footnotes) > 0 and \
             peal.footnotes[-1].bell is None and \
-            ((quick_mode and did_split_footnote) or \
-            (not quick_mode and confirm(None, confirm_message='Add this to previous footnote?', default=True))):
+            ((quick_mode and did_split_footnote) or
+             (not quick_mode and confirm(None, confirm_message='Add this to previous footnote?', default=True))):
         peal.footnotes[-1].text = peal.footnotes[-1].text + ' ' + text
     else:
         peal.add_footnote(text, None, None)

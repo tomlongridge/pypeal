@@ -27,7 +27,7 @@ Bellboard URL or peal ID:
 >>> 1272466
 [User input: "1272466"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1272466 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1272466 ─────────────╮
 │ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
 │ 1260 Grandsire Triples                                                       │
 │ Composer: Camila Chapman                                                     │
@@ -49,9 +49,10 @@ Import peal from BellBoard
 │ https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
 │ -staffordshire-regiment/                                                     │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1272466 (submitted by Joyce     │
-│ Sullivan on Sunday, 17 February 2019; updated Tuesday, 19 February 2019)     │
-│ Photo: http://localhost:8080/uploads/57/002a57.jpg                           │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1272466 (submitted by │
+│ Joyce Sullivan on Sunday, 17 February 2019; updated Tuesday, 19 February     │
+│ 2019)                                                                        │
+│ Photo: http://localhost:8080/bellboard/uploads/57/002a57.jpg                 │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
@@ -108,7 +109,7 @@ Add new footnote? [y/n] (n):
   - Rung for Morning Service.
   - And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
 🔗 Event link: None
-📷 Photo link: http://localhost:8080/uploads/57/002a57.jpg
+📷 Photo link: http://localhost:8080/bellboard/uploads/57/002a57.jpg
   - The CWGC grave marker of Sgt A P Wakley in Stapenhill Cemetery, Burton-on-Trent (Staffordshire)
   - Photo credit: Michael W Day
 📮 Submitted by: Joyce Sullivan on Sunday, 17 February 2019
@@ -138,15 +139,15 @@ Add new footnote? [y/n] (n):
 │ Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
 │ -staffordshire-regiment/.                                                    │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1272466 (Joyce Sullivan,       │
-│ Sunday, 17 February 2019)]                                                   │
-│ [Composition URL: http://localhost:8080/comp.php?id=2271034]                 │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1272466 (Joyce       │
+│ Sullivan, Sunday, 17 February 2019)]                                         │
+│ [Composition URL: http://localhost:8080/bellboard/comp.php?id=2271034]       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Saving photo http://localhost:8080/uploads/57/002a57.jpg...
+Saving photo http://localhost:8080/bellboard/uploads/57/002a57.jpg...
 Peal (ID 22) added
 Bellboard URL or peal ID (enter to exit): 
 >>>  
@@ -582,7 +583,7 @@ Bellboard URL or peal ID:
 >>> 1272466
 [User input: "1272466"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1272466 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1272466 ─────────────╮
 │ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
 │ 1260 Grandsire Triples                                                       │
 │ Composer: Camila Chapman                                                     │
@@ -604,9 +605,10 @@ Import peal from BellBoard
 │ https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
 │ -staffordshire-regiment/                                                     │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1272466 (submitted by Joyce     │
-│ Sullivan on Sunday, 17 February 2019; updated Tuesday, 19 February 2019)     │
-│ Photo: http://localhost:8080/uploads/57/002a57.jpg                           │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1272466 (submitted by │
+│ Joyce Sullivan on Sunday, 17 February 2019; updated Tuesday, 19 February     │
+│ 2019)                                                                        │
+│ Photo: http://localhost:8080/bellboard/uploads/57/002a57.jpg                 │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Peal 1272466 already added to database
 Overwrite? [y/n] (n): 
@@ -644,7 +646,7 @@ Add as composition note? [y/n] (y):
   - And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29.
   - Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
 🔗 Event link: None
-📷 Photo link: http://localhost:8080/uploads/57/002a57.jpg
+📷 Photo link: http://localhost:8080/bellboard/uploads/57/002a57.jpg
   - The CWGC grave marker of Sgt A P Wakley in Stapenhill Cemetery, Burton-on-Trent (Staffordshire)
   - Photo credit: Michael W Day
 📮 Submitted by: Joyce Sullivan on Sunday, 17 February 2019
@@ -674,9 +676,9 @@ Add as composition note? [y/n] (y):
 │ Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
 │ -staffordshire-regiment/.                                                    │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1272466 (Joyce Sullivan,       │
-│ Sunday, 17 February 2019)]                                                   │
-│ [Composition URL: http://localhost:8080/comp.php?id=2271034]                 │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1272466 (Joyce       │
+│ Sullivan, Sunday, 17 February 2019)]                                         │
+│ [Composition URL: http://localhost:8080/bellboard/comp.php?id=2271034]       │
 │ [Database ID: 22]                                                            │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 ╭──────────────────────────────────────────────────────────────────────────────╮
@@ -709,11 +711,11 @@ Select option (1):
 │ Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
 │ -staffordshire-regiment/.                                                    │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1272466 (Joyce Sullivan,       │
-│ Sunday, 17 February 2019)]                                                   │
-│ [Composition URL: http://localhost:8080/comp.php?id=2271034]                 │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1272466 (Joyce       │
+│ Sullivan, Sunday, 17 February 2019)]                                         │
+│ [Composition URL: http://localhost:8080/bellboard/comp.php?id=2271034]       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
-Saving photo http://localhost:8080/uploads/57/002a57.jpg...
+Saving photo http://localhost:8080/bellboard/uploads/57/002a57.jpg...
 Peal (ID 23) added
 Removing previous performance (ID 22)...
 Bellboard URL or peal ID (enter to exit): 
@@ -1046,7 +1048,7 @@ Select option (1):
 Bellboard URL or peal ID: 
 >>> 1272466
 [User input: "1272466"]
-╭───────────────── http://localhost:8080/view.php?id=1272466 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1272466 ─────────────╮
 │ Bath, Somerset, England                                                      │
 │ Blessed Virgin Mary, Bathwick                                                │
 │ On Sunday, 17 February 2019                                                  │
@@ -1069,9 +1071,9 @@ Bellboard URL or peal ID:
 │ Https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
 │ -staffordshire-regiment/.                                                    │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1272466 (Joyce Sullivan,       │
-│ Sunday, 17 February 2019)]                                                   │
-│ [Composition URL: http://localhost:8080/comp.php?id=2271034]                 │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1272466 (Joyce       │
+│ Sullivan, Sunday, 17 February 2019)]                                         │
+│ [Composition URL: http://localhost:8080/bellboard/comp.php?id=2271034]       │
 │ [Database ID: 23]                                                            │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Delete peal? [y/n] (y): 
@@ -1150,7 +1152,7 @@ Bellboard URL or peal ID:
 >>> 1272466
 [User input: "1272466"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1272466 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1272466 ─────────────╮
 │ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
 │ 1260 Grandsire Triples                                                       │
 │ Composer: Camila Chapman                                                     │
@@ -1172,9 +1174,10 @@ Import peal from BellBoard
 │ https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
 │ -staffordshire-regiment/                                                     │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1272466 (submitted by Joyce     │
-│ Sullivan on Sunday, 17 February 2019; updated Tuesday, 19 February 2019)     │
-│ Photo: http://localhost:8080/uploads/57/002a57.jpg                           │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1272466 (submitted by │
+│ Joyce Sullivan on Sunday, 17 February 2019; updated Tuesday, 19 February     │
+│ 2019)                                                                        │
+│ Photo: http://localhost:8080/bellboard/uploads/57/002a57.jpg                 │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
@@ -1246,7 +1249,7 @@ Add new footnote? [y/n] (n):
   - Rung for Morning Service.
   - And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. See: https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
 🔗 Event link: None
-📷 Photo link: http://localhost:8080/uploads/57/002a57.jpg
+📷 Photo link: http://localhost:8080/bellboard/uploads/57/002a57.jpg
   - The CWGC grave marker of Sgt A P Wakley in Stapenhill Cemetery, Burton-on-Trent (Staffordshire)
   - Photo credit: Michael W Day
 📮 Submitted by: Joyce Sullivan on Sunday, 17 February 2019
@@ -1276,15 +1279,15 @@ Add new footnote? [y/n] (n):
 │ https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north │
 │ -staffordshire-regiment/.                                                    │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1272466 (Joyce Sullivan,       │
-│ Sunday, 17 February 2019)]                                                   │
-│ [Composition URL: http://localhost:8080/comp.php?id=2271034]                 │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1272466 (Joyce       │
+│ Sullivan, Sunday, 17 February 2019)]                                         │
+│ [Composition URL: http://localhost:8080/bellboard/comp.php?id=2271034]       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]
-Saving photo http://localhost:8080/uploads/57/002a57.jpg...
+Saving photo http://localhost:8080/bellboard/uploads/57/002a57.jpg...
 Peal (ID 24) added
 Bellboard URL or peal ID (enter to exit): 
 >>> 
@@ -1328,6 +1331,6 @@ Composition: Camila Chapman
 Rung for Morning Service.
 And in memory of the composer: Sergeant Albert Percy Wakley, Labour Corps and 6th North Staffordshire Regiment, a ringer at St Paul's, Burton-on-Trent, who died on the 18th February 1919, aged 29. See: https://opusculum.wordpress.com/2019/02/18/private-albert-percy-wakley-north-staffordshire-regiment/.
 
-[BellBoard: http://localhost:8080/view.php?id=1272466 (Joyce Sullivan, Sunday, 17 February 2019)]
-[Composition URL: http://localhost:8080/comp.php?id=2271034]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1272466 (Joyce Sullivan, Sunday, 17 February 2019)]
+[Composition URL: http://localhost:8080/bellboard/comp.php?id=2271034]
 [Database ID: 24]

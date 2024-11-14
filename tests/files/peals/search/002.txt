@@ -1,4 +1,4 @@
---reset-database
+--clear-data
 ===
 1314805
 ===
@@ -34,10 +34,10 @@ Bellboard URL:
 │ https://bb.ringingworld.co.uk/search.php?ringer=ringer+name                  │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Bellboard URL: 
->>> http://localhost:8080/search.php?ringer=ringer+name
-[User input: "http://localhost:8080/search.php?ringer=ringer+name"]
+>>> http://localhost:8080/bellboard/search.php?ringer=ringer+name
+[User input: "http://localhost:8080/bellboard/search.php?ringer=ringer+name"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1314805 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1314805 ─────────────╮
 │ Bath & Wells Diocesan Association                                            │
 │ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
 │ 1280 Spliced Surprise Major (2m)                                             │
@@ -55,8 +55,8 @@ Import peal from BellBoard
 │                                                                              │
 │ Rung for morning service                                                     │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1314805 (submitted by Byron     │
-│ Robinson on Sunday, 15 December 2019)                                        │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1314805 (submitted by │
+│ Byron Robinson on Sunday, 15 December 2019)                                  │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
@@ -150,8 +150,8 @@ Add new ringer as "Byron" "Robinson"? [y/n] (y):
 │                                                                              │
 │ Rung for morning service.                                                    │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1314805 (Byron Robinson,       │
-│ Sunday, 15 December 2019)]                                                   │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1314805 (Byron       │
+│ Robinson, Sunday, 15 December 2019)]                                         │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -204,5 +204,5 @@ A Quarter Peal of 1280 Spliced Surprise Major (2m) in 48 mins (18-3-20 in E♭)
 
 Rung for morning service.
 
-[BellBoard: http://localhost:8080/view.php?id=1314805 (Byron Robinson, Sunday, 15 December 2019)]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1314805 (Byron Robinson, Sunday, 15 December 2019)]
 [Database ID: 1]

@@ -1,4 +1,4 @@
---reset-database
+--clear-data
 ===
 ===
 Polling for new peals...
@@ -23,7 +23,7 @@ Bellboard URL or peal ID:
 >>> 1156733
 [User input: "1156733"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1156733 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1156733 ─────────────╮
 │ Bath & Wells Diocesan Association                                            │
 │ Abbey Church of SS Peter and Paul, Bath, Somerset                            │
 │ 30 Minutes Of General Ringing                                                │
@@ -43,8 +43,8 @@ Import peal from BellBoard
 │                                                                              │
 │ 30 minutes of general ringing to mark St George's Day                        │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1156733 (submitted by Arnold    │
-│ Johnson on Saturday, 23 April 2016; updated Monday, 9 January 2017)          │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1156733 (submitted by │
+│ Arnold Johnson on Saturday, 23 April 2016; updated Monday, 9 January 2017)   │
 │ External reference: Campanophile ID: 241085                                  │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
@@ -264,8 +264,8 @@ Select option (1):
 │                                                                              │
 │ 30 minutes of general ringing to mark St George's Day.                       │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1156733 (Arnold Johnson,       │
-│ Saturday, 23 April 2016)]                                                    │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1156733 (Arnold      │
+│ Johnson, Saturday, 23 April 2016)]                                           │
 │ [External reference: Campanophile ID: 241085]                                │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -315,6 +315,6 @@ Arnold Johnson
 
 30 minutes of general ringing to mark St George's Day.
 
-[BellBoard: http://localhost:8080/view.php?id=1156733 (Arnold Johnson, Saturday, 23 April 2016)]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1156733 (Arnold Johnson, Saturday, 23 April 2016)]
 [External reference: Campanophile ID: 241085]
 [Database ID: 1]

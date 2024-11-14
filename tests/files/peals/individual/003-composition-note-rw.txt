@@ -1,4 +1,4 @@
---reset-database
+--clear-data
 ===
 ===
 Polling for new peals...
@@ -23,7 +23,7 @@ Bellboard URL or peal ID:
 >>> 1642049
 [User input: "1642049"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1642049 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1642049 ─────────────╮
 │ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
 │ 1260 Grandsire Triples                                                       │
 │ Composer: Old RW Diary                                                       │
@@ -41,8 +41,8 @@ Import peal from BellBoard
 │ Rung for Morning Service.                                                    │
 │ 250th together: 2, 5.                                                        │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1642049 (submitted by Joyce     │
-│ Sullivan on Sunday, 25 June 2023; updated Tuesday, 27 June 2023)             │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1642049 (submitted by │
+│ Joyce Sullivan on Sunday, 25 June 2023; updated Tuesday, 27 June 2023)       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
@@ -131,9 +131,9 @@ Referenced ringer(s):
 │ Rung for Morning Service.                                                    │
 │ 2,5: 250th together.                                                         │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1642049 (Joyce Sullivan,       │
-│ Sunday, 25 June 2023)]                                                       │
-│ [Composition URL: http://localhost:8080/comp.php?id=2291828]                 │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1642049 (Joyce       │
+│ Sullivan, Sunday, 25 June 2023)]                                             │
+│ [Composition URL: http://localhost:8080/bellboard/comp.php?id=2291828]       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -180,6 +180,6 @@ Composition: Old RW Diary
 Rung for Morning Service.
 2,5: 250th together.
 
-[BellBoard: http://localhost:8080/view.php?id=1642049 (Joyce Sullivan, Sunday, 25 June 2023)]
-[Composition URL: http://localhost:8080/comp.php?id=2291828]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1642049 (Joyce Sullivan, Sunday, 25 June 2023)]
+[Composition URL: http://localhost:8080/bellboard/comp.php?id=2291828]
 [Database ID: 1]

@@ -59,8 +59,7 @@ class Association():
 
     @classmethod
     def clear_data(cls):
-        Database.get_connection().query('SET FOREIGN_KEY_CHECKS=0;')
-        Database.get_connection().query('TRUNCATE TABLE associations')
+        Database.get_connection().query('DELETE FROM associations WHERE id > 0')
+        Database.get_connection().query('ALTER TABLE associations AUTO_INCREMENT = 1')
         Database.get_connection().commit()
-        Database.get_connection().query('SET FOREIGN_KEY_CHECKS=1;')
         Cache.get_cache().clear(cls.__name__)

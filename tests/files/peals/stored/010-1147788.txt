@@ -26,7 +26,7 @@ Bellboard URL or peal ID:
 >>> 1147788
 [User input: "1147788"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1147788 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1147788 ─────────────╮
 │ St Mary the Virgin, Bathwick, Somerset                                       │
 │ 1260 Grandsire Caters and Royal                                              │
 │ Sunday, 11 January 2015 (18–3–20) in 48m                                     │
@@ -46,8 +46,8 @@ Import peal from BellBoard
 │ Angela, born on 8th January.                                                 │
 │ 900th Quarter of Grandsire on the bells.                                     │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1147788 (submitted by Byron     │
-│ Miller on Sunday, 11 January 2015; updated Monday, 9 January 2017)           │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1147788 (submitted by │
+│ Byron Miller on Sunday, 11 January 2015; updated Monday, 9 January 2017)     │
 │ External reference: Campanophile ID: 188334                                  │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
@@ -299,8 +299,8 @@ Select option (1):
 │ Angela, born on 8th January.                                                 │
 │ 900th Quarter of Grandsire on the bells.                                     │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1147788 (Byron Miller, Sunday, │
-│ 11 January 2015)]                                                            │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1147788 (Byron       │
+│ Miller, Sunday, 11 January 2015)]                                            │
 │ [Published title: Grandsire Caters and Royal]                                │
 │ [External reference: Campanophile ID: 188334]                                │
 ╰──────────────────────────────────────────────────────────────────────────────╯
@@ -648,7 +648,7 @@ A Quarter Peal of 1260 Spliced Caters and Royal (2m) in 48 mins (18-3-20 in E♭
 For Morning Service, and to welcome Rafe Jackson-Swift, son of Russell and Angela, born on 8th January.
 900th Quarter of Grandsire on the bells.
 
-[BellBoard: http://localhost:8080/view.php?id=1147788 (Byron Miller, Sunday, 11 January 2015)]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1147788 (Byron Miller, Sunday, 11 January 2015)]
 [Published title: Grandsire Caters and Royal]
 [External reference: Campanophile ID: 188334]
 [Database ID: 10]

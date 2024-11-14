@@ -6,5 +6,6 @@ __pycache__/
 /debug.log
 /reports
 /tests/reports
+/tests/data
 
 .config*.ini

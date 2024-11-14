@@ -32,13 +32,6 @@ class Stage(IntEnum):
     TWENTY_ONE = 21
     TWENTY_TWO = 22
 
-    @property
-    def num_bells(self) -> int:
-        if self.value % 2 == 0:
-            return self.value
-        else:
-            return self.value + 1
-
     def __str__(self):
         return self.name.replace('_', ' ').capitalize()
 

@@ -32,6 +32,9 @@ def cli_runner(app: Typer, input_file: str):
 
     args, search_responses, console_text, expected_peal = test_data[:4]
 
+    if expected_peal == 'No peal':
+        expected_peal = None
+
     stdin: list[str] = []
     expected_stdout = ''
     for line in console_text.split('\n'):
@@ -71,10 +74,12 @@ def cli_runner(app: Typer, input_file: str):
 
         assert result.exit_code == 0, "App exited with non-zero exit code"
 
-        assert last_peal_id is not None, "Unable to find saved peal ID"
-        stored_peal = Peal.get(id=last_peal_id)
-        assert stored_peal is not None, "Unable to retrieve saved peal"
-        assert str(stored_peal) == expected_peal, "Saved peal does not match expected peal"
+        stored_peal = None
+        if expected_peal is not None:
+            assert last_peal_id is not None, "Unable to find saved peal ID"
+            stored_peal = Peal.get(id=last_peal_id)
+            assert stored_peal is not None, "Unable to retrieve saved peal"
+            assert str(stored_peal) == expected_peal, "Saved peal does not match expected peal"
 
         assert result.output.strip() == expected_stdout, "App output does not match expected output"
 
@@ -86,5 +91,5 @@ def cli_runner(app: Typer, input_file: str):
                     '===\n' +
                     test_output.strip() +
                     '\n===\n' +
-                    str(stored_peal))
+                    (str(stored_peal) if stored_peal else 'No peal'))
         raise e

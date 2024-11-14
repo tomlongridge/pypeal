@@ -1,4 +1,4 @@
---reset-database
+--clear-data
 ===
 ===
 Polling for new peals...
@@ -23,7 +23,7 @@ Bellboard URL or peal ID:
 >>> 1619100
 [User input: "1619100"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1619100 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1619100 ─────────────╮
 │ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
 │ General Ringing                                                              │
 │ Including Call Changes to Kings and Queens on 10                             │
@@ -46,9 +46,9 @@ Import peal from BellBoard
 │                                                                              │
 │ Rung prior to the Coronation of King Charles III and Queen Camilla.          │
 │                                                                              │
-│ Linked event: http://localhost:8080/event.php?id=16774                       │
-│ Bellboard: http://localhost:8080/view.php?id=1619100 (submitted by Chester   │
-│ Edwards on Saturday, 6 May 2023; updated Saturday, 6 May 2023)               │
+│ Linked event: http://localhost:8080/bellboard/event.php?id=16774             │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1619100 (submitted by │
+│ Chester Edwards on Saturday, 6 May 2023; updated Saturday, 6 May 2023)       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
@@ -137,7 +137,7 @@ Add new ringer as "Joyce" "Sullivan"? [y/n] (y):
 👤 Ringer: Joyce Sullivan
 📝 Footnotes:
   - Rung prior to the Coronation of King Charles III and Queen Camilla.
-🔗 Event link: http://localhost:8080/event.php?id=16774
+🔗 Event link: http://localhost:8080/bellboard/event.php?id=16774
 📷 Photo link: None
 📮 Submitted by: Chester Edwards on Saturday, 6 May 2023
 ✏️ Updated: Saturday, 6 May 2023
@@ -167,9 +167,9 @@ Add new ringer as "Joyce" "Sullivan"? [y/n] (y):
 │                                                                              │
 │ Rung prior to the Coronation of King Charles III and Queen Camilla.          │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1619100 (Chester Edwards,      │
-│ Saturday, 6 May 2023)]                                                       │
-│ [Event URL: http://localhost:8080/event.php?id=16774]                        │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1619100 (Chester     │
+│ Edwards, Saturday, 6 May 2023)]                                              │
+│ [Event URL: http://localhost:8080/bellboard/event.php?id=16774]              │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -221,6 +221,6 @@ Joyce Sullivan
 
 Rung prior to the Coronation of King Charles III and Queen Camilla.
 
-[BellBoard: http://localhost:8080/view.php?id=1619100 (Chester Edwards, Saturday, 6 May 2023)]
-[Event URL: http://localhost:8080/event.php?id=16774]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1619100 (Chester Edwards, Saturday, 6 May 2023)]
+[Event URL: http://localhost:8080/bellboard/event.php?id=16774]
 [Database ID: 1]

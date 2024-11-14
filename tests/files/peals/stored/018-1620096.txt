@@ -26,7 +26,7 @@ Bellboard URL or peal ID:
 >>> 1620096
 [User input: "1620096"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1620096 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1620096 ─────────────╮
 │ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
 │ 1260 Grandsire Doubles                                                       │
 │ Sunday, 7 May 2023 (7–3–12) in 40m                                           │
@@ -41,9 +41,9 @@ Import peal from BellBoard
 │ For morning service, and to mark the coronation of King Charles III and      │
 │ Queen Camilla                                                                │
 │                                                                              │
-│ Linked event: http://localhost:8080/event.php?id=16774                       │
-│ Bellboard: http://localhost:8080/view.php?id=1620096 (submitted by Heather   │
-│ Sullivan on Sunday, 7 May 2023)                                              │
+│ Linked event: http://localhost:8080/bellboard/event.php?id=16774             │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1620096 (submitted by │
+│ Heather Sullivan on Sunday, 7 May 2023)                                      │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
@@ -67,7 +67,7 @@ Matching peal titled "Grandsire Doubles"...
 👤 Ringer: 6: Grace Perry
 📝 Footnotes:
   - For morning service, and to mark the coronation of King Charles III and Queen Camilla.
-🔗 Event link: http://localhost:8080/event.php?id=16774
+🔗 Event link: http://localhost:8080/bellboard/event.php?id=16774
 📷 Photo link: None
 📮 Submitted by: Heather Sullivan on Sunday, 7 May 2023
 🔔 Bell type: Tower
@@ -88,9 +88,9 @@ Matching peal titled "Grandsire Doubles"...
 │ For morning service, and to mark the coronation of King Charles III and      │
 │ Queen Camilla.                                                               │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1620096 (Heather Sullivan,     │
-│ Sunday, 7 May 2023)]                                                         │
-│ [Event URL: http://localhost:8080/event.php?id=16774]                        │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1620096 (Heather     │
+│ Sullivan, Sunday, 7 May 2023)]                                               │
+│ [Event URL: http://localhost:8080/bellboard/event.php?id=16774]              │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -207,7 +207,7 @@ Add new footnote? [y/n] (n):
 [User input: "False"]
 📝 Footnotes:
   - For morning service, and to mark the coronation of King Charles III and Queen Camilla.
-🔗 Event link: http://localhost:8080/event.php?id=16774
+🔗 Event link: http://localhost:8080/bellboard/event.php?id=16774
 📷 Photo link: None
 📮 Submitted by: Heather Sullivan on Sunday, 7 May 2023
 ╭──────────────────────────────────────────────────────────────────────────────╮
@@ -245,9 +245,9 @@ Select option (1):
 │ For morning service, and to mark the coronation of King Charles III and      │
 │ Queen Camilla.                                                               │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1620096 (Heather Sullivan,     │
-│ Sunday, 7 May 2023)]                                                         │
-│ [Event URL: http://localhost:8080/event.php?id=16774]                        │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1620096 (Heather     │
+│ Sullivan, Sunday, 7 May 2023)]                                               │
+│ [Event URL: http://localhost:8080/bellboard/event.php?id=16774]              │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -620,6 +620,6 @@ A Quarter Peal of 1260 Grandsire Doubles in 40 mins (7-3-12 in B♭)
 
 For morning service, and to mark the coronation of King Charles III and Queen Camilla.
 
-[BellBoard: http://localhost:8080/view.php?id=1620096 (Heather Sullivan, Sunday, 7 May 2023)]
-[Event URL: http://localhost:8080/event.php?id=16774]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1620096 (Heather Sullivan, Sunday, 7 May 2023)]
+[Event URL: http://localhost:8080/bellboard/event.php?id=16774]
 [Database ID: 18]

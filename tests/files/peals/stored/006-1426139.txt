@@ -26,7 +26,7 @@ Bellboard URL or peal ID:
 >>> 1426139
 [User input: "1426139"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1426139 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1426139 ─────────────╮
 │ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
 │ 1260 Plain Bob Royal                                                         │
 │ Sunday, 19 May 2002 in 49m                                                   │
@@ -46,8 +46,8 @@ Import peal from BellBoard
 │ Phyllis and Melvin Chapman.                                                  │
 │ 1st of Royal-4.                                                              │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1426139 (submitted by Myra      │
-│ Scott; updated Monday, 22 March 2021)                                        │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1426139 (submitted by │
+│ Myra Scott; updated Monday, 22 March 2021)                                   │
 │ External reference: Campanophile ID: 5506                                    │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
@@ -247,7 +247,8 @@ Select option (1):
 │ Phyllis and Melvin Chapman.                                                  │
 │ 4: 1st of Royal.                                                             │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1426139 (Myra Scott, ]         │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1426139 (Myra Scott, │
+│ ]                                                                            │
 │ [External reference: Campanophile ID: 5506]                                  │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
@@ -552,6 +553,6 @@ A Quarter Peal of 1260 Plain Bob Royal in 49 mins (18-3-20 in E♭)
 Rung for Morning Service and as a 60th Wedding Anniversary compliment to Phyllis and Melvin Chapman.
 4: 1st of Royal.
 
-[BellBoard: http://localhost:8080/view.php?id=1426139 (Myra Scott, ]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1426139 (Myra Scott, ]
 [External reference: Campanophile ID: 5506]
 [Database ID: 6]

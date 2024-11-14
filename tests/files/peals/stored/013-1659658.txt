@@ -26,7 +26,7 @@ Bellboard URL or peal ID:
 >>> 1659658
 [User input: "1659658"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1659658 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1659658 ─────────────╮
 │ St Andrew, Shrivenham, Oxfordshire                                           │
 │ 1296 Little Bob Royal                                                        │
 │ Composer: Steven Anderson                                                    │
@@ -46,8 +46,9 @@ Import peal from BellBoard
 │ Rung as a birthday compliment to Matthew Skues.                              │
 │ 6: First quarter of Little Bob Royal.                                        │
 │                                                                              │
-│ Bellboard: http://localhost:8080/view.php?id=1659658 (submitted by Chester   │
-│ Edwards on Saturday, 23 September 2023; updated Saturday, 23 September 2023) │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1659658 (submitted by │
+│ Chester Edwards on Saturday, 23 September 2023; updated Saturday, 23         │
+│ September 2023)                                                              │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
@@ -97,9 +98,9 @@ Given name(s):
 Title: 
 >>> 
 [User input: "None"]
-Composition URL (http://localhost:8080/comp.php?id=2293307): 
+Composition URL (http://localhost:8080/bellboard/comp.php?id=2293307): 
 >>> 
-[User input: "http://localhost:8080/comp.php?id=2293307"]
+[User input: "http://localhost:8080/bellboard/comp.php?id=2293307"]
 🎼 Composer: ComposerGivenName ComposerSurname
 🎼 Composition: Steven Anderson
 1: Couldn't find ringer matching "Garry Scott" (or aliases)
@@ -287,9 +288,9 @@ Select option (1):
 │ Rung as a birthday compliment to Matthew Skues.                              │
 │ 7: First quarter of Royal.                                                   │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1659658 (Chester Edwards,      │
-│ Saturday, 23 September 2023)]                                                │
-│ [Composition URL: http://localhost:8080/comp.php?id=2293307]                 │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1659658 (Chester     │
+│ Edwards, Saturday, 23 September 2023)]                                       │
+│ [Composition URL: http://localhost:8080/bellboard/comp.php?id=2293307]       │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -653,6 +654,6 @@ Composition: Steven Anderson
 Rung as a birthday compliment to Matthew Skues.
 7: First quarter of Royal.
 
-[BellBoard: http://localhost:8080/view.php?id=1659658 (Chester Edwards, Saturday, 23 September 2023)]
-[Composition URL: http://localhost:8080/comp.php?id=2293307]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1659658 (Chester Edwards, Saturday, 23 September 2023)]
+[Composition URL: http://localhost:8080/bellboard/comp.php?id=2293307]
 [Database ID: 13]

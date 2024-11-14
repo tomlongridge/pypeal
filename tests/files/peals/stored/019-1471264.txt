@@ -26,7 +26,7 @@ Bellboard URL or peal ID:
 >>> 1471264
 [User input: "1471264"]
 Import peal from BellBoard
-╭───────────────── http://localhost:8080/view.php?id=1471264 ──────────────────╮
+╭──────────── http://localhost:8080/bellboard/view.php?id=1471264 ─────────────╮
 │ Blessed Virgin Mary, Bathwick, Bath, Somerset                                │
 │ 1259 Grandsire Caters                                                        │
 │ Sunday, 14 November 2021 (18–3–20 in E♭) in 49m                              │
@@ -44,9 +44,9 @@ Import peal from BellBoard
 │                                                                              │
 │ Rung half muffled for morning service on remembrance day                     │
 │                                                                              │
-│ Linked event: http://localhost:8080/event.php?id=14097                       │
-│ Bellboard: http://localhost:8080/view.php?id=1471264 (submitted by Dominik   │
-│ Warren on Sunday, 14 November 2021)                                          │
+│ Linked event: http://localhost:8080/bellboard/event.php?id=14097             │
+│ Bellboard: http://localhost:8080/bellboard/view.php?id=1471264 (submitted by │
+│ Dominik Warren on Sunday, 14 November 2021)                                  │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Try for quick-add?: 1) Quick mode, 2) Amend footnote only, 3) Prompt mode
 Select option (1): 
@@ -74,7 +74,7 @@ Matching peal titled "Grandsire Caters"...
 👤 Ringer: 10: Cadie Nelson
 📝 Footnotes:
   - Rung half muffled for morning service on remembrance day.
-🔗 Event link: http://localhost:8080/event.php?id=14097
+🔗 Event link: http://localhost:8080/bellboard/event.php?id=14097
 📷 Photo link: None
 📮 Submitted by: Dominik Warren on Sunday, 14 November 2021
 🔔 Bell type: Tower
@@ -99,9 +99,9 @@ Matching peal titled "Grandsire Caters"...
 │                                                                              │
 │ Rung half muffled for morning service on remembrance day.                    │
 │                                                                              │
-│ [BellBoard: http://localhost:8080/view.php?id=1471264 (Dominik Warren,       │
-│ Sunday, 14 November 2021)]                                                   │
-│ [Event URL: http://localhost:8080/event.php?id=14097]                        │
+│ [BellBoard: http://localhost:8080/bellboard/view.php?id=1471264 (Dominik     │
+│ Warren, Sunday, 14 November 2021)]                                           │
+│ [Event URL: http://localhost:8080/bellboard/event.php?id=14097]              │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Save this peal?
 Is this correct? [y/n] (y): 
@@ -480,6 +480,6 @@ A Quarter Peal of 1259 Grandsire Caters (half-muffled) in 49 mins (18-3-20 in E�
 
 Rung half muffled for morning service on remembrance day.
 
-[BellBoard: http://localhost:8080/view.php?id=1471264 (Dominik Warren, Sunday, 14 November 2021)]
-[Event URL: http://localhost:8080/event.php?id=14097]
+[BellBoard: http://localhost:8080/bellboard/view.php?id=1471264 (Dominik Warren, Sunday, 14 November 2021)]
+[Event URL: http://localhost:8080/bellboard/event.php?id=14097]
 [Database ID: 19]
