@@ -23,7 +23,7 @@ def prompt_submit_unpublished_peals(in_bulk: bool = False):
 
 
 def prompt_submit_peal(peal: int | Peal = None):
-    
+
     heading('Submit peal to BellBoard')
 
     if peal is None:
@@ -32,8 +32,9 @@ def prompt_submit_peal(peal: int | Peal = None):
         peal = Peal.get(id=peal)
     elif peal.id is None:
         raise ValueError('Peal must be saved to database before submitting to BellBoard')
-    
+
     submit_peal(peal)
+
 
 def submit_peal(peal: Peal):
 
@@ -55,7 +56,7 @@ def submit_peal(peal: Peal):
 
     bellboard_login()
 
-    peal_fields = get_bb_fields_from_peal(peal)    
+    peal_fields = get_bb_fields_from_peal(peal)
     panel(peal_fields_to_str(peal_fields))
 
     if confirm(None, confirm_message='Edit fields before submitting?', default=False):
@@ -114,6 +115,7 @@ def prompt_bulk_upload(peals: list[Peal]):
                     continue
 
             break
+
 
 def peal_fields_to_str(peal_fields: dict) -> str:
     response = ''

@@ -43,7 +43,7 @@ def generate_peal(url: str):
         name = ringer.string
         conductor_part = ''
         if len(name.strip(' -')):
-            # The name can contain a bracketed part - either a ringer note or something like '(conductor)' as it's not 
+            # The name can contain a bracketed part - either a ringer note or something like '(conductor)' as it's not
             # been recogised as '(c)' so isn't separated in the HTML structure. We need to separate these out and only
             # anonymize the name part.
             if '(' in name:

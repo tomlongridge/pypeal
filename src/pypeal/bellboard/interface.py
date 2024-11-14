@@ -44,8 +44,8 @@ def get_search_url(criteria: dict[str, any] = None) -> str:
 
 
 def login() -> Session:
+
     global __session
-    
     if __session:
         return __session
 
@@ -74,6 +74,7 @@ def login() -> Session:
 
     raise BellboardError(f'Unable to login to Bellboard as {payload["email"]}: unable to parse response')
 
+
 def submit_peal(fields: dict[str, str]) -> Response:
 
     if fields['changes'] is None and \
@@ -101,7 +102,7 @@ def submit_peal(fields: dict[str, str]) -> Response:
             payload[f'ringers[{bell_count}]'] = ringer['text']
             bell_count += 1
     del payload['ringers']
-    
+
     url = get_config('bellboard', 'url') + '/submit.php'
     __logger.info(f'Submitting peal to Bellboard at {url}')
 
@@ -177,7 +178,7 @@ def get_bb_fields_from_peal(peal: Peal) -> dict:
             'bell_2': str(ringer.bell_nums[1]) if ringer.bell_nums and len(ringer.bell_nums) > 1 else None,
             'text': ringer.ringer.get_name(peal.date) + (' (c)' if ringer.is_conductor else '')
         })
-        
+
     details_str = ''
     if peal.methods:
         details_str += peal.get_method_summary()
@@ -185,13 +186,13 @@ def get_bb_fields_from_peal(peal: Peal) -> dict:
     if peal.composition_note:
         details_str += peal.composition_note
     details_str = details_str.strip()
-  
+
     return {
         'association': peal.association,
         'place': peal.place,
         'region': peal.county,
         'address': (peal.address if peal.address else peal.dedication) +
-                                 (f', {peal.sub_place}' if peal.sub_place else ''),
+                   (f', {peal.sub_place}' if peal.sub_place else ''),
         'date_rung': peal.date.strftime("%d/%m/%Y"),
         'duration': utils.get_time_str(peal.duration) if peal.duration else None,
         'tenor_size': peal.tenor_description,
