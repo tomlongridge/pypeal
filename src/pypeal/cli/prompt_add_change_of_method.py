@@ -96,12 +96,44 @@ def prompt_add_change_of_method(method_details: list[tuple[Method, str, int]], p
 
 def add_standard_eight_surprise(peal: Peal) -> list[tuple[Method, str, int]]:
     methods: list[tuple[Method, str, int]] = []
-    methods.append((Method.search('Cambridge', stage=peal.stage, classification=Classification.SURPRISE)[0], 'Cambridge', None))
-    methods.append((Method.search('Yorkshire', stage=peal.stage, classification=Classification.SURPRISE)[0], 'Yorkshire', None))
-    methods.append((Method.search('Lincolnshire', stage=peal.stage, classification=Classification.SURPRISE)[0], 'Lincolnshire', None))
-    methods.append((Method.search('Superlative', stage=peal.stage, classification=Classification.SURPRISE)[0], 'Superlative', None))
-    methods.append((Method.search('Rutland', stage=peal.stage, classification=Classification.SURPRISE)[0], 'Rutland', None))
-    methods.append((Method.search('Pudsey', stage=peal.stage, classification=Classification.SURPRISE)[0], 'Pudsey', None))
-    methods.append((Method.search('Bristol', stage=peal.stage, classification=Classification.SURPRISE)[0], 'Bristol', None))
-    methods.append((Method.search('London', stage=peal.stage, classification=Classification.SURPRISE)[0], 'London', None))
+    methods.append((
+        Method.search('Cambridge', stage=peal.stage, classification=Classification.SURPRISE, is_little=False, exact_match=True)[0],
+        'Cambridge',
+        None
+    ))
+    methods.append((
+        Method.search('Yorkshire', stage=peal.stage, classification=Classification.SURPRISE, is_little=False, exact_match=True)[0],
+        'Yorkshire',
+        None
+    ))
+    methods.append((
+        Method.search('Lincolnshire', stage=peal.stage, classification=Classification.SURPRISE, is_little=False, exact_match=True)[0],
+        'Lincolnshire',
+        None
+    ))
+    methods.append((
+        Method.search('Superlative', stage=peal.stage, classification=Classification.SURPRISE, is_little=False, exact_match=True)[0],
+        'Superlative',
+        None
+    ))
+    methods.append((
+        Method.search('Rutland', stage=peal.stage, classification=Classification.SURPRISE, is_little=False, exact_match=True)[0],
+        'Rutland',
+        None
+    ))
+    methods.append((
+        Method.search('Pudsey', stage=peal.stage, classification=Classification.SURPRISE, is_little=False, exact_match=True)[0],
+        'Pudsey',
+        None
+    ))
+    methods.append((
+        Method.search('Bristol', stage=peal.stage, classification=Classification.SURPRISE, is_little=False, exact_match=True)[0],
+        'Bristol',
+        None
+    ))
+    methods.append((
+        Method.search('London', stage=peal.stage, classification=Classification.SURPRISE, is_little=False, exact_match=True)[0],
+        'London',
+        None
+    ))
     return methods

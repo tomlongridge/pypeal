@@ -113,10 +113,11 @@ Number of changes (5040):
 🔢 Changes: 5040
 Adding changes of methods to multi-method peal...
 Matching method "Stedman"... [0 methods excluded]
-Matched "Stedman" to method "Stedman Doubles"
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
+2 methods match "Stedman" (or similar)
+1) Stedman Bob Doubles, 2) Stedman Doubles
+Select option (x = None): 
+>>> 2
+[User input: "Stedman Doubles [2]"]
 Number of changes: 
 >>> 630
 [User input: "630"]
@@ -141,10 +142,11 @@ Number of changes (630):
 [User input: "630"]
 Method 3: Reverse Canterbury Pleasure Place Doubles (630 changes)
 Matching method "Winchendon Place Bob"... [3 methods excluded]
-Matched "Winchendon Place Bob" to method "Winchendon Place Doubles"
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
+2 methods match "Winchendon Place Bob" (or similar)
+1) Reverse Winchendon Place Doubles, 2) Winchendon Place Doubles
+Select option (x = None): 
+>>> 2
+[User input: "Winchendon Place Doubles [2]"]
 Number of changes (630): 
 >>> 
 [User input: "630"]

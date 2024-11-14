@@ -121,6 +121,11 @@ Select option (1):
 │ it might have tenor cover.                                                   │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 Matching peal titled "Cambridge Minor"...
+3 methods match "Cambridge Minor" [0 methods excluded]
+1) Cambridge Delight Minor, 2) Cambridge Surprise Minor, 3) Cambridge Treble Place Minor
+Select option (x = None): 
+>>> 2
+[User input: "Cambridge Surprise Minor [2]"]
 📕 Title: Cambridge Surprise Minor
 👤 Ringer: 1 [5]: Adam Apple
 👤 Ringer: 2 [6]: Ben Bob

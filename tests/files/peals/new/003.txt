@@ -66,10 +66,11 @@ Title:
 >>> Cambridge Minor
 [User input: "Cambridge Minor"]
 Matching peal titled "Cambridge Minor"...
-Matched "Cambridge Minor" to method "Cambridge Surprise Minor" (ID: m14568)
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
+3 methods match "Cambridge Minor" [0 methods excluded]
+1) Cambridge Delight Minor, 2) Cambridge Surprise Minor, 3) Cambridge Treble Place Minor
+Select option (x = None): 
+>>> 2
+[User input: "Cambridge Surprise Minor [2]"]
 📕 Title: Cambridge Surprise Minor
 Number of changes: 
 >>> 5040

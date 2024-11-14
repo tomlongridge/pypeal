@@ -65,6 +65,11 @@ Duration (162):
 ⏱ Duration: 2 hours, 42 mins
 🏰 Tower: Blythburgh, Suffolk
 Matching peal titled "8 Methods Minor"...
+2 methods match "8 methods Minor" [0 methods excluded]
+1) 1815 Delight Minor, 2) 80th Birthday Surprise Minor
+Select option (x = None): 
+>>> x
+[User input: "None"]
 What kind of peal is being rung?: 1) Single Method, 2) Mixed Methods, 3) Spliced Methods, 4) General Ringing
 Select option (1): 
 >>> 2
@@ -105,7 +110,11 @@ Number of changes (5040):
 🔢 Changes: 5040
 Adding changes of methods to multi-method peal...
 Matching method "seven extents in eight methods"... [0 methods excluded]
-No methods match "seven extents in eight methods" (or similar)
+5 methods match "seven extents in eight methods" (or similar)
+1) Double Oh Seven Bob Minor, 2) Seven Rivers Surprise Minor, 3) Seven Sisters Bob Minor, 4) Seven Twenty Delight Minor, 5) Single Oh Seven Bob Minor
+Select option (x = None): 
+>>> x
+[User input: "None"]
 1) Search alternatives, 2) Remove method
 Select option (1): 
 >>> 2

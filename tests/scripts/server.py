@@ -52,8 +52,7 @@ class MockWebServer(BaseHTTPRequestHandler):
             download_data = download_match.groupdict()
             data_file_path = os.path.join(os.path.dirname(__file__), '..', 'data', download_data['website'], download_data['file'])
             os.makedirs(os.path.dirname(data_file_path), exist_ok=True)
-            remote_download_url = 'https://' + download_data['website'] + '/' + download_data['file'] + \
-                                  (f'?{download_data["query"]}' if download_data['query'] else '')
+            remote_download_url = 'https://' + download_data['website'] + '/' + download_data['file'] + (download_data["query"] or '')
             if self.path.lower().endswith('.zip'):
                 if not os.path.exists(data_file_path):
                     response = requests.get(remote_download_url, stream=True)
