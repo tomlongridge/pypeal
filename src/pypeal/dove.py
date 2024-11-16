@@ -125,6 +125,9 @@ def update_bells():
         if line['Bell ID'].startswith('#'):
             continue  # comment line
 
+        if line['Ring Size'].endswith('U/R'):
+            continue  # omit unringable bells
+
         if line['Bell Role'].isnumeric():
             role = int(line['Bell Role'])
         elif 'c' in line['Bell Role'] and line['Bell Role'][0:line['Bell Role'].index('c')].isnumeric():

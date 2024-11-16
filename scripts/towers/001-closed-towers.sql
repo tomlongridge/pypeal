@@ -13,3 +13,11 @@ SET @tower_id = -15966;
 INSERT INTO  @db_name.`towers` (`id`, `place`, `dedication`, `county`, `country`, `country_code`, `latitude`, `longitude`, `bells`,
                                 `tenor_weight`, `tenor_note`)
 VALUES (@tower_id, 'St Juliot', 'St Juliot', 'Cornwall', 'England', 'GB', 50.69048, -4.65039, 6, 908, 'A♭');
+
+-- Ropley, S Peter, Hampshire, England, GB
+-- Unringable (fire 2014)
+SET @tower_id = -13242;
+
+INSERT INTO  @db_name.`towers` (`id`, `place`, `dedication`, `county`, `country`, `country_code`, `latitude`, `longitude`, `bells`,
+                                `tenor_weight`, `tenor_note`)
+VALUES (@tower_id, 'Ropley', 'S Peter', 'Hampshire', 'England', 'GB', 51.08337, -1.07922, 6, 1700, 'F♯');
