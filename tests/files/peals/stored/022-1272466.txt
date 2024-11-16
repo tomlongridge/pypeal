@@ -13,10 +13,11 @@ pypeal Database
 │ 3) Add peal manually                                                         │
 │ 4) View statistics                                                           │
 │ 5) Generate reports                                                          │
-│ 6) View peal                                                                 │
-│ 7) Delete peal                                                               │
-│ 8) Update static data                                                        │
-│ 9) Clear app cache                                                           │
+│ 6) Generate sheets                                                           │
+│ 7) View peal                                                                 │
+│ 8) Delete peal                                                               │
+│ 9) Update static data                                                        │
+│ 10) Clear app cache                                                          │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
@@ -162,10 +163,11 @@ pypeal Database
 │ 3) Add peal manually                                                         │
 │ 4) View statistics                                                           │
 │ 5) Generate reports                                                          │
-│ 6) View peal                                                                 │
-│ 7) Delete peal                                                               │
-│ 8) Update static data                                                        │
-│ 9) Clear app cache                                                           │
+│ 6) Generate sheets                                                           │
+│ 7) View peal                                                                 │
+│ 8) Delete peal                                                               │
+│ 9) Update static data                                                        │
+│ 10) Clear app cache                                                          │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
@@ -569,10 +571,11 @@ pypeal Database
 │ 3) Add peal manually                                                         │
 │ 4) View statistics                                                           │
 │ 5) Generate reports                                                          │
-│ 6) View peal                                                                 │
-│ 7) Delete peal                                                               │
-│ 8) Update static data                                                        │
-│ 9) Clear app cache                                                           │
+│ 6) Generate sheets                                                           │
+│ 7) View peal                                                                 │
+│ 8) Delete peal                                                               │
+│ 9) Update static data                                                        │
+│ 10) Clear app cache                                                          │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
@@ -731,10 +734,11 @@ pypeal Database
 │ 3) Add peal manually                                                         │
 │ 4) View statistics                                                           │
 │ 5) Generate reports                                                          │
-│ 6) View peal                                                                 │
-│ 7) Delete peal                                                               │
-│ 8) Update static data                                                        │
-│ 9) Clear app cache                                                           │
+│ 6) Generate sheets                                                           │
+│ 7) View peal                                                                 │
+│ 8) Delete peal                                                               │
+│ 9) Update static data                                                        │
+│ 10) Clear app cache                                                          │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
@@ -1030,16 +1034,17 @@ pypeal Database
 │ 3) Add peal manually                                                         │
 │ 4) View statistics                                                           │
 │ 5) Generate reports                                                          │
-│ 6) View peal                                                                 │
-│ 7) Delete peal                                                               │
-│ 8) Update static data                                                        │
-│ 9) Clear app cache                                                           │
+│ 6) Generate sheets                                                           │
+│ 7) View peal                                                                 │
+│ 8) Delete peal                                                               │
+│ 9) Update static data                                                        │
+│ 10) Clear app cache                                                          │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
 Select option (1): 
->>> 7
-[User input: "Delete peal [7]"]
+>>> 8
+[User input: "Delete peal [8]"]
 Delete peal
 1) Bellboard ID/URL, 2) Peal ID
 Select option (1): 
@@ -1092,10 +1097,11 @@ pypeal Database
 │ 3) Add peal manually                                                         │
 │ 4) View statistics                                                           │
 │ 5) Generate reports                                                          │
-│ 6) View peal                                                                 │
-│ 7) Delete peal                                                               │
-│ 8) Update static data                                                        │
-│ 9) Clear app cache                                                           │
+│ 6) Generate sheets                                                           │
+│ 7) View peal                                                                 │
+│ 8) Delete peal                                                               │
+│ 9) Update static data                                                        │
+│ 10) Clear app cache                                                          │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
@@ -1138,10 +1144,11 @@ pypeal Database
 │ 3) Add peal manually                                                         │
 │ 4) View statistics                                                           │
 │ 5) Generate reports                                                          │
-│ 6) View peal                                                                 │
-│ 7) Delete peal                                                               │
-│ 8) Update static data                                                        │
-│ 9) Clear app cache                                                           │
+│ 6) Generate sheets                                                           │
+│ 7) View peal                                                                 │
+│ 8) Delete peal                                                               │
+│ 9) Update static data                                                        │
+│ 10) Clear app cache                                                          │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
@@ -1302,10 +1309,11 @@ pypeal Database
 │ 3) Add peal manually                                                         │
 │ 4) View statistics                                                           │
 │ 5) Generate reports                                                          │
-│ 6) View peal                                                                 │
-│ 7) Delete peal                                                               │
-│ 8) Update static data                                                        │
-│ 9) Clear app cache                                                           │
+│ 6) Generate sheets                                                           │
+│ 7) View peal                                                                 │
+│ 8) Delete peal                                                               │
+│ 9) Update static data                                                        │
+│ 10) Clear app cache                                                          │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘

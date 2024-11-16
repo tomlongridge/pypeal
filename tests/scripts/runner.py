@@ -7,6 +7,9 @@ from click.testing import Result
 from pypeal.entities.peal import Peal
 
 
+NO_PEAL_MARKER = 'No peal'
+
+
 _runner = CliRunner()
 
 
@@ -32,7 +35,7 @@ def cli_runner(app: Typer, input_file: str):
 
     args, search_responses, console_text, expected_peal = test_data[:4]
 
-    if expected_peal == 'No peal':
+    if expected_peal == NO_PEAL_MARKER:
         expected_peal = None
 
     stdin: list[str] = []
@@ -40,7 +43,7 @@ def cli_runner(app: Typer, input_file: str):
     for line in console_text.split('\n'):
         if line.startswith('>>> '):
             stdin.append(line[4:])
-        elif line.startswith('###'):
+        elif line.startswith('###') or line.startswith('!!!'):  # Don't expect comments and errors
             pass
         else:
             expected_stdout += line + '\n'
@@ -74,22 +77,41 @@ def cli_runner(app: Typer, input_file: str):
 
         assert result.exit_code == 0, "App exited with non-zero exit code"
 
-        stored_peal = None
+        if last_peal_id:
+            stored_peal = Peal.get(id=last_peal_id)
+        else:
+            stored_peal = None
+
         if expected_peal is not None:
             assert last_peal_id is not None, "Unable to find saved peal ID"
-            stored_peal = Peal.get(id=last_peal_id)
             assert stored_peal is not None, "Unable to retrieve saved peal"
             assert str(stored_peal) == expected_peal, "Saved peal does not match expected peal"
 
         assert result.output.strip() == expected_stdout, "App output does not match expected output"
 
+        _update_input_file(input_file, args, search_responses, console_text, stored_peal)
+
     except Exception as e:
-        with open(input_file, 'w') as f:
-            f.write(args +
-                    '\n===\n' +
-                    search_responses + ('\n' if search_responses else '') +
-                    '===\n' +
-                    test_output.strip() +
-                    '\n===\n' +
-                    (str(stored_peal) if stored_peal else 'No peal'))
+        _update_input_file(input_file, args, search_responses, console_text, stored_peal, e)
         raise e
+
+
+def _update_input_file(input_file: str,
+                       args: str,
+                       search_responses: str,
+                       console_text: str,
+                       stored_peal: Peal,
+                       exception: Exception = None):
+    output_text = ''
+    for line in console_text.split('\n'):
+        if not line.startswith('!!!'):
+            output_text += line + '\n'
+    with open(input_file, 'w') as f:
+        f.write(args +
+                '\n===\n' +
+                search_responses + ('\n' if search_responses else '') +
+                '===\n' +
+                (f'!!! LAST RUN ENDED WITH AN ERROR:\n!!!\n!!! {exception}\n!!!\n\n' if exception else '') +
+                output_text.strip() +
+                '\n===\n' +
+                (str(stored_peal) if stored_peal else NO_PEAL_MARKER))

@@ -88,8 +88,11 @@ class Report():
         return Cache.get_cache().add(cls.__name__, result[-1], Report(*result)) if result else None
 
     @classmethod
-    def get_all(cls) -> list[Report]:
-        results = Database.get_connection().query(f'SELECT {",".join(FIELD_LIST)}, id FROM reports').fetchall()
+    def get_all(cls, only_enabled: bool = True) -> list[Report]:
+        query = f'SELECT {",".join(FIELD_LIST)}, id FROM reports'
+        if only_enabled:
+            query += ' WHERE enabled = 1'
+        results = Database.get_connection().query(query).fetchall()
         return Cache.get_cache().add_all(cls.__name__, {result[-1]: Report(*result) for result in results})
 
     @classmethod

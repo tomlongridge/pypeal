@@ -71,6 +71,9 @@ class PealRinger:
         self.is_conductor: bool = is_conductor
         self.note: str = note
 
+    def __str__(self):
+        return str(self.ringer)
+
 
 class Footnote:
 
@@ -470,8 +473,14 @@ class Peal:
         return self.__ringers
 
     def get_ringer(self, num: int) -> Ringer:
-        if num in self.__ringers_by_num:
+        if self.ringers and num in self.__ringers_by_num:
             return self.__ringers_by_num[num]
+        else:
+            return None
+
+    def get_ringer_by_id(self, id: int) -> Ringer:
+        if self.ringers and id in self.__ringers_by_id:
+            return self.__ringers_by_id[id]
         else:
             return None
 
@@ -519,6 +528,13 @@ class Peal:
     @property
     def num_bells(self) -> int:
         return sum([len(ringer.bell_nums) if ringer.bell_nums else 0 for ringer in self.ringers])
+
+    @property
+    def bellboard_url(self) -> str:
+        if self.bellboard_id:
+            return get_url_from_id(self.bellboard_id)
+        else:
+            return None
 
     @property
     def footnotes(self) -> list[Footnote]:
@@ -735,7 +751,7 @@ class Peal:
             text += self.get_footnote_summary()
             text += '\n'
         if self.bellboard_id:
-            text += f'\n[BellBoard: {get_url_from_id(self.bellboard_id)}' if self.bellboard_id else ''
+            text += f'\n[BellBoard: {self.bellboard_url}' if self.bellboard_id else ''
             text += ' (' if self.bellboard_submitter or self.bellboard_submitted_date else ''
             text += f'{self.bellboard_submitter}, ' if self.bellboard_submitter else ''
             text += f'{format_date_full(self.bellboard_submitted_date)})' if self.bellboard_submitted_date else ''

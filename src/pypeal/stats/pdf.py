@@ -39,9 +39,8 @@ def generate_reports() -> list[str]:
     reports = []
     for report in Report.get_all():
         report_path = os.path.join(reports_dir, f'{report.name.replace(" ", "-")}.pdf')
-        if report.enabled:
-            _generate_report(report, report_path)
-            reports.append(report_path)
+        _generate_report(report, report_path)
+        reports.append(report_path)
 
     return reports
 

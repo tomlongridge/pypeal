@@ -28,6 +28,7 @@ from pypeal.entities.peal_search import PealSearch
 from pypeal.entities.report import Report
 from pypeal.entities.ringer import Ringer
 from pypeal.config import set_config_file
+from pypeal.stats.gsheet import GoogleSheetsError, update_sheets
 from pypeal.stats.pdf import generate_reports
 from pypeal.stats.report import generate_global_summary
 from pypeal.entities.tower import Ring
@@ -84,6 +85,8 @@ def main(
             run_submit_peal(peal_id_or_url)
         case 'report':
             run_generate_reports()
+        case 'update_sheets':
+            run_update_sheets()
         case 'bulk_upload':
             run_bulk_upload()
         case _:
@@ -130,6 +133,14 @@ def run_generate_reports():
         print(f'- {os.path.relpath(report_path)}')
 
 
+def run_update_sheets():
+    heading('Update spreadsheets')
+    try:
+        update_sheets()
+    except GoogleSheetsError:
+        error('Unable to connect to Google Sheets - sheets not updated')
+
+
 def run_bulk_upload():
     prompt_submit_unpublished_peals(in_bulk=True)
 
@@ -154,6 +165,7 @@ def run_interactive(peal_id_or_url: str):
                 'Add peal manually': lambda: run_add_peal(),
                 'View statistics': lambda: prompt_report(),
                 'Generate reports': lambda: run_generate_reports(),
+                'Generate sheets': lambda: run_update_sheets(),
                 'View peal': lambda: run_view(peal_id_or_url),
                 'Delete peal': lambda: run_delete(peal_id_or_url),
                 'Update static data': lambda: run_update_static_data(),

@@ -18,7 +18,7 @@ from pypeal.entities.tower import Ring, Tower
 def prompt_report():
     heading('View statistics')
     while True:
-        reports = Report.get_all()
+        reports = Report.get_all(only_enabled=False)
         try:
             selected_option = choose_option(['Run report',
                                              'New report',
