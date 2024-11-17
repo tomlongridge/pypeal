@@ -64,15 +64,10 @@ Name (Middlesex County Association & London Diocesan Guild):
 >>> devon
 [User input: "devon"]
 2 associations match "devon"
-1) Devon Association, 2) Guild of Devonshire Ringers
+Choose association: 1) Devon Association, 2) Guild of Devonshire Ringers
 Select option (x = None): 
 >>> 2
 [User input: "Guild of Devonshire Ringers [2]"]
-Matched "Middlesex County Association & London Diocesan Guild" to association: 
-Guild of Devonshire Ringers (ID: -255)
-Is this correct? [y/n] (y): 
->>> y
-[User input: "True"]
 🏛 Association: Guild of Devonshire Ringers
 🔔 Bell type: Tower
 📅 Date: Sunday, 5 December 1976

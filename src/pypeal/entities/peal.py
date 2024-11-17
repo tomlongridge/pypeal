@@ -880,10 +880,10 @@ class Peal:
                ringer_name: str = None,
                ring_id: int = None,
                tower_id: int = None,
+               association_id: int = None,
                place: str = None,
                county: str = None,
                dedication: str = None,
-               association: str = None,
                bell_type: BellType = None,
                length_type: PealLengthType = None,
                order_descending: bool = True) -> list[Peal]:
@@ -920,6 +920,9 @@ class Peal:
         if tower_id is not None:
             query += 'AND t.id = %(tower_id)s '
             params['tower_id'] = tower_id
+        if association_id is not None:
+            query += 'AND t.id = %(association_id)s '
+            params['association_id'] = association_id
         if place is not None:
             query += 'AND (' + \
                      '(peals.place LIKE %(place)s) OR ' + \
@@ -940,9 +943,6 @@ class Peal:
                      '(t.dedication LIKE %(dedication)s) ' + \
                      ')'
             params['dedication'] = dedication.strip()
-        if association is not None:
-            query += 'AND a.name = %(association)s '
-            params['association'] = association.strip()
         if length_type is not None:
             if config.get_config('general', 'short_peal_threshold') is not None:
                 query += 'AND ((peals.stage >= %(short_peal_threshold)s '

@@ -4,54 +4,55 @@ from pypeal.cli.chooser import choose_option
 from pypeal.entities.peal import Peal
 
 
-def prompt_add_association(association: str, peal: Peal, quick_mode: bool):
+def prompt_add_association(association_name: str, peal: Peal, quick_mode: bool):
 
-    if not association and (quick_mode or confirm('No linked association')):
+    if not association_name and (quick_mode or confirm('No linked association')):
         return
 
-    original_association_name = association
     matched_association: Association = None
-    exact_match: bool = True
-    while True:
-
-        if association is not None:
-            association_results = Association.search(name=association,
-                                                     exact_match=exact_match)
+    if association_name:
+        if matched_associations := Association.search(name=association_name, exact_match=True):
+            if len(matched_associations) == 1:
+                matched_association = matched_associations[0]
+            if not quick_mode and \
+                    (association_name is not None and
+                        not confirm(f'Matched "{association_name}" to association: {matched_association} ' +
+                                    f'(ID: {matched_association.id})')) or \
+                    (association_name is None and
+                        not confirm(f'Add association {matched_association} (ID: {matched_association.id})')):
+                matched_association = None
         else:
-            association_results = []
+            print(f'No associations match "{association_name}"')
 
+    while matched_association is None:
+
+        match choose_option(['Search alternatives', 'Add new association', 'Remove association'], default=1):
+            case 1:
+                matched_association = prompt_find_association(association_name)
+            case 2:
+                matched_association = Association(ask('Name', default=association_name, required=True))
+            case 3:
+                break
+
+    if matched_association and matched_association.id is None:
+        matched_association.commit()
+    peal.association = matched_association
+
+
+def prompt_find_association(search_string: str = None) -> Association:
+    while True:
+        print('Enter search criteria:')
+        search_string = ask('Name', default=search_string, required=True)
+
+        association_results = Association.search(name=search_string, exact_match=False)
         match len(association_results):
             case 0:
-                if association:
-                    print(f'No associations match "{association}"')
-                quick_mode = False
-                match choose_option(['Search alternatives', 'Add new association', 'Remove association'], default=1):
-                    case 1:
-                        print('Enter search criteria:')
-                        association = ask('Name', default=original_association_name, required=False)
-                        exact_match = False
-                        continue
-                    case 2:
-                        peal.association = Association(ask('Name', default=original_association_name, required=True))
-                        peal.association.commit()
-                        return
-                    case 3:
-                        return
+                pass
             case 1:
-                matched_association = association_results[0]
+                if confirm(f'Matched "{association_results[0]}" (ID: {association_results[0].id})', default=True):
+                    return association_results[0]
             case _:
-                print(f'{len(association_results)} associations match "{association}"')
-                quick_mode = False
-                if not (matched_association := choose_option(association_results, none_option='None')):
-                    association = None
-                    continue
-
-        if (quick_mode or
-            (original_association_name is not None and
-                confirm(f'Matched "{original_association_name}" to association: {matched_association} (ID: {matched_association.id})')) or
-            (original_association_name is None and
-                confirm(f'Add association {matched_association} (ID: {matched_association.id})'))):
-            peal.association = matched_association
-            return
-        else:
-            association = None
+                print(f'{len(association_results)} associations match "{search_string}"')
+                return choose_option(association_results, title='Choose association', none_option='None')
+        if not confirm('Association not found.', confirm_message='Try again?', default=True):
+            return None

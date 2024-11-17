@@ -37,8 +37,7 @@ Enter search criteria:
 Name (Bath and Wells): 
 >>> 
 [User input: "Bath and Wells"]
-Matched "Bath and Wells" to association: Bath and Wells Diocesan Association 
-(ID: -236)
+Matched "Bath and Wells Diocesan Association" (ID: -236)
 Is this correct? [y/n] (y): 
 >>> y
 [User input: "True"]

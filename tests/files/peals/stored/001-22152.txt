@@ -375,13 +375,22 @@ Select option (1):
 [User input: "View statistics [4]"]
 View statistics
 New report
-Is the report for a specific ringer? [y/n] (y): 
+Is the report for a specific ringer? [y/n] (n): 
 >>> n
 [User input: "False"]
-Is the report for a specific tower? [y/n] (y): 
+Is the report for a specific tower? [y/n] (n): 
+>>> n
+[User input: "False"]
+Is the report for a specific association? [y/n] (n): 
 >>> n
 [User input: "False"]
 Is the report for a specific date range? [y/n] (y): 
+>>> n
+[User input: "False"]
+Is the report for a specific bell type? [y/n] (n): 
+>>> n
+[User input: "False"]
+Is the report for a specific peal length? [y/n] (n): 
 >>> n
 [User input: "False"]
 Enabled

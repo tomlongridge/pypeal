@@ -4,11 +4,13 @@ from datetime import datetime
 from pypeal import utils
 from pypeal.cache import Cache
 from pypeal.db import Database
-from pypeal.entities.peal import Peal, PealLengthType
+from pypeal.entities.association import Association
+from pypeal.entities.peal import BellType, Peal, PealLengthType
 from pypeal.entities.ringer import Ringer
 from pypeal.entities.tower import Ring, Tower
 
-FIELD_LIST: list[str] = ['name', 'ringer_id', 'tower_id', 'ring_id', 'date_from', 'date_to', 'enabled', 'created_date']
+FIELD_LIST: list[str] = ['name', 'ringer_id', 'tower_id', 'ring_id', 'association_id', 'date_from', 'date_to', 'length_type', 'bell_type',
+                         'enabled', 'created_date']
 
 
 @dataclass
@@ -18,8 +20,11 @@ class Report():
     ringer: Ringer
     tower: Tower
     ring: Ring
+    association: Association
     date_from: datetime.date
     date_to: datetime.date
+    length_type: PealLengthType
+    bell_type: BellType
     created_date: datetime
     enabled: bool
     id: int
@@ -29,8 +34,11 @@ class Report():
                  ringer_id: int = None,
                  tower_id: int = None,
                  ring_id: int = None,
+                 association_id: int = None,
                  date_from: datetime.date = None,
                  date_to: datetime.date = None,
+                 length_type: PealLengthType = None,
+                 bell_type: BellType = None,
                  enabled: bool = None,
                  created_date: datetime = None,
                  id: int = None):
@@ -38,8 +46,11 @@ class Report():
         self.ringer = Ringer.get(ringer_id) if ringer_id else None
         self.tower = Tower.get(tower_id) if tower_id else None
         self.ring = Ring.get(ring_id) if ring_id else None
+        self.association = Association.get(association_id) if association_id else None
         self.date_from = date_from
         self.date_to = date_to
+        self.length_type = length_type
+        self.bell_type = bell_type
         self.enabled = enabled
         self.created_date = created_date
         self.id = id
@@ -53,7 +64,9 @@ class Report():
             Database.get_connection().query(
                 f'UPDATE reports SET {",".join([f"{field} = %s" for field in FIELD_LIST])} WHERE id = %s',
                 params=(self.name, self.ringer.id if self.ringer else None, self.tower.id if self.tower else None,
-                        self.ring.id if self.ring else None, self.date_from, self.date_to, self.enabled, self.created_date, self.id))
+                        self.ring.id if self.ring else None, self.association.id if self.association else None,
+                        self.date_from, self.date_to, self.length_type.name if self.length_type else None,
+                        self.bell_type.name if self.bell_type else None, self.enabled, self.created_date, self.id))
             Database.get_connection().commit()
         else:
             self.created_date = self.last_run_date = utils.get_now()
@@ -61,7 +74,9 @@ class Report():
                 f'INSERT INTO reports ({",".join(FIELD_LIST)}) ' +
                 f'VALUES ({("%s,"*len(FIELD_LIST)).strip(",")})',
                 (self.name, self.ringer.id if self.ringer else None, self.tower.id if self.tower else None,
-                 self.ring.id if self.ring else None, self.date_from, self.date_to, self.enabled, self.created_date))
+                 self.ring.id if self.ring else None, self.association.id if self.association else None, self.date_from, self.date_to,
+                 self.length_type.name if self.length_type else None, self.bell_type.name if self.bell_type else None, self.enabled,
+                 self.created_date))
             Database.get_connection().commit()
             self.id = result.lastrowid
             Cache.get_cache().add(self.__class__.__name__, self.id, self)
@@ -71,8 +86,10 @@ class Report():
                            date_to=self.date_to,
                            ring_id=self.ring.id if self.ring else None,
                            tower_id=self.tower.id if self.tower else None,
+                           association_id=self.association.id if self.association else None,
                            ringer_id=self.ringer.id if self.ringer else None,
-                           length_type=length_type)
+                           length_type=length_type or self.length_type,
+                           bell_type=self.bell_type)
 
     def delete(self):
         Database.get_connection().query('DELETE FROM reports WHERE id = %s', (self.id,))

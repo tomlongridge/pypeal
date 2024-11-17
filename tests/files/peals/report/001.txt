@@ -170,13 +170,22 @@ Select option (1):
 [User input: "View statistics [4]"]
 View statistics
 New report
-Is the report for a specific ringer? [y/n] (y): 
+Is the report for a specific ringer? [y/n] (n): 
 >>> n
 [User input: "False"]
-Is the report for a specific tower? [y/n] (y): 
+Is the report for a specific tower? [y/n] (n): 
+>>> n
+[User input: "False"]
+Is the report for a specific association? [y/n] (n): 
 >>> n
 [User input: "False"]
 Is the report for a specific date range? [y/n] (y): 
+>>> n
+[User input: "False"]
+Is the report for a specific bell type? [y/n] (n): 
+>>> n
+[User input: "False"]
+Is the report for a specific peal length? [y/n] (n): 
 >>> n
 [User input: "False"]
 Enabled
@@ -232,7 +241,7 @@ Select option (x = Back) (1):
 >>> 2
 [User input: "New report [2]"]
 New report
-Is the report for a specific ringer? [y/n] (y): 
+Is the report for a specific ringer? [y/n] (n): 
 >>> y
 [User input: "True"]
 Last name: 
@@ -245,7 +254,7 @@ Matched "Ted Harris"
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
-Is the report for a specific tower? [y/n] (y): 
+Is the report for a specific tower? [y/n] (n): 
 >>> y
 [User input: "True"]
 Tower: 1) Dove ID, 2) Search by name, 3) None
@@ -271,6 +280,9 @@ Withycombe Raleigh, Devon. 12, 17-1-10 in D#.
 Is this correct? [y/n] (y): 
 >>> 
 [User input: "True"]
+Is the report for a specific association? [y/n] (n): 
+>>> n
+[User input: "False"]
 Is the report for a specific date range? [y/n] (y): 
 >>> y
 [User input: "True"]
@@ -280,6 +292,12 @@ From (yyyy/mm/dd):
 To (yyyy/mm/dd): 
 >>> 2020-01-01
 [User input: "2020-01-01"]
+Is the report for a specific bell type? [y/n] (n): 
+>>> n
+[User input: "False"]
+Is the report for a specific peal length? [y/n] (n): 
+>>> n
+[User input: "False"]
 Enabled
 Enable report? [y/n]: 
 >>> y
@@ -354,6 +372,9 @@ Tower: Withycombe Raleigh, Devon. 12, 17-1-10 in D#.
 Replace? [y/n] (n): 
 >>> n
 [User input: "False"]
+Is the report for a specific association? [y/n] (n): 
+>>> n
+[User input: "False"]
 Dates: 01-Jan-2000 - 01-Jan-2020
 Replace date range? [y/n] (n): 
 >>> y
@@ -364,6 +385,12 @@ From (yyyy/mm/dd) (2000/01/01):
 To (yyyy/mm/dd) (2020/01/01): 
 >>> 2020-12-31
 [User input: "2020-12-31"]
+Is the report for a specific bell type? [y/n] (n): 
+>>> n
+[User input: "False"]
+Is the report for a specific peal length? [y/n] (n): 
+>>> n
+[User input: "False"]
 Enabled
 Enable report? [y/n] (y): 
 >>> y

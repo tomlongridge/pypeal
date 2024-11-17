@@ -1,3 +1,4 @@
+from enum import IntEnum
 from pypeal.cli.prompts import UserCancelled, error, print_user_input
 from rich.prompt import Prompt
 from rich.console import Console
@@ -15,6 +16,14 @@ def choose_option_in_dict(options: dict[str, any],
                           default: str = None,
                           none_option: str = None) -> any:
     return choose_option(list(options.keys()), list(options.values()), title, prompt, default, none_option)
+
+
+def choose_option_from_enum(options: IntEnum,
+                            title: str = None,
+                            prompt: str = None,
+                            default: str = None,
+                            none_option: str = None) -> any:
+    return choose_option([str(option) for option in options], list(options), title, prompt, default, none_option)
 
 
 def choose_option(options: list[any],
@@ -72,17 +81,19 @@ def choose_option(options: list[any],
             raise UserCancelled()
 
         if choice is None and none_option is None:
+            print_user_input(prompt, 'None')
             error('Please choose an option')  # If there is no default and nothing is entered
-        elif choice is None or choice == CHOOSE_NONE_OPTION_CHAR:
+        elif choice is None or (none_option and choice == CHOOSE_NONE_OPTION_CHAR):
             print_user_input(prompt, 'None')
             return None  # choice is None if it's the default
         elif not choice.isnumeric():
+            print_user_input(prompt, choice)
             if choice == 'p' and page_num > 1:
                 page_num -= 1
             elif choice == 'n' and page_num < len(options_by_page):
                 page_num += 1
             else:
-                error('Input an option number or one of the following:\n\n' + '\n  - '.join(action_list))
+                error('Input an option number' + ('or one of the following:\n\n' + '\n  - '.join(action_list) if action_list else ''))
         else:
             choice = int(choice)
             if choice > 0 and choice <= len(options):
@@ -96,6 +107,7 @@ def choose_option(options: list[any],
                 print_user_input(prompt, f'{options[choice_index]} [{choice}]')
                 return response
             else:
+                print_user_input(prompt, str(choice))
                 error(f'The number must be between 1 and {len(options)}')
 
 

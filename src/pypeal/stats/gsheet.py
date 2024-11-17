@@ -18,6 +18,7 @@ PERMISSION_SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 SPREADSHEET_ID = "1TzanU26xBpfDvAdYEG2AcX4Bm5Chflv2u0q5mrzE5gU"
 
 NAMED_RANGE_ALL_PEALS = "all"
+NAMED_RANGE_TOWERS = "towers"
 
 
 class GoogleSheetsError(Exception):
@@ -41,13 +42,17 @@ def _update_sheet(report: Report):
 
     peals = report.get_peals()
     sheet = _get_sheet()
+
+    _update_all_peals(sheet, peals, report)
+
+
+def _update_all_peals(sheet: Resource, peals: list[Peal], report: Report) -> None:
+
     existing_range_content, range_location = _get_range(sheet, NAMED_RANGE_ALL_PEALS)
     if not range_location:
         return
 
-    sheet_name, col, row = _get_range_breakdown(range_location)
-
-    previous_row, _ = _get_range(sheet, f'{sheet_name}!{col}{row-1}:{row-1}')
+    previous_row = _get_header_row(sheet, range_location)
 
     data = []
     num_cols = len(previous_row[0])
@@ -62,6 +67,23 @@ def _update_sheet(report: Report):
     if existing_range_content:
         _clear_range(sheet, _get_rest_of_column_range(range_location, num_cols))
     _update_range(sheet, _get_expanded_range(range_location, num_cols, len(data)), data)
+
+
+# def _update_towers(sheet: Resource, peals: list[Peal], report: Report) -> None:
+
+#     existing_range_content, range_location = _get_range(sheet, NAMED_RANGE_TOWERS)
+#     if not range_location:
+#         return
+
+#     previous_row = _get_header_row(sheet, range_location)
+    
+#     Database.query('SELECT tower')
+
+
+def _get_header_row(sheet: Resource, range_location: str) -> list[str]:
+    sheet_name, col, row = _get_range_breakdown(range_location)
+    previous_row, _ = _get_range(sheet, f'{sheet_name}!{col}{row-1}:{row-1}')
+    return previous_row
 
 
 def _authenticate() -> Credentials:

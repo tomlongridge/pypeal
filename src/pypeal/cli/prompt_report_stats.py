@@ -3,10 +3,12 @@ from rich.console import Console
 from rich.table import Table
 
 from pypeal import utils
-from pypeal.cli.chooser import choose_option
+from pypeal.cli.chooser import choose_option, choose_option_from_enum
+from pypeal.cli.prompt_add_association import prompt_find_association
 from pypeal.cli.prompt_add_ringer import prompt_find_ringer
 from pypeal.cli.prompt_add_tower import prompt_find_tower
 from pypeal.cli.prompts import UserCancelled, ask, ask_date, confirm, heading
+from pypeal.entities.peal import BellType, PealLengthType
 from pypeal.entities.report import Report
 from pypeal.entities.ringer import Ringer
 from pypeal.stats.report import generate_summary
@@ -261,20 +263,24 @@ def _generate_dict_table(data: dict | list[dict],
 def _create_report(report: Report):
 
     if (report.ringer and confirm(f'Ringer: "{report.ringer}"', confirm_message='Replace?', default=False)) \
-            or (report.ringer is None and confirm(None, confirm_message='Is the report for a specific ringer?')):
+            or (report.ringer is None and confirm(None, confirm_message='Is the report for a specific ringer?', default=False)):
         report.ringer = prompt_find_ringer()
 
     if ((report.tower or report.ring) and
             confirm(f'Tower: {report.tower or report.ring.tower}', confirm_message='Replace?', default=False)) \
         or ((report.tower is None and report.ring is None) and
-            confirm(None, confirm_message='Is the report for a specific tower?')):
+            confirm(None, confirm_message='Is the report for a specific tower?', default=False)):
         if tower := prompt_find_tower():
-            if len(tower.rings) > 1 and confirm(None, confirm_message='Is the report for a specific ring?'):
+            if len(tower.rings) > 1 and confirm(None, confirm_message='Is the report for a specific ring?', default=False):
                 report.ring = choose_option(tower.rings, title='Ring', none_option='None')
                 report.tower = None
             else:
                 report.tower = tower
                 report.ring = None
+
+    if (report.association and confirm(f'Association: "{report.association}"', confirm_message='Replace?', default=False)) \
+            or (report.association is None and confirm(None, confirm_message='Is the report for a specific association?', default=False)):
+        report.association = prompt_find_association()
 
     if ((report.date_from or report.date_to) and
             confirm(f'Dates: {utils.format_date_short(report.date_from) if report.date_from else ""} - ' +
@@ -285,6 +291,14 @@ def _create_report(report: Report):
             confirm(None, confirm_message='Is the report for a specific date range?')):
         report.date_from = ask_date('From', default=report.date_from, required=False)
         report.date_to = ask_date('To', default=report.date_to, min=report.date_from if report.date_from else None, required=False)
+
+    if (report.bell_type and confirm(f'Bell type: "{report.bell_type}"', confirm_message='Replace?', default=False)) \
+            or (report.bell_type is None and confirm(None, confirm_message='Is the report for a specific bell type?', default=False)):
+        report.bell_type = choose_option_from_enum(BellType)
+
+    if (report.bell_type and confirm(f'Peal type: "{report.length_type}"', confirm_message='Replace?', default=False)) \
+            or (report.length_type is None and confirm(None, confirm_message='Is the report for a specific peal length?', default=False)):
+        report.length_type = choose_option_from_enum(PealLengthType)
 
     report.enabled = confirm('Enabled', confirm_message='Enable report?', default=report.enabled)
 

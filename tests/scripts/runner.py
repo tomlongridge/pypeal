@@ -1,3 +1,4 @@
+from itertools import zip_longest
 import os
 import re
 from typer import Typer
@@ -39,14 +40,16 @@ def cli_runner(app: Typer, input_file: str):
         expected_peal = None
 
     stdin: list[str] = []
+    comments: list[str] = []
     expected_stdout = ''
-    for line in console_text.split('\n'):
-        if line.startswith('>>> '):
-            stdin.append(line[4:])
-        elif line.startswith('###') or line.startswith('!!!'):  # Don't expect comments and errors
+    for stdout_line in console_text.split('\n'):
+        comments.append(stdout_line if stdout_line.startswith('###') else None)
+        if stdout_line.startswith('>>> '):
+            stdin.append(stdout_line[4:])
+        elif stdout_line.startswith('!!!') or stdout_line.startswith('###'):  # Don't expect errors or comments
             pass
         else:
-            expected_stdout += line + '\n'
+            expected_stdout += stdout_line + '\n'
     expected_stdout = expected_stdout.strip()
 
     if search_responses:
@@ -63,12 +66,15 @@ def cli_runner(app: Typer, input_file: str):
                                 input='\n'.join(stdin) + '\n')
 
         last_peal_id = None
-        for line in result.output.split('\n'):
-            if line.startswith('[User input:') and len(stdin) > 0:
-                test_output += '>>> ' + stdin.pop(0) + '\n'
-            if peal_id_match := re.match(r'Peal \(ID (\d+)\) added', line):
-                last_peal_id = int(peal_id_match.group(1))
-            test_output += line + '\n'
+        for stdout_line, comment_line in zip_longest(result.output.split('\n'), comments):
+            if comment_line is not None:
+                test_output += comment_line + '\n'
+            if stdout_line is not None:
+                if stdout_line.startswith('[User input:') and len(stdin) > 0:
+                    test_output += '>>> ' + stdin.pop(0) + '\n'
+                if peal_id_match := re.match(r'Peal \(ID (\d+)\) added', stdout_line):
+                    last_peal_id = int(peal_id_match.group(1))
+                test_output += stdout_line + '\n'
         for remaining_input in stdin:
             test_output += '>>> ' + remaining_input + '\n'
 
@@ -89,10 +95,10 @@ def cli_runner(app: Typer, input_file: str):
 
         assert result.output.strip() == expected_stdout, "App output does not match expected output"
 
-        _update_input_file(input_file, args, search_responses, console_text, stored_peal)
+        _update_input_file(input_file, args, search_responses, test_output, stored_peal)
 
     except Exception as e:
-        _update_input_file(input_file, args, search_responses, console_text, stored_peal, e)
+        _update_input_file(input_file, args, search_responses, test_output, stored_peal, e)
         raise e
 
 
