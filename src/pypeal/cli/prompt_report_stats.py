@@ -300,6 +300,10 @@ def _create_report(report: Report):
             or (report.length_type is None and confirm(None, confirm_message='Is the report for a specific peal length?', default=False)):
         report.length_type = choose_option_from_enum(PealLengthType)
 
+    if (report.spreadsheet_id and confirm(f'Spreadsheet ID: "{report.spreadsheet_id}"', confirm_message='Replace?', default=False)) \
+            or (report.length_type is None and confirm(None, confirm_message='Output data to a Google Sheet?', default=False)):
+        report.length_type = ask('Spreadsheet ID', default=report.spreadsheet_id, required=False)
+
     report.enabled = confirm('Enabled', confirm_message='Enable report?', default=report.enabled)
 
 

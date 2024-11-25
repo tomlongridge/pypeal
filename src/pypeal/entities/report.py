@@ -10,7 +10,7 @@ from pypeal.entities.ringer import Ringer
 from pypeal.entities.tower import Ring, Tower
 
 FIELD_LIST: list[str] = ['name', 'ringer_id', 'tower_id', 'ring_id', 'association_id', 'date_from', 'date_to', 'length_type', 'bell_type',
-                         'enabled', 'created_date']
+                         'enabled', 'created_date', 'spreadsheet_id']
 
 
 @dataclass
@@ -25,8 +25,9 @@ class Report():
     date_to: datetime.date
     length_type: PealLengthType
     bell_type: BellType
-    created_date: datetime
     enabled: bool
+    created_date: datetime
+    spreadsheet_id: str
     id: int
 
     def __init__(self,
@@ -41,6 +42,7 @@ class Report():
                  bell_type: BellType = None,
                  enabled: bool = None,
                  created_date: datetime = None,
+                 spreadsheet_id: str = None,
                  id: int = None):
         self.name = name
         self.ringer = Ringer.get(ringer_id) if ringer_id else None
@@ -53,6 +55,7 @@ class Report():
         self.bell_type = bell_type
         self.enabled = enabled
         self.created_date = created_date
+        self.spreadsheet_id = spreadsheet_id
         self.id = id
 
     def __str__(self) -> str:
@@ -66,7 +69,7 @@ class Report():
                 params=(self.name, self.ringer.id if self.ringer else None, self.tower.id if self.tower else None,
                         self.ring.id if self.ring else None, self.association.id if self.association else None,
                         self.date_from, self.date_to, self.length_type.name if self.length_type else None,
-                        self.bell_type.name if self.bell_type else None, self.enabled, self.created_date, self.id))
+                        self.bell_type.name if self.bell_type else None, self.enabled, self.created_date, self.spreadsheet_id, self.id))
             Database.get_connection().commit()
         else:
             self.created_date = self.last_run_date = utils.get_now()
@@ -76,7 +79,7 @@ class Report():
                 (self.name, self.ringer.id if self.ringer else None, self.tower.id if self.tower else None,
                  self.ring.id if self.ring else None, self.association.id if self.association else None, self.date_from, self.date_to,
                  self.length_type.name if self.length_type else None, self.bell_type.name if self.bell_type else None, self.enabled,
-                 self.created_date))
+                 self.created_date, self.spreadsheet_id))
             Database.get_connection().commit()
             self.id = result.lastrowid
             Cache.get_cache().add(self.__class__.__name__, self.id, self)

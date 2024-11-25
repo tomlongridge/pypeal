@@ -15,7 +15,7 @@ def generate_global_summary(peals: list[Peal]) -> dict:
         if peal.length_type not in report['types']:
             report['types'][peal.length_type] = 0
         report['types'][peal.length_type] += 1
-        if peal.type >= PealLengthType.QUARTER_PEAL:
+        if peal.length_type >= PealLengthType.QUARTER_PEAL:
             if peal.bellboard_id is None:
                 report['unsubmitted_count'] += 1
     _sort_table(report['types'])

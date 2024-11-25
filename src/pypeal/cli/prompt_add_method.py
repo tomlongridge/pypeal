@@ -51,6 +51,7 @@ def prompt_add_method(method: Method, original_name: str, changes: int, peal: Pe
                 else:
                     stage = None
 
+                default_classification = None
                 if method and method.classification:
                     default_classification = method.classification
                 elif peal.classification:

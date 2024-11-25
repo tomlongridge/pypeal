@@ -74,6 +74,14 @@ class PealRinger:
     def __str__(self):
         return str(self.ringer)
 
+    def get_peal_bell_labels(self) -> str:
+        return get_bell_label(self.bell_nums)
+
+    def get_ring_bell_labels(self, ring: Ring) -> str:
+        if ring is not None and self.bell_ids is not None:
+            return get_bell_label([ring.get_bell_by_id(bell_id).role for bell_id in self.bell_ids])
+        return None
+
 
 class Footnote:
 
@@ -834,6 +842,20 @@ class Peal:
                 diffs[f'methods[{i}]'] = (f'{method} {changes}', 'None')
             elif (method, changes) != other.methods[i]:
                 diffs[f'methods[{i}]'] = (f'{method} {changes}', f'{other.methods[i][0]} {other.methods[i][1]}')
+        for i, ringer in enumerate(self.ringers):
+            if i >= len(other.ringers):
+                diffs[f'ringers[{i}]'] = (str(ringer), 'None')
+            else:
+                if ringer.ringer.id != other.ringers[i].ringer.id:
+                    diffs[f'ringers[{i}]'] = (str(ringer), str(other.ringers[i]))
+                if ringer.bell_ids != other.ringers[i].bell_ids:
+                    diffs[f'ringers[{i}].bell_ids'] = (str(ringer.bell_ids), str(other.ringers[i].bell_ids))
+                if ringer.bell_nums != other.ringers[i].bell_nums:
+                    diffs[f'ringers[{i}].bell_nums'] = (str(ringer.bell_nums), str(other.ringers[i].bell_nums))
+                if ringer.is_conductor != other.ringers[i].is_conductor:
+                    diffs[f'ringers[{i}].is_conductor'] = (str(ringer.is_conductor), str(other.ringers[i].is_conductor))
+                if ringer.note != other.ringers[i].note:
+                    diffs[f'ringers[{i}].note'] = (str(ringer.note), str(other.ringers[i].note))
         for i, footnote in enumerate(self.footnotes):
             if i >= len(other.footnotes):
                 diffs[f'footnotes[{i}]'] = (str(footnote), 'None')
