@@ -74,6 +74,14 @@ class PealRinger:
     def __str__(self):
         return str(self.ringer)
 
+    def get_peal_bell_labels(self) -> str:
+        return get_bell_label(self.bell_nums)
+
+    def get_ring_bell_labels(self, ring: Ring) -> str:
+        if ring is not None and self.bell_ids is not None:
+            return get_bell_label([ring.get_bell_by_id(bell_id).role for bell_id in self.bell_ids])
+        return None
+
 
 class Footnote:
 

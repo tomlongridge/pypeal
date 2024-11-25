@@ -28,7 +28,7 @@ from pypeal.entities.peal_search import PealSearch
 from pypeal.entities.report import Report
 from pypeal.entities.ringer import Ringer
 from pypeal.config import set_config_file
-from pypeal.stats.gsheet import GoogleSheetsError, update_sheets
+from pypeal.stats.spreadsheet import GoogleSheetsError, update_sheets
 from pypeal.stats.pdf import generate_reports
 from pypeal.stats.report import generate_global_summary
 from pypeal.entities.tower import Ring
