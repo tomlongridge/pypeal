@@ -32,11 +32,15 @@ def prompt_database_duplicate(peal: Peal, preview: str = None) -> Peal:
         for existing_peal in existing_peals:
             console.print(Columns([make_peal_panel(existing_peal, title='Database'),
                                    make_peal_panel(preview or peal, title='New')]))
-            if not preview and confirm(None, confirm_message='See differences?'):
-                diffs = ''
-                for field, (left, right) in existing_peal.diff(peal).items():
-                    diffs += f'{field}: {left} -> {right}\n'
-                panel(diffs.strip(), title='Differences')
+            if not preview:
+                peal_diffs = existing_peal.diff(peal)
+                if len(peal_diffs) == 1 and 'bellboard_id' in peal_diffs:
+                    panel(f'Peals differ only in BellBoard ID ({peal_diffs["bellboard_id"][0]} -> {peal_diffs["bellboard_id"][1]})')
+                elif confirm(None, confirm_message='See differences?'):
+                    diff_summary_str = ''
+                    for field, (left, right) in peal_diffs.items():
+                        diff_summary_str += f'{field}: {left} -> {right}\n'
+                    panel(diff_summary_str.strip(), title='Differences')
             if confirm(None, confirm_message='Is this the same peal?'):
                 return existing_peal
 
