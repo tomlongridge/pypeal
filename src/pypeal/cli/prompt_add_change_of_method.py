@@ -136,7 +136,11 @@ def add_standard_eight_surprise(peal: Peal) -> list[tuple[Method, str, int]]:
         None
     ))
     methods.append((
-        Method.search('London' if peal.stage != 10 else 'London No 3', stage=peal.stage, classification=Classification.SURPRISE, is_little=False, exact_match=True)[0],
+        Method.search('London' if peal.stage != 10 else 'London No 3',
+                      stage=peal.stage,
+                      classification=Classification.SURPRISE,
+                      is_little=False,
+                      exact_match=True)[0],
         'London',
         None
     ))
