@@ -10,6 +10,10 @@ def peal_to_df(peal: Peal) -> dict:
     return {
         'id': peal.id,
         'date': peal.date,
+        'year': peal.date.strftime('%Y'),
+        'month': peal.date.strftime('%B'),
+        'day': peal.date.strftime('%-d %B'),
+        'weekday': peal.date.strftime('%A'),
         'length_type': str(peal.length_type),
         'bellboard_id': peal.bellboard_id,
         'bellboard_url': peal.bellboard_url,
@@ -18,16 +22,15 @@ def peal_to_df(peal: Peal) -> dict:
         'title': peal.title,
         'tower': peal.ring.tower if peal.ring else '',
         'ring': peal.ring,
-        'location': peal.location,
+        'location': peal.location_full,
         'place': peal.place,
         'county': peal.county,
         'country': peal.country,
-        'location_detail': peal.location_detail,
         'duration': str(peal.duration) if peal.duration else '',
         'composer': peal.composer,
         'conductors': peal.conductors,
         'changes': str(peal.changes) if peal.changes else '',
-        'ringers': [r for r in peal.ringers],
+        'ringers': peal.ringers,
         'peal': peal
     }
 

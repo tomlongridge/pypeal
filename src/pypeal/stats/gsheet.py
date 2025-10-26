@@ -8,7 +8,8 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build, Resource
 from googleapiclient.errors import HttpError
 
-PERMISSION_SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
+PERMISSION_SCOPES = ["https://www.googleapis.com/auth/spreadsheets",
+                     "https://www.googleapis.com/auth/drive"]
 
 
 class GoogleSheetsError(Exception):
@@ -25,8 +26,23 @@ class GSheet:
             raise GoogleSheetsError('Unable to authenticate with Google Sheets')
 
         service: Resource = build("sheets", "v4", credentials=credentials)
-        self.__values = service.spreadsheets().values()
+        self.__spreadsheets = service.spreadsheets()
+        self.__values = self.__spreadsheets.values()
         self.__worksheet_id = worksheet_id
+
+        spreadsheet_info = self.__spreadsheets.get(spreadsheetId=self.__worksheet_id).execute()
+        self.name = spreadsheet_info.get('properties', {}).get('title')
+        self.url = spreadsheet_info.get('spreadsheetUrl')
+
+    def get_named_ranges(self) -> dict[str, str]:
+        try:
+            result = self.__spreadsheets.get(spreadsheetId=self.__worksheet_id).execute()
+        except HttpError as e:
+            _logger.error('Unable to get ranges not found', e)
+        if 'namedRanges' not in result:
+            return {}
+
+        return [range['name'] for range in result['namedRanges']]
 
     def get_range(self, range_name: str) -> tuple[list[list[str]], str]:
         try:

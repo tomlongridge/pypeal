@@ -11,6 +11,7 @@ CREATE TABLE @db_name.`reports` (
     `bell_type` VARCHAR(48) NULL,
     `enabled` TINYINT(1) NOT NULL DEFAULT 1,
     `created_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `spreadsheet_id` VARCHAR(255) NULL,
     PRIMARY KEY (`id`),
     UNIQUE INDEX `report_name_unique` (`name` ASC) VISIBLE,
     CONSTRAINT `fk_reports_ringer` FOREIGN KEY (`ringer_id`) REFERENCES `ringers` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
