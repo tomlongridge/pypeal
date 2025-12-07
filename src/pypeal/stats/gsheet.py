@@ -8,8 +8,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build, Resource
 from googleapiclient.errors import HttpError
 
-PERMISSION_SCOPES = ["https://www.googleapis.com/auth/spreadsheets",
-                     "https://www.googleapis.com/auth/drive"]
+PERMISSION_SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 
 
 class GoogleSheetsError(Exception):

@@ -6,6 +6,9 @@ from pypeal.cache import Cache
 
 from pypeal.db import Database
 
+METHOD_NAME_EXCEPTIONS_LITTLE_PREFIXED_IN_NAME = ['Little Grandsire']
+METHOD_NAME_EXCEPTIONS_BOB_CLASSIFICATION_NOT_USED = ['Grandsire', 'Union', 'Little Grandsire', 'Double Grandsire']
+
 
 class Stage(IntEnum):
 
@@ -64,6 +67,7 @@ class Classification(Enum):
 class Method():
 
     full_name: str = None
+    searchable_name: str = None
     name: str = None
     is_differential: bool = None
     is_little: bool = None
@@ -75,6 +79,7 @@ class Method():
 
     def __init__(self,
                  full_name: str = None,
+                 searchable_name: str = None,
                  name: str = None,
                  is_differential: bool = None,
                  is_little: bool = None,
@@ -84,6 +89,7 @@ class Method():
                  stage: int = None,
                  id: str = None):
         self.full_name = full_name
+        self.searchable_name = searchable_name
         self.name = name
         self.is_differential = is_differential
         self.is_little = is_little
@@ -95,12 +101,16 @@ class Method():
 
     def get_calculated_name(self, show_classification: bool = True, show_stage: bool = True) -> str:
         value = ''
-        value += f'{self.name.capitalize()} ' if self.name else ''
-        value += 'Differential ' if self.is_differential else ''
-        value += 'Little ' if self.is_little else ''
-        if show_classification and self.classification not in [None, Classification.HYBRID, Classification.BOB]:
-            value += f'{self.classification} '
-        value += f'{self.stage} ' if show_stage and self.stage else ''
+        value += f'{self.name}' if self.name else ''
+        value += ' Differential' if self.is_differential else ''
+        value += ' Little' if self.is_little and self.name not in METHOD_NAME_EXCEPTIONS_LITTLE_PREFIXED_IN_NAME else ''
+        if show_classification and \
+                self.classification not in [None, Classification.HYBRID] and \
+                self.name not in METHOD_NAME_EXCEPTIONS_BOB_CLASSIFICATION_NOT_USED:
+            value += f' {self.classification}'
+        # if f'{value.strip()} {self.stage}' != self.full_name:
+        #     raise ValueError(f'Calculated name ({value.strip()} {self.stage}) does not match full name ({self.full_name})')
+        value += f' {self.stage}' if show_stage and self.stage else ''
         return value.strip()
 
     def __str__(self) -> str:
@@ -114,9 +124,10 @@ class Method():
 
     def commit(self):
         Database.get_connection().query(
-            'INSERT INTO methods (full_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, stage, id) ' +
-            'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)',
-            (self.full_name, self.name, self.is_differential, self.is_little, self.is_plain, self.is_treble_dodging,
+            'INSERT INTO methods (full_name, searchable_name, name, is_differential, is_little, is_plain, is_treble_dodging, ' +
+            'classification, stage, id) ' +
+            'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
+            (self.full_name, self.searchable_name, self.name, self.is_differential, self.is_little, self.is_plain, self.is_treble_dodging,
              self.classification.value if self.classification else None, self.stage.value if self.stage else None, self.id))
         Database.get_connection().commit()
         Cache.get_cache().add(self.__class__.__name__, self.id, self)
@@ -127,14 +138,16 @@ class Method():
             return method
         else:
             result = Database.get_connection().query(
-                'SELECT full_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, stage, id ' +
+                'SELECT full_name, searchable_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, ' +
+                'stage, id ' +
                 'FROM methods WHERE id = %s', (id,)).fetchone()
             return Cache.get_cache().add(cls.__name__, result[-1], Method(*result)) if result else None
 
     @classmethod
     def get_by_name(cls, name: str) -> Method:
         result = Database.get_connection().query(
-            'SELECT full_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, stage, id FROM methods ' +
+            'SELECT full_name, searchable_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, stage, id ' +
+            'FROM methods ' +
             f'WHERE full_name = "{name}"').fetchone()
         return Cache.get_cache().add(cls.__name__, result[-1], Method(*result)) if result else None
 
@@ -156,17 +169,18 @@ class Method():
         else:
             name = f'{name}%' if name and '%' not in name else name
 
-        query = 'SELECT full_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, stage, id ' + \
+        query = 'SELECT full_name, searchable_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, ' + \
+                'stage, id ' + \
                 'FROM methods ' + \
                 'WHERE 1=1 '
         params = {}
         if name:
             name = utils.get_searchable_string(name)
             if exact_match:
-                query += 'AND name = %(name)s '
+                query += 'AND searchable_name = %(name)s '
                 params['name'] = f'{name}'
             else:
-                query += 'AND name LIKE %(name)s '
+                query += 'AND searchable_name LIKE %(name)s '
                 params['name'] = f'%{name}%'
         elif exact_match:
             query += 'AND name IS NULL '
@@ -198,7 +212,7 @@ class Method():
     @classmethod
     def get_all(cls) -> list[Method]:
         results = Database.get_connection().query(
-            'SELECT full_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, stage, id ' +
+            'SELECT full_name, searchable_name, name, is_differential, is_little, is_plain, is_treble_dodging, classification, stage, id ' +
             'FROM methods').fetchall()
         return Cache.get_cache().add_all(cls.__name__, {result[-1]: Method(*result) for result in results})
 

@@ -12,7 +12,7 @@ from pypeal.db import Database
 from pypeal.entities.tower import Bell, Tower
 
 CAST_YEAR_REGEX = \
-    re.compile(r'c?\-?\d*?\s?\(?(?P<year>\d{4})\)?')
+    re.compile(r'[c\-\[]?\w*?\s?\(?(?P<year>\d{4})(?:\-\d{4})?[\)\]]?')
 
 _logger = logging.getLogger('pypeal')
 
@@ -140,7 +140,7 @@ def update_bells():
         elif match := re.match(CAST_YEAR_REGEX, line['Cast Date']):
             cast_year = int(match.group('year'))
         else:
-            _logger.warn(f'Unexpected cast year \"{line["Cast Date"]}\" for bell {line["Bell ID"]}')
+            _logger.warning(f'Unexpected cast year \"{line["Cast Date"]}\" for bell {line["Bell ID"]}')
             continue
 
         weight = line['Weight (lbs)']
@@ -151,7 +151,7 @@ def update_bells():
         elif '.' in weight:
             weight = round(float(weight))
         else:
-            _logger.warn(f'Unexpected weight "{weight}" for bell {line["Bell ID"]}')
+            _logger.warning(f'Unexpected weight "{weight}" for bell {line["Bell ID"]}')
             continue
 
         if not (tower := Tower.get(dove_id=int(line['Tower ID']))):

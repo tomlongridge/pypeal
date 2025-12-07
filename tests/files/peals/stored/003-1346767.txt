@@ -66,7 +66,7 @@ Duration (162):
 ⏱ Duration: 2 hours, 42 mins
 🏰 Tower: Blythburgh, Suffolk
 Matching peal titled "8 Methods Minor"...
-2 methods match "8 methods Minor" [0 methods excluded]
+2 methods match "8 Methods Minor" [0 methods excluded]
 1) 1815 Delight Minor, 2) 80th Birthday Surprise Minor
 Select option (x = None): 
 >>> x

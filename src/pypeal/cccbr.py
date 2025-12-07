@@ -55,11 +55,13 @@ def update_methods():
         is_plain = 'plain' in classification_element.attrib
         is_treble_dodging = 'trebleDodging' in classification_element.attrib
         for method in method_set.findall(f'{XML_NAMESPACE}method'):
+            method_name = method.find(f'{XML_NAMESPACE}name').text
             method_obj = Method(
                 id=method.attrib['id'],
                 stage=int(stage),
                 classification=classification,
-                name=utils.get_searchable_string(method.find(f'{XML_NAMESPACE}name').text),
+                name=method_name,
+                searchable_name=utils.get_searchable_string(method_name),
                 full_name=method.find(f'{XML_NAMESPACE}title').text,
                 is_differential=is_differential,
                 is_little=is_little,

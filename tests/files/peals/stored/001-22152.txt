@@ -393,6 +393,9 @@ Is the report for a specific bell type? [y/n] (n):
 Is the report for a specific peal length? [y/n] (n): 
 >>> n
 [User input: "False"]
+Output data to a Google Sheet? [y/n] (n): 
+>>> n
+[User input: "False"]
 Enabled
 Enable report? [y/n]: 
 >>> y

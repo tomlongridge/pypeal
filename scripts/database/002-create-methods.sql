@@ -7,6 +7,7 @@ CREATE TABLE @db_name.`methods` (
     `is_treble_dodging` BOOL DEFAULT FALSE NOT NULL,
     `classification` VARCHAR(128) NULL,
     `name` VARCHAR(512) NULL,
+    `searchable_name` VARCHAR(512) NULL,
     `full_name` VARCHAR(512) NOT NULL,
     PRIMARY KEY (`id`)
 );

@@ -226,11 +226,14 @@ def _set_peal_title(peal: Peal,
     peal.num_principles = num_principles
     peal.num_variants = num_variants
     if title is None:
-        peal.method = None
+        pass
     elif type(title) is str:
-        peal.method = None
         peal.title = title
+        peal.method = None
+        peal.stage = None
+        peal.classification = None
     elif type(title) is Method:
+        peal.title = None
         peal.method = title
         peal.stage = title.stage
         peal.classification = Classification(title.classification) if title.classification else None

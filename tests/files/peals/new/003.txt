@@ -3,7 +3,8 @@
 ===
 Polling for new peals...
 pypeal Database
- Quarter Peal count: 2                                Last updated: [Timestamp] 
+ Quarter Peal count: 2                                           Unsubmitted: 1 
+                                                      Last updated: [Timestamp] 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
 │ 2) Add peal by ID/URL                                                        │
@@ -15,6 +16,7 @@ pypeal Database
 │ 8) Delete peal                                                               │
 │ 9) Update static data                                                        │
 │ 10) Clear app cache                                                          │
+│ 11) Submit unsubmitted peals                                                 │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘
@@ -235,8 +237,8 @@ Submit peal to BellBoard? [y/n] (y):
 >>> n
 [User input: "False"]
 pypeal Database
- Quarter Peal count: 2                                Last updated: [Timestamp] 
- Peal count: 1                                                                  
+ Quarter Peal count: 2                                           Unsubmitted: 2 
+ Peal count: 1                                        Last updated: [Timestamp] 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ 1) BellBoard search                                                          │
 │ 2) Add peal by ID/URL                                                        │
@@ -248,6 +250,7 @@ pypeal Database
 │ 8) Delete peal                                                               │
 │ 9) Update static data                                                        │
 │ 10) Clear app cache                                                          │
+│ 11) Submit unsubmitted peals                                                 │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ x) Exit                                                                      │
 └──────────────────────────────────────────────────────────────────────────────┘

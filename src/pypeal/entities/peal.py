@@ -415,19 +415,19 @@ class Peal:
         else:
             return PealLengthType.LONG_LENGTH
 
-    @property
-    def title(self) -> str:
+    def get_title(self, show_stage: bool = True) -> str:
         if self.method:
-            return self.method.full_name
+            return self.method.full_name if show_stage else self.method.get_calculated_name(show_stage=show_stage)
         text = ''
         text += 'Spliced ' if self.type == PealType.SPLICED_METHODS else ''
         text += 'Mixed ' if self.type == PealType.MIXED_METHODS else ''
         text += f'{self.classification.value} ' if self.classification else ''
-        if self.stage and self.is_variable_cover and self.stage.value % 2 == 0:
-            text += f'{Stage(self.stage.value - 1).name.capitalize()} and '
-        text += f'{self.stage.name.capitalize()} ' if self.stage else ''
-        if self.stage and self.is_variable_cover and self.stage.value % 2 == 1:
-            text += f'and {Stage(self.stage.value + 1).name.capitalize()} '
+        if show_stage:
+            if self.stage and self.is_variable_cover and self.stage.value % 2 == 0:
+                text += f'{Stage(self.stage.value - 1).name.capitalize()} and '
+            text += f'{self.stage.name.capitalize()} ' if self.stage else ''
+            if self.stage and self.is_variable_cover and self.stage.value % 2 == 1:
+                text += f'and {Stage(self.stage.value + 1).name.capitalize()} '
         if self.num_methods_in_title > 0:
             text += '('
             text += f'{self.num_methods}m/' if self.num_methods else ''
@@ -442,6 +442,10 @@ class Peal:
             return self.__title
         else:
             return 'Unknown'
+
+    @property
+    def title(self) -> str:
+        return self.get_title(show_stage=True)
 
     @title.setter
     def title(self, value: str):

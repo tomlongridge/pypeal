@@ -24,13 +24,13 @@ VALUES (-37531, @tower_id, 1, 332, 'F'),
        (-37535, @tower_id, 5, 541, 'B♭'),
        (-5773,  @tower_id, 6, 908, 'A♭');
 
--- Ropley, S Peter, Hampshire, England, GB
-SET @tower_id = -13242;
+-- -- Ropley, S Peter, Hampshire, England, GB
+-- SET @tower_id = -13242;
 
-INSERT INTO @db_name.`bells` (`id`, `tower_id`, `role`, `weight`, `note`)
-VALUES (-36777, @tower_id, 1, 510, 'D♯'),
-       (-36778, @tower_id, 2, 591, 'C♯'),
-       (-36779, @tower_id, 3, 786, 'B'),
-       (-36780, @tower_id, 4, 849, 'A♯'),
-       (-36781, @tower_id, 5, 1223, 'G♯'),
-       (-5632,  @tower_id, 6, 1703, 'F♯');
+-- INSERT INTO @db_name.`bells` (`id`, `tower_id`, `role`, `weight`, `note`)
+-- VALUES (-36777, @tower_id, 1, 510, 'D♯'),
+--        (-36778, @tower_id, 2, 591, 'C♯'),
+--        (-36779, @tower_id, 3, 786, 'B'),
+--        (-36780, @tower_id, 4, 849, 'A♯'),
+--        (-36781, @tower_id, 5, 1223, 'G♯'),
+--        (-5632,  @tower_id, 6, 1703, 'F♯');

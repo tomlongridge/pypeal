@@ -15,7 +15,7 @@ NAMED_RANGE_PREFIX_PEAL_COUNT = "peal_count"
 NAMED_RANGE_PREFIX_RINGER_COUNT = "ringer_count"
 
 
-class UnrecgonizedColumnError(Exception):
+class UnrecognizedColumnError(Exception):
     def __init__(self, column: str):
         super().__init__(f'Column "{column}" not found')
 
@@ -121,7 +121,7 @@ def _update_ringers_range(headers: list[str], peals: pd.DataFrame, report: Repor
             ringers_view[field] = ringers_view['ringers'].apply(lambda r: getattr(r.ringer, field))
             used_columns.append(field)
         else:
-            raise UnrecgonizedColumnError(field)
+            raise UnrecognizedColumnError(field)
 
     # Exclude the report ringer from stats (they will always be in it)
     if report.ringer:
