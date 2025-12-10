@@ -49,7 +49,6 @@ def prompt_database_duplicate(peal: Peal, preview: str = None) -> Peal:
 
 def prompt_bellboard_duplicate(peal: Peal, preview: str = None, bb_peal_ids: list[int] = None) -> tuple[int, str, date]:
 
-    console = Console()
     first_peal = True
     for bb_peal_id, search_url in find_matching_peal(peal) if bb_peal_ids is None else bb_peal_ids:
         if first_peal:
@@ -57,13 +56,21 @@ def prompt_bellboard_duplicate(peal: Peal, preview: str = None, bb_peal_ids: lis
             if not confirm(None, confirm_message='Check these peals for duplicates?'):
                 return None
 
-        preview_str, submitter, date_submitted = get_preview(bb_peal_id)
-        console.print(Columns([make_peal_panel(preview or peal, title='New'),
-                               make_peal_panel(preview_str, title='BellBoard')]))
-
-        if confirm(get_url_from_id(bb_peal_id), confirm_message='Is this the same peal?'):
+        submitter, date_submitted = prompt_peal_diff(bb_peal_id, preview or peal, 'New', 'Is this the same peal?')
+        if submitter and date_submitted:
             return bb_peal_id, submitter, date_submitted
 
         first_peal = False
 
     return None
+
+
+def prompt_peal_diff(peal_id: int, peal_or_preview: Peal | str, label: str, prompt: str) -> tuple[str, date] | None:
+    console = Console()
+    preview_str, submitter, date_submitted = get_preview(peal_id)
+    console.print(Columns([make_peal_panel(peal_or_preview, title=label),
+                           make_peal_panel(preview_str, title=f'BellBoard ({date_submitted} by {submitter})')]))
+    if confirm(get_url_from_id(peal_id), confirm_message=prompt):
+        return submitter, date_submitted
+    else:
+        return None

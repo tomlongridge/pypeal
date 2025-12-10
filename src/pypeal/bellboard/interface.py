@@ -75,7 +75,7 @@ def login() -> Session:
     raise BellboardError(f'Unable to login to Bellboard as {payload["email"]}: unable to parse response')
 
 
-def submit_peal(fields: dict[str, str]) -> Response:
+def submit_peal(fields: dict[str, str], id: int = None) -> Response:
 
     if fields['changes'] is None and \
        'rounds' not in fields['title'].lower() and \
@@ -103,8 +103,13 @@ def submit_peal(fields: dict[str, str]) -> Response:
             bell_count += 1
     del payload['ringers']
 
-    url = get_config('bellboard', 'url') + '/submit.php'
-    __logger.info(f'Submitting peal to Bellboard at {url}')
+    url = get_config('bellboard', 'url')
+    if id is not None:
+        url += f'/edit.php?id={id}'
+        __logger.info(f'Updating peal in Bellboard at {url}')
+    else:
+        url += '/submit.php'
+        __logger.info(f'Submitting peal to Bellboard at {url}')
 
     return _request(url, payload=payload).text
 

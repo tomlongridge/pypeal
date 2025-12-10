@@ -7,7 +7,8 @@ from pypeal.entities.peal import Peal
 
 
 # Returns, or prompts for, a Bellboard ID or list of IDs or path to read
-def prompt_peal_input(default_input: str = None, required: bool = True, allow_file: bool = False) -> Iterator[int | list[int] | str | None]:
+def prompt_peal_input(default_input: str = None, required: bool = True, allow_file: bool = False) \
+        -> Iterator[list[(int, bool)] | tuple[int, bool] | str | None]:
 
     input = default_input or ask('Bellboard URL or peal ID' + (' (enter to exit)' if not required else ''), required=required)
 
@@ -18,9 +19,9 @@ def prompt_peal_input(default_input: str = None, required: bool = True, allow_fi
             for input_parts in input.split(','):
                 yield from prompt_peal_input(input_parts.strip())
         elif input.isnumeric():
-            yield int(input)
+            yield (int(input), False)
         elif input.startswith('http'):
-            yield get_id_from_url(input)
+            yield (get_id_from_url(input), True)
         elif allow_file and os.path.exists(input):
             yield input
         else:
@@ -33,18 +34,13 @@ def prompt_peal_input(default_input: str = None, required: bool = True, allow_fi
             input = ask('Bellboard URL or peal ID (enter to exit)', required=False)
 
 
-def prompt_peal_by_id(peal_id_or_url: str, ask_for_database_id: bool = False) -> Iterator[Peal]:
+def prompt_peal_by_id(peal_id_or_url: str) -> Iterator[Peal]:
     is_bellboard_id = False
     if peal_id_or_url is None:
-        if ask_for_database_id:
-            is_bellboard_id = choose_option(['Bellboard ID/URL', 'Peal ID'], default=1) == 1
-        else:
-            is_bellboard_id = True
-    for input in prompt_peal_input(peal_id_or_url):
-        if is_bellboard_id:
+        is_bellboard_id = choose_option(['Bellboard ID/URL', 'Peal ID'], default=1) == 1
+    for input, input_is_bellboard_id in prompt_peal_input(peal_id_or_url):
+        if is_bellboard_id or input_is_bellboard_id:
             peal = Peal.get(bellboard_id=input)
-            if not peal and not ask_for_database_id:
-                peal = Peal.get(id=input)
         else:
             peal = Peal.get(id=input)
 

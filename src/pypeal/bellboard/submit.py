@@ -1,10 +1,11 @@
 import re
 
 from requests import Response
-from pypeal.bellboard.interface import BellboardError, get_bb_fields_from_peal, submit_peal, submit_peal_xml
+from pypeal.bellboard.interface import BellboardError, submit_peal, submit_peal_xml
 from pypeal.entities.peal import Peal
 
-SUBMITTED_SUCCESS_REGEX = re.compile(r'<a href="view.php\?id=(?P<peal_id>[0-9]+)">Your performance</a> has been added to BellBoard.')
+SUBMITTED_SUCCESS_REGEX = re.compile(r'<a href="view.php\?id=(?P<peal_id>[0-9]+)">Your performance</a> has been ' +
+                                     r'(added to BellBoard|updated on the site).')
 SUBMITTER_REGEX = re.compile(r'<div id="whoami">You are logged in as <b><a href="/preferences">(?P<submitter>.*?)</a></b></div>')
 
 
@@ -14,14 +15,9 @@ class BellboardDuplicateError(BellboardError):
         super().__init__(f'Duplicate peals detected on BellBoard: {duplicate_ids}')
 
 
-def submit(peal: Peal | dict) -> tuple[int, str]:
+def submit(fields: dict, id: int = None) -> tuple[int, str]:
 
-    if type(peal) is Peal:
-        params = get_bb_fields_from_peal(peal)
-    else:
-        params = peal
-
-    response_html = submit_peal(params)
+    response_html = submit_peal(fields, id)
 
     if match := SUBMITTED_SUCCESS_REGEX.search(response_html):
         bb_peal_id = int(match.group('peal_id'))

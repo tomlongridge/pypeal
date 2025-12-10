@@ -1,7 +1,7 @@
 from pypeal import utils
 from pypeal.bellboard.listener import PealGeneratorListener
 from pypeal.cli.generator import PealGenerator
-from pypeal.cli.prompts import ask, ask_date, ask_int, confirm, error
+from pypeal.cli.prompts import ask, ask_date, confirm, error
 from pypeal.parsers import parse_bell_nums
 from pypeal.entities.peal import PealType
 

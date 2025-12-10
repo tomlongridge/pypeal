@@ -79,6 +79,8 @@ def main(
             run_add_peal(peal_id_or_url)
         case 'view':
             run_view(peal_id_or_url)
+        case 'resubmit':
+            run_resubmit(peal_id_or_url)
         case 'delete':
             run_delete(peal_id_or_url)
         case 'submit':
@@ -109,6 +111,10 @@ def run_import_peal(peal_id_or_url_or_file: int | str):
 
 def run_view(peal_id_or_url: str):
     prompt_view_peal(peal_id_or_url)
+
+
+def run_resubmit(peal_id_or_url: str):
+    prompt_view_peal(peal_id_or_url, edit=True)
 
 
 def run_delete(peal_id_or_url: str):
@@ -167,6 +173,7 @@ def run_interactive(peal_id_or_url: str):
                 'Generate reports': lambda: run_generate_reports(),
                 'Generate sheets': lambda: run_update_sheets(),
                 'View peal': lambda: run_view(peal_id_or_url),
+                'Re-submit peal': lambda: run_resubmit(peal_id_or_url),
                 'Delete peal': lambda: run_delete(peal_id_or_url),
                 'Update static data': lambda: run_update_static_data(),
                 'Clear app cache': lambda: Cache.get_cache().clear_all(),
